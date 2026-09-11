@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Owner Panel · MY FINANCIAL PLAN</title>
+<!--
+  ══════════════════════════════════════════════════════════════════════
+  OWNER PANEL v1.0 — sirf OWNER ke liye (2-way authentication):
+    GATE 1: Google sign-in → sirf Firestore `owner/self` doc wala email
+    GATE 2: Admin PIN (SHA-256 hash `owner/admin` doc mein, owner-only read)
+  Controls: Partner activation codes · Remote flags (har install par apply)
+            Leads inbox (conversion moments).
+  Data-plane: Firestore REST + Firebase Auth REST — zero framework.
+  Session: sirf sessionStorage (tab band = auto sign-out).
+  ══════════════════════════════════════════════════════════════════════
+-->
+<style>
+:root{
+  --ink:#17324A; --ink2:#44586E; --teal:#0E9D78; --indigo:#4C62CE; --amber:#BF7B0B;
+  --red:#D64545; --mint:#DDF4EC; --lav:#E1E6FA; --cream:#FFF6E3; --line:#E3E9F2; --bg:#F5F8FC;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 60px}
+header{background:linear-gradient(135deg,var(--ink),#22466B);color:#fff;padding:18px 0 14px;box-shadow:0 2px 14px rgba(23,50,74,.25)}
+header .wrap{padding-top:4px;padding-bottom:4px;display:flex;align-items:center;gap:11px}
+.logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--teal),#0B7C60);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;color:#fff;flex:none}
+h1{font-size:16.5px;font-weight:800;letter-spacing:.2px}
+.sub{font-size:11.5px;opacity:.75;margin-top:2px}
+.chip{margin-left:auto;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);padding:5px 10px;border-radius:99px;font-size:11px;max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:14px;box-shadow:0 1px 4px rgba(23,50,74,.05)}
+.card h2{font-size:15.5px;font-weight:800;margin-bottom:4px}
+.hint{font-size:12.5px;color:var(--ink2);line-height:1.55}
+.lockcard{max-width:430px;margin:36px auto;text-align:center}
+.gate-step{display:flex;align-items:center;gap:9px;justify-content:center;margin:13px 0 7px;font-size:13.5px;font-weight:700;color:var(--ink2)}
+.stepnum{width:24px;height:24px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12.5px;flex:none}
+input[type=text],input[type=password],input[type=number],input[type=tel],select{width:100%;padding:12px 13px;border:1.4px solid var(--line);border-radius:12px;font-size:15px;margin-top:8px;background:#FBFCFE;color:var(--ink)}
+input:focus{outline:none;border-color:var(--indigo)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:none;border-radius:12px;padding:12px 18px;font-size:14.5px;font-weight:800;cursor:pointer;text-decoration:none}
+.btn-p{background:var(--indigo);color:#fff;width:100%;margin-top:12px}
+.btn-t{background:var(--teal);color:#fff}
+.btn-w{background:#25D366;color:#fff}
+.btn-g{background:#fff;border:1.4px solid var(--line);color:var(--ink)}
+.btn-s{padding:8px 13px;font-size:12.5px;border-radius:10px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.tabs{display:flex;gap:7px;margin-top:16px}
+.tab{flex:1;text-align:center;padding:11px 4px;border-radius:12px;background:#fff;border:1.4px solid var(--line);font-size:13px;font-weight:800;color:var(--ink2);cursor:pointer}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.row{display:flex;gap:9px;align-items:center}
+.grow{flex:1}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.cchip{padding:8px 13px;border-radius:99px;border:1.4px solid var(--line);background:#fff;font-size:12.5px;font-weight:700;cursor:pointer;color:var(--ink2)}
+.cchip.on{background:var(--lav);border-color:var(--indigo);color:var(--indigo)}
+.codebox{background:var(--ink);color:#7CF2C8;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:21px;font-weight:800;letter-spacing:1.6px;text-align:center;padding:16px 10px;border-radius:14px;margin-top:13px;word-break:break-all;user-select:all}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);padding:7px 6px;border-bottom:2px solid var(--line)}
+td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px}
+.badge{display:inline-block;padding:2.5px 8px;border-radius:99px;font-size:10.5px;font-weight:800}
+.b-teal{background:var(--mint);color:#0B7C60}.b-lav{background:var(--lav);color:var(--indigo)}.b-cream{background:var(--cream);color:var(--amber)}.b-red{background:#FBE3E3;color:var(--red)}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 18px;border-radius:12px;font-size:13px;font-weight:700;box-shadow:0 6px 24px rgba(0,0,0,.28);opacity:0;transition:opacity .25s;z-index:50;max-width:86vw;text-align:center}
+.toast.show{opacity:1}
+.spin{width:17px;height:17px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.hidden{display:none!important}
+.err{color:var(--red);font-size:12.5px;font-weight:700;margin-top:8px;line-height:1.45}
+.ok{color:var(--teal);font-size:12.5px;font-weight:700;margin-top:8px}
+.flagrow{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.flagrow label{flex:1;font-size:13px;font-weight:700}
+.flagrow .fk{font-size:11px;color:var(--ink2);font-family:ui-monospace,monospace}
+.flagrow input[type=text],.flagrow input[type=number]{width:110px;margin-top:0;padding:8px 10px;font-size:13.5px}
+.switch{position:relative;width:44px;height:25px;flex:none}
+.switch input{opacity:0;width:0;height:0}
+.sl{position:absolute;inset:0;background:#CBD6E4;border-radius:99px;transition:.2s;cursor:pointer}
+.sl:before{content:"";position:absolute;width:19px;height:19px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.switch input:checked + .sl{background:var(--teal)}
+.switch input:checked + .sl:before{transform:translateX(19px)}
+.gisbtn{display:flex;justify-content:center;min-height:44px}
+.footer{text-align:center;font-size:11px;color:var(--ink2);margin-top:26px;line-height:1.7}
+.setup{background:var(--cream);border:1.4px solid #F0DDB0;border-radius:14px;padding:14px;font-size:12.8px;line-height:1.65;text-align:left}
+.setup code{background:#fff;padding:1px 6px;border-radius:6px;font-size:12px;border:1px solid #EFDFB5}
+.link{color:var(--indigo);font-weight:700;text-decoration:none}
+@media(max-width:520px){ .codebox{font-size:17px} h1{font-size:14.5px} }
+</style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">FP</div>
+    <div>
+      <h1>OWNER PANEL · <span style="opacity:.8;font-weight:600">My Financial Plan</span></h1>
+      <div class="sub">2FA secured · sirf aapke liye · v1.2</div>
+    </div>
+    <div class="chip hidden" id="emailChip"></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ══════════ LOCK SCREEN (Gate 1: Google → Gate 2: PIN) ══════════ -->
+  <div id="lockView">
+    <div class="card lockcard">
+      <div style="font-size:34px">🔐</div>
+      <h2 style="margin-top:6px">Owner Panel — Restricted</h2>
+      <p class="hint" style="margin-top:5px">Ye panel sirf owner ke liye hai.<br>Do (2) steps verify honge: <b>Google account</b> + <b>Admin PIN</b>.</p>
+
+      <div id="setupHelp" class="setup hidden" style="margin-top:14px">
+        <b>⚙️ Ek-baar setup chahiye:</b> Firestore mein owner record nahi mila.
+        <br>1) <a class="link" href="https://console.firebase.google.com/project/smartcalc-ai-638a9/firestore" target="_blank" rel="noopener">Firebase Console → Firestore</a> kholo
+        <br>2) <b>Start collection</b> → ID: <code>owner</code> → Document ID: <code>self</code>
+        <br>3) Field: <code>email</code> (string) = <b>apna Gmail</b> (jisse niche login karoge) → Save
+        <br>4) Wapas aao → Google login karo — bas, setup auto-complete ho jayega.
+      </div>
+
+      <div class="gate-step" style="margin-top:18px"><span class="stepnum">1</span> Google account se login karo</div>
+      <div class="gisbtn" id="gisBtn"></div>
+      <div id="lockMsg1"></div>
+
+      <div id="pinBlock" class="hidden">
+        <div class="gate-step" style="margin-top:20px"><span class="stepnum">2</span> <span id="pinTitle">Admin PIN daalo</span></div>
+        <input type="password" id="pin1" inputmode="numeric" maxlength="12" placeholder="Admin PIN (6–12 digits)">
+        <input type="password" id="pin2" class="hidden" inputmode="numeric" maxlength="12" placeholder="PIN dobara (confirm)">
+        <button class="btn btn-p" id="pinGo">UNLOCK PANEL →</button>
+        <div id="lockMsg2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ PANEL ══════════ -->
+  <div id="panelView" class="hidden">
+    <div class="tabs">
+      <div class="tab on" data-tab="codes">🔑 Codes</div>
+      <div class="tab" data-tab="partners">👥 Partners</div>
+      <div class="tab" data-tab="flags">⚙️ Flags</div>
+      <div class="tab" data-tab="leads">📥 Leads</div>
+    </div>
+
+    <!-- ── TAB: CODES ── -->
+    <div id="tab-codes">
+      <div class="card">
+        <h2>Partner activation code banao</h2>
+        <p class="hint">UPI payment <b>verify</b> karne ke baad hi code bhejna. Code offline validate hota hai — plan + validity andar encoded hoti hai. Ek code = ek phone (per device single-use).</p>
+        <div class="chips" id="planChips"></div>
+        <div class="chips" id="dayChips"></div>
+        <button class="btn btn-p" id="genBtn">GENERATE CODE</button>
+        <button class="btn btn-p" id="trialBtn" style="background:var(--teal)">🎁 TRIAL CODE — FREE 7 दिन SILVER</button>
+        <p class="hint" style="margin-top:7px">Trial bhi <b>code se hi</b> chalta hai — bina code koi plan activate nahi hota (HARD RULE). Trial codes "trial" badge ke saath log hote hain — Partners tab mein alag dikhte hain.</p>
+        <div id="codeOut" class="hidden">
+          <div class="codebox" id="codeText"></div>
+          <div class="row" style="margin-top:10px">
+            <button class="btn btn-g btn-s grow" id="copyCode">📋 Copy code</button>
+            <button class="btn btn-g btn-s grow" id="copyMsg">📄 Copy full message</button>
+          </div>
+          <div class="row" style="margin-top:9px">
+            <input type="tel" id="waPhone" class="grow" placeholder="Partner WhatsApp no. (optional)" style="margin-top:0">
+            <button class="btn btn-w btn-s" id="sendWa">WhatsApp ➤</button>
+          </div>
+          <div class="ok hidden" id="codeSaved">✓ Cloud mein log ho gaya (sabhi devices par dikhega)</div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Recent issued codes <button class="btn btn-g btn-s" style="float:right" id="refCodes">↻ Refresh</button></h2>
+        <div id="codesList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
+      </div>
+    </div>
+
+    <!-- ── TAB: PARTNERS (buyers + activations + trials) ── -->
+    <div id="tab-partners" class="hidden">
+      <div class="card">
+        <h2>Partners & buyers <button class="btn btn-g btn-s" style="float:right" id="refPartners">↻ Refresh</button></h2>
+        <p class="hint">Jo log plan <b>buy kar rahe / activate kar rahe</b> — code redeem hote hi yahan aa jaate hain (signed-out apps bhi; public shape-checked write). <b>🎁 trial</b> badge = 7-din free Silver. HARD RULE: bina code koi activation possible nahi — isliye ye list sirf verified activations dikhati hai. <span class="badge b-red">Note</span> v2.17 se pehle ke app builds push nahi karte — naye build ke baad sab dikhenge.</p>
+        <div id="partnersList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
+      </div>
+    </div>
+
+    <!-- ── TAB: FLAGS ── -->
+    <div id="tab-flags" class="hidden">
+      <div class="card">
+        <h2>Remote flags — har app install par apply hote hain</h2>
+        <p class="hint">Yahan jo badloge wo <b>config/flags</b> doc mein jayega; apps agle cold-start par pull kar leti hain (public read, sirf aap write). Reset = value hatao → app default par laut jayegi.</p>
+        <div id="flagsForm" style="margin-top:8px"></div>
+        <div class="row" style="margin-top:14px">
+          <button class="btn btn-t grow" id="saveFlags">💾 SAVE TO CLOUD</button>
+          <button class="btn btn-g" id="reloadFlags">↻</button>
+        </div>
+        <div id="flagsMsg"></div>
+      </div>
+      <div class="card">
+        <h2>➕ Custom key (advanced)</h2>
+        <p class="hint">Naya flag add karna ho (sirf whitelisted keys apps par apply hote hain — baaki future use ke liye store hote hain).</p>
+        <div class="row">
+          <input type="text" id="ck" class="grow" placeholder="key (e.g. partner_gold_limit)" style="margin-top:0">
+          <input type="text" id="cv" class="grow" placeholder="value (true / 123 / text)" style="margin-top:0">
+        </div>
+        <button class="btn btn-p" id="ckAdd" style="margin-top:10px">ADD KEY</button>
+      </div>
+    </div>
+
+    <!-- ── TAB: LEADS ── -->
+    <div id="tab-leads" class="hidden">
+      <div class="card">
+        <h2>Leads inbox <button class="btn btn-g btn-s" style="float:right" id="refLeads">↻ Refresh</button></h2>
+        <p class="hint">Plan gate (name + WhatsApp) aur partner activations yahan aate hain — signed-in apps se cloud par.</p>
+        <div id="leadsList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Session sirf is tab tak hai — tab band = auto sign-out ·
+      <a class="link" href="#" id="signOut">Sign out</a><br>
+      Plan Today for Better Tomorrow · MY FINANCIAL PLAN
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+/* ═══════════════ CONFIG (public-by-design web config) ═══════════════ */
+const CFG = {
+  apiKey: 'AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc',
+  projectId: 'smartcalc-ai-638a9',
+  oauthClientId: '548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com',
+  fsBase: 'https://firestore.googleapis.com/v1/projects/smartcalc-ai-638a9/databases/(default)/documents',
+  itBase: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp',
+};
+const $ = id => document.getElementById(id);
+const S = {
+  email: sessionStorage.getItem('op_email') || '',
+  idt: sessionStorage.getItem('op_idt') || '',
+  rt: sessionStorage.getItem('op_rt') || '',
+  idtAt: +(sessionStorage.getItem('op_idt_at') || 0),
+  ownerEmail: '',
+  pinOk: sessionStorage.getItem('op_pin_ok') === '1',
+};
+
+/* ═══════════════ helpers ═══════════════ */
+function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('show');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2600); }
+function msg(id, html, ok){ const e=$(id); e.innerHTML=html||''; e.className=ok?'ok':'err'; }
+function enc(v){
+  if (v===null) return {nullValue:null};
+  if (typeof v==='boolean') return {booleanValue:v};
+  if (typeof v==='number') return Number.isInteger(v)?{integerValue:String(v)}:{doubleValue:v};
+  return {stringValue:String(v)};
+}
+function dec(v){
+  if ('stringValue' in v) return v.stringValue;
+  if ('integerValue' in v) return parseInt(v.integerValue,10);
+  if ('doubleValue' in v) return v.doubleValue;
+  if ('booleanValue' in v) return v.booleanValue;
+  if ('nullValue' in v) return null;
+  if ('timestampValue' in v) return v.timestampValue;
+  if ('mapValue' in v){ const o={}; for(const k in v.mapValue.fields) o[k]=dec(v.mapValue.fields[k]); return o; }
+  if ('arrayValue' in v) return (v.arrayValue.values||[]).map(dec);
+  return null;
+}
+/* v1.2 — Firebase idToken 1 ghante mein EXPIRE hota hai (401 UNAUTHENTICATED
+   ka karan). Auto-refresh: (a) 55-min se purana token ho to pehle refresh,
+   (b) 401 aaye to ek baar refresh + retry, (c) tab bhi 401 → re-login. */
+async function refreshTokenNow(){
+  if (!S.rt) return false;
+  try{
+    const r = await fetch(`https://securetoken.googleapis.com/v1/token?key=${CFG.apiKey}`, {
+      method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:`grant_type=refresh_token&refresh_token=${encodeURIComponent(S.rt)}`});
+    const d = await r.json();
+    if (!r.ok || !d.id_token) return false;
+    S.idt = d.id_token; S.rt = d.refresh_token || S.rt; S.idtAt = Date.now();
+    sessionStorage.setItem('op_idt', S.idt);
+    sessionStorage.setItem('op_rt', S.rt);
+    sessionStorage.setItem('op_idt_at', String(S.idtAt));
+    return true;
+  }catch(_){ return false; }
+}
+async function authFetch(url, opts){
+  if (S.rt && Date.now() - S.idtAt > 55*60*1000) await refreshTokenNow();
+  opts = opts || {};
+  opts.headers = Object.assign({}, opts.headers, {Authorization:'Bearer '+S.idt});
+  let r = await fetch(url, opts);
+  if (r.status === 401 && S.rt){
+    if (await refreshTokenNow()){
+      opts.headers.Authorization = 'Bearer '+S.idt;
+      r = await fetch(url, opts);
+    }
+    if (r.status === 401){
+      sessionStorage.clear();
+      alert('Session expire ho gaya tha — dobara login kar rahe hain.');
+      location.reload();
+      throw new Error('relogin-required');
+    }
+  }
+  return r;
+}
+async function fsGet(path, auth){
+  const url = `${CFG.fsBase}/${path}?key=${CFG.apiKey}`;
+  const r = auth ? await authFetch(url) : await fetch(url);
+  if (r.status===404) return null;
+  if (!r.ok){ const t=await r.text(); throw new Error(r.status+' '+t.slice(0,150)); }
+  const d = await r.json();
+  const o = {}; for (const k in (d.fields||{})) o[k]=dec(d.fields[k]);
+  return o;
+}
+async function fsPatch(path, fields){
+  const body = {fields:{}};
+  for (const k in fields) body.fields[k]=enc(fields[k]);
+  const r = await authFetch(`${CFG.fsBase}/${path}?key=${CFG.apiKey}`, {
+    method:'PATCH', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(body)});
+  if (!r.ok){ const t=await r.text(); throw new Error(r.status+' '+t.slice(0,180)); }
+  return true;
+}
+async function fsQuery(collection, orderField, limit){
+  const r = await authFetch(`${CFG.fsBase}:runQuery?key=${CFG.apiKey}`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({structuredQuery:{
+      from:[{collectionId:collection}],
+      orderBy:[{field:{fieldPath:orderField},direction:'DESCENDING'}],
+      limit: limit||50}})});
+  if (!r.ok){ const t=await r.text(); throw new Error(r.status+' '+t.slice(0,180)); }
+  const rows = await r.json();
+  return rows.filter(x=>x.document).map(x=>{
+    const o={_id:x.document.name.split('/').pop()};
+    for (const k in (x.document.fields||{})) o[k]=dec(x.document.fields[k]);
+    return o;
+  });
+}
+async function sha256hex(str){
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+
+/* ═══════════════ PartnerCodes — EXACT port of lib/services/partner_codes.dart ═══════════════ */
+const ALPHA = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';   // 31 chars — no 0/O/1/I/L
+const SALT  = 'MFP-manual-v1::8840192702::smartcalc';
+const L2P = {S:'silver',G:'gold',P:'platinum'}, P2L = {silver:'S',gold:'G',platinum:'P'};
+async function issueCode(plan, days){
+  const L = P2L[plan]||'S', ddd=String(Math.min(999,Math.max(1,days))).padStart(3,'0');
+  const rb = crypto.getRandomValues(new Uint8Array(4));
+  const nonce = [...rb].map(b=>ALPHA[b%31]).join('');
+  const dig = new Uint8Array(await crypto.subtle.digest('SHA-256',
+    new TextEncoder().encode(`${SALT}|${L}|${ddd}|${nonce}`)));
+  const chk = [0,1,2,3].map(i=>ALPHA[dig[i]%31]).join('');
+  return `MFP-${L}${ddd}-${nonce}-${chk}`;
+}
+
+/* ═══════════════ GATE 1 — Google → Firebase Auth ═══════════════ */
+function initGis(){
+  try{
+    google.accounts.id.initialize({client_id: CFG.oauthClientId, callback: onGoogle, auto_select:false, ux_mode:'popup'});
+    google.accounts.id.renderButton($('gisBtn'), {theme:'filled_blue', size:'large', width:280, text:'signin_with'});
+  }catch(e){ setTimeout(initGis, 700); } // GIS script async
+}
+async function onGoogle(resp){
+  msg('lockMsg1','<span class="spin"></span> verifying…',true);
+  const gjwt = JSON.parse(atob(resp.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
+  const gEmail = (gjwt.email||'').toLowerCase();
+  try{
+    // 1) owner record (public read) — bina iske koi bhi aage nahi badhta
+    let owner = null;
+    try { owner = await fsGet('owner/self', false); } catch(e){}
+    if (!owner || !owner.email){
+      $('setupHelp').classList.remove('hidden');
+      msg('lockMsg1','Setup pending — pehle upar diye steps se owner record banao.',false);
+      return;
+    }
+    S.ownerEmail = String(owner.email).toLowerCase();
+    if (gEmail !== S.ownerEmail){
+      msg('lockMsg1',`⛔ Ye panel sirf owner ke liye hai.<br><span class="hint">(${gEmail||'unknown'} allowed nahi hai)</span>`,false);
+      return;
+    }
+    // 2) Firebase idToken (Firestore writes ke liye)
+    const r = await fetch(`${CFG.itBase}?key=${CFG.apiKey}`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        postBody: `id_token=${encodeURIComponent(resp.credential)}&providerId=google.com`,
+        requestUri: location.origin + location.pathname,
+        returnSecureToken: true})});
+    const d = await r.json();
+    if (!r.ok || !d.idToken) throw new Error((d.error&&d.error.message)||'sign-in failed');
+    S.idt = d.idToken; S.email = gEmail; S.rt = d.refreshToken || '';
+    S.idtAt = Date.now();
+    sessionStorage.setItem('op_idt', S.idt); sessionStorage.setItem('op_email', S.email);
+    sessionStorage.setItem('op_rt', S.rt); sessionStorage.setItem('op_idt_at', String(S.idtAt));
+    msg('lockMsg1','','');
+    showPinGate();
+  }catch(e){ msg('lockMsg1','Error: '+e.message,false); }
+}
+
+/* ═══════════════ GATE 2 — Admin PIN (hash: owner/admin, owner-only) ═══════════════ */
+async function showPinGate(){
+  $('pinBlock').classList.remove('hidden');
+  $('emailChip').textContent = S.email; $('emailChip').classList.remove('hidden');
+  try{
+    const adm = await fsGet('owner/admin', true);
+    if (!adm || !adm.pinHash){
+      $('pinTitle').textContent = 'Pehli baar — apna Admin PIN set karo (6–12 digits)';
+      $('pin2').classList.remove('hidden');
+      $('pinGo').onclick = setNewPin;
+    } else {
+      $('pinTitle').textContent = 'Admin PIN daalo';
+      $('pin2').classList.add('hidden');
+      $('pinGo').onclick = () => verifyPin(adm.pinHash);
+    }
+  }catch(e){ msg('lockMsg2','Firestore read error: '+e.message,false); }
+}
+async function setNewPin(){
+  const p1=$('pin1').value.trim(), p2=$('pin2').value.trim();
+  if (!/^\d{6,12}$/.test(p1)) return msg('lockMsg2','PIN 6–12 digits ka hona chahiye.',false);
+  if (p1!==p2) return msg('lockMsg2','Dono PIN same nahi — dobara daalo.',false);
+  try{
+    await fsPatch('owner/admin', {pinHash: await sha256hex('MFP-ADMIN-PIN::'+p1),
+      setAt: new Date().toISOString()});
+    markPinOk();
+  }catch(e){ msg('lockMsg2','Save error: '+e.message,false); }
+}
+async function verifyPin(savedHash){
+  const p=$('pin1').value.trim();
+  if (!p) return;
+  const h = await sha256hex('MFP-ADMIN-PIN::'+p);
+  if (h !== savedHash) return msg('lockMsg2','❌ Galat PIN. Dhyan se dobara daalo.',false);
+  markPinOk();
+}
+function markPinOk(){
+  S.pinOk = true; sessionStorage.setItem('op_pin_ok','1');
+  openPanel();
+}
+
+/* ═══════════════ PANEL ═══════════════ */
+const PLANS = {silver:{l:'Silver',r:10,dP:99}, gold:{l:'Gold',r:25,dP:299}, platinum:{l:'Platinum',r:50,dP:599}};
+let curPlan='gold', curDays=30, flagsDoc={};
+
+async function openPanel(){
+  $('lockView').classList.add('hidden');
+  $('panelView').classList.remove('hidden');
+  buildChips(); loadCodes(); loadPartners(); loadFlags(); loadLeads();
+  // flags se live prices laao (code card par dikhane ke liye)
+  try{ flagsDoc = await fsGet('config/flags', false) || {}; }catch(e){}
+  buildChips();
+}
+
+/* ---- codes tab ---- */
+function buildChips(){
+  $('planChips').innerHTML = Object.entries(PLANS).map(([k,p])=>{
+    const price = flagsDoc['partner_price_'+k] ?? p.dP;
+    return `<div class="cchip ${k===curPlan?'on':''}" data-p="${k}">${p.l} · ${p.r} reports · ₹${price}</div>`;
+  }).join('') ;
+  document.querySelectorAll('#planChips .cchip').forEach(c=>c.onclick=()=>{curPlan=c.dataset.p;buildChips();});
+  $('dayChips').innerHTML = `<span class="hint" style="align-self:center">Validity:</span>` +
+    [7,30,90,365].map(d=>`<div class="cchip ${d===curDays?'on':''}" data-d="${d}">${d} दिन</div>`).join('');
+  document.querySelectorAll('#dayChips .cchip').forEach(c=>c.onclick=()=>{curDays=+c.dataset.d;buildChips();});
+}
+let lastGen = {plan:'gold', days:30, trial:false};
+function waMessage(code){
+  const head = lastGen.trial
+    ? `🎁 *My Financial Plan — FREE 7-day TRIAL*%0A%0APlan: *Silver TRIAL* (7 din)%0A`
+    : `🎉 *My Financial Plan — Partner Mode Activation*%0A%0A` +
+      `Plan: *${PLANS[lastGen.plan].l}* (${lastGen.days} din)%0A`;
+  return head +
+    `Activation code:%0A%0A*${code}*%0A%0A` +
+    `Kaise activate karein:%0A` +
+    `1) App kholo → Financial Planner → *Partner Mode*%0A` +
+    `2) Plan select karo → neeche *activation code* box mein ye code daalo%0A` +
+    `3) ACTIVATE dabao — done!%0A%0A` +
+    `Koi dikkat ho to isi number par message karein.%0A` +
+    `— MY FINANCIAL PLAN · Plan Today for Better Tomorrow`;
+}
+async function genAndShow(plan, days, trial, btn){
+  btn.disabled = true;
+  try{
+    const code = await issueCode(plan, days);
+    lastGen = {plan, days, trial: trial===true};
+    $('codeText').textContent = code;
+    $('codeOut').classList.remove('hidden');
+    $('codeSaved').classList.add('hidden');
+    try{
+      await fsPatch('partner_codes/'+code, {code, plan, days,
+        at: new Date().toISOString(), via:'panel', trial: trial===true});
+      $('codeSaved').classList.remove('hidden');
+      loadCodes();
+    }catch(e){ /* offline bhi code valid hai */ }
+  }finally{ btn.disabled = false; }
+}
+$('genBtn').onclick = () => genAndShow(curPlan, curDays, false, $('genBtn'));
+// HARD RULE (owner directive): trial bhi sirf code se — 7-day Silver preset.
+$('trialBtn').onclick = () => genAndShow('silver', 7, true, $('trialBtn'));
+$('copyCode').onclick = async ()=>{ await navigator.clipboard.writeText($('codeText').textContent); toast('Code copied ✓'); };
+$('copyMsg').onclick = async ()=>{ await navigator.clipboard.writeText(
+  waMessage($('codeText').textContent).replaceAll('%0A','\n').replaceAll('*','')); toast('Poora message copied ✓ — WhatsApp par paste karo'); };
+$('sendWa').onclick = ()=>{
+  const digits = $('waPhone').value.replace(/\D/g,'');
+  const ten = digits.length>=10 ? digits.slice(-10) : '';
+  if (!ten){ toast('Partner ka 10-digit number daalo — ya Copy karke manually bhejo'); return; }
+  window.open(`https://wa.me/91${ten}?text=${waMessage($('codeText').textContent)}`,'_blank','noopener');
+};
+async function loadCodes(){
+  try{
+    const rows = await fsQuery('partner_codes','at',15);
+    $('codesList').innerHTML = rows.length ? `<table><tr><th>Code</th><th>Plan</th><th>Validity</th><th>Date</th></tr>` +
+      rows.map(r=>`<tr><td class="mono">${r._id.slice(0,19)}</td>
+        <td><span class="badge ${r.plan==='platinum'?'b-lav':r.plan==='gold'?'b-cream':'b-teal'}">${r.plan||''}</span> ${r.trial===true?'<span class="badge b-teal">🎁 trial</span>':''}</td>
+        <td>${r.days||''}d</td><td>${String(r.at||'').slice(0,10)}</td></tr>`).join('') + `</table>`
+      : '<p class="hint" style="margin-top:8px">Abhi tak koi code nahi — pehla code upar se banao.</p>';
+  }catch(e){ $('codesList').innerHTML = `<p class="err">Load nahi hua: ${e.message}</p>`; }
+}
+$('refCodes').onclick = loadCodes;
+
+/* ---- flags tab ---- */
+const FLAG_DEFS = [
+  ['gate_android_login_required','Android par gate login (v2.16 native sign-in ke baad ON)','bool'],
+  ['gate_web_login_required','Web par gate login (default ON — OFF mat karna)','bool'],
+  ['gate_partner_login_required','Partner plans se PEHLE Google login — HAR platform (v2.22, default ON)','bool'],
+  ['otp_gate_enabled','OTP gate before compute (poorana gate)','bool'],
+  // v2.17 HARD RULE: DEMO checkout retired — koi codeless activation path
+  // kisi bhi jagah allowed nahi (app bhi is flag ko ab ignore karti hai).
+  ['payment_gateway','Payment gateway ("" = manual · "razorpay" = live)','text'],
+  ['razorpay_key_id','Razorpay key id (rzp_live_…) — Phase 5','text'],
+  ['premium_enabled','Premium features enabled','bool'],
+  ['ads_enabled','Ads master switch','bool'],
+  ['free_ai_per_day','Free AI queries/day','num'],
+  ['ai_api_key','AI: Gemini API key (FREE — Google AI Studio se banao, paste karo)','text'],
+  ['ai_model','AI: Gemini model — gemini-flash-latest likho','text'],
+  ['announcement','Announcement text (app mein banner)','text'],
+  ['partner_price_silver','Partner price Silver ₹/30d','num'],
+  ['partner_price_gold','Partner price Gold ₹/30d','num'],
+  ['partner_price_platinum','Partner price Platinum ₹/30d','num'],
+  ['partner_silver_limit','Silver report limit (default 10)','num'],
+  ['partner_gold_limit','Gold report limit (default 25)','num'],
+  ['partner_platinum_limit','Platinum report limit (default 50)','num'],
+];
+async function loadFlags(){
+  $('flagsForm').innerHTML = '<p class="hint">Load ho raha hai…</p>'; $('flagsMsg').innerHTML='';
+  try{
+    flagsDoc = await fsGet('config/flags', false) || {};
+    $('flagsForm').innerHTML = FLAG_DEFS.map(([k,label,ty])=>{
+      const v = flagsDoc[k]; const set = v!==undefined && v!==null;
+      if (ty==='bool') return `<div class="flagrow"><label>${label}<br><span class="fk">${k}${set?'':' · (default)'}</span></label>
+        <label class="switch"><input type="checkbox" data-k="${k}" ${v===true?'checked':''}><span class="sl"></span></label></div>`;
+      return `<div class="flagrow"><label>${label}<br><span class="fk">${k}${set?'':' · (default)'}</span></label>
+        <input type="${ty==='num'?'number':'text'}" data-k="${k}" data-t="${ty}" value="${set?String(v):''}" placeholder="default"></div>`;
+    }).join('') || '<p class="hint">—</p>';
+    buildChips();
+  }catch(e){ $('flagsForm').innerHTML = `<p class="err">Load nahi hua: ${e.message}</p>`; }
+}
+$('saveFlags').onclick = async () => {
+  const out = {};
+  document.querySelectorAll('#flagsForm [data-k]').forEach(el=>{
+    const k=el.dataset.k;
+    if (el.type==='checkbox'){ out[k]=el.checked; return; }
+    const v=el.value.trim();
+    if (v==='') { out[k]=null; return; }            // reset → remove → default
+    out[k] = el.dataset.t==='num' ? (parseFloat(v)||0) : v;
+  });
+  try{
+    await fsPatch('config/flags', out);
+    flagsDoc = out;
+    msg('flagsMsg','✓ Saved — apps agle launch par apply kar lengi.',true); buildChips();
+  }catch(e){ msg('flagsMsg','Save error: '+e.message,false); }
+};
+$('reloadFlags').onclick = loadFlags;
+$('ckAdd').onclick = async () => {
+  const k=$('ck').value.trim(); let v=$('cv').value.trim();
+  if (!k) return toast('Key daalo');
+  if (v==='true') v=true; else if (v==='false') v=false;
+  else if (v!=='' && !isNaN(+v)) v=+v;
+  try{ await fsPatch('config/flags',{[k]:v}); $('ck').value=''; $('cv').value='';
+    toast('Added ✓'); loadFlags(); }catch(e){ toast('Error: '+e.message); }
+};
+
+/* ---- partners tab (buyers/activations; trial alag badge) ---- */
+async function loadPartners(){
+  try{
+    let redeems = [], issued = [];
+    try{ redeems = await fsQuery('partner_redeems','at',80); }catch(e){}
+    try{ issued  = await fsQuery('partner_codes','at',120); }catch(e){}
+    const trialByCode = {}; issued.forEach(c=>{ if(c.trial===true) trialByCode[c.code||c._id]=true; });
+    const redeemedCodes = {}; redeems.forEach(r=>{ redeemedCodes[r.code]=true; });
+    const status = r => {
+      const at = Date.parse(r.at||''); if(!at) return '<span class="badge b-lav">—</span>';
+      const exp = at + (parseInt(r.days,10)||0)*864e5, left = exp - Date.now();
+      if (left<=0) return '<span class="badge b-red">expired</span>';
+      if (left<3*864e5) return '<span class="badge b-cream">expiring</span>';
+      return '<span class="badge b-teal">active</span>';
+    };
+    const row = r => {
+      const wa=(r.whatsapp||'').replace(/\D/g,'').slice(-10);
+      const trial = trialByCode[r.code];
+      return `<tr><td class="mono">${String(r.at||'').slice(0,10)}</td>
+      <td><b>${r.name||'—'}</b><br><span class="hint mono">${r.code||''}</span></td>
+      <td>${wa?`<a class="link mono" href="https://wa.me/91${wa}" target="_blank" rel="noopener">${wa}</a>`:'—'}</td>
+      <td><span class="badge ${r.plan==='platinum'?'b-lav':r.plan==='gold'?'b-cream':'b-teal'}">${r.plan||''}</span> ${trial?'<span class="badge b-teal">🎁 trial</span>':''}<br><span class="hint">${r.days||''}d</span></td>
+      <td>${status(r)}</td></tr>`;
+    };
+    // issued-but-not-redeemed codes bhi dikhao (pending buyers)
+    const pending = issued.filter(c=>!redeemedCodes[c.code||c._id]).map(c=>({at:c.at, name:'(code bheja — abhi redeem nahi)',
+      whatsapp:'', code:c.code||c._id, plan:c.plan, days:'—', _pending:true}));
+    $('partnersList').innerHTML = (redeems.length||pending.length)
+      ? `<table><tr><th>Date</th><th>Buyer</th><th>WhatsApp</th><th>Plan</th><th>Status</th></tr>`+
+        redeems.map(row).join('') +
+        pending.map(c=>`<tr style="opacity:.62"><td class="mono">${String(c.at||'').slice(0,10||'')}</td>
+          <td><i>${c.name}</i><br><span class="hint mono">${c.code}</span></td><td>—</td>
+          <td><span class="badge ${c.plan==='platinum'?'b-lav':c.plan==='gold'?'b-cream':'b-teal'}">${c.plan||''}</span> ${trialByCode[c.code]?'<span class="badge b-teal">🎁 trial</span>':''}</td>
+          <td><span class="badge b-lav">pending</span></td></tr>`).join('') + `</table>`
+      : '<p class="hint" style="margin-top:8px">Abhi koi activation nahi — pehla code redeem hote hi yahan dikhega.</p>';
+  }catch(e){ $('partnersList').innerHTML = `<p class="err">Load nahi hua: ${e.message}</p>`; }
+}
+$('refPartners').onclick = loadPartners;
+
+/* ---- leads tab ---- */
+async function loadLeads(){
+  try{
+    const rows = await fsQuery('leads','at',60);
+    $('leadsList').innerHTML = rows.length ? `<table><tr><th>Date</th><th>Naam</th><th>WhatsApp</th><th>Source</th></tr>` +
+      rows.map(r=>{
+        const wa=(r.whatsapp||'').replace(/\D/g,'').slice(-10);
+        return `<tr><td class="mono">${String(r.at||'').slice(0,10)}</td>
+        <td><b>${r.name||'—'}</b><br><span class="hint">${r.note||''}</span></td>
+        <td>${wa?`<a class="link mono" href="https://wa.me/91${wa}" target="_blank" rel="noopener">${r.whatsapp}</a>`:'—'}</td>
+        <td><span class="badge b-lav">${r.source||''}</span><br><span class="hint">${r.planLang||''}</span></td></tr>`;
+      }).join('') + `</table>`
+      : '<p class="hint" style="margin-top:8px">Abhi koi lead nahi — gate pass karte hi yahan dikhengi.</p>';
+  }catch(e){ $('leadsList').innerHTML = `<p class="err">Load nahi hua: ${e.message}</p>`; }
+}
+$('refLeads').onclick = loadLeads;
+
+/* ---- tabs + signout ---- */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  t.classList.add('on');
+  document.querySelectorAll('[id^="tab-"]').forEach(x=>x.classList.add('hidden'));
+  $('tab-'+t.dataset.tab).classList.remove('hidden');
+});
+$('signOut').onclick = e => { e.preventDefault(); sessionStorage.clear(); location.reload(); };
+
+/* ═══════════════ BOOT ═══════════════ */
+(function boot(){
+  initGis();
+  // session zinda hai to seedha PIN gate / panel
+  if (S.idt && S.email && S.pinOk){
+    $('emailChip').textContent=S.email; $('emailChip').classList.remove('hidden');
+    openPanel();
+  } else if (S.idt && S.email){
+    $('emailChip').textContent=S.email; $('emailChip').classList.remove('hidden');
+    showPinGate();
+  }
+})();
+</script>
+</body>
+</html>

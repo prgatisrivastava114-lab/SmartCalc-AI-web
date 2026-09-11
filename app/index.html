@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // v2.17.4 — SELF-HEALING stale-cache killer (APP-UX-CHANGELOG B3): har
+    // deploy ke baad app KHUD purana service-worker cache saaf karke naya
+    // version reload karti hai — koi user kabhi purane version par na phanse.
+    (function () {
+      if (!('serviceWorker' in navigator)) return;
+      var KEY = 'app_build_seen', FLAG = 'sw_nuke_once';
+      fetch('version.json?nocache=' + Date.now(), { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          if (!j || !j.build_number) return;
+          var build = String(j.build_number);
+          var seen = localStorage.getItem(KEY);
+          if (seen === build) return;                    // same build — sab theek
+          var controlled = !!navigator.serviceWorker.controller;
+          localStorage.setItem(KEY, build);
+          if ((seen === null && !controlled) || sessionStorage.getItem(FLAG)) return;
+          sessionStorage.setItem(FLAG, '1');             // session mein ek hi baar reload
+          return navigator.serviceWorker.getRegistrations()
+            .then(function (rs) {
+              return Promise.all(rs.map(function (r) { return r.unregister(); }));
+            })
+            .then(function () { return caches.keys(); })
+            .then(function (ks) {
+              return Promise.all(ks.map(function (k) { return caches.delete(k); }));
+            })
+            .then(function () { location.reload(); });
+        })
+        .catch(function () { /* offline — app chalti rahe */ });
+    })();
+  </script>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/app/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="MyFinancialPlan — plan your family's whole financial future in 5 minutes, plus 500+ calculators. Part of www.myfinancialplan.in">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="My Financial Plan">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>MyFinancialPlan — Financial Planning & SmartCalc AI</title>
+  <!-- v3.0 P1 — Google Identity Services bridge: One-Tap sign-in hands the
+       Google ID token (JWT) to Flutter, which converts it into a Firebase
+       session over REST (zero pub packages). Client ID injected by Dart. -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+  window.mfpGoogleSignIn=function(clientId){return new Promise(function(resolve){var done=false;function fin(v){if(done)return;done=true;resolve(v||"");}try{if(!window.google||!google.accounts||!google.accounts.id){fin("");return;}google.accounts.id.initialize({client_id:clientId,callback:function(r){fin(r&&r.credential?r.credential:"");},auto_select:false,cancel_on_tap_outside:true});google.accounts.id.prompt(function(n){if(n.isSkippedMoment&&n.isSkippedMoment())fin("");if(n.isDismissedMoment&&n.isDismissedMoment())fin("");});}catch(e){fin("");}setTimeout(function(){fin("");},90000);});};
+  </script>
+  <link rel="manifest" href="manifest.json">
+  <meta property="og:title" content="MyFinancialPlan — your family financial future in 5 minutes">
+  <meta property="og:description" content="Education, marriage, pension, legacy — exact SIPs, insurance shield and a PDF plan. Free, private, offline-first.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.myfinancialplan.in/app/">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

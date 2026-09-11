@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function ownerEmail() {
+      return get(/databases/$(database)/documents/owner/self).data.email;
+    }
+    function isOwner() {
+      return signedIn() && request.auth.token.email == ownerEmail();
+    }
+    match /owner/self {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+    match /owner/{doc} {
+      allow read, write: if isOwner();
+    }
+    match /config/{doc} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+    match /leads/{doc} {
+      allow create: if signedIn();
+      allow read, update, delete: if isOwner();
+    }
+    match /partner_codes/{doc} {
+      allow read, write: if isOwner();
+    }
+    match /partner_redeems/{doc} {
+      allow create: if request.resource.data.keys().hasAll(['plan','code','at'])
+                      && request.resource.data.code is string
+                      && request.resource.data.code.matches('^MFP-[SGP][0-9]{3}-[A-Z2-9]{4}-[A-Z2-9]{4}$');
+      allow read, update, delete: if isOwner();
+    }
+    match /users/{uid}/{doc=**} {
+      allow read, write: if signedIn() && request.auth.uid == uid;
+    }
+  }
+}

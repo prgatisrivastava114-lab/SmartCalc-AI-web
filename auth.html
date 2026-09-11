@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Link your app — My Financial Plan</title>
+<style>
+  :root{--ink:#17324A;--ink2:#44586E;--teal:#0E9D78;--indigo:#4C62CE;--bg:#F4F7FB;--card:#fff;--line:#E3E9F1;--red:#D64545}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans',sans-serif;background:linear-gradient(160deg,#0E2233 0%,#17324A 55%,#1E4260 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;color:var(--ink)}
+  .wrap{width:100%;max-width:460px}
+  .brand{text-align:center;margin-bottom:18px}
+  .brand img{height:52px;filter:brightness(0) invert(1);opacity:.96}
+  .brand p{color:#B9C8D8;font-size:13px;margin-top:8px;letter-spacing:.3px}
+  .card{background:var(--card);border-radius:22px;padding:26px 24px;box-shadow:0 18px 50px rgba(6,20,32,.45)}
+  h1{font-size:20px;font-weight:800;letter-spacing:-.3px;text-align:center}
+  .sub{color:var(--ink2);font-size:13.5px;line-height:1.55;text-align:center;margin-top:8px}
+  .step{display:flex;gap:10px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:14px}
+  .step .n{flex:0 0 22px;height:22px;border-radius:50%;background:var(--indigo);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .step p{font-size:12.8px;color:var(--ink2);line-height:1.5}
+  .gbtn{display:flex;justify-content:center;margin-top:18px;min-height:44px}
+  .codebox{display:none;text-align:center;margin-top:16px}
+  .codebox .label{font-size:12px;color:var(--ink2);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+  .code{font-size:44px;font-weight:900;letter-spacing:14px;color:var(--ink);margin:8px 0 2px;text-indent:14px}
+  .ttl{font-size:12.5px;color:var(--ink2)}
+  .ttl b{color:var(--teal)}
+  .bar{height:6px;border-radius:99px;background:var(--line);margin-top:10px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--teal);width:100%;transition:width 1s linear}
+  .row{display:flex;gap:10px;margin-top:16px}
+  button{flex:1;border:0;border-radius:12px;padding:13px 10px;font-size:13.5px;font-weight:800;cursor:pointer}
+  .primary{background:var(--indigo);color:#fff}
+  .ghost{background:#EEF2F7;color:var(--ink)}
+  .who{display:none;text-align:center;margin-top:14px;font-size:12.5px;color:var(--ink2)}
+  .who b{color:var(--ink)}
+  .who a{color:var(--indigo);font-weight:700;text-decoration:none;cursor:pointer}
+  .err{display:none;margin-top:12px;background:#FDEAEA;color:var(--red);font-size:12.5px;font-weight:600;border-radius:10px;padding:10px 12px;line-height:1.4}
+  .foot{text-align:center;color:#93A7BC;font-size:11.5px;margin-top:16px;line-height:1.6}
+  .hi{color:var(--ink2)}
+</style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <img src="/assets/brand/brand_logo.png" alt="My Financial Plan">
+    <p>Plan Today for Better Tomorrow</p>
+  </div>
+  <div class="card">
+    <h1 id="ttl">Link your SmartCalc AI app</h1>
+    <p class="sub" id="subline">Sign in with Google and you'll get a <b>6-digit code</b>. Enter that code in the app to finish sign-in.<br><span class="hi">Google से साइन-इन करें — मिले <b>6-digit code</b> को app में डालें।</span></p>
+
+    <!-- one-tap return (opened from the app, ?src=app) -->
+    <div id="appSteps" style="display:none;margin-top:6px">
+      <div class="step"><span class="n">1</span><p>Sign in with Google below.<br><span class="hi">नीचे Google से sign in करें।</span></p></div>
+      <div class="step" style="margin-top:10px"><span class="n">2</span><p>You'll return to the app automatically — nothing to type.<br><span class="hi">आप अपने-आप app में वापस आ जाएँगे — कुछ type नहीं करना।</span></p></div>
+    </div>
+    <div id="returnBtn" class="gbtn" style="display:none">
+      <button type="button" style="background:var(--teal);color:#fff;border-radius:99px;padding:15px 26px;font-size:15px;font-weight:900;width:100%">⬅ Return to the app / App पर वापस जाएँ</button>
+    </div>
+
+    <div class="step" id="stdStep1"><span class="n">1</span><p>Tap <b>Continue with Google</b> below and choose your account.<br><span class="hi">नीचे Google से sign in करें।</span></p></div>
+    <div class="gbtn" id="gbtn"></div>
+
+    <div class="step" id="stdStep2" style="margin-top:14px"><span class="n">2</span><p>Come back to the <b>SmartCalc AI app → Partner Mode</b> and type the code.<br><span class="hi">App में वापस जाकर code डालें — plans खुल जाएँगे।</span></p></div>
+
+    <div class="codebox" id="codebox">
+      <div class="label">Your pairing code</div>
+      <div class="code" id="code">------</div>
+      <div class="ttl">Valid for <b id="mm">5:00</b> · single use · <span class="hi">code sirf ek baar chalega</span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="row">
+        <button class="ghost" id="regen" type="button">↻ Regenerate</button>
+      </div>
+    </div>
+
+    <div class="who" id="who"></div>
+    <div class="err" id="err"></div>
+  </div>
+  <p class="foot">myfinancialplan.in · SmartCalc AI<br>Codes expire in 5 minutes. Your Google password is never seen or stored by us.</p>
+</div>
+
+<script>
+(function(){
+'use strict';
+var API_KEY='AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc';
+var CLIENT_ID='548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com';
+var AUTH_DOMAIN='smartcalc-ai-638a9.firebaseapp.com';
+var FS='https://firestore.googleapis.com/v1/projects/smartcalc-ai-638a9/databases/(default)/documents';
+var TTL=5*60*1000;
+var gTok='',fbTok='',email='',name='',timer=null,deadline=0;
+
+function $(id){return document.getElementById(id);}
+function fail(m){var e=$('err');e.textContent=m;e.style.display='block';}
+function clearFail(){$('err').style.display='none';}
+
+function gsignin(){
+  if(!(window.google&&google.accounts&&google.accounts.id)){fail('Google sign-in could not load — check your connection and refresh.');return;}
+  try{
+    google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCred,auto_select:false,cancel_on_tap_outside:false});
+    google.accounts.id.renderButton($('gbtn'),{theme:'outline',size:'large',width:300,text:'continue_with',shape:'pill'});
+    google.accounts.id.prompt();
+  }catch(e){fail('Google sign-in error — please refresh the page.');}
+}
+
+var IS_APP=/[?&]src=app/.test(location.search);
+
+function onCred(resp){
+  clearFail();
+  if(!resp||!resp.credential){fail('Sign-in was cancelled — please try again.');return;}
+  gTok=resp.credential;
+  /* v2.22.2 — one-tap return: opened from the app (?src=app) → bounce the
+     Google token straight back via the smartcalc:// deep link. No 6-digit
+     typing. The code flow below stays as a manual fallback. */
+  if(IS_APP){
+    var back='smartcalc://auth?tok='+encodeURIComponent(gTok);
+    var rb=$('returnBtn');
+    if(rb){rb.style.display='flex';rb.onclick=function(){location.href=back;};}
+    var gs=$('gbtn');if(gs)gs.style.display='none';
+    var st=$('appSteps');if(st)st.style.display='block';
+    try{location.href=back;}catch(_){/* gesture needed → user taps the button */}
+    return;
+  }
+  fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key='+API_KEY,{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({postBody:'id_token='+gTok+'&providerId=google.com',requestUri:'https://'+AUTH_DOMAIN,returnSecureToken:true})
+  }).then(function(r){return r.json();}).then(function(j){
+    if(!j||!j.idToken){fail('Google sign-in did not complete — try again.');return;}
+    fbTok=j.idToken;email=j.email||'';name=j.displayName||'';
+    var w=$('who');w.style.display='block';
+    w.innerHTML='Signed in as <b>'+esc(email||'your Google account')+'</b> · <a id="switch">switch account</a>';
+    $('switch').onclick=function(){try{google.accounts.id.disableAutoSelect();}catch(_){}
+      $('codebox').style.display='none';stopTimer();gsignin();};
+    makeCode();
+  }).catch(function(){fail('Network error during sign-in — try again.');});
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+function sha256hex(t){
+  return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){
+    return Array.prototype.map.call(new Uint8Array(b),function(x){return('0'+x.toString(16)).slice(-2);}).join('');
+  });
+}
+
+function makeCode(){
+  clearFail();
+  var a=new Uint32Array(1);crypto.getRandomValues(a);
+  var code=String(100000+(a[0]%900000));
+  sha256hex(code).then(function(id){
+    var body={fields:{
+      tok:{stringValue:gTok},
+      email:{stringValue:email},
+      name:{stringValue:name},
+      exp:{integerValue:String(Date.now()+TTL)},
+      used:{booleanValue:false},
+      created:{timestampValue:new Date().toISOString()}
+    }};
+    return fetch(FS+'/pair_codes/'+id+'?key='+API_KEY,{
+      method:'PATCH',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+fbTok},
+      body:JSON.stringify(body)
+    }).then(function(r){
+      if(r.ok){showCode(code);}
+      else if(r.status===401||r.status===403){fail('Pairing service is being activated — please try again shortly. (owner: publish the pair_codes Firestore rules)');}
+      else{fail('Could not create a code ('+r.status+') — tap Regenerate.');}
+    });
+  }).catch(function(){fail('Crypto unavailable in this browser — try Chrome.');});
+}
+
+function showCode(code){
+  $('code').textContent=code;
+  $('codebox').style.display='block';
+  deadline=Date.now()+TTL;
+  stopTimer();
+  timer=setInterval(tick,250);
+  tick();
+}
+function stopTimer(){if(timer){clearInterval(timer);timer=null;}}
+function tick(){
+  var left=Math.max(0,deadline-Date.now());
+  var s=Math.ceil(left/1000),m=Math.floor(s/60),ss=('0'+(s%60)).slice(-2);
+  $('mm').textContent=m+':'+ss;
+  $('bar').style.width=(left/TTL*100)+'%';
+  if(left<=0){stopTimer();$('code').textContent='------';fail('Code expired — tap Regenerate.');}
+}
+
+/* app mode (?src=app): hide the 6-digit instructions, show the one-tap flow */
+if(/[?&]src=app/.test(location.search)){
+  var s1=$('stdStep1'),s2=$('stdStep2'),sl=$('subline'),tt=$('ttl');
+  if(s1)s1.style.display='none'; if(s2)s2.style.display='none';
+  if(tt)tt.textContent='Sign in to finish app setup';
+  if(sl)sl.innerHTML='One tap with Google — the app opens by itself after this.<br><span class="hi">Google से एक tap से sign in करें — इसके बाद app अपने-आप खुल जाएगी।</span>';
+  var as=$('appSteps');if(as)as.style.display='block';
+}
+$('regen').onclick=function(){if(fbTok){makeCode();}else{fail('Sign in first.');}};
+gsignin();
+})();
+</script>
+</body>
+</html>

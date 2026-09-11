@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50/30/20 Budget Calculator — Monthly Family Budget | MyFinancialPlan</title>
+<meta name="description" content="Free 50/30/20 budget calculator: split your take-home into needs, wants and investments in one click. Simple monthly budgeting for Indian families — no app, no signup.">
+<link rel="canonical" href="https://www.myfinancialplan.in/tools/budget-calculator/">
+<meta property="og:title" content="50/30/20 Budget Calculator — Monthly Family Budget | MyFinancialPlan">
+<meta property="og:description" content="Free 50/30/20 budget calculator: split your take-home into needs, wants and investments in one click. Simple monthly budgeting for Indian families — no app, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.myfinancialplan.in/tools/budget-calculator/">
+<meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+<link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I budget with a ₹50,000 salary in India?", "acceptedAnswer": {"@type": "Answer", "text": "50/30/20 → ₹25,000 needs, ₹15,000 wants, ₹10,000 investments. If rent crowds the needs bucket, run 60/25/15 and push back toward 20% as income grows."}}, {"@type": "Question", "name": "Should emergency fund come before SIP?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — 6 months of expenses in FD/liquid fund first; then SIPs. One hospital bill should never force a mutual-fund exit."}}, {"@type": "Question", "name": "Do EMIs count in needs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — home/car EMI goes in the 50% needs bucket; prepayments beyond EMI belong to the investment bucket."}}, {"@type": "Question", "name": "How do couples split the budget?", "acceptedAnswer": {"@type": "Answer", "text": "Combine take-home, run one set of buckets, and give both partners equal no-questions 'fun money' inside wants — budget fights end when the rule is written down once."}}]}</script>
+
+<style>
+:root{--ink:#17324A;--ink2:#44586E;--teal:#0E9D78;--indigo:#4C62CE;--amber:#BF7B0B;--cream:#FFF6E3;--mint:#DDF4EC;--lav:#E1E6FA;--line:#E3E9F1}
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#F7FAFC;line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px 90px}
+.top{position:sticky;top:0;z-index:9;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:10px;padding:10px 18px}
+.logo{height:46px}
+.top nav{margin-left:auto;display:flex;gap:14px;font-size:14px;font-weight:600}
+.top a{color:var(--ink2);text-decoration:none}
+.top a.hot{color:var(--teal)}
+.hero{padding:34px 0 10px}
+.kick{color:var(--teal);font-weight:700;letter-spacing:.08em;font-size:12px;text-transform:uppercase}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.15;letter-spacing:-.5px;margin:6px 0 10px}
+.sub{color:var(--ink2);font-size:16px;max-width:56ch}
+.calc{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 4px 24px -10px rgba(23,50,74,.12)}
+.calc label{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin:12px 0 4px;letter-spacing:.02em}
+.calc input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;font-weight:700;color:var(--ink);outline:none}
+.calc input:focus{border-color:var(--teal)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.res{border-radius:14px;padding:12px 12px;text-align:center}
+.res b{display:block;font-size:clamp(15px,4vw,20px)}
+.res span{font-size:11px;color:var(--ink2);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.r1{background:var(--lav)} .r2{background:var(--mint)} .r3{background:var(--cream)}
+.note{font-size:12px;color:var(--ink2);margin-top:10px}
+h2{font-size:22px;margin:30px 0 8px;letter-spacing:-.3px}
+h3{font-size:16.5px;margin:18px 0 4px}
+p{color:var(--ink2);margin:8px 0;font-size:15px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:8px 0}
+.faq summary{font-weight:700;cursor:pointer;list-style:none}
+.faq summary::before{content:'＋ ';color:var(--teal);font-weight:800}
+.faq details[open] summary::before{content:'− '}
+.faq details p{margin-top:8px}
+.cta{margin-top:26px;background:linear-gradient(135deg,#17324A,#1E4066);border-radius:20px;padding:26px;color:#fff;text-align:center}
+.cta h2{color:#fff;margin:0 0 6px}
+.cta p{color:#C8D6E4}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-block;padding:12px 20px;border-radius:99px;font-weight:800;text-decoration:none;font-size:14.5px}
+.b-teal{background:var(--teal);color:#fff} .b-wa{background:#25D366;color:#fff} .b-ghost{border:2px solid rgba(255,255,255,.35);color:#fff}
+.rel{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.rel a{background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:99px;font-size:13px;font-weight:700;color:var(--ink2);text-decoration:none}
+.rel a:hover{border-color:var(--teal);color:var(--teal)}
+.crumbs{font-size:12px;color:var(--ink2);padding:12px 0 0}
+.crumbs a{color:var(--indigo);text-decoration:none;font-weight:600}
+#fab{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;z-index:20}
+#fab a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.ft{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2);text-align:center}
+</style>
+
+<script>
+const fmt=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const num=id=>{const v=parseFloat(document.getElementById(id).value);return isNaN(v)?0:v;};
+function calc(){try{if(window._c)window._c();}catch(e){}}
+</script>
+
+<script>window._c=function(){const I=num('a');document.getElementById('o1').textContent=fmt(I*.5);document.getElementById('o2').textContent=fmt(I*.3);document.getElementById('o3').textContent=fmt(I*.2);document.getElementById('o4').textContent='Automate the '+fmt(I*.2)+' investment on salary day — pay yourself first, spend what is left.';};</script>
+
+<style>
+.vic,.wic{display:inline-flex;align-items:center;justify-content:center;margin:0 7px 0 0;transform:translateY(-1px)}
+.btn{display:inline-flex;align-items:center}
+.b-call{background:var(--indigo);color:#fff!important;border:none}
+#fab .vic,#fab .wic,#fabs .vic,#fabs .wic{margin:0;transform:none}
+#fab a svg,#fabs a svg{display:block}
+.vic svg{animation:vib 2.6s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.myfinancialplan.in/"},{"@type":"ListItem","position":2,"name":"Free tools","item":"https://www.myfinancialplan.in/tools/"},{"@type":"ListItem","position":3,"name":"50/30/20 Budget Calculator"}]}</script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="50/30/20 Budget Calculator — Monthly Family Budget | MyFinancialPlan">
+<meta name="twitter:description" content="Free 50/30/20 budget calculator: split your take-home into needs, wants and investments in one click. Simple monthly budgeting for Indian families — no app, no signup.">
+<meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
+  <nav><a href="/tools/">All tools</a><a class="hot" href="/app/">Open App</a></nav>
+</div></div>
+<div class="wrap">
+  <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › 50/30/20 Budget Calculator</p>
+  <div class="hero">
+    <span class="kick">Free tool · No sign-up · Instant result</span>
+    <h1>50/30/20 Budget Calculator</h1>
+    <p class="sub">One salary in — three clean buckets out. The simplest budget that actually works.</p>
+  </div>
+  <div class="calc"><label>Monthly take-home salary (₹)</label><input id='a' type='number' value='100000' min='5000' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1'>—</b><span>Needs (50%)</span></div><div class='res r2'><b id='o2'>—</b><span>Wants (30%)</span></div><div class='res r3'><b id='o3'>—</b><span>Investments (20%)</span></div></div><p class='note' id='o4'></p></div>
+  <h2>About this calculator</h2>
+  <p>The 50/30/20 rule divides your take-home into: 50% needs (rent, food, EMIs), 30% wants (fun, eating out, subscriptions) and 20% investments (SIPs, emergency fund, insurance). This calculator does the maths instantly and tells you if your family is on track.</p>
+  <h3>Customize the rule for your city</h3><p>In expensive metros, 60/25/15 may be realistic at first — the discipline matters more than the exact ratio. As salary grows, push the investment bucket toward 25–30% instead of upgrading wants.</p><h3>Pay yourself first</h3><p>Automate the 20% on salary day: standing instructions to SIP/PPF before spending starts. Willpower-based saving fails; automation never forgets.</p><h3>Budget vs tracker apps — which wins?</h3><p>Trackers analyse the past; buckets control the future. Families that give every rupee a job before the month starts save 2–3× more than trackers-only families.</p>
+  <h2>Frequently asked questions</h2>
+  <div class="faq"><details><summary>How do I budget with a ₹50,000 salary in India?</summary><p>50/30/20 → ₹25,000 needs, ₹15,000 wants, ₹10,000 investments. If rent crowds the needs bucket, run 60/25/15 and push back toward 20% as income grows.</p></details><details><summary>Should emergency fund come before SIP?</summary><p>Yes — 6 months of expenses in FD/liquid fund first; then SIPs. One hospital bill should never force a mutual-fund exit.</p></details><details><summary>Do EMIs count in needs?</summary><p>Yes — home/car EMI goes in the 50% needs bucket; prepayments beyond EMI belong to the investment bucket.</p></details><details><summary>How do couples split the budget?</summary><p>Combine take-home, run one set of buckets, and give both partners equal no-questions 'fun money' inside wants — budget fights end when the rule is written down once.</p></details></div>
+  <div class="cta">
+    <h2>Want the FULL plan — not just one number?</h2>
+    <p>SIPs, insurance shield, child goals, pension buckets and a branded PDF — in 5 minutes, free.</p>
+    <div class="btns">
+      <a class="btn b-teal" href="/app/">🚀 Open free planner</a>
+      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%2C%20I%20used%20your%2050/30/20%20Budget%20Calculator%20calculator%20—%20need%20a%20plan"><span class="wic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span> WhatsApp us</a>
+      <a class="btn b-call" href="tel:+918840192702"><span class="vic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.1 18.4-30 11.6-46.3l-40-96z"/></svg></span> 88401 92702</a>
+    </div>
+  </div>
+  <h2>More free tools</h2>
+  <div class="rel"><a href="/tools/sip-calculator/">SIP Calculator</a><a href="/tools/step-up-sip-calculator/">Step-Up SIP Calculator</a><a href="/tools/sip-goal-calculator/">SIP Goal Calculator</a><a href="/tools/swp-calculator/">SWP Calculator</a><a href="/tools/retirement-calculator/">Retirement Planning Calculator</a><a href="/tools/lumpsum-calculator/">Lumpsum Calculator</a><a href="/tools/future-value-calculator/">Future Value Calculator</a><a href="/tools/present-value-calculator/">Present Value Calculator</a><a href="/tools/emi-calculator/">EMI Calculator</a><a href="/tools/fd-calculator/">FD Calculator</a><a href="/tools/ppf-calculator/">PPF Calculator</a><a href="/tools/ssy-calculator/">SSY Calculator</a><a href="/tools/monthly-budget-planner/">Monthly Budget Planner</a></div>
+  <p class="ft">© My Financial Plan · myfinancialplan.in · Plan Today for Better Tomorrow · Results are estimates, not investment advice.</p>
+</div>
+<div id="fab">
+  <a href="tel:+918840192702" style="background:var(--indigo)" aria-label="Call"><span class="vic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.1 18.4-30 11.6-46.3l-40-96z"/></svg></span></a>
+  <a href="https://wa.me/918840192702" style="background:#25D366" aria-label="WhatsApp"><span class="wic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
+</div>
+<script>calc();</script>
+</body>
+</html>
