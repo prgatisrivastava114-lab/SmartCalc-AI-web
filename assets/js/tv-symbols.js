@@ -1,122 +1,145 @@
 /**
- * MyFinancialPlan.in - Centralized TradingView Symbol Configuration
- * Single source of truth for all TradingView market data widgets.
+ * MyFinancialPlan.in - Centralized TradingView Market Symbols & Widget Manager
+ * Single source of truth for all TradingView market data embeds across web & app.
+ *
+ * Total API / Data Cost: ₹0
+ * No paid APIs, no API keys required, no web scraping, no fake prices.
  */
 
-window.TV_MARKET_CONFIG = {
-  // Group 1: Indian Indices
+window.MARKET_SYMBOLS = {
+  // 1. Indian Indices
   indianIndices: [
-    { s: "BSE:SENSEX", d: "SENSEX" },
-    { s: "INDEX:NIFTY", d: "NIFTY 50" },
-    { s: "NSE:NIFTYBANK", d: "BANK NIFTY" },
-    { s: "NSE:NIFTYIT", d: "NIFTY IT" }
+    { symbol: "INDEX:NIFTY", name: "NIFTY 50" },
+    { symbol: "BSE:SENSEX", name: "SENSEX" },
+    { symbol: "NSE:NIFTYBANK", name: "NIFTY BANK" },
+    { symbol: "NSE:NIFTYIT", name: "NIFTY IT" },
+    { symbol: "NSE:NIFTYMIDCAP50", name: "NIFTY MIDCAP 50" }
   ],
 
-  // Group 2: Top Indian Equities
-  topIndianEquities: [
-    { s: "NSE:RELIANCE", d: "Reliance Industries" },
-    { s: "NSE:HDFCBANK", d: "HDFC Bank" },
-    { s: "NSE:TCS", d: "TCS" },
-    { s: "NSE:ICICIBANK", d: "ICICI Bank" },
-    { s: "NSE:INFY", d: "Infosys" },
-    { s: "NSE:SBIN", d: "State Bank of India" },
-    { s: "NSE:BHARTIARTL", d: "Bharti Airtel" },
-    { s: "NSE:ITC", d: "ITC" },
-    { s: "NSE:LT", d: "Larsen & Toubro" },
-    { s: "NSE:TATAMOTORS", d: "Tata Motors" },
-    { s: "NSE:AXISBANK", d: "Axis Bank" },
-    { s: "NSE:KOTAKBANK", d: "Kotak Bank" },
-    { s: "NSE:SUNPHARMA", d: "Sun Pharma" },
-    { s: "NSE:MARUTI", d: "Maruti Suzuki" },
-    { s: "NSE:TITAN", d: "Titan" },
-    { s: "NSE:TATASTEEL", d: "Tata Steel" },
-    { s: "NSE:BAJFINANCE", d: "Bajaj Finance" }
+  // 2. Top Indian Equities
+  indianEquities: [
+    { symbol: "NSE:ICICIBANK", name: "ICICI Bank" },
+    { symbol: "NSE:INFY", name: "Infosys" },
+    { symbol: "NSE:SBIN", name: "State Bank of India" },
+    { symbol: "NSE:BHARTIARTL", name: "Bharti Airtel" },
+    { symbol: "NSE:LT", name: "Larsen & Toubro" },
+    { symbol: "NSE:RELIANCE", name: "Reliance Industries" },
+    { symbol: "NSE:HDFCBANK", name: "HDFC Bank" },
+    { symbol: "NSE:TCS", name: "TCS" },
+    { symbol: "NSE:TATAMOTORS", name: "Tata Motors" },
+    { symbol: "NSE:AXISBANK", name: "Axis Bank" },
+    { symbol: "NSE:KOTAKBANK", name: "Kotak Bank" },
+    { symbol: "NSE:SUNPHARMA", name: "Sun Pharma" },
+    { symbol: "NSE:MARUTI", name: "Maruti Suzuki" },
+    { symbol: "NSE:TITAN", name: "Titan" },
+    { symbol: "NSE:TATASTEEL", name: "Tata Steel" },
+    { symbol: "NSE:BAJFINANCE", name: "Bajaj Finance" }
   ],
 
-  // Group 3: Global Indices
+  // 3. Global Indices
   globalIndices: [
-    { s: "SP:SPX", d: "S&P 500" },
-    { s: "NASDAQ:NDX", d: "NASDAQ 100" },
-    { s: "TVC:DJI", d: "DOW JONES" }
+    { symbol: "SP:SPX", name: "S&P 500" },
+    { symbol: "NASDAQ:NDX", name: "NASDAQ 100" },
+    { symbol: "TVC:DJI", name: "Dow Jones" },
+    { symbol: "INDEX:UKX", name: "FTSE 100" },
+    { symbol: "INDEX:DAX", name: "DAX" },
+    { symbol: "TVC:NI225", name: "Nikkei 225" },
+    { symbol: "INDEX:HSI", name: "Hang Seng" }
   ],
 
-  // Group 4: Commodities
+  // 4. Commodities
   commodities: [
-    { s: "TVC:GOLD", d: "Gold 24K" },
-    { s: "TVC:SILVER", d: "Silver" },
-    { s: "TVC:USOIL", d: "Crude Oil" }
+    { symbol: "TVC:GOLD", name: "Gold" },
+    { symbol: "TVC:SILVER", name: "Silver" },
+    { symbol: "TVC:USOIL", name: "WTI Crude Oil" },
+    { symbol: "TVC:UKOIL", name: "Brent Crude" },
+    { symbol: "TVC:NATGAS", name: "Natural Gas" }
   ],
 
-  // Group 5: Currencies
+  // 5. Currencies
   currencies: [
-    { s: "FX_IDC:USDINR", d: "USD / INR" },
-    { s: "FX_IDC:EURINR", d: "EUR / INR" },
-    { s: "FX_IDC:GBPINR", d: "GBP / INR" }
+    { symbol: "FX_IDC:USDINR", name: "USD/INR" },
+    { symbol: "FX_IDC:EURINR", name: "EUR/INR" },
+    { symbol: "FX_IDC:GBPINR", name: "GBP/INR" },
+    { symbol: "FX_IDC:EURUSD", name: "EUR/USD" },
+    { symbol: "FX_IDC:GBPUSD", name: "GBP/USD" },
+    { symbol: "FX_IDC:USDJPY", name: "USD/JPY" }
   ]
 };
 
 /**
- * Validate and build ticker tape symbols array
+ * Validates symbol format (MUST be EXCHANGE:SYMBOL)
  */
-window.getTvTickerSymbols = function() {
-  var cfg = window.TV_MARKET_CONFIG;
-  var items = [];
-
-  function addGroup(arr) {
-    if (!arr) return;
-    arr.forEach(function(item) {
-      if (item && item.s && item.s.indexOf(':') !== -1) {
-        items.push({ proName: item.s, title: item.d });
-      } else if (item && item.fallback && item.fallback.indexOf(':') !== -1) {
-        items.push({ proName: item.fallback, title: item.d });
-      } else {
-        if (typeof console !== 'undefined' && console.warn) {
-          console.warn('[TradingView] Invalid or unmapped symbol skipped:', item);
-        }
-      }
-    });
+window.validateTvSymbol = function(item) {
+  if (!item || !item.symbol) return null;
+  var sym = String(item.symbol).trim();
+  if (sym.indexOf(':') === -1) {
+    if (typeof console !== 'undefined' && console.warn) {
+      console.warn('[TradingView] Rejected bare or invalid symbol (missing EXCHANGE: prefix):', sym);
+    }
+    return null;
   }
-
-  addGroup(cfg.indianIndices);
-  addGroup(cfg.currencies);
-  addGroup(cfg.commodities);
-  addGroup(cfg.topIndianEquities);
-  addGroup(cfg.globalIndices);
-
-  return items;
+  return { symbol: sym, name: item.name || sym };
 };
 
 /**
- * Validate and build market overview tabs array
+ * Builds validated symbols array for Market Overview widget tabs
  */
 window.getTvOverviewTabs = function() {
-  var cfg = window.TV_MARKET_CONFIG;
+  var cfg = window.MARKET_SYMBOLS;
 
-  function filterSymbols(arr) {
-    if (!arr) return [];
-    return arr.filter(function(item) {
-      if (item && item.s && item.s.indexOf(':') !== -1) return true;
-      if (typeof console !== 'undefined' && console.warn) {
-        console.warn('[TradingView] Invalid symbol removed from tab:', item);
+  function buildTabSymbols(arr) {
+    var valid = [];
+    if (!arr) return valid;
+    arr.forEach(function(item) {
+      var v = window.validateTvSymbol(item);
+      if (v) {
+        valid.push({ s: v.symbol, d: v.name });
       }
-      return false;
     });
+    return valid;
   }
 
   return [
-    { title: "Indian Indices", symbols: filterSymbols(cfg.indianIndices) },
-    { title: "Top Indian Equities", symbols: filterSymbols(cfg.topIndianEquities) },
-    { title: "Global Indices", symbols: filterSymbols(cfg.globalIndices) },
-    { title: "Commodities", symbols: filterSymbols(cfg.commodities) },
-    { title: "Currencies", symbols: filterSymbols(cfg.currencies) }
+    { title: "Indian Indices", symbols: buildTabSymbols(cfg.indianIndices) },
+    { title: "Top Indian Equities", symbols: buildTabSymbols(cfg.indianEquities) },
+    { title: "Global Indices", symbols: buildTabSymbols(cfg.globalIndices) },
+    { title: "Commodities", symbols: buildTabSymbols(cfg.commodities) },
+    { title: "Currencies", symbols: buildTabSymbols(cfg.currencies) }
   ];
 };
 
 /**
- * Single Centralized TradingView Widget Initializer
+ * Builds validated symbols array for Ticker Tape widget
+ */
+window.getTvTickerTapeSymbols = function() {
+  var tapeList = [
+    { symbol: "INDEX:NIFTY", name: "NIFTY 50" },
+    { symbol: "BSE:SENSEX", name: "SENSEX" },
+    { symbol: "NSE:ICICIBANK", name: "ICICI BANK" },
+    { symbol: "NSE:INFY", name: "INFOSYS" },
+    { symbol: "NSE:SBIN", name: "SBI" },
+    { symbol: "NSE:BHARTIARTL", name: "AIRTEL" },
+    { symbol: "TVC:GOLD", name: "GOLD 24K" },
+    { symbol: "TVC:USOIL", name: "CRUDE OIL" },
+    { symbol: "FX_IDC:USDINR", name: "USD/INR" }
+  ];
+
+  var valid = [];
+  tapeList.forEach(function(item) {
+    var v = window.validateTvSymbol(item);
+    if (v) {
+      valid.push({ proName: v.symbol, title: v.name });
+    }
+  });
+  return valid;
+};
+
+/**
+ * Single TradingView Widget Initializer with Error & WebView Fallback Handling
  */
 window.initTradingViewWidgets = function() {
-  // 1. Ticker Tape Containers
+  // 1. Initialize Ticker Tape Containers
   var tickerContainers = document.querySelectorAll('.tv-ticker-tape-container');
   tickerContainers.forEach(function(container) {
     if (container.dataset.tvInitialized) return;
@@ -129,7 +152,7 @@ window.initTradingViewWidgets = function() {
       container.appendChild(widgetBox);
     }
 
-    var symbols = window.getTvTickerSymbols();
+    var symbols = window.getTvTickerTapeSymbols();
     var config = {
       symbols: symbols,
       showSymbolLogo: true,
@@ -147,7 +170,7 @@ window.initTradingViewWidgets = function() {
     container.appendChild(script);
   });
 
-  // 2. Market Overview Containers
+  // 2. Initialize Market Overview Containers
   var overviewContainers = document.querySelectorAll('.tv-market-overview-container');
   overviewContainers.forEach(function(container) {
     if (container.dataset.tvInitialized) return;
@@ -188,6 +211,11 @@ window.initTradingViewWidgets = function() {
     script.type = 'text/javascript';
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
     script.async = true;
+    script.onerror = function() {
+      // Graceful fallback for restricted WebViews or offline environments
+      var fallbackMsg = container.querySelector('.tv-fallback-msg');
+      if (fallbackMsg) fallbackMsg.style.display = 'block';
+    };
     script.innerHTML = JSON.stringify(config);
     container.appendChild(script);
   });

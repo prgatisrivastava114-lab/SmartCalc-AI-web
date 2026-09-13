@@ -102,11 +102,16 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 
 <div class="top"><div class="wrap"><a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a><nav><a class="hot" href="/app/">Open App</a></nav>
 
-<!-- Centralized Official TradingView Ticker Tape -->
+<!-- Official TradingView Ticker Tape -->
 <div class="tv-ticker-tape-container" style="margin-top:64px;width:100%;min-height:48px;background:#0B192C;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
   <div class="tradingview-widget-container" style="width:100%;height:48px">
     <div class="tradingview-widget-container__widget"></div>
   </div>
+</div>
+
+
+<!-- Centralized Official TradingView Ticker Tape -->
+
 </div>
 
 
@@ -136,7 +141,10 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 
 
 
-<!-- Official TradingView Market Overview Dashboard -->
+
+
+
+<!-- Official TradingView Market Overview Section -->
 <section id="market" style="padding:40px 0;background:#F8FAFC">
   <div class="wrap rise">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
@@ -146,13 +154,18 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
       </div>
     </div>
 
+    <!-- TradingView Market Overview Container -->
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:16px;box-shadow:0 4px 20px -8px rgba(0,0,0,.08);overflow:hidden;min-height:500px">
       <div class="tv-market-overview-container" style="min-height:500px;width:100%">
         <div class="tradingview-widget-container" style="height:500px;width:100%">
           <div class="tradingview-widget-container__widget" style="height:500px;width:100%"></div>
         </div>
+        <div class="tv-fallback-msg" style="display:none;font-size:12.5px;color:var(--ink2);text-align:center;padding:20px">Market data is temporarily unavailable in this view. Please open the web version.</div>
       </div>
     </div>
+
+    <!-- Small Professional Market Disclaimer -->
+    <p style="font-size:11.5px;color:var(--ink2);margin-top:12px;text-align:center;line-height:1.5">Market data is provided for informational purposes only. Prices may be delayed depending on the exchange/data source. MyFinancialPlan.in does not provide investment advice through this market display.</p>
   </div>
 </section>
 
