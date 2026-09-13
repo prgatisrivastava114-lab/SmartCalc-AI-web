@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting... — MyFinancialPlan.in</title>
+<script>
+(function() {
+  var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
+  if (path === '/privacy' || path === '/privacy.html') {
+    window.location.replace('/privacy.html');
+  } else if (path === '/terms' || path === '/terms.html') {
+    window.location.replace('/terms.html');
+  } else if (path === '/refund' || path === '/refund.html') {
+    window.location.replace('/refund.html');
+  } else if (path === '/cookies' || path === '/cookies.html') {
+    window.location.replace('/cookies.html');
+  } else if (path === '/legal') {
+    window.location.replace('/#legal');
+  } else {
+    window.location.replace('/');
+  }
+})();
+</script>
+</head>
+<body>
+<p>Redirecting to <a href="/">MyFinancialPlan.in</a>...</p>
+</body>
+</html>
