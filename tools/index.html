@@ -88,10 +88,13 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 
 
 
-<!-- Official TradingView & Google Finance Live Real-Time Market Suite -->
-<div class="mkt-dual-bar" style="margin-top:64px;background:#0B192C;box-shadow:0 4px 12px rgba(0,0,0,0.25)">
+
+
+
+<!-- Official TradingView Live Market Dual Ticker Suite -->
+<div class="mkt-dual-bar" style="margin-top:64px;background:#0B192C;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
   
-  <!-- TradingView Official Live Ticker Tape Container -->
+  <!-- Ticker Strip 1: Indices, Forex & Commodities -->
   <div style="width:100%;height:46px;background:#0B192C;overflow:hidden;border-bottom:1px solid #1E3E62">
     <div class="tradingview-widget-container" style="width:100%;height:46px">
       <div class="tradingview-widget-container__widget"></div>
@@ -101,17 +104,13 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
         { "proName": "INDEX:NIFTY", "title": "NIFTY 50" },
         { "proName": "INDEX:SENSEX", "title": "SENSEX" },
         { "proName": "NSE:NIFTYBANK", "title": "BANK NIFTY" },
-        { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
-        { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
-        { "proName": "NSE:TCS", "title": "TCS" },
-        { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
-        { "proName": "NSE:INFY", "title": "INFOSYS" },
-        { "proName": "NSE:SBIN", "title": "SBI" },
-        { "proName": "NSE:BHARTIARTL", "title": "AIRTEL" },
-        { "proName": "NSE:ITC", "title": "ITC" },
-        { "proName": "NSE:TATAMOTORS", "title": "TATA MOTORS" },
-        { "proName": "FX_IDC:USDINR", "title": "USD/INR" },
-        { "proName": "MCX:GOLDP1!", "title": "GOLD 24K" }
+        { "proName": "NSE:NIFTYIT", "title": "NIFTY IT" },
+        { "proName": "FX_IDC:USDINR", "title": "USD / INR" },
+        { "proName": "MCX:GOLDP1!", "title": "GOLD 24K" },
+        { "proName": "MCX:SILVERP1!", "title": "SILVER" },
+        { "proName": "TVC:USOIL", "title": "CRUDE OIL" },
+        { "proName": "SP:SPX", "title": "S&P 500" },
+        { "proName": "NASDAQ:NDX", "title": "NASDAQ 100" }
       ],
       "showSymbolLogo": true,
       "colorTheme": "dark",
@@ -123,114 +122,44 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
     </div>
   </div>
 
-  <!-- Lower Strip: Native Opposite-Scrolling Google Finance Feed -->
-  <div class="mkt-strip-wrap" style="background:#050E1A;border-top:1px solid #132A45">
-    <div class="mkt-track mkt-track-right">
-      <div class="mkt-pill"><span>RELIANCE</span><b>₹2,985.40</b><span class="mkt-badge-up">▲ +1.09%</span></div>
-      <div class="mkt-pill"><span>HDFC BANK</span><b>₹1,682.50</b><span class="mkt-badge-up">▲ +1.46%</span></div>
-      <div class="mkt-pill"><span>TCS</span><b>₹4,215.80</b><span class="mkt-badge-down">▼ -0.29%</span></div>
-      <div class="mkt-pill"><span>ICICI BANK</span><b>₹1,224.60</b><span class="mkt-badge-up">▲ +1.51%</span></div>
-      <div class="mkt-pill"><span>INFOSYS</span><b>₹1,885.30</b><span class="mkt-badge-up">▲ +0.82%</span></div>
-      <div class="mkt-pill"><span>SBI</span><b>₹816.50</b><span class="mkt-badge-down">▼ -0.51%</span></div>
-      <div class="mkt-pill"><span>BHARTI AIRTEL</span><b>₹1,565.80</b><span class="mkt-badge-up">▲ +1.43%</span></div>
-      <div class="mkt-pill"><span>ITC</span><b>₹498.20</b><span class="mkt-badge-up">▲ +0.63%</span></div>
-      <div class="mkt-pill"><span>L&T</span><b>₹3,625.40</b><span class="mkt-badge-up">▲ +0.87%</span></div>
-      <div class="mkt-pill"><span>TATA MOTORS</span><b>₹982.50</b><span class="mkt-badge-up">▲ +1.48%</span></div>
-      <div class="mkt-pill"><span>AXIS BANK</span><b>₹1,185.30</b><span class="mkt-badge-up">▲ +0.71%</span></div>
-      <div class="mkt-pill"><span>KOTAK BANK</span><b>₹1,745.20</b><span class="mkt-badge-down">▼ -0.29%</span></div>
-      <div class="mkt-pill"><span>MARUTI SUZUKI</span><b>₹12,480.00</b><span class="mkt-badge-up">▲ +0.69%</span></div>
-      <div class="mkt-pill"><span>M&M</span><b>₹2,855.60</b><span class="mkt-badge-up">▲ +1.61%</span></div>
-      <div class="mkt-pill"><span>TITAN</span><b>₹3,425.80</b><span class="mkt-badge-up">▲ +0.95%</span></div>
-      <div class="mkt-pill"><span>ULTRATECH CEMENT</span><b>₹11,280.00</b><span class="mkt-badge-up">▲ +0.67%</span></div>
-      <div class="mkt-pill"><span>TATA STEEL</span><b>₹158.80</b><span class="mkt-badge-up">▲ +1.34%</span></div>
-      <!-- Duplicate for infinite marquee -->
-      <div class="mkt-pill"><span>RELIANCE</span><b>₹2,985.40</b><span class="mkt-badge-up">▲ +1.09%</span></div>
-      <div class="mkt-pill"><span>HDFC BANK</span><b>₹1,682.50</b><span class="mkt-badge-up">▲ +1.46%</span></div>
-      <div class="mkt-pill"><span>TCS</span><b>₹4,215.80</b><span class="mkt-badge-down">▼ -0.29%</span></div>
-      <div class="mkt-pill"><span>ICICI BANK</span><b>₹1,224.60</b><span class="mkt-badge-up">▲ +1.51%</span></div>
-      <div class="mkt-pill"><span>INFOSYS</span><b>₹1,885.30</b><span class="mkt-badge-up">▲ +0.82%</span></div>
-      <div class="mkt-pill"><span>SBI</span><b>₹816.50</b><span class="mkt-badge-down">▼ -0.51%</span></div>
-      <div class="mkt-pill"><span>BHARTI AIRTEL</span><b>₹1,565.80</b><span class="mkt-badge-up">▲ +1.43%</span></div>
-      <div class="mkt-pill"><span>ITC</span><b>₹498.20</b><span class="mkt-badge-up">▲ +0.63%</span></div>
-      <div class="mkt-pill"><span>L&T</span><b>₹3,625.40</b><span class="mkt-badge-up">▲ +0.87%</span></div>
-      <div class="mkt-pill"><span>TATA MOTORS</span><b>₹982.50</b><span class="mkt-badge-up">▲ +1.48%</span></div>
+  <!-- Ticker Strip 2: Top NSE Equities -->
+  <div style="width:100%;height:46px;background:#050E1A;overflow:hidden">
+    <div class="tradingview-widget-container" style="width:100%;height:46px">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+      "symbols": [
+        { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
+        { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
+        { "proName": "NSE:TCS", "title": "TCS" },
+        { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
+        { "proName": "NSE:INFY", "title": "INFOSYS" },
+        { "proName": "NSE:SBIN", "title": "SBI" },
+        { "proName": "NSE:BHARTIARTL", "title": "AIRTEL" },
+        { "proName": "NSE:ITC", "title": "ITC" },
+        { "proName": "NSE:LT", "title": "L&T" },
+        { "proName": "NSE:TATAMOTORS", "title": "TATA MOTORS" },
+        { "proName": "NSE:AXISBANK", "title": "AXIS BANK" },
+        { "proName": "NSE:KOTAKBANK", "title": "KOTAK BANK" },
+        { "proName": "NSE:SUNPHARMA", "title": "SUN PHARMA" },
+        { "proName": "NSE:M_M", "title": "M&M" },
+        { "proName": "NSE:MARUTI", "title": "MARUTI" },
+        { "proName": "NSE:TITAN", "title": "TITAN" },
+        { "proName": "NSE:ULTRACEMCO", "title": "ULTRATECH" },
+        { "proName": "NSE:TATASTEEL", "title": "TATA STEEL" },
+        { "proName": "NSE:BAJFINANCE", "title": "BAJAJ FIN" }
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "locale": "in"
+    }
+      </script>
     </div>
   </div>
+
 </div>
-
-<style>
-.mkt-dual-bar {
-  width: 100%;
-  font-family: system-ui, -apple-system, sans-serif;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-  position: relative;
-  z-index: 50;
-  margin-top: 64px;
-}
-.mkt-strip-wrap {
-  overflow: hidden;
-  width: 100%;
-  background: #0B192C;
-  border-bottom: 1px solid #1E3E62;
-  user-select: none;
-  display: flex;
-  align-items: center;
-}
-.mkt-track {
-  display: flex;
-  width: max-content;
-  gap: 12px;
-  padding: 6px 0;
-  will-change: transform;
-}
-.mkt-track-right {
-  animation: marqueeRight 85s linear infinite;
-}
-.mkt-strip-wrap:hover .mkt-track {
-  animation-play-state: paused;
-}
-.mkt-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 4px 12px;
-  border-radius: 99px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #F1F5F9;
-  white-space: nowrap;
-}
-.mkt-pill span { color: #CBD5E1; font-weight: 700; }
-.mkt-pill b { color: #FFFFFF; font-weight: 900; font-size: 12.5px; }
-
-.mkt-badge-up {
-  color: #00FFA3 !important;
-  background: rgba(0, 255, 163, 0.22) !important;
-  border: 1px solid rgba(0, 255, 163, 0.4) !important;
-  padding: 2px 7px !important;
-  border-radius: 6px !important;
-  font-size: 11.5px !important;
-  font-weight: 800 !important;
-  text-shadow: 0 0 6px rgba(0, 255, 163, 0.6);
-}
-.mkt-badge-down {
-  color: #FF4D4D !important;
-  background: rgba(255, 77, 77, 0.22) !important;
-  border: 1px solid rgba(255, 77, 77, 0.4) !important;
-  padding: 2px 7px !important;
-  border-radius: 6px !important;
-  font-size: 11.5px !important;
-  font-weight: 800 !important;
-  text-shadow: 0 0 6px rgba(255, 77, 77, 0.6);
-}
-
-@keyframes marqueeRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
-}
-</style>
 
 <div class="top"><div class="wrap"><a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a><nav><a class="hot" href="/app/">Open App</a></nav></div></div>
 <div class="wrap">
@@ -241,232 +170,84 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 
 
 
-<!-- Custom Native Google Finance Interactive Market Dashboard -->
+
+
+
+<!-- Official TradingView Market Overview Section -->
 <section id="market" style="padding:40px 0;background:#F8FAFC">
   <div class="wrap rise">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
       <div>
-        <span class="kick" style="background:#E2E8F0;color:#1E293B;font-weight:800">📈 Google Finance Data Feed</span>
-        <h2 class="sec-h" style="margin:4px 0 2px">Live Indian Market Dashboard</h2>
-      </div>
-      <div style="font-size:12px;font-weight:700;color:#64748B;background:#fff;padding:6px 12px;border-radius:99px;border:1px solid #E2E8F0;display:flex;align-items:center;gap:6px">
-        <span style="width:8px;height:8px;border-radius:50%;background:#10B981;display:inline-block"></span> Live Market Feed (NSE / BSE)
+        <span class="kick" style="background:#E2E8F0;color:#1E293B;font-weight:800">📈 Official TradingView Live Feed</span>
+        <h2 class="sec-h" style="margin:4px 0 2px">Live Indian & Global Markets</h2>
       </div>
     </div>
 
-    <!-- Main Google Finance Card -->
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:22px;box-shadow:0 4px 20px -8px rgba(0,0,0,.08)">
-      
-      <!-- Symbol Tabs Bar -->
-      <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:16px;border-bottom:1px solid #F1F5F9;-webkit-overflow-scrolling:touch">
-        <button class="gf-tab active" onclick="loadGfStock('NIFTY')">NIFTY 50</button>
-        <button class="gf-tab" onclick="loadGfStock('SENSEX')">SENSEX</button>
-        <button class="gf-tab" onclick="loadGfStock('BANKNIFTY')">BANK NIFTY</button>
-        <button class="gf-tab" onclick="loadGfStock('RELIANCE')">Reliance</button>
-        <button class="gf-tab" onclick="loadGfStock('HDFCBANK')">HDFC Bank</button>
-        <button class="gf-tab" onclick="loadGfStock('TCS')">TCS</button>
-        <button class="gf-tab" onclick="loadGfStock('SBIN')">SBI</button>
-        <button class="gf-tab" onclick="loadGfStock('GOLD')">Gold (24K)</button>
-        <button class="gf-tab" onclick="loadGfStock('USDINR')">USD / INR</button>
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:16px;box-shadow:0 4px 20px -8px rgba(0,0,0,.08);overflow:hidden;min-height:500px">
+      <div class="tradingview-widget-container" style="height:500px;width:100%">
+        <div class="tradingview-widget-container__widget" style="height:500px;width:100%"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+        "colorTheme": "light",
+        "dateRange": "12M",
+        "showChart": true,
+        "locale": "in",
+        "largeChartUrl": "",
+        "isTransparent": false,
+        "showSymbolLogo": true,
+        "showFloatingTooltip": true,
+        "width": "100%",
+        "height": "500",
+        "plotLineColorGrowing": "rgba(14, 157, 120, 1)",
+        "plotLineColorFalling": "rgba(214, 69, 69, 1)",
+        "gridLineColor": "rgba(240, 243, 250, 0.6)",
+        "scaleFontColor": "rgba(19, 23, 34, 1)",
+        "belowLineFillColorGrowing": "rgba(221, 244, 236, 0.5)",
+        "belowLineFillColorFalling": "rgba(253, 234, 234, 0.5)",
+        "belowLineFillColorGrowingBottom": "rgba(221, 244, 236, 0)",
+        "belowLineFillColorFallingBottom": "rgba(253, 234, 234, 0)",
+        "symbolActiveColor": "rgba(76, 98, 206, 0.12)",
+        "tabs": [
+          {
+            "title": "Indian Indices",
+            "symbols": [
+              { "s": "INDEX:NIFTY", "d": "NIFTY 50" },
+              { "s": "INDEX:SENSEX", "d": "SENSEX" },
+              { "s": "NSE:NIFTYBANK", "d": "BANK NIFTY" },
+              { "s": "NSE:NIFTYIT", "d": "NIFTY IT" },
+              { "s": "NSE:NIFTYMIDCAP100", "d": "NIFTY MIDCAP" }
+            ]
+          },
+          {
+            "title": "Top Indian Equities",
+            "symbols": [
+              { "s": "NSE:RELIANCE", "d": "Reliance Industries" },
+              { "s": "NSE:HDFCBANK", "d": "HDFC Bank" },
+              { "s": "NSE:TCS", "d": "TCS" },
+              { "s": "NSE:ICICIBANK", "d": "ICICI Bank" },
+              { "s": "NSE:INFY", "d": "Infosys" },
+              { "s": "NSE:SBIN", "d": "State Bank of India" },
+              { "s": "NSE:BHARTIARTL", "d": "Bharti Airtel" },
+              { "s": "NSE:LT", "d": "Larsen & Toubro" }
+            ]
+          },
+          {
+            "title": "Forex & Commodities",
+            "symbols": [
+              { "s": "FX_IDC:USDINR", "d": "USD / INR" },
+              { "s": "FX_IDC:EURINR", "d": "EUR / INR" },
+              { "s": "MCX:GOLDP1!", "d": "Gold 24K" },
+              { "s": "MCX:SILVERP1!", "d": "Silver" },
+              { "s": "TVC:USOIL", "d": "Crude Oil" }
+            ]
+          }
+        ]
+      }
+        </script>
       </div>
-
-      <!-- Header Info Grid -->
-      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px">
-        <div>
-          <h3 id="gf-name" style="font-size:22px;font-weight:900;color:#0F172A;margin:0">NIFTY 50 Index</h3>
-          <div id="gf-exchange" style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">NSE · INDEXNSE: NIFTY_50</div>
-        </div>
-
-        <div style="text-align:right">
-          <div id="gf-price" style="font-size:28px;font-weight:900;color:#0F172A">23,398.10</div>
-          <div id="gf-change" style="font-size:14px;font-weight:800;color:#0E9D78">▲ +112.40 (+0.48%) <span style="font-size:11px;color:#64748B;font-weight:600">Today</span></div>
-        </div>
-      </div>
-
-      <!-- Timeframe Selector Tabs -->
-      <div style="display:flex;gap:6px;margin:16px 0 12px;background:#F8FAFC;padding:4px;border-radius:10px;width:max-content">
-        <button class="gf-tf active" onclick="setGfTimeframe('1D')">1D</button>
-        <button class="gf-tf" onclick="setGfTimeframe('1W')">1W</button>
-        <button class="gf-tf" onclick="setGfTimeframe('1M')">1M</button>
-        <button class="gf-tf" onclick="setGfTimeframe('1Y')">1Y</button>
-        <button class="gf-tf" onclick="setGfTimeframe('5Y')">5Y</button>
-      </div>
-
-      <!-- Interactive SVG Line Chart Container -->
-      <div style="position:relative;width:100%;height:220px;background:#FBFCFE;border-radius:14px;border:1px solid #F1F5F9;padding:10px 0;overflow:hidden">
-        <svg id="gf-chart" viewBox="0 0 600 200" preserveAspectRatio="none" style="width:100%;height:100%">
-          <defs>
-            <linearGradient id="gf-grad-up" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0E9D78" stop-opacity="0.25"/>
-              <stop offset="100%" stop-color="#0E9D78" stop-opacity="0.0"/>
-            </linearGradient>
-            <linearGradient id="gf-grad-down" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#D64545" stop-opacity="0.25"/>
-              <stop offset="100%" stop-color="#D64545" stop-opacity="0.0"/>
-            </linearGradient>
-          </defs>
-          <path id="gf-area" fill="url(#gf-grad-up)" d=""/>
-          <path id="gf-line" fill="none" stroke="#0E9D78" stroke-width="2.5" stroke-linejoin="round" d=""/>
-        </svg>
-      </div>
-
-      <!-- Key Metrics Table Grid -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:14px;margin-top:20px;padding-top:16px;border-top:1px solid #F1F5F9;font-size:12.5px">
-        <div>
-          <span style="color:#64748B;display:block;font-weight:600">Previous Close</span>
-          <b id="gf-prev" style="color:#0F172A;font-size:14px;font-weight:800">23,285.70</b>
-        </div>
-        <div>
-          <span style="color:#64748B;display:block;font-weight:600">Day Range</span>
-          <b id="gf-dayrange" style="color:#0F172A;font-size:14px;font-weight:800">23,250 – 23,420</b>
-        </div>
-        <div>
-          <span style="color:#64748B;display:block;font-weight:600">52-Wk High / Low</span>
-          <b id="gf-52range" style="color:#0F172A;font-size:14px;font-weight:800">26,277 – 21,280</b>
-        </div>
-        <div>
-          <span style="color:#64748B;display:block;font-weight:600">P/E Ratio</span>
-          <b id="gf-pe" style="color:#0F172A;font-size:14px;font-weight:800">22.84</b>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
-
-<style>
-.gf-tab{background:none;border:none;padding:6px 14px;border-radius:99px;font-size:13px;font-weight:700;color:#64748B;cursor:pointer;white-space:nowrap;transition:all .18s}
-.gf-tab.active, .gf-tab:hover{background:#0F172A;color:#fff}
-.gf-tf{background:none;border:none;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#64748B;cursor:pointer}
-.gf-tf.active{background:#fff;color:#0F172A;box-shadow:0 1px 4px rgba(0,0,0,.1)}
-</style>
-
-<script>
-var GF_DATA = {
-  'NIFTY': { name:'NIFTY 50 Index', ex:'NSE · INDEXNSE: NIFTY_50', price:24964.25, prev:24851.85, dayLow:24820, dayHigh:25010, low52:21280, high52:26277, pe:'22.84', points:[24851, 24890, 24870, 24920, 24910, 24950, 24964] },
-  'SENSEX': { name:'BSE SENSEX Index', ex:'BSE · INDEXBSE: SENSEX', price:81688.40, prev:81268.25, dayLow:81200, dayHigh:81850, low52:70120, high52:85978, pe:'23.12', points:[81268, 81350, 81310, 81500, 81480, 81620, 81688] },
-  'BANKNIFTY': { name:'NIFTY BANK Index', ex:'NSE · INDEXNSE: NIFTY_BANK', price:51520.10, prev:51327.80, dayLow:51280, dayHigh:51650, low52:43600, high52:58500, pe:'16.45', points:[51327, 51380, 51350, 51460, 51420, 51500, 51520] },
-  'RELIANCE': { name:'Reliance Industries Ltd', ex:'NSE · RELIANCE', price:2985.40, prev:2953.30, dayLow:2945, dayHigh:2998, low52:2220, high52:3217, pe:'26.40', points:[2953, 2962, 2958, 2975, 2970, 2982, 2985] },
-  'HDFCBANK': { name:'HDFC Bank Ltd', ex:'NSE · HDFCBANK', price:1682.50, prev:1658.35, dayLow:1652, dayHigh:1690, low52:1363, high52:1794, pe:'19.80', points:[1658, 1665, 1660, 1675, 1672, 1680, 1682] },
-  'TCS': { name:'Tata Consultancy Services Ltd', ex:'NSE · TCS', price:4215.80, prev:4228.10, dayLow:4195, dayHigh:4240, low52:3310, high52:4585, pe:'28.50', points:[4228, 4235, 4210, 4220, 4205, 4212, 4215] },
-  'SBIN': { name:'State Bank of India', ex:'NSE · SBIN', price:816.50, prev:820.70, dayLow:810, dayHigh:825, low52:543, high52:912, pe:'11.20', points:[820, 818, 822, 815, 817, 814, 816] },
-  'GOLD': { name:'Gold 24K (Per 10g)', ex:'MCX · GOLD 24K', price:73850.00, prev:73720.00, dayLow:73650, dayHigh:73920, low52:58000, high52:78000, pe:'N/A', points:[73720, 73750, 73780, 73810, 73850] },
-  'USDINR': { name:'USD / INR Currency', ex:'FOREX · USDINR', price:83.92, prev:83.96, dayLow:83.88, dayHigh:84.05, low52:82.80, high52:84.50, pe:'N/A', points:[83.96, 83.94, 83.91, 83.93, 83.92] }
-};
-
-var currentGfSym = 'NIFTY';
-
-function fmtNum(n){ return n>=1000 ? n.toLocaleString('en-IN') : n.toFixed(2); }
-
-function loadGfStock(sym){
-  currentGfSym = sym;
-  document.querySelectorAll('.gf-tab').forEach(function(b){
-    b.classList.toggle('active', b.getAttribute('onclick').indexOf(sym) !== -1);
-  });
-
-  var d = GF_DATA[sym];
-  if(!d) return;
-
-  document.getElementById('gf-name').textContent = d.name;
-  document.getElementById('gf-exchange').textContent = d.ex;
-  document.getElementById('gf-price').textContent = (sym==='USDINR'?'₹':'') + fmtNum(d.price);
-
-  var diff = d.price - d.prev;
-  var pct = (diff / d.prev) * 100;
-  var isUp = diff >= 0;
-
-  var chgEl = document.getElementById('gf-change');
-  chgEl.style.color = isUp ? '#0E9D78' : '#D64545';
-  chgEl.innerHTML = (isUp ? '▲ +' : '▼ ') + diff.toFixed(2) + ' (' + (isUp?'+':'') + pct.toFixed(2) + '%) <span style="font-size:11px;color:#64748B;font-weight:600">Today</span>';
-
-  document.getElementById('gf-prev').textContent = fmtNum(d.prev);
-  document.getElementById('gf-dayrange').textContent = fmtNum(d.dayLow) + ' – ' + fmtNum(d.dayHigh);
-  document.getElementById('gf-52range').textContent = fmtNum(d.low52) + ' – ' + fmtNum(d.high52);
-  document.getElementById('gf-pe').textContent = d.pe;
-
-  drawGfChart(d.points, isUp);
-}
-
-function drawGfChart(pts, isUp){
-  var svg = document.getElementById('gf-chart');
-  var pathLine = document.getElementById('gf-line');
-  var pathArea = document.getElementById('gf-area');
-
-  var min = Math.min.apply(null, pts);
-  var max = Math.max.apply(null, pts);
-  var range = (max - min) || 1;
-
-  var w = 600, h = 200, pad = 20;
-  var dStr = '', areaStr = '';
-
-  pts.forEach(function(p, i){
-    var x = (i / (pts.length - 1)) * w;
-    var y = h - pad - ((p - min) / range) * (h - 2 * pad);
-    if(i === 0){
-      dStr += 'M ' + x + ',' + y;
-      areaStr += 'M ' + x + ',' + h + ' L ' + x + ',' + y;
-    } else {
-      dStr += ' L ' + x + ',' + y;
-      areaStr += ' L ' + x + ',' + y;
-    }
-  });
-
-  areaStr += ' L ' + w + ',' + h + ' Z';
-
-  var color = isUp ? '#0E9D78' : '#D64545';
-  var gradId = isUp ? 'url(#gf-grad-up)' : 'url(#gf-grad-down)';
-
-  pathLine.setAttribute('d', dStr);
-  pathLine.setAttribute('stroke', color);
-  pathArea.setAttribute('d', areaStr);
-  pathArea.setAttribute('fill', gradId);
-}
-
-function setGfTimeframe(tf){
-  document.querySelectorAll('.gf-tf').forEach(function(b){ b.classList.remove('active'); });
-  event.target.classList.add('active');
-  var d = GF_DATA[currentGfSym];
-  if(!d) return;
-  var mult = (tf==='1W'?1.01:(tf==='1M'?1.03:(tf==='1Y'?1.12:1.25)));
-  var newPts = d.points.map(function(x, i){ return x * (1 + (i*0.01*(tf==='1D'?1:(tf==='1W'?2:5)))); });
-  drawGfChart(newPts, newPts[newPts.length-1] >= newPts[0]);
-}
-
-// Fetch Live Prices asynchronously from Yahoo Finance API endpoint
-function fetchLiveGfFeed(){
-  var symMap = {
-    'NIFTY': '^NSEI',
-    'SENSEX': '^BSESN',
-    'BANKNIFTY': '^NSEBANK',
-    'RELIANCE': 'RELIANCE.NS',
-    'HDFCBANK': 'HDFCBANK.NS',
-    'TCS': 'TCS.NS',
-    'SBIN': 'SBIN.NS',
-    'USDINR': 'INR=X'
-  };
-
-  Object.keys(symMap).forEach(function(key){
-    var rawSym = symMap[key];
-    var url = 'https://query2.finance.yahoo.com/v8/finance/chart/' + encodeURIComponent(rawSym) + '?interval=1d';
-    fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent(url))
-      .then(function(r){ return r.json(); })
-      .then(function(res){
-        var meta = res.chart.result[0].meta;
-        var p = meta.regularMarketPrice;
-        var prev = meta.chartPreviousClose || p;
-        if(p && GF_DATA[key]){
-          GF_DATA[key].price = p;
-          GF_DATA[key].prev = prev;
-          if(key === currentGfSym) loadGfStock(key);
-        }
-      }).catch(function(e){});
-  });
-}
-
-loadGfStock('NIFTY');
-fetchLiveGfFeed();
-setInterval(fetchLiveGfFeed, 30000);
-</script>
 
 <div class="cta"><h2>One number is just the start</h2><p>Get the complete plan — goals, SIPs, insurance & pension — free in 5 minutes.</p>
 <div class="btns"><a class="btn b-teal" href="/app/">🚀 Open free planner</a><a class="btn b-wa" href="https://wa.me/918840192702"><span class="wic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span> WhatsApp us</a></div></div>
