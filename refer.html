@@ -99,43 +99,22 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-alig
     <a href="/app/">Web App</a>
   </nav>
 
-<!-- Official TradingView Market Ticker Tape Suite -->
-<div class="mkt-dual-bar" style="margin-top:64px;background:#0B192C;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
+<!-- Official TradingView Real-Time Live Ticker Tape (Regular Mode) -->
+<div class="mkt-dual-bar" style="margin-top:64px;background:#0B192C;box-shadow:0 4px 14px rgba(0,0,0,0.25);position:relative;z-index:50">
   
-  <!-- TradingView Official Ticker Tape 1: Indices, Forex & Commodities -->
-  <div style="width:100%;height:46px;background:#0B192C;overflow:hidden;border-bottom:1px solid #1E3E62">
-    <div class="tradingview-widget-container" style="width:100%;height:46px">
-      <div class="tradingview-widget-container__widget"></div>
+  <!-- TradingView Official Real-Time Live Ticker Tape -->
+  <div style="width:100%;height:50px;background:#0B192C;overflow:hidden;border-bottom:1px solid #1E3E62">
+    <div class="tradingview-widget-container" style="width:100%;height:50px">
+      <div class="tradingview-widget-container__widget" style="width:100%;height:50px"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
       {
       "symbols": [
-        { "proName": "INDEX:NIFTY", "title": "NIFTY 50" },
-        { "proName": "INDEX:SENSEX", "title": "SENSEX" },
-        { "proName": "NSE:NIFTYBANK", "title": "BANK NIFTY" },
+        { "proName": "BSE:SENSEX", "title": "SENSEX" },
+        { "proName": "NSE:NIFTY50", "title": "NIFTY 50" },
+        { "proName": "NSE:BANKNIFTY", "title": "BANK NIFTY" },
         { "proName": "FX_IDC:USDINR", "title": "USD / INR" },
-        { "proName": "MCX:GOLDP1!", "title": "GOLD 24K" },
-        { "proName": "MCX:SILVERP1!", "title": "SILVER" },
-        { "proName": "TVC:USOIL", "title": "CRUDE OIL" },
-        { "proName": "SP:SPX", "title": "S&P 500" },
-        { "proName": "NASDAQ:NDX", "title": "NASDAQ 100" }
-      ],
-      "showSymbolLogo": true,
-      "colorTheme": "dark",
-      "isTransparent": true,
-      "displayMode": "adaptive",
-      "locale": "in"
-    }
-      </script>
-    </div>
-  </div>
-
-  <!-- TradingView Official Ticker Tape 2: Top NSE Equities -->
-  <div style="width:100%;height:46px;background:#050E1A;overflow:hidden">
-    <div class="tradingview-widget-container" style="width:100%;height:46px">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-      "symbols": [
+        { "proName": "TVC:GOLD", "title": "GOLD 24K" },
+        { "proName": "TVC:SILVER", "title": "SILVER" },
         { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
         { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
         { "proName": "NSE:TCS", "title": "TCS" },
@@ -156,8 +135,8 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-alig
       ],
       "showSymbolLogo": true,
       "colorTheme": "dark",
-      "isTransparent": true,
-      "displayMode": "adaptive",
+      "isTransparent": false,
+      "displayMode": "regular",
       "locale": "in"
     }
       </script>
@@ -165,6 +144,9 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-alig
   </div>
 
 </div>
+
+
+
 
 </div></div>
 
