@@ -23,6 +23,14 @@ service cloud.firestore {
       allow create: if signedIn();
       allow read, update, delete: if isOwner();
     }
+    match /referrals/{doc} {
+      allow create: if true;
+      allow read, update, delete: if isOwner();
+    }
+    match /coin_ledgers/{uid}/{doc=**} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if isOwner();
+    }
     match /partner_codes/{doc} {
       allow read, write: if isOwner();
     }

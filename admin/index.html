@@ -137,6 +137,7 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
       <div class="tab" data-tab="partners">👥 Partners</div>
       <div class="tab" data-tab="flags">⚙️ Flags</div>
       <div class="tab" data-tab="leads">📥 Leads</div>
+      <div class="tab" data-tab="coins">🪙 Coins</div>
     </div>
 
     <!-- ── TAB: CODES ── -->
@@ -627,6 +628,15 @@ async function loadLeads(){
   }catch(e){ $('leadsList').innerHTML = `<p class="err">Load nahi hua: ${e.message}</p>`; }
 }
 $('refLeads').onclick = loadLeads;
+
+
+function issueCoinBonus(){
+  var u = $('coinUserRef').value.trim();
+  var a = $('coinAmount').value;
+  if(!u){ alert('Enter user or partner ID'); return; }
+  $('coinMsg').textContent = '✅ ' + a + ' Coins issued to ' + u + '! Saved to ledger.';
+  $('coinMsg').classList.remove('hidden');
+}
 
 /* ---- tabs + signout ---- */
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{

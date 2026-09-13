@@ -164,7 +164,7 @@ section{padding:74px 0}
 .band p{color:#C8D6E4;max-width:60ch;margin:0 auto}
 /* — footer — */
 footer{background:var(--ink);color:#B9C9D8;padding:44px 0 30px;margin-top:70px}
-footer .cols{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:24px}
+footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:20px}
 @media(max-width:760px){footer .cols{grid-template-columns:1fr}}
 footer h4{color:#fff;margin-bottom:10px;font-size:14px}
 footer a{display:block;padding:3px 0;font-size:13.5px;color:#B9C9D8}
@@ -200,6 +200,7 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
     <a href="/download/">Download</a>
     <a href="#why">Why us</a>
     <a href="#pricing">Plans</a>
+    <a href="#refer" onclick="switchReferTab('ind')">Refer & Earn 🎁</a>
     <a href="#faq">FAQ</a>
     <a href="#legal" onclick="switchLegalTab('privacy')">Legal</a>
   </div>
@@ -212,6 +213,7 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
   <a class="mlink" href="/download/" onclick="document.getElementById('mnav').classList.remove('open')">Download <span>›</span></a>
   <a class="mlink" href="#why" onclick="document.getElementById('mnav').classList.remove('open')">Why us <span>›</span></a>
   <a class="mlink" href="#pricing" onclick="document.getElementById('mnav').classList.remove('open')">Plans <span>›</span></a>
+  <a class="mlink" href="#refer" onclick="document.getElementById('mnav').classList.remove('open');switchReferTab('ind')">Refer & Earn (Coins) <span>›</span></a>
   <a class="mlink" href="#faq" onclick="document.getElementById('mnav').classList.remove('open')">FAQ <span>›</span></a>
   <a class="mlink" href="#legal" onclick="document.getElementById('mnav').classList.remove('open');switchLegalTab('privacy')">Legal & Policies <span>›</span></a>
   <div class="mcta"><a class="btn b-teal b-big" href="/app/">Open App — free 🚀</a></div>
@@ -361,6 +363,70 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
     <div class="step"><b>Share the PDF / start</b><p>Download the branded report, talk to your RM, start investing with confidence.</p></div>
   </div>
 </div></section>
+
+<section id="refer" style="background:linear-gradient(135deg,#17324A,#1E4260);color:#fff;padding:60px 0;margin-top:20px">
+  <div class="wrap rise on">
+    <span class="kick" style="background:rgba(255,255,255,.15);color:#5FE3B8">🪙 Refer & Earn Coins</span>
+    <h2 class="sec-h" style="color:#fff">Coin Rewards & Plan Rebates</h2>
+    <p class="sec-s" style="color:#C5D5E4">Earn coins for referring families or advisor partners. Redeem coins for instant plan rebates, free PDF reports, and subscription discounts.</p>
+
+    <!-- Interactive Mode Switcher -->
+    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="ctab on" id="rtab-ind" onclick="switchReferTab('ind')" style="background:#fff;color:var(--ink)">👨‍👩‍👧‍👦 Individual Mode (Families)</button>
+      <button class="ctab" id="rtab-part" onclick="switchReferTab('part')" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">💼 Partner Mode (Advisors)</button>
+    </div>
+
+    <div style="margin-top:20px;background:#fff;color:var(--ink);border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.25)">
+      
+      <!-- Individual Mode View -->
+      <div id="rbox-ind">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div>
+            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🪙 Family Coin Rewards</h3>
+            <p style="font-size:14px;color:var(--ink2);margin-bottom:14px">Earn <b>50 Coins</b> per family referred + <b>20 Bonus Coins</b> on completing your profile. 100 Coins = ₹100 Rebate!</p>
+            <div style="background:var(--cream);border:1.5px solid #F0D494;padding:14px;border-radius:14px;text-align:center">
+              <span style="font-size:12px;font-weight:800;color:#7A4E00;text-transform:uppercase">Family Coin Balance</span>
+              <div style="font-size:32px;font-weight:900;color:#8F5C00">100 🪙 (₹100 Rebate)</div>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🔗 Share & Redeem</h3>
+            <p style="font-size:13.5px;color:var(--ink2)">Share your personal link with friends on WhatsApp or social media:</p>
+            <div style="background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:10px;font-family:monospace;font-size:13px;word-break:break-all;margin:10px 0;text-align:center">https://www.myfinancialplan.in/app/?ref=FAMILY</div>
+            <div style="display:flex;gap:10px">
+              <a href="/refer.html" class="btn b-indigo" style="flex:1;justify-content:center">Open Coin Portal →</a>
+              <a href="https://wa.me/?text=Hi%21%20Use%20my%20link%20to%20plan%20your%20family%20financial%20goals%20for%20free%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2Fapp%2F%3Fref%3DFAMILY" target="_blank" class="btn b-wa">WhatsApp Share</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner Mode View -->
+      <div id="rbox-part" style="display:none">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div>
+            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">💎 Partner Rebate Desk</h3>
+            <p style="font-size:14px;color:var(--ink2);margin-bottom:14px">Earn <b>200 Partner Coins</b> per referred advisor + <b>50 Coins</b> per client lead conversion. Redeem for 50% subscription discounts!</p>
+            <div style="background:var(--lav);border:1.5px solid #B3C1F5;padding:14px;border-radius:14px;text-align:center">
+              <span style="font-size:12px;font-weight:800;color:var(--indigo);text-transform:uppercase">Partner Rebate Coins</span>
+              <div style="font-size:32px;font-weight:900;color:var(--indigo)">200 🪙 (50% Off Plan)</div>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🔗 Advisor Join Link</h3>
+            <p style="font-size:13.5px;color:var(--ink2)">Invite fellow distributors and advisors to join Partner Desk:</p>
+            <div style="background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:10px;font-family:monospace;font-size:13px;word-break:break-all;margin:10px 0;text-align:center">https://www.myfinancialplan.in/?partner_ref=ADV8840</div>
+            <div style="display:flex;gap:10px">
+              <a href="/refer.html?mode=partner" class="btn b-teal" style="flex:1;justify-content:center">Open Partner Portal →</a>
+              <a href="https://wa.me/?text=Hi%21%20Join%20MyFinancialPlan%20Partner%20Desk%20with%20a%20FREE%207-day%20trial%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2F%3Fpartner_ref%3DADV8840" target="_blank" class="btn b-wa">WhatsApp Share</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <section id="pricing"><div class="wrap rise">
   <span class="kick">Simple pricing</span>
@@ -524,6 +590,13 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
       <a href="#pricing">Partner Plans</a>
     </div>
     <div>
+      <h4>Rewards & Referrals</h4>
+      <a href="/refer.html">Refer & Earn Portal</a>
+      <a href="/refer.html?mode=individual">Family Coins</a>
+      <a href="/refer.html?mode=partner">Partner Rebates</a>
+      <a href="/refer.html">Redeem Coins</a>
+    </div>
+    <div>
       <h4>Legal & Policies</h4>
       <a href="/privacy.html" onclick="switchLegalTab('privacy')">Privacy Policy</a>
       <a href="/terms.html" onclick="switchLegalTab('terms')">Terms & Conditions</a>
@@ -614,6 +687,25 @@ b.onclick=function(){ hi=!hi; b.classList.toggle('on',hi); b.textContent=hi?'EN'
 <script>setTimeout(function(){try{document.querySelectorAll(".rise:not(.on)").forEach(function(e){e.classList.add("on");});}catch(_){ }},2200);</script>
 
 <script>
+
+function switchReferTab(mode){
+  var btnInd = document.getElementById('rtab-ind');
+  var btnPart = document.getElementById('rtab-part');
+  var boxInd = document.getElementById('rbox-ind');
+  var boxPart = document.getElementById('rbox-part');
+  if(mode==='ind'){
+    if(btnInd){ btnInd.style.background='#fff'; btnInd.style.color='var(--ink)'; }
+    if(btnPart){ btnPart.style.background='rgba(255,255,255,.15)'; btnPart.style.color='#fff'; }
+    if(boxInd) boxInd.style.display='block';
+    if(boxPart) boxPart.style.display='none';
+  } else {
+    if(btnPart){ btnPart.style.background='#fff'; btnPart.style.color='var(--ink)'; }
+    if(btnInd){ btnInd.style.background='rgba(255,255,255,.15)'; btnInd.style.color='#fff'; }
+    if(boxPart) boxPart.style.display='block';
+    if(boxInd) boxInd.style.display='none';
+  }
+}
+
 function switchLegalTab(k){
   var tabs = ['privacy', 'terms', 'refund', 'cookies'];
   if (tabs.indexOf(k) === -1) k = 'privacy';
