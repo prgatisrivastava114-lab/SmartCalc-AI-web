@@ -288,6 +288,7 @@ function shareHomeQuote(){
 }
 
 </script>
+<script src="/assets/js/tv-symbols.js"></script>
 </head>
 <body id="top">
 
@@ -309,51 +310,16 @@ function shareHomeQuote(){
   <button class="burger" id="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
 </div></nav>
 
-<!-- Official TradingView Real-Time Live Ticker Tape (Regular Mode) -->
-<div class="mkt-dual-bar" style="margin-top:64px;background:#0B192C;box-shadow:0 4px 14px rgba(0,0,0,0.25);position:relative;z-index:50">
-  
-  <!-- TradingView Official Real-Time Live Ticker Tape -->
-  <div style="width:100%;height:50px;background:#0B192C;overflow:hidden;border-bottom:1px solid #1E3E62">
-    <div class="tradingview-widget-container" style="width:100%;height:50px">
-      <div class="tradingview-widget-container__widget" style="width:100%;height:50px"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-      "symbols": [
-        { "proName": "BSE:SENSEX", "title": "SENSEX" },
-        { "proName": "NSE:NIFTY50", "title": "NIFTY 50" },
-        { "proName": "NSE:BANKNIFTY", "title": "BANK NIFTY" },
-        { "proName": "FX_IDC:USDINR", "title": "USD / INR" },
-        { "proName": "TVC:GOLD", "title": "GOLD 24K" },
-        { "proName": "TVC:SILVER", "title": "SILVER" },
-        { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
-        { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
-        { "proName": "NSE:TCS", "title": "TCS" },
-        { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
-        { "proName": "NSE:INFY", "title": "INFOSYS" },
-        { "proName": "NSE:SBIN", "title": "SBI" },
-        { "proName": "NSE:BHARTIARTL", "title": "AIRTEL" },
-        { "proName": "NSE:ITC", "title": "ITC" },
-        { "proName": "NSE:LT", "title": "L&T" },
-        { "proName": "NSE:TATAMOTORS", "title": "TATA MOTORS" },
-        { "proName": "NSE:AXISBANK", "title": "AXIS BANK" },
-        { "proName": "NSE:KOTAKBANK", "title": "KOTAK BANK" },
-        { "proName": "NSE:SUNPHARMA", "title": "SUN PHARMA" },
-        { "proName": "NSE:MARUTI", "title": "MARUTI" },
-        { "proName": "NSE:TITAN", "title": "TITAN" },
-        { "proName": "NSE:TATASTEEL", "title": "TATA STEEL" },
-        { "proName": "NSE:BAJFINANCE", "title": "BAJAJ FIN" }
-      ],
-      "showSymbolLogo": true,
-      "colorTheme": "dark",
-      "isTransparent": false,
-      "displayMode": "regular",
-      "locale": "in"
-    }
-      </script>
-    </div>
+<!-- Centralized Official TradingView Ticker Tape -->
+<div class="tv-ticker-tape-container" style="margin-top:64px;width:100%;min-height:48px;background:#0B192C;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
+  <div class="tradingview-widget-container" style="width:100%;height:48px">
+    <div class="tradingview-widget-container__widget"></div>
   </div>
-
 </div>
+
+
+<!-- Official TradingView Real-Time Live Ticker Tape (Regular Mode) -->
+
 
 
 

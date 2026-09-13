@@ -70,6 +70,7 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 <meta name="twitter:title" content="">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="">
+<script src="/assets/js/tv-symbols.js"></script>
 </head><body>
 
 
@@ -101,51 +102,16 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 
 <div class="top"><div class="wrap"><a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a><nav><a class="hot" href="/app/">Open App</a></nav>
 
-<!-- Official TradingView Real-Time Live Ticker Tape (Regular Mode) -->
-<div class="mkt-dual-bar" style="margin-top:64px;background:#0B192C;box-shadow:0 4px 14px rgba(0,0,0,0.25);position:relative;z-index:50">
-  
-  <!-- TradingView Official Real-Time Live Ticker Tape -->
-  <div style="width:100%;height:50px;background:#0B192C;overflow:hidden;border-bottom:1px solid #1E3E62">
-    <div class="tradingview-widget-container" style="width:100%;height:50px">
-      <div class="tradingview-widget-container__widget" style="width:100%;height:50px"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-      "symbols": [
-        { "proName": "BSE:SENSEX", "title": "SENSEX" },
-        { "proName": "NSE:NIFTY50", "title": "NIFTY 50" },
-        { "proName": "NSE:BANKNIFTY", "title": "BANK NIFTY" },
-        { "proName": "FX_IDC:USDINR", "title": "USD / INR" },
-        { "proName": "TVC:GOLD", "title": "GOLD 24K" },
-        { "proName": "TVC:SILVER", "title": "SILVER" },
-        { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
-        { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
-        { "proName": "NSE:TCS", "title": "TCS" },
-        { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
-        { "proName": "NSE:INFY", "title": "INFOSYS" },
-        { "proName": "NSE:SBIN", "title": "SBI" },
-        { "proName": "NSE:BHARTIARTL", "title": "AIRTEL" },
-        { "proName": "NSE:ITC", "title": "ITC" },
-        { "proName": "NSE:LT", "title": "L&T" },
-        { "proName": "NSE:TATAMOTORS", "title": "TATA MOTORS" },
-        { "proName": "NSE:AXISBANK", "title": "AXIS BANK" },
-        { "proName": "NSE:KOTAKBANK", "title": "KOTAK BANK" },
-        { "proName": "NSE:SUNPHARMA", "title": "SUN PHARMA" },
-        { "proName": "NSE:MARUTI", "title": "MARUTI" },
-        { "proName": "NSE:TITAN", "title": "TITAN" },
-        { "proName": "NSE:TATASTEEL", "title": "TATA STEEL" },
-        { "proName": "NSE:BAJFINANCE", "title": "BAJAJ FIN" }
-      ],
-      "showSymbolLogo": true,
-      "colorTheme": "dark",
-      "isTransparent": false,
-      "displayMode": "regular",
-      "locale": "in"
-    }
-      </script>
-    </div>
+<!-- Centralized Official TradingView Ticker Tape -->
+<div class="tv-ticker-tape-container" style="margin-top:64px;width:100%;min-height:48px;background:#0B192C;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
+  <div class="tradingview-widget-container" style="width:100%;height:48px">
+    <div class="tradingview-widget-container__widget"></div>
   </div>
-
 </div>
+
+
+<!-- Official TradingView Real-Time Live Ticker Tape (Regular Mode) -->
+
 
 
 
@@ -154,6 +120,9 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 <div class="hero"><span class="kick">Free tools · No sign-up</span><h1>Free Financial Calculators</h1>
 <p class="sub">The same maths our advisors use — free, instant, private (runs in your browser). Pick a tool:</p></div>
 <div class="rel"><a class="rel" style="font-size:15px;padding:14px 18px;background:var(--cream);border-color:#F0D494" href="/tools/lic-premium-calculator/">LIC Premium & Maturity Calculator<br><span style="font-weight:500;font-size:12.5px">Calculate Jeevan Labh (936), Umang (945), Anand (915) net premium, bonus, FAB & 100% tax-free maturity returns.…</span></a><a class="rel" style="font-size:15px;padding:14px 18px;background:var(--mint);border-color:#A3E2D0" href="/tools/lic-premium-reminder/">LIC Premium Reminder & Client Tracker<br><span style="font-weight:500;font-size:12.5px">Partner Desk: Track client LIC renewal dates & send 1-click WhatsApp Hindi/EN premium reminders.…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/sip-calculator/">SIP Calculator<br><span style="font-weight:500;font-size:12.5px">See exactly what your monthly SIP becomes — before you invest a rupee.…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/step-up-sip-calculator/">Step-Up SIP Calculator<br><span style="font-weight:500;font-size:12.5px">Small yearly increase, giant difference. Compare flat SIP vs step-…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/sip-goal-calculator/">SIP Goal Calculator<br><span style="font-weight:500;font-size:12.5px">Reverse maths: enter your dream amount — get the exact monthly SIP…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/swp-calculator/">SWP Calculator<br><span style="font-weight:500;font-size:12.5px">Turn your retirement corpus into a monthly pension — see if the money …</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/retirement-calculator/">Retirement Planning Calculator<br><span style="font-weight:500;font-size:12.5px">The one number every family must know: the corpus that keeps your life…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/lumpsum-calculator/">Lumpsum Calculator<br><span style="font-weight:500;font-size:12.5px">One-time investment — watch compounding turn it into serious wealth.…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/future-value-calculator/">Future Value Calculator<br><span style="font-weight:500;font-size:12.5px">Today’s savings + yearly top-ups — what do they become in 10-20…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/present-value-calculator/">Present Value Calculator<br><span style="font-weight:500;font-size:12.5px">₹1 crore in 20 years = how much today? The reverse maths of…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/emi-calculator/">EMI Calculator<br><span style="font-weight:500;font-size:12.5px">Know your exact EMI — and the shocking total interest — before you sig…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/fd-calculator/">FD Calculator<br><span style="font-weight:500;font-size:12.5px">Exact FD maturity with quarterly compounding — check before you lock t…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/ppf-calculator/">PPF Calculator<br><span style="font-weight:500;font-size:12.5px">Tax-free, government-guaranteed returns — see your 15-year maturity …</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/ssy-calculator/">SSY Calculator<br><span style="font-weight:500;font-size:12.5px">Daughter’s future fund — deposit for 15 years, hand her a corpus at …</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/budget-calculator/">50/30/20 Budget Calculator<br><span style="font-weight:500;font-size:12.5px">One salary in — three clean buckets out. The simplest budget that actu…</span></a><a class="rel" style="font-size:15px;padding:14px 18px" href="/tools/monthly-budget-planner/">Monthly Budget Planner<br><span style="font-weight:500;font-size:12.5px">Income vs 8 real expense buckets — see spend, savings and your…</span></a></div>
+
+
+
 
 
 
@@ -178,66 +147,10 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
     </div>
 
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:16px;box-shadow:0 4px 20px -8px rgba(0,0,0,.08);overflow:hidden;min-height:500px">
-      <div class="tradingview-widget-container" style="height:500px;width:100%">
-        <div class="tradingview-widget-container__widget" style="height:500px;width:100%"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-        {
-        "colorTheme": "light",
-        "dateRange": "12M",
-        "showChart": true,
-        "locale": "in",
-        "largeChartUrl": "",
-        "isTransparent": false,
-        "showSymbolLogo": true,
-        "showFloatingTooltip": true,
-        "width": "100%",
-        "height": "500",
-        "plotLineColorGrowing": "rgba(14, 157, 120, 1)",
-        "plotLineColorFalling": "rgba(214, 69, 69, 1)",
-        "gridLineColor": "rgba(240, 243, 250, 0.6)",
-        "scaleFontColor": "rgba(19, 23, 34, 1)",
-        "belowLineFillColorGrowing": "rgba(221, 244, 236, 0.5)",
-        "belowLineFillColorFalling": "rgba(253, 234, 234, 0.5)",
-        "belowLineFillColorGrowingBottom": "rgba(221, 244, 236, 0)",
-        "belowLineFillColorFallingBottom": "rgba(253, 234, 234, 0)",
-        "symbolActiveColor": "rgba(76, 98, 206, 0.12)",
-        "tabs": [
-          {
-            "title": "Indian Indices",
-            "symbols": [
-              { "s": "INDEX:NIFTY", "d": "NIFTY 50" },
-              { "s": "INDEX:SENSEX", "d": "SENSEX" },
-              { "s": "NSE:NIFTYBANK", "d": "BANK NIFTY" },
-              { "s": "NSE:NIFTYIT", "d": "NIFTY IT" },
-              { "s": "NSE:NIFTYMIDCAP100", "d": "NIFTY MIDCAP" }
-            ]
-          },
-          {
-            "title": "Top Indian Equities",
-            "symbols": [
-              { "s": "NSE:RELIANCE", "d": "Reliance Industries" },
-              { "s": "NSE:HDFCBANK", "d": "HDFC Bank" },
-              { "s": "NSE:TCS", "d": "TCS" },
-              { "s": "NSE:ICICIBANK", "d": "ICICI Bank" },
-              { "s": "NSE:INFY", "d": "Infosys" },
-              { "s": "NSE:SBIN", "d": "State Bank of India" },
-              { "s": "NSE:BHARTIARTL", "d": "Bharti Airtel" },
-              { "s": "NSE:LT", "d": "Larsen & Toubro" }
-            ]
-          },
-          {
-            "title": "Forex & Commodities",
-            "symbols": [
-              { "s": "FX_IDC:USDINR", "d": "USD / INR" },
-              { "s": "FX_IDC:EURINR", "d": "EUR / INR" },
-              { "s": "MCX:GOLDP1!", "d": "Gold 24K" },
-              { "s": "MCX:SILVERP1!", "d": "Silver" },
-              { "s": "TVC:USOIL", "d": "Crude Oil" }
-            ]
-          }
-        ]
-      }
-        </script>
+      <div class="tv-market-overview-container" style="min-height:500px;width:100%">
+        <div class="tradingview-widget-container" style="height:500px;width:100%">
+          <div class="tradingview-widget-container__widget" style="height:500px;width:100%"></div>
+        </div>
       </div>
     </div>
   </div>
