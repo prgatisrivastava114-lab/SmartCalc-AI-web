@@ -13,8 +13,74 @@
 <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/brand/mfp_icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"My Financial Plan","url":"https://www.myfinancialplan.in/","logo":"https://www.myfinancialplan.in/assets/brand/mfp_icon.png","contactPoint":{"@type":"ContactPoint","telephone":"+91-88401-92702","contactType":"customer service","areaServed":"IN"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"MyFinancialPlan.in","url":"https://www.myfinancialplan.in/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"My Financial Plan","url":"https://www.myfinancialplan.in/","logo":"https://www.myfinancialplan.in/assets/brand/mfp_icon.png","contactPoint":{"@type":"ContactPoint","telephone":"+91-88401-92702","contactType":"customer service","areaServed":"IN"}}
+function calcHomeLic(){
+  var plan = document.getElementById('hLicPlan').value;
+  var sa = parseFloat(document.getElementById('hLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = sa + totBonus;
+
+  document.getElementById('hOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('hOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('hOutMat').textContent = '₹' + Math.round(maturity).toLocaleString('en-IN');
+}
+
+function shareHomeQuote(){
+  var plan = document.getElementById('hLicPlan').options[document.getElementById('hLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('hOutPrem').textContent;
+  var mat = document.getElementById('hOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"MyFinancialPlan.in","url":"https://www.myfinancialplan.in/"}
+function calcHomeLic(){
+  var plan = document.getElementById('hLicPlan').value;
+  var sa = parseFloat(document.getElementById('hLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = sa + totBonus;
+
+  document.getElementById('hOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('hOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('hOutMat').textContent = '₹' + Math.round(maturity).toLocaleString('en-IN');
+}
+
+function shareHomeQuote(){
+  var plan = document.getElementById('hLicPlan').options[document.getElementById('hLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('hOutPrem').textContent;
+  var mat = document.getElementById('hOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
+</script>
 <style>
 :root{--ink:#17324A;--ink2:#44586E;--teal:#0E9D78;--indigo:#4C62CE;--amber:#BF7B0B;--cream:#FFF6E3;--mint:#DDF4EC;--mint2:#E7F4EE;--lav:#E1E6FA;--line:#E3E9F1;--bg:#F7FAFC}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -188,7 +254,40 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
 .vic svg{animation:vib 2.6s ease-in-out infinite;transform-origin:50% 50%}
 @keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the app really free?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 the full planner and all calculators are free for families. Partners (advisors) get premium branding & CRM powers on a subscription."}},{"@type":"Question","name":"Is my financial data safe?","acceptedAnswer":{"@type":"Answer","text":"Working offline stays fully on-device; when you sign in, your data syncs to your private Google-secured cloud space \u2014 never sold, never shared."}},{"@type":"Question","name":"Hindi mein plan milega kya?","acceptedAnswer":{"@type":"Answer","text":"Haan! Poora PDF report Hindi ya English mein \u2014 ek tap mein language switch."}},{"@type":"Question","name":"I'm an insurance/mutual fund advisor \u2014 what's in it for me?","acceptedAnswer":{"@type":"Answer","text":"Partner mode: your logo & contact on every client PDF, client list with follow-ups, broadcast tools and lead tracking \u2014 built in India, for Indian advisors. Silver \u20b999 \u00b7 Gold \u20b9299 \u00b7 Platinum \u20b9599 per 30 days \u2014 and every plan starts with a FREE 7-day trial, no payment needed. Auto-payments coming soon."}},{"@type":"Question","name":"Android app kab aayega?","acceptedAnswer":{"@type":"Answer","text":"It is already here! Get the free Android APK from our Download page \\u2014 with a simple 2-minute install guide. The web app runs on every device too."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the app really free?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 the full planner and all calculators are free for families. Partners (advisors) get premium branding & CRM powers on a subscription."}},{"@type":"Question","name":"Is my financial data safe?","acceptedAnswer":{"@type":"Answer","text":"Working offline stays fully on-device; when you sign in, your data syncs to your private Google-secured cloud space \u2014 never sold, never shared."}},{"@type":"Question","name":"Hindi mein plan milega kya?","acceptedAnswer":{"@type":"Answer","text":"Haan! Poora PDF report Hindi ya English mein \u2014 ek tap mein language switch."}},{"@type":"Question","name":"I'm an insurance/mutual fund advisor \u2014 what's in it for me?","acceptedAnswer":{"@type":"Answer","text":"Partner mode: your logo & contact on every client PDF, client list with follow-ups, broadcast tools and lead tracking \u2014 built in India, for Indian advisors. Silver \u20b999 \u00b7 Gold \u20b9299 \u00b7 Platinum \u20b9599 per 30 days \u2014 and every plan starts with a FREE 7-day trial, no payment needed. Auto-payments coming soon."}},{"@type":"Question","name":"Android app kab aayega?","acceptedAnswer":{"@type":"Answer","text":"It is already here! Get the free Android APK from our Download page \\u2014 with a simple 2-minute install guide. The web app runs on every device too."}}]}
+function calcHomeLic(){
+  var plan = document.getElementById('hLicPlan').value;
+  var sa = parseFloat(document.getElementById('hLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = sa + totBonus;
+
+  document.getElementById('hOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('hOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('hOutMat').textContent = '₹' + Math.round(maturity).toLocaleString('en-IN');
+}
+
+function shareHomeQuote(){
+  var plan = document.getElementById('hLicPlan').options[document.getElementById('hLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('hOutPrem').textContent;
+  var mat = document.getElementById('hOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
+</script>
 </head>
 <body id="top">
 
@@ -422,6 +521,53 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
               <a href="https://wa.me/?text=Hi%21%20Join%20MyFinancialPlan%20Partner%20Desk%20with%20a%20FREE%207-day%20trial%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2F%3Fpartner_ref%3DADV8840" target="_blank" class="btn b-wa">WhatsApp Share</a>
             </div>
           </div>
+
+        <!-- Embedded LIC Partner Suite inside Home Page Partner View -->
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
+            <h4 style="font-size:16px;font-weight:800;color:var(--indigo);margin:0">📋 LIC Advisor Tools & All-Plan Calculator</h4>
+            <a href="/tools/lic-premium-calculator/" target="_blank" style="font-size:12px;font-weight:700;color:var(--teal);text-decoration:none">Open Standalone Tool ↗</a>
+          </div>
+          
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
+            <div>
+              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">LIC Plan Table:</label>
+              <select id="hLicPlan" onchange="calcHomeLic()" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12.5px;font-weight:700">
+                <option value="936" selected>Table 936 — Jeevan Labh</option>
+                <option value="945">Table 945 — Jeevan Umang</option>
+                <option value="915">Table 915 — Jeevan Anand</option>
+                <option value="914">Table 914 — New Endowment</option>
+                <option value="920">Table 920 — Money Back 20Y</option>
+                <option value="871">Table 871 — Jeevan Utsav</option>
+                <option value="933">Table 933 — Jeevan Lakshya</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Sum Assured (₹):</label>
+              <input type="number" id="hLicSum" value="500000" step="50000" oninput="calcHomeLic()" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12.5px;font-weight:700">
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;text-align:center">
+            <div style="background:var(--lav);padding:6px;border-radius:6px">
+              <span style="font-size:9.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Premium</span>
+              <b id="hOutPrem" style="display:block;font-size:14px;color:var(--indigo)">₹23,450</b>
+            </div>
+            <div style="background:var(--mint);padding:6px;border-radius:6px">
+              <span style="font-size:9.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Est. Bonus</span>
+              <b id="hOutBonus" style="display:block;font-size:14px;color:#0B7A5C">₹6,25,000</b>
+            </div>
+            <div style="background:var(--cream);padding:6px;border-radius:6px">
+              <span style="font-size:9.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Maturity</span>
+              <b id="hOutMat" style="display:block;font-size:14px;color:var(--amber)">₹11,25,000</b>
+            </div>
+          </div>
+
+          <div style="margin-top:8px;display:flex;gap:6px">
+            <button class="btn b-wa" style="flex:1;font-size:11.5px;padding:6px" onclick="shareHomeQuote()">📲 Share WhatsApp Proposal</button>
+            <a href="/tools/lic-premium-reminder/" target="_blank" class="btn b-indigo" style="font-size:11.5px;padding:6px">Policy Reminders ↗</a>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -657,6 +803,39 @@ const t=document.getElementById('mqt');t.innerHTML+=t.innerHTML;
 // unmute
 const v=document.getElementById('promo'),u=document.getElementById('unmuteBtn');
 u&&u.addEventListener('click',()=>{v.muted=!v.muted;u.textContent=v.muted?'🔊 Tap for sound':'🔇 Mute';v.play();});
+
+function calcHomeLic(){
+  var plan = document.getElementById('hLicPlan').value;
+  var sa = parseFloat(document.getElementById('hLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = sa + totBonus;
+
+  document.getElementById('hOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('hOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('hOutMat').textContent = '₹' + Math.round(maturity).toLocaleString('en-IN');
+}
+
+function shareHomeQuote(){
+  var plan = document.getElementById('hLicPlan').options[document.getElementById('hLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('hOutPrem').textContent;
+  var mat = document.getElementById('hOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
 </script>
 
 <script>
@@ -685,8 +864,74 @@ var st=document.createElement('style'); st.textContent="#langSw{background:#E1E6
 var hi=false;
 b.onclick=function(){ hi=!hi; b.classList.toggle('on',hi); b.textContent=hi?'EN':'हिन्दी'; swap(hi); };
 })();
+
+function calcHomeLic(){
+  var plan = document.getElementById('hLicPlan').value;
+  var sa = parseFloat(document.getElementById('hLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = sa + totBonus;
+
+  document.getElementById('hOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('hOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('hOutMat').textContent = '₹' + Math.round(maturity).toLocaleString('en-IN');
+}
+
+function shareHomeQuote(){
+  var plan = document.getElementById('hLicPlan').options[document.getElementById('hLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('hOutPrem').textContent;
+  var mat = document.getElementById('hOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
 </script>
-<script>setTimeout(function(){try{document.querySelectorAll(".rise:not(.on)").forEach(function(e){e.classList.add("on");});}catch(_){ }},2200);</script>
+<script>setTimeout(function(){try{document.querySelectorAll(".rise:not(.on)").forEach(function(e){e.classList.add("on");});}catch(_){ }},2200);
+function calcHomeLic(){
+  var plan = document.getElementById('hLicPlan').value;
+  var sa = parseFloat(document.getElementById('hLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = sa + totBonus;
+
+  document.getElementById('hOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('hOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('hOutMat').textContent = '₹' + Math.round(maturity).toLocaleString('en-IN');
+}
+
+function shareHomeQuote(){
+  var plan = document.getElementById('hLicPlan').options[document.getElementById('hLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('hOutPrem').textContent;
+  var mat = document.getElementById('hOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
+</script>
 
 <script>
 
@@ -726,6 +971,39 @@ window.addEventListener('DOMContentLoaded', function() {
     switchLegalTab(h);
   }
 });
+
+function calcHomeLic(){
+  var plan = document.getElementById('hLicPlan').value;
+  var sa = parseFloat(document.getElementById('hLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = sa + totBonus;
+
+  document.getElementById('hOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('hOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('hOutMat').textContent = '₹' + Math.round(maturity).toLocaleString('en-IN');
+}
+
+function shareHomeQuote(){
+  var plan = document.getElementById('hLicPlan').options[document.getElementById('hLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('hOutPrem').textContent;
+  var mat = document.getElementById('hOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
 </script>
 </body>
 

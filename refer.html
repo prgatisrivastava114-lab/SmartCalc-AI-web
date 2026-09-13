@@ -160,6 +160,81 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-alig
         <a class="btn b-wa" style="width:100%;margin-top:10px" id="partWaBtn" href="https://wa.me/?text=Hi%21%20Join%20MyFinancialPlan%20Partner%20Desk%20for%20Indian%20Advisors%20%28Silver%2FGold%2FPlatinum%29%20with%20a%20FREE%207-day%20trial%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2F%3Fpartner_ref%3DADV8840" target="_blank">📲 Share Advisor Link on WhatsApp</a>
       </div>
 
+      
+      <!-- Embedded LIC Partner Suite -->
+      <div class="card" style="margin-top:20px;background:#fff;border:1.5px solid var(--indigo)">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:10px">
+          <h3 style="font-size:17px;font-weight:800;color:var(--indigo);margin:0">📋 LIC Advisor Partner Suite & All-Plan Calculator</h3>
+          <a href="/tools/lic-premium-calculator/" target="_blank" style="font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:none">Open Full Catalog ↗</a>
+        </div>
+        
+        <p style="font-size:13px;color:var(--ink2);margin-bottom:12px">Calculate premiums, GST, reversionary bonus, FAB & 100% tax-free maturity for all 16 LIC plan tables, or track client policy renewal dates with 1-click WhatsApp reminders.</p>
+
+        <div style="display:flex;gap:8px;margin-bottom:12px">
+          <button class="btn b-indigo" id="btn-sub-calc" style="padding:6px 12px;font-size:12px" onclick="setLicSub('calc')">🧮 All Plan Calculator</button>
+          <button class="btn" id="btn-sub-rem" style="padding:6px 12px;font-size:12px;background:var(--bg);color:var(--ink);border:1px solid var(--line)" onclick="setLicSub('rem')">⏰ Client Reminders</button>
+        </div>
+
+        <!-- Calculator Sub-View -->
+        <div id="lic-sub-calc">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div>
+              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Select LIC Plan Table:</label>
+              <select id="pLicPlan" onchange="calcPartnerLic()" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-weight:700">
+                <option value="936" selected>Table 936 — Jeevan Labh (Limited)</option>
+                <option value="945">Table 945 — Jeevan Umang (8% Pension)</option>
+                <option value="915">Table 915 — New Jeevan Anand (Double Cover)</option>
+                <option value="914">Table 914 — New Endowment Plan</option>
+                <option value="920">Table 920 — Money Back 20 Yrs</option>
+                <option value="871">Table 871 — Jeevan Utsav (10% Income)</option>
+                <option value="933">Table 933 — Jeevan Lakshya (Child Goal)</option>
+                <option value="855">Table 855 — Tech Term (Pure Risk)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Sum Assured (₹):</label>
+              <input type="number" id="pLicSum" value="500000" step="50000" oninput="calcPartnerLic()" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-weight:700">
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;text-align:center">
+            <div style="background:var(--lav);padding:8px;border-radius:8px">
+              <span style="font-size:10px;font-weight:800;color:var(--ink2);text-transform:uppercase">Yearly Premium</span>
+              <b id="pOutPrem" style="display:block;font-size:15px;color:var(--indigo)">₹23,450</b>
+            </div>
+            <div style="background:var(--mint);padding:8px;border-radius:8px">
+              <span style="font-size:10px;font-weight:800;color:var(--ink2);text-transform:uppercase">Est. Bonus</span>
+              <b id="pOutBonus" style="display:block;font-size:15px;color:#0B7A5C">₹6,25,000</b>
+            </div>
+            <div style="background:var(--cream);padding:8px;border-radius:8px">
+              <span style="font-size:10px;font-weight:800;color:var(--ink2);text-transform:uppercase">Maturity (10(10D))</span>
+              <b id="pOutMat" style="display:block;font-size:15px;color:var(--amber)">₹11,25,000</b>
+            </div>
+          </div>
+
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn b-wa" style="flex:1;font-size:12px;padding:8px" onclick="sharePartnerQuote()">📲 Share Proposal Quote on WhatsApp</button>
+            <a href="/tools/lic-premium-calculator/" target="_blank" class="btn b-indigo" style="font-size:12px;padding:8px">View All 16 Plan Tables →</a>
+          </div>
+        </div>
+
+        <!-- Reminder Sub-View -->
+        <div id="lic-sub-rem" style="display:none">
+          <div style="background:var(--cream);border:1px solid #F0D494;padding:12px;border-radius:12px">
+            <h4 style="font-size:13px;font-weight:800;color:#7A5406;margin-bottom:6px">⏰ 1-Click WhatsApp Client Policy Reminder</h4>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <input type="text" id="pClientName" value="Rajesh Kumar" placeholder="Client Name" style="padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12px">
+              <input type="text" id="pPolNo" value="123456789" placeholder="Policy No" style="padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12px">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px">
+              <input type="text" id="pPremAmt" value="23,450" placeholder="Premium Amount" style="padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12px">
+              <input type="date" id="pDueDate" value="2026-09-25" style="padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12px">
+            </div>
+            <button class="btn b-wa" style="width:100%;margin-top:8px;font-size:12px;padding:8px" onclick="sendPartnerReminder()">📲 Send Client Reminder on WhatsApp</button>
+          </div>
+        </div>
+      </div>
+
       <!-- How to Earn & Redeem (Partner) -->
       <div class="card">
         <h3>💎 Partner Rebate Rules</h3>
@@ -243,6 +318,56 @@ function claimRebate(mode){
 if(/[?&]mode=partner/.test(location.search)){
   setMode('part');
 }
+
+function setLicSub(v){
+  document.getElementById('lic-sub-calc').style.display = (v==='calc')?'block':'none';
+  document.getElementById('lic-sub-rem').style.display = (v==='rem')?'block':'none';
+  document.getElementById('btn-sub-calc').className = (v==='calc')?'btn b-indigo':'btn';
+  document.getElementById('btn-sub-rem').className = (v==='rem')?'btn b-indigo':'btn';
+}
+
+function calcPartnerLic(){
+  var plan = document.getElementById('pLicPlan').value;
+  var sa = parseFloat(document.getElementById('pLicSum').value) || 500000;
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){ term=25; ppt=16; bRate=47; fabRate=450; }
+  else if(plan === '945'){ term=70; ppt=15; bRate=50; fabRate=400; }
+  else if(plan === '915'){ term=25; ppt=25; bRate=45; fabRate=300; }
+  else if(plan === '914'){ term=20; ppt=20; bRate=42; fabRate=250; }
+  else if(plan === '920'){ term=20; ppt=15; bRate=38; fabRate=200; }
+  else if(plan === '871'){ term=70; ppt=15; bRate=55; fabRate=450; }
+  else if(plan === '933'){ term=21; ppt=18; bRate=46; fabRate=350; }
+  else if(plan === '855'){ term=25; ppt=25; bRate=0; fabRate=0; }
+
+  var baseRate = 48;
+  var netPremYr = (sa / 1000) * baseRate;
+  var totPremYr = netPremYr * 1.045;
+  var totBonus = (sa / 1000) * bRate * term + (sa / 1000) * fabRate;
+  var maturity = (plan==='855')? 0 : (sa + totBonus);
+
+  document.getElementById('pOutPrem').textContent = '₹' + Math.round(totPremYr).toLocaleString('en-IN');
+  document.getElementById('pOutBonus').textContent = '₹' + Math.round(totBonus).toLocaleString('en-IN');
+  document.getElementById('pOutMat').textContent = (plan==='855') ? 'Pure Risk Cover' : ('₹' + Math.round(maturity).toLocaleString('en-IN'));
+}
+
+function sharePartnerQuote(){
+  var plan = document.getElementById('pLicPlan').options[document.getElementById('pLicPlan').selectedIndex].text;
+  var sa = '₹' + (parseFloat(document.getElementById('pLicSum').value)||500000).toLocaleString('en-IN');
+  var prem = document.getElementById('pOutPrem').textContent;
+  var mat = document.getElementById('pOutMat').textContent;
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
+function sendPartnerReminder(){
+  var name = document.getElementById('pClientName').value || 'Client';
+  var pol = document.getElementById('pPolNo').value || '123456789';
+  var prem = document.getElementById('pPremAmt').value || '23,450';
+  var date = document.getElementById('pDueDate').value || '2026-09-25';
+  var txt = 'Dear ' + name + ' Ji, Reminder: Your LIC Policy No. ' + pol + ' premium of ₹' + prem + ' is due on ' + date + '. Please pay on time to keep life cover 100% active. Regards, Your Advisor.';
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
 </script>
 
 </body>
