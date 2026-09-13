@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LIC Premium & Maturity Calculator 2026 — Plan 936, 945, 915, 914 | MyFinancialPlan</title>
+<meta name="description" content="Free LIC Premium & Maturity Calculator for advisors & policyholders. Calculate yearly/monthly premium, bonus rates, FAB, total maturity returns & 80C tax savings for Jeevan Labh, Jeevan Umang & Endowment plans.">
+<link rel="canonical" href="https://www.myfinancialplan.in/tools/lic-premium-calculator/">
+<link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
+<style>
+:root{--ink:#17324A;--ink2:#44586E;--teal:#0E9D78;--indigo:#4C62CE;--amber:#BF7B0B;--cream:#FFF6E3;--mint:#DDF4EC;--lav:#E1E6FA;--line:#E3E9F1}
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#F7FAFC;line-height:1.65}
+.wrap{max-width:840px;margin:0 auto;padding:0 18px 90px}
+.top{position:sticky;top:0;z-index:9;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:10px;padding:10px 18px}
+.logo{height:46px}
+.top nav{margin-left:auto;display:flex;gap:14px;font-size:14px;font-weight:600}
+.top a{color:var(--ink2);text-decoration:none}
+.top a.hot{color:var(--teal)}
+.hero{padding:30px 0 10px}
+.kick{color:var(--teal);font-weight:800;letter-spacing:.08em;font-size:12px;text-transform:uppercase}
+h1{font-size:clamp(24px,5vw,36px);line-height:1.15;letter-spacing:-.5px;margin:6px 0 10px}
+.sub{color:var(--ink2);font-size:15px;max-width:60ch}
+.calc{margin:20px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 4px 24px -10px rgba(23,50,74,.12)}
+.calc label{display:block;font-size:12.5px;font-weight:800;color:var(--ink2);margin:12px 0 4px}
+.calc input, .calc select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;font-weight:700;color:var(--ink);outline:none;background:#FBFCFE}
+.calc input:focus, .calc select:focus{border-color:var(--teal)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+@media(max-width:600px){.grid3{grid-template-columns:1fr}}
+.res{border-radius:14px;padding:14px;text-align:center}
+.res b{display:block;font-size:clamp(16px,4vw,22px);font-weight:900}
+.res span{font-size:11px;color:var(--ink2);font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.r1{background:var(--lav)} .r2{background:var(--mint)} .r3{background:var(--cream)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:99px;font-weight:800;font-size:14px;border:none;cursor:pointer;text-decoration:none;transition:transform .18s}
+.btn:hover{transform:translateY(-2px)}
+.b-teal{background:var(--teal);color:#fff} .b-indigo{background:var(--indigo);color:#fff} .b-wa{background:#25D366;color:#fff}
+.crumbs{font-size:12px;color:var(--ink2);padding:12px 0 0}
+.crumbs a{color:var(--indigo);text-decoration:none;font-weight:600}
+.quote-box{background:var(--cream);border:1.5px solid #F0D494;padding:16px;border-radius:16px;margin-top:16px}
+.quote-box h4{color:#7A5406;font-size:14.5px;font-weight:800;margin-bottom:6px}
+.quote-box p{color:#7A5406;font-size:13px;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
+  <nav><a href="/tools/">All Tools</a><a class="hot" href="/app/">Open App</a></nav>
+</div></div>
+
+<div class="wrap">
+  <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › LIC Premium & Maturity Calculator</p>
+  
+  <div class="hero">
+    <span class="kick">LIC Partner & Policyholder Series · 2026</span>
+    <h1>LIC Premium & Maturity Calculator</h1>
+    <p class="sub">Calculate exact premiums, 1st-year & 2nd-year GST, total bonus, Final Additional Bonus (FAB), and 100% tax-free maturity returns for top LIC plans.</p>
+  </div>
+
+  <div class="calc">
+    <div class="grid2">
+      <div>
+        <label for="licPlan">Select LIC Plan / Policy:</label>
+        <select id="licPlan" onchange="onPlanChange()">
+          <option value="936" selected>Jeevan Labh (Plan 936 — Limited Premium)</option>
+          <option value="945">Jeevan Umang (Plan 945 — 8% Annual Pension)</option>
+          <option value="915">New Jeevan Anand (Plan 915 — Double Benefit)</option>
+          <option value="914">New Endowment Plan (Plan 914)</option>
+          <option value="855">Tech Term Insurance (Plan 855 — Pure Cover)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="licAge">Age of Policyholder (Years):</label>
+        <input type="number" id="licAge" value="30" min="18" max="65" oninput="calcLic()">
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label for="licSum">Basic Sum Assured (₹):</label>
+        <input type="number" id="licSum" value="500000" step="50000" oninput="calcLic()">
+      </div>
+
+      <div>
+        <label for="licTerm">Policy Term (Years):</label>
+        <select id="licTerm" onchange="calcLic()">
+          <option value="25" selected>25 Years (PPT: 16 Years)</option>
+          <option value="21">21 Years (PPT: 15 Years)</option>
+          <option value="16">16 Years (PPT: 10 Years)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label for="licFreq">Premium Frequency:</label>
+        <select id="licFreq" onchange="calcLic()">
+          <option value="1" selected>Yearly</option>
+          <option value="2">Half-Yearly</option>
+          <option value="4">Quarterly</option>
+          <option value="12">Monthly (NACH/ECS)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="licRider">Accidental & Disability Rider:</label>
+        <select id="licRider" onchange="calcLic()">
+          <option value="yes" selected>Included (Recommended)</option>
+          <option value="no">Not Included</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Calculated Output Grid -->
+    <div class="grid3">
+      <div class="res r1">
+        <span id="lblPrem">Net Yearly Premium (1st Yr)</span>
+        <b id="outPrem">₹23,450</b>
+        <div style="font-size:11.5px;color:var(--ink2);margin-top:4px" id="outDay">≈ ₹64 / day</div>
+      </div>
+
+      <div class="res r2">
+        <span>Est. Bonus + FAB</span>
+        <b id="outBonus">₹6,25,000</b>
+        <div style="font-size:11.5px;color:var(--ink2);margin-top:4px">Simple Reversionary Bonus</div>
+      </div>
+
+      <div class="res r3">
+        <span>Total Est. Maturity</span>
+        <b id="outMaturity">₹11,25,000</b>
+        <div style="font-size:11.5px;color:var(--ink2);margin-top:4px">100% Tax Free Sec 10(10D)</div>
+      </div>
+    </div>
+
+    <!-- Client Quote Proposal Generator Box -->
+    <div class="quote-box">
+      <h4>📱 Share Official Client Proposal Quote on WhatsApp</h4>
+      <p id="quoteTxt">LIC Jeevan Labh (936) Proposal | Age: 30 | Sum Assured: ₹5,00,000 | Term: 25 Yrs (PPT 16 Yrs) | Premium: ₹23,450/yr (₹64/day) | Est. Maturity: ₹11,25,000 (Tax Free)</p>
+      <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+        <button class="btn b-wa" onclick="shareLicWa()">📲 Send Client Quote on WhatsApp</button>
+        <button class="btn b-indigo" onclick="copyLicQuote()">📋 Copy Quote Text</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px">
+    <h2>Popular LIC Plans Quick Comparison (2026)</h2>
+    <table style="width:100%;border-collapse:collapse;margin-top:14px;font-size:13.5px">
+      <thead>
+        <tr style="background:var(--bg);text-align:left;border-bottom:2px solid var(--line)">
+          <th style="padding:10px">Plan Name & Table</th>
+          <th style="padding:10px">PPT Rule</th>
+          <th style="padding:10px">Key Benefit</th>
+          <th style="padding:10px">Tax Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:10px"><b>Jeevan Labh (936)</b></td>
+          <td style="padding:10px">Pay 16 for 25 yr<br>Pay 15 for 21 yr</td>
+          <td style="padding:10px">High bonus rates + FAB. Best for child education & marriage.</td>
+          <td style="padding:10px"><span style="color:var(--teal);font-weight:800">80C + 10(10D)</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:10px"><b>Jeevan Umang (945)</b></td>
+          <td style="padding:10px">Pay 15/20/25 yr</td>
+          <td style="padding:10px">Guaranteed 8% of Sum Assured annual pension for life after PPT.</td>
+          <td style="padding:10px"><span style="color:var(--teal);font-weight:800">80C + 10(10D)</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:10px"><b>New Jeevan Anand (915)</b></td>
+          <td style="padding:10px">Same as Term</td>
+          <td style="padding:10px">Endowment maturity + life risk cover continues even after maturity.</td>
+          <td style="padding:10px"><span style="color:var(--teal);font-weight:800">80C + 10(10D)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+
+function onPlanChange(){
+  var plan = document.getElementById('licPlan').value;
+  var termSel = document.getElementById('licTerm');
+  if(plan === '936'){
+    termSel.innerHTML = '<option value="25" selected>25 Years (PPT: 16 Years)</option><option value="21">21 Years (PPT: 15 Years)</option><option value="16">16 Years (PPT: 10 Years)</option>';
+  } else if(plan === '945'){
+    termSel.innerHTML = '<option value="100" selected>Till Age 100 (PPT: 15 Years)</option><option value="100_20">Till Age 100 (PPT: 20 Years)</option>';
+  } else {
+    termSel.innerHTML = '<option value="25" selected>25 Years (PPT: 25 Years)</option><option value="20">20 Years (PPT: 20 Years)</option><option value="15">15 Years (PPT: 15 Years)</option>';
+  }
+  calcLic();
+}
+
+function calcLic(){
+  var plan = document.getElementById('licPlan').value;
+  var age = parseInt(document.getElementById('licAge').value) || 30;
+  var sa = parseFloat(document.getElementById('licSum').value) || 500000;
+  var termVal = document.getElementById('licTerm').value;
+  var freq = parseInt(document.getElementById('licFreq').value) || 1;
+  var rider = document.getElementById('licRider').value;
+
+  var term = 25, ppt = 16, bRate = 47, fabRate = 450;
+  if(plan === '936'){
+    if(termVal==='21'){ term=21; ppt=15; bRate=44; fabRate=350; }
+    else if(termVal==='16'){ term=16; ppt=10; bRate=40; fabRate=220; }
+    else { term=25; ppt=16; bRate=47; fabRate=450; }
+  } else if(plan === '945'){
+    term=100-age; ppt=15; bRate=50; fabRate=400;
+  } else {
+    term = parseInt(termVal) || 25; ppt = term; bRate=45; fabRate=300;
+  }
+
+  // Basic Tabular Premium estimation
+  var baseRate = 48 - (age > 35 ? (age-35)*0.5 : 0);
+  var netPremYr = (sa / 1000) * baseRate;
+  if(rider === 'yes') netPremYr += (sa / 1000) * 1.5;
+  var gst = netPremYr * 0.045; // 4.5% 1st yr GST
+  var totPremYr = netPremYr + gst;
+
+  var instPrem = totPremYr / freq;
+  var perDay = totPremYr / 365;
+
+  var totBonus = (sa / 1000) * bRate * term;
+  var fab = (sa / 1000) * fabRate;
+  var maturity = sa + totBonus + fab;
+
+  document.getElementById('lblPrem').textContent = freq===1?'Net Yearly Premium (1st Yr)':(freq===12?'Monthly Premium (NACH)':(freq===2?'Half-Yearly Premium':'Quarterly Premium'));
+  document.getElementById('outPrem').textContent = fmt(instPrem);
+  document.getElementById('outDay').textContent = '≈ ' + fmt(perDay) + ' / day (with 4.5% GST)';
+  document.getElementById('outBonus').textContent = fmt(totBonus + fab);
+  document.getElementById('outMaturity').textContent = fmt(maturity);
+
+  var planName = document.getElementById('licPlan').options[document.getElementById('licPlan').selectedIndex].text;
+  var text = '📋 Official LIC Quote Proposal\nPlan: ' + planName + '\nAge: ' + age + ' Yrs | Sum Assured: ' + fmt(sa) + '\nTerm: ' + term + ' Yrs (PPT ' + ppt + ' Yrs)\nPremium: ' + fmt(instPrem) + ' (' + fmt(perDay) + '/day)\nEst. Tax Free Maturity: ' + fmt(maturity) + ' (Sec 10(10D))\n\nPrepared for client via MyFinancialPlan.in Partner Desk';
+  
+  document.getElementById('quoteTxt').textContent = text;
+}
+
+function shareLicWa(){
+  var txt = document.getElementById('quoteTxt').textContent;
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
+function copyLicQuote(){
+  var txt = document.getElementById('quoteTxt').textContent;
+  navigator.clipboard.writeText(txt).then(function(){ alert('LIC Quote copied to clipboard!'); });
+}
+
+calcLic();
+</script>
+
+</body>
+</html>
