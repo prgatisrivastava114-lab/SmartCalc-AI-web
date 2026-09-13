@@ -65,30 +65,52 @@ tr:hover{background:#F7FAFC}
 <body>
 
 
-<!-- Live Google Finance & Indian Market Ticker Tape -->
-<div id="mkt-ticker-bar" style="background:#0F2338;border-bottom:1px solid #1E3A52;padding:2px 0">
-  <div class="tradingview-widget-container" style="max-width:1200px;margin:0 auto">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-    "symbols": [
-      { "proName": "INDEX:NIFTY", "title": "NIFTY 50" },
-      { "proName": "INDEX:SENSEX", "title": "SENSEX" },
-      { "proName": "NSE:NIFTYBANK", "title": "BANK NIFTY" },
-      { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
-      { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
-      { "proName": "NSE:TCS", "title": "TCS" },
-      { "proName": "NSE:SBIN", "title": "SBI" },
-      { "proName": "FX_IDC:USDINR", "title": "USD/INR" },
-      { "proName": "MCX:GOLDP1!", "title": "GOLD 24K" }
-    ],
-    "showSymbolLogo": true,
-    "colorTheme": "dark",
-    "isTransparent": true,
-    "displayMode": "adaptive",
-    "locale": "in"
-  }
-    </script>
+
+
+
+<!-- Universal Live Google Finance Top Ticker Strip -->
+<div id="mkt-ticker-bar" style="background:#0F2338;border-bottom:1px solid #1E3A52;padding:8px 12px;overflow-x:auto;white-space:nowrap;color:#fff;font-family:system-ui,-apple-system,sans-serif;-webkit-overflow-scrolling:touch">
+  <div style="display:inline-flex;align-items:center;gap:18px;font-size:12.5px;font-weight:700" id="tickerItems">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">NIFTY 50</span>
+      <span id="t-nifty-price">23,398.10</span>
+      <span id="t-nifty-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.48%</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">SENSEX</span>
+      <span id="t-sensex-price">74,781.76</span>
+      <span id="t-sensex-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.52%</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">BANK NIFTY</span>
+      <span id="t-bank-price">56,606.55</span>
+      <span id="t-bank-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.24%</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">RELIANCE</span>
+      <span id="t-rel-price">₹1,257.50</span>
+      <span id="t-rel-chg" style="color:#D64545;background:rgba(214,69,69,.18);padding:1px 6px;border-radius:6px;font-size:11px">▼ -1.30%</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">HDFC BANK</span>
+      <span id="t-hdfc-price">₹708.25</span>
+      <span id="t-hdfc-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +2.08%</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">TCS</span>
+      <span id="t-tcs-price">₹2,200.80</span>
+      <span id="t-tcs-chg" style="color:#D64545;background:rgba(214,69,69,.18);padding:1px 6px;border-radius:6px;font-size:11px">▼ -0.15%</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">GOLD 24K</span>
+      <span id="t-gold-price">₹73,850</span>
+      <span id="t-gold-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.18%</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
+      <span style="color:#A0AEC0">USD/INR</span>
+      <span id="t-usdinr-price">₹83.92</span>
+      <span id="t-usdinr-chg" style="color:#D64545;background:rgba(214,69,69,.18);padding:1px 6px;border-radius:6px;font-size:11px">▼ -0.05%</span>
+    </div>
   </div>
 </div>
 
