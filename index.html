@@ -296,6 +296,7 @@ function shareHomeQuote(){
   <div class="links">
     <a href="tools/">Free Tools</a>
       <a href="/tools/lic-premium-calculator/">📋 LIC Calculator & Reminders</a>
+    <a href="#market">📈 Live Market</a>
     <a href="/learn/">Learn</a>
     <a href="/download/">Download</a>
     <a href="#why">Why us</a>
@@ -307,6 +308,34 @@ function shareHomeQuote(){
   <a class="btn b-teal" href="/app/" style="margin-left:14px;padding:10px 18px;font-size:14px">Open App 🚀</a>
   <button class="burger" id="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
 </div></nav>
+
+<!-- Live Google Finance & Indian Market Ticker Tape -->
+<div id="mkt-ticker-bar" style="background:#0F2338;border-bottom:1px solid #1E3A52;padding:2px 0">
+  <div class="tradingview-widget-container" style="max-width:1200px;margin:0 auto">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      { "proName": "INDEX:NIFTY", "title": "NIFTY 50" },
+      { "proName": "INDEX:SENSEX", "title": "SENSEX" },
+      { "proName": "NSE:NIFTYBANK", "title": "BANK NIFTY" },
+      { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
+      { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
+      { "proName": "NSE:TCS", "title": "TCS" },
+      { "proName": "NSE:SBIN", "title": "SBI" },
+      { "proName": "FX_IDC:USDINR", "title": "USD/INR" },
+      { "proName": "MCX:GOLDP1!", "title": "GOLD 24K" }
+    ],
+    "showSymbolLogo": true,
+    "colorTheme": "dark",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "in"
+  }
+    </script>
+  </div>
+</div>
+
 <div id="mnav">
   <a class="mlink" href="/learn/" onclick="document.getElementById('mnav').classList.remove('open')">Learn <span>›</span></a>
   <a class="mlink" href="tools/" onclick="document.getElementById('mnav').classList.remove('open')">Free Tools <span>›</span></a>
@@ -733,7 +762,8 @@ function shareHomeQuote(){
       <a href="/download/">📲 Download Android App</a>
       <a href="tools/">Free Tools</a>
       <a href="/tools/lic-premium-calculator/">📋 LIC Calculator & Reminders</a>
-      <a href="/learn/">Learn</a>
+      <a href="#market">📈 Live Market</a>
+    <a href="/learn/">Learn</a>
       <a href="#why">Features</a>
       <a href="#pricing">Partner Plans</a>
     </div>

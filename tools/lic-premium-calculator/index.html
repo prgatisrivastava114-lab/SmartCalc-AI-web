@@ -64,6 +64,34 @@ tr:hover{background:#F7FAFC}
 </head>
 <body>
 
+
+<!-- Live Google Finance & Indian Market Ticker Tape -->
+<div id="mkt-ticker-bar" style="background:#0F2338;border-bottom:1px solid #1E3A52;padding:2px 0">
+  <div class="tradingview-widget-container" style="max-width:1200px;margin:0 auto">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      { "proName": "INDEX:NIFTY", "title": "NIFTY 50" },
+      { "proName": "INDEX:SENSEX", "title": "SENSEX" },
+      { "proName": "NSE:NIFTYBANK", "title": "BANK NIFTY" },
+      { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
+      { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
+      { "proName": "NSE:TCS", "title": "TCS" },
+      { "proName": "NSE:SBIN", "title": "SBI" },
+      { "proName": "FX_IDC:USDINR", "title": "USD/INR" },
+      { "proName": "MCX:GOLDP1!", "title": "GOLD 24K" }
+    ],
+    "showSymbolLogo": true,
+    "colorTheme": "dark",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "in"
+  }
+    </script>
+  </div>
+</div>
+
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
   <nav><a href="/tools/">All Tools</a><a href="/tools/lic-premium-reminder/">Client Reminders</a><a class="hot" href="/app/">Open App</a></nav>
