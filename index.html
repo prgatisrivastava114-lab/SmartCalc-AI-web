@@ -309,50 +309,114 @@ function shareHomeQuote(){
   <button class="burger" id="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
 </div></nav>
 
-<!-- Universal Live Google Finance Top Ticker Strip -->
-<div id="mkt-ticker-bar" style="background:#0F2338;border-bottom:1px solid #1E3A52;padding:8px 12px;overflow-x:auto;white-space:nowrap;color:#fff;font-family:system-ui,-apple-system,sans-serif;-webkit-overflow-scrolling:touch">
-  <div style="display:inline-flex;align-items:center;gap:18px;font-size:12.5px;font-weight:700" id="tickerItems">
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">NIFTY 50</span>
-      <span id="t-nifty-price">23,398.10</span>
-      <span id="t-nifty-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.48%</span>
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">SENSEX</span>
-      <span id="t-sensex-price">74,781.76</span>
-      <span id="t-sensex-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.52%</span>
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">BANK NIFTY</span>
-      <span id="t-bank-price">56,606.55</span>
-      <span id="t-bank-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.24%</span>
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">RELIANCE</span>
-      <span id="t-rel-price">₹1,257.50</span>
-      <span id="t-rel-chg" style="color:#D64545;background:rgba(214,69,69,.18);padding:1px 6px;border-radius:6px;font-size:11px">▼ -1.30%</span>
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">HDFC BANK</span>
-      <span id="t-hdfc-price">₹708.25</span>
-      <span id="t-hdfc-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +2.08%</span>
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">TCS</span>
-      <span id="t-tcs-price">₹2,200.80</span>
-      <span id="t-tcs-chg" style="color:#D64545;background:rgba(214,69,69,.18);padding:1px 6px;border-radius:6px;font-size:11px">▼ -0.15%</span>
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">GOLD 24K</span>
-      <span id="t-gold-price">₹73,850</span>
-      <span id="t-gold-chg" style="color:#0E9D78;background:rgba(14,157,120,.18);padding:1px 6px;border-radius:6px;font-size:11px">▲ +0.18%</span>
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px 10px;border-radius:99px">
-      <span style="color:#A0AEC0">USD/INR</span>
-      <span id="t-usdinr-price">₹83.92</span>
-      <span id="t-usdinr-chg" style="color:#D64545;background:rgba(214,69,69,.18);padding:1px 6px;border-radius:6px;font-size:11px">▼ -0.05%</span>
+<!-- Dual Opposite-Scrolling Google Finance & Indian Stock Market Ticker -->
+<div class="mkt-dual-bar">
+  <!-- Top Strip: Major NSE Indices, Global Markets, Commodities & Currencies (Left Scroll) -->
+  <div class="mkt-strip-wrap">
+    <div class="mkt-label">📈 GLOBAL MARKETS & INDICES</div>
+    <div class="mkt-track mkt-track-left">
+      <div class="mkt-pill"><span>🇮🇳 NIFTY 50</span><b>23,398.10</b><span class="mkt-badge-up">▲ +0.48%</span></div><div class="mkt-pill"><span>🇮🇳 SENSEX</span><b>74,781.76</b><span class="mkt-badge-up">▲ +0.52%</span></div><div class="mkt-pill"><span>🇮🇳 BANK NIFTY</span><b>56,606.55</b><span class="mkt-badge-up">▲ +0.24%</span></div><div class="mkt-pill"><span>🇮🇳 GIFT NIFTY</span><b>23,450.00</b><span class="mkt-badge-up">▲ +0.55%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY IT</span><b>38,420.10</b><span class="mkt-badge-down">▼ -0.15%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY MIDCAP</span><b>54,210.30</b><span class="mkt-badge-up">▲ +0.82%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY SMALLCAP</span><b>17,850.40</b><span class="mkt-badge-up">▲ +0.95%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY AUTO</span><b>22,450.80</b><span class="mkt-badge-up">▲ +0.65%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY PHARMA</span><b>19,820.15</b><span class="mkt-badge-down">▼ -0.22%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY FMCG</span><b>56,310.50</b><span class="mkt-badge-up">▲ +0.12%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY METAL</span><b>9,240.60</b><span class="mkt-badge-up">▲ +1.15%</span></div><div class="mkt-pill"><span>🇺🇸 S&P 500</span><b>5,431.60</b><span class="mkt-badge-up">▲ +0.23%</span></div><div class="mkt-pill"><span>🇺🇸 NASDAQ 100</span><b>19,659.80</b><span class="mkt-badge-up">▲ +0.34%</span></div><div class="mkt-pill"><span>🇺🇸 DOW JONES</span><b>38,712.20</b><span class="mkt-badge-down">▼ -0.09%</span></div><div class="mkt-pill"><span>🇬🇧 FTSE 100</span><b>8,163.60</b><span class="mkt-badge-up">▲ +0.18%</span></div><div class="mkt-pill"><span>🇩🇪 DAX 40</span><b>18,165.20</b><span class="mkt-badge-up">▲ +0.41%</span></div><div class="mkt-pill"><span>🇯🇵 NIKKEI 225</span><b>38,814.56</b><span class="mkt-badge-up">▲ +0.87%</span></div><div class="mkt-pill"><span>🇭🇰 HANG SENG</span><b>18,112.60</b><span class="mkt-badge-down">▼ -0.11%</span></div><div class="mkt-pill"><span>🪙 GOLD 24K</span><b>₹73,850/10g</b><span class="mkt-badge-up">▲ +0.18%</span></div><div class="mkt-pill"><span>🥈 SILVER</span><b>₹85,400/kg</b><span class="mkt-badge-up">▲ +0.62%</span></div><div class="mkt-pill"><span>🛢️ BRENT CRUDE</span><b>$71.80/bbl</b><span class="mkt-badge-up">▲ +0.59%</span></div><div class="mkt-pill"><span>💵 USD / INR</span><b>₹83.92</b><span class="mkt-badge-down">▼ -0.05%</span></div><div class="mkt-pill"><span>💶 EUR / INR</span><b>₹91.20</b><span class="mkt-badge-up">▲ +0.12%</span></div><div class="mkt-pill"><span>💷 GBP / INR</span><b>₹107.50</b><span class="mkt-badge-up">▲ +0.28%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY 50</span><b>23,398.10</b><span class="mkt-badge-up">▲ +0.48%</span></div><div class="mkt-pill"><span>🇮🇳 SENSEX</span><b>74,781.76</b><span class="mkt-badge-up">▲ +0.52%</span></div><div class="mkt-pill"><span>🇮🇳 BANK NIFTY</span><b>56,606.55</b><span class="mkt-badge-up">▲ +0.24%</span></div><div class="mkt-pill"><span>🇮🇳 GIFT NIFTY</span><b>23,450.00</b><span class="mkt-badge-up">▲ +0.55%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY IT</span><b>38,420.10</b><span class="mkt-badge-down">▼ -0.15%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY MIDCAP</span><b>54,210.30</b><span class="mkt-badge-up">▲ +0.82%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY SMALLCAP</span><b>17,850.40</b><span class="mkt-badge-up">▲ +0.95%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY AUTO</span><b>22,450.80</b><span class="mkt-badge-up">▲ +0.65%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY PHARMA</span><b>19,820.15</b><span class="mkt-badge-down">▼ -0.22%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY FMCG</span><b>56,310.50</b><span class="mkt-badge-up">▲ +0.12%</span></div><div class="mkt-pill"><span>🇮🇳 NIFTY METAL</span><b>9,240.60</b><span class="mkt-badge-up">▲ +1.15%</span></div><div class="mkt-pill"><span>🇺🇸 S&P 500</span><b>5,431.60</b><span class="mkt-badge-up">▲ +0.23%</span></div><div class="mkt-pill"><span>🇺🇸 NASDAQ 100</span><b>19,659.80</b><span class="mkt-badge-up">▲ +0.34%</span></div><div class="mkt-pill"><span>🇺🇸 DOW JONES</span><b>38,712.20</b><span class="mkt-badge-down">▼ -0.09%</span></div><div class="mkt-pill"><span>🇬🇧 FTSE 100</span><b>8,163.60</b><span class="mkt-badge-up">▲ +0.18%</span></div><div class="mkt-pill"><span>🇩🇪 DAX 40</span><b>18,165.20</b><span class="mkt-badge-up">▲ +0.41%</span></div><div class="mkt-pill"><span>🇯🇵 NIKKEI 225</span><b>38,814.56</b><span class="mkt-badge-up">▲ +0.87%</span></div><div class="mkt-pill"><span>🇭🇰 HANG SENG</span><b>18,112.60</b><span class="mkt-badge-down">▼ -0.11%</span></div><div class="mkt-pill"><span>🪙 GOLD 24K</span><b>₹73,850/10g</b><span class="mkt-badge-up">▲ +0.18%</span></div><div class="mkt-pill"><span>🥈 SILVER</span><b>₹85,400/kg</b><span class="mkt-badge-up">▲ +0.62%</span></div><div class="mkt-pill"><span>🛢️ BRENT CRUDE</span><b>$71.80/bbl</b><span class="mkt-badge-up">▲ +0.59%</span></div><div class="mkt-pill"><span>💵 USD / INR</span><b>₹83.92</b><span class="mkt-badge-down">▼ -0.05%</span></div><div class="mkt-pill"><span>💶 EUR / INR</span><b>₹91.20</b><span class="mkt-badge-up">▲ +0.12%</span></div><div class="mkt-pill"><span>💷 GBP / INR</span><b>₹107.50</b><span class="mkt-badge-up">▲ +0.28%</span></div>
     </div>
   </div>
+
+  <!-- Lower Strip: NIFTY 50 & Major NSE Stocks (Opposite Right Scroll) -->
+  <div class="mkt-strip-wrap" style="background:#071220;border-top:1px solid #132A45">
+    <div class="mkt-label" style="background:#0E9D78">📊 NIFTY 50 & NSE STOCKS</div>
+    <div class="mkt-track mkt-track-right">
+      <div class="mkt-pill"><span>RELIANCE</span><b>₹1,257.50</b><span class="mkt-badge-down">▼ -1.30%</span></div><div class="mkt-pill"><span>HDFC BANK</span><b>₹708.25</b><span class="mkt-badge-up">▲ +2.08%</span></div><div class="mkt-pill"><span>TCS</span><b>₹2,200.80</b><span class="mkt-badge-down">▼ -0.15%</span></div><div class="mkt-pill"><span>ICICI BANK</span><b>₹1,120.40</b><span class="mkt-badge-up">▲ +1.45%</span></div><div class="mkt-pill"><span>INFOSYS</span><b>₹1,480.20</b><span class="mkt-badge-up">▲ +0.35%</span></div><div class="mkt-pill"><span>SBI</span><b>₹995.70</b><span class="mkt-badge-down">▼ -1.39%</span></div><div class="mkt-pill"><span>BHARTI AIRTEL</span><b>₹1,420.50</b><span class="mkt-badge-up">▲ +1.12%</span></div><div class="mkt-pill"><span>ITC</span><b>₹435.60</b><span class="mkt-badge-up">▲ +0.45%</span></div><div class="mkt-pill"><span>LARSEN & TOUBRO</span><b>₹3,620.80</b><span class="mkt-badge-up">▲ +0.92%</span></div><div class="mkt-pill"><span>TATA MOTORS</span><b>₹980.50</b><span class="mkt-badge-up">▲ +1.85%</span></div><div class="mkt-pill"><span>AXIS BANK</span><b>₹1,180.30</b><span class="mkt-badge-up">▲ +0.75%</span></div><div class="mkt-pill"><span>KOTAK BANK</span><b>₹1,740.20</b><span class="mkt-badge-down">▼ -0.28%</span></div><div class="mkt-pill"><span>SUN PHARMA</span><b>₹1,560.40</b><span class="mkt-badge-up">▲ +0.65%</span></div><div class="mkt-pill"><span>M&M</span><b>₹2,850.60</b><span class="mkt-badge-up">▲ +2.15%</span></div><div class="mkt-pill"><span>NTPC</span><b>₹365.40</b><span class="mkt-badge-up">▲ +0.88%</span></div><div class="mkt-pill"><span>MARUTI SUZUKI</span><b>₹12,450.00</b><span class="mkt-badge-up">▲ +0.55%</span></div><div class="mkt-pill"><span>ASIAN PAINTS</span><b>₹2,890.30</b><span class="mkt-badge-down">▼ -0.42%</span></div><div class="mkt-pill"><span>TITAN</span><b>₹3,420.80</b><span class="mkt-badge-up">▲ +1.05%</span></div><div class="mkt-pill"><span>ULTRATECH</span><b>₹10,250.00</b><span class="mkt-badge-up">▲ +0.68%</span></div><div class="mkt-pill"><span>COAL INDIA</span><b>₹485.20</b><span class="mkt-badge-up">▲ +1.25%</span></div><div class="mkt-pill"><span>TATA STEEL</span><b>₹168.40</b><span class="mkt-badge-up">▲ +1.42%</span></div><div class="mkt-pill"><span>BAJAJ FINANCE</span><b>₹7,120.50</b><span class="mkt-badge-down">▼ -0.85%</span></div><div class="mkt-pill"><span>WIPRO</span><b>₹480.30</b><span class="mkt-badge-up">▲ +0.25%</span></div><div class="mkt-pill"><span>HCL TECH</span><b>₹1,440.60</b><span class="mkt-badge-down">▼ -0.18%</span></div><div class="mkt-pill"><span>ADANI ENT</span><b>₹3,180.40</b><span class="mkt-badge-up">▲ +2.45%</span></div><div class="mkt-pill"><span>ADANI PORTS</span><b>₹1,350.20</b><span class="mkt-badge-up">▲ +1.65%</span></div><div class="mkt-pill"><span>HINDALCO</span><b>₹685.40</b><span class="mkt-badge-up">▲ +1.82%</span></div><div class="mkt-pill"><span>ONGC</span><b>₹275.60</b><span class="mkt-badge-up">▲ +0.95%</span></div><div class="mkt-pill"><span>POWER GRID</span><b>₹312.40</b><span class="mkt-badge-up">▲ +0.55%</span></div><div class="mkt-pill"><span>NESTLE INDIA</span><b>₹2,480.20</b><span class="mkt-badge-up">▲ +0.18%</span></div><div class="mkt-pill"><span>JSW STEEL</span><b>₹920.50</b><span class="mkt-badge-up">▲ +1.35%</span></div><div class="mkt-pill"><span>TECH MAHINDRA</span><b>₹1,380.40</b><span class="mkt-badge-down">▼ -0.45%</span></div><div class="mkt-pill"><span>CIPLA</span><b>₹1,490.20</b><span class="mkt-badge-up">▲ +0.82%</span></div><div class="mkt-pill"><span>DR REDDY</span><b>₹6,120.50</b><span class="mkt-badge-up">▲ +0.38%</span></div><div class="mkt-pill"><span>BRITANNIA</span><b>₹5,320.00</b><span class="mkt-badge-up">▲ +0.25%</span></div><div class="mkt-pill"><span>EICHER MOTORS</span><b>₹4,680.30</b><span class="mkt-badge-up">▲ +1.15%</span></div><div class="mkt-pill"><span>BAJAJ AUTO</span><b>₹9,820.50</b><span class="mkt-badge-up">▲ +1.45%</span></div><div class="mkt-pill"><span>APOLLO HOSP</span><b>₹6,280.40</b><span class="mkt-badge-up">▲ +0.75%</span></div><div class="mkt-pill"><span>HERO MOTOCORP</span><b>₹5,420.20</b><span class="mkt-badge-up">▲ +1.08%</span></div><div class="mkt-pill"><span>BPCL</span><b>₹315.80</b><span class="mkt-badge-up">▲ +0.65%</span></div><div class="mkt-pill"><span>RELIANCE</span><b>₹1,257.50</b><span class="mkt-badge-down">▼ -1.30%</span></div><div class="mkt-pill"><span>HDFC BANK</span><b>₹708.25</b><span class="mkt-badge-up">▲ +2.08%</span></div><div class="mkt-pill"><span>TCS</span><b>₹2,200.80</b><span class="mkt-badge-down">▼ -0.15%</span></div><div class="mkt-pill"><span>ICICI BANK</span><b>₹1,120.40</b><span class="mkt-badge-up">▲ +1.45%</span></div><div class="mkt-pill"><span>INFOSYS</span><b>₹1,480.20</b><span class="mkt-badge-up">▲ +0.35%</span></div><div class="mkt-pill"><span>SBI</span><b>₹995.70</b><span class="mkt-badge-down">▼ -1.39%</span></div><div class="mkt-pill"><span>BHARTI AIRTEL</span><b>₹1,420.50</b><span class="mkt-badge-up">▲ +1.12%</span></div><div class="mkt-pill"><span>ITC</span><b>₹435.60</b><span class="mkt-badge-up">▲ +0.45%</span></div><div class="mkt-pill"><span>LARSEN & TOUBRO</span><b>₹3,620.80</b><span class="mkt-badge-up">▲ +0.92%</span></div><div class="mkt-pill"><span>TATA MOTORS</span><b>₹980.50</b><span class="mkt-badge-up">▲ +1.85%</span></div><div class="mkt-pill"><span>AXIS BANK</span><b>₹1,180.30</b><span class="mkt-badge-up">▲ +0.75%</span></div><div class="mkt-pill"><span>KOTAK BANK</span><b>₹1,740.20</b><span class="mkt-badge-down">▼ -0.28%</span></div><div class="mkt-pill"><span>SUN PHARMA</span><b>₹1,560.40</b><span class="mkt-badge-up">▲ +0.65%</span></div><div class="mkt-pill"><span>M&M</span><b>₹2,850.60</b><span class="mkt-badge-up">▲ +2.15%</span></div><div class="mkt-pill"><span>NTPC</span><b>₹365.40</b><span class="mkt-badge-up">▲ +0.88%</span></div><div class="mkt-pill"><span>MARUTI SUZUKI</span><b>₹12,450.00</b><span class="mkt-badge-up">▲ +0.55%</span></div><div class="mkt-pill"><span>ASIAN PAINTS</span><b>₹2,890.30</b><span class="mkt-badge-down">▼ -0.42%</span></div><div class="mkt-pill"><span>TITAN</span><b>₹3,420.80</b><span class="mkt-badge-up">▲ +1.05%</span></div><div class="mkt-pill"><span>ULTRATECH</span><b>₹10,250.00</b><span class="mkt-badge-up">▲ +0.68%</span></div><div class="mkt-pill"><span>COAL INDIA</span><b>₹485.20</b><span class="mkt-badge-up">▲ +1.25%</span></div><div class="mkt-pill"><span>TATA STEEL</span><b>₹168.40</b><span class="mkt-badge-up">▲ +1.42%</span></div><div class="mkt-pill"><span>BAJAJ FINANCE</span><b>₹7,120.50</b><span class="mkt-badge-down">▼ -0.85%</span></div><div class="mkt-pill"><span>WIPRO</span><b>₹480.30</b><span class="mkt-badge-up">▲ +0.25%</span></div><div class="mkt-pill"><span>HCL TECH</span><b>₹1,440.60</b><span class="mkt-badge-down">▼ -0.18%</span></div><div class="mkt-pill"><span>ADANI ENT</span><b>₹3,180.40</b><span class="mkt-badge-up">▲ +2.45%</span></div><div class="mkt-pill"><span>ADANI PORTS</span><b>₹1,350.20</b><span class="mkt-badge-up">▲ +1.65%</span></div><div class="mkt-pill"><span>HINDALCO</span><b>₹685.40</b><span class="mkt-badge-up">▲ +1.82%</span></div><div class="mkt-pill"><span>ONGC</span><b>₹275.60</b><span class="mkt-badge-up">▲ +0.95%</span></div><div class="mkt-pill"><span>POWER GRID</span><b>₹312.40</b><span class="mkt-badge-up">▲ +0.55%</span></div><div class="mkt-pill"><span>NESTLE INDIA</span><b>₹2,480.20</b><span class="mkt-badge-up">▲ +0.18%</span></div><div class="mkt-pill"><span>JSW STEEL</span><b>₹920.50</b><span class="mkt-badge-up">▲ +1.35%</span></div><div class="mkt-pill"><span>TECH MAHINDRA</span><b>₹1,380.40</b><span class="mkt-badge-down">▼ -0.45%</span></div><div class="mkt-pill"><span>CIPLA</span><b>₹1,490.20</b><span class="mkt-badge-up">▲ +0.82%</span></div><div class="mkt-pill"><span>DR REDDY</span><b>₹6,120.50</b><span class="mkt-badge-up">▲ +0.38%</span></div><div class="mkt-pill"><span>BRITANNIA</span><b>₹5,320.00</b><span class="mkt-badge-up">▲ +0.25%</span></div><div class="mkt-pill"><span>EICHER MOTORS</span><b>₹4,680.30</b><span class="mkt-badge-up">▲ +1.15%</span></div><div class="mkt-pill"><span>BAJAJ AUTO</span><b>₹9,820.50</b><span class="mkt-badge-up">▲ +1.45%</span></div><div class="mkt-pill"><span>APOLLO HOSP</span><b>₹6,280.40</b><span class="mkt-badge-up">▲ +0.75%</span></div><div class="mkt-pill"><span>HERO MOTOCORP</span><b>₹5,420.20</b><span class="mkt-badge-up">▲ +1.08%</span></div><div class="mkt-pill"><span>BPCL</span><b>₹315.80</b><span class="mkt-badge-up">▲ +0.65%</span></div>
+    </div>
+  </div>
+</div>
+
+<style>
+.mkt-dual-bar {
+  width: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 50;
+}
+.mkt-strip-wrap {
+  overflow: hidden;
+  width: 100%;
+  background: #0B192C;
+  border-bottom: 1px solid #1E3E62;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+.mkt-label {
+  background: #4C62CE;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 6px 10px;
+  white-space: nowrap;
+  letter-spacing: .05em;
+  z-index: 2;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+}
+.mkt-track {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  padding: 6px 0;
+  will-change: transform;
+}
+.mkt-track-left {
+  animation: marqueeLeft 55s linear infinite;
+}
+.mkt-track-right {
+  animation: marqueeRight 65s linear infinite;
+}
+.mkt-strip-wrap:hover .mkt-track {
+  animation-play-state: paused;
+}
+.mkt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #F1F5F9;
+  white-space: nowrap;
+}
+.mkt-pill span { color: #94A3B8; font-weight: 600; }
+.mkt-pill b { color: #FFFFFF; font-weight: 800; }
+.mkt-badge-up {
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.18);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 800;
+}
+.mkt-badge-down {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.18);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 800;
+}
+
+@keyframes marqueeLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+</style>
+
+
+
 </div>
 
 
