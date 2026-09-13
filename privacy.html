@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — MyFinancialPlan.in & SmartCalc AI</title>
+<meta name="description" content="Privacy Policy for MyFinancialPlan.in and SmartCalc AI app. Learn how we handle data privacy, local storage, Google sign-in security, and user rights.">
+<link rel="canonical" href="https://www.myfinancialplan.in/privacy.html">
+<link rel="icon" type="image/png" href="assets/brand/mfp_icon.png">
+<style>
+:root{--ink:#17324A;--ink2:#44586E;--teal:#0E9D78;--indigo:#4C62CE;--line:#E3E9F1;--bg:#F7FAFC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.75}
+.wrap{max-width:860px;margin:0 auto;padding:30px 20px 80px}
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:1120px}
+.logo{height:44px}
+nav a{color:var(--ink2);text-decoration:none;font-weight:700;font-size:14px;margin-left:18px}
+nav a:hover{color:var(--teal)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:0 4px 24px -10px rgba(23,50,74,.1)}
+h1{font-size:32px;font-weight:900;letter-spacing:-.8px;margin-bottom:8px;color:var(--ink)}
+.meta{font-size:13px;color:var(--ink2);font-weight:600;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+h2{font-size:20px;font-weight:800;margin:28px 0 10px;color:var(--ink)}
+p, li{color:var(--ink2);font-size:15px;margin-bottom:14px}
+ul{padding-left:22px;margin-bottom:16px}
+a.link{color:var(--indigo);font-weight:700;text-decoration:underline}
+footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-align:center;font-size:13px;color:var(--ink2)}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <a href="/"><img class="logo" src="assets/brand/brand_logo.png" alt="My Financial Plan"></a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/tools/">Tools</a>
+    <a href="/learn/">Learn</a>
+    <a href="/app/">Web App</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+  <div class="card">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Effective Date: September 13, 2026 · Entity: My Financial Plan (MyFinancialPlan.in / SmartCalc AI)</div>
+
+    <p>At <b>My Financial Plan</b> (accessible via <a class="link" href="https://www.myfinancialplan.in">www.myfinancialplan.in</a> and our SmartCalc AI mobile & web applications), user privacy is one of our core commitments. This Privacy Policy outlines the types of information we collect, how it is used, and the steps we take to protect your data.</p>
+
+    <h2>1. Data Minimization & Local Storage First</h2>
+    <p>We believe your personal financial numbers belong to you. When you use our 500+ financial calculators or web tools without creating an account:</p>
+    <ul>
+      <li><b>Zero Server Logging of Calculator Inputs:</b> Your income, age, monthly SIP entries, loan amounts, and retirement goals are calculated strictly client-side inside your web browser or mobile app.</li>
+      <li><b>Local Browser Storage:</b> Inputs are remembered locally on your device (`localStorage`) for convenience so you do not lose your work when refreshing the page.</li>
+    </ul>
+
+    <h2>2. Information We Collect When You Sign In or Contact Us</h2>
+    <p>When you choose to create an account, link your app, or contact our support team:</p>
+    <ul>
+      <li><b>Google Account Authentication:</b> When signing in via Google Identity Services (`auth.html`), we receive basic profile information provided by Google (your email address, display name, and unique user identifier). We do NOT receive or store your Google account password.</li>
+      <li><b>Cloud Sync Data:</b> If you use cloud sync, your created financial plans, goal targets, and saved reports are stored securely in your private partition in Google Cloud Firestore (`smartcalc-ai-638a9`).</li>
+      <li><b>Relationship Manager & Support Inquiries:</b> If you initiate contact via WhatsApp or phone (+91-88401-92702), your phone number and message history are used solely to assist your family or partner desk.</li>
+    </ul>
+
+    <h2>3. How We Use Your Information</h2>
+    <p>We use collected information strictly for:</p>
+    <ul>
+      <li>Providing, operating, and maintaining the MyFinancialPlan.in services and calculators.</li>
+      <li>Synchronizing your saved plans across your devices (Web and Android).</li>
+      <li>Generating customized, branded PDF financial reports upon your request.</li>
+      <li>Managing Partner Mode subscription activations and trial codes.</li>
+      <li>Responding to customer support queries and relationship manager calls.</li>
+    </ul>
+
+    <h2>4. We Never Sell Your Data</h2>
+    <p><b>My Financial Plan does NOT sell, rent, trade, or monetize your personal or financial data to third-party advertisers, credit bureaus, telemarketers, or lead brokers.</b></p>
+
+    <h2>5. Data Security</h2>
+    <p>We employ industry-standard security protocols to safeguard your information:</p>
+    <ul>
+      <li>All data transmissions between your browser and our servers are encrypted via HTTPS (SSL/TLS).</li>
+      <li>Database access is governed by strict Firestore security rules (`rules-v3.txt`), enforcing strict authentication checks and user isolation (`/users/{uid}`).</li>
+      <li>2FA protection is enforced on administrative owner portals (`/admin/`).</li>
+    </ul>
+
+    <h2>6. Your Data Rights & Account Deletion</h2>
+    <p>You have full ownership of your data. You may at any time:</p>
+    <ul>
+      <li>Request a full export of all financial plans linked to your account.</li>
+      <li>Request the immediate and permanent deletion of your account and synced data from our Cloud Firestore database.</li>
+    </ul>
+    <p>To exercise these rights, please email us at <a class="link" href="mailto:care@myfinancialplan.in">care@myfinancialplan.in</a> or message us on WhatsApp at <b>+91-88401-92702</b>. Requests are processed within 48 hours.</p>
+
+    <h2>7. Updates to This Policy</h2>
+    <p>We may update this Privacy Policy periodically to reflect service improvements or regulatory changes. Updated versions will be posted on this page with a revised effective date.</p>
+
+    <h2>8. Contact Us</h2>
+    <p>For questions or privacy concerns, please contact us at:</p>
+    <p><b>My Financial Plan</b><br>
+    Varanasi, Uttar Pradesh, India<br>
+    Email: <a class="link" href="mailto:care@myfinancialplan.in">care@myfinancialplan.in</a><br>
+    Phone / WhatsApp: +91 88401 92702</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    © 2026 My Financial Plan · Varanasi, India · <a class="link" href="/">Return to Home</a>
+  </div>
+</footer>
+
+</body>
+</html>
