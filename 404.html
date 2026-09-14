@@ -6,7 +6,9 @@
 <script>
 (function() {
   var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
-  if (path === '/app' || path === '/smartcalc-web' || path === '/web' || path === '/app.html') {
+  if (path === '/vanshavali' || path === '/vanshavali.html' || path === '/digital-vanshavali' || path === '/tools/digital-vanshavali') {
+    window.location.replace('/vanshavali/');
+  } else if (path === '/app' || path === '/smartcalc-web' || path === '/web' || path === '/app.html') {
     window.location.replace('/app/');
   } else if (path === '/privacy' || path === '/privacy.html') {
     window.location.replace('/privacy.html');
@@ -35,6 +37,6 @@
 </script>
 </head>
 <body>
-<p>Redirecting to <a href="/app/">MyFinancialPlan App</a>...</p>
+<p>Redirecting to <a href="/vanshavali/">Digital Vanshavali</a>...</p>
 </body>
 </html>
