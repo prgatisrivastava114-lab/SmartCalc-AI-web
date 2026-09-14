@@ -43,7 +43,6 @@
   --bg: #F8FAFC;
   --gold: #D4AF37;
   --gold-bg: #FFFDF0;
-  --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
   --royal-dark: linear-gradient(135deg, #0B192C 0%, #1E3E62 50%, #000000 100%);
 }
 
@@ -459,15 +458,16 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); backgroun
       </div>
       <button onclick="closeKeyModal()" style="background:none;border:none;font-size:24px;cursor:pointer">✕</button>
     </div>
-    <p style="font-size:14px;color:var(--ink2);margin-bottom:16px">Enter your MFP Silver, Gold, or Platinum plan key (or generated MFP key) to unlock your generation limits & features instantly.</p>
+    <p style="font-size:14px;color:var(--ink2);margin-bottom:16px">Enter your MFP Silver, Gold, or Platinum plan key (or generated MFP code / any key) to unlock your generation limits & features instantly.</p>
     
     <div style="background:var(--bg);border:1.5px solid var(--line);padding:18px;border-radius:18px;margin-bottom:18px">
       <label style="margin-top:0">Activation Key / Partner Code / Voucher:</label>
       <div style="display:flex;gap:10px">
-        <input type="text" id="vKeyInput" placeholder="e.g. MFP-S030-ABCD / SILVER99 / GOLD299" style="text-transform:uppercase;font-size:15px;letter-spacing:1px;font-weight:800">
+        <input type="text" id="vKeyInput" oninput="liveCheckKey(this.value)" placeholder="e.g. MFP-S030-ABCD / SILVER99 / GOLD299" style="text-transform:uppercase;font-size:15px;letter-spacing:1px;font-weight:800">
         <button class="btn b-indigo" onclick="activateVanshavaliKey()">Unlock Key</button>
       </div>
-      <div style="font-size:12px;color:var(--ink2);margin-top:8px">Preset Test Keys: <code>SILVER99</code> · <code>GOLD299</code> · <code>PLATINUM599</code> · <code>MFP-S030...</code></div>
+      <div id="keyLiveDetectMsg" style="font-size:12.5px;font-weight:800;margin-top:8px;color:var(--teal)">💡 Live Key Scanner Ready</div>
+      <div style="font-size:11.5px;color:var(--ink2);margin-top:4px">Preset Test Keys: <code>SILVER99</code> · <code>GOLD299</code> · <code>PLATINUM599</code> · <code>MFP-S...</code> · <code>MFP-G...</code> · <code>MFP-P...</code></div>
     </div>
 
     <div style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:10px">Request Instant Plan Key via WhatsApp:</div>
@@ -564,7 +564,7 @@ function applyTierUI(){
     if(card) card.classList.toggle('active-tier', currentTier === p);
   });
 
-  var keySuffix = activeKeyStr ? (' [Key: ' + activeKeyStr.slice(0,16) + '...]') : '';
+  var keySuffix = activeKeyStr ? (' [Key: ' + activeKeyStr + ']') : '';
 
   if(currentTier === 'silver'){
     topBadge.className = 'tier-pill tp-silver'; topBadge.textContent = '🥈 SILVER PLAN';
@@ -585,7 +585,7 @@ function applyTierUI(){
     if(vaultUnlockBtnBox) vaultUnlockBtnBox.style.display = 'none';
   } else if(currentTier === 'platinum'){
     topBadge.className = 'tier-pill tp-platinum'; topBadge.textContent = '💎 PLATINUM MASTER PLAN';
-    currentPlanTxt.textContent = '💎 Platinum Master Plan (Unlimited 7+7 Gens & ALL Features Unlocked)' + keySuffix;
+    currentPlanTxt.textContent = '💎 Platinum Master Plan (Unlimited 7+7 Gens & ALL Unlocked)' + keySuffix;
     currentPlanTxt.style.color = '#DDD6FE';
     treeTierBadge.className = 'tier-pill tp-platinum'; treeTierBadge.textContent = '💎 PLATINUM MASTER TIER (UNLIMITED GENS)';
     pdfLockIcon.textContent = '✨ (Unlocked)';
@@ -614,8 +614,8 @@ function isPersonNodeLocked(item){
   } else {
     var backGen = item.gen;
     if(currentTier === 'free' && backGen > 2) return true;
-    if(currentTier === 'silver' && backGen > 4) return true; // 3 generations back
-    if(currentTier === 'gold' && backGen > 5) return true; // 5 generations back
+    if(currentTier === 'silver' && backGen > 4) return true;
+    if(currentTier === 'gold' && backGen > 5) return true;
     return false;
   }
 }
@@ -668,7 +668,7 @@ function renderTree(){
         '<div class="node-meta"><b>Gotra:</b> ' + (nodeLocked ? '🔒 Key Required' : p.gotra) + '<br><b>Native:</b> ' + (nodeLocked ? '🔒 Key Required' : p.village) + '<br><b>Birth:</b> ' + (nodeLocked ? 'c. ****' : 'c. ' + p.birth) + '</div>' +
         '<div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">' +
           '<span class="node-code">' + p.id + '</span>' +
-          (nodeLocked ? '<button class="btn b-gold" style="padding:4px 10px;font-size:11px" onclick="openKeyModal()">🔒 Unlock</button>' : '<button class="btn b-teal" style="padding:4px 10px;font-size:11px" onclick="openAddModal()">+ Member</button>') +
+          (nodeLocked ? '<button class="btn b-gold" style="padding:4px 10px;font-size:11px" onclick="openKeyModal()">🔒 Key Unlock</button>' : '<button class="btn b-teal" style="padding:4px 10px;font-size:11px" onclick="openAddModal()">+ Member</button>') +
         '</div>' +
       '</div>';
     });
@@ -714,27 +714,55 @@ function switchVTab(tab, btn){
 function openKeyModal(){ document.getElementById('keyModal').classList.add('open'); }
 function closeKeyModal(){ document.getElementById('keyModal').classList.remove('open'); }
 
-// ADVANCED KEY PARSER & ACTIVATOR
-function activateVanshavaliKey(){
-  var k = (document.getElementById('vKeyInput').value || '').trim().toUpperCase();
-  if(!k){ alert('Please enter an activation key or code.'); return; }
+// BULLETPROOF LIVE KEY SCANNER
+function detectTierFromKeyStr(rawStr){
+  var s = (rawStr || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if(!s) return '';
 
-  var activatedTier = '';
-
-  // 1. Check generated MFP format (MFP-S..., MFP-G..., MFP-P...)
-  if(k.startsWith('MFP-S') || k.includes('SILVER') || k === 'SILVER99' || k.includes('VAN-SILVER')){
-    activatedTier = 'silver';
-  } else if(k.startsWith('MFP-G') || k.includes('GOLD') || k === 'GOLD299' || k.includes('VAN-GOLD')){
-    activatedTier = 'gold';
-  } else if(k.startsWith('MFP-P') || k.includes('PLATINUM') || k === 'PLATINUM599' || k.includes('VAN-PREMIUM') || k.includes('MASTER') || k.length >= 8){
-    activatedTier = 'platinum';
+  // 1. Check generated MFP formats
+  if(s.includes('MFPS') || s.includes('S030') || s.includes('SILVER') || s.includes('S99')){
+    return 'silver';
+  } else if(s.includes('MFPG') || s.includes('G030') || s.includes('GOLD') || s.includes('G299')){
+    return 'gold';
+  } else if(s.includes('MFPP') || s.includes('P030') || s.includes('PLATINUM') || s.includes('P599') || s.includes('MASTER') || s.includes('VAN')){
+    return 'platinum';
+  } else if(s.length >= 3){
+    // Universal Fallback: Any custom user key unlocks Platinum Master Pass!
+    return 'platinum';
   }
+  return '';
+}
 
-  if(activatedTier){
-    currentTier = activatedTier;
-    activeKeyStr = k;
-    localStorage.setItem('vanshavali_active_tier', activatedTier);
-    localStorage.setItem('vanshavali_active_key', k);
+function liveCheckKey(val){
+  var msgEl = document.getElementById('keyLiveDetectMsg');
+  var tier = detectTierFromKeyStr(val);
+  if(tier === 'silver'){
+    msgEl.innerHTML = '✅ Detected: <b>🥈 Silver Plan Key</b> (3 Gen Back + 1 Forward)';
+    msgEl.style.color = 'var(--indigo)';
+  } else if(tier === 'gold'){
+    msgEl.innerHTML = '✅ Detected: <b>🥇 Gold Plan Key</b> (5 Gen Back + 1 Forward + Vault)';
+    msgEl.style.color = 'var(--amber)';
+  } else if(tier === 'platinum'){
+    msgEl.innerHTML = '✅ Detected: <b>💎 Platinum Master Pass Key</b> (Unlimited Gens + ALL Features Unlocked)';
+    msgEl.style.color = '#7C3AED';
+  } else {
+    msgEl.innerHTML = '💡 Live Key Scanner Ready — type or paste any valid key...';
+    msgEl.style.color = 'var(--teal)';
+  }
+}
+
+// ACTIVATION HANDLER
+function activateVanshavaliKey(){
+  var rawKey = (document.getElementById('vKeyInput').value || '').trim();
+  if(!rawKey){ alert('Please enter or paste your activation key.'); return; }
+
+  var tier = detectTierFromKeyStr(rawKey);
+
+  if(tier){
+    currentTier = tier;
+    activeKeyStr = rawKey.toUpperCase();
+    localStorage.setItem('vanshavali_active_tier', tier);
+    localStorage.setItem('vanshavali_active_key', activeKeyStr);
 
     closeKeyModal();
     renderTree();
@@ -742,10 +770,10 @@ function activateVanshavaliKey(){
     var tierNames = { silver: 'Silver Plan (3 Gen Back + 1 Forward)', gold: 'Gold Plan (5 Gen Back + 1 Forward + Vault)', platinum: 'Platinum Master Plan (Unlimited 7+7 Gens & ALL Unlocked)' };
     alert('🎉 Key Verified & Activated Successfully!
 
-Plan: ' + tierNames[activatedTier] + '
-Key: ' + k);
+Plan: ' + tierNames[tier] + '
+Key: ' + activeKeyStr);
   } else {
-    alert('Invalid key format. Please enter a valid MFP key (e.g. MFP-S030..., SILVER99, GOLD299, PLATINUM599), or tap WhatsApp to request your code.');
+    alert('Please enter a key with at least 3 characters.');
   }
 }
 
