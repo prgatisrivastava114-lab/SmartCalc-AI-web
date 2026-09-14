@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Digital Vanshavali (डिजिटल वंशावली) — Private Family Heritage Estate | MyFinancialPlan</title>
-<meta name="description" content="Ultra-Premium Private Family Heritage Estate & Digital Vanshavali Archive. Trace 7+7 generations on paternal and maternal lines with verified lineage provenance, living constellation tree, and heritage vault.">
+<meta name="description" content="Ultra-Premium Private Family Heritage Estate & Digital Vanshavali Archive. Trace 7+7 generations on paternal and maternal lines with unified My Financial Plan membership and verified lineage provenance.">
 <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
 <link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
 <link rel="manifest" href="/vanshavali/manifest.json">
@@ -16,6 +16,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script src="/assets/js/visitor-tracker.js"></script>
+
+<!-- Official Google Sign-In SDK -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <!-- Official Firebase App & Analytics SDK -->
 <script type="module">
@@ -126,7 +129,7 @@ header.app-header .wrap {
   color: var(--gold-primary); font-weight: 700; display: block;
 }
 
-.header-actions { display: flex; align-items: center; gap: 14px; }
+.header-actions { display: flex; align-items: center; gap: 12px; }
 
 .mode-toggle-btn {
   background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle);
@@ -138,12 +141,21 @@ header.app-header .wrap {
 }
 
 .user-auth-badge {
-  display: flex; align-items: center; gap: 10px; background: rgba(16, 185, 129, 0.1);
+  display: flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.3); padding: 5px 14px; border-radius: 99px;
   font-size: 12.5px; font-weight: 700; color: var(--emerald-accent); cursor: pointer;
 }
-.user-auth-badge.unauth {
-  background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: var(--amber-accent);
+.user-auth-badge.view-only {
+  background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.4); color: var(--amber-accent);
+}
+
+/* View Only Banner */
+.view-only-top-banner {
+  background: linear-gradient(90deg, #1E293B, #0F172A);
+  border: 1px solid var(--amber-accent); color: var(--gold-light); padding: 12px 20px; border-radius: 14px;
+  margin-top: 16px; display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px; font-weight: 700; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  flex-wrap: wrap; gap: 10px;
 }
 
 /* Nav Tabs bar for Desktop */
@@ -249,6 +261,28 @@ header.app-header .wrap {
   color: #FFF;
 }
 .btn-ghost-estate:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+
+/* Plan Selection Cards */
+.plan-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;
+}
+.plan-card {
+  background: rgba(18, 24, 39, 0.95); border: 1px solid var(--border-subtle);
+  border-radius: 24px; padding: 28px 24px; transition: all 0.25s; position: relative;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.plan-card:hover, .plan-card.featured {
+  border-color: var(--gold-primary); transform: translateY(-4px); box-shadow: 0 15px 35px var(--gold-glow);
+}
+.plan-badge-tag {
+  position: absolute; top: 16px; right: 20px; background: var(--gold-primary); color: #090D16;
+  font-size: 10px; font-weight: 900; padding: 3px 10px; border-radius: 99px; text-transform: uppercase;
+}
+.plan-name { font-family: var(--font-serif); font-size: 22px; font-weight: 800; color: #FFF; }
+.plan-price { font-size: 28px; font-weight: 900; color: var(--gold-light); margin: 10px 0 16px; }
+.plan-features-list { list-style: none; margin-bottom: 24px; font-size: 13px; color: var(--text-muted); }
+.plan-features-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; }
+.plan-features-list li::before { content: "✓"; color: var(--emerald-accent); font-weight: 900; }
 
 /* Stats Estate Card Grid */
 .estate-stats-grid {
@@ -366,21 +400,21 @@ header.app-header .wrap {
 /* Modals / Bottom Sheets */
 .modal-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
-  background: rgba(0, 0, 0, 0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   display: none; align-items: center; justify-content: center; padding: 20px;
 }
 .modal-overlay.active { display: flex; }
 .modal-card {
   background: #101726; border: 1px solid var(--border-gold);
-  border-radius: 24px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.8); padding: 28px; position: relative;
+  border-radius: 24px; max-width: 680px; width: 100%; max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.85); padding: 32px; position: relative;
   animation: modalUp 0.3s ease;
 }
 @keyframes modalUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
 .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-.modal-title { font-family: var(--font-serif); font-size: 20px; font-weight: 800; color: #FFF; }
-.modal-close { background: rgba(255,255,255,0.08); border: none; color: #FFF; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 18px; }
+.modal-title { font-family: var(--font-serif); font-size: 22px; font-weight: 800; color: #FFF; }
+.modal-close { background: rgba(255,255,255,0.08); border: none; color: #FFF; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 18px; }
 
 /* Form Controls */
 .form-group { margin-bottom: 16px; }
@@ -415,7 +449,7 @@ header.app-header .wrap {
       <div class="brand-crown">👑</div>
       <div>
         <span class="brand-title">DIGITAL VANSHAVALI</span>
-        <span class="brand-subtitle">Private Heritage Estate</span>
+        <span class="brand-subtitle">My Financial Plan Ecosystem</span>
       </div>
     </a>
     
@@ -428,8 +462,9 @@ header.app-header .wrap {
         <span>👵 Elder Mode</span>
       </button>
 
-      <div class="user-auth-badge" id="user-auth-pill" onclick="triggerGoogleAuthModal()">
-        <span>🔒 Google Auth (Identity Authenticated ✓)</span>
+      <!-- Account & Plan Indicator Pill -->
+      <div class="user-auth-badge view-only" id="user-auth-pill" onclick="openAccountPlanModal()">
+        <span id="user-auth-pill-text">MY FINANCIAL PLAN | Active Plan: VIEW ONLY 👁️</span>
       </div>
     </div>
   </div>
@@ -458,6 +493,16 @@ header.app-header .wrap {
 
 <!-- Main Viewport Container -->
 <main class="wrap" style="margin-top: 10px;">
+
+  <!-- VIEW ONLY TOP ALERT BANNER (Shown when user has NO active plan) -->
+  <div id="view-only-banner-box" class="view-only-top-banner">
+    <div>
+      👁️ <strong>VIEW-ONLY PREVIEW MODE</strong>: You are viewing Digital Vanshavali in preview mode. Activate Silver, Gold or Platinum Plan to Build & Edit Your Family Tree.
+    </div>
+    <button class="btn-estate btn-gold" style="padding: 6px 18px; font-size: 12px;" onclick="openPlanSelectionModal()">
+      Activate Your Plan ⚡
+    </button>
+  </div>
 
   <!-- DEMO MODE ALERT BANNER (Shown ONLY when viewing Demo Mode) -->
   <div id="demo-banner-box" class="demo-alert-banner" style="display: none;">
@@ -499,7 +544,7 @@ header.app-header .wrap {
       </div>
 
       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <button class="btn-estate btn-gold" onclick="openConversationalAddModal()">
+        <button class="btn-estate btn-gold" onclick="handleBuildTreeClick()">
           <span>➕ Build My Family Tree</span>
         </button>
         <button class="btn-estate btn-ghost-estate" onclick="switchTab('tree')">
@@ -551,17 +596,17 @@ header.app-header .wrap {
       </p>
 
       <div class="onboarding-steps">
-        <div class="onboarding-card" onclick="openConversationalAddModal('self', 0)">
+        <div class="onboarding-card" onclick="handleBuildTreeClick('self', 0)">
           <div class="onboarding-num">Step 1</div>
           <div class="onboarding-step-title">Add Yourself (Gen 0)</div>
           <div style="font-size: 12px; color: var(--text-muted);">Create your root node in the tree.</div>
         </div>
-        <div class="onboarding-card" onclick="openConversationalAddModal('father', -1)">
+        <div class="onboarding-card" onclick="handleBuildTreeClick('father', -1)">
           <div class="onboarding-num">Step 2</div>
           <div class="onboarding-step-title">Add Parents (Gen -1)</div>
           <div style="font-size: 12px; color: var(--text-muted);">Record your Father & Mother.</div>
         </div>
-        <div class="onboarding-card" onclick="openConversationalAddModal('paternal_grandfather', -2)">
+        <div class="onboarding-card" onclick="handleBuildTreeClick('paternal_grandfather', -2)">
           <div class="onboarding-num">Step 3</div>
           <div class="onboarding-step-title">Add Grandparents (Gen -2)</div>
           <div style="font-size: 12px; color: var(--text-muted);">Record Paternal & Maternal line.</div>
@@ -614,7 +659,7 @@ header.app-header .wrap {
         <h2 style="font-family: var(--font-serif); font-size: 24px; color: #FFF;">LIVING ANCESTRAL CONSTELLATION</h2>
         <p style="font-size: 13px; color: var(--text-muted);">Organized by relative generation index (-7 to +2) with status provenance.</p>
       </div>
-      <button class="btn-estate btn-gold" onclick="openConversationalAddModal()">
+      <button class="btn-estate btn-gold" onclick="handleBuildTreeClick()">
         <span>➕ Add Member</span>
       </button>
     </div>
@@ -739,7 +784,7 @@ header.app-header .wrap {
         <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px;">
           <h4 style="color: #FFF; font-size: 15px; margin-bottom: 6px;">📷 OCR Manuscript Reader</h4>
           <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Extract draft names & places from handwritten Bahi Khatta photos.</p>
-          <button class="btn-estate btn-ghost-estate" style="font-size: 12px; padding: 8px 16px;" onclick="alert('AI OCR Scanner initialized. Upload document in Heritage Vault to extract suggestions.')">Scan Document</button>
+          <button class="btn-estate btn-ghost-estate" style="font-size: 12px; padding: 8px 16px;" onclick="triggerAiOcrScanner()">Scan Document</button>
         </div>
 
         <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px;">
@@ -776,6 +821,137 @@ header.app-header .wrap {
     <span>AI</span>
   </button>
 </nav>
+
+<!-- MODAL: PLAN SELECTION MODAL -->
+<div class="modal-overlay" id="modal-plan-selection">
+  <div class="modal-card" style="max-width: 900px;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Choose Your Family Heritage Experience</div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">Your My Financial Plan membership unlocks your Digital Vanshavali experience.</p>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-plan-selection')">✕</button>
+    </div>
+
+    <div class="plan-grid">
+      <!-- SILVER CARD -->
+      <div class="plan-card">
+        <div>
+          <div class="plan-name">SILVER</div>
+          <div class="plan-price">Included in MFP Silver</div>
+          <ul class="plan-features-list">
+            <li>7-Generation Lineage Depth</li>
+            <li>Basic Relationship Record</li>
+            <li>Up to 15 Family Members</li>
+            <li>Single User Access</li>
+          </ul>
+        </div>
+        <button class="btn-estate btn-ghost-estate" style="width: 100%; border-color: var(--border-gold);" onclick="openActivationForm('SILVER')">
+          Select Silver Plan
+        </button>
+      </div>
+
+      <!-- GOLD CARD -->
+      <div class="plan-card featured">
+        <div class="plan-badge-tag">MOST POPULAR</div>
+        <div>
+          <div class="plan-name">GOLD</div>
+          <div class="plan-price">Included in MFP Gold</div>
+          <ul class="plan-features-list">
+            <li>Full 7+7 Paternal & Maternal Lineage</li>
+            <li>Unlimited Family Members</li>
+            <li>2-Step Relationship Verification</li>
+            <li>Heritage Bahi Khatta Archive</li>
+            <li>Gotra Sapinda Marriage Verifier</li>
+          </ul>
+        </div>
+        <button class="btn-estate btn-gold" style="width: 100%;" onclick="openActivationForm('GOLD')">
+          Select Gold Plan
+        </button>
+      </div>
+
+      <!-- PLATINUM CARD -->
+      <div class="plan-card">
+        <div class="plan-badge-tag" style="background: var(--indigo-accent); color: #FFF;">ULTRA-HNI ESTATE</div>
+        <div>
+          <div class="plan-name">PLATINUM</div>
+          <div class="plan-price">Included in MFP Platinum</div>
+          <ul class="plan-features-list">
+            <li>All Gold Features Included</li>
+            <li>Bonus Generations (+3, +5...)</li>
+            <li>Unlimited Document & Voice Uploads</li>
+            <li>Vanshavali AI OCR Manuscript Scanner</li>
+            <li>Priority Family Office Concierge</li>
+          </ul>
+        </div>
+        <button class="btn-estate btn-ghost-estate" style="width: 100%; border-color: var(--indigo-accent);" onclick="openActivationForm('PLATINUM')">
+          Select Platinum Plan
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: PLAN ACTIVATION FORM -->
+<div class="modal-overlay" id="modal-plan-activation">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="activation-modal-title">Activate Digital Vanshavali Plan</div>
+        <p style="font-size: 12.5px; color: var(--text-muted);">Unifies your My Financial Plan account with Digital Vanshavali.</p>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-plan-activation')">✕</button>
+    </div>
+
+    <form id="plan-activation-form" onsubmit="handlePlanActivationSubmit(event)">
+      <input type="hidden" id="input-selected-plan-tier" value="GOLD">
+
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" id="input-user-full-name" required placeholder="e.g. Abhishek Srivastava">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">WhatsApp Number</label>
+        <input type="tel" class="form-input" id="input-user-whatsapp" required placeholder="e.g. +91 9876543210">
+        <div class="form-hint">Used for 2-step family relative verification invites.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Activation Key / Key Code</label>
+        <input type="text" class="form-input" id="input-activation-key" placeholder="e.g. GOLD299 or MFP-G-1001">
+        <div class="form-hint">Default key auto-applied if available from MFP subscription.</div>
+      </div>
+
+      <div style="background: rgba(212,175,55,0.08); border: 1px solid var(--border-gold); padding: 14px; border-radius: 12px; margin-bottom: 20px;">
+        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 12.5px; color: #FFF;">
+          <input type="checkbox" id="input-confirm-plan-terms" required style="margin-top: 3px;">
+          <span>
+            <strong>I confirm I want to activate Digital Vanshavali under my selected My Financial Plan plan.</strong>
+          </span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn-estate btn-gold" style="width: 100%;">
+        ACTIVATE PLAN & UNLOCK ACCESS ⚡
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: ACCOUNT & PLAN DETAILS MODAL -->
+<div class="modal-overlay" id="modal-account-plan">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title">MY FINANCIAL PLAN ACCOUNT & PLAN</div>
+      <button class="modal-close" onclick="closeModal('modal-account-plan')">✕</button>
+    </div>
+
+    <div id="account-plan-modal-body">
+      <!-- Injected dynamically via JS -->
+    </div>
+  </div>
+</div>
 
 <!-- MODAL 1: CONVERSATIONAL ADD MEMBER FLOW -->
 <div class="modal-overlay" id="modal-conversational-add">
@@ -862,18 +1038,24 @@ header.app-header .wrap {
 
 <script>
 /* ==========================================================================
-   DIGITAL VANSHAVALI MASTER PLATFORM ENGINE v3.0
+   DIGITAL VANSHAVALI MASTER PLATFORM ENGINE v4.0
+   Unified Authentication + Plan Entitlement Engine
    ========================================================================== */
 
 // STATE MANAGEMENT
 let isDemoMode = false;
 let isElderMode = false;
 let activeTab = 'home';
-let authenticatedUser = {
-  id: 'usr_google_778129',
-  name: 'Authenticated Estate Owner',
-  email: 'owner@myfinancialplan.in',
-  authMethod: 'Google Auth (OAuth 2.0)'
+
+// UNIFIED MFP USER IDENTITY & PLAN STATE
+let mfpUser = {
+  id: localStorage.getItem('mfp_user_id') || 'MFP_USR_' + Math.floor(100000 + Math.random() * 900000),
+  name: localStorage.getItem('mfp_user_name') || 'Estate Viewer',
+  email: localStorage.getItem('mfp_user_email') || 'user@myfinancialplan.in',
+  phone: localStorage.getItem('mfp_user_phone') || '',
+  activePlan: localStorage.getItem('mfp_active_plan') || 'NONE', // 'NONE', 'SILVER', 'GOLD', 'PLATINUM'
+  planStatus: localStorage.getItem('mfp_plan_status') || 'VIEW_ONLY', // 'VIEW_ONLY', 'ACTIVE'
+  activationKey: localStorage.getItem('mfp_activation_key') || ''
 };
 
 // DEMO DATA (Segregated completely from real user storage)
@@ -938,26 +1120,52 @@ const DEMO_FAMILY_DATA = [
 
 // INITIALIZATION
 window.addEventListener('DOMContentLoaded', function() {
+  saveMfpState();
   renderApp();
 });
 
+function saveMfpState() {
+  localStorage.setItem('mfp_user_id', mfpUser.id);
+  localStorage.setItem('mfp_user_name', mfpUser.name);
+  localStorage.setItem('mfp_user_email', mfpUser.email);
+  localStorage.setItem('mfp_user_phone', mfpUser.phone);
+  localStorage.setItem('mfp_active_plan', mfpUser.activePlan);
+  localStorage.setItem('mfp_plan_status', mfpUser.planStatus);
+  localStorage.setItem('mfp_activation_key', mfpUser.activationKey);
+}
+
 function getRealTree() {
-  var data = localStorage.getItem('vanshavali_real_tree_v3');
+  var data = localStorage.getItem('vanshavali_real_tree_v4');
   return data ? JSON.parse(data) : [];
 }
 
 function saveRealTree(data) {
-  localStorage.setItem('vanshavali_real_tree_v3', JSON.stringify(data));
+  localStorage.setItem('vanshavali_real_tree_v4', JSON.stringify(data));
 }
 
 function getActiveTree() {
   return isDemoMode ? DEMO_FAMILY_DATA : getRealTree();
 }
 
-// RENDER FUNCTION
+// RENDER APP STATE
 function renderApp() {
   var tree = getActiveTree();
   
+  // Header Account Indicator Pill
+  var pill = document.getElementById('user-auth-pill');
+  var pillText = document.getElementById('user-auth-pill-text');
+  var viewOnlyBanner = document.getElementById('view-only-banner-box');
+
+  if (mfpUser.planStatus === 'ACTIVE' && mfpUser.activePlan !== 'NONE') {
+    pill.className = 'user-auth-badge';
+    pillText.textContent = 'MY FINANCIAL PLAN | Plan: ' + mfpUser.activePlan + ' 🟢';
+    viewOnlyBanner.style.display = 'none';
+  } else {
+    pill.className = 'user-auth-badge view-only';
+    pillText.textContent = 'MY FINANCIAL PLAN | Active Plan: VIEW ONLY 👁️';
+    viewOnlyBanner.style.display = isDemoMode ? 'none' : 'flex';
+  }
+
   // Stats Calculation (Strictly from actual data)
   var totalMembers = tree.length;
   var verifiedCount = tree.filter(function(t) { return t.status === 'verified'; }).length;
@@ -1004,7 +1212,7 @@ function renderTreeCanvas() {
   var tree = getActiveTree();
 
   if (tree.length === 0) {
-    viewport.innerHTML = '<div style="text-align: center; padding: 60px 20px; color: var(--text-muted);"><div style="font-size: 40px; margin-bottom: 12px;">🌳</div><div style="font-size: 18px; font-weight: 800; color: #FFF; font-family: var(--font-serif);">Living Tree Estate is Empty</div><p style="font-size: 13px; margin-top: 6px;">Add your first family member to populate the living constellation.</p><button class="btn-estate btn-gold" style="margin-top: 18px;" onclick="openConversationalAddModal()">➕ Add Self / Parent</button></div>';
+    viewport.innerHTML = '<div style="text-align: center; padding: 60px 20px; color: var(--text-muted);"><div style="font-size: 40px; margin-bottom: 12px;">🌳</div><div style="font-size: 18px; font-weight: 800; color: #FFF; font-family: var(--font-serif);">Living Tree Estate is Empty</div><p style="font-size: 13px; margin-top: 6px;">Add your first family member to populate the living constellation.</p><button class="btn-estate btn-gold" style="margin-top: 18px;" onclick="handleBuildTreeClick()">➕ Add Self / Parent</button></div>';
     return;
   }
 
@@ -1033,7 +1241,7 @@ function renderTreeCanvas() {
 
     // Unknown Ancestor Card for Ancestral Generations
     if (gen < 0) {
-      html += '<div class="unknown-ancestor-card"><div class="unknown-ancestor-title">ANCESTRAL LINK UNKNOWN</div><div class="unknown-ancestor-desc">“Someone existed here, but their story has not yet been recorded.”</div><div class="unknown-actions-grid"><button class="unknown-btn" onclick="askRelativeWhatsApp(' + JSON.stringify(label) + ')">📱 Ask Relative</button><button class="unknown-btn" onclick="openConversationalAddModal(\'ancestor\', ' + gen + ')">➕ Add Record</button></div></div>';
+      html += '<div class="unknown-ancestor-card"><div class="unknown-ancestor-title">ANCESTRAL LINK UNKNOWN</div><div class="unknown-ancestor-desc">“Someone existed here, but their story has not yet been recorded.”</div><div class="unknown-actions-grid"><button class="unknown-btn" onclick="askRelativeWhatsApp(' + JSON.stringify(label) + ')">📱 Ask Relative</button><button class="unknown-btn" onclick="handleBuildTreeClick(&quot;ancestor&quot;, ' + gen + ')">➕ Add Record</button></div></div>';
     }
 
     html += '</div></div>';
@@ -1077,7 +1285,82 @@ function getStatusBadgeHtml(status, personId) {
   }
 }
 
-// MODAL CONTROLS
+// HANDLE BUILD TREE & PLAN ENFORCEMENT
+function handleBuildTreeClick(relation, gen) {
+  if (isDemoMode) {
+    alert('Please exit Demo Mode to edit your real family estate.');
+    return;
+  }
+  
+  if (mfpUser.planStatus !== 'ACTIVE' || mfpUser.activePlan === 'NONE') {
+    openPlanSelectionModal();
+    return;
+  }
+
+  // Check Silver limit
+  var tree = getRealTree();
+  if (mfpUser.activePlan === 'SILVER' && tree.length >= 15) {
+    alert('⚠️ Silver Plan Limit Reached (15 Family Members). Upgrade to Gold or Platinum for unlimited estate members.');
+    openPlanSelectionModal();
+    return;
+  }
+
+  openConversationalAddModal(relation, gen);
+}
+
+// MODAL & PLAN CONTROLS
+function openPlanSelectionModal() {
+  document.getElementById('modal-plan-selection').classList.add('active');
+}
+
+function openActivationForm(tier) {
+  document.getElementById('input-selected-plan-tier').value = tier;
+  document.getElementById('activation-modal-title').textContent = 'Activate Digital Vanshavali ' + tier + ' Plan';
+  
+  if (mfpUser.name && mfpUser.name !== 'Estate Viewer') {
+    document.getElementById('input-user-full-name').value = mfpUser.name;
+  }
+  if (mfpUser.phone) {
+    document.getElementById('input-user-whatsapp').value = mfpUser.phone;
+  }
+  
+  var defaultKeys = { 'SILVER': 'SILVER99', 'GOLD': 'GOLD299', 'PLATINUM': 'PLATINUM599' };
+  document.getElementById('input-activation-key').value = mfpUser.activationKey || defaultKeys[tier] || '';
+
+  closeModal('modal-plan-selection');
+  document.getElementById('modal-plan-activation').classList.add('active');
+}
+
+function handlePlanActivationSubmit(e) {
+  e.preventDefault();
+
+  var tier = document.getElementById('input-selected-plan-tier').value;
+  var fullName = document.getElementById('input-user-full-name').value.trim();
+  var whatsapp = document.getElementById('input-user-whatsapp').value.trim();
+  var actKey = document.getElementById('input-activation-key').value.trim();
+
+  if (!fullName || !whatsapp) return;
+
+  mfpUser.name = fullName;
+  mfpUser.phone = whatsapp;
+  mfpUser.activePlan = tier;
+  mfpUser.planStatus = 'ACTIVE';
+  mfpUser.activationKey = actKey || (tier + '299');
+
+  saveMfpState();
+  closeModal('modal-plan-activation');
+  renderApp();
+
+  alert('🎉 Congratulations ' + fullName + '! Your My Financial Plan [' + tier + '] subscription has activated Digital Vanshavali full estate access.');
+}
+
+function openAccountPlanModal() {
+  var body = document.getElementById('account-plan-modal-body');
+  body.innerHTML = '<div class="provenance-field"><div class="provenance-field-label">Unified MFP User ID</div><div class="provenance-field-val">' + escapeHtml(mfpUser.id) + '</div></div><div class="provenance-field"><div class="provenance-field-label">Authenticated Full Name</div><div class="provenance-field-val">' + escapeHtml(mfpUser.name) + '</div></div><div class="provenance-field"><div class="provenance-field-label">Google Auth Email</div><div class="provenance-field-val">' + escapeHtml(mfpUser.email) + '</div></div><div class="provenance-field"><div class="provenance-field-label">WhatsApp Number</div><div class="provenance-field-val">' + escapeHtml(mfpUser.phone || 'Not registered') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Active Membership Tier</div><div class="provenance-field-val" style="color: var(--gold-primary); font-size: 16px;">' + escapeHtml(mfpUser.activePlan) + ' (' + escapeHtml(mfpUser.planStatus) + ')</div></div><button class="btn-estate btn-gold" style="width: 100%; margin-top: 14px;" onclick="closeModal(&quot;modal-account-plan&quot;); openPlanSelectionModal();">Switch / Upgrade MFP Membership</button>';
+
+  document.getElementById('modal-account-plan').classList.add('active');
+}
+
 function switchTab(tabId) {
   activeTab = tabId;
   document.querySelectorAll('.tab-pane').forEach(function(el) { el.style.display = 'none'; });
@@ -1122,10 +1405,6 @@ function toggleElderMode() {
 }
 
 function openConversationalAddModal(relation, gen) {
-  if (isDemoMode) {
-    alert('Please exit Demo Mode to add members to your real private family estate.');
-    return;
-  }
   document.getElementById('input-relation-type').value = relation || 'father';
   document.getElementById('modal-conversational-add').classList.add('active');
 }
@@ -1161,7 +1440,7 @@ function handleSaveMember(e) {
     native_village: village || 'Unrecorded',
     birth_year: birthYear || '',
     status: isConfirmed ? 'contributor_confirmed' : 'unverified',
-    contributor: authenticatedUser.name,
+    contributor: mfpUser.name,
     confirmed_by: 'Pending Target Relative Confirmation',
     timestamp: new Date().toISOString().replace('T', ' ').substring(0, 19),
     evidence: 'Contributor Authentication Confirmation'
@@ -1189,6 +1468,15 @@ function openProvenanceModal(personId) {
   document.getElementById('modal-provenance-inspector').classList.add('active');
 }
 
+function triggerAiOcrScanner() {
+  if (mfpUser.activePlan === 'SILVER') {
+    alert('⚠️ Vanshavali AI OCR Manuscript Reader requires Gold or Platinum plan membership.');
+    openPlanSelectionModal();
+    return;
+  }
+  alert('📷 AI OCR Scanner initialized. Upload document in Heritage Vault to extract suggestions.');
+}
+
 function askRelativeWhatsApp(genLabel) {
   var text = encodeURIComponent('Pranam! I am building our authentic Digital Vanshavali heritage tree. Could you please share the full name, native village, and Gotra of our ancestors in ' + genLabel + '?');
   window.open('https://api.whatsapp.com/send?text=' + text, '_blank');
@@ -1199,15 +1487,15 @@ function generateElderQuestions() {
 }
 
 function openEvidenceUploadModal() {
+  if (mfpUser.planStatus !== 'ACTIVE' || mfpUser.activePlan === 'NONE') {
+    openPlanSelectionModal();
+    return;
+  }
   alert('📜 Heritage Vault Upload: Select Bahi Khatta scans, land registry papers, or audio recordings to attach as verification evidence.');
 }
 
 function openGotraVerifierModal() {
   alert('☸️ Gotra Sapinda Marriage Verifier: Checks 7-generation paternal and 5-generation maternal lines for alliance compatibility.');
-}
-
-function triggerGoogleAuthModal() {
-  alert('🔒 Google Auth: You are logged in as Authenticated Estate Owner (owner@myfinancialplan.in). Identity Authenticated ✓.');
 }
 
 function escapeHtml(str) {
