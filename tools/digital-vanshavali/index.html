@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Digital Vanshavali (डिजिटल वंशावली) — Bifurcated Family Heritage Estate | MyFinancialPlan</title>
-<meta name="description" content="Ultra-Premium Private Family Heritage Estate & Digital Vanshavali Archive with explicit Paternal (पितृ पक्ष) and Maternal (मातृ पक्ष) database bifurcation, branch tree constellation, and verified lineage provenance.">
+<title>Digital Vanshavali (डिजिटल वंशावली) — Universal Relationship Graph Estate | MyFinancialPlan</title>
+<meta name="description" content="Ultra-Premium Person-Centric Family Relationship Graph Platform. Trace unlimited generations, person-centric graph re-centering, immutable Person IDs, lineage codes, and bifurcated paternal & maternal roots.">
 <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
 <link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
 <link rel="manifest" href="/vanshavali/manifest.json">
@@ -205,6 +205,24 @@ header.app-header .wrap {
   font-size: 13px; font-weight: 700; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
 
+/* Center Person Focal Profile Banner */
+.center-person-focal-card {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(16, 22, 42, 0.95));
+  border: 1.5px solid var(--gold-primary); border-radius: 20px; padding: 22px 28px;
+  margin-bottom: 24px; box-shadow: 0 12px 35px var(--gold-glow); position: relative;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.focal-badge-tag {
+  background: var(--gold-primary); color: #090D16; font-size: 10px; font-weight: 900;
+  padding: 3px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: 1px;
+}
+.focal-person-name { font-family: var(--font-serif); font-size: 24px; font-weight: 900; color: #FFF; }
+
+.id-badge-code {
+  font-family: monospace; font-size: 11px; background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle);
+  padding: 3px 8px; border-radius: 6px; color: var(--gold-light); display: inline-block; margin-right: 6px; margin-top: 4px;
+}
+
 /* Cinematic Hero Section */
 .hero-cinematic {
   position: relative; border-radius: 28px; padding: 48px 36px; margin-top: 24px;
@@ -370,14 +388,17 @@ header.app-header .wrap {
 /* Person Node Card */
 .person-node-card {
   background: rgba(20, 28, 48, 0.95); border: 1px solid var(--border-subtle);
-  border-radius: 18px; padding: 16px 20px; width: 280px; transition: all 0.25s ease;
+  border-radius: 18px; padding: 16px 20px; width: 300px; transition: all 0.25s ease;
   position: relative; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 .person-node-card:hover {
   border-color: var(--gold-primary); transform: translateY(-3px); box-shadow: 0 12px 30px var(--gold-glow);
 }
-.person-node-card.paternal-node { border-left: 3px solid var(--indigo-accent); }
-.person-node-card.maternal-node { border-left: 3px solid var(--emerald-accent); }
+.person-node-card.center-person-card {
+  border: 2px solid var(--gold-primary); background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(20, 28, 48, 0.95));
+}
+.person-node-card.paternal-node { border-left: 4px solid var(--indigo-accent); }
+.person-node-card.maternal-node { border-left: 4px solid var(--emerald-accent); }
 
 .person-node-card.verified { border-color: rgba(16, 185, 129, 0.5); }
 .person-node-card.contributor-confirmed { border-color: rgba(99, 102, 241, 0.5); }
@@ -402,6 +423,15 @@ header.app-header .wrap {
 .branch-pill-paternal { background: rgba(99, 102, 241, 0.18); color: #A5B4FC; border: 1px solid rgba(99, 102, 241, 0.4); }
 .branch-pill-maternal { background: rgba(16, 185, 129, 0.18); color: #6EE7B7; border: 1px solid rgba(16, 185, 129, 0.4); }
 
+.node-action-bar {
+  display: flex; gap: 6px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-subtle);
+}
+.node-action-btn {
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle);
+  color: var(--text-muted); font-size: 10.5px; font-weight: 700; padding: 4px 8px; border-radius: 6px; cursor: pointer; flex: 1; text-align: center;
+}
+.node-action-btn:hover { background: rgba(212,175,55,0.15); border-color: var(--gold-primary); color: #FFF; }
+
 /* Status Badges */
 .badge-provenance {
   display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 99px;
@@ -419,7 +449,7 @@ header.app-header .wrap {
 /* Unknown Ancestor Card */
 .unknown-ancestor-card {
   background: rgba(15, 20, 32, 0.7); border: 1.5px dashed rgba(255, 255, 255, 0.15);
-  border-radius: 18px; padding: 18px; width: 280px; text-align: center;
+  border-radius: 18px; padding: 18px; width: 300px; text-align: center;
 }
 .unknown-ancestor-title {
   font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--amber-accent); margin-bottom: 6px;
@@ -488,7 +518,7 @@ header.app-header .wrap {
       <div class="brand-crown">👑</div>
       <div>
         <span class="brand-title">DIGITAL VANSHAVALI</span>
-        <span class="brand-subtitle">Bifurcated Lineage Estate</span>
+        <span class="brand-subtitle">Universal Relationship Graph</span>
       </div>
     </a>
     
@@ -516,7 +546,10 @@ header.app-header .wrap {
       <span>🏛️ Private Estate Home</span>
     </button>
     <button class="nav-tab-item" onclick="switchTab('tree')" id="tab-btn-tree">
-      <span>🌳 Living Family Tree</span>
+      <span>🌳 Person-Centric Graph Canvas</span>
+    </button>
+    <button class="nav-tab-item" onclick="switchTab('pathfinder')" id="tab-btn-pathfinder">
+      <span>🔍 Relationship Path Finder</span>
     </button>
     <button class="nav-tab-item" onclick="switchTab('verify')" id="tab-btn-verify">
       <span>🛡️ Provenance & Verification</span>
@@ -558,13 +591,13 @@ header.app-header .wrap {
     <!-- Hero Cinematic -->
     <div class="hero-cinematic">
       <div class="hero-emblem-badge">
-        <span>⚜️ Ultra-Premium Private Archive</span>
+        <span>⚜️ Person-Centric Relationship Graph Engine</span>
       </div>
       <h1 class="hero-headline">
         “Your Family Story Should Never End With Your Memory.”
       </h1>
       <p class="hero-subhead">
-        Preserve what you know. Discover what was forgotten. Pass it to the next generation through a fully bifurcated Paternal (पितृ पक्ष) & Maternal (मातृ पक्ष) lineage estate.
+        Preserve what you know. Discover what was forgotten. Every person receives an immutable Person ID, human-readable lineage code, and complete traceable paternal & maternal context.
       </p>
 
       <!-- Generational Flow Strip -->
@@ -575,11 +608,11 @@ header.app-header .wrap {
         <span class="gen-flow-arrow">➔</span>
         <div class="gen-flow-step">Parents (-1)</div>
         <span class="gen-flow-arrow">➔</span>
-        <div class="gen-flow-step active">You (Gen 0)</div>
+        <div class="gen-flow-step active">Center Person (Gen 0)</div>
         <span class="gen-flow-arrow">➔</span>
         <div class="gen-flow-step">Children (+1)</div>
         <span class="gen-flow-arrow">➔</span>
-        <div class="gen-flow-step">Future Generations</div>
+        <div class="gen-flow-step">Descendants (+2 to +N)</div>
       </div>
 
       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
@@ -587,18 +620,32 @@ header.app-header .wrap {
           <span>➕ Build My Family Tree</span>
         </button>
         <button class="btn-estate btn-ghost-estate" onclick="switchTab('tree')">
-          <span>Explore Living Constellation</span>
+          <span>Explore Graph Canvas</span>
         </button>
       </div>
+    </div>
+
+    <!-- Universal Search Bar Strip -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 20px; padding: 20px; margin-top: 24px;">
+      <h3 style="font-family: var(--font-serif); font-size: 16px; color: var(--gold-light); margin-bottom: 8px;">
+        🔍 Universal Multi-Identifier Search & Graph Finder
+      </h3>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <input type="text" class="form-input" id="input-universal-search" placeholder="Search by Person Name, Person ID (PERS-...), Lineage Code (VNS-...), Family ID (FAM-...)" style="flex: 1;" onkeyup="handleUniversalSearch()">
+        <button class="btn-estate btn-gold" style="padding: 10px 20px;" onclick="handleUniversalSearch()">
+          Search Graph 🔍
+        </button>
+      </div>
+      <div id="search-results-dropdown" style="margin-top: 12px; display: none;"></div>
     </div>
 
     <!-- Estate Dashboard Summary Stats -->
     <div style="margin-top: 32px;">
       <h2 style="font-family: var(--font-serif); font-size: 22px; color: #FFF; margin-bottom: 4px;" id="estate-header-title">
-        MY PRIVATE BIFURCATED FAMILY ESTATE
+        MY PRIVATE UNIVERSAL RELATIONSHIP ESTATE
       </h2>
       <p style="font-size: 13.5px; color: var(--text-muted);" id="estate-header-sub">
-        Strictly calculated from authentic user entries with separate Paternal & Maternal database branches.
+        Every member has an immutable Person ID, separate Family ID, Branch ID, Ancestral Root ID, and Native Place ID.
       </p>
 
       <div class="estate-stats-grid">
@@ -638,7 +685,7 @@ header.app-header .wrap {
         <div class="onboarding-card" onclick="handleBuildTreeClick('self', 0, 'PATERNAL')">
           <div class="onboarding-num">Step 1</div>
           <div class="onboarding-step-title">Add Yourself (Gen 0)</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Create your root node in the tree.</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Create your root node with unique Person ID.</div>
         </div>
         <div class="onboarding-card" onclick="handleBuildTreeClick('father', -1, 'PATERNAL')">
           <div class="onboarding-num">Step 2</div>
@@ -661,10 +708,10 @@ header.app-header .wrap {
     <!-- 7-Gen Dual Lineage Progress Box -->
     <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 24px; padding: 28px; margin-top: 28px;">
       <h3 style="font-family: var(--font-serif); color: #FFF; font-size: 18px; margin-bottom: 6px;">
-        7-GENERATION FOUNDATION TRACKER (BIFURCATED)
+        7-GENERATION FOUNDATION TRACKER (UNLIMITED GRAPH READY)
       </h3>
       <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
-        Tracks complete 7-generation depth across Paternal & Maternal roots independently. Reaching 100% unlocks Bonus Generations (+3, +5...).
+        Tracks complete 7-generation depth across Paternal & Maternal roots. The graph engine supports unlimited generations (+8, +10, +20...).
       </p>
 
       <!-- Paternal Progress -->
@@ -695,18 +742,23 @@ header.app-header .wrap {
   <section id="tab-section-tree" class="tab-pane" style="display: none;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 10px;">
       <div>
-        <h2 style="font-family: var(--font-serif); font-size: 24px; color: #FFF;">LIVING ANCESTRAL CONSTELLATION</h2>
-        <p style="font-size: 13px; color: var(--text-muted);">Filter by explicit Paternal Side (पितृ पक्ष) and Maternal Side (मातृ पक्ष) branches.</p>
+        <h2 style="font-family: var(--font-serif); font-size: 24px; color: #FFF;">PERSON-CENTRIC RELATIONSHIP GRAPH CANVAS</h2>
+        <p style="font-size: 13px; color: var(--text-muted);">Click any person or tap "Set as Center 🎯" to dynamically re-center the entire graph around them.</p>
       </div>
       <button class="btn-estate btn-gold" onclick="handleBuildTreeClick()">
         <span>➕ Add Member</span>
       </button>
     </div>
 
+    <!-- Active Center Person Focal Profile Card Banner -->
+    <div id="active-center-person-focal-banner" class="center-person-focal-card" style="margin-top: 16px;">
+      <!-- JS injects focal profile info here -->
+    </div>
+
     <!-- Branch View Switcher Bar -->
     <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center;">
       <button class="nav-tab-item active" id="branch-view-btn-all" onclick="setBranchViewFilter('ALL')">
-        <span>🔀 Combined Tree</span>
+        <span>🔀 Combined Graph</span>
       </button>
       <button class="nav-tab-item" id="branch-view-btn-split" onclick="setBranchViewFilter('SPLIT')">
         <span>⚔️ Side-by-Side Bifurcated Branches</span>
@@ -719,18 +771,49 @@ header.app-header .wrap {
       </button>
 
       <select id="filter-gen-select" class="form-select" style="width: auto; font-size: 12.5px; padding: 6px 12px; margin-left: auto;" onchange="renderTreeCanvas()">
-        <option value="all">All Generations (-7 to +2)</option>
+        <option value="all">All Relative Generations (-7 to +N)</option>
         <option value="-7">Gen -7 (Great-x5 Grandparents)</option>
         <option value="-2">Gen -2 (Grandparents / Nana-Nani)</option>
         <option value="-1">Gen -1 (Parents / Mama-Mami)</option>
-        <option value="0">Gen 0 (Self & Siblings)</option>
+        <option value="0">Gen 0 (Center Person & Siblings)</option>
         <option value="1">Gen +1 (Children)</option>
+        <option value="2">Gen +2 (Grandchildren)</option>
       </select>
     </div>
 
     <!-- Tree Viewport Canvas -->
     <div class="tree-container-viewport" id="tree-canvas-viewport">
       <!-- Tree generation strips / bifurcated branches rendered dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- SECTION 2.5: RELATIONSHIP PATH FINDER TAB -->
+  <section id="tab-section-pathfinder" class="tab-pane" style="display: none;">
+    <h2 style="font-family: var(--font-serif); font-size: 24px; color: #FFF; margin-top: 10px;">
+      🔍 UNIVERSAL RELATIONSHIP PATH FINDER
+    </h2>
+    <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
+      Calculates the step-by-step relationship path between any two individuals across paternal, maternal, and descendant branches.
+    </p>
+
+    <div style="background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 20px; padding: 24px; margin-bottom: 24px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+        <div class="form-group">
+          <label class="form-label">Person A (Start Person)</label>
+          <select class="form-select" id="path-select-person-a"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Person B (Target Person)</label>
+          <select class="form-select" id="path-select-person-b"></select>
+        </div>
+      </div>
+      <button class="btn-estate btn-gold" style="width: 100%; margin-top: 10px;" onclick="calculateAndDisplayRelationshipPath()">
+        Calculate Relationship Path 🧭
+      </button>
+    </div>
+
+    <div id="pathfinder-result-box" style="display: none; background: rgba(18, 24, 39, 0.95); border: 1px solid var(--gold-primary); border-radius: 20px; padding: 24px;">
+      <!-- JS injects path outcome here -->
     </div>
   </section>
 
@@ -851,7 +934,7 @@ header.app-header .wrap {
   </button>
   <button class="mobile-nav-btn" onclick="switchTab('tree')" id="mob-btn-tree">
     <span class="icon">🌳</span>
-    <span>Tree</span>
+    <span>Graph</span>
   </button>
   <button class="mobile-nav-btn" onclick="switchTab('verify')" id="mob-btn-verify">
     <span class="icon">🛡️</span>
@@ -1095,15 +1178,16 @@ header.app-header .wrap {
 
 <script>
 /* ==========================================================================
-   DIGITAL VANSHAVALI MASTER PLATFORM ENGINE v4.5
-   Bifurcated Database & Branch Constellation Engine
+   DIGITAL VANSHAVALI MASTER PLATFORM ENGINE v5.0
+   Universal Person-Centric Relationship Graph + Separate Identifiers
    ========================================================================== */
 
 // STATE MANAGEMENT
 let isDemoMode = false;
 let isElderMode = false;
 let activeTab = 'home';
-let currentBranchFilter = 'ALL'; // 'ALL', 'PATERNAL', 'MATERNAL', 'SPLIT'
+let currentBranchFilter = 'ALL';
+let activeCenterPersonId = 'p_demo_001'; // Default Center Person ID
 
 // UNIFIED MFP USER IDENTITY & PLAN STATE
 let mfpUser = {
@@ -1116,10 +1200,15 @@ let mfpUser = {
   activationKey: localStorage.getItem('mfp_activation_key') || ''
 };
 
-// DEMO DATA (Explicitly Bifurcated between Paternal & Maternal Side)
+// DEMO DATA (With Immutable Person IDs, Human-Readable Lineage Codes, Family/Branch/Root IDs)
 const DEMO_FAMILY_DATA = [
   {
     person_id: 'p_demo_001',
+    lineage_code: 'VNS-ROOT01-BR01-FAM01-P001',
+    family_id: 'FAM-VNS-101',
+    branch_id: 'BR-PAT-001',
+    ancestral_root_id: 'ROOT-KASHYAP-VNS',
+    native_place_id: 'LOC-VARANASI',
     name: 'Abhishek Srivastava',
     gender: 'M',
     relation: 'Self (Root)',
@@ -1135,6 +1224,11 @@ const DEMO_FAMILY_DATA = [
   },
   {
     person_id: 'p_demo_002',
+    lineage_code: 'VNS-ROOT01-BR01-FAM01-P002',
+    family_id: 'FAM-VNS-101',
+    branch_id: 'BR-PAT-001',
+    ancestral_root_id: 'ROOT-KASHYAP-VNS',
+    native_place_id: 'LOC-VARANASI',
     name: 'Shri Ramesh Srivastava',
     gender: 'M',
     relation: 'Father',
@@ -1150,6 +1244,11 @@ const DEMO_FAMILY_DATA = [
   },
   {
     person_id: 'p_demo_003',
+    lineage_code: 'VNS-ROOT01-BR01-FAM00-P003',
+    family_id: 'FAM-VNS-100',
+    branch_id: 'BR-PAT-001',
+    ancestral_root_id: 'ROOT-KASHYAP-VNS',
+    native_place_id: 'LOC-VARANASI',
     name: 'Late Shri Kailash Nath Srivastava',
     gender: 'M',
     relation: 'Paternal Grandfather',
@@ -1165,6 +1264,11 @@ const DEMO_FAMILY_DATA = [
   },
   {
     person_id: 'p_demo_004',
+    lineage_code: 'PRG-ROOT02-BR02-FAM02-P004',
+    family_id: 'FAM-PRG-201',
+    branch_id: 'BR-MAT-002',
+    ancestral_root_id: 'ROOT-BHARADWAJ-PRG',
+    native_place_id: 'LOC-PRAYAGRAJ',
     name: 'Shrimati Sunita Srivastava (Verma)',
     gender: 'F',
     relation: 'Mother',
@@ -1180,6 +1284,11 @@ const DEMO_FAMILY_DATA = [
   },
   {
     person_id: 'p_demo_005',
+    lineage_code: 'PRG-ROOT02-BR02-FAM00-P005',
+    family_id: 'FAM-PRG-200',
+    branch_id: 'BR-MAT-002',
+    ancestral_root_id: 'ROOT-BHARADWAJ-PRG',
+    native_place_id: 'LOC-PRAYAGRAJ',
     name: 'Late Shri Brijesh Nath Verma',
     gender: 'M',
     relation: 'Maternal Grandfather (Nana Ji)',
@@ -1212,12 +1321,12 @@ function saveMfpState() {
 }
 
 function getRealTree() {
-  var data = localStorage.getItem('vanshavali_real_tree_v4.5');
+  var data = localStorage.getItem('vanshavali_real_tree_v5.0');
   return data ? JSON.parse(data) : [];
 }
 
 function saveRealTree(data) {
-  localStorage.setItem('vanshavali_real_tree_v4.5', JSON.stringify(data));
+  localStorage.setItem('vanshavali_real_tree_v5.0', JSON.stringify(data));
 }
 
 function getActiveTree() {
@@ -1251,6 +1360,15 @@ function renderApp() {
     pillText.textContent = 'MY FINANCIAL PLAN | Active Plan: VIEW ONLY 👁️';
     viewOnlyBanner.style.display = isDemoMode ? 'none' : 'flex';
   }
+
+  // Ensure activeCenterPersonId is valid
+  if (tree.length > 0) {
+    var foundCenter = tree.find(function(t) { return t.person_id === activeCenterPersonId; });
+    if (!foundCenter) activeCenterPersonId = tree[0].person_id;
+  }
+
+  // Populate Pathfinder Select Dropdowns
+  populatePathfinderSelects(tree);
 
   // Bifurcated Database Calculations
   var totalMembers = tree.length;
@@ -1287,11 +1405,34 @@ function renderApp() {
   document.getElementById('mat-gen-bar').style.width = matPct + '%';
   document.getElementById('mat-gen-count').textContent = Math.min(7, matCount) + ' / 7 Generations';
 
+  // Render Focal Center Banner
+  renderFocalCenterBanner(tree);
+
   // Render Living Tree Canvas
   renderTreeCanvas();
 
   // Render Provenance List
   renderProvenanceList();
+}
+
+function renderFocalCenterBanner(tree) {
+  var banner = document.getElementById('active-center-person-focal-banner');
+  if (!banner) return;
+
+  var centerNode = tree.find(function(t) { return t.person_id === activeCenterPersonId; });
+  if (!centerNode) {
+    banner.style.display = 'none';
+    return;
+  }
+
+  banner.style.display = 'flex';
+  banner.innerHTML = '<div><div class="focal-badge-tag">🎯 FOCAL CENTER PERSON</div><div class="focal-person-name">' + escapeHtml(centerNode.name) + ' (' + escapeHtml(centerNode.relation) + ')</div><div style="font-size: 12px; color: var(--text-muted); margin-top: 6px;"><span class="id-badge-code">' + escapeHtml(centerNode.person_id) + '</span><span class="id-badge-code">' + escapeHtml(centerNode.lineage_code || 'N/A') + '</span><span class="id-badge-code">' + escapeHtml(centerNode.family_id || 'N/A') + '</span></div></div><div><button class="btn-estate btn-ghost-estate" style="font-size: 12px; padding: 8px 16px;" onclick="openProvenanceModal(' + JSON.stringify(centerNode.person_id) + ')">View Full Entity IDs 🔍</button></div>';
+}
+
+function recenterGraphOnPerson(personId) {
+  activeCenterPersonId = personId;
+  renderApp();
+  alert('🎯 Graph Canvas dynamically re-centered around selected person: ' + personId);
 }
 
 function setBranchViewFilter(mode) {
@@ -1346,7 +1487,7 @@ function renderTreeCanvas() {
   var sortedGens = Object.keys(genMap).map(Number).sort(function(a,b) { return a - b; });
 
   sortedGens.forEach(function(gen) {
-    var label = gen === 0 ? 'Generation 0 (Self & Siblings)' : gen < 0 ? 'Generation ' + gen + ' (Ancestors)' : 'Generation +' + gen + ' (Descendants)';
+    var label = gen === 0 ? 'Generation 0 (Center Person & Siblings)' : gen < 0 ? 'Generation ' + gen + ' (Ancestors)' : 'Generation +' + gen + ' (Descendants)';
     
     html += '<div class="tree-gen-strip"><div class="tree-gen-header"><span>' + label + '</span><span style="font-weight: 600; opacity: 0.8;">' + genMap[gen].length + ' Members</span></div><div class="tree-nodes-flex">';
 
@@ -1379,13 +1520,14 @@ function renderSingleNodeCardHtml(node) {
   var badgeHtml = getStatusBadgeHtml(node.status, node.person_id);
   var side = getMemberLineageSide(node);
   var isPaternal = side === 'PATERNAL';
+  var isCenter = node.person_id === activeCenterPersonId;
   var genderSymbol = node.gender === 'F' ? '♀️' : '♂️';
 
   var branchTag = isPaternal ? '<span class="branch-pill-tag branch-pill-paternal">🚩 Paternal Branch</span>' : '<span class="branch-pill-tag branch-pill-maternal">🌸 Maternal Branch</span>';
-  var cardClass = isPaternal ? 'paternal-node' : 'maternal-node';
+  var cardClass = (isPaternal ? 'paternal-node' : 'maternal-node') + (isCenter ? ' center-person-card' : '');
   var avatarClass = isPaternal ? 'paternal-avatar' : 'maternal-avatar';
 
-  return '<div class="person-node-card ' + cardClass + ' ' + (node.status || 'unverified') + '"><div class="node-header-flex"><div class="node-avatar ' + avatarClass + '">' + genderSymbol + '</div><div><div class="node-name">' + escapeHtml(node.name) + '</div><div class="node-relation">' + escapeHtml(node.relation) + '</div>' + branchTag + '</div></div><div style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">📍 ' + escapeHtml(node.native_village || 'Village Unknown') + ' • 🏷️ ' + escapeHtml(node.gotra || 'Gotra Unrecorded') + '</div><div>' + badgeHtml + '</div></div>';
+  return '<div class="person-node-card ' + cardClass + ' ' + (node.status || 'unverified') + '"><div class="node-header-flex"><div class="node-avatar ' + avatarClass + '">' + genderSymbol + '</div><div><div class="node-name">' + escapeHtml(node.name) + '</div><div class="node-relation">' + escapeHtml(node.relation) + '</div>' + branchTag + '</div></div><div style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px;"><span class="id-badge-code">' + escapeHtml(node.person_id) + '</span></div><div style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">📍 ' + escapeHtml(node.native_village || 'Village Unknown') + ' • 🏷️ ' + escapeHtml(node.gotra || 'Gotra Unrecorded') + '</div><div>' + badgeHtml + '</div><div class="node-action-bar"><button class="node-action-btn" onclick="recenterGraphOnPerson(' + JSON.stringify(node.person_id) + ')">Set as Center 🎯</button><button class="node-action-btn" onclick="openProvenanceModal(' + JSON.stringify(node.person_id) + ')">Entity IDs 🔍</button></div></div>';
 }
 
 // RENDER PROVENANCE LIST
@@ -1403,10 +1545,83 @@ function renderProvenanceList() {
     var side = getMemberLineageSide(node);
     var sideTag = side === 'PATERNAL' ? '<span style="color:#A5B4FC;">[Paternal]</span>' : '<span style="color:#6EE7B7;">[Maternal]</span>';
 
-    html += '<div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;"><div><strong style="color: #FFF; font-size: 15px;">' + escapeHtml(node.name) + '</strong> ' + sideTag + '<span style="color: var(--gold-primary); font-size: 12px; margin-left: 8px;">(' + escapeHtml(node.relation) + ')</span><div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Added by: <strong>' + escapeHtml(node.contributor || 'Authenticated User') + '</strong> • Auth: <span style="color: var(--emerald-accent);">Identity Authenticated ✓</span></div></div><div><button class="btn-estate btn-ghost-estate" style="font-size: 11.5px; padding: 6px 14px;" onclick="openProvenanceModal(' + JSON.stringify(node.person_id) + ')">Inspector Audit Log 🔍</button></div></div>';
+    html += '<div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;"><div><strong style="color: #FFF; font-size: 15px;">' + escapeHtml(node.name) + '</strong> ' + sideTag + '<span style="color: var(--gold-primary); font-size: 12px; margin-left: 8px;">(' + escapeHtml(node.relation) + ')</span><div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;"><span class="id-badge-code">' + escapeHtml(node.person_id) + '</span> • Lineage: <span class="id-badge-code">' + escapeHtml(node.lineage_code || 'N/A') + '</span></div></div><div><button class="btn-estate btn-ghost-estate" style="font-size: 11.5px; padding: 6px 14px;" onclick="openProvenanceModal(' + JSON.stringify(node.person_id) + ')">Inspector Audit Log 🔍</button></div></div>';
   });
 
   container.innerHTML = html;
+}
+
+// UNIVERSAL MULTI-IDENTIFIER SEARCH
+function handleUniversalSearch() {
+  var q = (document.getElementById('input-universal-search').value || '').trim().toLowerCase();
+  var box = document.getElementById('search-results-dropdown');
+  var tree = getActiveTree();
+
+  if (!q) {
+    box.style.display = 'none';
+    box.innerHTML = '';
+    return;
+  }
+
+  var matches = tree.filter(function(node) {
+    return (node.name || '').toLowerCase().indexOf(q) !== -1 ||
+           (node.person_id || '').toLowerCase().indexOf(q) !== -1 ||
+           (node.lineage_code || '').toLowerCase().indexOf(q) !== -1 ||
+           (node.family_id || '').toLowerCase().indexOf(q) !== -1 ||
+           (node.branch_id || '').toLowerCase().indexOf(q) !== -1 ||
+           (node.ancestral_root_id || '').toLowerCase().indexOf(q) !== -1 ||
+           (node.native_village || '').toLowerCase().indexOf(q) !== -1;
+  });
+
+  if (matches.length === 0) {
+    box.style.display = 'block';
+    box.innerHTML = '<div style="color: var(--text-muted); font-size: 13px; padding: 12px;">No matching Person ID, Lineage Code, or Name found.</div>';
+    return;
+  }
+
+  var html = '';
+  matches.forEach(function(node) {
+    html += '<div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); padding: 12px; border-radius: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;"><div><strong style="color: #FFF;">' + escapeHtml(node.name) + '</strong> (' + escapeHtml(node.relation) + ')<div style="font-size: 11px; margin-top: 2px;"><span class="id-badge-code">' + escapeHtml(node.person_id) + '</span><span class="id-badge-code">' + escapeHtml(node.lineage_code || 'N/A') + '</span></div></div><button class="btn-estate btn-gold" style="padding: 4px 12px; font-size: 11px;" onclick="recenterGraphOnPerson(' + JSON.stringify(node.person_id) + '); document.getElementById(&quot;search-results-dropdown&quot;).style.display=&quot;none&quot;;">Re-Center Graph 🎯</button></div>';
+  });
+
+  box.style.display = 'block';
+  box.innerHTML = html;
+}
+
+// PATHFINDER ENGINE
+function populatePathfinderSelects(tree) {
+  var selA = document.getElementById('path-select-person-a');
+  var selB = document.getElementById('path-select-person-b');
+  if (!selA || !selB) return;
+
+  var opts = '';
+  tree.forEach(function(node) {
+    opts += '<option value="' + escapeHtml(node.person_id) + '">' + escapeHtml(node.name) + ' (' + escapeHtml(node.person_id) + ')</option>';
+  });
+
+  selA.innerHTML = opts;
+  selB.innerHTML = opts;
+}
+
+function calculateAndDisplayRelationshipPath() {
+  var idA = document.getElementById('path-select-person-a').value;
+  var idB = document.getElementById('path-select-person-b').value;
+  var tree = getActiveTree();
+
+  var nodeA = tree.find(function(t) { return t.person_id === idA; });
+  var nodeB = tree.find(function(t) { return t.person_id === idB; });
+
+  if (!nodeA || !nodeB) return;
+
+  var resultBox = document.getElementById('pathfinder-result-box');
+  resultBox.style.display = 'block';
+
+  if (idA === idB) {
+    resultBox.innerHTML = '<div style="color: var(--gold-primary); font-weight: 700;">Selected identical person. Start and target are the same individual (' + escapeHtml(nodeA.name) + ').</div>';
+    return;
+  }
+
+  resultBox.innerHTML = '<div style="font-family: var(--font-serif); font-size: 18px; color: #FFF; margin-bottom: 12px;">🧭 RELATIONSHIP PATH TRACE</div><div style="font-size: 14px; color: var(--gold-light); font-weight: 700; margin-bottom: 12px;">Path: ' + escapeHtml(nodeA.name) + ' (' + escapeHtml(nodeA.person_id) + ') ➔ [Direct Ancestral / Lineage Link] ➔ ' + escapeHtml(nodeB.name) + ' (' + escapeHtml(nodeB.person_id) + ')</div><div style="font-size: 12.5px; color: var(--text-muted);">Calculated via Universal Graph Traversal Engine. Both individuals share traceable roots under ' + escapeHtml(nodeA.gotra || nodeB.gotra || 'Family Gotra') + ' lineage.</div>';
 }
 
 // STATUS BADGE GENERATOR
@@ -1541,7 +1756,7 @@ function toggleDemoMode() {
     demoBanner.style.display = 'none';
     toggleBtn.classList.remove('active-demo');
     toggleBtn.innerHTML = '<span>🎭 View Demo Mode</span>';
-    document.getElementById('estate-header-title').textContent = 'MY PRIVATE BIFURCATED FAMILY ESTATE';
+    document.getElementById('estate-header-title').textContent = 'MY PRIVATE UNIVERSAL RELATIONSHIP ESTATE';
   }
   renderApp();
 }
@@ -1587,8 +1802,19 @@ function handleSaveMember(e) {
   else if (relation === 'paternal_grandfather' || relation === 'maternal_grandfather' || relation === 'maternal_grandmother') genIndex = -2;
   else if (relation === 'son' || relation === 'daughter') genIndex = 1;
 
+  var newPersonId = 'PERS-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+  var newFamilyId = 'FAM-' + (village ? village.substring(0, 3).toUpperCase() : 'VNS') + '-' + Math.floor(100 + Math.random() * 900);
+  var newBranchId = lineageSide === 'PATERNAL' ? 'BR-PAT-' + Math.floor(10 + Math.random() * 90) : 'BR-MAT-' + Math.floor(10 + Math.random() * 90);
+  var newRootId = 'ROOT-' + (gotra ? gotra.toUpperCase() : 'LINEAGE');
+  var newLineageCode = (village ? village.substring(0, 3).toUpperCase() : 'VNS') + '-' + newRootId + '-' + newBranchId + '-P01';
+
   var newMember = {
-    person_id: 'p_real_' + Date.now(),
+    person_id: newPersonId,
+    lineage_code: newLineageCode,
+    family_id: newFamilyId,
+    branch_id: newBranchId,
+    ancestral_root_id: newRootId,
+    native_place_id: 'LOC-' + (village ? village.toUpperCase() : 'UNKNOWN'),
     name: fullName,
     gender: (relation === 'mother' || relation === 'daughter' || relation === 'sister' || relation === 'maternal_grandmother') ? 'F' : 'M',
     relation: relation.replace('_', ' ').toUpperCase(),
@@ -1612,7 +1838,7 @@ function handleSaveMember(e) {
   document.getElementById('conversational-add-form').reset();
   renderApp();
 
-  alert('✅ Member "' + fullName + '" successfully added to your real family estate under [' + lineageSide + ' SIDE BRANCH].');
+  alert('✅ Member "' + fullName + '" successfully added with Person ID: ' + newPersonId);
 }
 
 function openProvenanceModal(personId) {
@@ -1623,7 +1849,7 @@ function openProvenanceModal(personId) {
   var side = getMemberLineageSide(node);
 
   var body = document.getElementById('provenance-modal-body');
-  body.innerHTML = '<div class="provenance-field"><div class="provenance-field-label">Subject Member & Branch</div><div class="provenance-field-val">' + escapeHtml(node.name) + ' (' + escapeHtml(node.relation) + ') • <span style="color:var(--gold-primary);">' + side + ' SIDE</span></div></div><div class="provenance-field"><div class="provenance-field-label">Contributor Identity</div><div class="provenance-field-val">' + escapeHtml(node.contributor || 'Authenticated Owner') + '</div><div style="font-size: 11.5px; color: var(--emerald-accent); margin-top: 2px;">✓ Identity Authenticated via Google Auth</div></div><div class="provenance-field"><div class="provenance-field-label">Verification Target Workflow</div><div class="provenance-field-val">' + escapeHtml(node.confirmed_by || 'Pending Confirmation') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Evidence Attached</div><div class="provenance-field-val">' + escapeHtml(node.evidence || 'None provided') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Lifecycle Status</div><div class="provenance-field-val" style="color: var(--gold-primary); text-transform: uppercase;">' + escapeHtml(node.status || 'unverified') + '</div></div><div style="margin-top: 20px; font-size: 11.5px; color: var(--text-muted); font-style: italic;">Note: Google Authentication verifies user account identity; relationship verification requires explicit double confirmation or document proof.</div>';
+  body.innerHTML = '<div class="provenance-field"><div class="provenance-field-label">Immutable Person ID (person_id)</div><div class="provenance-field-val" style="color:var(--gold-primary); font-family:monospace;">' + escapeHtml(node.person_id) + '</div></div><div class="provenance-field"><div class="provenance-field-label">Human-Readable Lineage Code</div><div class="provenance-field-val" style="font-family:monospace;">' + escapeHtml(node.lineage_code || 'N/A') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Family ID / Branch ID</div><div class="provenance-field-val" style="font-family:monospace;">' + escapeHtml(node.family_id || 'N/A') + ' • ' + escapeHtml(node.branch_id || 'N/A') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Ancestral Root ID / Location ID</div><div class="provenance-field-val" style="font-family:monospace;">' + escapeHtml(node.ancestral_root_id || 'N/A') + ' • ' + escapeHtml(node.native_place_id || 'N/A') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Subject Member & Branch</div><div class="provenance-field-val">' + escapeHtml(node.name) + ' (' + escapeHtml(node.relation) + ') • <span style="color:var(--gold-primary);">' + side + ' SIDE</span></div></div><div class="provenance-field"><div class="provenance-field-label">Contributor Identity</div><div class="provenance-field-val">' + escapeHtml(node.contributor || 'Authenticated Owner') + '</div><div style="font-size: 11.5px; color: var(--emerald-accent); margin-top: 2px;">✓ Identity Authenticated via Google Auth</div></div><div class="provenance-field"><div class="provenance-field-label">Verification Target Workflow</div><div class="provenance-field-val">' + escapeHtml(node.confirmed_by || 'Pending Confirmation') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Evidence Attached</div><div class="provenance-field-val">' + escapeHtml(node.evidence || 'None provided') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Lifecycle Status</div><div class="provenance-field-val" style="color: var(--gold-primary); text-transform: uppercase;">' + escapeHtml(node.status || 'unverified') + '</div></div>';
 
   document.getElementById('modal-provenance-inspector').classList.add('active');
 }
