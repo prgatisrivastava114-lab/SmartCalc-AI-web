@@ -6,7 +6,9 @@
 <script>
 (function() {
   var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
-  if (path === '/privacy' || path === '/privacy.html') {
+  if (path === '/app' || path === '/smartcalc-web' || path === '/web' || path === '/app.html') {
+    window.location.replace('/app/');
+  } else if (path === '/privacy' || path === '/privacy.html') {
     window.location.replace('/privacy.html');
   } else if (path === '/terms' || path === '/terms.html') {
     window.location.replace('/terms.html');
@@ -16,10 +18,14 @@
     window.location.replace('/cookies.html');
   } else if (path === '/refer' || path === '/refer.html') {
     window.location.replace('/refer.html');
+  } else if (path === '/admin' || path === '/admin.html') {
+    window.location.replace('/admin/');
   } else if (path === '/lic' || path === '/lic-premium-calculator' || path === '/tools/lic-premium-calculator') {
     window.location.replace('/tools/lic-premium-calculator/');
   } else if (path === '/lic-reminder' || path === '/tools/lic-premium-reminder') {
     window.location.replace('/tools/lic-premium-reminder/');
+  } else if (path === '/tools') {
+    window.location.replace('/tools/');
   } else if (path === '/legal') {
     window.location.replace('/#legal');
   } else {
@@ -29,6 +35,6 @@
 </script>
 </head>
 <body>
-<p>Redirecting to <a href="/">MyFinancialPlan.in</a>...</p>
+<p>Redirecting to <a href="/app/">MyFinancialPlan App</a>...</p>
 </body>
 </html>
