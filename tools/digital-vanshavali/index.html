@@ -3,361 +3,272 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Digital Vanshavali Web App (डिजिटल वंशावली) — 7-Gen Lineage & Heritage Vault</title>
-<meta name="description" content="Standalone Digital Vanshavali Web App. Preserve family lineage across 7 paternal and 7 maternal generations, Gotra tracing, Bahi Khatta document vault, AI OCR reader, and certified PDF export.">
+<title>Digital Vanshavali (डिजिटल वंशावली) — MyFinancialPlan Family Lineage Portal</title>
+<meta name="description" content="Preserve your family lineage across 7 paternal and 7 maternal generations. Digital Vanshavali by MyFinancialPlan — Unified Google Login, auto-fetched family profiles, Gotra tracing, and Heritage Vault.">
 <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
 <link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
 <link rel="manifest" href="/vanshavali/manifest.json">
-<meta name="theme-color" content="#0B192C">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Vanshavali App">
-<link rel="apple-touch-icon" href="/assets/brand/mfp_icon.png">
-
-<script src="/assets/js/visitor-tracker.js"></script>
-
-<!-- Official Firebase App & Analytics SDK -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc",
-    authDomain: "smartcalc-ai-638a9.firebaseapp.com",
-    projectId: "smartcalc-ai-638a9",
-    storageBucket: "smartcalc-ai-638a9.firebasestorage.app",
-    messagingSenderId: "548984348697",
-    appId: "1:548984348697:web:cba90544a074784ac5ca88"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
-</script>
+<meta name="theme-color" content="#17324A">
 
 <style>
 :root {
-  --ink: #0F172A;
-  --ink2: #475569;
-  --teal: #0D9488;
-  --indigo: #4F46E5;
-  --amber: #D97706;
-  --red: #DC2626;
-  --mint: #CCFBF1;
-  --lav: #EEF2FF;
-  --cream: #FEF3C7;
-  --line: #E2E8F0;
-  --bg: #F8FAFC;
+  --ink: #17324A;
+  --ink2: #44586E;
+  --teal: #0E9D78;
+  --indigo: #4C62CE;
+  --amber: #BF7B0B;
+  --cream: #FFF6E3;
+  --mint: #DDF4EC;
+  --lav: #E1E6FA;
+  --line: #E3E9F1;
+  --bg: #F7FAFC;
+  --red: #D64545;
   --gold: #D4AF37;
   --gold-bg: #FFFDF0;
-  --royal-dark: linear-gradient(135deg, #0B192C 0%, #1E3E62 50%, #000000 100%);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; overflow-x: hidden; padding-bottom: 70px; }
-.wrap { max-width: 1140px; margin: 0 auto; padding: 0 18px 80px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px 80px; }
 
-/* Standalone App Top Header Bar */
-.app-top { position: sticky; top: 0; z-index: 100; background: #0B192C; color: #FFF; border-bottom: 1px solid rgba(212,175,55,0.4); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-.app-top .wrap { display: flex; align-items: center; gap: 12px; padding: 10px 18px; }
-.app-logo { height: 38px; }
-.app-title { font-size: 16px; font-weight: 900; color: #FDE68A; display: flex; align-items: center; gap: 6px; }
+/* Sticky MFP Ecosystem Top Bar */
+nav.top { position: sticky; top: 0; z-index: 90; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); box-shadow: 0 2px 10px rgba(23,50,74,.05); }
+nav.top .wrap { display: flex; align-items: center; gap: 14px; height: 64px; padding: 0 20px; }
+nav.top .logo { height: 46px; }
+nav.top .links { display: flex; gap: 20px; margin-left: auto; font-weight: 600; font-size: 14px; color: var(--ink2); align-items: center; }
+nav.top .links a:hover { color: var(--teal); }
 
-/* Quick Search & Status Bar */
-.app-search-bar { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; padding: 4px 12px; display: flex; align-items: center; gap: 8px; margin-left: auto; width: 240px; }
-@media (max-width: 640px) { .app-search-bar { display: none; } }
-.app-search-bar input { background: transparent; border: none; outline: none; color: #FFF; font-size: 12.5px; width: 100%; }
-.app-search-bar input::placeholder { color: #94A3B8; }
+/* User Profile Badge Header */
+.user-badge { display: flex; align-items: center; gap: 8px; background: var(--lav); border: 1px solid #B3C1F5; padding: 4px 12px; border-radius: 99px; font-size: 12.5px; font-weight: 700; color: var(--indigo); cursor: pointer; }
+.user-badge img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
 
-/* Status Badges */
-.tier-pill { font-weight: 800; font-size: 10.5px; padding: 3px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px; }
-.tp-free { background: #334155; color: #E2E8F0; }
-.tp-silver { background: #475569; color: #F8FAFC; border: 1px solid #94A3B8; }
-.tp-gold { background: linear-gradient(135deg, #D4AF37, #AA820A); color: #FFF; }
-.tp-platinum { background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: #FFF; box-shadow: 0 4px 14px rgba(139,92,246,0.4); }
+/* Hero Section matching MFP Planner */
+.hero { position: relative; padding: 30px 0 16px; background: radial-gradient(1200px 500px at 80% -10%, #E1E6FA 0%, transparent 55%), radial-gradient(900px 500px at 5% 10%, #DDF4EC 0%, transparent 50%); border-radius: 26px; padding: 28px 24px; margin-top: 16px; border: 1px solid var(--line); }
+.kick { display: inline-flex; align-items: center; gap: 6px; background: var(--mint); color: #0B7A5C; font-weight: 800; font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; padding: 4px 14px; border-radius: 99px; }
+h1.sec-h { font-size: clamp(26px, 4.5vw, 40px); font-weight: 900; letter-spacing: -1px; margin: 10px 0 8px; line-height: 1.12; color: var(--ink); }
+.sec-s { color: var(--ink2); max-width: 66ch; font-size: 15.5px; line-height: 1.6; }
 
-/* Specialized Royal App Hero Banner */
-.app-hero { background: var(--royal-dark); color: #FFF; border-radius: 24px; padding: 28px 24px; margin-top: 16px; border: 1.5px solid var(--gold); box-shadow: 0 16px 40px -10px rgba(11,25,44,0.5); position: relative; }
-.hero-title { font-size: clamp(24px, 4.5vw, 36px); font-weight: 900; line-height: 1.15; color: #FFF; margin: 8px 0; }
-.hero-sub { font-size: 14.5px; color: #CBD5E1; max-width: 70ch; }
+/* MFP Switcher Tabs (.ctab) */
+.ctabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; overflow-x: auto; padding-bottom: 4px; }
+.ctab { border: 2px solid var(--line); background: #fff; color: var(--ink2); font-weight: 800; font-size: 13.5px; padding: 10px 18px; border-radius: 99px; cursor: pointer; transition: all .18s ease; font-family: inherit; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.ctab:hover { border-color: var(--teal); color: var(--teal); }
+.ctab.on { background: linear-gradient(135deg, #0E9D78, #0B8465); border-color: transparent; color: #fff; box-shadow: 0 8px 20px -8px rgba(14,157,120,.55); }
 
-/* Plan Deck Grid */
-.plan-deck { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
-@media (max-width: 768px) { .plan-deck { grid-template-columns: 1fr; } }
-.plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 16px; transition: all 0.22s; }
-.plan-card.active-tier { border-color: var(--gold); background: rgba(212,175,55,0.18); box-shadow: 0 8px 20px rgba(212,175,55,0.3); }
-.plan-card h3 { font-size: 15px; font-weight: 800; color: #FFF; display: flex; align-items: center; justify-content: space-between; }
-.plan-card ul { list-style: none; margin: 8px 0 12px; padding: 0; font-size: 12.5px; color: #E2E8F0; }
-.plan-card li { margin-bottom: 4px; padding-left: 14px; position: relative; }
-.plan-card li::before { content: "✓"; position: absolute; left: 0; color: #5FE3B8; font-weight: 900; }
+/* Main MFP Panel Styling */
+.panel { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px; box-shadow: 0 6px 26px -14px rgba(23,50,74,.16); margin-top: 20px; position: relative; }
+.panel h2 { font-size: 20px; font-weight: 900; color: var(--ink); margin-bottom: 4px; }
+.panel p { font-size: 14px; color: var(--ink2); }
 
-/* Specialized Bottom Dock Bar */
-.bottom-dock { position: fixed; bottom: 0; left: 0; right: 0; z-index: 110; background: #0B192C; border-top: 1px solid rgba(212,175,55,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.3); display: flex; justify-content: space-around; padding: 8px 10px; }
-.dock-item { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94A3B8; font-size: 10.5px; font-weight: 800; text-decoration: none; cursor: pointer; transition: color 0.18s; border: none; background: none; }
-.dock-item.active, .dock-item:hover { color: #FDE68A; }
-.dock-icon { font-size: 18px; margin-bottom: 2px; }
-
-/* Main Card Viewports */
-.main-card { background: #FFF; border: 1px solid var(--line); border-radius: 22px; padding: 24px; box-shadow: 0 8px 24px -8px rgba(15,23,42,0.06); margin-top: 20px; }
-.main-card h2 { font-size: 20px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-.main-card p { font-size: 13.5px; color: var(--ink2); }
-
-/* World-Class Tree Visualizer */
-.tree-viewport { overflow-x: auto; padding: 20px 10px; border-radius: 18px; background: radial-gradient(circle at center, #F8FAFC 0%, #EEF2FF 100%); border: 1px solid var(--line); margin-top: 16px; }
-.gen-group { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
-.gen-label-strip { display: flex; align-items: center; justify-content: space-between; background: linear-gradient(90deg, #1E293B, #334155); color: #FFF; padding: 8px 16px; border-radius: 10px; font-size: 12.5px; font-weight: 800; }
-.nodes-flex { display: flex; gap: 14px; overflow-x: auto; padding: 6px 2px; }
-.person-node { min-width: 230px; max-width: 260px; background: #FFF; border: 2px solid var(--line); border-radius: 16px; padding: 14px; position: relative; transition: all 0.22s; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
-.person-node:hover { transform: translateY(-3px); box-shadow: 0 10px 22px -6px rgba(15,23,42,0.12); }
-.person-node.root-mool { border-color: var(--gold); background: var(--gold-bg); }
-.person-node.female-node { border-color: #F472B6; background: #FDF2F8; }
-.person-node.forward-node { border-color: var(--teal); background: var(--mint); }
-.person-node.locked-node { filter: blur(0.5px); opacity: 0.85; background: #F1F5F9; border-style: dashed; }
-.node-avatar { width: 40px; height: 44px; border-radius: 50%; background: var(--lav); color: var(--indigo); font-size: 18px; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 2px solid #FFF; margin-bottom: 6px; }
-.person-node h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
-.person-node .rel-badge { font-size: 10.5px; font-weight: 800; color: var(--teal); text-transform: uppercase; letter-spacing: 0.05em; display: block; }
-.person-node .node-meta { font-size: 12px; color: var(--ink2); margin: 6px 0; line-height: 1.4; }
-.person-node .node-code { font-family: ui-monospace, monospace; font-size: 10.5px; background: var(--bg); padding: 2px 6px; border-radius: 6px; color: var(--ink2); }
-
-/* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 20px; border-radius: 99px; font-weight: 800; font-size: 13.5px; border: none; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+/* Buttons matching MFP UI */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 99px; font-weight: 800; font-size: 14px; border: none; cursor: pointer; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
 .btn:hover { transform: translateY(-2px); }
-.b-teal { background: var(--teal); color: #FFF; }
-.b-indigo { background: var(--indigo); color: #FFF; }
-.b-gold { background: linear-gradient(135deg, #D4AF37, #AA820A); color: #FFF; box-shadow: 0 4px 14px rgba(212,175,55,0.4); }
-.b-plat { background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: #FFF; box-shadow: 0 4px 14px rgba(139,92,246,0.4); }
-.b-wa { background: #25D366; color: #FFF; }
-.b-outline { background: #FFF; border: 1.5px solid var(--line); color: var(--ink); }
+.b-teal { background: linear-gradient(135deg, #0E9D78, #0B8465); color: #fff; box-shadow: 0 8px 22px -8px rgba(14,157,120,.5); }
+.b-indigo { background: linear-gradient(135deg, #4C62CE, #3A4DB0); color: #fff; box-shadow: 0 8px 22px -8px rgba(76,98,206,.5); }
+.b-gold { background: linear-gradient(135deg, #BF7B0B, #9E6103); color: #fff; box-shadow: 0 8px 22px -8px rgba(191,123,11,.5); }
+.b-wa { background: #25D366; color: #fff; box-shadow: 0 8px 22px -8px rgba(37,211,102,.5); }
+.b-ghost { background: #fff; border: 2px solid var(--line); color: var(--ink); }
 
-/* Form Elements */
+/* Auto-Fetched Family Form Grid */
+.fam-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 16px; }
+@media (max-width: 768px) { .fam-grid { grid-template-columns: 1fr; } }
+.fam-box { background: var(--bg); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; }
+.fam-box h4 { font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+
+/* Entry Suggestions Banner */
+.sug-banner { background: var(--cream); border: 1.5px solid #F0D494; border-radius: 16px; padding: 14px 18px; margin-top: 16px; }
+.sug-chip { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #E2C480; padding: 5px 12px; border-radius: 99px; font-size: 12.5px; font-weight: 700; color: #7A5406; cursor: pointer; margin: 4px 4px 0 0; transition: all 0.18s; }
+.sug-chip:hover { background: var(--amber); color: #fff; border-color: var(--amber); }
+
+/* Responsive Family Tree Viewport */
+.tree-wrap { overflow-x: auto; padding: 20px 8px; border-radius: 18px; background: #FBFCFE; border: 1px solid var(--line); margin-top: 16px; }
+.gen-row { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
+.gen-strip { display: flex; align-items: center; justify-content: space-between; background: var(--lav); color: var(--indigo); padding: 8px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 800; }
+.node-grid { display: flex; gap: 14px; overflow-x: auto; padding: 6px 2px; }
+.p-node { min-width: 230px; max-width: 260px; background: #fff; border: 1.5px solid var(--line); border-radius: 16px; padding: 14px; position: relative; transition: all .18s ease; }
+.p-node:hover { transform: translateY(-2px); border-color: var(--teal); box-shadow: 0 8px 20px -8px rgba(23,50,74,.18); }
+.p-node.root-node { border-color: var(--amber); background: var(--cream); }
+.p-node.female-node { border-color: #E2B6CF; background: #FFF7FB; }
+.p-node.locked-node { filter: blur(0.5px); opacity: 0.85; background: #FAF9F6; border-style: dashed; }
+.p-node h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
+.rel-tag { font-size: 11px; font-weight: 800; color: var(--teal); text-transform: uppercase; letter-spacing: .05em; }
+
+/* Plan Deck Grid matching MFP Plans */
+.pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 18px; }
+.plan { background: #fff; border: 1.5px solid var(--line); border-radius: 20px; padding: 20px; }
+.plan.hot { border-color: var(--teal); box-shadow: 0 12px 30px -12px rgba(14,157,120,.4); }
+.plan.active-plan { border-color: var(--indigo); background: var(--lav); }
+
+/* Form Controls */
 label { display: block; font-size: 12px; font-weight: 800; color: var(--ink2); margin: 10px 0 4px; }
-input, select, textarea { width: 100%; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 11px; font-size: 14px; font-weight: 600; color: var(--ink); background: #FBFCFE; outline: none; }
-input:focus, select:focus, textarea:focus { border-color: var(--teal); background: #FFF; }
+input, select, textarea { width: 100%; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 11px; font-size: 14.5px; font-weight: 700; color: var(--ink); background: #FBFCFE; outline: none; }
+input:focus, select:focus, textarea:focus { border-color: var(--teal); background: #fff; }
 
 /* Modal Backdrop */
-.modal-bg { position: fixed; inset: 0; background: rgba(15,23,42,0.8); backdrop-filter: blur(6px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 18px; }
+.modal-bg { position: fixed; inset: 0; background: rgba(23,50,74,.75); backdrop-filter: blur(6px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 18px; }
 .modal-bg.open { display: flex; }
-.modal-box { background: #FFF; border-radius: 24px; max-width: 540px; width: 100%; padding: 26px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1.5px solid var(--gold); }
+.modal-box { background: #fff; border-radius: 24px; max-width: 520px; width: 100%; padding: 26px; max-height: 90vh; overflow-y: auto; box-shadow: 0 16px 40px rgba(0,0,0,0.3); border: 1.5px solid var(--line); }
 
-/* Elder Mode */
+/* Bottom Mobile Navigation Dock */
+.bottom-dock { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -4px 20px rgba(23,50,74,.12); display: flex; justify-content: space-around; padding: 8px 10px; }
+.dock-item { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ink2); font-size: 10.5px; font-weight: 800; border: none; background: none; cursor: pointer; }
+.dock-item.active, .dock-item:hover { color: var(--teal); }
+.dock-icon { font-size: 18px; margin-bottom: 2px; }
+
+/* Elder Mode High Contrast */
 .elder-mode { font-size: 18px !important; }
 .elder-mode h1 { font-size: 38px !important; }
-.elder-mode h2 { font-size: 28px !important; }
 .elder-mode .btn { padding: 16px 28px !important; font-size: 18px !important; }
 </style>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body id="vBody">
 
-<!-- Standalone App Top Header Bar -->
-<div class="app-top">
+<!-- MFP Navigation Header -->
+<nav class="top">
   <div class="wrap">
-    <a href="/"><img class="app-logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
-    <div class="app-title">🌳 Vanshavali App <span class="tier-pill tp-free" id="topTierBadge">FREE DEMO</span></div>
-    
-    <div class="app-search-bar">
-      <span style="font-size:12px;color:#94A3B8">🔍</span>
-      <input type="text" id="ancestorSearchInput" oninput="filterAncestors(this.value)" placeholder="Search name, gotra, village...">
-    </div>
-
-    <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-      <button id="pwaInstallBtn" class="btn b-gold" style="padding:5px 12px;font-size:11.5px;display:none" onclick="installVanshavaliPwa()">📲 Install App</button>
-      <button class="btn b-outline" style="padding:5px 12px;font-size:11.5px;background:rgba(255,255,255,0.1);color:#FFF;border-color:rgba(255,255,255,0.2)" onclick="toggleElderMode()">👓 Elder Mode</button>
+    <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
+    <div class="links">
+      <a href="tools/">Free Tools</a>
+      <a href="/vanshavali/" style="color:var(--amber);font-weight:800">🌳 Digital Vanshavali</a>
+      <a href="/app/">Open Web App</a>
+      
+      <!-- Unified Google User Profile Badge -->
+      <div id="userBadgeBox" class="user-badge" onclick="triggerUnifiedAuth()">
+        <span id="userBadgeIcon">🔑</span>
+        <span id="userBadgeName">Sign in with Google</span>
+      </div>
     </div>
   </div>
-</div>
+</nav>
 
 <div class="wrap">
 
-  <!-- Royal App Hero Banner -->
-  <div class="app-hero">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-      <div>
-        <span class="tier-pill tp-gold">👑 STANDALONE VANSHAVALI WEB APP v3.0</span>
-        <h1 class="hero-title">Digital Vanshavali App (डिजिटल वंशावली)</h1>
-        <p class="hero-sub">Dedicated family lineage builder & heritage vault. Preserve <b>7 Paternal (पितृपक्ष)</b> and <b>7 Maternal (मातृपक्ष)</b> generations, Gotra tracing, and Bahi Khatta document archive.</p>
-      </div>
+  <!-- MFP Hero Section -->
+  <header class="hero">
+    <span class="kick">🌳 Unified Family Lineage & Heritage Vault</span>
+    <h1 class="sec-h">Your family's entire <span style="background:linear-gradient(92deg,#0E9D78 10%,#4C62CE 90%);-webkit-background-clip:text;color:transparent">Digital Vanshavali</span>, in 5 minutes.</h1>
+    <p class="sec-s">Preserve <b>7 Paternal (पितृपक्ष)</b> and <b>7 Maternal (मातृपक्ष)</b> generations, Gotra tracing, native village records, elder voice stories, and AI document scanner — unified with your MyFinancialPlan Google Account.</p>
+
+    <!-- Interactive Tabs Bar -->
+    <div class="ctabs">
+      <button class="ctab on" data-c="tree" onclick="switchVTab('tree')">🌳 7+7 Gen Family Tree</button>
+      <button class="ctab" data-c="profile" onclick="switchVTab('profile')">👤 My Family Details (Auto-Fetched)</button>
+      <button class="ctab" data-c="vault" onclick="switchVTab('vault')">🏛️ Heritage Bahi Khatta Vault</button>
+      <button class="ctab" data-c="ai" onclick="switchVTab('ai')">🤖 Gotra Check & Vanshavali AI</button>
+      <button class="ctab" data-c="plans" onclick="switchVTab('plans')">💎 Key Unlock & Plan Tiers</button>
     </div>
+  </header>
 
-    <!-- Active Plan Status -->
-    <div style="margin-top:18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-      <div>
-        <span style="font-size:11.5px;font-weight:800;color:#94A3B8;text-transform:uppercase">Active License Key Status:</span>
-        <div style="font-size:16px;font-weight:900;color:#FFF;margin-top:2px" id="currentPlanTxt">Free Demo (2 Generations Back)</div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn b-gold" onclick="openKeyModal()">🔑 Enter Activation Key</button>
-        <button class="btn b-outline" style="background:rgba(255,255,255,0.12);color:#FFF;border-color:rgba(255,255,255,0.25)" onclick="exportVanshavaliData()">💾 Export JSON Backup</button>
-      </div>
-    </div>
-
-    <!-- MFP Plan Attachment Deck -->
-    <div class="plan-deck">
-      <div class="plan-card" id="card-silver">
-        <h3><span>🥈 Silver Plan</span> <span class="tier-pill tp-silver">₹99 / 30d</span></h3>
-        <ul>
-          <li><b>3 Generations Back</b> (Self, Father, Dada, Pardada)</li>
-          <li><b>1 Generation Forward</b> (Children)</li>
-          <li>Basic Gotra & Native Village Tracing</li>
-        </ul>
-        <button class="btn b-outline" style="width:100%;padding:6px;font-size:12px" onclick="requestPlanKey('Silver')">Get Silver Key (₹99)</button>
-      </div>
-
-      <div class="plan-card" id="card-gold">
-        <h3><span>🥇 Gold Plan</span> <span class="tier-pill tp-gold">₹299 / 30d</span></h3>
-        <ul>
-          <li><b>5 Generations Back</b> (Up to Atiprapitamaha)</li>
-          <li><b>1 Generation Forward</b> (Children/Grandchildren)</li>
-          <li><b>Bahi Khatta Vault</b> & Oral Memory Recorder</li>
-        </ul>
-        <button class="btn b-gold" style="width:100%;padding:6px;font-size:12px" onclick="requestPlanKey('Gold')">Get Gold Key (₹299)</button>
-      </div>
-
-      <div class="plan-card" id="card-platinum">
-        <h3><span>💎 Platinum Plan</span> <span class="tier-pill tp-platinum">₹599 / 30d</span></h3>
-        <ul>
-          <li><b>Unlimited Back (Full 7+7 Gens)</b></li>
-          <li><b>Unlimited Forward Generations</b></li>
-          <li><b>ALL UNLOCKED:</b> Vanshavali AI OCR, Gotra Check & Certified PDF</li>
-        </ul>
-        <button class="btn b-plat" style="width:100%;padding:6px;font-size:12px" onclick="requestPlanKey('Platinum')">Get Platinum Key (₹599)</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- VIEW 1: INTERACTIVE 7+7 GENERATION FAMILY TREE -->
+  <!-- TAB 1: INTERACTIVE FAMILY TREE -->
   <div id="vbox-tree">
-    <div class="main-card">
+    <div class="panel">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
         <div>
-          <h2>Interactive Family Lineage Tree <span class="tier-pill tp-free" id="treeTierBadge">FREE DEMO TIER</span></h2>
+          <h2>Interactive Family Lineage Tree</h2>
           <p>Switch between Paternal (Pitripaksha) & Maternal (Matripaksha) ancestral roots.</p>
         </div>
         <div style="display:flex;gap:8px">
           <button class="btn b-indigo" id="btn-side-pat" onclick="setSide('pat')">🚩 Pitripaksha (Paternal 7 Gen)</button>
-          <button class="btn b-outline" id="btn-side-mat" onclick="setSide('mat')">🌺 Matripaksha (Maternal 7 Gen)</button>
+          <button class="btn b-ghost" id="btn-side-mat" onclick="setSide('mat')">🌺 Matripaksha (Maternal 7 Gen)</button>
         </div>
       </div>
 
       <!-- Tree Viewport Container -->
-      <div class="tree-viewport" id="treeContainer">
+      <div class="tree-wrap" id="treeContainer">
         <!-- Rendered dynamically via JS -->
       </div>
 
-      <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
-        <button class="btn b-teal" onclick="openAddModal()">➕ Add Ancestor / Descendant</button>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="btn b-teal" onclick="openAddModal()">➕ Add Ancestor / Member</button>
         <button class="btn b-gold" onclick="triggerCertExport()">📜 Download Certified Lineage PDF <span id="pdfLockIcon">🔒</span></button>
         <button class="btn b-wa" onclick="shareVanshavaliWa()">📲 Share Lineage on WhatsApp</button>
-        <button class="btn b-outline" onclick="openKeyModal()">🔑 Key Unlock Facility</button>
+        <button class="btn b-ghost" onclick="openKeyModal()">🔑 Enter Activation Key</button>
       </div>
     </div>
   </div>
 
-  <!-- VIEW 2: ADD RELATIVE / ANCESTOR FORM -->
-  <div id="vbox-add" style="display:none">
-    <div class="main-card">
-      <h2>Add Relative or Ancestor (संबंधी / पूर्वज जोड़ें)</h2>
-      <p>Assign relationship, generation level, native village (मूल निवास), and gotra.</p>
+  <!-- TAB 2: UNIFIED USER PROFILE & AUTO-FETCHED FAMILY DETAILS -->
+  <div id="vbox-profile" style="display:none">
+    <div class="panel">
+      <h2>👤 Unified Google Profile & Auto-Fetched Family Details</h2>
+      <p>Single sign-in auto-populates your family details across MyFinancialPlan & Digital Vanshavali.</p>
 
-      <form id="addPersonForm" onsubmit="savePerson(event)" style="margin-top:16px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <!-- Google Sign-In Lead Gate Banner -->
+      <div id="authGateBanner" style="background:var(--cream);border:1.5px solid #F0D494;padding:16px;border-radius:16px;margin-top:16px">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
           <div>
-            <label>Full Name (English):</label>
-            <input type="text" id="pNameEn" required placeholder="e.g. Pt. Ramnath Sharma">
+            <h3 style="font-size:16px;font-weight:800;color:#7A5406">🔑 Google Login & Verification Required</h3>
+            <p style="font-size:13px;color:var(--ink2)">Sign in once to sync your family profile and request plan keys instantly.</p>
           </div>
-          <div>
-            <label>Full Name (Hindi / देवनागरी):</label>
-            <input type="text" id="pNameHi" placeholder="उदा. पं. रामनाथ शर्मा">
-          </div>
+          <div id="gsiButtonBox"></div>
         </div>
+      </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div>
-            <label>Lineage Side:</label>
-            <select id="pSide">
-              <option value="pat" selected>Pitripaksha / Paternal (पिता का पक्ष)</option>
-              <option value="mat">Matripaksha / Maternal (माता का पक्ष)</option>
-            </select>
-          </div>
-          <div>
-            <label>Relationship Type:</label>
-            <select id="pRel">
-              <option value="self">Self (स्वयं)</option>
-              <option value="father">Father (पिता)</option>
-              <option value="mother">Mother (माता)</option>
-              <option value="grandfather">Grandfather (दादाजी)</option>
-              <option value="great_grandfather">Great-Grandfather (परदादा)</option>
-              <option value="ati_prat">Atiprapitamaha (5th Gen Ancestor)</option>
-              <option value="vriddha_prat">Vriddhaprapitamaha (6th Gen Ancestor)</option>
-              <option value="mul_purush">Mul Purush / Root Ancestor (Gen 7)</option>
-              <option value="child">Son / Daughter (पुत्र / पुत्री - Forward Gen)</option>
-              <option value="grandchild">Grandchild (पौत्र / पौत्री - Forward Gen 2)</option>
-            </select>
-          </div>
+      <!-- Entry Suggestions Banner -->
+      <div class="sug-banner">
+        <h3 style="font-size:14.5px;font-weight:800;color:#7A5406">💡 Smart Entry Suggestions (स्मार्ट सुझाव)</h3>
+        <p style="font-size:12.5px;color:var(--ink2)">Tap any suggestion chip below to quick-add missing family members to your Vanshavali tree:</p>
+        <div id="suggestionsChips">
+          <span class="sug-chip" onclick="quickAddSuggest('Spouse')">➕ Add Spouse Name (पति/पत्नी)</span>
+          <span class="sug-chip" onclick="quickAddSuggest('Father')">➕ Add Father's Gotra (पिता का गोत्र)</span>
+          <span class="sug-chip" onclick="quickAddSuggest('Mother')">➕ Add Mother's Gotra (माता का गोत्र)</span>
+          <span class="sug-chip" onclick="quickAddSuggest('Children')">➕ Add Children Names (संतान)</span>
         </div>
+      </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
-          <div>
-            <label>Gotra (गोत्र):</label>
-            <input type="text" id="pGotra" value="Bharadwaj" placeholder="e.g. Bharadwaj / Kashyap">
+      <!-- Editable Family Form -->
+      <form id="famProfileForm" onsubmit="saveFamProfile(event)" style="margin-top:16px">
+        <div class="fam-grid">
+          <div class="fam-box">
+            <h4><span>👤 Self (आपका विवरण)</span> <span style="font-size:11px;color:var(--teal)">Auto-Fetched</span></h4>
+            <label>Full Name:</label>
+            <input type="text" id="profSelfName" required placeholder="Your Name">
+            <label>Email Address:</label>
+            <input type="email" id="profSelfEmail" readonly placeholder="Google Account Email">
+            <label>WhatsApp Phone Number:</label>
+            <input type="tel" id="profSelfPhone" placeholder="10-digit WhatsApp Number">
           </div>
-          <div>
-            <label>Native Place / Village (मूल निवास):</label>
-            <input type="text" id="pVillage" placeholder="e.g. Bikapur, Ayodhya / Prayagraj">
-          </div>
-          <div>
-            <label>Birth Year / Era (जन्म वर्ष / काल):</label>
-            <input type="number" id="pBirth" value="1960" placeholder="e.g. 1960">
-          </div>
-        </div>
 
-        <div style="margin-top:12px">
-          <label>Oral Life Story / Heritage Notes (जीवन वृत्त / पुरानी यादें):</label>
-          <textarea id="pStory" rows="3" placeholder="Record family stories, occupation, ancestral land or accomplishments..."></textarea>
+          <div class="fam-box">
+            <h4><span>💍 Spouse Details (जीवनसाथी)</span> <span style="font-size:11px;color:var(--amber)">Editable</span></h4>
+            <label>Spouse Name:</label>
+            <input type="text" id="profSpouseName" placeholder="Spouse Full Name">
+            <label>Spouse Gotra (मातृ/पितृ गोत्र):</label>
+            <input type="text" id="profSpouseGotra" placeholder="Spouse Gotra">
+          </div>
+
+          <div class="fam-box">
+            <h4><span>👨‍👩‍👦 Parents Details (माता-पिता)</span> <span style="font-size:11px;color:var(--indigo)">Editable</span></h4>
+            <label>Father's Name:</label>
+            <input type="text" id="profFatherName" placeholder="Father's Full Name">
+            <label>Mother's Name:</label>
+            <input type="text" id="profMotherName" placeholder="Mother's Full Name">
+          </div>
+
+          <div class="fam-box">
+            <h4><span>👶 Children Details (संतान)</span> <span style="font-size:11px;color:var(--teal)">Editable</span></h4>
+            <label>Son / Daughter Name(s):</label>
+            <input type="text" id="profChildName" placeholder="e.g. Aarav Sharma, Ananya Sharma">
+            <label>Ancestral Native Place (मूल निवास):</label>
+            <input type="text" id="profVillage" placeholder="e.g. Ayodhya, UP">
+          </div>
         </div>
 
         <div style="margin-top:18px;display:flex;gap:10px">
-          <button type="submit" class="btn b-teal">💾 Save to Digital Vanshavali</button>
-          <button type="button" class="btn b-outline" onclick="switchVTab('tree')">Cancel</button>
+          <button type="submit" class="btn b-teal">💾 Save & Auto-Populate Family Tree</button>
+          <button type="button" class="btn b-ghost" onclick="switchVTab('tree')">View Family Tree →</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- VIEW 3: 7-GENERATION COMPLETION METER -->
-  <div id="vbox-progress" style="display:none">
-    <div class="main-card" style="background:var(--gold-bg);border-color:#F0D494">
-      <h2>🏆 7-Generation Completion Status (100% Foundation Target)</h2>
-      <p>100% completion unlocks the Official Branded Vanshavali Lineage Certificate.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
-        <div style="background:#FFF;padding:16px;border-radius:14px;border:1px solid var(--line)">
-          <div style="display:flex;justify-content:space-between;font-weight:800;font-size:13.5px">
-            <span>🚩 Pitripaksha (Paternal 7 Gens)</span>
-            <span id="patPctTxt">5 / 7 Completed (71%)</span>
-          </div>
-          <div style="height:10px;background:#E2E8F0;border-radius:99px;margin:8px 0;overflow:hidden"><div id="patFill" style="width:71%;height:100%;background:linear-gradient(90deg,var(--teal),var(--indigo))"></div></div>
-          <div style="font-size:12px;color:var(--ink2)">Mul Purush -> Vriddhaprapitamaha -> Pardada -> Dada -> Father -> Self</div>
-        </div>
-
-        <div style="background:#FFF;padding:16px;border-radius:14px;border:1px solid var(--line)">
-          <div style="display:flex;justify-content:space-between;font-weight:800;font-size:13.5px">
-            <span>🌺 Matripaksha (Maternal 7 Gens)</span>
-            <span id="matPctTxt">4 / 7 Completed (57%)</span>
-          </div>
-          <div style="height:10px;background:#E2E8F0;border-radius:99px;margin:8px 0;overflow:hidden"><div id="matFill" style="width:57%;height:100%;background:linear-gradient(90deg,var(--teal),var(--indigo))"></div></div>
-          <div style="font-size:12px;color:var(--ink2)">Maternal Root -> Nana -> Nani -> Mother -> Self</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- VIEW 4: HERITAGE VAULT & ANCESTRAL VILLAGE RECORDS -->
+  <!-- TAB 3: HERITAGE VAULT -->
   <div id="vbox-vault" style="display:none">
-    <div class="main-card">
+    <div class="panel">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-        <h2>🏛️ Heritage Vault & Ancestral Village Records</h2>
-        <span class="tier-pill tp-gold" id="vaultBadge">🔒 GOLD / PLATINUM UNLOCKED</span>
+        <h2>🏛️ Heritage Vault & Ancestral Bahi Khatta Records</h2>
+        <span class="kick" style="background:var(--cream);color:var(--amber);border:1px solid #F0D494">🔒 GOLD / PLATINUM UNLOCKED</span>
       </div>
       <p>Preserve ancestral photos, Bahi Khatta land records, birth certificates, and migration history.</p>
 
@@ -379,22 +290,15 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); backgroun
           </div>
         </div>
       </div>
-
-      <div style="margin-top:18px;text-align:center" id="vaultUnlockBtnBox">
-        <button class="btn b-gold" onclick="requestPlanKey('Gold')">👑 Unlock Bahi Khatta Vault with Gold Plan (₹299)</button>
-      </div>
     </div>
   </div>
 
-  <!-- VIEW 5: VANSHAVALI AI & GOTRA LINEAGE CHECK -->
+  <!-- TAB 4: GOTRA CHECK & VANSHAVALI AI -->
   <div id="vbox-ai" style="display:none">
-    <div class="main-card" style="border-color:var(--indigo)">
+    <div class="panel">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-        <div style="display:flex;align-items:center;gap:10px">
-          <span style="font-size:26px">🤖</span>
-          <h2>Vanshavali AI & Lineage Intelligence</h2>
-        </div>
-        <span class="tier-pill tp-platinum" id="aiBadge">🔒 PLATINUM UNLOCKED</span>
+        <h2>🤖 Gotra Marriage Check & Vanshavali AI OCR</h2>
+        <span class="kick" style="background:var(--lav);color:var(--indigo);border:1px solid #C7D2FE">🔒 PLATINUM UNLOCKED</span>
       </div>
       <p>AI document OCR, missing ancestor link detection, and Gotra compatibility check.</p>
 
@@ -409,55 +313,90 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); backgroun
         <button class="btn b-indigo" style="margin-top:12px;width:100%" onclick="runGotraCheck()">🔍 Run 7-Gen Gotra Verification</button>
         <div id="gotraRes" style="margin-top:10px;font-weight:800;font-size:13.5px;color:#0D9488"></div>
       </div>
+    </div>
+  </div>
 
-      <div style="background:var(--mint);border:1.5px solid #99F6E4;padding:18px;border-radius:16px;margin-top:16px">
-        <h3 style="font-size:15px;font-weight:800;color:#0D9488">📄 Vanshavali AI Document OCR Reader</h3>
-        <p style="font-size:13px;color:#0D9488;margin:4px 0 10px">Extract ancestor names and relations from scanned family trees or land papers:</p>
-        <textarea id="aiDocTxt" rows="3" placeholder="Paste Hindi/English family ledger text here..." style="font-size:13px">पं. रामनाथ शर्मा पुत्र पं. शिवप्रसाद शर्मा, निवासी अयोध्या, गोत्र भारद्वाज।</textarea>
-        <button class="btn b-teal" style="margin-top:12px;width:100%" onclick="runAiExtract()">✨ Auto-Extract Ancestors with AI</button>
-        <div id="aiRes" style="margin-top:10px;font-size:13px;color:var(--ink);white-space:pre-wrap"></div>
+  <!-- TAB 5: MFP PLAN ATTACHMENT DECK & KEY UNLOCK -->
+  <div id="vbox-plans" style="display:none">
+    <div class="panel">
+      <h2>💎 Digital Vanshavali Plan Attachment Deck</h2>
+      <p>Select your tier pass or enter an activation key to unlock generation limits.</p>
+
+      <div class="pgrid">
+        <div class="plan" id="card-silver">
+          <span class="kick">🥈 SILVER PLAN</span>
+          <h3 style="font-size:24px;font-weight:900;margin:8px 0">₹99<small style="font-size:13px;color:var(--ink2)">/30 days</small></h3>
+          <ul>
+            <li><b>3 Generations Back</b> (Self, Father, Dada, Pardada)</li>
+            <li><b>1 Generation Forward</b> (Children)</li>
+            <li>Basic Gotra & Native Village Tracing</li>
+          </ul>
+          <button class="btn b-teal" style="width:100%;margin-top:10px" onclick="requestPlanKey('Silver')">Get Silver Key (₹99)</button>
+        </div>
+
+        <div class="plan hot" id="card-gold">
+          <span class="kick" style="background:var(--cream);color:var(--amber)">🥇 GOLD PLAN</span>
+          <h3 style="font-size:24px;font-weight:900;margin:8px 0">₹299<small style="font-size:13px;color:var(--ink2)">/30 days</small></h3>
+          <ul>
+            <li><b>5 Generations Back</b> (Up to Atiprapitamaha)</li>
+            <li><b>1 Generation Forward</b> (Children/Grandchildren)</li>
+            <li><b>Bahi Khatta Vault</b> & Oral Memory Recorder</li>
+          </ul>
+          <button class="btn b-gold" style="width:100%;margin-top:10px" onclick="requestPlanKey('Gold')">Get Gold Key (₹299)</button>
+        </div>
+
+        <div class="plan" id="card-platinum">
+          <span class="kick" style="background:var(--lav);color:var(--indigo)">💎 PLATINUM MASTER</span>
+          <h3 style="font-size:24px;font-weight:900;margin:8px 0">₹599<small style="font-size:13px;color:var(--ink2)">/30 days</small></h3>
+          <ul>
+            <li><b>Unlimited Back (Full 7+7 Gens)</b></li>
+            <li><b>Unlimited Forward Generations</b></li>
+            <li><b>ALL UNLOCKED:</b> Vanshavali AI OCR, Gotra Check & Certified PDF</li>
+          </ul>
+          <button class="btn b-indigo" style="width:100%;margin-top:10px" onclick="requestPlanKey('Platinum')">Get Platinum Key (₹599)</button>
+        </div>
       </div>
     </div>
   </div>
 
 </div>
 
-<!-- Specialized Bottom Dock Navigation Bar for Web App -->
+<!-- Bottom Mobile Navigation Dock -->
 <div class="bottom-dock">
-  <button class="dock-item active" onclick="switchVTab('tree', this)">
+  <button class="dock-item active" onclick="switchVTab('tree')">
     <span class="dock-icon">🌳</span>
     <span>Tree</span>
   </button>
-  <button class="dock-item" onclick="switchVTab('add', this)">
+  <button class="dock-item" onclick="switchVTab('profile')">
     <span class="dock-icon">👤</span>
-    <span>Add</span>
+    <span>Profile</span>
   </button>
-  <button class="dock-item" onclick="switchVTab('vault', this)">
+  <button class="dock-item" onclick="switchVTab('vault')">
     <span class="dock-icon">🏛️</span>
     <span>Vault</span>
   </button>
-  <button class="dock-item" onclick="switchVTab('ai', this)">
+  <button class="dock-item" onclick="switchVTab('ai')">
     <span class="dock-icon">💍</span>
-    <span>Gotra & AI</span>
+    <span>Gotra</span>
   </button>
   <button class="dock-item" onclick="openKeyModal()">
     <span class="dock-icon">🔑</span>
-    <span>Unlock Key</span>
+    <span>Key</span>
   </button>
 </div>
 
-<!-- UNLOCK KEY MODAL (KEY UNLOCKING FACILITY) -->
+<!-- Key Unlock Modal -->
 <div class="modal-bg" id="keyModal">
   <div class="modal-box">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
       <div style="display:flex;align-items:center;gap:8px">
-        <span class="tier-pill tp-gold">🔑 UNLOCK FACILITY</span>
-        <h3 style="font-size:18px;font-weight:800;color:var(--ink)">Enter Vanshavali Activation Key</h3>
+        <span class="kick">🔑 KEY UNLOCK FACILITY</span>
+        <h3 style="font-size:18px;font-weight:800">Enter Activation Key</h3>
       </div>
       <button onclick="closeKeyModal()" style="background:none;border:none;font-size:22px;cursor:pointer">✕</button>
     </div>
-    <p style="font-size:13.5px;color:var(--ink2);margin-bottom:14px">Enter your MFP Silver, Gold, or Platinum plan key (or generated MFP code / any key) to unlock your generation limits & features instantly.</p>
-    
+    <p style="font-size:13.5px;color:var(--ink2);margin-bottom:14px">Enter your MFP Silver, Gold, or Platinum plan key to unlock your generation limits & features.</p>
+
     <div style="background:var(--bg);border:1.5px solid var(--line);padding:16px;border-radius:16px;margin-bottom:16px">
       <label style="margin-top:0">Activation Key / Partner Code / Voucher:</label>
       <div style="display:flex;gap:8px">
@@ -465,38 +404,24 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); backgroun
         <button class="btn b-indigo" onclick="activateVanshavaliKey()">Unlock Key</button>
       </div>
       <div id="keyLiveDetectMsg" style="font-size:12px;font-weight:800;margin-top:6px;color:var(--teal)">💡 Live Key Scanner Ready</div>
-      <div style="font-size:11.5px;color:var(--ink2);margin-top:4px">Preset Test Keys: <code>SILVER99</code> · <code>GOLD299</code> · <code>PLATINUM599</code> · <code>MFP-S...</code> · <code>MFP-G...</code> · <code>MFP-P...</code></div>
     </div>
 
-    <div style="font-size:13px;font-weight:800;color:var(--ink);margin-bottom:8px">Request Instant Plan Key via WhatsApp:</div>
-
     <div style="display:flex;flex-direction:column;gap:8px">
-      <a class="btn b-outline" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20buy%20Digital%20Vanshavali%20Silver%20Plan%20(%E2%82%B999%20%2F%203%20Gen%20Back%20%2B%201%20Forward)." target="_blank" style="text-decoration:none;justify-content:space-between">
-        <span>🥈 <b>Silver Plan Key (₹99)</b> — 3 Gen Back + 1 Forward</span>
-        <span>WhatsApp ↗</span>
-      </a>
-      <a class="btn b-gold" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20buy%20Digital%20Vanshavali%20Gold%20Plan%20(%E2%82%B9299%20%2F%205%20Gen%20Back%20%2B%201%20Forward)." target="_blank" style="text-decoration:none;justify-content:space-between">
-        <span>🥇 <b>Gold Plan Key (₹299)</b> — 5 Gen Back + 1 Forward + Vault</span>
-        <span>WhatsApp ↗</span>
-      </a>
-      <a class="btn b-plat" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20buy%20Digital%20Vanshavali%20Platinum%20Plan%20(%E2%82%B9599%20%2F%20Unlimited%20Back%20%2B%20Forward)." target="_blank" style="text-decoration:none;justify-content:space-between">
-        <span>💎 <b>Platinum Plan Key (₹599)</b> — Unlimited Gens + ALL Unlocked</span>
-        <span>WhatsApp ↗</span>
-      </a>
-      <button class="btn b-outline" onclick="closeKeyModal()" style="margin-top:4px">Close & Continue Free Demo</button>
+      <button class="btn b-gold" onclick="requestPlanKey('Gold')">📲 Request Key on WhatsApp</button>
+      <button class="btn b-ghost" onclick="closeKeyModal()">Close & Continue Free Demo</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL FOR ADDING RELATIVE -->
+<!-- Add Member Modal -->
 <div class="modal-bg" id="addModal">
   <div class="modal-box">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-      <h3 style="font-size:18px;font-weight:800;color:var(--ink)">➕ Add Ancestor / Family Member</h3>
-      <button onclick="closeAddModal()" style="background:none;border:none;font-size:22px;cursor:pointer">✕</button>
+      <h3 style="font-size:18px;font-weight:800">➕ Add Ancestor / Family Member</h3>
+      <button onclick="closeAddModal()" style="background:none;border:none;font-size:20px;cursor:pointer">✕</button>
     </div>
     <p style="font-size:13px;color:var(--ink2);margin-bottom:14px">Fill details to append to your Vanshavali lineage tree.</p>
-    
+
     <div>
       <label>Name:</label>
       <input type="text" id="mName" placeholder="Full Name">
@@ -515,43 +440,13 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); backgroun
 
     <div style="margin-top:18px;display:flex;gap:10px">
       <button class="btn b-teal" style="flex:1" onclick="quickSaveModal()">Save Member</button>
-      <button class="btn b-outline" onclick="closeAddModal()">Cancel</button>
+      <button class="btn b-ghost" onclick="closeAddModal()">Cancel</button>
     </div>
   </div>
 </div>
 
 <script>
-// PWA Service Worker Registration
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/vanshavali/sw.js').then((reg) => {
-      console.log('Vanshavali App ServiceWorker registered successfully!');
-    }).catch((err) => {
-      console.log('ServiceWorker registration failed:', err);
-    });
-  });
-}
-
-// PWA Deferred Install Prompt Listener
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  const pwaBtn = document.getElementById('pwaInstallBtn');
-  if(pwaBtn) pwaBtn.style.display = 'inline-flex';
-});
-
-function installVanshavaliPwa(){
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted Vanshavali PWA install prompt');
-      }
-      deferredPrompt = null;
-    });
-  }
-}
+var CLIENT_ID = '548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com';
 
 // INITIAL VANSHAVALI DATA STORE
 var VANSHAVALI_STORE = {
@@ -563,8 +458,7 @@ var VANSHAVALI_STORE = {
     { id:'VAN-PAT-005', nameEn:'Pt. Kedarnath Sharma', nameHi:'पं. केदारनाथ शर्मा', rel:'Grandfather / दादाजी (Gen 3)', gotra:'Bharadwaj', village:'Varanasi, UP', birth:1960, gen:3 },
     { id:'VAN-PAT-006', nameEn:'Rajesh Sharma', nameHi:'राजेश शर्मा', rel:'Father / पिता (Gen 2)', gotra:'Bharadwaj', village:'Varanasi, UP', birth:1985, gen:2 },
     { id:'VAN-PAT-007', nameEn:'You (Presenter)', nameHi:'आप (स्वयं)', rel:'Self (Gen 1)', gotra:'Bharadwaj', village:'New Delhi', birth:2010, gen:1 },
-    { id:'VAN-PAT-008', nameEn:'Aarav Sharma', nameHi:'आरव शर्मा', rel:'Son / पुत्र (Forward Gen 1)', gotra:'Bharadwaj', village:'New Delhi', birth:2024, gen:-1, isForward:true },
-    { id:'VAN-PAT-009', nameEn:'Vihaan Sharma', nameHi:'विहान शर्मा', rel:'Grandson / पौत्र (Forward Gen 2)', gotra:'Bharadwaj', village:'New Delhi', birth:2048, gen:-2, isForward:true }
+    { id:'VAN-PAT-008', nameEn:'Aarav Sharma', nameHi:'आरव शर्मा', rel:'Son / पुत्र (Forward Gen 1)', gotra:'Bharadwaj', village:'New Delhi', birth:2024, gen:-1, isForward:true }
   ],
   mat: [
     { id:'VAN-MAT-001', nameEn:'Pt. Hariram Dwivedi', nameHi:'पं. हरिराम द्विवेदी', rel:'Maternal Root (Gen 7)', gotra:'Kashyap', village:'Mathura, UP', birth:1845, gen:7, isRoot:true },
@@ -575,87 +469,159 @@ var VANSHAVALI_STORE = {
   ]
 };
 
-// PERSISTENCE ENGINE
-var savedTreeJson = localStorage.getItem('vanshavali_tree_data');
-if(savedTreeJson){
-  try { VANSHAVALI_STORE = JSON.parse(savedTreeJson); } catch(e){}
-}
-
+// LOAD PERSISTED TIER & USER SESSION
 var currentTier = localStorage.getItem('vanshavali_active_tier') || 'free';
 var activeKeyStr = localStorage.getItem('vanshavali_active_key') || '';
 var currentSide = 'pat';
-var searchQueryFilter = '';
 
-function filterAncestors(q){
-  searchQueryFilter = (q || '').trim().toLowerCase();
+// USER PROFILE OBJECT
+var userProfile = {
+  name: localStorage.getItem('mfp_user_name') || '',
+  email: localStorage.getItem('mfp_user_email') || '',
+  phone: localStorage.getItem('mfp_user_phone') || '',
+  spouse: localStorage.getItem('mfp_spouse_name') || '',
+  spouseGotra: localStorage.getItem('mfp_spouse_gotra') || 'Kashyap',
+  father: localStorage.getItem('mfp_father_name') || 'Rajesh Sharma',
+  mother: localStorage.getItem('mfp_mother_name') || 'Sunita Sharma',
+  children: localStorage.getItem('mfp_child_name') || 'Aarav Sharma',
+  village: localStorage.getItem('mfp_village') || 'Varanasi, UP'
+};
+
+function initGis(){
+  try {
+    if(window.google && google.accounts && google.accounts.id){
+      google.accounts.id.initialize({
+        client_id: CLIENT_ID,
+        callback: onGoogleCred,
+        auto_select: false
+      });
+      google.accounts.id.renderButton(
+        document.getElementById('gsiButtonBox'),
+        { theme: 'outline', size: 'large', width: 280, text: 'continue_with', shape: 'pill' }
+      );
+    }
+  } catch(e){}
+}
+
+function onGoogleCred(resp){
+  if(!resp || !resp.credential) return;
+  try {
+    var jwt = JSON.parse(atob(resp.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
+    userProfile.name = jwt.name || userProfile.name || 'User';
+    userProfile.email = jwt.email || userProfile.email || '';
+    
+    localStorage.setItem('mfp_user_name', userProfile.name);
+    localStorage.setItem('mfp_user_email', userProfile.email);
+
+    updateUserBadge();
+    populateProfileForm();
+    syncUserToTree();
+    alert('🎉 Signed in as ' + userProfile.email + '! Family profile auto-fetched.');
+  } catch(e){}
+}
+
+function updateUserBadge(){
+  var box = document.getElementById('userBadgeName');
+  if(userProfile.email){
+    box.textContent = userProfile.name || userProfile.email.split('@')[0];
+    document.getElementById('userBadgeIcon').textContent = '✅';
+    document.getElementById('authGateBanner').style.display = 'none';
+  } else {
+    box.textContent = 'Sign in with Google';
+    document.getElementById('userBadgeIcon').textContent = '🔑';
+    document.getElementById('authGateBanner').style.display = 'block';
+  }
+}
+
+function triggerUnifiedAuth(){
+  switchVTab('profile');
+  if(!userProfile.email && window.google){
+    try { google.accounts.id.prompt(); } catch(e){}
+  }
+}
+
+function populateProfileForm(){
+  document.getElementById('profSelfName').value = userProfile.name || 'You (Presenter)';
+  document.getElementById('profSelfEmail').value = userProfile.email || '';
+  document.getElementById('profSelfPhone').value = userProfile.phone || '';
+  document.getElementById('profSpouseName').value = userProfile.spouse || '';
+  document.getElementById('profSpouseGotra').value = userProfile.spouseGotra || '';
+  document.getElementById('profFatherName').value = userProfile.father || '';
+  document.getElementById('profMotherName').value = userProfile.mother || '';
+  document.getElementById('profChildName').value = userProfile.children || '';
+  document.getElementById('profVillage').value = userProfile.village || '';
+}
+
+function saveFamProfile(e){
+  if(e) e.preventDefault();
+  userProfile.name = document.getElementById('profSelfName').value;
+  userProfile.phone = document.getElementById('profSelfPhone').value;
+  userProfile.spouse = document.getElementById('profSpouseName').value;
+  userProfile.spouseGotra = document.getElementById('profSpouseGotra').value;
+  userProfile.father = document.getElementById('profFatherName').value;
+  userProfile.mother = document.getElementById('profMotherName').value;
+  userProfile.children = document.getElementById('profChildName').value;
+  userProfile.village = document.getElementById('profVillage').value;
+
+  localStorage.setItem('mfp_user_name', userProfile.name);
+  localStorage.setItem('mfp_user_phone', userProfile.phone);
+  localStorage.setItem('mfp_spouse_name', userProfile.spouse);
+  localStorage.setItem('mfp_spouse_gotra', userProfile.spouseGotra);
+  localStorage.setItem('mfp_father_name', userProfile.father);
+  localStorage.setItem('mfp_mother_name', userProfile.mother);
+  localStorage.setItem('mfp_child_name', userProfile.children);
+  localStorage.setItem('mfp_village', userProfile.village);
+
+  syncUserToTree();
+  alert('💾 Family Profile Saved & Auto-Populated into Vanshavali Tree!');
+  switchVTab('tree');
+}
+
+function syncUserToTree(){
+  if(userProfile.name){
+    VANSHAVALI_STORE.pat.forEach(function(item){
+      if(item.gen === 1) item.nameEn = userProfile.name;
+      if(item.gen === 2) item.nameEn = userProfile.father;
+    });
+  }
   renderTree();
 }
 
-function saveStoreToLocal(){
-  localStorage.setItem('vanshavali_tree_data', JSON.stringify(VANSHAVALI_STORE));
-}
-
-function exportVanshavaliData(){
-  var jsonStr = JSON.stringify(VANSHAVALI_STORE, null, 2);
-  var blob = new Blob([jsonStr], { type: 'application/json' });
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url;
-  a.download = 'Vanshavali_Lineage_Backup_' + new Date().toISOString().slice(0,10) + '.json';
-  a.click();
-  alert('💾 Digital Vanshavali Backup File Downloaded Successfully!');
+function quickAddSuggest(type){
+  openAddModal();
+  if(type === 'Spouse'){
+    document.getElementById('mRel').value = 'Mother';
+    document.getElementById('mName').value = userProfile.spouse || 'Spouse Name';
+  } else if(type === 'Father'){
+    document.getElementById('mRel').value = 'Father';
+    document.getElementById('mName').value = userProfile.father || 'Father Name';
+  } else if(type === 'Children'){
+    document.getElementById('mRel').value = 'Son';
+    document.getElementById('mName').value = userProfile.children || 'Child Name';
+  }
 }
 
 function applyTierUI(){
-  var topBadge = document.getElementById('topTierBadge');
   var currentPlanTxt = document.getElementById('currentPlanTxt');
-  var treeTierBadge = document.getElementById('treeTierBadge');
   var pdfLockIcon = document.getElementById('pdfLockIcon');
-  var vaultLockTag = document.getElementById('vaultLockTag');
-  var aiLockTag = document.getElementById('aiLockTag');
-  var vaultUnlockBtnBox = document.getElementById('vaultUnlockBtnBox');
 
   ['silver', 'gold', 'platinum'].forEach(function(p){
     var card = document.getElementById('card-' + p);
-    if(card) card.classList.toggle('active-tier', currentTier === p);
+    if(card) card.classList.toggle('active-plan', currentTier === p);
   });
 
-  var keySuffix = activeKeyStr ? (' [Key: ' + activeKeyStr + ']') : '';
-
   if(currentTier === 'silver'){
-    topBadge.className = 'tier-pill tp-silver'; topBadge.textContent = '🥈 SILVER PLAN';
-    currentPlanTxt.textContent = '🥈 Silver Plan (3 Generations Back + 1 Generation Forward)' + keySuffix;
-    currentPlanTxt.style.color = '#F8FAFC';
-    treeTierBadge.className = 'tier-pill tp-silver'; treeTierBadge.textContent = '🥈 SILVER TIER (3 Gen Back + 1 Forward)';
+    currentPlanTxt.textContent = '🥈 Silver Plan Active (3 Gen Back + 1 Forward)';
     pdfLockIcon.textContent = '🔒 (Platinum Needed)';
-    vaultLockTag.textContent = '🔒 Gold Needed';
-    aiLockTag.textContent = '🔒 Platinum Needed';
   } else if(currentTier === 'gold'){
-    topBadge.className = 'tier-pill tp-gold'; topBadge.textContent = '🥇 GOLD PLAN';
-    currentPlanTxt.textContent = '🥇 Gold Plan (5 Generations Back + 1 Forward + Vault)' + keySuffix;
-    currentPlanTxt.style.color = '#FDE68A';
-    treeTierBadge.className = 'tier-pill tp-gold'; treeTierBadge.textContent = '🥇 GOLD TIER (5 Gen Back + 1 Forward)';
+    currentPlanTxt.textContent = '🥇 Gold Plan Active (5 Gen Back + 1 Forward + Vault)';
     pdfLockIcon.textContent = '🔒 (Platinum Needed)';
-    vaultLockTag.textContent = '✅ UNLOCKED';
-    aiLockTag.textContent = '🔒 Platinum Needed';
-    if(vaultUnlockBtnBox) vaultUnlockBtnBox.style.display = 'none';
   } else if(currentTier === 'platinum'){
-    topBadge.className = 'tier-pill tp-platinum'; topBadge.textContent = '💎 PLATINUM MASTER PLAN';
-    currentPlanTxt.textContent = '💎 Platinum Master Plan (Unlimited 7+7 Gens & ALL Unlocked)' + keySuffix;
-    currentPlanTxt.style.color = '#DDD6FE';
-    treeTierBadge.className = 'tier-pill tp-platinum'; treeTierBadge.textContent = '💎 PLATINUM MASTER TIER (UNLIMITED GENS)';
+    currentPlanTxt.textContent = '💎 Platinum Master Plan Active (Unlimited 7+7 Gens & ALL Unlocked)';
     pdfLockIcon.textContent = '✨ (Unlocked)';
-    vaultLockTag.textContent = '✅ UNLOCKED';
-    aiLockTag.textContent = '✅ UNLOCKED';
-    if(vaultUnlockBtnBox) vaultUnlockBtnBox.style.display = 'none';
   } else {
-    topBadge.className = 'tier-pill tp-free'; topBadge.textContent = 'FREE DEMO (2 Gen Back)';
-    currentPlanTxt.textContent = 'Free Demo (2 Generations Back) — Enter Activation Key to Unlock';
-    currentPlanTxt.style.color = '#5FE3B8';
-    treeTierBadge.className = 'tier-pill tp-free'; treeTierBadge.textContent = 'FREE DEMO (2 Gen Back)';
+    currentPlanTxt.textContent = 'Free Demo (2 Gen Back) — Enter Activation Key to Unlock';
     pdfLockIcon.textContent = '🔒';
-    vaultLockTag.textContent = '🔒 Gold Plan';
-    aiLockTag.textContent = '🔒 Platinum Plan';
   }
 }
 
@@ -684,21 +650,11 @@ function renderTree(){
 
   var grouped = {};
   list.forEach(function(item){
-    if(searchQueryFilter){
-      var matchStr = (item.nameEn + ' ' + (item.nameHi||'') + ' ' + item.gotra + ' ' + item.village).toLowerCase();
-      if(!matchStr.includes(searchQueryFilter)) return;
-    }
-
     if(!grouped[item.gen]) grouped[item.gen] = [];
     grouped[item.gen].push(item);
   });
 
   var genKeys = Object.keys(grouped).sort(function(a,b){ return b - a; });
-
-  if(genKeys.length === 0){
-    container.innerHTML = '<div style="text-align:center;padding:30px;color:var(--ink2);font-weight:700">🔍 No ancestors or lineage members found matching "' + searchQueryFilter + '".</div>';
-    return;
-  }
 
   genKeys.forEach(function(gKey){
     var gInt = parseInt(gKey);
@@ -711,30 +667,24 @@ function renderTree(){
     } else {
       gTitle = 'Generation ' + gKey + (gKey === '7' ? ' — Root Ancestor (मूल पुरुष)' : (gKey === '1' ? ' — Present Generation' : ''));
     }
-    if(isGenLocked) gTitle += ' 🔒 (Upgrade Plan Key to Unlock)';
+    if(isGenLocked) gTitle += ' 🔒 (Upgrade Key to Unlock)';
 
-    html += '<div class="gen-group">' +
-      '<div class="gen-label-strip"><span>' + gTitle + '</span><span>' + (isGenLocked ? '🔒 Locked' : grouped[gKey].length + ' Person(s)') + '</span></div>' +
-      '<div class="nodes-flex">';
+    html += '<div class="gen-row">' +
+      '<div class="gen-strip"><span>' + gTitle + '</span><span>' + (isGenLocked ? '🔒 Locked' : grouped[gKey].length + ' Person(s)') + '</span></div>' +
+      '<div class="node-grid">';
 
     grouped[gKey].forEach(function(p){
       var nodeLocked = isPersonNodeLocked(p);
-      var cardCls = 'person-node' + (p.isRoot ? ' root-mool' : '') + (p.isFemale ? ' female-node' : '') + (p.isForward ? ' forward-node' : '') + (nodeLocked ? ' locked-node' : '');
-      var iconStr = p.isFemale ? '♀️' : (p.isForward ? '👶' : '♂️');
+      var cardCls = 'p-node' + (p.isRoot ? ' root-node' : '') + (p.isFemale ? ' female-node' : '') + (nodeLocked ? ' locked-node' : '');
 
       html += '<div class="' + cardCls + '">' +
-        '<div style="display:flex;align-items:center;gap:10px">' +
-          '<div class="node-avatar">' + iconStr + '</div>' +
-          '<div>' +
-            '<span class="rel-badge">' + p.rel + '</span>' +
-            '<h4>' + (nodeLocked ? '🔒 Lineage Member' : p.nameEn) + '</h4>' +
-          '</div>' +
-        '</div>' +
-        '<div style="font-size:13px;font-weight:700;color:var(--ink2)">' + (nodeLocked ? 'विवरण देखने के लिए Key Unlock करें' : (p.nameHi || '')) + '</div>' +
-        '<div class="node-meta"><b>Gotra:</b> ' + (nodeLocked ? '🔒 Key Required' : p.gotra) + '<br><b>Native:</b> ' + (nodeLocked ? '🔒 Key Required' : p.village) + '<br><b>Birth:</b> ' + (nodeLocked ? 'c. ****' : 'c. ' + p.birth) + '</div>' +
-        '<div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">' +
-          '<span class="node-code">' + p.id + '</span>' +
-          (nodeLocked ? '<button class="btn b-gold" style="padding:4px 10px;font-size:11px" onclick="openKeyModal()">🔒 Unlock</button>' : '<button class="btn b-teal" style="padding:4px 10px;font-size:11px" onclick="openAddModal()">+ Member</button>') +
+        '<div class="rel-tag">' + p.rel + '</div>' +
+        '<h4>' + (nodeLocked ? '🔒 Lineage Member' : p.nameEn) + '</h4>' +
+        '<div style="font-size:12.5px;color:var(--ink2)">' + (nodeLocked ? 'Key Required' : (p.nameHi || '')) + '</div>' +
+        '<div style="font-size:12px;color:var(--ink2);margin:6px 0"><b>Gotra:</b> ' + (nodeLocked ? '🔒 Key Required' : p.gotra) + '<br><b>Native:</b> ' + (nodeLocked ? '🔒 Key Required' : p.village) + '</div>' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">' +
+          '<span style="font-family:monospace;font-size:10.5px;color:var(--ink2)">' + p.id + '</span>' +
+          (nodeLocked ? '<button class="btn b-gold" style="padding:3px 8px;font-size:10.5px" onclick="openKeyModal()">🔒 Unlock</button>' : '<button class="btn b-teal" style="padding:3px 8px;font-size:10.5px" onclick="openAddModal()">+ Member</button>') +
         '</div>' +
       '</div>';
     });
@@ -747,44 +697,31 @@ function renderTree(){
 
 function setSide(side){
   currentSide = side;
-  document.getElementById('btn-side-pat').className = (side==='pat') ? 'btn b-indigo' : 'btn b-outline';
-  document.getElementById('btn-side-mat').className = (side==='mat') ? 'btn b-indigo' : 'btn b-outline';
+  document.getElementById('btn-side-pat').className = (side==='pat') ? 'btn b-indigo' : 'btn b-ghost';
+  document.getElementById('btn-side-mat').className = (side==='mat') ? 'btn b-indigo' : 'btn b-ghost';
   renderTree();
 }
 
-function switchVTab(tab, btn){
-  if(tab === 'vault' && (currentTier === 'free' || currentTier === 'silver')){
-    alert('🏛️ Heritage Vault requires Gold Plan (₹299) or Platinum Plan (₹599). Please enter your key or request on WhatsApp.');
-    openKeyModal();
-    return;
-  }
-  if(tab === 'ai' && currentTier !== 'platinum'){
-    alert('🤖 Vanshavali AI & Gotra Marriage Compatibility Check requires Platinum Plan (₹599). Please enter your key or request on WhatsApp.');
-    openKeyModal();
-    return;
-  }
-
-  var views = ['tree', 'add', 'progress', 'vault', 'ai'];
-  views.forEach(function(v){
-    document.getElementById('vbox-' + v).style.display = (v === tab) ? 'block' : 'none';
+function switchVTab(k, btn){
+  var tabs = ['tree', 'profile', 'vault', 'ai', 'plans'];
+  tabs.forEach(function(t){
+    var box = document.getElementById('vbox-' + t);
+    if(box) box.style.display = (t === k) ? 'block' : 'none';
   });
 
-  if(btn){
-    document.querySelectorAll('.dock-item').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-  }
+  document.querySelectorAll('.ctab').forEach(function(b){
+    b.classList.toggle('on', b.dataset.c === k);
+  });
 
-  if(tab === 'tree') renderTree();
+  if(k === 'tree') renderTree();
 }
 
 function openKeyModal(){ document.getElementById('keyModal').classList.add('open'); }
 function closeKeyModal(){ document.getElementById('keyModal').classList.remove('open'); }
 
-// BULLETPROOF LIVE KEY SCANNER
 function detectTierFromKeyStr(rawStr){
   var s = (rawStr || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
   if(!s) return '';
-
   if(s.includes('MFPS') || s.includes('S030') || s.includes('SILVER') || s.includes('S99')){
     return 'silver';
   } else if(s.includes('MFPG') || s.includes('G030') || s.includes('GOLD') || s.includes('G299')){
@@ -807,7 +744,7 @@ function liveCheckKey(val){
     msgEl.innerHTML = '✅ Detected: <b>🥇 Gold Plan Key</b> (5 Gen Back + 1 Forward + Vault)';
     msgEl.style.color = 'var(--amber)';
   } else if(tier === 'platinum'){
-    msgEl.innerHTML = '✅ Detected: <b>💎 Platinum Master Pass Key</b> (Unlimited Gens + ALL Features Unlocked)';
+    msgEl.innerHTML = '✅ Detected: <b>💎 Platinum Master Pass Key</b> (Unlimited Gens + ALL Unlocked)';
     msgEl.style.color = '#7C3AED';
   } else {
     msgEl.innerHTML = '💡 Live Key Scanner Ready — type or paste any valid key...';
@@ -815,13 +752,18 @@ function liveCheckKey(val){
   }
 }
 
-// ACTIVATION HANDLER
 function activateVanshavaliKey(){
   var rawKey = (document.getElementById('vKeyInput').value || '').trim();
   if(!rawKey){ alert('Please enter or paste your activation key.'); return; }
 
-  var tier = detectTierFromKeyStr(rawKey);
+  // Lead Gate check: mandate login/phone before activation request if missing
+  if(!userProfile.email || !userProfile.phone){
+    alert('Please complete your Google login and WhatsApp number in My Family Details before activating.');
+    switchVTab('profile');
+    return;
+  }
 
+  var tier = detectTierFromKeyStr(rawKey);
   if(tier){
     currentTier = tier;
     activeKeyStr = rawKey.toUpperCase();
@@ -839,8 +781,14 @@ function activateVanshavaliKey(){
 }
 
 function requestPlanKey(planName){
+  if(!userProfile.email || !userProfile.phone){
+    alert('Please complete your Google sign-in and WhatsApp number in My Family Details first.');
+    switchVTab('profile');
+    return;
+  }
+
   var prices = { Silver: '₹99', Gold: '₹299', Platinum: '₹599' };
-  var txt = 'Hi! I want to activate Digital Vanshavali ' + planName + ' Plan (' + prices[planName] + '). Please share my activation key.';
+  var txt = 'Hi! I want to activate Digital Vanshavali ' + planName + ' Plan (' + prices[planName] + ').\nName: ' + userProfile.name + '\nEmail: ' + userProfile.email + '\nWhatsApp: ' + userProfile.phone;
   window.open('https://wa.me/918840192702?text=' + encodeURIComponent(txt), '_blank');
 }
 
@@ -880,7 +828,6 @@ function savePerson(e){
   };
 
   VANSHAVALI_STORE[side].push(newObj);
-  saveStoreToLocal();
   alert('Member ' + nameEn + ' saved to Digital Vanshavali!');
   switchVTab('tree');
 }
@@ -906,7 +853,6 @@ function quickSaveModal(){
     isForward: isFwd
   });
 
-  saveStoreToLocal();
   closeAddModal();
   renderTree();
   alert('Added ' + name + ' to ' + currentSide.toUpperCase() + ' Tree!');
@@ -934,7 +880,13 @@ function shareVanshavaliWa(){
   window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
 }
 
-renderTree();
+// BOOT ENGINE
+window.addEventListener('load', function(){
+  initGis();
+  updateUserBadge();
+  populateProfileForm();
+  renderTree();
+});
 </script>
 </body>
 </html>
