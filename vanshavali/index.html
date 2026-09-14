@@ -768,10 +768,7 @@ function activateVanshavaliKey(){
     renderTree();
 
     var tierNames = { silver: 'Silver Plan (3 Gen Back + 1 Forward)', gold: 'Gold Plan (5 Gen Back + 1 Forward + Vault)', platinum: 'Platinum Master Plan (Unlimited 7+7 Gens & ALL Unlocked)' };
-    alert('🎉 Key Verified & Activated Successfully!
-
-Plan: ' + tierNames[tier] + '
-Key: ' + activeKeyStr);
+    alert('🎉 Key Verified & Activated Successfully!\n\nPlan: ' + tierNames[tier] + '\nKey: ' + activeKeyStr);
   } else {
     alert('Please enter a key with at least 3 characters.');
   }
@@ -863,21 +860,11 @@ function runGotraCheck(){
 function runAiExtract(){
   var txt = document.getElementById('aiDocTxt').value;
   var res = document.getElementById('aiRes');
-  res.textContent = '✨ Vanshavali AI Extraction Result:
-• Name: Pt. Ramnath Sharma (पं. रामनाथ शर्मा)
-• Father: Pt. Shivprasad Sharma
-• Gotra: Bharadwaj
-• Native Village: Ayodhya, UP
-• Status: Ready for Human Verification & Tree Append';
+  res.textContent = '✨ Vanshavali AI Extraction Result:\n• Name: Pt. Ramnath Sharma (पं. रामनाथ शर्मा)\n• Father: Pt. Shivprasad Sharma\n• Gotra: Bharadwaj\n• Native Village: Ayodhya, UP\n• Status: Ready for Human Verification & Tree Append';
 }
 
 function shareVanshavaliWa(){
-  var txt = '🌳 Digital Vanshavali Lineage Summary
-Active Plan: ' + currentTier.toUpperCase() + '
-Family: Sharma Family Vanshavali
-Gotra: Bharadwaj | Mul Nivas: Ayodhya, UP
-Traced Lineage: Paternal & Maternal Generations
-Preserved via MyFinancialPlan.in Digital Vanshavali';
+  var txt = '🌳 Digital Vanshavali Lineage Summary\nActive Plan: ' + currentTier.toUpperCase() + '\nFamily: Sharma Family Vanshavali\nGotra: Bharadwaj | Mul Nivas: Ayodhya, UP\nTraced Lineage: Paternal & Maternal Generations\nPreserved via MyFinancialPlan.in Digital Vanshavali';
   window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
 }
 
