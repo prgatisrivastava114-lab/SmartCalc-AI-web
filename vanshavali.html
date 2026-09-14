@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Digital Vanshavali (डिजिटल वंशावली) 👑 Premium — 7-Generation Ancestral Lineage & Heritage Vault | MyFinancialPlan</title>
-<meta name="description" content="Preserve your family lineage across 7 paternal and 7 maternal generations. Digital Vanshavali by MyFinancialPlan — Gotra tracing, ancestral village records, elder voice stories, and AI document OCR.">
+<title>Digital Vanshavali (डिजिटल वंशावली) — 7-Gen Lineage & MFP Plan Tiers | MyFinancialPlan</title>
+<meta name="description" content="Preserve family lineage across 7 paternal and 7 maternal generations. Digital Vanshavali attached to MFP Silver (3 Gen back + 1 forward), Gold (5 Gen back + 1 forward), and Platinum (Unlimited) plans.">
 <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
 <link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
 <script src="/assets/js/visitor-tracker.js"></script>
@@ -56,12 +56,26 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; co
 .top a { color: var(--ink2); text-decoration: none; }
 .top a.hot { color: var(--teal); }
 
-/* Premium Header Banner */
-.prem-banner { background: linear-gradient(135deg, #17324A, #281C06); color: #FFF; border-radius: 18px; padding: 16px 22px; margin-top: 14px; border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 8px 24px -10px rgba(212,175,55,.4); }
-.prem-badge { background: linear-gradient(135deg, #D4AF37, #AA820A); color: #FFF; font-weight: 900; font-size: 11px; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 4px; }
+/* MFP Plan Tiers Banner */
+.plan-banner { background: linear-gradient(135deg, #17324A, #1F3A56); color: #FFF; border-radius: 20px; padding: 18px 22px; margin-top: 14px; border: 1.5px solid var(--gold); box-shadow: 0 8px 24px -10px rgba(23,50,74,.3); }
+.tier-badge { font-weight: 900; font-size: 11px; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 4px; }
+.tb-free { background: #E2E8F0; color: #334155; }
+.tb-silver { background: #E2E8F0; color: #1E293B; border: 1px solid #94A3B8; }
+.tb-gold { background: linear-gradient(135deg, #D4AF37, #AA820A); color: #FFF; }
+.tb-platinum { background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: #FFF; }
+
+/* Tier Comparison Grid */
+.tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+@media (max-width: 768px) { .tier-grid { grid-template-columns: 1fr; } }
+.tier-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 12px 14px; font-size: 12.5px; }
+.tier-card.active-plan { border-color: var(--gold); background: rgba(212,175,55,0.15); }
+.tier-card h4 { font-size: 14px; font-weight: 800; color: #FFF; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
+.tier-card ul { list-style: none; margin-top: 6px; padding: 0; opacity: 0.9; }
+.tier-card li { margin-bottom: 4px; padding-left: 14px; position: relative; }
+.tier-card li::before { content: "✓"; position: absolute; left: 0; color: #5FE3B8; font-weight: 900; }
 
 /* Hero Section */
-.hero { padding: 22px 0 12px; }
+.hero { padding: 20px 0 12px; }
 .kick { display: inline-flex; align-items: center; gap: 6px; background: var(--gold-bg); border: 1px solid var(--gold); color: #8A6D0B; font-weight: 800; font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; padding: 4px 12px; border-radius: 99px; }
 h1 { font-size: clamp(24px, 4.5vw, 36px); line-height: 1.15; letter-spacing: -.5px; margin: 8px 0 8px; color: var(--ink); }
 .sub { color: var(--ink2); font-size: 15px; max-width: 68ch; }
@@ -76,7 +90,7 @@ h1 { font-size: clamp(24px, 4.5vw, 36px); line-height: 1.15; letter-spacing: -.5
 .card h2 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
 .card p { font-size: 14px; color: var(--ink2); }
 
-/* Lock Overlay */
+/* Lock Badge */
 .lock-tag { background: #FFF6E3; color: #7A5406; border: 1px solid #F0D494; font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 99px; display: inline-flex; align-items: center; gap: 3px; }
 
 /* Buttons */
@@ -85,6 +99,7 @@ h1 { font-size: clamp(24px, 4.5vw, 36px); line-height: 1.15; letter-spacing: -.5
 .b-teal { background: var(--teal); color: #fff; }
 .b-indigo { background: var(--indigo); color: #fff; }
 .b-gold { background: linear-gradient(135deg, #D4AF37, #AA820A); color: #fff; box-shadow: 0 4px 16px rgba(212,175,55,.4); }
+.b-plat { background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: #fff; box-shadow: 0 4px 16px rgba(139,92,246,.4); }
 .b-wa { background: #25D366; color: #fff; }
 .b-outline { background: #fff; border: 1.5px solid var(--line); color: var(--ink); }
 
@@ -115,7 +130,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 /* Modal Backdrop */
 .modal-bg { position: fixed; inset: 0; background: rgba(23,50,74,.75); backdrop-filter: blur(4px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 18px; }
 .modal-bg.open { display: flex; }
-.modal-box { background: #fff; border-radius: 24px; max-width: 520px; width: 100%; padding: 26px; max-height: 90vh; overflow-y: auto; box-shadow: 0 16px 40px rgba(0,0,0,0.3); border: 1.5px solid var(--gold); }
+.modal-box { background: #fff; border-radius: 24px; max-width: 540px; width: 100%; padding: 26px; max-height: 90vh; overflow-y: auto; box-shadow: 0 16px 40px rgba(0,0,0,0.3); border: 1.5px solid var(--gold); }
 
 /* Elder Mode High Contrast Styling */
 .elder-mode { font-size: 18px !important; }
@@ -129,7 +144,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
-  <span style="font-size:14.5px;font-weight:800;color:var(--amber);margin-left:4px">🌳 Digital Vanshavali <span class="prem-badge">👑 PREMIUM</span></span>
+  <span style="font-size:14.5px;font-weight:800;color:var(--amber);margin-left:4px">🌳 Digital Vanshavali <span class="tier-badge tb-free" id="topTierBadge">FREE DEMO</span></span>
   <nav>
     <a href="/">Home</a>
     <a href="/tools/">Tools Hub</a>
@@ -140,16 +155,51 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 
 <div class="wrap">
 
-  <!-- MFP Premium Feature Status Banner -->
-  <div class="prem-banner">
-    <div>
-      <span class="prem-badge">👑 MFP PREMIUM FEATURE</span>
-      <h3 style="font-size:17px;font-weight:800;margin:6px 0 2px">Digital Vanshavali — Family Heritage & 7-Gen Lineage Pass</h3>
-      <p style="font-size:13px;color:#DDE7F0;margin:0">Free demo includes Gen 1–3 lineage. Unlock <b>Generations 4–7, Heritage Bahi Khatta Vault, AI Document OCR & Certified PDF Export</b>.</p>
+  <!-- MFP Partner Plan Allocation Banner -->
+  <div class="plan-banner">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div>
+        <span class="tier-badge tb-gold">👑 MFP PARTNER PLAN ATTACHMENT</span>
+        <h3 style="font-size:18px;font-weight:900;margin:6px 0 2px">Digital Vanshavali Access Tiers</h3>
+        <p style="font-size:13px;color:#DDE7F0;margin:0">Active Plan: <b id="currentPlanTxt" style="color:#5FE3B8">Free Demo (2 Gen Back)</b> — Unlock deeper ancestral generations with Silver, Gold, or Platinum Plans.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn b-gold" onclick="openKeyModal()">🔑 Key Unlock Facility</button>
+        <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20get%20a%20Digital%20Vanshavali%20Unlock%20Key." target="_blank">📲 WhatsApp Support</a>
+      </div>
     </div>
-    <div style="display:flex;gap:8px">
-      <button class="btn b-gold" onclick="openUnlockModal()">🔒 Unlock Full Pass (₹99)</button>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20unlock%20Digital%20Vanshavali%20Premium%20Pass%20(%E2%82%B999)." target="_blank">📲 WhatsApp Support</a>
+
+    <!-- Tier Breakdown Cards -->
+    <div class="tier-grid">
+      <div class="tier-card" id="card-silver">
+        <h4><span>🥈 Silver Plan</span> <small style="color:#CBD5E1">₹99/30d</small></h4>
+        <ul>
+          <li><b>3 Generations Back</b> (Self, Father, Dada, Pardada)</li>
+          <li><b>1 Generation Forward</b> (Children)</li>
+          <li>Basic Gotra & Village Tracing</li>
+        </ul>
+        <button class="btn b-outline" style="width:100%;margin-top:8px;padding:6px;font-size:11.5px" onclick="requestPlanKey('Silver')">Get Silver Key (₹99)</button>
+      </div>
+
+      <div class="tier-card" id="card-gold">
+        <h4><span>🥇 Gold Plan</span> <small style="color:#FDE68A">₹299/30d</small></h4>
+        <ul>
+          <li><b>5 Generations Back</b> (Up to Atiprapitamaha)</li>
+          <li><b>1 Generation Forward</b> (Children/Grandchildren)</li>
+          <li>Bahi Khatta Vault & Oral Memory Archiver</li>
+        </ul>
+        <button class="btn b-gold" style="width:100%;margin-top:8px;padding:6px;font-size:11.5px" onclick="requestPlanKey('Gold')">Get Gold Key (₹299)</button>
+      </div>
+
+      <div class="tier-card" id="card-platinum">
+        <h4><span>💎 Platinum Plan</span> <small style="color:#DDD6FE">₹599/30d</small></h4>
+        <ul>
+          <li><b>Unlimited Back (Full 7+7 Gens)</b></li>
+          <li><b>Unlimited Forward Generations</b></li>
+          <li><b>ALL Unlocked:</b> Vanshavali AI OCR, Gotra Check & Certified PDF</li>
+        </ul>
+        <button class="btn b-plat" style="width:100%;margin-top:8px;padding:6px;font-size:11.5px" onclick="requestPlanKey('Platinum')">Get Platinum Key (₹599)</button>
+      </div>
     </div>
   </div>
 
@@ -157,7 +207,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
       <div>
         <span class="kick">🌳 7-Generation Ancestral Lineage & Heritage Vault</span>
-        <h1>Digital Vanshavali (डिजिटल वंशावली) 👑</h1>
+        <h1>Digital Vanshavali (डिजिटल वंशावली)</h1>
         <p class="sub">Preserve your family lineage across <b>7 Paternal (पितृपक्ष)</b> and <b>7 Maternal (मातृपक्ष)</b> generations, Gotra tracing, ancestral village history, elder voice stories, and AI lineage verification.</p>
       </div>
       <div>
@@ -171,8 +221,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
     <button class="vtab active" onclick="switchVTab('tree', this)">🌳 7+7 Gen Family Tree</button>
     <button class="vtab" onclick="switchVTab('add', this)">👤 Add Relative / Ancestor</button>
     <button class="vtab" onclick="switchVTab('progress', this)">🏆 7-Gen Completion (100%)</button>
-    <button class="vtab" onclick="switchVTab('vault', this)">🏛️ Heritage Vault & Village <span class="lock-tag">👑 Premium</span></button>
-    <button class="vtab" onclick="switchVTab('ai', this)">🤖 Vanshavali AI & Gotra <span class="lock-tag">👑 Premium</span></button>
+    <button class="vtab" onclick="switchVTab('vault', this)">🏛️ Heritage Vault & Village <span class="lock-tag" id="vaultLockTag">🔒 Gold Plan</span></button>
+    <button class="vtab" onclick="switchVTab('ai', this)">🤖 Vanshavali AI & Gotra <span class="lock-tag" id="aiLockTag">🔒 Platinum Plan</span></button>
   </div>
 
   <!-- VIEW 1: INTERACTIVE 7+7 GENERATION FAMILY TREE -->
@@ -180,8 +230,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
     <div class="card">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px">
         <div>
-          <h2>Interactive Family Lineage Tree <span class="prem-badge" style="font-size:10px;padding:2px 8px">👑 7+7 Gen Access</span></h2>
-          <p>Switch between Paternal (Pitripaksha) & Maternal (Matripaksha) 7-generation roots.</p>
+          <h2>Interactive Family Lineage Tree <span class="tier-badge tb-free" id="treeTierBadge">FREE DEMO TIER</span></h2>
+          <p>Switch between Paternal (Pitripaksha) & Maternal (Matripaksha) ancestral roots.</p>
         </div>
         <div style="display:flex;gap:8px">
           <button class="btn b-indigo" id="btn-side-pat" onclick="setSide('pat')">🚩 Pitripaksha (Paternal 7 Gen)</button>
@@ -196,8 +246,9 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 
       <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
         <button class="btn b-teal" onclick="openAddModal()">➕ Add Ancestor / Descendant</button>
-        <button class="btn b-gold" onclick="openUnlockModal('pdf')">📜 Download Vanshavali Certificate PDF 🔒</button>
+        <button class="btn b-gold" onclick="triggerCertExport()">📜 Download Vanshavali Certificate PDF <span id="pdfLockIcon">🔒</span></button>
         <button class="btn b-wa" onclick="shareVanshavaliWa()">📲 Share Lineage on WhatsApp</button>
+        <button class="btn b-outline" onclick="openKeyModal()">🔑 Enter Activation Key</button>
       </div>
     </div>
   </div>
@@ -230,18 +281,17 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
           </div>
           <div>
             <label>Relationship Type:</label>
-            <select id="pRel" onchange="autoGenLevel()">
+            <select id="pRel">
               <option value="self">Self (स्वयं)</option>
               <option value="father">Father (पिता)</option>
               <option value="mother">Mother (माता)</option>
               <option value="grandfather">Grandfather (दादाजी)</option>
               <option value="great_grandfather">Great-Grandfather (परदादा)</option>
-              <option value="ati_prat">Atiprapitamaha (4th Gen Ancestor)</option>
-              <option value="vriddha_prat">Vriddhaprapitamaha (5th Gen Ancestor)</option>
-              <option value="mul_purush">Mul Purush / Root Ancestor (मूल पुरुष - Gen 7)</option>
-              <option value="spouse">Spouse (पति / पत्नी)</option>
-              <option value="child">Son / Daughter (पुत्र / पुत्री)</option>
-              <option value="sibling">Brother / Sister (भाई / बहन)</option>
+              <option value="ati_prat">Atiprapitamaha (5th Gen Ancestor)</option>
+              <option value="vriddha_prat">Vriddhaprapitamaha (6th Gen Ancestor)</option>
+              <option value="mul_purush">Mul Purush / Root Ancestor (Gen 7)</option>
+              <option value="child">Son / Daughter (पुत्र / पुत्री - Forward Gen)</option>
+              <option value="grandchild">Grandchild (पौत्र / पौत्री - Forward Gen 2)</option>
             </select>
           </div>
         </div>
@@ -316,7 +366,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
     <div class="card">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
         <h2>🏛️ Heritage Vault & Ancestral Village Records</h2>
-        <span class="prem-badge">👑 PREMIUM FEATURE</span>
+        <span class="tier-badge tb-gold" id="vaultBadge">🔒 GOLD / PLATINUM UNLOCKED</span>
       </div>
       <p>Preserve ancestral photos, Bahi Khatta land records, birth certificates, and migration history.</p>
 
@@ -325,7 +375,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
           <h3 style="font-size:15px;font-weight:800;color:var(--indigo)">📜 Bahi Khatta & Document Archive</h3>
           <p style="font-size:12.5px;color:var(--ink2);margin:4px 0 10px">Upload old family ledgers, birth records, or land deeds:</p>
           <input type="file" accept="image/*,.pdf" style="font-size:12px">
-          <div style="margin-top:10px;font-size:12px;color:var(--teal)">✓ 2 Archived Documents Preserved in Secure Cloud</div>
+          <div style="margin-top:10px;font-size:12px;color:var(--teal)">✓ Archived Documents Preserved in Secure Cloud</div>
         </div>
 
         <div style="background:var(--bg);padding:16px;border-radius:14px;border:1px solid var(--line)">
@@ -339,8 +389,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
         </div>
       </div>
 
-      <div style="margin-top:16px;text-align:center">
-        <button class="btn b-gold" onclick="openUnlockModal('vault')">👑 Unlock Unlimited Cloud Storage Pass (₹99)</button>
+      <div style="margin-top:16px;text-align:center" id="vaultUnlockBtnBox">
+        <button class="btn b-gold" onclick="requestPlanKey('Gold')">👑 Unlock Bahi Khatta Vault with Gold Plan (₹299)</button>
       </div>
     </div>
   </div>
@@ -353,7 +403,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
           <span style="font-size:24px">🤖</span>
           <h2>Vanshavali AI & Lineage Intelligence</h2>
         </div>
-        <span class="prem-badge">👑 PREMIUM FEATURE</span>
+        <span class="tier-badge tb-platinum" id="aiBadge">🔒 PLATINUM UNLOCKED</span>
       </div>
       <p>AI document OCR, missing ancestor link detection, and Gotra compatibility check.</p>
 
@@ -381,41 +431,43 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 
 </div>
 
-<!-- UNLOCK PREMIUM MODAL -->
-<div class="modal-bg" id="unlockModal">
+<!-- UNLOCK KEY MODAL (KEY UNLOCKING FACILITY) -->
+<div class="modal-bg" id="keyModal">
   <div class="modal-box">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
       <div style="display:flex;align-items:center;gap:8px">
-        <span class="prem-badge">👑 PREMIUM FEATURE</span>
-        <h3 style="font-size:18px;font-weight:800;color:var(--ink)">Unlock Digital Vanshavali Pass</h3>
+        <span class="tier-badge tb-gold">🔑 UNLOCK FACILITY</span>
+        <h3 style="font-size:18px;font-weight:800;color:var(--ink)">Enter Vanshavali Plan Key</h3>
       </div>
-      <button onclick="closeUnlockModal()" style="background:none;border:none;font-size:22px;cursor:pointer">✕</button>
+      <button onclick="closeKeyModal()" style="background:none;border:none;font-size:22px;cursor:pointer">✕</button>
     </div>
-    <p style="font-size:13.5px;color:var(--ink2);margin-bottom:14px">Preserve 7 Paternal & 7 Maternal generations forever with complete cloud backup and official PDF certification.</p>
+    <p style="font-size:13.5px;color:var(--ink2);margin-bottom:14px">Enter your MFP Silver, Gold, or Platinum plan key to unlock your generation limits & features.</p>
     
-    <div style="background:var(--gold-bg);border:1.5px solid #F0D494;padding:16px;border-radius:16px;margin-bottom:16px">
-      <div style="font-size:12px;font-weight:800;color:#7A5406;text-transform:uppercase">Included in Digital Vanshavali Premium Pass:</div>
-      <ul style="font-size:13px;color:var(--ink);margin:8px 0 0 18px;line-height:1.7">
-        <li><b>Full 7+7 Generations Access</b> (Pitripaksha & Matripaksha)</li>
-        <li><b>Heritage Vault & Bahi Khatta Archive</b> (Cloud Document Store)</li>
-        <li><b>Vanshavali AI OCR Scanner</b> (Extract handwritten trees)</li>
-        <li><b>Oral Memory Audio Recorder</b> (Elder voice recording)</li>
-        <li><b>Official Certified Family Tree PDF</b> (High-res print ready)</li>
-      </ul>
-    </div>
-
-    <div style="margin-bottom:16px">
-      <label>Enter Partner Access Key or Trial Voucher Code:</label>
+    <div style="background:var(--bg);border:1px solid var(--line);padding:14px;border-radius:14px;margin-bottom:14px">
+      <label style="margin-top:0">Activation Key / Partner Voucher Code:</label>
       <div style="display:flex;gap:8px">
-        <input type="text" id="vKey" placeholder="e.g. VAN-PREMIUM-2026 / SILVER99" style="text-transform:uppercase">
-        <button class="btn b-indigo" onclick="activateVKey()">Activate</button>
+        <input type="text" id="vKeyInput" placeholder="e.g. SILVER99 / GOLD299 / PLATINUM599" style="text-transform:uppercase;font-size:15px;letter-spacing:1px">
+        <button class="btn b-indigo" onclick="activateVanshavaliKey()">Unlock Key</button>
       </div>
+      <div style="font-size:11.5px;color:var(--ink2);margin-top:6px">Preset Test Keys: <code>SILVER99</code> · <code>GOLD299</code> · <code>PLATINUM599</code></div>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <a class="btn b-gold" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20unlock%20Digital%20Vanshavali%20Premium%20Pass%20(%E2%82%B999)." target="_blank" style="text-decoration:none">💬 Get Premium Pass Code on WhatsApp (₹99)</a>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Digital%20Vanshavali%20FREE%207-day%20trial%20code%20chahiye." target="_blank" style="text-decoration:none">🎁 Request Free 7-Day Trial Code</a>
-      <button class="btn b-outline" onclick="closeUnlockModal()">Continue with Free 3-Gen Demo</button>
+    <div style="font-size:13px;font-weight:800;color:var(--ink);margin-bottom:8px">Request Plan Key via WhatsApp:</div>
+
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a class="btn b-outline" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20buy%20Digital%20Vanshavali%20Silver%20Plan%20(%E2%82%B999%20%2F%203%20Gen%20Back%20%2B%201%20Forward)." target="_blank" style="text-decoration:none;justify-content:space-between">
+        <span>🥈 <b>Silver Plan Key (₹99)</b> — 3 Gen Back + 1 Forward</span>
+        <span>WhatsApp ↗</span>
+      </a>
+      <a class="btn b-gold" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20buy%20Digital%20Vanshavali%20Gold%20Plan%20(%E2%82%B9299%20%2F%205%20Gen%20Back%20%2B%201%20Forward)." target="_blank" style="text-decoration:none;justify-content:space-between">
+        <span>🥇 <b>Gold Plan Key (₹299)</b> — 5 Gen Back + 1 Forward + Vault</span>
+        <span>WhatsApp ↗</span>
+      </a>
+      <a class="btn b-plat" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20buy%20Digital%20Vanshavali%20Platinum%20Plan%20(%E2%82%B9599%20%2F%20Unlimited%20Back%20%2B%20Forward)." target="_blank" style="text-decoration:none;justify-content:space-between">
+        <span>💎 <b>Platinum Plan Key (₹599)</b> — Unlimited Gens + ALL Unlocked</span>
+        <span>WhatsApp ↗</span>
+      </a>
+      <button class="btn b-outline" onclick="closeKeyModal()" style="margin-top:6px">Close & Continue Free Demo</button>
     </div>
   </div>
 </div>
@@ -427,7 +479,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
       <h3 style="font-size:18px;font-weight:800;color:var(--ink)">➕ Add Ancestor / Family Member</h3>
       <button onclick="closeAddModal()" style="background:none;border:none;font-size:20px;cursor:pointer">✕</button>
     </div>
-    <p style="font-size:13px;color:var(--ink2);margin-bottom:14px">Fill details to append to 7-generation lineage tree.</p>
+    <p style="font-size:13px;color:var(--ink2);margin-bottom:14px">Fill details to append to your Vanshavali lineage tree.</p>
     
     <div>
       <label>Name:</label>
@@ -438,44 +490,123 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
         <option value="Grandfather">Grandfather (दादाजी)</option>
         <option value="Great-Grandfather">Great-Grandfather (परदादा)</option>
         <option value="Mother">Mother (माता)</option>
-        <option value="Son">Son (पुत्र)</option>
-        <option value="Daughter">Daughter (पुत्री)</option>
+        <option value="Son">Son / Daughter (पुत्र / पुत्री)</option>
+        <option value="Grandchild">Grandchild (पौत्र / पौत्री)</option>
       </select>
       <label>Gotra:</label>
       <input type="text" id="mGotra" value="Bharadwaj">
     </div>
 
     <div style="margin-top:18px;display:flex;gap:10px">
-      <button class="btn b-teal" style="flex:1" onclick="quickSaveModal()">Save Ancestor</button>
+      <button class="btn b-teal" style="flex:1" onclick="quickSaveModal()">Save Member</button>
       <button class="btn b-outline" onclick="closeAddModal()">Cancel</button>
     </div>
   </div>
 </div>
 
 <script>
+// INITIAL VANSHAVALI DATA STORE
 var VANSHAVALI_STORE = {
   pat: [
-    { id:'VAN-PAT-001', nameEn:'Pt. Ramnath Sharma', nameHi:'पं. रामनाथ शर्मा', rel:'Mul Purush / Root Ancestor (Gen 7)', gotra:'Bharadwaj', village:'Ayodhya, UP', birth:1840, gen:7, isRoot:true, isLocked:true },
-    { id:'VAN-PAT-002', nameEn:'Pt. Shivprasad Sharma', nameHi:'पं. शिवप्रсад शर्मा', rel:'Vriddhaprapitamaha (Gen 6)', gotra:'Bharadwaj', village:'Ayodhya, UP', birth:1875, gen:6, isLocked:true },
-    { id:'VAN-PAT-003', nameEn:'Pt. Badriprasad Sharma', nameHi:'पं. बद्रीप्रसाद शर्मा', rel:'Atiprapitamaha (Gen 5)', gotra:'Bharadwaj', village:'Prayagraj, UP', birth:1905, gen:5, isLocked:true },
-    { id:'VAN-PAT-004', nameEn:'Pt. Kripashankar Sharma', nameHi:'पं. कृपाशंकर शर्मा', rel:'Great-Grandfather / परदादा (Gen 4)', gotra:'Bharadwaj', village:'Prayagraj, UP', birth:1935, gen:4, isLocked:true },
+    { id:'VAN-PAT-001', nameEn:'Pt. Ramnath Sharma', nameHi:'पं. रामनाथ शर्मा', rel:'Mul Purush / Root Ancestor (Gen 7)', gotra:'Bharadwaj', village:'Ayodhya, UP', birth:1840, gen:7, isRoot:true },
+    { id:'VAN-PAT-002', nameEn:'Pt. Shivprasad Sharma', nameHi:'पं. शिवप्रसाद शर्मा', rel:'Vriddhaprapitamaha (Gen 6)', gotra:'Bharadwaj', village:'Ayodhya, UP', birth:1875, gen:6 },
+    { id:'VAN-PAT-003', nameEn:'Pt. Badriprasad Sharma', nameHi:'पं. बद्रीप्रसाद शर्मा', rel:'Atiprapitamaha (Gen 5)', gotra:'Bharadwaj', village:'Prayagraj, UP', birth:1905, gen:5 },
+    { id:'VAN-PAT-004', nameEn:'Pt. Kripashankar Sharma', nameHi:'पं. कृपाशंकर शर्मा', rel:'Great-Grandfather / परदादा (Gen 4)', gotra:'Bharadwaj', village:'Prayagraj, UP', birth:1935, gen:4 },
     { id:'VAN-PAT-005', nameEn:'Pt. Kedarnath Sharma', nameHi:'पं. केदारनाथ शर्मा', rel:'Grandfather / दादाजी (Gen 3)', gotra:'Bharadwaj', village:'Varanasi, UP', birth:1960, gen:3 },
     { id:'VAN-PAT-006', nameEn:'Rajesh Sharma', nameHi:'राजेश शर्मा', rel:'Father / पिता (Gen 2)', gotra:'Bharadwaj', village:'Varanasi, UP', birth:1985, gen:2 },
-    { id:'VAN-PAT-007', nameEn:'You (Presenter)', nameHi:'आप (स्वयं)', rel:'Self (Gen 1)', gotra:'Bharadwaj', village:'New Delhi', birth:2010, gen:1 }
+    { id:'VAN-PAT-007', nameEn:'You (Presenter)', nameHi:'आप (स्वयं)', rel:'Self (Gen 1)', gotra:'Bharadwaj', village:'New Delhi', birth:2010, gen:1 },
+    { id:'VAN-PAT-008', nameEn:'Aarav Sharma', nameHi:'आरव शर्मा', rel:'Son / पुत्र (Forward Gen 1)', gotra:'Bharadwaj', village:'New Delhi', birth:2024, gen:-1, isForward:true },
+    { id:'VAN-PAT-009', nameEn:'Vihaan Sharma', nameHi:'विहान शर्मा', rel:'Grandson / पौत्र (Forward Gen 2)', gotra:'Bharadwaj', village:'New Delhi', birth:2048, gen:-2, isForward:true }
   ],
   mat: [
-    { id:'VAN-MAT-001', nameEn:'Pt. Hariram Dwivedi', nameHi:'पं. हरिराम द्विवेदी', rel:'Maternal Root (Gen 7)', gotra:'Kashyap', village:'Mathura, UP', birth:1845, gen:7, isRoot:true, isLocked:true },
-    { id:'VAN-MAT-002', nameEn:'Pt. Dinanath Dwivedi', nameHi:'पं. दीनानाथ द्विवेदी', rel:'Maternal Great-Grandfather (Gen 4)', gotra:'Kashyap', village:'Mathura, UP', birth:1938, gen:4, isLocked:true },
+    { id:'VAN-MAT-001', nameEn:'Pt. Hariram Dwivedi', nameHi:'पं. हरिराम द्विवेदी', rel:'Maternal Root (Gen 7)', gotra:'Kashyap', village:'Mathura, UP', birth:1845, gen:7, isRoot:true },
+    { id:'VAN-MAT-002', nameEn:'Pt. Dinanath Dwivedi', nameHi:'पं. दीनानाथ द्विवेदी', rel:'Maternal Great-Grandfather (Gen 4)', gotra:'Kashyap', village:'Mathura, UP', birth:1938, gen:4 },
     { id:'VAN-MAT-003', nameEn:'Sh. Vishwanath Dwivedi', nameHi:'श्री विश्वनाथ द्विवेदी', rel:'Nanaji / नानाजी (Gen 3)', gotra:'Kashyap', village:'Lucknow, UP', birth:1962, gen:3 },
     { id:'VAN-MAT-004', nameEn:'Sunita Sharma (Dwivedi)', nameHi:'सुनीता शर्मा', rel:'Mother / माता (Gen 2)', gotra:'Kashyap', village:'Lucknow, UP', birth:1988, gen:2, isFemale:true },
     { id:'VAN-MAT-005', nameEn:'You (Presenter)', nameHi:'आप (स्वयं)', rel:'Self (Gen 1)', gotra:'Bharadwaj', village:'New Delhi', birth:2010, gen:1 }
   ]
 };
 
+/*
+  PLAN TIER ALLOCATION MATRIX:
+  - free: 2 Gen Back (Gen 1-2) + 0 Forward
+  - silver (₹99): 3 Gen Back (Gen 1-4) + 1 Forward (Gen -1)
+  - gold (₹299): 5 Gen Back (Gen 1-5) + 1 Forward (Gen -1) + Vault Unlocked
+  - platinum (₹599): Unlimited Back (Gen 1-7) + Unlimited Forward + ALL Unlocked (AI, OCR, PDF)
+*/
+var currentTier = 'free'; // 'free', 'silver', 'gold', 'platinum'
 var currentSide = 'pat';
-var isUnlocked = false;
+
+function applyTierUI(){
+  var topBadge = document.getElementById('topTierBadge');
+  var currentPlanTxt = document.getElementById('currentPlanTxt');
+  var treeTierBadge = document.getElementById('treeTierBadge');
+  var pdfLockIcon = document.getElementById('pdfLockIcon');
+  var vaultLockTag = document.getElementById('vaultLockTag');
+  var aiLockTag = document.getElementById('aiLockTag');
+  var vaultUnlockBtnBox = document.getElementById('vaultUnlockBtnBox');
+
+  ['silver', 'gold', 'platinum'].forEach(function(p){
+    var card = document.getElementById('card-' + p);
+    if(card) card.classList.toggle('active-plan', currentTier === p);
+  });
+
+  if(currentTier === 'silver'){
+    topBadge.className = 'tier-badge tb-silver'; topBadge.textContent = '🥈 SILVER PLAN (3 Gen Back + 1 Forward)';
+    currentPlanTxt.textContent = '🥈 Silver Plan (₹99) — 3 Generations Back + 1 Generation Forward Unlocked';
+    currentPlanTxt.style.color = '#94A3B8';
+    treeTierBadge.className = 'tier-badge tb-silver'; treeTierBadge.textContent = '🥈 SILVER TIER (3 Gen Back + 1 Forward)';
+    pdfLockIcon.textContent = '🔒 (Platinum Needed)';
+    vaultLockTag.textContent = '🔒 Gold Needed';
+    aiLockTag.textContent = '🔒 Platinum Needed';
+  } else if(currentTier === 'gold'){
+    topBadge.className = 'tier-badge tb-gold'; topBadge.textContent = '🥇 GOLD PLAN (5 Gen Back + 1 Forward + Vault)';
+    currentPlanTxt.textContent = '🥇 Gold Plan (₹299) — 5 Generations Back + 1 Forward + Bahi Khatta Vault Unlocked';
+    currentPlanTxt.style.color = '#FDE68A';
+    treeTierBadge.className = 'tier-badge tb-gold'; treeTierBadge.textContent = '🥇 GOLD TIER (5 Gen Back + 1 Forward)';
+    pdfLockIcon.textContent = '🔒 (Platinum Needed)';
+    vaultLockTag.textContent = '✅ UNLOCKED';
+    aiLockTag.textContent = '🔒 Platinum Needed';
+    if(vaultUnlockBtnBox) vaultUnlockBtnBox.style.display = 'none';
+  } else if(currentTier === 'platinum'){
+    topBadge.className = 'tier-badge tb-platinum'; topBadge.textContent = '💎 PLATINUM PLAN (UNLIMITED ALL UNLOCKED)';
+    currentPlanTxt.textContent = '💎 Platinum Plan (₹599) — Unlimited Back & Forward Generations + ALL Features Unlocked';
+    currentPlanTxt.style.color = '#C4B5FD';
+    treeTierBadge.className = 'tier-badge tb-platinum'; treeTierBadge.textContent = '💎 PLATINUM TIER (UNLIMITED GENS)';
+    pdfLockIcon.textContent = '✨ (Unlocked)';
+    vaultLockTag.textContent = '✅ UNLOCKED';
+    aiLockTag.textContent = '✅ UNLOCKED';
+    if(vaultUnlockBtnBox) vaultUnlockBtnBox.style.display = 'none';
+  } else {
+    topBadge.className = 'tier-badge tb-free'; topBadge.textContent = 'FREE DEMO (2 Gen Back)';
+    currentPlanTxt.textContent = 'Free Demo (2 Gen Back) — Unlock Silver (3 Gen), Gold (5 Gen), or Platinum (Unlimited)';
+    currentPlanTxt.style.color = '#5FE3B8';
+    treeTierBadge.className = 'tier-badge tb-free'; treeTierBadge.textContent = 'FREE DEMO (2 Gen Back)';
+    pdfLockIcon.textContent = '🔒';
+    vaultLockTag.textContent = '🔒 Gold Plan';
+    aiLockTag.textContent = '🔒 Platinum Plan';
+  }
+}
+
+function isPersonNodeLocked(item){
+  if(currentTier === 'platinum') return false;
+
+  if(item.isForward){
+    var fwdLevel = Math.abs(item.gen);
+    if(currentTier === 'free') return true; // Free = 0 forward
+    if((currentTier === 'silver' || currentTier === 'gold') && fwdLevel > 1) return true; // Silver/Gold = 1 forward
+    return false;
+  } else {
+    var backGen = item.gen;
+    if(currentTier === 'free' && backGen > 2) return true;
+    if(currentTier === 'silver' && backGen > 4) return true; // 3 generations back (gen 1-4)
+    if(currentTier === 'gold' && backGen > 5) return true; // 5 generations back (gen 1-5)
+    return false;
+  }
+}
 
 function renderTree(){
+  applyTierUI();
   var container = document.getElementById('treeContainer');
   var list = VANSHAVALI_STORE[currentSide];
   var html = '';
@@ -490,24 +621,32 @@ function renderTree(){
 
   genKeys.forEach(function(gKey){
     var gInt = parseInt(gKey);
-    var isGenLocked = !isUnlocked && gInt > 3;
-    var gTitle = 'Generation ' + gKey + (gKey === '7' ? ' — Root Ancestor (मूल पुरुष)' : (gKey === '1' ? ' — Present Generation' : ''));
-    if(isGenLocked) gTitle += ' 🔒 (Premium Feature)';
+    var firstItem = grouped[gKey][0];
+    var isGenLocked = isPersonNodeLocked(firstItem);
+
+    var gTitle = '';
+    if(gInt < 0){
+      gTitle = 'Descendant Generation ' + Math.abs(gInt) + ' (Forward Lineage)';
+    } else {
+      gTitle = 'Generation ' + gKey + (gKey === '7' ? ' — Root Ancestor (मूल पुरुष)' : (gKey === '1' ? ' — Present Generation' : ''));
+    }
+    if(isGenLocked) gTitle += ' 🔒 (Upgrade Plan to Unlock)';
 
     html += '<div class="gen-row">' +
       '<div class="gen-header"><span>' + gTitle + '</span><span>' + (isGenLocked ? '🔒 Locked' : grouped[gKey].length + ' Person(s)') + '</span></div>' +
       '<div class="node-grid">';
 
     grouped[gKey].forEach(function(p){
-      var cardCls = 'person-card' + (p.isRoot ? ' root-node' : '') + (p.isFemale ? ' female-node' : '') + (isGenLocked ? ' locked-node' : '');
+      var nodeLocked = isPersonNodeLocked(p);
+      var cardCls = 'person-card' + (p.isRoot ? ' root-node' : '') + (p.isFemale ? ' female-node' : '') + (nodeLocked ? ' locked-node' : '');
       html += '<div class="' + cardCls + '">' +
         '<div class="rel-tag">' + p.rel + '</div>' +
-        '<h4>' + (isGenLocked ? '🔒 Ancestor Gen ' + gKey : p.nameEn) + '</h4>' +
-        '<div style="font-size:13px;font-weight:700;color:var(--ink2)">' + (isGenLocked ? 'गोत्र एवं विवरण लॉक है' : (p.nameHi || '')) + '</div>' +
-        '<div class="meta"><b>Gotra:</b> ' + (isGenLocked ? '🔒 Premium Pass' : p.gotra) + '<br><b>Native:</b> ' + (isGenLocked ? '🔒 Upgrade to View' : p.village) + '<br><b>Birth:</b> ' + (isGenLocked ? 'c. ****' : 'c. ' + p.birth) + '</div>' +
+        '<h4>' + (nodeLocked ? '🔒 Lineage Member' : p.nameEn) + '</h4>' +
+        '<div style="font-size:13px;font-weight:700;color:var(--ink2)">' + (nodeLocked ? 'विवरण देखने के लिए Key Unlock करें' : (p.nameHi || '')) + '</div>' +
+        '<div class="meta"><b>Gotra:</b> ' + (nodeLocked ? '🔒 Key Required' : p.gotra) + '<br><b>Native:</b> ' + (nodeLocked ? '🔒 Key Required' : p.village) + '<br><b>Birth:</b> ' + (nodeLocked ? 'c. ****' : 'c. ' + p.birth) + '</div>' +
         '<div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">' +
           '<span class="code">' + p.id + '</span>' +
-          (isGenLocked ? '<button class="btn b-gold" style="padding:3px 8px;font-size:10.5px" onclick="openUnlockModal()">🔒 Unlock</button>' : '<button class="btn b-teal" style="padding:3px 8px;font-size:10.5px" onclick="openAddModal()">+ Child</button>') +
+          (nodeLocked ? '<button class="btn b-gold" style="padding:3px 8px;font-size:10.5px" onclick="openKeyModal()">🔒 Key Unlock</button>' : '<button class="btn b-teal" style="padding:3px 8px;font-size:10.5px" onclick="openAddModal()">+ Member</button>') +
         '</div>' +
       '</div>';
     });
@@ -526,6 +665,17 @@ function setSide(side){
 }
 
 function switchVTab(tab, btn){
+  if(tab === 'vault' && (currentTier === 'free' || currentTier === 'silver')){
+    alert('🏛️ Heritage Vault requires Gold Plan (₹299) or Platinum Plan (₹599). Please enter your key or request on WhatsApp.');
+    openKeyModal();
+    return;
+  }
+  if(tab === 'ai' && currentTier !== 'platinum'){
+    alert('🤖 Vanshavali AI & Gotra Marriage Compatibility Check requires Platinum Plan (₹599). Please enter your key or request on WhatsApp.');
+    openKeyModal();
+    return;
+  }
+
   var views = ['tree', 'add', 'progress', 'vault', 'ai'];
   views.forEach(function(v){
     document.getElementById('vbox-' + v).style.display = (v === tab) ? 'block' : 'none';
@@ -539,22 +689,45 @@ function switchVTab(tab, btn){
   if(tab === 'tree') renderTree();
 }
 
-function openUnlockModal(feat){
-  document.getElementById('unlockModal').classList.add('open');
-}
-function closeUnlockModal(){
-  document.getElementById('unlockModal').classList.remove('open');
+function openKeyModal(){ document.getElementById('keyModal').classList.add('open'); }
+function closeKeyModal(){ document.getElementById('keyModal').classList.remove('open'); }
+
+function activateVanshavaliKey(){
+  var k = (document.getElementById('vKeyInput').value || '').trim().toUpperCase();
+  if(!k){ alert('Please enter an activation key.'); return; }
+
+  if(k.includes('SILVER') || k === 'SILVER99' || k === 'VAN-SILVER-3G'){
+    currentTier = 'silver';
+    closeKeyModal();
+    renderTree();
+    alert('🎉 Silver Plan Key Activated! 3 Generations Back + 1 Generation Forward Unlocked!');
+  } else if(k.includes('GOLD') || k === 'GOLD299' || k === 'VAN-GOLD-5G'){
+    currentTier = 'gold';
+    closeKeyModal();
+    renderTree();
+    alert('🎉 Gold Plan Key Activated! 5 Generations Back + 1 Forward + Bahi Khatta Vault Unlocked!');
+  } else if(k.includes('PLATINUM') || k === 'PLATINUM599' || k === 'VAN-PREMIUM-2026' || k.length >= 6){
+    currentTier = 'platinum';
+    closeKeyModal();
+    renderTree();
+    alert('🎉 Platinum Plan Key Activated! Unlimited Back & Forward Generations + ALL Features Unlocked!');
+  } else {
+    alert('Invalid key format. Please enter SILVER99, GOLD299, or PLATINUM599, or tap WhatsApp to request your code.');
+  }
 }
 
-function activateVKey(){
-  var k = (document.getElementById('vKey').value || '').trim().toUpperCase();
-  if(k === 'VAN-PREMIUM-2026' || k === 'SILVER99' || k.length >= 5){
-    isUnlocked = true;
-    closeUnlockModal();
-    renderTree();
-    alert('🎉 Premium Pass Activated! All 7+7 Ancestral Generations, Heritage Vault & PDF Certificate tools unlocked!');
+function requestPlanKey(planName){
+  var prices = { Silver: '₹99', Gold: '₹299', Platinum: '₹599' };
+  var txt = 'Hi! I want to activate Digital Vanshavali ' + planName + ' Plan (' + prices[planName] + '). Please share my activation key.';
+  window.open('https://wa.me/918840192702?text=' + encodeURIComponent(txt), '_blank');
+}
+
+function triggerCertExport(){
+  if(currentTier !== 'platinum'){
+    alert('📜 High-Res Official Certified Lineage PDF Export requires Platinum Plan (₹599). Please enter your key or request on WhatsApp.');
+    openKeyModal();
   } else {
-    alert('Please enter a valid activation code or tap the WhatsApp button to get your key.');
+    alert('Generating Official Digital Vanshavali Certified Lineage Document (PDF)... Download Started!');
   }
 }
 
@@ -569,6 +742,9 @@ function savePerson(e){
   var village = document.getElementById('pVillage').value;
   var birth = parseInt(document.getElementById('pBirth').value) || 1980;
 
+  var isFwd = relSel.value === 'child' || relSel.value === 'grandchild';
+  var genVal = isFwd ? (relSel.value === 'child' ? -1 : -2) : 3;
+
   var newObj = {
     id: 'VAN-' + side.toUpperCase() + '-' + Math.floor(100 + Math.random()*900),
     nameEn: nameEn,
@@ -577,11 +753,12 @@ function savePerson(e){
     gotra: gotra,
     village: village,
     birth: birth,
-    gen: 3
+    gen: genVal,
+    isForward: isFwd
   };
 
   VANSHAVALI_STORE[side].push(newObj);
-  alert('Ancestor ' + nameEn + ' saved to Digital Vanshavali!');
+  alert('Member ' + nameEn + ' saved to Digital Vanshavali!');
   switchVTab('tree');
 }
 
@@ -589,10 +766,11 @@ function openAddModal(){ document.getElementById('addModal').classList.add('open
 function closeAddModal(){ document.getElementById('addModal').classList.remove('open'); }
 
 function quickSaveModal(){
-  var name = document.getElementById('mName').value || 'New Ancestor';
+  var name = document.getElementById('mName').value || 'New Member';
   var rel = document.getElementById('mRel').value;
   var gotra = document.getElementById('mGotra').value;
 
+  var isFwd = rel === 'Son' || rel === 'Grandchild';
   VANSHAVALI_STORE[currentSide].push({
     id: 'VAN-' + currentSide.toUpperCase() + '-' + Math.floor(100 + Math.random()*900),
     nameEn: name,
@@ -600,8 +778,9 @@ function quickSaveModal(){
     rel: rel,
     gotra: gotra,
     village: 'Ancestral Place',
-    birth: 1950,
-    gen: 4
+    birth: 2020,
+    gen: isFwd ? -1 : 4,
+    isForward: isFwd
   });
 
   closeAddModal();
@@ -632,10 +811,11 @@ function runAiExtract(){
 }
 
 function shareVanshavaliWa(){
-  var txt = '🌳 Digital Vanshavali Lineage Summary (👑 Premium Feature)
+  var txt = '🌳 Digital Vanshavali Lineage Summary
+Active Plan: ' + currentTier.toUpperCase() + '
 Family: Sharma Family Vanshavali
 Gotra: Bharadwaj | Mul Nivas: Ayodhya, UP
-Traced Generations: 7 Paternal & 5 Maternal
+Traced Lineage: Paternal & Maternal Generations
 Preserved via MyFinancialPlan.in Digital Vanshavali';
   window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
 }
