@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Digital Vanshavali (डिजिटल वंशावली) — Private Family Heritage Estate | MyFinancialPlan</title>
-<meta name="description" content="Ultra-Premium Private Family Heritage Estate & Digital Vanshavali Archive. Trace 7+7 generations on paternal and maternal lines with unified My Financial Plan membership and verified lineage provenance.">
+<title>Digital Vanshavali (डिजिटल वंशावली) — Bifurcated Family Heritage Estate | MyFinancialPlan</title>
+<meta name="description" content="Ultra-Premium Private Family Heritage Estate & Digital Vanshavali Archive with explicit Paternal (पितृ पक्ष) and Maternal (मातृ पक्ष) database bifurcation, branch tree constellation, and verified lineage provenance.">
 <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
 <link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
 <link rel="manifest" href="/vanshavali/manifest.json">
@@ -59,6 +59,9 @@
   --amber-accent: #F59E0B;
   --crimson-accent: #EF4444;
   --teal-accent: #0D9488;
+  
+  --paternal-color: #6366F1;
+  --maternal-color: #10B981;
   
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
@@ -300,6 +303,29 @@ header.app-header .wrap {
   font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 700; margin-top: 4px;
 }
 
+/* Branch Bifurcated View Columns */
+.bifurcated-branches-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;
+}
+@media (max-width: 900px) {
+  .bifurcated-branches-grid { grid-template-columns: 1fr; }
+}
+.branch-estate-column {
+  background: rgba(18, 24, 39, 0.8); border: 1px solid var(--border-subtle);
+  border-radius: 24px; padding: 24px; position: relative;
+}
+.branch-estate-column.paternal-col { border-top: 4px solid var(--indigo-accent); }
+.branch-estate-column.maternal-col { border-top: 4px solid var(--emerald-accent); }
+
+.branch-col-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);
+}
+.branch-col-title {
+  font-family: var(--font-serif); font-size: 18px; font-weight: 800; color: #FFF;
+  display: flex; align-items: center; gap: 8px;
+}
+
 /* Empty State Box for New Users */
 .empty-estate-box {
   background: linear-gradient(135deg, rgba(18, 24, 39, 0.9), rgba(15, 22, 38, 0.9));
@@ -326,7 +352,7 @@ header.app-header .wrap {
 /* Living Family Tree Viewport */
 .tree-container-viewport {
   background: var(--bg-card); border: 1px solid var(--border-subtle);
-  border-radius: 24px; padding: 24px; margin-top: 24px; overflow-x: auto; position: relative;
+  border-radius: 24px; padding: 24px; margin-top: 20px; overflow-x: auto; position: relative;
   min-height: 500px;
 }
 .tree-gen-strip {
@@ -350,6 +376,9 @@ header.app-header .wrap {
 .person-node-card:hover {
   border-color: var(--gold-primary); transform: translateY(-3px); box-shadow: 0 12px 30px var(--gold-glow);
 }
+.person-node-card.paternal-node { border-left: 3px solid var(--indigo-accent); }
+.person-node-card.maternal-node { border-left: 3px solid var(--emerald-accent); }
+
 .person-node-card.verified { border-color: rgba(16, 185, 129, 0.5); }
 .person-node-card.contributor-confirmed { border-color: rgba(99, 102, 241, 0.5); }
 .person-node-card.pending { border-style: dashed; border-color: rgba(245, 158, 11, 0.6); }
@@ -360,8 +389,18 @@ header.app-header .wrap {
   border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center;
   font-size: 22px; flex-shrink: 0;
 }
+.node-avatar.paternal-avatar { border-color: var(--indigo-accent); background: rgba(99, 102, 241, 0.15); }
+.node-avatar.maternal-avatar { border-color: var(--emerald-accent); background: rgba(16, 185, 129, 0.15); }
+
 .node-name { font-weight: 800; font-size: 15px; color: #FFF; line-height: 1.2; }
 .node-relation { font-size: 11.5px; color: var(--gold-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.branch-pill-tag {
+  display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 99px;
+  font-size: 10px; font-weight: 800; text-transform: uppercase; margin-top: 4px;
+}
+.branch-pill-paternal { background: rgba(99, 102, 241, 0.18); color: #A5B4FC; border: 1px solid rgba(99, 102, 241, 0.4); }
+.branch-pill-maternal { background: rgba(16, 185, 129, 0.18); color: #6EE7B7; border: 1px solid rgba(16, 185, 129, 0.4); }
 
 /* Status Badges */
 .badge-provenance {
@@ -449,7 +488,7 @@ header.app-header .wrap {
       <div class="brand-crown">👑</div>
       <div>
         <span class="brand-title">DIGITAL VANSHAVALI</span>
-        <span class="brand-subtitle">My Financial Plan Ecosystem</span>
+        <span class="brand-subtitle">Bifurcated Lineage Estate</span>
       </div>
     </a>
     
@@ -525,7 +564,7 @@ header.app-header .wrap {
         “Your Family Story Should Never End With Your Memory.”
       </h1>
       <p class="hero-subhead">
-        Preserve what you know. Discover what was forgotten. Pass it to the next generation through an immutable, multi-step verified lineage estate.
+        Preserve what you know. Discover what was forgotten. Pass it to the next generation through a fully bifurcated Paternal (पितृ पक्ष) & Maternal (मातृ पक्ष) lineage estate.
       </p>
 
       <!-- Generational Flow Strip -->
@@ -556,32 +595,32 @@ header.app-header .wrap {
     <!-- Estate Dashboard Summary Stats -->
     <div style="margin-top: 32px;">
       <h2 style="font-family: var(--font-serif); font-size: 22px; color: #FFF; margin-bottom: 4px;" id="estate-header-title">
-        MY PRIVATE FAMILY ESTATE
+        MY PRIVATE BIFURCATED FAMILY ESTATE
       </h2>
       <p style="font-size: 13.5px; color: var(--text-muted);" id="estate-header-sub">
-        Strictly calculated from authentic user entries. Zero unverified default values.
+        Strictly calculated from authentic user entries with separate Paternal & Maternal database branches.
       </p>
 
       <div class="estate-stats-grid">
         <div class="stat-estate-card">
           <div class="stat-num" id="stat-val-members">0</div>
-          <div class="stat-label">Family Members</div>
+          <div class="stat-label">Total Estate Members</div>
+        </div>
+        <div class="stat-estate-card" style="border-left: 3px solid var(--indigo-accent);">
+          <div class="stat-num" id="stat-val-paternal" style="color: #A5B4FC;">0</div>
+          <div class="stat-label">Paternal Side (पितृ पक्ष)</div>
+        </div>
+        <div class="stat-estate-card" style="border-left: 3px solid var(--emerald-accent);">
+          <div class="stat-num" id="stat-val-maternal" style="color: #6EE7B7;">0</div>
+          <div class="stat-label">Maternal Side (मातृ पक्ष)</div>
         </div>
         <div class="stat-estate-card">
           <div class="stat-num" id="stat-val-verified">0</div>
           <div class="stat-label">Verified Relationships</div>
         </div>
         <div class="stat-estate-card">
-          <div class="stat-num" id="stat-val-branches">0</div>
-          <div class="stat-label">Family Branches</div>
-        </div>
-        <div class="stat-estate-card">
           <div class="stat-num" id="stat-val-villages">0</div>
           <div class="stat-label">Ancestral Villages</div>
-        </div>
-        <div class="stat-estate-card">
-          <div class="stat-num" id="stat-val-memories">0</div>
-          <div class="stat-label">Archived Memories</div>
         </div>
       </div>
     </div>
@@ -596,20 +635,20 @@ header.app-header .wrap {
       </p>
 
       <div class="onboarding-steps">
-        <div class="onboarding-card" onclick="handleBuildTreeClick('self', 0)">
+        <div class="onboarding-card" onclick="handleBuildTreeClick('self', 0, 'PATERNAL')">
           <div class="onboarding-num">Step 1</div>
           <div class="onboarding-step-title">Add Yourself (Gen 0)</div>
           <div style="font-size: 12px; color: var(--text-muted);">Create your root node in the tree.</div>
         </div>
-        <div class="onboarding-card" onclick="handleBuildTreeClick('father', -1)">
+        <div class="onboarding-card" onclick="handleBuildTreeClick('father', -1, 'PATERNAL')">
           <div class="onboarding-num">Step 2</div>
-          <div class="onboarding-step-title">Add Parents (Gen -1)</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Record your Father & Mother.</div>
+          <div class="onboarding-step-title">Add Paternal Root (Gen -1)</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Record Father & Paternal line.</div>
         </div>
-        <div class="onboarding-card" onclick="handleBuildTreeClick('paternal_grandfather', -2)">
+        <div class="onboarding-card" onclick="handleBuildTreeClick('mother', -1, 'MATERNAL')">
           <div class="onboarding-num">Step 3</div>
-          <div class="onboarding-step-title">Add Grandparents (Gen -2)</div>
-          <div style="font-size: 12px; color: var(--text-muted);">Record Paternal & Maternal line.</div>
+          <div class="onboarding-step-title">Add Maternal Root (Gen -1)</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Record Mother & Maternal line (Nana-Nani).</div>
         </div>
         <div class="onboarding-card" onclick="switchTab('verify')">
           <div class="onboarding-num">Step 4</div>
@@ -622,16 +661,16 @@ header.app-header .wrap {
     <!-- 7-Gen Dual Lineage Progress Box -->
     <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 24px; padding: 28px; margin-top: 28px;">
       <h3 style="font-family: var(--font-serif); color: #FFF; font-size: 18px; margin-bottom: 6px;">
-        7-GENERATION FOUNDATION TRACKER
+        7-GENERATION FOUNDATION TRACKER (BIFURCATED)
       </h3>
       <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
-        Tracks complete 7-generation depth across Paternal & Maternal roots. Reaching 100% unlocks Bonus Generations (+3, +5...).
+        Tracks complete 7-generation depth across Paternal & Maternal roots independently. Reaching 100% unlocks Bonus Generations (+3, +5...).
       </p>
 
       <!-- Paternal Progress -->
       <div style="margin-bottom: 20px;">
         <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 6px;">
-          <span style="color: var(--gold-light);">Paternal Lineage (पितृ पक्ष)</span>
+          <span style="color: #A5B4FC;">🚩 Paternal Lineage Branch (पितृ पक्ष)</span>
           <span id="pat-gen-count" style="color: var(--gold-primary);">0 / 7 Generations</span>
         </div>
         <div style="height: 10px; background: rgba(255,255,255,0.06); border-radius: 99px; overflow: hidden;">
@@ -642,7 +681,7 @@ header.app-header .wrap {
       <!-- Maternal Progress -->
       <div>
         <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 6px;">
-          <span style="color: var(--gold-light);">Maternal Lineage (मातृ पक्ष)</span>
+          <span style="color: #6EE7B7;">🌸 Maternal Lineage Branch (मातृ पक्ष)</span>
           <span id="mat-gen-count" style="color: var(--gold-primary);">0 / 7 Generations</span>
         </div>
         <div style="height: 10px; background: rgba(255,255,255,0.06); border-radius: 99px; overflow: hidden;">
@@ -657,35 +696,41 @@ header.app-header .wrap {
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 10px;">
       <div>
         <h2 style="font-family: var(--font-serif); font-size: 24px; color: #FFF;">LIVING ANCESTRAL CONSTELLATION</h2>
-        <p style="font-size: 13px; color: var(--text-muted);">Organized by relative generation index (-7 to +2) with status provenance.</p>
+        <p style="font-size: 13px; color: var(--text-muted);">Filter by explicit Paternal Side (पितृ पक्ष) and Maternal Side (मातृ पक्ष) branches.</p>
       </div>
       <button class="btn-estate btn-gold" onclick="handleBuildTreeClick()">
         <span>➕ Add Member</span>
       </button>
     </div>
 
-    <!-- Tree Filter Strip -->
-    <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
-      <select id="filter-gen-select" class="form-select" style="width: auto; font-size: 12.5px; padding: 6px 12px;" onchange="renderTreeCanvas()">
+    <!-- Branch View Switcher Bar -->
+    <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center;">
+      <button class="nav-tab-item active" id="branch-view-btn-all" onclick="setBranchViewFilter('ALL')">
+        <span>🔀 Combined Tree</span>
+      </button>
+      <button class="nav-tab-item" id="branch-view-btn-split" onclick="setBranchViewFilter('SPLIT')">
+        <span>⚔️ Side-by-Side Bifurcated Branches</span>
+      </button>
+      <button class="nav-tab-item" id="branch-view-btn-paternal" onclick="setBranchViewFilter('PATERNAL')">
+        <span>🚩 Paternal Branch (पितृ पक्ष)</span>
+      </button>
+      <button class="nav-tab-item" id="branch-view-btn-maternal" onclick="setBranchViewFilter('MATERNAL')">
+        <span>🌸 Maternal Branch (मातृ पक्ष)</span>
+      </button>
+
+      <select id="filter-gen-select" class="form-select" style="width: auto; font-size: 12.5px; padding: 6px 12px; margin-left: auto;" onchange="renderTreeCanvas()">
         <option value="all">All Generations (-7 to +2)</option>
         <option value="-7">Gen -7 (Great-x5 Grandparents)</option>
-        <option value="-2">Gen -2 (Grandparents)</option>
-        <option value="-1">Gen -1 (Parents)</option>
+        <option value="-2">Gen -2 (Grandparents / Nana-Nani)</option>
+        <option value="-1">Gen -1 (Parents / Mama-Mami)</option>
         <option value="0">Gen 0 (Self & Siblings)</option>
         <option value="1">Gen +1 (Children)</option>
-      </select>
-      
-      <select id="filter-status-select" class="form-select" style="width: auto; font-size: 12.5px; padding: 6px 12px;" onchange="renderTreeCanvas()">
-        <option value="all">All Provenance Statuses</option>
-        <option value="verified">Verified Only (🟢)</option>
-        <option value="contributor_confirmed">Contributor Confirmed Only (🟡)</option>
-        <option value="pending_verification">Pending Only (⌛)</option>
       </select>
     </div>
 
     <!-- Tree Viewport Canvas -->
     <div class="tree-container-viewport" id="tree-canvas-viewport">
-      <!-- Tree generation strips rendered dynamically via JS -->
+      <!-- Tree generation strips / bifurcated branches rendered dynamically via JS -->
     </div>
   </section>
 
@@ -962,19 +1007,31 @@ header.app-header .wrap {
     </div>
 
     <form id="conversational-add-form" onsubmit="handleSaveMember(event)">
+      <!-- Step 0: Lineage Branch Selector -->
+      <div class="form-group">
+        <label class="form-label">Database Lineage Side / Branch</label>
+        <select class="form-select" id="input-lineage-side" required>
+          <option value="PATERNAL">🚩 Paternal Lineage Branch (पितृ पक्ष)</option>
+          <option value="MATERNAL">🌸 Maternal Lineage Branch (मातृ पक्ष)</option>
+        </select>
+        <div class="form-hint">Specifies which side of the family estate database this relative belongs to.</div>
+      </div>
+
       <!-- Step 1 -->
       <div class="form-group">
         <label class="form-label">Who are you adding?</label>
-        <select class="form-select" id="input-relation-type" required>
-          <option value="father">Father (पिता)</option>
-          <option value="mother">Mother (माता)</option>
+        <select class="form-select" id="input-relation-type" required onchange="handleRelationTypeChange(this.value)">
+          <option value="father">Father (पिता) [Paternal Side]</option>
+          <option value="mother">Mother (माता) [Maternal Root]</option>
+          <option value="paternal_grandfather">Paternal Grandfather (दादाजी)</option>
+          <option value="maternal_grandfather">Maternal Grandfather (नानाजी) [Maternal Side]</option>
+          <option value="maternal_grandmother">Maternal Grandmother (नानीजी) [Maternal Side]</option>
+          <option value="maternal_uncle">Maternal Uncle (मामाजी) [Maternal Side]</option>
           <option value="spouse">Spouse (पति / पत्नी)</option>
           <option value="son">Son (पुत्र)</option>
           <option value="daughter">Daughter (पुत्री)</option>
           <option value="brother">Brother (भाई)</option>
           <option value="sister">Sister (बहन)</option>
-          <option value="paternal_grandfather">Paternal Grandfather (दादाजी)</option>
-          <option value="maternal_grandfather">Maternal Grandfather (नानाजी)</option>
           <option value="ancestor">Direct Ancestor</option>
         </select>
       </div>
@@ -1038,14 +1095,15 @@ header.app-header .wrap {
 
 <script>
 /* ==========================================================================
-   DIGITAL VANSHAVALI MASTER PLATFORM ENGINE v4.0
-   Unified Authentication + Plan Entitlement Engine
+   DIGITAL VANSHAVALI MASTER PLATFORM ENGINE v4.5
+   Bifurcated Database & Branch Constellation Engine
    ========================================================================== */
 
 // STATE MANAGEMENT
 let isDemoMode = false;
 let isElderMode = false;
 let activeTab = 'home';
+let currentBranchFilter = 'ALL'; // 'ALL', 'PATERNAL', 'MATERNAL', 'SPLIT'
 
 // UNIFIED MFP USER IDENTITY & PLAN STATE
 let mfpUser = {
@@ -1053,12 +1111,12 @@ let mfpUser = {
   name: localStorage.getItem('mfp_user_name') || 'Estate Viewer',
   email: localStorage.getItem('mfp_user_email') || 'user@myfinancialplan.in',
   phone: localStorage.getItem('mfp_user_phone') || '',
-  activePlan: localStorage.getItem('mfp_active_plan') || 'NONE', // 'NONE', 'SILVER', 'GOLD', 'PLATINUM'
-  planStatus: localStorage.getItem('mfp_plan_status') || 'VIEW_ONLY', // 'VIEW_ONLY', 'ACTIVE'
+  activePlan: localStorage.getItem('mfp_active_plan') || 'NONE',
+  planStatus: localStorage.getItem('mfp_plan_status') || 'VIEW_ONLY',
   activationKey: localStorage.getItem('mfp_activation_key') || ''
 };
 
-// DEMO DATA (Segregated completely from real user storage)
+// DEMO DATA (Explicitly Bifurcated between Paternal & Maternal Side)
 const DEMO_FAMILY_DATA = [
   {
     person_id: 'p_demo_001',
@@ -1066,6 +1124,7 @@ const DEMO_FAMILY_DATA = [
     gender: 'M',
     relation: 'Self (Root)',
     relative_gen: 0,
+    lineage_side: 'PATERNAL',
     gotra: 'Kashyap',
     native_village: 'Varanasi',
     status: 'verified',
@@ -1080,6 +1139,7 @@ const DEMO_FAMILY_DATA = [
     gender: 'M',
     relation: 'Father',
     relative_gen: -1,
+    lineage_side: 'PATERNAL',
     gotra: 'Kashyap',
     native_village: 'Varanasi',
     status: 'verified',
@@ -1090,10 +1150,26 @@ const DEMO_FAMILY_DATA = [
   },
   {
     person_id: 'p_demo_003',
-    name: 'Shrimati Sunita Srivastava',
+    name: 'Late Shri Kailash Nath Srivastava',
+    gender: 'M',
+    relation: 'Paternal Grandfather',
+    relative_gen: -2,
+    lineage_side: 'PATERNAL',
+    gotra: 'Kashyap',
+    native_village: 'Varanasi',
+    status: 'evidence_supported',
+    contributor: 'Ramesh Srivastava',
+    confirmed_by: 'Historical Document Verification',
+    timestamp: '2026-09-14 14:40:00',
+    evidence: 'Ancestral Land Paper Deed (1952)'
+  },
+  {
+    person_id: 'p_demo_004',
+    name: 'Shrimati Sunita Srivastava (Verma)',
     gender: 'F',
     relation: 'Mother',
     relative_gen: -1,
+    lineage_side: 'MATERNAL',
     gotra: 'Bharadwaj',
     native_village: 'Prayagraj',
     status: 'contributor_confirmed',
@@ -1103,18 +1179,19 @@ const DEMO_FAMILY_DATA = [
     evidence: 'Marriage Registration Document #881'
   },
   {
-    person_id: 'p_demo_004',
-    name: 'Late Shri Kailash Nath Srivastava',
+    person_id: 'p_demo_005',
+    name: 'Late Shri Brijesh Nath Verma',
     gender: 'M',
-    relation: 'Paternal Grandfather',
+    relation: 'Maternal Grandfather (Nana Ji)',
     relative_gen: -2,
-    gotra: 'Kashyap',
-    native_village: 'Varanasi',
-    status: 'evidence_supported',
-    contributor: 'Ramesh Srivastava',
-    confirmed_by: 'Historical Document Verification',
-    timestamp: '2026-09-14 14:40:00',
-    evidence: 'Ancestral Land Paper Deed (1952)'
+    lineage_side: 'MATERNAL',
+    gotra: 'Bharadwaj',
+    native_village: 'Prayagraj',
+    status: 'verified',
+    contributor: 'Sunita Srivastava',
+    confirmed_by: 'Bahi Khatta Verification',
+    timestamp: '2026-09-14 14:45:00',
+    evidence: 'Maternal Ancestral Land Deed'
   }
 ];
 
@@ -1135,16 +1212,25 @@ function saveMfpState() {
 }
 
 function getRealTree() {
-  var data = localStorage.getItem('vanshavali_real_tree_v4');
+  var data = localStorage.getItem('vanshavali_real_tree_v4.5');
   return data ? JSON.parse(data) : [];
 }
 
 function saveRealTree(data) {
-  localStorage.setItem('vanshavali_real_tree_v4', JSON.stringify(data));
+  localStorage.setItem('vanshavali_real_tree_v4.5', JSON.stringify(data));
 }
 
 function getActiveTree() {
   return isDemoMode ? DEMO_FAMILY_DATA : getRealTree();
+}
+
+function getMemberLineageSide(node) {
+  if (node.lineage_side) return node.lineage_side;
+  var rel = (node.relation || '').toUpperCase();
+  if (rel.indexOf('MOTHER') !== -1 || rel.indexOf('MATERNAL') !== -1 || rel.indexOf('NANA') !== -1 || rel.indexOf('MAMA') !== -1) {
+    return 'MATERNAL';
+  }
+  return 'PATERNAL';
 }
 
 // RENDER APP STATE
@@ -1166,17 +1252,19 @@ function renderApp() {
     viewOnlyBanner.style.display = isDemoMode ? 'none' : 'flex';
   }
 
-  // Stats Calculation (Strictly from actual data)
+  // Bifurcated Database Calculations
   var totalMembers = tree.length;
+  var paternalMembers = tree.filter(function(t) { return getMemberLineageSide(t) === 'PATERNAL'; });
+  var maternalMembers = tree.filter(function(t) { return getMemberLineageSide(t) === 'MATERNAL'; });
+
   var verifiedCount = tree.filter(function(t) { return t.status === 'verified'; }).length;
-  var branchesCount = tree.length > 0 ? new Set(tree.map(function(t) { return t.gotra || 'Root'; })).size : 0;
   var villagesCount = tree.length > 0 ? new Set(tree.map(function(t) { return t.native_village; }).filter(Boolean)).size : 0;
   
   document.getElementById('stat-val-members').textContent = totalMembers;
+  document.getElementById('stat-val-paternal').textContent = paternalMembers.length;
+  document.getElementById('stat-val-maternal').textContent = maternalMembers.length;
   document.getElementById('stat-val-verified').textContent = verifiedCount;
-  document.getElementById('stat-val-branches').textContent = branchesCount;
   document.getElementById('stat-val-villages').textContent = villagesCount;
-  document.getElementById('stat-val-memories').textContent = isDemoMode ? 12 : 0;
 
   // Toggle Empty State Box for Real User
   var emptyStateBox = document.getElementById('empty-state-container');
@@ -1187,8 +1275,8 @@ function renderApp() {
   }
 
   // Dual Lineage Foundation Progress
-  var patCount = tree.filter(function(t) { return (t.relative_gen || 0) < 0; }).length;
-  var matCount = tree.filter(function(t) { return (t.relative_gen || 0) < 0 && t.gotra !== 'Kashyap'; }).length;
+  var patCount = paternalMembers.filter(function(t) { return (t.relative_gen || 0) < 0; }).length;
+  var matCount = maternalMembers.filter(function(t) { return (t.relative_gen || 0) < 0; }).length;
   
   var patPct = Math.min(100, Math.round((patCount / 7) * 100));
   var matPct = Math.min(100, Math.round((matCount / 7) * 100));
@@ -1206,19 +1294,49 @@ function renderApp() {
   renderProvenanceList();
 }
 
+function setBranchViewFilter(mode) {
+  currentBranchFilter = mode;
+  document.querySelectorAll('#tab-section-tree .nav-tab-item').forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+
+  if (mode === 'ALL') document.getElementById('branch-view-btn-all').classList.add('active');
+  else if (mode === 'SPLIT') document.getElementById('branch-view-btn-split').classList.add('active');
+  else if (mode === 'PATERNAL') document.getElementById('branch-view-btn-paternal').classList.add('active');
+  else if (mode === 'MATERNAL') document.getElementById('branch-view-btn-maternal').classList.add('active');
+
+  renderTreeCanvas();
+}
+
 // RENDER LIVING TREE CANVAS
 function renderTreeCanvas() {
   var viewport = document.getElementById('tree-canvas-viewport');
   var tree = getActiveTree();
 
   if (tree.length === 0) {
-    viewport.innerHTML = '<div style="text-align: center; padding: 60px 20px; color: var(--text-muted);"><div style="font-size: 40px; margin-bottom: 12px;">🌳</div><div style="font-size: 18px; font-weight: 800; color: #FFF; font-family: var(--font-serif);">Living Tree Estate is Empty</div><p style="font-size: 13px; margin-top: 6px;">Add your first family member to populate the living constellation.</p><button class="btn-estate btn-gold" style="margin-top: 18px;" onclick="handleBuildTreeClick()">➕ Add Self / Parent</button></div>';
+    viewport.innerHTML = '<div style="text-align: center; padding: 60px 20px; color: var(--text-muted);"><div style="font-size: 40px; margin-bottom: 12px;">🌳</div><div style="font-size: 18px; font-weight: 800; color: #FFF; font-family: var(--font-serif);">Living Tree Estate is Empty</div><p style="font-size: 13px; margin-top: 6px;">Add your first family member to populate the bifurcated living constellation.</p><button class="btn-estate btn-gold" style="margin-top: 18px;" onclick="handleBuildTreeClick()">➕ Add Self / Parent</button></div>';
+    return;
+  }
+
+  // Filter by branch
+  var filteredTree = tree.filter(function(node) {
+    if (currentBranchFilter === 'PATERNAL') return getMemberLineageSide(node) === 'PATERNAL';
+    if (currentBranchFilter === 'MATERNAL') return getMemberLineageSide(node) === 'MATERNAL';
+    return true;
+  });
+
+  // Render Side-by-Side Split View
+  if (currentBranchFilter === 'SPLIT') {
+    var patNodes = tree.filter(function(n) { return getMemberLineageSide(n) === 'PATERNAL'; });
+    var matNodes = tree.filter(function(n) { return getMemberLineageSide(n) === 'MATERNAL'; });
+
+    viewport.innerHTML = '<div class="bifurcated-branches-grid"><div class="branch-estate-column paternal-col"><div class="branch-col-header"><div class="branch-col-title">🚩 Paternal Lineage Branch (पितृ पक्ष)</div><span style="font-size: 12px; color: #A5B4FC; font-weight: 700;">' + patNodes.length + ' Members</span></div>' + renderBranchNodeCardsHtml(patNodes) + '</div><div class="branch-estate-column maternal-col"><div class="branch-col-header"><div class="branch-col-title">🌸 Maternal Lineage Branch (मातृ पक्ष)</div><span style="font-size: 12px; color: #6EE7B7; font-weight: 700;">' + matNodes.length + ' Members</span></div>' + renderBranchNodeCardsHtml(matNodes) + '</div></div>';
     return;
   }
 
   // Group by relative generation index
   var genMap = {};
-  tree.forEach(function(member) {
+  filteredTree.forEach(function(member) {
     var gen = member.relative_gen || 0;
     if (!genMap[gen]) genMap[gen] = [];
     genMap[gen].push(member);
@@ -1233,10 +1351,7 @@ function renderTreeCanvas() {
     html += '<div class="tree-gen-strip"><div class="tree-gen-header"><span>' + label + '</span><span style="font-weight: 600; opacity: 0.8;">' + genMap[gen].length + ' Members</span></div><div class="tree-nodes-flex">';
 
     genMap[gen].forEach(function(node) {
-      var badgeHtml = getStatusBadgeHtml(node.status, node.person_id);
-      var genderSymbol = node.gender === 'F' ? '♀️' : '♂️';
-
-      html += '<div class="person-node-card ' + (node.status || 'unverified') + '"><div class="node-header-flex"><div class="node-avatar">' + genderSymbol + '</div><div><div class="node-name">' + escapeHtml(node.name) + '</div><div class="node-relation">' + escapeHtml(node.relation) + '</div></div></div><div style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">📍 ' + escapeHtml(node.native_village || 'Village Unknown') + ' • 🏷️ ' + escapeHtml(node.gotra || 'Gotra Unrecorded') + '</div><div>' + badgeHtml + '</div></div>';
+      html += renderSingleNodeCardHtml(node);
     });
 
     // Unknown Ancestor Card for Ancestral Generations
@@ -1248,6 +1363,29 @@ function renderTreeCanvas() {
   });
 
   viewport.innerHTML = html;
+}
+
+function renderBranchNodeCardsHtml(nodesList) {
+  if (nodesList.length === 0) {
+    return '<div style="color: var(--text-muted); font-size: 13px; font-style: italic; padding: 20px 0;">No members recorded in this lineage branch yet.</div>';
+  }
+  var h = '<div class="tree-nodes-flex">';
+  nodesList.forEach(function(n) { h += renderSingleNodeCardHtml(n); });
+  h += '</div>';
+  return h;
+}
+
+function renderSingleNodeCardHtml(node) {
+  var badgeHtml = getStatusBadgeHtml(node.status, node.person_id);
+  var side = getMemberLineageSide(node);
+  var isPaternal = side === 'PATERNAL';
+  var genderSymbol = node.gender === 'F' ? '♀️' : '♂️';
+
+  var branchTag = isPaternal ? '<span class="branch-pill-tag branch-pill-paternal">🚩 Paternal Branch</span>' : '<span class="branch-pill-tag branch-pill-maternal">🌸 Maternal Branch</span>';
+  var cardClass = isPaternal ? 'paternal-node' : 'maternal-node';
+  var avatarClass = isPaternal ? 'paternal-avatar' : 'maternal-avatar';
+
+  return '<div class="person-node-card ' + cardClass + ' ' + (node.status || 'unverified') + '"><div class="node-header-flex"><div class="node-avatar ' + avatarClass + '">' + genderSymbol + '</div><div><div class="node-name">' + escapeHtml(node.name) + '</div><div class="node-relation">' + escapeHtml(node.relation) + '</div>' + branchTag + '</div></div><div style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">📍 ' + escapeHtml(node.native_village || 'Village Unknown') + ' • 🏷️ ' + escapeHtml(node.gotra || 'Gotra Unrecorded') + '</div><div>' + badgeHtml + '</div></div>';
 }
 
 // RENDER PROVENANCE LIST
@@ -1262,7 +1400,10 @@ function renderProvenanceList() {
 
   var html = '';
   tree.forEach(function(node) {
-    html += '<div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;"><div><strong style="color: #FFF; font-size: 15px;">' + escapeHtml(node.name) + '</strong><span style="color: var(--gold-primary); font-size: 12px; margin-left: 8px;">(' + escapeHtml(node.relation) + ')</span><div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Added by: <strong>' + escapeHtml(node.contributor || 'Authenticated User') + '</strong> • Auth: <span style="color: var(--emerald-accent);">Identity Authenticated ✓</span></div></div><div><button class="btn-estate btn-ghost-estate" style="font-size: 11.5px; padding: 6px 14px;" onclick="openProvenanceModal(' + JSON.stringify(node.person_id) + ')">Inspector Audit Log 🔍</button></div></div>';
+    var side = getMemberLineageSide(node);
+    var sideTag = side === 'PATERNAL' ? '<span style="color:#A5B4FC;">[Paternal]</span>' : '<span style="color:#6EE7B7;">[Maternal]</span>';
+
+    html += '<div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;"><div><strong style="color: #FFF; font-size: 15px;">' + escapeHtml(node.name) + '</strong> ' + sideTag + '<span style="color: var(--gold-primary); font-size: 12px; margin-left: 8px;">(' + escapeHtml(node.relation) + ')</span><div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Added by: <strong>' + escapeHtml(node.contributor || 'Authenticated User') + '</strong> • Auth: <span style="color: var(--emerald-accent);">Identity Authenticated ✓</span></div></div><div><button class="btn-estate btn-ghost-estate" style="font-size: 11.5px; padding: 6px 14px;" onclick="openProvenanceModal(' + JSON.stringify(node.person_id) + ')">Inspector Audit Log 🔍</button></div></div>';
   });
 
   container.innerHTML = html;
@@ -1286,7 +1427,7 @@ function getStatusBadgeHtml(status, personId) {
 }
 
 // HANDLE BUILD TREE & PLAN ENFORCEMENT
-function handleBuildTreeClick(relation, gen) {
+function handleBuildTreeClick(relation, gen, side) {
   if (isDemoMode) {
     alert('Please exit Demo Mode to edit your real family estate.');
     return;
@@ -1305,7 +1446,17 @@ function handleBuildTreeClick(relation, gen) {
     return;
   }
 
-  openConversationalAddModal(relation, gen);
+  openConversationalAddModal(relation, gen, side);
+}
+
+// AUTO SELECT BRANCH BASED ON RELATION
+function handleRelationTypeChange(val) {
+  var sideInput = document.getElementById('input-lineage-side');
+  if (val === 'mother' || val === 'maternal_grandfather' || val === 'maternal_grandmother' || val === 'maternal_uncle') {
+    sideInput.value = 'MATERNAL';
+  } else if (val === 'father' || val === 'paternal_grandfather' || val === 'self') {
+    sideInput.value = 'PATERNAL';
+  }
 }
 
 // MODAL & PLAN CONTROLS
@@ -1390,7 +1541,7 @@ function toggleDemoMode() {
     demoBanner.style.display = 'none';
     toggleBtn.classList.remove('active-demo');
     toggleBtn.innerHTML = '<span>🎭 View Demo Mode</span>';
-    document.getElementById('estate-header-title').textContent = 'MY PRIVATE FAMILY ESTATE';
+    document.getElementById('estate-header-title').textContent = 'MY PRIVATE BIFURCATED FAMILY ESTATE';
   }
   renderApp();
 }
@@ -1404,8 +1555,13 @@ function toggleElderMode() {
   document.body.classList.toggle('elder-mode', isElderMode);
 }
 
-function openConversationalAddModal(relation, gen) {
+function openConversationalAddModal(relation, gen, side) {
   document.getElementById('input-relation-type').value = relation || 'father';
+  if (side) {
+    document.getElementById('input-lineage-side').value = side;
+  } else {
+    handleRelationTypeChange(relation || 'father');
+  }
   document.getElementById('modal-conversational-add').classList.add('active');
 }
 
@@ -1416,6 +1572,7 @@ function closeModal(modalId) {
 function handleSaveMember(e) {
   e.preventDefault();
   
+  var lineageSide = document.getElementById('input-lineage-side').value;
   var relation = document.getElementById('input-relation-type').value;
   var fullName = document.getElementById('input-full-name').value.trim();
   var village = document.getElementById('input-native-village').value.trim();
@@ -1427,15 +1584,16 @@ function handleSaveMember(e) {
 
   var genIndex = -1;
   if (relation === 'self') genIndex = 0;
-  else if (relation === 'paternal_grandfather' || relation === 'maternal_grandfather') genIndex = -2;
+  else if (relation === 'paternal_grandfather' || relation === 'maternal_grandfather' || relation === 'maternal_grandmother') genIndex = -2;
   else if (relation === 'son' || relation === 'daughter') genIndex = 1;
 
   var newMember = {
     person_id: 'p_real_' + Date.now(),
     name: fullName,
-    gender: (relation === 'mother' || relation === 'daughter' || relation === 'sister') ? 'F' : 'M',
+    gender: (relation === 'mother' || relation === 'daughter' || relation === 'sister' || relation === 'maternal_grandmother') ? 'F' : 'M',
     relation: relation.replace('_', ' ').toUpperCase(),
     relative_gen: genIndex,
+    lineage_side: lineageSide,
     gotra: gotra || 'Unrecorded',
     native_village: village || 'Unrecorded',
     birth_year: birthYear || '',
@@ -1454,7 +1612,7 @@ function handleSaveMember(e) {
   document.getElementById('conversational-add-form').reset();
   renderApp();
 
-  alert('✅ Member "' + fullName + '" successfully added to your real family estate under Contributor Confirmed status.');
+  alert('✅ Member "' + fullName + '" successfully added to your real family estate under [' + lineageSide + ' SIDE BRANCH].');
 }
 
 function openProvenanceModal(personId) {
@@ -1462,8 +1620,10 @@ function openProvenanceModal(personId) {
   var node = tree.find(function(t) { return t.person_id === personId; });
   if (!node) return;
 
+  var side = getMemberLineageSide(node);
+
   var body = document.getElementById('provenance-modal-body');
-  body.innerHTML = '<div class="provenance-field"><div class="provenance-field-label">Subject Member</div><div class="provenance-field-val">' + escapeHtml(node.name) + ' (' + escapeHtml(node.relation) + ')</div></div><div class="provenance-field"><div class="provenance-field-label">Contributor Identity</div><div class="provenance-field-val">' + escapeHtml(node.contributor || 'Authenticated Owner') + '</div><div style="font-size: 11.5px; color: var(--emerald-accent); margin-top: 2px;">✓ Identity Authenticated via Google Auth</div></div><div class="provenance-field"><div class="provenance-field-label">Verification Target Workflow</div><div class="provenance-field-val">' + escapeHtml(node.confirmed_by || 'Pending Confirmation') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Evidence Attached</div><div class="provenance-field-val">' + escapeHtml(node.evidence || 'None provided') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Lifecycle Status</div><div class="provenance-field-val" style="color: var(--gold-primary); text-transform: uppercase;">' + escapeHtml(node.status || 'unverified') + '</div></div><div style="margin-top: 20px; font-size: 11.5px; color: var(--text-muted); font-style: italic;">Note: Google Authentication verifies user account identity; relationship verification requires explicit double confirmation or document proof.</div>';
+  body.innerHTML = '<div class="provenance-field"><div class="provenance-field-label">Subject Member & Branch</div><div class="provenance-field-val">' + escapeHtml(node.name) + ' (' + escapeHtml(node.relation) + ') • <span style="color:var(--gold-primary);">' + side + ' SIDE</span></div></div><div class="provenance-field"><div class="provenance-field-label">Contributor Identity</div><div class="provenance-field-val">' + escapeHtml(node.contributor || 'Authenticated Owner') + '</div><div style="font-size: 11.5px; color: var(--emerald-accent); margin-top: 2px;">✓ Identity Authenticated via Google Auth</div></div><div class="provenance-field"><div class="provenance-field-label">Verification Target Workflow</div><div class="provenance-field-val">' + escapeHtml(node.confirmed_by || 'Pending Confirmation') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Evidence Attached</div><div class="provenance-field-val">' + escapeHtml(node.evidence || 'None provided') + '</div></div><div class="provenance-field"><div class="provenance-field-label">Lifecycle Status</div><div class="provenance-field-val" style="color: var(--gold-primary); text-transform: uppercase;">' + escapeHtml(node.status || 'unverified') + '</div></div><div style="margin-top: 20px; font-size: 11.5px; color: var(--text-muted); font-style: italic;">Note: Google Authentication verifies user account identity; relationship verification requires explicit double confirmation or document proof.</div>';
 
   document.getElementById('modal-provenance-inspector').classList.add('active');
 }
