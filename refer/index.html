@@ -61,6 +61,26 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-alig
 </style>
 <script src="/assets/js/tv-symbols.js"></script>
 <script src="/assets/js/visitor-tracker.js"></script>
+
+<!-- Official Firebase App & Analytics SDK for SmartCalc-web -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc",
+    authDomain: "smartcalc-ai-638a9.firebaseapp.com",
+    projectId: "smartcalc-ai-638a9",
+    storageBucket: "smartcalc-ai-638a9.firebasestorage.app",
+    messagingSenderId: "548984348697",
+    appId: "1:548984348697:web:cba90544a074784ac5ca88"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
+</script>
+
 </head>
 <body>
 

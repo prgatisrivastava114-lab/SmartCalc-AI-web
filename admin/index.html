@@ -85,6 +85,26 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 @media(max-width:520px){ .codebox{font-size:17px} h1{font-size:14.5px} }
 </style>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<!-- Official Firebase App & Analytics SDK for SmartCalc-web -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc",
+    authDomain: "smartcalc-ai-638a9.firebaseapp.com",
+    projectId: "smartcalc-ai-638a9",
+    storageBucket: "smartcalc-ai-638a9.firebasestorage.app",
+    messagingSenderId: "548984348697",
+    appId: "1:548984348697:web:cba90544a074784ac5ca88"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
+</script>
+
 </head>
 <body>
 
