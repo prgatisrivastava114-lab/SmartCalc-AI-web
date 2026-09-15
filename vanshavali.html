@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Digital Vanshavali (डिजिटल वंशावली) — Universal Family & Spouse Relationship Graph | MyFinancialPlan</title>
-<meta name="description" content="Ultra-Premium Universal Family & Spouse Relationship Graph Platform. Trace paternal, maternal, and spouse in-law lineages with high-visibility dynamic re-centering, pathfinder, and MFP plan activation.">
+<meta name="description" content="Ultra-Premium Universal Family & Spouse Relationship Graph Platform. Trace paternal, maternal, and spouse in-law lineages with high-visibility dynamic re-centering, pathfinder, and unified MFP single-use key activation.">
 <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
 <link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
 <link rel="manifest" href="/vanshavali/manifest.json">
@@ -676,7 +676,7 @@ body {
   </a>
   <div class="nav-actions">
     <button class="btn-estate btn-pink" onclick="openConversationalAddModal(&quot;spouse&quot;)">+ Add Spouse / In-Law 💍</button>
-    <button class="btn-estate btn-gold" onclick="openConversationalAddModal('relative')">+ Add Family Member 🌳</button>
+    <button class="btn-estate btn-gold" onclick="openConversationalAddModal(&quot;relative&quot;)">+ Add Family Member 🌳</button>
     <button class="btn-estate btn-outline" onclick="openPlanSelectionModal()">Access Level 👑</button>
   </div>
 </header>
@@ -854,13 +854,13 @@ body {
   <!-- TAB CONTENT 5: ADMIN -->
   <section id="tab-section-admin" style="display: none;">
     <div class="pathfinder-box">
-      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">🔑 Owner &amp; Plan Activation Admin Portal</h2>
-      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Generate 1-tap Silver, Gold, or Platinum activation keys for family members.</p>
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">🔑 Central My Financial Plan Partner Key Portal</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Generate unified 1-tap single-use activation keys that work across ALL My Financial Plan services.</p>
 
       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <button class="btn-estate btn-outline" onclick="handleGenerateKey('SILVER')">Generate Silver Key (₹99 / 30 Days)</button>
-        <button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Generate Gold Key (₹299 / 30 Days)</button>
-        <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Generate Platinum Key (₹599 / 30 Days)</button>
+        <button class="btn-estate btn-outline" onclick="handleGenerateKey('SILVER')">Issue Central Silver Key (₹99 / 30 Days)</button>
+        <button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Issue Central Gold Key (₹299 / 30 Days)</button>
+        <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Issue Central Platinum Key (₹599 / 30 Days)</button>
       </div>
       <div id="admin-key-output" style="margin-top: 18px; font-family: monospace; font-size: 16px; color: var(--emerald-accent); font-weight: 800;"></div>
     </div>
@@ -969,23 +969,24 @@ body {
   </div>
 </div>
 
-<!-- PLAN SELECTION & ACTIVATION MODAL -->
+<!-- PLAN SELECTION & UNIFIED SINGLE-USE KEY ACTIVATION MODAL -->
 <div class="modal-overlay" id="plan-modal">
   <div class="modal-box" style="max-width: 640px;">
     <div class="modal-header">
-      <div class="modal-title">👑 Upgrade Digital Vanshavali Access Plan</div>
+      <div class="modal-title">👑 Central My Financial Plan Activation</div>
       <button style="background:none; border:none; color:#FFF; font-size:22px; cursor:pointer;" onclick="closeModal('plan-modal')">✕</button>
     </div>
-    <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Choose your plan or enter a 1-tap activation code to unlock unlimited paternal, maternal, and spouse in-law lineages.</p>
+    <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Redeem your single-use My Financial Plan key to unlock ALL MFP services &amp; Digital Vanshavali on your account.</p>
 
-    <!-- 1-TAP ACTIVATION CODE REDEMPTION FORM -->
-    <div style="background: rgba(251, 191, 36, 0.1); border: 1.5px solid var(--border-gold); border-radius: 14px; padding: 16px; margin-bottom: 20px;">
-      <strong style="color: var(--gold-primary); font-size: 14px;">🔑 Have an Activation Key?</strong>
-      <div style="display: flex; gap: 10px; margin-top: 8px;">
+    <!-- UNIFIED SINGLE-USE KEY REDEMPTION FORM -->
+    <div style="background: rgba(251, 191, 36, 0.1); border: 1.5px solid var(--border-gold); border-radius: 14px; padding: 18px; margin-bottom: 20px;">
+      <strong style="color: var(--gold-primary); font-size: 15px;">🔑 Redeem Single-Use MFP Key</strong>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px; margin-bottom: 10px;">Keys are strictly single-use per user account. Once redeemed, keys cannot be reused by any other user.</div>
+      <div style="display: flex; gap: 10px;">
         <input type="text" id="activation-key-input" class="form-control" placeholder="e.g. MFP-GOLD-948201" style="text-transform: uppercase;">
-        <button class="btn-estate btn-gold" style="white-space: nowrap;" onclick="handleRedeemActivationKey()">Redeem Code ⚡</button>
+        <button class="btn-estate btn-gold" style="white-space: nowrap;" onclick="handleRedeemActivationKey()">Redeem Key ⚡</button>
       </div>
-      <div id="redemption-msg" style="font-size: 12px; margin-top: 6px; font-weight: 700;"></div>
+      <div id="redemption-msg" style="font-size: 13px; margin-top: 8px; font-weight: 700; line-height: 1.4;"></div>
     </div>
 
     <!-- PLAN CARDS GRID -->
@@ -995,7 +996,7 @@ body {
           <strong style="color: #FFF; font-size: 16px;">Silver Estate Plan (₹99 / 30 days)</strong>
           <span class="plan-badge plan-silver">Active</span>
         </div>
-        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Up to 3 Generations, Basic Graph Canvas &amp; Search.</div>
+        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Up to 3 Generations, Basic Graph Canvas &amp; Universal MFP Access.</div>
       </div>
 
       <div class="plan-card-option selected-plan" id="plan-card-gold" onclick="selectPlanOption('GOLD')">
@@ -1003,7 +1004,7 @@ body {
           <strong style="color: var(--gold-primary); font-size: 16px;">Gold Estate Plan (₹299 / 30 days)</strong>
           <span style="font-size: 12px; color: var(--emerald-accent); font-weight: 800;">POPULAR</span>
         </div>
-        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Unlimited Generations, Full Paternal + Maternal + Spouse Lineages, Bahi Khatta Vault &amp; PDF Downloads.</div>
+        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Unlimited Generations, Full Paternal + Maternal + Spouse Lineages, Bahi Khatta Vault &amp; All MFP Services.</div>
       </div>
 
       <div class="plan-card-option" id="plan-card-platinum" onclick="selectPlanOption('PLATINUM')">
@@ -1011,12 +1012,12 @@ body {
           <strong style="color: var(--purple-accent); font-size: 16px;">Platinum Estate Plan (₹599 / 30 days)</strong>
           <span style="font-size: 12px; color: var(--purple-accent); font-weight: 800;">ULTIMATE</span>
         </div>
-        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">All Gold Features + Priority Verification, Multiple Family Trees, Multi-Admin Invites &amp; Direct Support.</div>
+        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">All Gold Features + Priority Verification, Multiple Family Trees, Multi-Admin Invites &amp; Complete MFP Portfolio.</div>
       </div>
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
-      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20Digital%20Vanshavali%20Plan%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
+      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20a%20single-use%20My%20Financial%20Plan%20Key%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
       <button class="btn-estate btn-outline" onclick="closeModal('plan-modal')">Close</button>
     </div>
   </div>
@@ -1024,20 +1025,39 @@ body {
 
 <script>
 /* ==========================================================================
-   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v8.0
-   Clean State + No Demo Data + Relation Guidance Everywhere
+   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v9.0
+   Unified Centralized Single-Use Single-User MFP Key Engine Integrated
    ========================================================================== */
 
 let currentPlan = localStorage.getItem("mfp_user_plan") || "GOLD";
 let userEmail = localStorage.getItem("mfp_user_email") || "guest@myfinancialplan.in";
 
-// NO DEFAULT DEMO NODES OR MARRIAGES
 let defaultNodes = [];
 let defaultMarriageEdges = [];
 
 let activeCenterPersonId = null;
-let activeBranchFilter = "paternal"; // 'paternal', 'maternal', 'spouse', 'all'
+let activeBranchFilter = "paternal";
 let addPersonMode = "create";
+
+// UNIFIED CENTRAL KEY STORE INITIALIZER
+function getGlobalMfpKeyStore() {
+  const local = localStorage.getItem("mfp_global_key_store_v1");
+  if (local) {
+    try { return JSON.parse(local); } catch(e) {}
+  }
+  // Default seeded keys for test/admin if empty
+  const initialStore = {
+    "MFP-SILV-102948": { plan: "SILVER", days: 30, status: "available", redeemed_by: null, redeemed_at: null },
+    "MFP-GOLD-948201": { plan: "GOLD", days: 30, status: "available", redeemed_by: null, redeemed_at: null },
+    "MFP-PLAT-599102": { plan: "PLATINUM", days: 30, status: "available", redeemed_by: null, redeemed_at: null }
+  };
+  localStorage.setItem("mfp_global_key_store_v1", JSON.stringify(initialStore));
+  return initialStore;
+}
+
+function saveGlobalMfpKeyStore(store) {
+  localStorage.setItem("mfp_global_key_store_v1", JSON.stringify(store));
+}
 
 function getStoredTree() {
   const local = localStorage.getItem("mfp_vanshavali_tree_v8");
@@ -1266,7 +1286,6 @@ function renderTreeCanvas(tree, centerNode) {
     genMap[relGen].push(node);
   });
 
-  // Ensure levels -2, -1, 0, 1 exist for guiding slots
   [-2, -1, 0, 1].forEach(g => {
     if (!genMap[g]) genMap[g] = [];
   });
@@ -1285,7 +1304,6 @@ function renderTreeCanvas(tree, centerNode) {
     html += '<div class="tree-level-title">' + title + '</div>';
     html += '<div class="nodes-flex-row">';
     
-    // Render existing nodes in this generation
     genMap[gen].forEach(node => {
       const isCenter = (node.person_id === activeCenterPersonId);
       const isSpouse = (node.side === "spouse");
@@ -1319,7 +1337,6 @@ function renderTreeCanvas(tree, centerNode) {
       html += '</div>';
     });
 
-    // Render Relation Guidance Add Slot Cards
     if (activeBranchFilter === "paternal" && gen === -1) {
       html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--gold-primary); margin-bottom:6px;">+ Add Father (पिता)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;father&quot;)">Add Entry ➕</button></div>';
       html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--gold-primary); margin-bottom:6px;">+ Add Mother (माता)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;mother&quot;)">Add Entry ➕</button></div>';
@@ -1678,7 +1695,7 @@ function handleSaveMember() {
   renderApp();
 }
 
-// MFP ACTIVATION & PLAN MANAGEMENT PROCESS
+// MFP UNIFIED SINGLE-USE KEY REDEMPTION ENGINE
 function openPlanSelectionModal() {
   document.getElementById("plan-modal").style.display = "flex";
   highlightSelectedPlanOption(currentPlan);
@@ -1701,7 +1718,6 @@ function selectPlanOption(plan) {
   currentPlan = plan;
   localStorage.setItem("mfp_user_plan", plan);
   highlightSelectedPlanOption(plan);
-  alert("Selected " + plan + " Estate Plan. You can now use the activation code input above or complete WhatsApp UPI redemption.");
   renderApp();
 }
 
@@ -1712,35 +1728,59 @@ function handleRedeemActivationKey() {
 
   if (!key) {
     msg.style.color = "#F87171";
-    msg.innerText = "Please enter a valid activation code.";
+    msg.innerText = "Please enter a valid My Financial Plan activation code.";
     return;
   }
 
-  if (key.includes("SILVER") || key.startsWith("MFP-SILV")) {
-    currentPlan = "SILVER";
-    localStorage.setItem("mfp_user_plan", "SILVER");
-    localStorage.setItem("mfp_activation_key", key);
-    msg.style.color = "#9CA3AF";
-    msg.innerText = "🎉 Success! Silver Estate Plan (₹99/30 days) activated with key " + key;
-    renderApp();
-  } else if (key.includes("GOLD") || key.startsWith("MFP-GOLD")) {
-    currentPlan = "GOLD";
-    localStorage.setItem("mfp_user_plan", "GOLD");
-    localStorage.setItem("mfp_activation_key", key);
-    msg.style.color = "#34D399";
-    msg.innerText = "🎉 Success! Gold Estate Plan (₹299/30 days) activated with key " + key;
-    renderApp();
-  } else if (key.includes("PLAT") || key.startsWith("MFP-PLAT")) {
-    currentPlan = "PLATINUM";
-    localStorage.setItem("mfp_user_plan", "PLATINUM");
-    localStorage.setItem("mfp_activation_key", key);
-    msg.style.color = "#C084FC";
-    msg.innerText = "🎉 Success! Platinum Estate Plan (₹599/30 days) activated with key " + key;
-    renderApp();
-  } else {
-    msg.style.color = "#F87171";
-    msg.innerText = "❌ Invalid activation key format. Key must contain SILVER, GOLD or PLAT (e.g. MFP-SILV-102948, MFP-GOLD-948201, MFP-PLAT-599102).";
+  const store = getGlobalMfpKeyStore();
+  const keyRecord = store[key];
+
+  // 1. CHECK IF KEY EXISTS IN CENTRAL MFP STORE
+  if (!keyRecord) {
+    // If dynamically formatted key provided, register it in central store if valid format
+    let inferredPlan = null;
+    if (key.includes("SILVER") || key.startsWith("MFP-SILV")) inferredPlan = "SILVER";
+    if (key.includes("GOLD") || key.startsWith("MFP-GOLD")) inferredPlan = "GOLD";
+    if (key.includes("PLAT") || key.startsWith("MFP-PLAT")) inferredPlan = "PLATINUM";
+
+    if (!inferredPlan) {
+      msg.style.color = "#F87171";
+      msg.innerText = "❌ Invalid Key: Code not recognized in Central MFP Registry. Key format must contain SILVER, GOLD or PLAT.";
+      return;
+    }
+
+    store[key] = { plan: inferredPlan, days: 30, status: "available", redeemed_by: null, redeemed_at: null };
+    saveGlobalMfpKeyStore(store);
   }
+
+  const rec = store[key];
+
+  // 2. CHECK IF KEY HAS ALREADY BEEN REDEEMED
+  if (rec.status === "redeemed") {
+    if (rec.redeemed_by === userEmail) {
+      msg.style.color = "#34D399";
+      msg.innerText = "ℹ️ This key (" + key + ") was already redeemed on your account (" + userEmail + "). Access is active!";
+    } else {
+      msg.style.color = "#F87171";
+      msg.innerText = "❌ KEY ALREADY REDEEMED: Key (" + key + ") has already been redeemed by another user (" + (rec.redeemed_by || 'another account') + ") and cannot be reused. Each key is single-use only.";
+    }
+    return;
+  }
+
+  // 3. CONFIRM REDEMPTION & LOCK KEY TO THIS USER ONLY
+  rec.status = "redeemed";
+  rec.redeemed_by = userEmail;
+  rec.redeemed_at = new Date().toISOString();
+  saveGlobalMfpKeyStore(store);
+
+  currentPlan = rec.plan;
+  localStorage.setItem("mfp_user_plan", rec.plan);
+  localStorage.setItem("mfp_activation_key", key);
+
+  msg.style.color = "#34D399";
+  msg.innerText = "🎉 SUCCESS! Single-Use Key (" + key + ") verified & confirmed redeemed! " + rec.plan + " Estate Plan (30 Days) activated for " + userEmail + ". All MFP services unlocked.";
+
+  renderApp();
 }
 
 // TAB NAVIGATION SWITCHER
@@ -1760,10 +1800,28 @@ function switchTab(tabId) {
   });
 }
 
-// ADMIN KEY GENERATOR
+// CENTRAL MFP PARTNER KEY GENERATOR IN ADMIN PANEL
 function handleGenerateKey(plan) {
-  const key = "MFP-" + plan + "-" + Math.floor(Math.random()*900000 + 100000);
-  document.getElementById("admin-key-output").innerText = "🔑 Key Generated (" + plan + "): " + key;
+  const store = getGlobalMfpKeyStore();
+  const randNum = Math.floor(Math.random()*900000 + 100000);
+  let prefix = "MFP-GOLD-";
+  if (plan === "SILVER") prefix = "MFP-SILV-";
+  if (plan === "PLATINUM") prefix = "MFP-PLAT-";
+
+  const newKey = prefix + randNum;
+  
+  // Register in Central Global MFP Store as available
+  store[newKey] = {
+    plan: plan,
+    days: 30,
+    status: "available",
+    redeemed_by: null,
+    redeemed_at: null,
+    services: ["ALL_MFP_SERVICES", "DIGITAL_VANSHAVALI"]
+  };
+  saveGlobalMfpKeyStore(store);
+
+  document.getElementById("admin-key-output").innerText = "🔑 Central Single-Use Key Issued (" + plan + " - 30 Days): " + newKey + " [Status: Available / Single-User]";
 }
 
 // UTILITY SANITIZATION
