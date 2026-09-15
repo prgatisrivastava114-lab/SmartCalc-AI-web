@@ -848,8 +848,9 @@ body {
       <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Generate 1-tap Silver, Gold, or Platinum activation keys for family members.</p>
 
       <div style="display: flex; gap: 14px;">
-        <button class="btn-estate btn-gold" onclick="handleGenerateKey('SILVER')">Generate Silver (₹99)</button><button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Generate Gold (₹299)</button><button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Generate Platinum (₹599)</button>
-        <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Generate Platinum Key (₹2,499)</button>
+        <button class="btn-estate btn-outline" onclick="handleGenerateKey('SILVER')">Generate Silver Key (₹99 / 30 Days)</button>
+        <button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Generate Gold Key (₹299 / 30 Days)</button>
+        <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Generate Platinum Key (₹599 / 30 Days)</button>
       </div>
       <div id="admin-key-output" style="margin-top: 18px; font-family: monospace; font-size: 16px; color: var(--emerald-accent); font-weight: 800;"></div>
     </div>
@@ -1772,18 +1773,18 @@ function handleRedeemActivationKey() {
     localStorage.setItem("mfp_user_plan", "GOLD");
     localStorage.setItem("mfp_activation_key", key);
     msg.style.color = "#34D399";
-    msg.innerText = "🎉 Success! Gold Estate Plan activated with key " + key;
+    msg.innerText = "🎉 Success! Gold Estate Plan (₹299/30 days) activated with key " + key;
     renderApp();
   } else if (key.includes("PLAT") || key.startsWith("MFP-PLAT")) {
     currentPlan = "PLATINUM";
     localStorage.setItem("mfp_user_plan", "PLATINUM");
     localStorage.setItem("mfp_activation_key", key);
     msg.style.color = "#C084FC";
-    msg.innerText = "🎉 Success! Platinum Estate Plan activated with key " + key;
+    msg.innerText = "🎉 Success! Platinum Estate Plan (₹599/30 days) activated with key " + key;
     renderApp();
   } else {
     msg.style.color = "#F87171";
-    msg.innerText = "❌ Invalid activation key format. Key must contain GOLD or PLAT (e.g. MFP-GOLD-948201).";
+    msg.innerText = "❌ Invalid activation key format. Key must contain SILVER, GOLD or PLAT (e.g. MFP-SILV-102948, MFP-GOLD-948201, MFP-PLAT-599102).";
   }
 }
 
