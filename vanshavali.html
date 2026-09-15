@@ -505,6 +505,16 @@ body {
   border: 2px solid var(--pink-primary);
   background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(9, 13, 22, 0.98));
 }
+.node-card.placeholder-node {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(9, 13, 22, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 140px;
+}
 .node-name {
   font-weight: 800;
   font-size: 17px;
@@ -634,7 +644,7 @@ body {
   border-color: var(--gold-primary);
 }
 
-/* PLAN SELECTION CARDS (IDENTICAL TO MAIN MFP PLATFORM) */
+/* PLAN SELECTION CARDS */
 .plan-card-option {
   background: rgba(9, 13, 22, 0.85);
   border: 2px solid var(--border-subtle);
@@ -665,20 +675,20 @@ body {
     </div>
   </a>
   <div class="nav-actions">
-    <button class="btn-estate btn-pink" onclick="openConversationalAddModal('spouse')">+ Add Spouse / In-Law 💍</button>
+    <button class="btn-estate btn-pink" onclick="openConversationalAddModal(&quot;spouse&quot;)">+ Add Spouse / In-Law 💍</button>
     <button class="btn-estate btn-gold" onclick="openConversationalAddModal('relative')">+ Add Family Member 🌳</button>
     <button class="btn-estate btn-outline" onclick="openPlanSelectionModal()">Access Level 👑</button>
   </div>
 </header>
 
-<!-- MFP ACCESS & AUTH USER BAR -->
+<!-- MFP ACCOUNT & PLAN BAR -->
 <div class="user-access-bar">
   <div style="display: flex; align-items: center; gap: 14px;">
     <span>Account: <strong id="user-display-email" style="color: #FFF;">guest@myfinancialplan.in</strong></span>
     <span id="plan-display-badge" class="plan-badge plan-gold">Gold Estate Plan</span>
   </div>
   <div style="display: flex; align-items: center; gap: 12px;">
-    <span style="color: var(--emerald-accent); font-weight: 700;">🔒 2-Step Verified</span>
+    <span style="color: var(--gold-primary); font-weight: 700;" id="overall-verification-badge">⏱️ Pending Verification</span>
     <button class="btn-estate btn-outline" style="padding: 4px 12px; font-size: 12px;" onclick="openPlanSelectionModal()">Upgrade / Activate Plan</button>
   </div>
 </div>
@@ -686,7 +696,7 @@ body {
 <!-- MAIN CONTAINER -->
 <main class="app-container">
 
-  <!-- 🏆 TOP 3-SIDE RELATION CHAIN TABS BAR (HIGH-VISIBILITY PROMINENT SWITCHER) -->
+  <!-- 🏆 TOP 3-SIDE RELATION CHAIN TABS BAR (HIGH VISIBILITY SWITCHER) -->
   <section class="top-relation-chain-tabs">
     <div class="chain-tabs-header">
       <span>🌳 SELECT FAMILY LINEAGE DIRECTION:</span>
@@ -714,8 +724,8 @@ body {
   <!-- FOCAL CENTER & SEARCH BANNER -->
   <section class="focal-banner">
     <div class="focal-info">
-      <h1 id="focal-center-title">🎯 Center Person: Shri Ramesh Chandra</h1>
-      <p id="focal-center-sub">ID: <span class="id-badge-code" id="focal-person-id">PERS-MAIN-001</span> | Lineage Code: <span class="lineage-code-tag" id="focal-lineage-code">VNS-ROOT01-BR01-FAM01-P001</span></p>
+      <h1 id="focal-center-title">🎯 Center Person: Not Set</h1>
+      <p id="focal-center-sub">ID: <span class="id-badge-code" id="focal-person-id">None</span> | Lineage Code: <span class="lineage-code-tag" id="focal-lineage-code">None</span></p>
     </div>
 
     <!-- UNIVERSAL MULTI-IDENTIFIER SEARCH BAR -->
@@ -745,7 +755,7 @@ body {
       <div class="spouse-stat-lbl">Native Places</div>
     </div>
     <div class="spouse-stat-card">
-      <div class="spouse-stat-val" id="stat-marriage-verif">100%</div>
+      <div class="spouse-stat-val" id="stat-marriage-verif">0</div>
       <div class="spouse-stat-lbl">Verified Links</div>
     </div>
   </section>
@@ -812,7 +822,7 @@ body {
   <section id="tab-section-provenance" style="display: none;">
     <div class="pathfinder-box">
       <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">📜 Structural Provenance &amp; Identifier Register</h2>
-      <p style="font-size: 14px; color: var(--text-secondary);">Immutable mapping table of Person IDs, Lineage Codes, Branch IDs, Ancestral Root IDs, and Verification Badges.</p>
+      <p style="font-size: 14px; color: var(--text-secondary);">Immutable mapping table of Person IDs, Lineage Codes, Branch IDs, Ancestral Root IDs, and Verification Status.</p>
 
       <table class="provenance-table">
         <thead>
@@ -847,7 +857,7 @@ body {
       <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">🔑 Owner &amp; Plan Activation Admin Portal</h2>
       <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Generate 1-tap Silver, Gold, or Platinum activation keys for family members.</p>
 
-      <div style="display: flex; gap: 14px;">
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
         <button class="btn-estate btn-outline" onclick="handleGenerateKey('SILVER')">Generate Silver Key (₹99 / 30 Days)</button>
         <button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Generate Gold Key (₹299 / 30 Days)</button>
         <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Generate Platinum Key (₹599 / 30 Days)</button>
@@ -857,6 +867,33 @@ body {
   </section>
 
 </main>
+
+<!-- INITIAL CENTER SETUP MODAL (FOR ZERO DATA) -->
+<div class="modal-overlay" id="initial-setup-modal">
+  <div class="modal-box" style="max-width: 520px;">
+    <div class="modal-header">
+      <div class="modal-title">🌳 Start Your Digital Vanshavali</div>
+    </div>
+    <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 18px;">Welcome! Enter your details to create your Center Profile and start connecting your family lineage.</p>
+    
+    <div class="form-group">
+      <label>Your Full Name (आपका पूरा नाम):</label>
+      <input type="text" id="setup-center-name" class="form-control" placeholder="e.g. Shri Ramesh Chandra">
+    </div>
+    <div class="form-group">
+      <label>Native Place / Village Origin (मूल निवास / गांव):</label>
+      <input type="text" id="setup-center-native" class="form-control" placeholder="e.g. Varanasi / Delhi / Jaipur">
+    </div>
+    <div class="form-group">
+      <label>Ancestral Gotra / Root ID (गोत्र / मूल वंश):</label>
+      <input type="text" id="setup-center-root" class="form-control" placeholder="e.g. ROOT-KASHYAP / ROOT-BHARDWAJ">
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
+      <button class="btn-estate btn-gold" style="width: 100%; justify-content: center; padding: 12px;" onclick="handleInitializeCenterPerson()">Create Center Profile &amp; Start Graph 🚀</button>
+    </div>
+  </div>
+</div>
 
 <!-- CONVERSATIONAL ADD MEMBER / SPOUSE MODAL -->
 <div class="modal-overlay" id="add-member-modal">
@@ -875,11 +912,11 @@ body {
     <!-- CREATE MODE FORM -->
     <div id="form-create-person-fields">
       <div class="form-group">
-        <label>Full Name:</label>
+        <label>Full Name (पूरा नाम):</label>
         <input type="text" id="add-input-name" class="form-control" placeholder="e.g. Smt. Sunita Sharma">
       </div>
       <div class="form-group">
-        <label>Relationship Type:</label>
+        <label>Relationship Type (रिश्ता):</label>
         <select id="add-select-relation" class="form-control">
           <optgroup label="Spouse & In-Law Family (ससुराल पक्ष)">
             <option value="spouse">Spouse (पति / पत्नी)</option>
@@ -932,7 +969,7 @@ body {
   </div>
 </div>
 
-<!-- PLAN SELECTION & ACTIVATION MODAL (IDENTICAL TO MAIN MFP PROCESS) -->
+<!-- PLAN SELECTION & ACTIVATION MODAL -->
 <div class="modal-overlay" id="plan-modal">
   <div class="modal-box" style="max-width: 640px;">
     <div class="modal-header">
@@ -979,7 +1016,7 @@ body {
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
-      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20Digital%20Vanshavali%20Digital%20Vanshavali%20Plan%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
+      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20Digital%20Vanshavali%20Plan%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
       <button class="btn-estate btn-outline" onclick="closeModal('plan-modal')">Close</button>
     </div>
   </div>
@@ -987,200 +1024,23 @@ body {
 
 <script>
 /* ==========================================================================
-   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v7.0
-   Paternal + Maternal + Spouse Lineage Network with High-Visibility Tabs
+   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v8.0
+   Clean State + No Demo Data + Relation Guidance Everywhere
    ========================================================================== */
 
-// MASTER IN-MEMORY STATE
 let currentPlan = localStorage.getItem("mfp_user_plan") || "GOLD";
 let userEmail = localStorage.getItem("mfp_user_email") || "guest@myfinancialplan.in";
 
-// DEFAULT GRAPH NODES
-let defaultNodes = [
-  {
-    person_id: "PERS-MAIN-001",
-    name: "Shri Ramesh Chandra",
-    relation: "Self (Center)",
-    side: "paternal",
-    lineage_code: "VNS-ROOT01-BR01-FAM01-P001",
-    family_id: "FAM-VNS-101",
-    branch_id: "BR-PAT-001",
-    ancestral_root_id: "ROOT-KASHYAP-VNS",
-    native_place_id: "LOC-VARANASI",
-    verification_status: "Verified",
-    generation: 0,
-    father_id: "PERS-FAT-002",
-    mother_id: "PERS-MOT-003",
-    spouse_ids: ["PERS-SPOUSE-001"]
-  },
-  {
-    person_id: "PERS-FAT-002",
-    name: "Shri Kailash Nath",
-    relation: "Father",
-    side: "paternal",
-    lineage_code: "VNS-ROOT01-BR01-FAM01-P002",
-    family_id: "FAM-VNS-101",
-    branch_id: "BR-PAT-001",
-    ancestral_root_id: "ROOT-KASHYAP-VNS",
-    native_place_id: "LOC-VARANASI",
-    verification_status: "Verified",
-    generation: -1,
-    father_id: "PERS-GFAT-004"
-  },
-  {
-    person_id: "PERS-MOT-003",
-    name: "Smt. Shanti Devi",
-    relation: "Mother",
-    side: "maternal",
-    lineage_code: "VNS-ROOT02-BR02-FAM02-P003",
-    family_id: "FAM-PRY-201",
-    branch_id: "BR-MAT-002",
-    ancestral_root_id: "ROOT-BHARDWAJ-PRY",
-    native_place_id: "LOC-PRAYAGRAJ",
-    verification_status: "Verified",
-    generation: -1,
-    father_id: "PERS-MGFAT-005"
-  },
-  {
-    person_id: "PERS-GFAT-004",
-    name: "Shri Mahadev Prasad",
-    relation: "Paternal Grandfather",
-    side: "paternal",
-    lineage_code: "VNS-ROOT01-BR01-FAM01-P004",
-    family_id: "FAM-VNS-101",
-    branch_id: "BR-PAT-001",
-    ancestral_root_id: "ROOT-KASHYAP-VNS",
-    native_place_id: "LOC-VARANASI",
-    verification_status: "Verified",
-    generation: -2
-  },
-  {
-    person_id: "PERS-MGFAT-005",
-    name: "Shri Ram Swaroop",
-    relation: "Maternal Grandfather",
-    side: "maternal",
-    lineage_code: "VNS-ROOT02-BR02-FAM02-P005",
-    family_id: "FAM-PRY-201",
-    branch_id: "BR-MAT-002",
-    ancestral_root_id: "ROOT-BHARDWAJ-PRY",
-    native_place_id: "LOC-PRAYAGRAJ",
-    verification_status: "Verified",
-    generation: -2
-  },
+// NO DEFAULT DEMO NODES OR MARRIAGES
+let defaultNodes = [];
+let defaultMarriageEdges = [];
 
-  // SPOUSE SIDE IN-LAW LINEAGE NODES
-  {
-    person_id: "PERS-SPOUSE-001",
-    name: "Smt. Sunita Sharma",
-    relation: "Spouse (Wife)",
-    side: "spouse",
-    lineage_code: "DEL-ROOT03-BR03-FAM03-P006",
-    family_id: "FAM-DEL-301",
-    branch_id: "BR-SPOUSE-003",
-    ancestral_root_id: "ROOT-SHARMA-DEL",
-    native_place_id: "LOC-DELHI",
-    verification_status: "Verified",
-    generation: 0,
-    father_id: "PERS-SP-FAT-007",
-    mother_id: "PERS-SP-MOT-008",
-    spouse_ids: ["PERS-MAIN-001"]
-  },
-  {
-    person_id: "PERS-SP-FAT-007",
-    name: "Shri Bishwanath Sharma",
-    relation: "Father-in-Law (ससुर)",
-    side: "spouse",
-    lineage_code: "DEL-ROOT03-BR03-FAM03-P007",
-    family_id: "FAM-DEL-301",
-    branch_id: "BR-SPOUSE-003",
-    ancestral_root_id: "ROOT-SHARMA-DEL",
-    native_place_id: "LOC-DELHI",
-    verification_status: "Verified",
-    generation: -1,
-    father_id: "PERS-SP-GFAT-009"
-  },
-  {
-    person_id: "PERS-SP-MOT-008",
-    name: "Smt. Kamala Sharma",
-    relation: "Mother-in-Law (सास)",
-    side: "spouse",
-    lineage_code: "DEL-ROOT03-BR03-FAM03-P008",
-    family_id: "FAM-DEL-301",
-    branch_id: "BR-SPOUSE-003",
-    ancestral_root_id: "ROOT-SHARMA-DEL",
-    native_place_id: "LOC-DELHI",
-    verification_status: "Verified",
-    generation: -1
-  },
-  {
-    person_id: "PERS-SP-BRO-010",
-    name: "Shri Rajesh Sharma",
-    relation: "Brother-in-Law (साला)",
-    side: "spouse",
-    lineage_code: "DEL-ROOT03-BR03-FAM03-P010",
-    family_id: "FAM-DEL-301",
-    branch_id: "BR-SPOUSE-003",
-    ancestral_root_id: "ROOT-SHARMA-DEL",
-    native_place_id: "LOC-DELHI",
-    verification_status: "Verified",
-    generation: 0,
-    father_id: "PERS-SP-FAT-007"
-  },
-  {
-    person_id: "PERS-SP-GFAT-009",
-    name: "Shri Harish Chandra Sharma",
-    relation: "Spouse Paternal Grandfather",
-    side: "spouse",
-    lineage_code: "DEL-ROOT03-BR03-FAM03-P009",
-    family_id: "FAM-DEL-301",
-    branch_id: "BR-SPOUSE-003",
-    ancestral_root_id: "ROOT-SHARMA-DEL",
-    native_place_id: "LOC-DELHI",
-    verification_status: "Verified",
-    generation: -2
-  },
-
-  // DESCENDANTS
-  {
-    person_id: "PERS-CHILD-011",
-    name: "Aarav Chandra",
-    relation: "Son",
-    side: "paternal",
-    lineage_code: "VNS-ROOT01-BR01-FAM01-P011",
-    family_id: "FAM-VNS-101",
-    branch_id: "BR-PAT-001",
-    ancestral_root_id: "ROOT-KASHYAP-VNS",
-    native_place_id: "LOC-VARANASI",
-    verification_status: "Verified",
-    generation: 1,
-    father_id: "PERS-MAIN-001",
-    mother_id: "PERS-SPOUSE-001"
-  }
-];
-
-// MARRIAGE RELATIONSHIPS GRAPH EDGES
-let defaultMarriageEdges = [
-  {
-    relationship_id: "REL-MARR-001",
-    person_a_id: "PERS-MAIN-001",
-    person_b_id: "PERS-SPOUSE-001",
-    relationship_type: "spouse",
-    status: "active",
-    marriage_date: "1998-05-18",
-    verification_status: "Verified",
-    added_by: "Shri Ramesh Chandra (guest@myfinancialplan.in)",
-    timestamp: "2026-09-15 10:00:00",
-    evidence: "Official Marriage Registration Certificate & Family Bahi Register"
-  }
-];
-
-// INITIALIZE STATE
-let activeCenterPersonId = "PERS-MAIN-001";
+let activeCenterPersonId = null;
 let activeBranchFilter = "paternal"; // 'paternal', 'maternal', 'spouse', 'all'
-let addPersonMode = "create"; // 'create' or 'link'
+let addPersonMode = "create";
 
 function getStoredTree() {
-  const local = localStorage.getItem("mfp_vanshavali_tree_v7");
+  const local = localStorage.getItem("mfp_vanshavali_tree_v8");
   if (local) {
     try { return JSON.parse(local); } catch(e) {}
   }
@@ -1188,11 +1048,11 @@ function getStoredTree() {
 }
 
 function saveStoredTree(tree) {
-  localStorage.setItem("mfp_vanshavali_tree_v7", JSON.stringify(tree));
+  localStorage.setItem("mfp_vanshavali_tree_v8", JSON.stringify(tree));
 }
 
 function getStoredMarriages() {
-  const local = localStorage.getItem("mfp_vanshavali_marriages_v7");
+  const local = localStorage.getItem("mfp_vanshavali_marriages_v8");
   if (local) {
     try { return JSON.parse(local); } catch(e) {}
   }
@@ -1200,7 +1060,39 @@ function getStoredMarriages() {
 }
 
 function saveStoredMarriages(edges) {
-  localStorage.setItem("mfp_vanshavali_marriages_v7", JSON.stringify(edges));
+  localStorage.setItem("mfp_vanshavali_marriages_v8", JSON.stringify(edges));
+}
+
+// INITIALIZE CENTER PERSON WHEN ZERO DATA
+function handleInitializeCenterPerson() {
+  const name = document.getElementById("setup-center-name").value.trim();
+  const nativePlace = document.getElementById("setup-center-native").value.trim() || "LOC-VARANASI";
+  const rootId = document.getElementById("setup-center-root").value.trim() || "ROOT-MAIN";
+
+  if (!name) {
+    alert("Please enter your full name.");
+    return;
+  }
+
+  const newCenter = {
+    person_id: "PERS-MAIN-001",
+    name: name,
+    relation: "Self (Center Person)",
+    side: "paternal",
+    lineage_code: "VNS-ROOT01-BR01-FAM01-P001",
+    family_id: "FAM-VNS-101",
+    branch_id: "BR-PAT-001",
+    ancestral_root_id: rootId,
+    native_place_id: nativePlace,
+    verification_status: "Pending Verification",
+    generation: 0
+  };
+
+  const tree = [newCenter];
+  saveStoredTree(tree);
+  activeCenterPersonId = "PERS-MAIN-001";
+  closeModal("initial-setup-modal");
+  renderApp();
 }
 
 // RENDER APP ENGINE
@@ -1208,6 +1100,13 @@ function renderApp() {
   const tree = getStoredTree();
   const marriages = getStoredMarriages();
   
+  if (tree.length === 0) {
+    document.getElementById("initial-setup-modal").style.display = "flex";
+    return;
+  } else {
+    document.getElementById("initial-setup-modal").style.display = "none";
+  }
+
   let centerNode = tree.find(n => n.person_id === activeCenterPersonId);
   if (!centerNode) {
     activeCenterPersonId = tree[0].person_id;
@@ -1276,6 +1175,7 @@ function renderApp() {
 function renderSpouseHeritageStats(tree, marriages, centerNode) {
   const spouseNodes = tree.filter(n => n.side === "spouse");
   const spouseMarriages = marriages.filter(m => m.person_a_id === centerNode.person_id || m.person_b_id === centerNode.person_id);
+  const verifiedCount = marriages.filter(m => m.verification_status === "Verified").length;
   
   const uniqueRoots = new Set(spouseNodes.map(n => n.ancestral_root_id).filter(Boolean));
   const uniquePlaces = new Set(spouseNodes.map(n => n.native_place_id).filter(Boolean));
@@ -1284,6 +1184,7 @@ function renderSpouseHeritageStats(tree, marriages, centerNode) {
   document.getElementById("stat-inlaws-count").innerText = spouseNodes.length;
   document.getElementById("stat-spouse-roots").innerText = uniqueRoots.size;
   document.getElementById("stat-spouse-places").innerText = uniquePlaces.size;
+  document.getElementById("stat-marriage-verif").innerText = verifiedCount;
 }
 
 // MARRIAGE CONNECTION MAP CARD RENDERER
@@ -1310,7 +1211,7 @@ function renderMarriageConnectionMap(tree, marriages, centerNode) {
 
     html += '<div class="marriage-link-ring">';
     html += '💍 MARRIAGE CONNECTION<br>';
-    html += '<span style="font-size: 11px; color: var(--emerald-accent);">' + escapeHtml(m.verification_status) + ' (' + escapeHtml(m.marriage_date || 'Date N/A') + ')</span>';
+    html += '<span style="font-size: 11px; color: var(--gold-primary);">' + escapeHtml(m.verification_status || 'Pending Verification') + '</span>';
     html += '</div>';
 
     html += '<div class="marriage-family-box" style="border-color: var(--pink-primary);">';
@@ -1343,7 +1244,7 @@ function checkCommonAncestorOverlaps(tree) {
   }
 }
 
-// RENDER TREE CANVAS
+// RENDER TREE CANVAS WITH RELATION GUIDANCE SLOTS
 function renderTreeCanvas(tree, centerNode) {
   const grid = document.getElementById("tree-canvas-grid");
   
@@ -1365,25 +1266,35 @@ function renderTreeCanvas(tree, centerNode) {
     genMap[relGen].push(node);
   });
 
+  // Ensure levels -2, -1, 0, 1 exist for guiding slots
+  [-2, -1, 0, 1].forEach(g => {
+    if (!genMap[g]) genMap[g] = [];
+  });
+
   const sortedGens = Object.keys(genMap).map(Number).sort((a,b) => a - b);
 
   let html = "";
   sortedGens.forEach(gen => {
     let title = "Generation " + (gen === 0 ? "0 (Focal Center)" : (gen < 0 ? gen : "+" + gen));
-    if (gen === -2) title = "Grandparents Generation (-2)";
-    if (gen === -1) title = "Parents / In-Law Parents Generation (-1)";
-    if (gen === 0) title = "Focal Person, Spouse & Siblings (0)";
-    if (gen === 1) title = "Children Generation (+1)";
+    if (gen === -2) title = "Grandparents Generation (-2) · दादा-दादी / नाना-नानी";
+    if (gen === -1) title = "Parents / In-Law Parents Generation (-1) · माता-पिता / सास-ससुर";
+    if (gen === 0) title = "Focal Person, Spouse & Siblings (0) · स्व / पति-पत्नी / भाई-बहन";
+    if (gen === 1) title = "Children & Descendants (+1) · बेटा-बेटी / संतान";
 
     html += '<div class="tree-level-row">';
     html += '<div class="tree-level-title">' + title + '</div>';
     html += '<div class="nodes-flex-row">';
+    
+    // Render existing nodes in this generation
     genMap[gen].forEach(node => {
       const isCenter = (node.person_id === activeCenterPersonId);
       const isSpouse = (node.side === "spouse");
       let cardClass = "node-card";
       if (isCenter) cardClass += " focal-node";
       if (isSpouse) cardClass += " spouse-node";
+
+      const verifStatus = node.verification_status || "Pending Verification";
+      const verifColor = verifStatus === "Verified" ? "var(--emerald-accent)" : "#F59E0B";
 
       html += '<div class="' + cardClass + '">';
       html += '<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">';
@@ -1399,6 +1310,7 @@ function renderTreeCanvas(tree, centerNode) {
       html += '<div>Lineage: <span class="lineage-code-tag">' + escapeHtml(node.lineage_code || "N/A") + '</span></div>';
       if (node.ancestral_root_id) html += '<div>Root: <strong style="color: var(--gold-primary);">' + escapeHtml(node.ancestral_root_id) + '</strong></div>';
       if (node.native_place_id) html += '<div>Native: ' + escapeHtml(node.native_place_id) + '</div>';
+      html += '<div style="margin-top:4px;">Status: <span style="color:' + verifColor + '; font-weight:700;">' + escapeHtml(verifStatus) + '</span></div>';
       html += '</div>';
 
       if (!isCenter) {
@@ -1406,6 +1318,21 @@ function renderTreeCanvas(tree, centerNode) {
       }
       html += '</div>';
     });
+
+    // Render Relation Guidance Add Slot Cards
+    if (activeBranchFilter === "paternal" && gen === -1) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--gold-primary); margin-bottom:6px;">+ Add Father (पिता)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;father&quot;)">Add Entry ➕</button></div>';
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--gold-primary); margin-bottom:6px;">+ Add Mother (माता)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;mother&quot;)">Add Entry ➕</button></div>';
+    } else if (activeBranchFilter === "maternal" && gen === -2) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--blue-accent); margin-bottom:6px;">+ Add Maternal Grandfather (नाना)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;maternal_grandfather&quot;)">Add Entry ➕</button></div>';
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--blue-accent); margin-bottom:6px;">+ Add Maternal Grandmother (नानी)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;maternal_grandmother&quot;)">Add Entry ➕</button></div>';
+    } else if (activeBranchFilter === "spouse" && gen === 0) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--pink-primary); margin-bottom:6px;">+ Add Spouse (पति / पत्नी)</div><button class="btn-estate btn-pink" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;spouse&quot;)">Add Entry 💍</button></div>';
+    } else if (activeBranchFilter === "spouse" && gen === -1) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--pink-primary); margin-bottom:6px;">+ Add Father-in-Law (ससुर)</div><button class="btn-estate btn-pink" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;father_in_law&quot;)">Add Entry 💍</button></div>';
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--pink-primary); margin-bottom:6px;">+ Add Mother-in-Law (सास)</div><button class="btn-estate btn-pink" style="padding:4px 10px; font-size:11px;" onclick="openConversationalAddModal(&quot;mother_in_law&quot;)">Add Entry 💍</button></div>';
+    }
+
     html += '</div>';
     html += '</div>';
   });
@@ -1570,6 +1497,9 @@ function renderProvenanceTable(tree) {
   let html = "";
   
   tree.forEach(n => {
+    const verifStatus = n.verification_status || "Pending Verification";
+    const verifColor = verifStatus === "Verified" ? "var(--emerald-accent)" : "#F59E0B";
+
     html += '<tr>';
     html += '<td><strong style="color:#FFF;">' + escapeHtml(n.name) + '</strong> (' + escapeHtml(n.relation) + ')</td>';
     html += '<td><span class="id-badge-code">' + escapeHtml(n.person_id) + '</span></td>';
@@ -1577,7 +1507,7 @@ function renderProvenanceTable(tree) {
     html += '<td>' + escapeHtml(n.branch_id || 'N/A') + '</td>';
     html += '<td><strong style="color:var(--gold-primary);">' + escapeHtml(n.ancestral_root_id || 'N/A') + '</strong></td>';
     html += '<td><span style="text-transform:uppercase; font-size:11px; font-weight:800;">' + escapeHtml(n.side || 'paternal') + '</span></td>';
-    html += '<td><span style="color:var(--emerald-accent); font-weight:800;">🔒 Verified</span></td>';
+    html += '<td><span style="color:' + verifColor + '; font-weight:800;">⏱️ ' + escapeHtml(verifStatus) + '</span></td>';
     html += '<td><button class="btn-estate btn-gold" style="padding:3px 8px; font-size:11px;" onclick="recenterGraphOnPerson(' + JSON.stringify(n.person_id) + ')">Center 🎯</button></td>';
     html += '</tr>';
   });
@@ -1614,6 +1544,24 @@ function openConversationalAddModal(presetType) {
   if (presetType === "spouse") {
     title.innerText = "Add Spouse / In-Law Relative (ससुराल पक्ष)";
     relSel.value = "spouse";
+  } else if (presetType === "father") {
+    title.innerText = "Add Father (पिता)";
+    relSel.value = "father";
+  } else if (presetType === "mother") {
+    title.innerText = "Add Mother (माता)";
+    relSel.value = "mother";
+  } else if (presetType === "maternal_grandfather") {
+    title.innerText = "Add Maternal Grandfather (नाना)";
+    relSel.value = "maternal_grandfather";
+  } else if (presetType === "maternal_grandmother") {
+    title.innerText = "Add Maternal Grandmother (नानी)";
+    relSel.value = "maternal_grandmother";
+  } else if (presetType === "father_in_law") {
+    title.innerText = "Add Father-in-Law (ससुर)";
+    relSel.value = "father_in_law";
+  } else if (presetType === "mother_in_law") {
+    title.innerText = "Add Mother-in-Law (सास)";
+    relSel.value = "mother_in_law";
   } else {
     title.innerText = "Add Family Member / Ancestor";
     relSel.value = "father";
@@ -1652,7 +1600,7 @@ function handleSaveMember() {
         person_b_id: existingId,
         relationship_type: "spouse",
         status: "active",
-        verification_status: "Verified",
+        verification_status: "Pending Verification",
         added_by: userEmail,
         timestamp: new Date().toISOString()
       });
@@ -1699,7 +1647,7 @@ function handleSaveMember() {
       branch_id: "BR-" + side.toUpperCase() + "-00" + (tree.length + 1),
       ancestral_root_id: rootId,
       native_place_id: nativePlace,
-      verification_status: "Verified",
+      verification_status: "Pending Verification",
       generation: newGen
     };
 
@@ -1715,7 +1663,7 @@ function handleSaveMember() {
         person_b_id: newPersonId,
         relationship_type: "spouse",
         status: "active",
-        verification_status: "Verified",
+        verification_status: "Pending Verification",
         added_by: userEmail,
         timestamp: new Date().toISOString()
       });
@@ -1730,7 +1678,7 @@ function handleSaveMember() {
   renderApp();
 }
 
-// MFP ACTIVATION & PLAN MANAGEMENT PROCESS (IDENTICAL TO MAIN MFP SYSTEM)
+// MFP ACTIVATION & PLAN MANAGEMENT PROCESS
 function openPlanSelectionModal() {
   document.getElementById("plan-modal").style.display = "flex";
   highlightSelectedPlanOption(currentPlan);
@@ -1768,7 +1716,14 @@ function handleRedeemActivationKey() {
     return;
   }
 
-  if (key.includes("SILVER") || key.startsWith("MFP-SILV")) { currentPlan = "SILVER"; localStorage.setItem("mfp_user_plan", "SILVER"); localStorage.setItem("mfp_activation_key", key); msg.style.color = "#9CA3AF"; msg.innerText = "🎉 Success! Silver Estate Plan (₹99/30 days) activated with key " + key; renderApp(); } else if (key.includes("GOLD") || key.startsWith("MFP-GOLD")) {
+  if (key.includes("SILVER") || key.startsWith("MFP-SILV")) {
+    currentPlan = "SILVER";
+    localStorage.setItem("mfp_user_plan", "SILVER");
+    localStorage.setItem("mfp_activation_key", key);
+    msg.style.color = "#9CA3AF";
+    msg.innerText = "🎉 Success! Silver Estate Plan (₹99/30 days) activated with key " + key;
+    renderApp();
+  } else if (key.includes("GOLD") || key.startsWith("MFP-GOLD")) {
     currentPlan = "GOLD";
     localStorage.setItem("mfp_user_plan", "GOLD");
     localStorage.setItem("mfp_activation_key", key);
