@@ -44,8 +44,8 @@
   --bg-dark: #090D16;
   --bg-card: #121827;
   --bg-card-hover: #1E293B;
-  --bg-nav: rgba(15, 22, 38, 0.95);
-  --border-subtle: rgba(255, 255, 255, 0.15);
+  --bg-nav: rgba(15, 22, 38, 0.98);
+  --border-subtle: rgba(255, 255, 255, 0.18);
   --border-gold: #D4AF37;
   --border-pink: #EC4899;
   --border-blue: #3B82F6;
@@ -54,13 +54,13 @@
   --text-secondary: #E2E8F0;
   --text-muted: #CBD5E1;
   --gold-primary: #FBBF24;
-  --gold-glow: rgba(251, 191, 36, 0.3);
+  --gold-glow: rgba(251, 191, 36, 0.35);
   --pink-primary: #F472B6;
-  --pink-glow: rgba(244, 114, 182, 0.3);
+  --pink-glow: rgba(244, 114, 182, 0.35);
   --blue-accent: #60A5FA;
   --emerald-accent: #34D399;
   --purple-accent: #C084FC;
-  --shadow-card: 0 12px 35px -5px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 12px 35px -5px rgba(0, 0, 0, 0.8);
   --font-heading: 'Cinzel', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
 }
@@ -79,27 +79,26 @@ body {
 /* HIGH-VISIBILITY NAVBAR */
 .navbar-estate {
   background: var(--bg-nav);
-  backdrop-filter: blur(14px);
   border-bottom: 2px solid var(--border-gold);
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 14px 28px;
+  padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }
 .brand-estate {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-decoration: none;
   color: #FFF;
 }
 .brand-logo-icon {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   background: linear-gradient(135deg, var(--gold-primary), #B8860B);
   border-radius: 10px;
   display: flex;
@@ -108,12 +107,12 @@ body {
   font-family: var(--font-heading);
   font-weight: 900;
   color: #000;
-  font-size: 24px;
+  font-size: 22px;
   box-shadow: 0 0 15px var(--gold-glow);
 }
 .brand-title {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 0.8px;
   color: #FFFFFF;
@@ -121,22 +120,24 @@ body {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* HIGH-VISIBILITY BUTTONS */
 .btn-estate {
-  padding: 10px 20px;
+  padding: 10px 18px;
   border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13.5px;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.25s ease;
   border: 1px solid transparent;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-decoration: none;
+  white-space: nowrap;
 }
 .btn-gold {
   background: linear-gradient(135deg, var(--gold-primary), #D97706);
@@ -157,7 +158,7 @@ body {
   transform: translateY(-2px);
 }
 .btn-outline {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
   border-color: var(--border-subtle);
   color: #FFFFFF;
   font-weight: 700;
@@ -165,19 +166,21 @@ body {
 .btn-outline:hover {
   border-color: var(--gold-primary);
   color: var(--gold-primary);
-  background: rgba(251, 191, 36, 0.1);
+  background: rgba(251, 191, 36, 0.15);
 }
 
 /* MFP ACCOUNT & PLAN BAR */
 .user-access-bar {
-  background: rgba(18, 24, 39, 0.95);
+  background: rgba(18, 24, 39, 0.98);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 10px 28px;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
   font-weight: 600;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .plan-badge {
   padding: 4px 12px;
@@ -187,48 +190,47 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.plan-silver { background: rgba(156, 163, 175, 0.25); color: #F3F4F6; border: 1.5px solid #9CA3AF; }
-.plan-gold { background: rgba(251, 191, 36, 0.25); color: #FBBF24; border: 1.5px solid #FBBF24; }
-.plan-platinum { background: rgba(192, 132, 252, 0.25); color: #E9D5FF; border: 1.5px solid #C084FC; }
+.plan-silver { background: rgba(156, 163, 175, 0.3); color: #F3F4F6; border: 1.5px solid #9CA3AF; }
+.plan-gold { background: rgba(251, 191, 36, 0.3); color: #FBBF24; border: 1.5px solid #FBBF24; }
+.plan-platinum { background: rgba(192, 132, 252, 0.3); color: #E9D5FF; border: 1.5px solid #C084FC; }
 
 /* MAIN CONTAINER */
 .app-container {
   max-width: 1400px;
-  margin: 24px auto;
-  padding: 0 20px;
+  margin: 20px auto;
+  padding: 0 16px;
 }
 
-/* 🏆 TOP 3-SIDE RELATION CHAIN TABS BAR (HIGH VISIBILITY SWITCHER) */
+/* TOP 3-SIDE RELATION CHAIN TABS BAR */
 .top-relation-chain-tabs {
-  background: linear-gradient(135deg, rgba(18, 24, 39, 0.98), rgba(9, 13, 22, 0.98));
+  background: #121827;
   border: 2px solid var(--border-gold);
-  border-radius: 18px;
+  border-radius: 16px;
   padding: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 .chain-tabs-header {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   color: var(--gold-primary);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
-  letter-spacing: 0.5px;
 }
 .chain-tabs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
 }
 .chain-tab-btn {
-  padding: 14px 20px;
-  border-radius: 14px;
-  font-size: 15px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
   font-weight: 800;
-  background: rgba(9, 13, 22, 0.85);
+  background: #090D16;
   border: 2px solid var(--border-subtle);
   color: #CBD5E1;
   cursor: pointer;
@@ -243,51 +245,45 @@ body {
 .chain-tab-btn:hover {
   border-color: var(--gold-primary);
   color: #FFF;
-  transform: translateY(-2px);
 }
 .chain-tab-btn.active-paternal {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(180, 83, 9, 0.2));
+  background: rgba(251, 191, 36, 0.2);
   border-color: #FBBF24;
   color: #FBBF24;
-  box-shadow: 0 0 20px var(--gold-glow);
 }
 .chain-tab-btn.active-maternal {
-  background: linear-gradient(135deg, rgba(96, 165, 250, 0.25), rgba(29, 78, 216, 0.2));
+  background: rgba(96, 165, 250, 0.2);
   border-color: #60A5FA;
   color: #60A5FA;
-  box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
 }
 .chain-tab-btn.active-spouse {
-  background: linear-gradient(135deg, rgba(244, 114, 182, 0.25), rgba(190, 24, 93, 0.2));
+  background: rgba(244, 114, 182, 0.2);
   border-color: #F472B6;
   color: #F472B6;
-  box-shadow: 0 0 20px var(--pink-glow);
 }
 .chain-tab-btn.active-all {
-  background: linear-gradient(135deg, rgba(192, 132, 252, 0.25), rgba(109, 40, 217, 0.2));
+  background: rgba(192, 132, 252, 0.2);
   border-color: #C084FC;
   color: #E9D5FF;
-  box-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
 }
 
 /* FOCAL CENTER BANNER */
 .focal-banner {
-  background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.15), transparent 70%),
-              var(--bg-card);
+  background: #121827;
   border: 1.5px solid var(--border-gold);
   border-radius: 16px;
-  padding: 22px 26px;
-  margin-bottom: 24px;
+  padding: 20px 22px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   box-shadow: var(--shadow-card);
 }
 .focal-info h1 {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--gold-primary);
   display: flex;
@@ -296,36 +292,33 @@ body {
 }
 .focal-info p {
   color: var(--text-secondary);
-  font-size: 14px;
-  margin-top: 6px;
+  font-size: 13.5px;
+  margin-top: 4px;
 }
 .universal-search-box {
   position: relative;
-  min-width: 340px;
+  min-width: 280px;
   flex: 1;
-  max-width: 500px;
+  max-width: 480px;
 }
 .universal-search-box input {
   width: 100%;
-  background: rgba(9, 13, 22, 0.95);
+  background: #090D16;
   border: 2px solid var(--border-gold);
-  border-radius: 12px;
-  padding: 12px 18px 12px 42px;
+  border-radius: 10px;
+  padding: 10px 16px 10px 38px;
   color: #FFF;
   font-size: 14px;
   font-weight: 600;
   outline: none;
 }
-.universal-search-box input:focus {
-  box-shadow: 0 0 16px var(--gold-glow);
-}
 .search-icon {
   position: absolute;
-  left: 14px;
+  left: 12px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--gold-primary);
-  font-size: 16px;
+  font-size: 15px;
 }
 .search-results-dropdown {
   position: absolute;
@@ -333,82 +326,82 @@ body {
   left: 0; right: 0;
   background: #121827;
   border: 2px solid var(--border-gold);
-  border-radius: 12px;
-  margin-top: 8px;
-  max-height: 320px;
+  border-radius: 10px;
+  margin-top: 6px;
+  max-height: 280px;
   overflow-y: auto;
   z-index: 50;
   display: none;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.95);
 }
 
 /* SPOUSE STATS & MARRIAGE MAP */
 .spouse-stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
 }
 .spouse-stat-card {
-  background: rgba(18, 24, 39, 0.9);
+  background: #121827;
   border: 1.5px solid var(--border-pink);
-  border-radius: 14px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 14px;
   text-align: center;
 }
 .spouse-stat-val {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 900;
   color: var(--pink-primary);
   font-family: var(--font-heading);
 }
 .spouse-stat-lbl {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .marriage-map-card {
-  background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(18, 24, 39, 0.95));
+  background: #121827;
   border: 1.5px solid var(--border-pink);
-  border-radius: 16px;
-  padding: 22px 24px;
-  margin-bottom: 24px;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
 }
 .marriage-map-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   color: var(--pink-primary);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .marriage-connection-flex {
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 14px;
+  gap: 16px;
+  margin-top: 12px;
 }
 .marriage-family-box {
-  background: rgba(9, 13, 22, 0.9);
+  background: #090D16;
   border: 1.5px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 14px 20px;
+  border-radius: 10px;
+  padding: 12px 16px;
   text-align: center;
-  min-width: 240px;
+  min-width: 220px;
 }
 .marriage-link-ring {
   text-align: center;
-  padding: 10px 20px;
+  padding: 8px 16px;
   background: rgba(244, 114, 182, 0.2);
   border: 2px dashed var(--pink-primary);
-  border-radius: 24px;
-  font-size: 13px;
+  border-radius: 20px;
+  font-size: 12px;
   color: var(--pink-primary);
   font-weight: 800;
 }
@@ -416,14 +409,14 @@ body {
 /* MAIN TABS */
 .tab-navigation {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   border-bottom: 2px solid var(--border-subtle);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   overflow-x: auto;
 }
 .tab-btn {
-  padding: 14px 22px;
-  font-size: 15px;
+  padding: 12px 18px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-muted);
   background: transparent;
@@ -433,7 +426,7 @@ body {
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   white-space: nowrap;
 }
 .tab-btn:hover { color: #FFF; }
@@ -446,82 +439,81 @@ body {
 .canvas-wrapper {
   background: var(--bg-card);
   border: 1.5px solid var(--border-subtle);
-  border-radius: 18px;
-  padding: 28px;
-  min-height: 560px;
+  border-radius: 16px;
+  padding: 22px;
+  min-height: 520px;
   box-shadow: var(--shadow-card);
 }
 .tree-grid {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 .tree-level-row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 .tree-level-title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--gold-primary);
   background: rgba(251, 191, 36, 0.15);
-  padding: 4px 16px;
-  border-radius: 16px;
+  padding: 4px 14px;
+  border-radius: 14px;
   border: 1px solid var(--border-gold);
 }
 .nodes-flex-row {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
   width: 100%;
 }
 
 .node-card {
-  background: rgba(9, 13, 22, 0.98);
+  background: #090D16;
   border: 1.5px solid var(--border-subtle);
-  border-radius: 16px;
-  width: 290px;
-  padding: 18px;
+  border-radius: 14px;
+  width: 280px;
+  padding: 16px;
   position: relative;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 .node-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--gold-primary);
-  box-shadow: 0 10px 30px var(--gold-glow);
 }
 .node-card.focal-node {
   border: 2.5px solid var(--gold-primary);
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(9, 13, 22, 0.98));
-  box-shadow: 0 0 25px var(--gold-glow);
+  background: #121827;
+  box-shadow: 0 0 20px var(--gold-glow);
 }
 .node-card.spouse-node {
   border: 2px solid var(--pink-primary);
-  background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(9, 13, 22, 0.98));
+  background: #121827;
 }
 .node-card.placeholder-node {
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  background: rgba(9, 13, 22, 0.5);
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  background: rgba(9, 13, 22, 0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 140px;
+  min-height: 130px;
 }
 .node-name {
   font-weight: 800;
-  font-size: 17px;
+  font-size: 16px;
   color: #FFFFFF;
 }
 .node-relation {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--gold-primary);
   font-weight: 700;
 }
@@ -529,9 +521,9 @@ body {
   font-family: monospace;
   font-size: 11px;
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 3px 8px;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
   color: #C084FC;
   display: inline-block;
   margin-top: 4px;
@@ -540,10 +532,10 @@ body {
   font-family: monospace;
   font-size: 11px;
   font-weight: 700;
-  background: rgba(52, 211, 153, 0.15);
+  background: rgba(52, 211, 153, 0.18);
   color: #34D399;
-  padding: 3px 8px;
-  border-radius: 6px;
+  padding: 2px 6px;
+  border-radius: 4px;
   display: inline-block;
   margin-top: 4px;
 }
@@ -552,15 +544,15 @@ body {
 .pathfinder-box {
   background: var(--bg-card);
   border: 1.5px solid var(--border-gold);
-  border-radius: 18px;
-  padding: 28px;
-  margin-top: 20px;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 16px;
 }
 .path-step-pill {
-  background: rgba(9, 13, 22, 0.95);
+  background: #090D16;
   border: 1.5px solid var(--border-gold);
-  padding: 10px 16px;
-  border-radius: 12px;
+  padding: 8px 14px;
+  border-radius: 10px;
   font-size: 13px;
   font-weight: 700;
   display: flex;
@@ -572,11 +564,11 @@ body {
 .provenance-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 13px;
 }
 .provenance-table th, .provenance-table td {
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--border-subtle);
   text-align: left;
 }
@@ -584,57 +576,63 @@ body {
   background: rgba(255, 255, 255, 0.05);
   color: var(--gold-primary);
   font-family: var(--font-heading);
-  font-size: 14px;
 }
 
-/* MODAL DIALOGS */
+/* 📱 MOBILE RESPONSIVE MODAL DIALOGS (PITCH BLACK FIX) */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.85);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 16px;
+  overflow-y: auto;
 }
 .modal-box {
-  background: var(--bg-card);
+  background: #121827;
   border: 2px solid var(--border-gold);
-  border-radius: 18px;
-  width: 90%;
-  max-width: 580px;
-  padding: 28px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
+  margin: auto;
+  position: relative;
+  z-index: 1001;
 }
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 .modal-title {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--gold-primary);
 }
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .form-group label {
   display: block;
   font-size: 13px;
   font-weight: 700;
   color: var(--text-secondary);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .form-control {
   width: 100%;
-  background: rgba(9, 13, 22, 0.9);
+  background: #090D16;
   border: 1.5px solid var(--border-subtle);
-  border-radius: 10px;
-  padding: 10px 14px;
+  border-radius: 8px;
+  padding: 10px 12px;
   color: #FFF;
   font-size: 14px;
   font-weight: 600;
@@ -644,22 +642,20 @@ body {
   border-color: var(--gold-primary);
 }
 
-/* PLAN SELECTION CARDS */
 .plan-card-option {
-  background: rgba(9, 13, 22, 0.85);
+  background: #090D16;
   border: 2px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .plan-card-option:hover {
   border-color: var(--gold-primary);
-  background: rgba(251, 191, 36, 0.08);
 }
 .plan-card-option.selected-plan {
   border-color: var(--gold-primary);
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(9, 13, 22, 0.9));
+  background: rgba(251, 191, 36, 0.12);
 }
 </style>
 </head>
@@ -671,58 +667,83 @@ body {
     <div class="brand-logo-icon">V</div>
     <div>
       <div class="brand-title">DIGITAL VANSHAVALI</div>
-      <div style="font-size: 12px; color: var(--gold-primary); font-weight: 700;">Universal Relationship Graph Engine · MFP</div>
+      <div style="font-size: 11px; color: var(--gold-primary); font-weight: 700;">Universal Relationship Graph Engine · MFP</div>
     </div>
   </a>
   <div class="nav-actions">
-    <button class="btn-estate btn-pink" onclick="openConversationalAddModal(&quot;spouse&quot;)">+ Add Spouse / In-Law 💍</button>
-    <button class="btn-estate btn-gold" onclick="openConversationalAddModal(&quot;relative&quot;)">+ Add Family Member 🌳</button>
+    <button class="btn-estate btn-pink" onclick="openConversationalAddModal(&quot;spouse&quot;)">+ Add Spouse 💍</button>
+    <button class="btn-estate btn-gold" onclick="openConversationalAddModal(&quot;relative&quot;)">+ Add Relative 🌳</button>
     <button class="btn-estate btn-outline" onclick="openPlanSelectionModal()">Access Level 👑</button>
   </div>
 </header>
 
 <!-- MFP ACCOUNT & PLAN BAR -->
 <div class="user-access-bar">
-  <div style="display: flex; align-items: center; gap: 14px;">
+  <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
     <span>Account: <strong id="user-display-email" style="color: #FFF;">guest@myfinancialplan.in</strong></span>
     <span id="plan-display-badge" class="plan-badge plan-gold">Gold Estate Plan</span>
   </div>
-  <div style="display: flex; align-items: center; gap: 12px;">
+  <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
     <span style="color: var(--gold-primary); font-weight: 700;" id="overall-verification-badge">⏱️ Pending Verification</span>
-    <button class="btn-estate btn-outline" style="padding: 4px 12px; font-size: 12px;" onclick="openPlanSelectionModal()">Upgrade / Activate Plan</button>
+    <button class="btn-estate btn-outline" style="padding: 4px 10px; font-size: 12px;" onclick="openPlanSelectionModal()">Upgrade / Activate Plan</button>
   </div>
 </div>
 
 <!-- MAIN CONTAINER -->
 <main class="app-container">
 
-  <!-- 🏆 TOP 3-SIDE RELATION CHAIN TABS BAR (HIGH VISIBILITY SWITCHER) -->
+  <!-- 🏆 TOP 3-SIDE RELATION CHAIN TABS BAR -->
   <section class="top-relation-chain-tabs">
     <div class="chain-tabs-header">
       <span>🌳 SELECT FAMILY LINEAGE DIRECTION:</span>
     </div>
     <div class="chain-tabs-grid">
       <button class="chain-tab-btn active-paternal" id="dir-btn-paternal" onclick="setBranchViewFilter('paternal')">
-        <span style="font-size: 18px;">👨‍👦 PATERNAL SIDE</span>
-        <span style="font-size: 12px; opacity: 0.9;">(पितृ पक्ष — Father's Lineage)</span>
+        <span style="font-size: 16px;">👨‍👦 PATERNAL SIDE</span>
+        <span style="font-size: 11px; opacity: 0.9;">(पितृ पक्ष — Father's Lineage)</span>
       </button>
       <button class="chain-tab-btn" id="dir-btn-maternal" onclick="setBranchViewFilter('maternal')">
-        <span style="font-size: 18px;">👩‍👦 MATERNAL SIDE</span>
-        <span style="font-size: 12px; opacity: 0.9;">(मातृ पक्ष — Mother's Lineage)</span>
+        <span style="font-size: 16px;">👩‍👦 MATERNAL SIDE</span>
+        <span style="font-size: 11px; opacity: 0.9;">(मातृ पक्ष — Mother's Lineage)</span>
       </button>
       <button class="chain-tab-btn" id="dir-btn-spouse" onclick="setBranchViewFilter('spouse')">
-        <span style="font-size: 18px;">💍 SPOUSE &amp; IN-LAW SIDE</span>
-        <span style="font-size: 12px; opacity: 0.9;">(ससुराल पक्ष — Spouse Lineage)</span>
+        <span style="font-size: 16px;">💍 SPOUSE &amp; IN-LAW SIDE</span>
+        <span style="font-size: 11px; opacity: 0.9;">(ससुराल पक्ष — Spouse Lineage)</span>
       </button>
       <button class="chain-tab-btn" id="dir-btn-all" onclick="setBranchViewFilter('all')">
-        <span style="font-size: 18px;">🌐 ALL CONNECTED NETWORK</span>
-        <span style="font-size: 12px; opacity: 0.9;">(सर्व संबधित — Universal Graph)</span>
+        <span style="font-size: 16px;">🌐 ALL CONNECTED NETWORK</span>
+        <span style="font-size: 11px; opacity: 0.9;">(सर्व संबधित — Universal Graph)</span>
       </button>
     </div>
   </section>
 
+  <!-- ZERO-DATA INLINE SETUP CARD (VISIBLE WHEN NO CENTER PERSON CREATED YET) -->
+  <section class="focal-banner" id="zero-data-inline-setup" style="display: none; background: #121827; border: 2px solid var(--border-gold); padding: 24px; border-radius: 16px;">
+    <div style="width: 100%;">
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 6px;">🌳 Start Your Digital Vanshavali Family Tree</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 18px;">Welcome! Enter your details below to create your Center Profile and start connecting your family lineage.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px;">
+        <div class="form-group">
+          <label>Your Full Name (आपका पूरा नाम):</label>
+          <input type="text" id="inline-center-name" class="form-control" placeholder="e.g. Shri Ramesh Chandra">
+        </div>
+        <div class="form-group">
+          <label>Native Place / Village Origin (मूल निवास):</label>
+          <input type="text" id="inline-center-native" class="form-control" placeholder="e.g. Varanasi / Delhi / Jaipur">
+        </div>
+        <div class="form-group">
+          <label>Ancestral Gotra / Root ID (गोत्र / मूल वंश):</label>
+          <input type="text" id="inline-center-root" class="form-control" placeholder="e.g. ROOT-KASHYAP / ROOT-BHARDWAJ">
+        </div>
+      </div>
+
+      <button class="btn-estate btn-gold" style="padding: 12px 24px; font-size: 15px;" onclick="handleInitializeCenterPersonInline()">Create Center Profile &amp; Start Graph 🚀</button>
+    </div>
+  </section>
+
   <!-- FOCAL CENTER & SEARCH BANNER -->
-  <section class="focal-banner">
+  <section class="focal-banner" id="focal-center-banner">
     <div class="focal-info">
       <h1 id="focal-center-title">🎯 Center Person: Not Set</h1>
       <p id="focal-center-sub">ID: <span class="id-badge-code" id="focal-person-id">None</span> | Lineage Code: <span class="lineage-code-tag" id="focal-lineage-code">None</span></p>
@@ -767,12 +788,12 @@ body {
   </section>
 
   <!-- COMMON ANCESTOR DETECTOR ALERT -->
-  <div style="background: rgba(245, 158, 11, 0.15); border: 2px solid #F59E0B; border-radius: 14px; padding: 16px 20px; margin-bottom: 24px; display: none; align-items: center; justify-content: space-between; gap: 14px;" id="common-ancestor-alert-box">
+  <div style="background: rgba(245, 158, 11, 0.15); border: 2px solid #F59E0B; border-radius: 14px; padding: 14px 18px; margin-bottom: 20px; display: none; align-items: center; justify-content: space-between; gap: 12px;" id="common-ancestor-alert-box">
     <div>
-      <strong style="color: #FBBF24; font-size: 15px;">⚠️ Possible Common Ancestral Link Detected!</strong>
-      <div style="font-size: 13px; color: #E2E8F0; margin-top: 2px;" id="common-ancestor-msg"></div>
+      <strong style="color: #FBBF24; font-size: 14px;">⚠️ Possible Common Ancestral Link Detected!</strong>
+      <div style="font-size: 12.5px; color: #E2E8F0; margin-top: 2px;" id="common-ancestor-msg"></div>
     </div>
-    <button class="btn-estate btn-gold" style="padding: 6px 14px; font-size: 12px;" onclick="alert('Common Ancestor verification workflow initiated. Details logged under Structural Identifiers tab.')">Review Link 🔗</button>
+    <button class="btn-estate btn-gold" style="padding: 6px 12px; font-size: 12px;" onclick="alert('Common Ancestor verification workflow initiated. Details logged under Structural Identifiers tab.')">Review Link 🔗</button>
   </div>
 
   <!-- MAIN TABS SECTION -->
@@ -794,10 +815,10 @@ body {
   <!-- TAB CONTENT 2: PATHFINDER -->
   <section id="tab-section-pathfinder" style="display: none;">
     <div class="pathfinder-box">
-      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">🧭 Universal Relationship Path Finder</h2>
-      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Calculate step-by-step connections between ANY two individuals across paternal, maternal, and spouse in-law lineages.</p>
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">🧭 Universal Relationship Path Finder</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 18px;">Calculate step-by-step connections between ANY two individuals across paternal, maternal, and spouse in-law lineages.</p>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 14px; align-items: flex-end;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: flex-end;">
         <div class="form-group">
           <label>Select Starting Person (Person A):</label>
           <select id="pathfinder-from" class="form-control"></select>
@@ -807,13 +828,13 @@ body {
           <select id="pathfinder-to" class="form-control"></select>
         </div>
         <div class="form-group">
-          <button class="btn-estate btn-gold" style="padding: 12px 24px;" onclick="calculateAndDisplayRelationshipPath()">Find Relationship Path 🔍</button>
+          <button class="btn-estate btn-gold" style="padding: 10px 20px;" onclick="calculateAndDisplayRelationshipPath()">Find Relationship Path 🔍</button>
         </div>
       </div>
 
-      <div id="pathfinder-results" style="margin-top: 24px; display: none;">
-        <h3 style="font-size: 15px; color: var(--gold-primary);">Calculated Lineage Connection Path:</h3>
-        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 16px;" id="path-step-chain-container"></div>
+      <div id="pathfinder-results" style="margin-top: 20px; display: none;">
+        <h3 style="font-size: 14px; color: var(--gold-primary);">Calculated Lineage Connection Path:</h3>
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px;" id="path-step-chain-container"></div>
       </div>
     </div>
   </section>
@@ -821,8 +842,8 @@ body {
   <!-- TAB CONTENT 3: PROVENANCE -->
   <section id="tab-section-provenance" style="display: none;">
     <div class="pathfinder-box">
-      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">📜 Structural Provenance &amp; Identifier Register</h2>
-      <p style="font-size: 14px; color: var(--text-secondary);">Immutable mapping table of Person IDs, Lineage Codes, Branch IDs, Ancestral Root IDs, and Verification Status.</p>
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">📜 Structural Provenance &amp; Identifier Register</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary);">Immutable mapping table of Person IDs, Lineage Codes, Branch IDs, Ancestral Root IDs, and Verification Status.</p>
 
       <table class="provenance-table">
         <thead>
@@ -845,8 +866,8 @@ body {
   <!-- TAB CONTENT 4: VAULT -->
   <section id="tab-section-vault" style="display: none;">
     <div class="pathfinder-box">
-      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">⚖️ Digital Bahi Khatta Family Vault</h2>
-      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Securely store estate land records, ancestral wills, marriage certificates, and verification audit trails.</p>
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">⚖️ Digital Bahi Khatta Family Vault</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Securely store estate land records, ancestral wills, marriage certificates, and verification audit trails.</p>
       <button class="btn-estate btn-gold" onclick="alert('Upload document window initialized. Supported formats: PDF, JPG, PNG up to 25MB.')">+ Upload Legal Evidence / Certificate</button>
     </div>
   </section>
@@ -854,46 +875,19 @@ body {
   <!-- TAB CONTENT 5: ADMIN -->
   <section id="tab-section-admin" style="display: none;">
     <div class="pathfinder-box">
-      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 8px;">🔑 Central My Financial Plan Partner Key Portal</h2>
-      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Generate unified 1-tap single-use activation keys that work across ALL My Financial Plan services.</p>
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">🔑 Central My Financial Plan Partner Key Portal</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Generate unified 1-tap single-use activation keys that work across ALL My Financial Plan services.</p>
 
-      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
         <button class="btn-estate btn-outline" onclick="handleGenerateKey('SILVER')">Issue Central Silver Key (₹99 / 30 Days)</button>
         <button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Issue Central Gold Key (₹299 / 30 Days)</button>
         <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Issue Central Platinum Key (₹599 / 30 Days)</button>
       </div>
-      <div id="admin-key-output" style="margin-top: 18px; font-family: monospace; font-size: 16px; color: var(--emerald-accent); font-weight: 800;"></div>
+      <div id="admin-key-output" style="margin-top: 16px; font-family: monospace; font-size: 15px; color: var(--emerald-accent); font-weight: 800;"></div>
     </div>
   </section>
 
 </main>
-
-<!-- INITIAL CENTER SETUP MODAL (FOR ZERO DATA) -->
-<div class="modal-overlay" id="initial-setup-modal">
-  <div class="modal-box" style="max-width: 520px;">
-    <div class="modal-header">
-      <div class="modal-title">🌳 Start Your Digital Vanshavali</div>
-    </div>
-    <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 18px;">Welcome! Enter your details to create your Center Profile and start connecting your family lineage.</p>
-    
-    <div class="form-group">
-      <label>Your Full Name (आपका पूरा नाम):</label>
-      <input type="text" id="setup-center-name" class="form-control" placeholder="e.g. Shri Ramesh Chandra">
-    </div>
-    <div class="form-group">
-      <label>Native Place / Village Origin (मूल निवास / गांव):</label>
-      <input type="text" id="setup-center-native" class="form-control" placeholder="e.g. Varanasi / Delhi / Jaipur">
-    </div>
-    <div class="form-group">
-      <label>Ancestral Gotra / Root ID (गोत्र / मूल वंश):</label>
-      <input type="text" id="setup-center-root" class="form-control" placeholder="e.g. ROOT-KASHYAP / ROOT-BHARDWAJ">
-    </div>
-
-    <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
-      <button class="btn-estate btn-gold" style="width: 100%; justify-content: center; padding: 12px;" onclick="handleInitializeCenterPerson()">Create Center Profile &amp; Start Graph 🚀</button>
-    </div>
-  </div>
-</div>
 
 <!-- CONVERSATIONAL ADD MEMBER / SPOUSE MODAL -->
 <div class="modal-overlay" id="add-member-modal">
@@ -903,10 +897,9 @@ body {
       <button style="background:none; border:none; color:#FFF; font-size:22px; cursor:pointer;" onclick="closeModal('add-member-modal')">✕</button>
     </div>
     
-    <!-- LINK EXISTING PERSON VS CREATE NEW PERSON TOGGLE -->
-    <div style="background: rgba(255,255,255,0.06); padding: 10px; border-radius: 10px; margin-bottom: 16px; display: flex; gap: 10px;">
-      <button class="btn-estate btn-gold" id="btn-mode-create" style="flex: 1; justify-content: center; font-size: 13px;" onclick="setAddPersonMode('create')">Create New Person</button>
-      <button class="btn-estate btn-outline" id="btn-mode-link" style="flex: 1; justify-content: center; font-size: 13px;" onclick="setAddPersonMode('link')">Link Existing Person 🔗</button>
+    <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 8px; margin-bottom: 14px; display: flex; gap: 8px;">
+      <button class="btn-estate btn-gold" id="btn-mode-create" style="flex: 1; justify-content: center; font-size: 12px;" onclick="setAddPersonMode('create')">Create New Person</button>
+      <button class="btn-estate btn-outline" id="btn-mode-link" style="flex: 1; justify-content: center; font-size: 12px;" onclick="setAddPersonMode('link')">Link Existing Person 🔗</button>
     </div>
 
     <!-- CREATE MODE FORM -->
@@ -962,7 +955,7 @@ body {
       </div>
     </div>
 
-    <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+    <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
       <button class="btn-estate btn-outline" onclick="closeModal('add-member-modal')">Cancel</button>
       <button class="btn-estate btn-gold" onclick="handleSaveMember()">Save &amp; Connect Lineage 🌳</button>
     </div>
@@ -971,52 +964,52 @@ body {
 
 <!-- PLAN SELECTION & UNIFIED SINGLE-USE KEY ACTIVATION MODAL -->
 <div class="modal-overlay" id="plan-modal">
-  <div class="modal-box" style="max-width: 640px;">
+  <div class="modal-box">
     <div class="modal-header">
       <div class="modal-title">👑 Central My Financial Plan Activation</div>
       <button style="background:none; border:none; color:#FFF; font-size:22px; cursor:pointer;" onclick="closeModal('plan-modal')">✕</button>
     </div>
-    <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Redeem your single-use My Financial Plan key to unlock ALL MFP services &amp; Digital Vanshavali on your account.</p>
+    <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Redeem your single-use My Financial Plan key to unlock ALL MFP services &amp; Digital Vanshavali on your account.</p>
 
     <!-- UNIFIED SINGLE-USE KEY REDEMPTION FORM -->
-    <div style="background: rgba(251, 191, 36, 0.1); border: 1.5px solid var(--border-gold); border-radius: 14px; padding: 18px; margin-bottom: 20px;">
-      <strong style="color: var(--gold-primary); font-size: 15px;">🔑 Redeem Single-Use MFP Key</strong>
-      <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px; margin-bottom: 10px;">Keys are strictly single-use per user account. Once redeemed, keys cannot be reused by any other user.</div>
-      <div style="display: flex; gap: 10px;">
+    <div style="background: rgba(251, 191, 36, 0.1); border: 1.5px solid var(--border-gold); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+      <strong style="color: var(--gold-primary); font-size: 14px;">🔑 Redeem Single-Use MFP Key</strong>
+      <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px; margin-bottom: 8px;">Keys are strictly single-use per user account. Once redeemed, keys cannot be reused by any other user.</div>
+      <div style="display: flex; gap: 8px;">
         <input type="text" id="activation-key-input" class="form-control" placeholder="e.g. MFP-GOLD-948201" style="text-transform: uppercase;">
         <button class="btn-estate btn-gold" style="white-space: nowrap;" onclick="handleRedeemActivationKey()">Redeem Key ⚡</button>
       </div>
-      <div id="redemption-msg" style="font-size: 13px; margin-top: 8px; font-weight: 700; line-height: 1.4;"></div>
+      <div id="redemption-msg" style="font-size: 12.5px; margin-top: 8px; font-weight: 700; line-height: 1.4;"></div>
     </div>
 
     <!-- PLAN CARDS GRID -->
-    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
       <div class="plan-card-option" id="plan-card-silver" onclick="selectPlanOption('SILVER')">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <strong style="color: #FFF; font-size: 16px;">Silver Estate Plan (₹99 / 30 days)</strong>
+          <strong style="color: #FFF; font-size: 15px;">Silver Estate Plan (₹99 / 30 days)</strong>
           <span class="plan-badge plan-silver">Active</span>
         </div>
-        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Up to 3 Generations, Basic Graph Canvas &amp; Universal MFP Access.</div>
+        <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 2px;">Up to 3 Generations, Basic Graph Canvas &amp; Universal MFP Access.</div>
       </div>
 
       <div class="plan-card-option selected-plan" id="plan-card-gold" onclick="selectPlanOption('GOLD')">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <strong style="color: var(--gold-primary); font-size: 16px;">Gold Estate Plan (₹299 / 30 days)</strong>
-          <span style="font-size: 12px; color: var(--emerald-accent); font-weight: 800;">POPULAR</span>
+          <strong style="color: var(--gold-primary); font-size: 15px;">Gold Estate Plan (₹299 / 30 days)</strong>
+          <span style="font-size: 11px; color: var(--emerald-accent); font-weight: 800;">POPULAR</span>
         </div>
-        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Unlimited Generations, Full Paternal + Maternal + Spouse Lineages, Bahi Khatta Vault &amp; All MFP Services.</div>
+        <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 2px;">Unlimited Generations, Full Paternal + Maternal + Spouse Lineages, Bahi Khatta Vault &amp; All MFP Services.</div>
       </div>
 
       <div class="plan-card-option" id="plan-card-platinum" onclick="selectPlanOption('PLATINUM')">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <strong style="color: var(--purple-accent); font-size: 16px;">Platinum Estate Plan (₹599 / 30 days)</strong>
-          <span style="font-size: 12px; color: var(--purple-accent); font-weight: 800;">ULTIMATE</span>
+          <strong style="color: var(--purple-accent); font-size: 15px;">Platinum Estate Plan (₹599 / 30 days)</strong>
+          <span style="font-size: 11px; color: var(--purple-accent); font-weight: 800;">ULTIMATE</span>
         </div>
-        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">All Gold Features + Priority Verification, Multiple Family Trees, Multi-Admin Invites &amp; Complete MFP Portfolio.</div>
+        <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 2px;">All Gold Features + Priority Verification, Multiple Family Trees, Multi-Admin Invites &amp; Complete MFP Portfolio.</div>
       </div>
     </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
       <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20a%20single-use%20My%20Financial%20Plan%20Key%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
       <button class="btn-estate btn-outline" onclick="closeModal('plan-modal')">Close</button>
     </div>
@@ -1025,8 +1018,8 @@ body {
 
 <script>
 /* ==========================================================================
-   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v9.0
-   Unified Centralized Single-Use Single-User MFP Key Engine Integrated
+   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v10.0
+   Unified Centralized Single-Use Single-User Key Engine + Mobile Display Fix
    ========================================================================== */
 
 let currentPlan = localStorage.getItem("mfp_user_plan") || "GOLD";
@@ -1045,7 +1038,6 @@ function getGlobalMfpKeyStore() {
   if (local) {
     try { return JSON.parse(local); } catch(e) {}
   }
-  // Default seeded keys for test/admin if empty
   const initialStore = {
     "MFP-SILV-102948": { plan: "SILVER", days: 30, status: "available", redeemed_by: null, redeemed_at: null },
     "MFP-GOLD-948201": { plan: "GOLD", days: 30, status: "available", redeemed_by: null, redeemed_at: null },
@@ -1083,11 +1075,11 @@ function saveStoredMarriages(edges) {
   localStorage.setItem("mfp_vanshavali_marriages_v8", JSON.stringify(edges));
 }
 
-// INITIALIZE CENTER PERSON WHEN ZERO DATA
-function handleInitializeCenterPerson() {
-  const name = document.getElementById("setup-center-name").value.trim();
-  const nativePlace = document.getElementById("setup-center-native").value.trim() || "LOC-VARANASI";
-  const rootId = document.getElementById("setup-center-root").value.trim() || "ROOT-MAIN";
+// INITIALIZE CENTER PERSON FROM INLINE CARD WHEN ZERO DATA
+function handleInitializeCenterPersonInline() {
+  const name = document.getElementById("inline-center-name").value.trim();
+  const nativePlace = document.getElementById("inline-center-native").value.trim() || "LOC-VARANASI";
+  const rootId = document.getElementById("inline-center-root").value.trim() || "ROOT-MAIN";
 
   if (!name) {
     alert("Please enter your full name.");
@@ -1111,7 +1103,6 @@ function handleInitializeCenterPerson() {
   const tree = [newCenter];
   saveStoredTree(tree);
   activeCenterPersonId = "PERS-MAIN-001";
-  closeModal("initial-setup-modal");
   renderApp();
 }
 
@@ -1120,11 +1111,17 @@ function renderApp() {
   const tree = getStoredTree();
   const marriages = getStoredMarriages();
   
+  const zeroDataBox = document.getElementById("zero-data-inline-setup");
+  const focalBanner = document.getElementById("focal-center-banner");
+
   if (tree.length === 0) {
-    document.getElementById("initial-setup-modal").style.display = "flex";
+    if (zeroDataBox) zeroDataBox.style.display = "block";
+    if (focalBanner) focalBanner.style.display = "none";
+    document.getElementById("tree-canvas-grid").innerHTML = '<div style="text-align:center; padding:40px 20px; color:var(--text-secondary);">Fill out the setup form above to start your family tree.</div>';
     return;
   } else {
-    document.getElementById("initial-setup-modal").style.display = "none";
+    if (zeroDataBox) zeroDataBox.style.display = "none";
+    if (focalBanner) focalBanner.style.display = "flex";
   }
 
   let centerNode = tree.find(n => n.person_id === activeCenterPersonId);
@@ -1213,7 +1210,7 @@ function renderMarriageConnectionMap(tree, marriages, centerNode) {
   const spouseMarriages = marriages.filter(m => m.person_a_id === centerNode.person_id || m.person_b_id === centerNode.person_id);
   
   if (spouseMarriages.length === 0) {
-    container.innerHTML = '<div style="color: var(--text-secondary); font-size: 13px;">No active spouse marriage records linked to ' + escapeHtml(centerNode.name) + '. Use "+ Add Spouse / In-Law 💍" to connect lineages.</div>';
+    container.innerHTML = '<div style="color: var(--text-secondary); font-size: 13px;">No active spouse marriage records linked to ' + escapeHtml(centerNode.name) + '. Use "+ Add Spouse 💍" to connect lineages.</div>';
     return;
   }
 
@@ -1735,9 +1732,7 @@ function handleRedeemActivationKey() {
   const store = getGlobalMfpKeyStore();
   const keyRecord = store[key];
 
-  // 1. CHECK IF KEY EXISTS IN CENTRAL MFP STORE
   if (!keyRecord) {
-    // If dynamically formatted key provided, register it in central store if valid format
     let inferredPlan = null;
     if (key.includes("SILVER") || key.startsWith("MFP-SILV")) inferredPlan = "SILVER";
     if (key.includes("GOLD") || key.startsWith("MFP-GOLD")) inferredPlan = "GOLD";
@@ -1755,19 +1750,17 @@ function handleRedeemActivationKey() {
 
   const rec = store[key];
 
-  // 2. CHECK IF KEY HAS ALREADY BEEN REDEEMED
   if (rec.status === "redeemed") {
     if (rec.redeemed_by === userEmail) {
       msg.style.color = "#34D399";
       msg.innerText = "ℹ️ This key (" + key + ") was already redeemed on your account (" + userEmail + "). Access is active!";
     } else {
       msg.style.color = "#F87171";
-      msg.innerText = "❌ KEY ALREADY REDEEMED: Key (" + key + ") has already been redeemed by another user (" + (rec.redeemed_by || 'another account') + ") and cannot be reused. Each key is single-use only.";
+      msg.innerText = "❌ KEY ALREADY REDEEMED: Key (" + key + ") has already been redeemed by another user and cannot be reused. Each key is single-use only.";
     }
     return;
   }
 
-  // 3. CONFIRM REDEMPTION & LOCK KEY TO THIS USER ONLY
   rec.status = "redeemed";
   rec.redeemed_by = userEmail;
   rec.redeemed_at = new Date().toISOString();
@@ -1810,7 +1803,6 @@ function handleGenerateKey(plan) {
 
   const newKey = prefix + randNum;
   
-  // Register in Central Global MFP Store as available
   store[newKey] = {
     plan: plan,
     days: 30,
