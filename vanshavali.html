@@ -848,7 +848,7 @@ body {
       <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Generate 1-tap Silver, Gold, or Platinum activation keys for family members.</p>
 
       <div style="display: flex; gap: 14px;">
-        <button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Generate Gold Key (₹999)</button>
+        <button class="btn-estate btn-gold" onclick="handleGenerateKey('SILVER')">Generate Silver (₹99)</button><button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Generate Gold (₹299)</button><button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Generate Platinum (₹599)</button>
         <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Generate Platinum Key (₹2,499)</button>
       </div>
       <div id="admin-key-output" style="margin-top: 18px; font-family: monospace; font-size: 16px; color: var(--emerald-accent); font-weight: 800;"></div>
@@ -954,7 +954,7 @@ body {
     <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
       <div class="plan-card-option" id="plan-card-silver" onclick="selectPlanOption('SILVER')">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <strong style="color: #FFF; font-size: 16px;">Silver Estate Plan (Free)</strong>
+          <strong style="color: #FFF; font-size: 16px;">Silver Estate Plan (₹99 / 30 days)</strong>
           <span class="plan-badge plan-silver">Active</span>
         </div>
         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Up to 3 Generations, Basic Graph Canvas &amp; Search.</div>
@@ -962,7 +962,7 @@ body {
 
       <div class="plan-card-option selected-plan" id="plan-card-gold" onclick="selectPlanOption('GOLD')">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <strong style="color: var(--gold-primary); font-size: 16px;">Gold Estate Plan (₹999 Lifetime)</strong>
+          <strong style="color: var(--gold-primary); font-size: 16px;">Gold Estate Plan (₹299 / 30 days)</strong>
           <span style="font-size: 12px; color: var(--emerald-accent); font-weight: 800;">POPULAR</span>
         </div>
         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Unlimited Generations, Full Paternal + Maternal + Spouse Lineages, Bahi Khatta Vault &amp; PDF Downloads.</div>
@@ -970,7 +970,7 @@ body {
 
       <div class="plan-card-option" id="plan-card-platinum" onclick="selectPlanOption('PLATINUM')">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <strong style="color: var(--purple-accent); font-size: 16px;">Platinum Estate Plan (₹2,499 Lifetime)</strong>
+          <strong style="color: var(--purple-accent); font-size: 16px;">Platinum Estate Plan (₹599 / 30 days)</strong>
           <span style="font-size: 12px; color: var(--purple-accent); font-weight: 800;">ULTIMATE</span>
         </div>
         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">All Gold Features + Priority Verification, Multiple Family Trees, Multi-Admin Invites &amp; Direct Support.</div>
@@ -978,7 +978,7 @@ body {
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
-      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20Digital%20Vanshavali%20Gold%20Plan%20(%E2%82%B9999).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
+      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20Digital%20Vanshavali%20Digital%20Vanshavali%20Plan%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
       <button class="btn-estate btn-outline" onclick="closeModal('plan-modal')">Close</button>
     </div>
   </div>
@@ -1767,7 +1767,7 @@ function handleRedeemActivationKey() {
     return;
   }
 
-  if (key.includes("GOLD") || key.startsWith("MFP-GOLD")) {
+  if (key.includes("SILVER") || key.startsWith("MFP-SILV")) { currentPlan = "SILVER"; localStorage.setItem("mfp_user_plan", "SILVER"); localStorage.setItem("mfp_activation_key", key); msg.style.color = "#9CA3AF"; msg.innerText = "🎉 Success! Silver Estate Plan (₹99/30 days) activated with key " + key; renderApp(); } else if (key.includes("GOLD") || key.startsWith("MFP-GOLD")) {
     currentPlan = "GOLD";
     localStorage.setItem("mfp_user_plan", "GOLD");
     localStorage.setItem("mfp_activation_key", key);
