@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
 <link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
 <link rel="manifest" href="/vanshavali/manifest.json">
-<meta name="theme-color" content="#090D16">
+<meta name="theme-color" content="#121827">
 
 <!-- Premium Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,24 +34,28 @@
     appId: "1:548984348697:web:cba90544a074784ac5ca88"
   };
 
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
+  try {
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
+  } catch (e) {
+    console.warn('Firebase analytics info:', e);
+  }
 </script>
 
 <style>
 :root {
-  --bg-dark: #090D16;
-  --bg-card: #121827;
-  --bg-card-hover: #1E293B;
-  --bg-nav: rgba(15, 22, 38, 0.98);
-  --border-subtle: rgba(255, 255, 255, 0.18);
-  --border-gold: #D4AF37;
+  --bg-dark: #0F172A;
+  --bg-card: #1E293B;
+  --bg-card-hover: #334155;
+  --bg-nav: #0F172A;
+  --border-subtle: rgba(255, 255, 255, 0.22);
+  --border-gold: #FBBF24;
   --border-pink: #EC4899;
   --border-blue: #3B82F6;
   --border-emerald: #10B981;
   --text-primary: #FFFFFF;
-  --text-secondary: #E2E8F0;
+  --text-secondary: #F1F5F9;
   --text-muted: #CBD5E1;
   --gold-primary: #FBBF24;
   --gold-glow: rgba(251, 191, 36, 0.35);
@@ -171,7 +175,7 @@ body {
 
 /* MFP ACCOUNT & PLAN BAR */
 .user-access-bar {
-  background: rgba(18, 24, 39, 0.98);
+  background: #1E293B;
   border-bottom: 1px solid var(--border-subtle);
   padding: 12px 20px;
   display: flex;
@@ -203,7 +207,7 @@ body {
 
 /* TOP 3-SIDE RELATION CHAIN TABS BAR */
 .top-relation-chain-tabs {
-  background: #121827;
+  background: #1E293B;
   border: 2px solid var(--border-gold);
   border-radius: 16px;
   padding: 16px;
@@ -230,7 +234,7 @@ body {
   border-radius: 12px;
   font-size: 14px;
   font-weight: 800;
-  background: #090D16;
+  background: #0F172A;
   border: 2px solid var(--border-subtle);
   color: #CBD5E1;
   cursor: pointer;
@@ -247,29 +251,29 @@ body {
   color: #FFF;
 }
 .chain-tab-btn.active-paternal {
-  background: rgba(251, 191, 36, 0.2);
+  background: rgba(251, 191, 36, 0.25);
   border-color: #FBBF24;
   color: #FBBF24;
 }
 .chain-tab-btn.active-maternal {
-  background: rgba(96, 165, 250, 0.2);
+  background: rgba(96, 165, 250, 0.25);
   border-color: #60A5FA;
   color: #60A5FA;
 }
 .chain-tab-btn.active-spouse {
-  background: rgba(244, 114, 182, 0.2);
+  background: rgba(244, 114, 182, 0.25);
   border-color: #F472B6;
   color: #F472B6;
 }
 .chain-tab-btn.active-all {
-  background: rgba(192, 132, 252, 0.2);
+  background: rgba(192, 132, 252, 0.25);
   border-color: #C084FC;
   color: #E9D5FF;
 }
 
 /* FOCAL CENTER BANNER */
 .focal-banner {
-  background: #121827;
+  background: #1E293B;
   border: 1.5px solid var(--border-gold);
   border-radius: 16px;
   padding: 20px 22px;
@@ -303,7 +307,7 @@ body {
 }
 .universal-search-box input {
   width: 100%;
-  background: #090D16;
+  background: #0F172A;
   border: 2px solid var(--border-gold);
   border-radius: 10px;
   padding: 10px 16px 10px 38px;
@@ -324,7 +328,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0; right: 0;
-  background: #121827;
+  background: #1E293B;
   border: 2px solid var(--border-gold);
   border-radius: 10px;
   margin-top: 6px;
@@ -343,7 +347,7 @@ body {
   margin-bottom: 20px;
 }
 .spouse-stat-card {
-  background: #121827;
+  background: #1E293B;
   border: 1.5px solid var(--border-pink);
   border-radius: 12px;
   padding: 14px;
@@ -365,7 +369,7 @@ body {
 }
 
 .marriage-map-card {
-  background: #121827;
+  background: #1E293B;
   border: 1.5px solid var(--border-pink);
   border-radius: 14px;
   padding: 18px 20px;
@@ -388,7 +392,7 @@ body {
   margin-top: 12px;
 }
 .marriage-family-box {
-  background: #090D16;
+  background: #0F172A;
   border: 1.5px solid var(--border-subtle);
   border-radius: 10px;
   padding: 12px 16px;
@@ -475,7 +479,7 @@ body {
 }
 
 .node-card {
-  background: #090D16;
+  background: #0F172A;
   border: 1.5px solid var(--border-subtle);
   border-radius: 14px;
   width: 280px;
@@ -490,16 +494,16 @@ body {
 }
 .node-card.focal-node {
   border: 2.5px solid var(--gold-primary);
-  background: #121827;
+  background: #1E293B;
   box-shadow: 0 0 20px var(--gold-glow);
 }
 .node-card.spouse-node {
   border: 2px solid var(--pink-primary);
-  background: #121827;
+  background: #1E293B;
 }
 .node-card.placeholder-node {
   border: 2px dashed rgba(255, 255, 255, 0.25);
-  background: rgba(9, 13, 22, 0.6);
+  background: rgba(15, 23, 42, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -549,7 +553,7 @@ body {
   margin-top: 16px;
 }
 .path-step-pill {
-  background: #090D16;
+  background: #0F172A;
   border: 1.5px solid var(--border-gold);
   padding: 8px 14px;
   border-radius: 10px;
@@ -578,11 +582,11 @@ body {
   font-family: var(--font-heading);
 }
 
-/* 📱 MOBILE RESPONSIVE MODAL DIALOGS (PITCH BLACK FIX) */
+/* 📱 MOBILE RESPONSIVE MODAL DIALOGS */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(15, 23, 42, 0.92);
   display: none;
   align-items: center;
   justify-content: center;
@@ -591,7 +595,7 @@ body {
   overflow-y: auto;
 }
 .modal-box {
-  background: #121827;
+  background: #1E293B;
   border: 2px solid var(--border-gold);
   border-radius: 16px;
   width: 100%;
@@ -629,7 +633,7 @@ body {
 }
 .form-control {
   width: 100%;
-  background: #090D16;
+  background: #0F172A;
   border: 1.5px solid var(--border-subtle);
   border-radius: 8px;
   padding: 10px 12px;
@@ -643,7 +647,7 @@ body {
 }
 
 .plan-card-option {
-  background: #090D16;
+  background: #0F172A;
   border: 2px solid var(--border-subtle);
   border-radius: 12px;
   padding: 14px;
@@ -717,8 +721,8 @@ body {
     </div>
   </section>
 
-  <!-- ZERO-DATA INLINE SETUP CARD (VISIBLE WHEN NO CENTER PERSON CREATED YET) -->
-  <section class="focal-banner" id="zero-data-inline-setup" style="display: none; background: #121827; border: 2px solid var(--border-gold); padding: 24px; border-radius: 16px;">
+  <!-- ZERO-DATA INLINE SETUP CARD -->
+  <section class="focal-banner" id="zero-data-inline-setup" style="display: none; background: #1E293B; border: 2px solid var(--border-gold); padding: 24px; border-radius: 16px;">
     <div style="width: 100%;">
       <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 20px; margin-bottom: 6px;">🌳 Start Your Digital Vanshavali Family Tree</h2>
       <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 18px;">Welcome! Enter your details below to create your Center Profile and start connecting your family lineage.</p>
@@ -1018,9 +1022,14 @@ body {
 
 <script>
 /* ==========================================================================
-   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v10.0
-   Unified Centralized Single-Use Single-User Key Engine + Mobile Display Fix
+   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v11.0
+   Mobile Direct ReadyState Guard & Central Single-Use Key Engine
    ========================================================================== */
+
+// GLOBAL ERROR CATCHER FOR MOBILE WEBVIEWS
+window.onerror = function(msg, url, line) {
+  console.warn("Vanshavali Runtime Notice:", msg, line);
+};
 
 let currentPlan = localStorage.getItem("mfp_user_plan") || "GOLD";
 let userEmail = localStorage.getItem("mfp_user_email") || "guest@myfinancialplan.in";
@@ -1077,9 +1086,12 @@ function saveStoredMarriages(edges) {
 
 // INITIALIZE CENTER PERSON FROM INLINE CARD WHEN ZERO DATA
 function handleInitializeCenterPersonInline() {
-  const name = document.getElementById("inline-center-name").value.trim();
-  const nativePlace = document.getElementById("inline-center-native").value.trim() || "LOC-VARANASI";
-  const rootId = document.getElementById("inline-center-root").value.trim() || "ROOT-MAIN";
+  const nameInput = document.getElementById("inline-center-name");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const nativeInput = document.getElementById("inline-center-native");
+  const nativePlace = nativeInput ? (nativeInput.value.trim() || "LOC-VARANASI") : "LOC-VARANASI";
+  const rootInput = document.getElementById("inline-center-root");
+  const rootId = rootInput ? (rootInput.value.trim() || "ROOT-MAIN") : "ROOT-MAIN";
 
   if (!name) {
     alert("Please enter your full name.");
@@ -1108,84 +1120,101 @@ function handleInitializeCenterPersonInline() {
 
 // RENDER APP ENGINE
 function renderApp() {
-  const tree = getStoredTree();
-  const marriages = getStoredMarriages();
-  
-  const zeroDataBox = document.getElementById("zero-data-inline-setup");
-  const focalBanner = document.getElementById("focal-center-banner");
+  try {
+    const tree = getStoredTree();
+    const marriages = getStoredMarriages();
+    
+    const zeroDataBox = document.getElementById("zero-data-inline-setup");
+    const focalBanner = document.getElementById("focal-center-banner");
 
-  if (tree.length === 0) {
-    if (zeroDataBox) zeroDataBox.style.display = "block";
-    if (focalBanner) focalBanner.style.display = "none";
-    document.getElementById("tree-canvas-grid").innerHTML = '<div style="text-align:center; padding:40px 20px; color:var(--text-secondary);">Fill out the setup form above to start your family tree.</div>';
-    return;
-  } else {
-    if (zeroDataBox) zeroDataBox.style.display = "none";
-    if (focalBanner) focalBanner.style.display = "flex";
-  }
-
-  let centerNode = tree.find(n => n.person_id === activeCenterPersonId);
-  if (!centerNode) {
-    activeCenterPersonId = tree[0].person_id;
-    centerNode = tree[0];
-  }
-
-  // Update User Account & Plan Display
-  document.getElementById("user-display-email").innerText = userEmail;
-  const planBadge = document.getElementById("plan-display-badge");
-  if (currentPlan === "PLATINUM") {
-    planBadge.innerText = "Platinum Estate Plan";
-    planBadge.className = "plan-badge plan-platinum";
-  } else if (currentPlan === "GOLD") {
-    planBadge.innerText = "Gold Estate Plan";
-    planBadge.className = "plan-badge plan-gold";
-  } else {
-    planBadge.innerText = "Silver Estate Plan";
-    planBadge.className = "plan-badge plan-silver";
-  }
-
-  // Update Hero Focal Banner
-  document.getElementById("focal-center-title").innerHTML = "🎯 Center Person: " + escapeHtml(centerNode.name);
-  document.getElementById("focal-person-id").innerText = centerNode.person_id;
-  document.getElementById("focal-lineage-code").innerText = centerNode.lineage_code || "N/A";
-
-  // Update Top 3-Side Relation Chain Tabs Highlight
-  ["paternal", "maternal", "spouse", "all"].forEach(dir => {
-    const btn = document.getElementById("dir-btn-" + dir);
-    if (btn) {
-      if (activeBranchFilter === dir) {
-        btn.className = "chain-tab-btn active-" + dir;
-      } else {
-        btn.className = "chain-tab-btn";
+    if (tree.length === 0) {
+      if (zeroDataBox) zeroDataBox.style.display = "block";
+      if (focalBanner) focalBanner.style.display = "none";
+      const canvasGrid = document.getElementById("tree-canvas-grid");
+      if (canvasGrid) {
+        canvasGrid.innerHTML = '<div style="text-align:center; padding:30px 16px; color:var(--text-secondary); font-size:14px;">Fill out the setup form above to start your family tree.</div>';
       }
+      updateHeaderAndPlanBadges();
+      return;
+    } else {
+      if (zeroDataBox) zeroDataBox.style.display = "none";
+      if (focalBanner) focalBanner.style.display = "flex";
     }
-  });
 
-  // Toggle Banners for Spouse & All Views
-  const spouseStatsBanner = document.getElementById("spouse-stats-banner");
-  const marriageMapSection = document.getElementById("marriage-map-section");
-  if (activeBranchFilter === "spouse" || activeBranchFilter === "all") {
-    spouseStatsBanner.style.display = "grid";
-    marriageMapSection.style.display = "block";
-    renderSpouseHeritageStats(tree, marriages, centerNode);
-    renderMarriageConnectionMap(tree, marriages, centerNode);
-  } else {
-    spouseStatsBanner.style.display = "none";
-    marriageMapSection.style.display = "none";
+    let centerNode = tree.find(n => n.person_id === activeCenterPersonId);
+    if (!centerNode) {
+      activeCenterPersonId = tree[0].person_id;
+      centerNode = tree[0];
+    }
+
+    updateHeaderAndPlanBadges();
+
+    // Update Hero Focal Banner
+    const titleEl = document.getElementById("focal-center-title");
+    if (titleEl) titleEl.innerHTML = "🎯 Center Person: " + escapeHtml(centerNode.name);
+    const idEl = document.getElementById("focal-person-id");
+    if (idEl) idEl.innerText = centerNode.person_id;
+    const codeEl = document.getElementById("focal-lineage-code");
+    if (codeEl) codeEl.innerText = centerNode.lineage_code || "N/A";
+
+    // Update Top 3-Side Relation Chain Tabs Highlight
+    ["paternal", "maternal", "spouse", "all"].forEach(dir => {
+      const btn = document.getElementById("dir-btn-" + dir);
+      if (btn) {
+        if (activeBranchFilter === dir) {
+          btn.className = "chain-tab-btn active-" + dir;
+        } else {
+          btn.className = "chain-tab-btn";
+        }
+      }
+    });
+
+    // Toggle Banners for Spouse & All Views
+    const spouseStatsBanner = document.getElementById("spouse-stats-banner");
+    const marriageMapSection = document.getElementById("marriage-map-section");
+    if (activeBranchFilter === "spouse" || activeBranchFilter === "all") {
+      if (spouseStatsBanner) spouseStatsBanner.style.display = "grid";
+      if (marriageMapSection) marriageMapSection.style.display = "block";
+      renderSpouseHeritageStats(tree, marriages, centerNode);
+      renderMarriageConnectionMap(tree, marriages, centerNode);
+    } else {
+      if (spouseStatsBanner) spouseStatsBanner.style.display = "none";
+      if (marriageMapSection) marriageMapSection.style.display = "none";
+    }
+
+    // Check Common Ancestor Connections
+    checkCommonAncestorOverlaps(tree);
+
+    // Render Canvas
+    renderTreeCanvas(tree, centerNode);
+
+    // Populate Selects for Pathfinder and Modal
+    populatePathfinderSelects(tree);
+    populateModalExistingSelect(tree);
+
+    // Render Provenance Table
+    renderProvenanceTable(tree);
+  } catch (err) {
+    console.error("Error inside renderApp:", err);
   }
+}
 
-  // Check Common Ancestor Connections
-  checkCommonAncestorOverlaps(tree);
-
-  // Render Canvas
-  renderTreeCanvas(tree, centerNode);
-
-  // Populate Selects for Pathfinder and Modal
-  populatePathfinderSelects(tree);
-  populateModalExistingSelect(tree);
-
-  // Render Provenance Table
-  renderProvenanceTable(tree);
+function updateHeaderAndPlanBadges() {
+  const emailEl = document.getElementById("user-display-email");
+  if (emailEl) emailEl.innerText = userEmail;
+  const planBadge = document.getElementById("plan-display-badge");
+  if (planBadge) {
+    if (currentPlan === "PLATINUM") {
+      planBadge.innerText = "Platinum Estate Plan";
+      planBadge.className = "plan-badge plan-platinum";
+    } else if (currentPlan === "GOLD") {
+      planBadge.innerText = "Gold Estate Plan";
+      planBadge.className = "plan-badge plan-gold";
+    } else {
+      planBadge.innerText = "Silver Estate Plan";
+      planBadge.className = "plan-badge plan-silver";
+    }
+  }
 }
 
 // SPOUSE HERITAGE STATS COMPUTATION
@@ -1197,16 +1226,22 @@ function renderSpouseHeritageStats(tree, marriages, centerNode) {
   const uniqueRoots = new Set(spouseNodes.map(n => n.ancestral_root_id).filter(Boolean));
   const uniquePlaces = new Set(spouseNodes.map(n => n.native_place_id).filter(Boolean));
   
-  document.getElementById("stat-spouses-count").innerText = spouseMarriages.length;
-  document.getElementById("stat-inlaws-count").innerText = spouseNodes.length;
-  document.getElementById("stat-spouse-roots").innerText = uniqueRoots.size;
-  document.getElementById("stat-spouse-places").innerText = uniquePlaces.size;
-  document.getElementById("stat-marriage-verif").innerText = verifiedCount;
+  const spCountEl = document.getElementById("stat-spouses-count");
+  if (spCountEl) spCountEl.innerText = spouseMarriages.length;
+  const inlawCountEl = document.getElementById("stat-inlaws-count");
+  if (inlawCountEl) inlawCountEl.innerText = spouseNodes.length;
+  const rootCountEl = document.getElementById("stat-spouse-roots");
+  if (rootCountEl) rootCountEl.innerText = uniqueRoots.size;
+  const placeCountEl = document.getElementById("stat-spouse-places");
+  if (placeCountEl) placeCountEl.innerText = uniquePlaces.size;
+  const verifCountEl = document.getElementById("stat-marriage-verif");
+  if (verifCountEl) verifCountEl.innerText = verifiedCount;
 }
 
 // MARRIAGE CONNECTION MAP CARD RENDERER
 function renderMarriageConnectionMap(tree, marriages, centerNode) {
   const container = document.getElementById("marriage-connection-content");
+  if (!container) return;
   const spouseMarriages = marriages.filter(m => m.person_a_id === centerNode.person_id || m.person_b_id === centerNode.person_id);
   
   if (spouseMarriages.length === 0) {
@@ -1253,17 +1288,20 @@ function checkCommonAncestorOverlaps(tree) {
 
   const box = document.getElementById("common-ancestor-alert-box");
   const msg = document.getElementById("common-ancestor-msg");
-  if (overlap.length > 0) {
-    box.style.display = "flex";
-    msg.innerText = "Matching Ancestral Root (" + overlap.join(", ") + ") detected between Paternal and Spouse lineages.";
-  } else {
-    box.style.display = "none";
+  if (box && msg) {
+    if (overlap.length > 0) {
+      box.style.display = "flex";
+      msg.innerText = "Matching Ancestral Root (" + overlap.join(", ") + ") detected between Paternal and Spouse lineages.";
+    } else {
+      box.style.display = "none";
+    }
   }
 }
 
 // RENDER TREE CANVAS WITH RELATION GUIDANCE SLOTS
 function renderTreeCanvas(tree, centerNode) {
   const grid = document.getElementById("tree-canvas-grid");
+  if (!grid) return;
   
   let displayNodes = [];
   if (activeBranchFilter === "paternal") {
@@ -1369,6 +1407,7 @@ function setBranchViewFilter(filter) {
 // UNIVERSAL MULTI-IDENTIFIER SEARCH
 function handleUniversalSearch(query) {
   const dropdown = document.getElementById("search-results-dropdown");
+  if (!dropdown) return;
   if (!query || query.trim().length < 2) {
     dropdown.style.display = "none";
     return;
@@ -1411,6 +1450,7 @@ function handleUniversalSearch(query) {
 function populatePathfinderSelects(tree) {
   const fromSel = document.getElementById("pathfinder-from");
   const toSel = document.getElementById("pathfinder-to");
+  if (!fromSel || !toSel) return;
   
   let html = "";
   tree.forEach(n => {
@@ -1427,8 +1467,11 @@ function populatePathfinderSelects(tree) {
 
 // CALCULATE RELATIONSHIP PATH ENGINE
 function calculateAndDisplayRelationshipPath() {
-  const fromId = document.getElementById("pathfinder-from").value;
-  const toId = document.getElementById("pathfinder-to").value;
+  const fromEl = document.getElementById("pathfinder-from");
+  const toEl = document.getElementById("pathfinder-to");
+  if (!fromEl || !toEl) return;
+  const fromId = fromEl.value;
+  const toId = toEl.value;
   const tree = getStoredTree();
   const marriages = getStoredMarriages();
 
@@ -1484,7 +1527,7 @@ function calculateAndDisplayRelationshipPath() {
   const chainContainer = document.getElementById("path-step-chain-container");
 
   if (!pathFound) {
-    chainContainer.innerHTML = '<div style="color: var(--text-secondary);">No direct relationship path connected in current database snapshot.</div>';
+    if (chainContainer) chainContainer.innerHTML = '<div style="color: var(--text-secondary);">No direct relationship path connected in current database snapshot.</div>';
   } else {
     let chainHtml = "";
     pathFound.forEach((step, idx) => {
@@ -1499,15 +1542,16 @@ function calculateAndDisplayRelationshipPath() {
       chainHtml += '<span class="id-badge-code">' + escapeHtml(step.id) + '</span>';
       chainHtml += '</div>';
     });
-    chainContainer.innerHTML = chainHtml;
+    if (chainContainer) chainContainer.innerHTML = chainHtml;
   }
 
-  resultsBox.style.display = "block";
+  if (resultsBox) resultsBox.style.display = "block";
 }
 
 // PROVENANCE TABLE RENDERER
 function renderProvenanceTable(tree) {
   const tbody = document.getElementById("provenance-tbody");
+  if (!tbody) return;
   let html = "";
   
   tree.forEach(n => {
@@ -1538,15 +1582,15 @@ function setAddPersonMode(mode) {
   const linkFields = document.getElementById("form-link-person-fields");
 
   if (mode === "create") {
-    createBtn.className = "btn-estate btn-gold";
-    linkBtn.className = "btn-estate btn-outline";
-    createFields.style.display = "block";
-    linkFields.style.display = "none";
+    if (createBtn) createBtn.className = "btn-estate btn-gold";
+    if (linkBtn) linkBtn.className = "btn-estate btn-outline";
+    if (createFields) createFields.style.display = "block";
+    if (linkFields) linkFields.style.display = "none";
   } else {
-    createBtn.className = "btn-estate btn-outline";
-    linkBtn.className = "btn-estate btn-gold";
-    createFields.style.display = "none";
-    linkFields.style.display = "block";
+    if (createBtn) createBtn.className = "btn-estate btn-outline";
+    if (linkBtn) linkBtn.className = "btn-estate btn-gold";
+    if (createFields) createFields.style.display = "none";
+    if (linkFields) linkFields.style.display = "block";
   }
 }
 
@@ -1556,41 +1600,43 @@ function openConversationalAddModal(presetType) {
   const relSel = document.getElementById("add-select-relation");
 
   if (presetType === "spouse") {
-    title.innerText = "Add Spouse / In-Law Relative (ससुराल पक्ष)";
-    relSel.value = "spouse";
+    if (title) title.innerText = "Add Spouse / In-Law Relative (ससुराल पक्ष)";
+    if (relSel) relSel.value = "spouse";
   } else if (presetType === "father") {
-    title.innerText = "Add Father (पिता)";
-    relSel.value = "father";
+    if (title) title.innerText = "Add Father (पिता)";
+    if (relSel) relSel.value = "father";
   } else if (presetType === "mother") {
-    title.innerText = "Add Mother (माता)";
-    relSel.value = "mother";
+    if (title) title.innerText = "Add Mother (माता)";
+    if (relSel) relSel.value = "mother";
   } else if (presetType === "maternal_grandfather") {
-    title.innerText = "Add Maternal Grandfather (नाना)";
-    relSel.value = "maternal_grandfather";
+    if (title) title.innerText = "Add Maternal Grandfather (नाना)";
+    if (relSel) relSel.value = "maternal_grandfather";
   } else if (presetType === "maternal_grandmother") {
-    title.innerText = "Add Maternal Grandmother (नानी)";
-    relSel.value = "maternal_grandmother";
+    if (title) title.innerText = "Add Maternal Grandmother (नानी)";
+    if (relSel) relSel.value = "maternal_grandmother";
   } else if (presetType === "father_in_law") {
-    title.innerText = "Add Father-in-Law (ससुर)";
-    relSel.value = "father_in_law";
+    if (title) title.innerText = "Add Father-in-Law (ससुर)";
+    if (relSel) relSel.value = "father_in_law";
   } else if (presetType === "mother_in_law") {
-    title.innerText = "Add Mother-in-Law (सास)";
-    relSel.value = "mother_in_law";
+    if (title) title.innerText = "Add Mother-in-Law (सास)";
+    if (relSel) relSel.value = "mother_in_law";
   } else {
-    title.innerText = "Add Family Member / Ancestor";
-    relSel.value = "father";
+    if (title) title.innerText = "Add Family Member / Ancestor";
+    if (relSel) relSel.value = "father";
   }
 
   setAddPersonMode("create");
-  modal.style.display = "flex";
+  if (modal) modal.style.display = "flex";
 }
 
 function closeModal(modalId) {
-  document.getElementById(modalId).style.display = "none";
+  const modal = document.getElementById(modalId);
+  if (modal) modal.style.display = "none";
 }
 
 function populateModalExistingSelect(tree) {
   const sel = document.getElementById("add-select-existing-person");
+  if (!sel) return;
   let html = "";
   tree.forEach(n => {
     html += '<option value="' + n.person_id + '">' + escapeHtml(n.name) + ' (' + escapeHtml(n.person_id) + ')</option>';
@@ -1604,7 +1650,8 @@ function handleSaveMember() {
   const centerNode = tree.find(n => n.person_id === activeCenterPersonId) || tree[0];
 
   if (addPersonMode === "link") {
-    const existingId = document.getElementById("add-select-existing-person").value;
+    const sel = document.getElementById("add-select-existing-person");
+    const existingId = sel ? sel.value : null;
     const existingPerson = tree.find(n => n.person_id === existingId);
     
     if (existingPerson) {
@@ -1622,10 +1669,14 @@ function handleSaveMember() {
       alert("Successfully linked existing person (" + existingPerson.name + ") as spouse relationship edge!");
     }
   } else {
-    const name = document.getElementById("add-input-name").value.trim();
-    const relationType = document.getElementById("add-select-relation").value;
-    const nativePlace = document.getElementById("add-input-native").value.trim() || "LOC-VARANASI";
-    const rootId = document.getElementById("add-input-root").value.trim() || "ROOT-GENERIC";
+    const nameEl = document.getElementById("add-input-name");
+    const name = nameEl ? nameEl.value.trim() : "";
+    const relEl = document.getElementById("add-select-relation");
+    const relationType = relEl ? relEl.value : "father";
+    const nativeEl = document.getElementById("add-input-native");
+    const nativePlace = nativeEl ? (nativeEl.value.trim() || "LOC-VARANASI") : "LOC-VARANASI";
+    const rootEl = document.getElementById("add-input-root");
+    const rootId = rootEl ? (rootEl.value.trim() || "ROOT-GENERIC") : "ROOT-GENERIC";
 
     if (!name) {
       alert("Please enter full person name.");
@@ -1694,7 +1745,8 @@ function handleSaveMember() {
 
 // MFP UNIFIED SINGLE-USE KEY REDEMPTION ENGINE
 function openPlanSelectionModal() {
-  document.getElementById("plan-modal").style.display = "flex";
+  const modal = document.getElementById("plan-modal");
+  if (modal) modal.style.display = "flex";
   highlightSelectedPlanOption(currentPlan);
 }
 
@@ -1721,6 +1773,7 @@ function selectPlanOption(plan) {
 function handleRedeemActivationKey() {
   const input = document.getElementById("activation-key-input");
   const msg = document.getElementById("redemption-msg");
+  if (!input || !msg) return;
   const key = input.value.trim().toUpperCase();
 
   if (!key) {
@@ -1813,7 +1866,8 @@ function handleGenerateKey(plan) {
   };
   saveGlobalMfpKeyStore(store);
 
-  document.getElementById("admin-key-output").innerText = "🔑 Central Single-Use Key Issued (" + plan + " - 30 Days): " + newKey + " [Status: Available / Single-User]";
+  const outEl = document.getElementById("admin-key-output");
+  if (outEl) outEl.innerText = "🔑 Central Single-Use Key Issued (" + plan + " - 30 Days): " + newKey + " [Status: Available / Single-User]";
 }
 
 // UTILITY SANITIZATION
@@ -1827,10 +1881,12 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
-// INITIALIZE ON DOM READY
-document.addEventListener("DOMContentLoaded", function() {
+// SAFELY INITIALIZE APP REGARDLESS OF DOM LOADING STATE
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", renderApp);
+} else {
   renderApp();
-});
+}
 </script>
 
 </body>
