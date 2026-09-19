@@ -40,22 +40,32 @@ _flutter.loader.load({
     canvasKitBaseUrl: "canvaskit/"
   },
   onEntrypointLoaded: async function(engineInitializer) {
+    function hideLoader() {
+      var loader = document.getElementById("loading-indicator");
+      if (loader) {
+        loader.style.opacity = "0";
+        loader.style.transition = "opacity 0.3s ease";
+        setTimeout(function() {
+          if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 300);
+      }
+    }
+
     try {
       let appRunner = await engineInitializer.initializeEngine({
         canvasKitBaseUrl: "canvaskit/"
       });
-      await appRunner.runApp();
-      var loader = document.getElementById("loading-indicator");
-      if (loader) loader.style.display = "none";
+      hideLoader();
+      appRunner.runApp();
     } catch (err) {
       console.warn("Primary CanvasKit engine init notice, retrying fallback:", err);
       try {
         let appRunner = await engineInitializer.initializeEngine();
-        await appRunner.runApp();
-        var loader = document.getElementById("loading-indicator");
-        if (loader) loader.style.display = "none";
+        hideLoader();
+        appRunner.runApp();
       } catch (err2) {
         console.error("Flutter engine startup error:", err2);
+        hideLoader();
       }
     }
   }
