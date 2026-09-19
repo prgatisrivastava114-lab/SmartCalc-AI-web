@@ -58,9 +58,11 @@ _flutter.loader.load({
       hideLoader();
       appRunner.runApp();
     } catch (err) {
-      console.warn("Primary CanvasKit engine init notice, retrying fallback:", err);
+      console.warn("Primary CanvasKit engine init notice, retrying with HTML fallback:", err);
       try {
-        let appRunner = await engineInitializer.initializeEngine();
+        let appRunner = await engineInitializer.initializeEngine({
+          renderer: "html"
+        });
         hideLoader();
         appRunner.runApp();
       } catch (err2) {
