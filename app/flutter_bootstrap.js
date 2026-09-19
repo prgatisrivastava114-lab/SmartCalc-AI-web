@@ -35,4 +35,35 @@ if (!window._flutter) {
 }
 _flutter.buildConfig = {"engineRevision":"5a2a6a42cce67f965cf540fcecf616faca624aa1","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
 
-_flutter.loader.load();
+_flutter.loader.load({
+  onEntrypointLoaded: async function(engineInitializer) {
+    function hideLoader() {
+      var loader = document.getElementById("loading-indicator");
+      if (loader) {
+        loader.style.opacity = "0";
+        loader.style.transition = "opacity 0.4s ease";
+        setTimeout(function() {
+          if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 400);
+      }
+    }
+
+    try {
+      let appRunner = await engineInitializer.initializeEngine({
+        canvasKitBaseUrl: "canvaskit/"
+      });
+      hideLoader();
+      appRunner.runApp();
+    } catch (err) {
+      console.warn("CanvasKit engine init notice, retrying fallback:", err);
+      try {
+        let appRunner = await engineInitializer.initializeEngine();
+        hideLoader();
+        appRunner.runApp();
+      } catch (err2) {
+        console.error("Flutter engine startup error:", err2);
+        hideLoader();
+      }
+    }
+  }
+});
