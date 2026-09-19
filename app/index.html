@@ -83,7 +83,7 @@
   <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-  <div id="loading-indicator" style="position: fixed; inset: 0; background: #081028; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; font-family: system-ui, -apple-system, sans-serif; transition: opacity 0.3s ease;">
+  <div id="loading-indicator" style="position: fixed; inset: 0; background: #081028; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; font-family: system-ui, -apple-system, sans-serif; transition: opacity 0.3s ease; pointer-events: none;">
     <div style="width: 52px; height: 52px; border: 4px solid rgba(251, 191, 36, 0.2); border-top-color: #FBBF24; border-radius: 50%; animation: mfp-spin 0.9s linear infinite; margin-bottom: 20px;"></div>
     <div style="color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: 0.5px;">MyFinancialPlan</div>
     <div style="color: #94A3B8; font-size: 13px; margin-top: 6px;">Loading your financial workspace...</div>
@@ -106,10 +106,13 @@
         }
       }
 
-      // Auto-detect when Flutter mounts canvas or glass pane
+      // Dismiss as soon as Flutter renders the first frame
+      window.addEventListener("flutter-first-frame", dismissLoader);
+
+      // Dismiss if canvas / glass pane elements are appended
       var obs = new MutationObserver(function() {
         if (document.querySelector("flt-glass-pane, flutter-view, canvas, flt-scene-host")) {
-          dismissLoader();
+          setTimeout(dismissLoader, 100);
           obs.disconnect();
         }
       });
