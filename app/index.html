@@ -83,14 +83,17 @@
   <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <div id="loading-indicator" style="position: fixed; inset: 0; background: #081028; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; font-family: system-ui, -apple-system, sans-serif;">
+    <div style="width: 52px; height: 56px; border: 4px solid rgba(251, 191, 36, 0.2); border-top-color: #FBBF24; border-radius: 50%; animation: mfp-spin 0.9s linear infinite; margin-bottom: 20px;"></div>
+    <div style="color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: 0.5px;">MyFinancialPlan</div>
+    <div style="color: #94A3B8; font-size: 13px; margin-top: 6px;">Loading your financial workspace...</div>
+  </div>
+  <style>
+    @keyframes mfp-spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

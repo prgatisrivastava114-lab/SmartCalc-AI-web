@@ -37,7 +37,26 @@ _flutter.buildConfig = {"engineRevision":"5a2a6a42cce67f965cf540fcecf616faca624a
 
 _flutter.loader.load({
   config: {
-    useLocalCanvasKit: true,
     canvasKitBaseUrl: "canvaskit/"
+  },
+  onEntrypointLoaded: async function(engineInitializer) {
+    try {
+      let appRunner = await engineInitializer.initializeEngine({
+        canvasKitBaseUrl: "canvaskit/"
+      });
+      await appRunner.runApp();
+      var loader = document.getElementById("loading-indicator");
+      if (loader) loader.style.display = "none";
+    } catch (err) {
+      console.warn("Primary CanvasKit engine init notice, retrying fallback:", err);
+      try {
+        let appRunner = await engineInitializer.initializeEngine();
+        await appRunner.runApp();
+        var loader = document.getElementById("loading-indicator");
+        if (loader) loader.style.display = "none";
+      } catch (err2) {
+        console.error("Flutter engine startup error:", err2);
+      }
+    }
   }
 });
