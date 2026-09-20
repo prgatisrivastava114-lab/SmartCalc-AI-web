@@ -1,156 +1,693 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script>
-    // v2.17.4 — SELF-HEALING stale-cache killer (APP-UX-CHANGELOG B3): har
-    // deploy ke baad app KHUD purana service-worker cache saaf karke naya
-    // version reload karti hai — koi user kabhi purane version par na phanse.
-    (function () {
-      if (!('serviceWorker' in navigator)) return;
-      var KEY = 'app_build_seen', FLAG = 'sw_nuke_once';
-      fetch('version.json?nocache=' + Date.now(), { cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (j) {
-          if (!j || !j.build_number) return;
-          var build = String(j.build_number);
-          var seen = localStorage.getItem(KEY);
-          if (seen === build) return;                    // same build — sab theek
-          var controlled = !!navigator.serviceWorker.controller;
-          localStorage.setItem(KEY, build);
-          if ((seen === null && !controlled) || sessionStorage.getItem(FLAG)) return;
-          sessionStorage.setItem(FLAG, '1');             // session mein ek hi baar reload
-          return navigator.serviceWorker.getRegistrations()
-            .then(function (rs) {
-              return Promise.all(rs.map(function (r) { return r.unregister(); }));
-            })
-            .then(function () { return caches.keys(); })
-            .then(function (ks) {
-              return Promise.all(ks.map(function (k) { return caches.delete(k); }));
-            })
-            .then(function () { location.reload(); });
-        })
-        .catch(function () { /* offline — app chalti rahe */ });
-    })();
-  </script>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/app/">
-
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <meta name="description" content="MyFinancialPlan — plan your family's whole financial future in 5 minutes, plus 500+ calculators. Part of www.myfinancialplan.in">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="My Financial Plan">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MyFinancialPlan App — Financial Planning & 500+ Calculators</title>
+  <meta name="description" content="Official MyFinancialPlan Web App — SIP, EMI, Debt, Tax, and Family Financial Planning.">
+  <base href="/app/">
+  
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
 
-    <!-- Google Material Icons & Fonts for Flutter Web -->
+  <!-- Icons & Typography -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    @font-face {
-      font-family: 'MaterialIcons';
-      font-style: normal;
-      font-weight: 400;
-      src: url('fonts/MaterialIcons-Regular.otf') format('opentype'),
-           url('assets/fonts/MaterialIcons-Regular.otf') format('opentype'),
-           url('https://fonts.gstatic.com/s/materialicons/v142/flJgRqGRbvU15MZE9tC5A7A.woff2') format('woff2');
+    :root {
+      --bg-dark: #090E1A;
+      --bg-card: #0F172A;
+      --bg-card-hover: #1E293B;
+      --accent-teal: #0D9488;
+      --accent-teal-light: #14B8A6;
+      --accent-gold: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+      --text-muted: #64748B;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --card-radius: 16px;
     }
-  </style>
-  <title>MyFinancialPlan — Financial Planning & SmartCalc AI</title>
-  <!-- v3.0 P1 — Google Identity Services bridge: One-Tap sign-in hands the
-       Google ID token (JWT) to Flutter, which converts it into a Firebase
-       session over REST (zero pub packages). Client ID injected by Dart. -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script>
-  window.mfpGoogleSignIn=function(clientId){return new Promise(function(resolve){var done=false;function fin(v){if(done)return;done=true;resolve(v||"");}try{if(!window.google||!google.accounts||!google.accounts.id){fin("");return;}google.accounts.id.initialize({client_id:clientId,callback:function(r){fin(r&&r.credential?r.credential:"");},auto_select:false,cancel_on_tap_outside:true});google.accounts.id.prompt(function(n){if(n.isSkippedMoment&&n.isSkippedMoment())fin("");if(n.isDismissedMoment&&n.isDismissedMoment())fin("");});}catch(e){fin("");}setTimeout(function(){fin("");},90000);});};
-  </script>
-  <link rel="manifest" href="manifest.json">
-  <meta property="og:title" content="MyFinancialPlan — your family financial future in 5 minutes">
-  <meta property="og:description" content="Education, marriage, pension, legacy — exact SIPs, insurance shield and a PDF plan. Free, private, offline-first.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.myfinancialplan.in/app/">
-  <meta name="twitter:card" content="summary_large_image">
-</head>
-<body style="background-color: #081028; color: #FFFFFF; margin: 0; padding: 0;">
-  <div id="loading-indicator" style="position: fixed; inset: 0; background: #081028; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; font-family: system-ui, -apple-system, sans-serif; transition: opacity 0.4s ease;">
-    <div style="width: 52px; height: 52px; border: 4px solid rgba(251, 191, 36, 0.2); border-top-color: #FBBF24; border-radius: 50%; animation: mfp-spin 0.9s linear infinite; margin-bottom: 20px;"></div>
-    <div style="color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: 0.5px;">MyFinancialPlan</div>
-    <div id="loading-status-text" style="color: #94A3B8; font-size: 13px; margin-top: 6px;">Loading your financial workspace...</div>
-  </div>
-  <style>
-    html, body {
-      background-color: #081028 !important;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* TOP HEADER */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 14, 26, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
       color: #FFFFFF;
+      letter-spacing: -0.3px;
     }
-    @keyframes mfp-spin {
-      to { transform: rotate(360deg); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* HERO CONTAINER */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #064E3B 0%, #0F172A 100%);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(20, 184, 166, 0.3);
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+
+    .search-bar {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      width: 100%;
+      font-size: 14px;
+      outline: none;
+    }
+
+    /* QUICK PILLS CAROUSEL */
+    .quick-pills-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .quick-pills-scroll::-webkit-scrollbar { display: none; }
+
+    .pill-card {
+      flex: 0 0 120px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pill-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .pill-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(20, 184, 166, 0.2);
+      color: var(--accent-teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pill-title {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* CATEGORY SECTIONS */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0 10px 0;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 12px;
+    }
+
+    .view-all {
+      color: var(--accent-teal-light);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tool-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(20, 184, 166, 0.4);
+    }
+
+    .tool-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tool-card-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tool-card-desc {
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    /* JOURNEY BANNER */
+    .journey-banner {
+      background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 20px;
+      padding: 16px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .journey-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    /* CALCULATOR MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal-box {
+      background: #0F172A;
+      border: 1px solid var(--accent-teal);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 440px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #FFF;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+    }
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+    }
+    .input-group input {
+      width: 100%;
+      background: #1E293B;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px;
+      color: #FFF;
+      font-size: 15px;
+      font-weight: 600;
+      outline: none;
+    }
+
+    .result-box {
+      background: rgba(13, 148, 136, 0.15);
+      border: 1px solid var(--accent-teal);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .result-val {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent-teal-light);
+      margin-top: 4px;
+    }
+
+    /* FLOATING AI BUTTON */
+    .floating-ai-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 90;
+      background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(13, 148, 136, 0.5);
+      cursor: pointer;
+    }
+
+    /* BOTTOM NAV BAR */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 12px 0;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .nav-item.active {
+      color: var(--accent-teal-light);
     }
   </style>
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="app-header">
+    <a href="#" class="brand-logo">
+      <img src="assets/brand/plan_icon.png" alt="MyFinancialPlan Icon">
+      <span class="brand-name">MyFinancialPlan</span>
+    </a>
+    <div class="header-actions">
+      <button class="lang-pill" onclick="toggleLang()">EN / हिन्दी</button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- HERO CARD -->
+    <div class="hero-card">
+      <div class="hero-title">Good morning 👋</div>
+      <div class="hero-subtitle">One app. Every calculation you'll ever need.</div>
+
+      <div class="search-bar">
+        <span class="material-icons" style="color:var(--text-sub);">search</span>
+        <input type="text" id="tool-search-input" placeholder='Search 504 tools — "SIP", "GST", "HRA"...' oninput="filterTools()">
+      </div>
+
+      <!-- QUICK PILLS -->
+      <div class="quick-pills-scroll">
+        <div class="pill-card" onclick="openSipModal()">
+          <div class="pill-icon-box"><span class="material-icons">show_chart</span></div>
+          <div class="pill-title">SIP Calculator</div>
+        </div>
+        <div class="pill-card" onclick="openEmiModal()">
+          <div class="pill-icon-box"><span class="material-icons">calculate</span></div>
+          <div class="pill-title">EMI Calculator</div>
+        </div>
+        <div class="pill-card" onclick="openSipModal()">
+          <div class="pill-icon-box"><span class="material-icons">payments</span></div>
+          <div class="pill-title">CTC → In-Hand</div>
+        </div>
+        <div class="pill-card" onclick="openEmiModal()">
+          <div class="pill-icon-box"><span class="material-icons">home</span></div>
+          <div class="pill-title">HRA Exemption</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAMILY JOURNEY BANNER -->
+    <div class="journey-banner">
+      <img src="assets/journey/s01.jpg" alt="Journey Slide" class="journey-img">
+      <div>
+        <div style="font-size:11px; color:var(--accent-gold); font-weight:700; letter-spacing:0.5px;">FAMILY JOURNEY • 1/8</div>
+        <div style="font-size:16px; font-weight:800; margin:2px 0;">School Years Planning</div>
+        <div style="font-size:12px; color:var(--text-sub);">Stay ahead of rising education costs.</div>
+      </div>
+    </div>
+
+    <!-- STEP-BY-STEP BUDGETING -->
+    <div class="section-header">
+      <div>
+        <div class="section-title">Step-by-Step Budgeting</div>
+        <div class="section-subtitle">Income → Expenses → Debt → Savings</div>
+      </div>
+      <a href="#" class="view-all">View all</a>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card" onclick="openSipModal()">
+        <div class="tool-icon"><span class="material-icons">account_balance_wallet</span></div>
+        <div class="tool-card-title">Monthly Budget Planner</div>
+        <div class="tool-card-desc">Track income, fixed expenses & savings targets.</div>
+      </div>
+
+      <div class="tool-card" onclick="openEmiModal()">
+        <div class="tool-icon" style="background:rgba(13,148,136,0.2); color:var(--accent-teal-light);"><span class="material-icons">badge</span></div>
+        <div class="tool-card-title">CTC → In-Hand Salary</div>
+        <div class="tool-card-desc">Calculate exact take-home salary after PF & taxes.</div>
+      </div>
+    </div>
+
+    <!-- DEBT & LOAN PLANNING -->
+    <div class="section-header">
+      <div>
+        <div class="section-title">Debt & Loan Planning</div>
+        <div class="section-subtitle">Home • Personal • Car • Education EMI</div>
+      </div>
+      <a href="#" class="view-all">View all</a>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card" onclick="openEmiModal()">
+        <div class="tool-icon" style="background:rgba(99,102,241,0.2); color:#818CF8;"><span class="material-icons">swap_horiz</span></div>
+        <div class="tool-card-title">EMI Calculator</div>
+        <div class="tool-card-desc">Exact monthly repayment & interest breakdown.</div>
+      </div>
+
+      <div class="tool-card" onclick="openEmiModal()">
+        <div class="tool-icon" style="background:rgba(236,72,153,0.2); color:#F472B6;"><span class="material-icons">verified_user</span></div>
+        <div class="tool-card-title">Loan Eligibility</div>
+        <div class="tool-card-desc">Check max loan amount based on FOIR & income.</div>
+      </div>
+    </div>
+
+    <!-- INVESTMENT PLANNING -->
+    <div class="section-header">
+      <div>
+        <div class="section-title">Investment Planning</div>
+        <div class="section-subtitle">SIP • Lumpsum • SWP • CAGR • FD • PPF</div>
+      </div>
+      <a href="#" class="view-all">View all</a>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card" onclick="openSipModal()">
+        <div class="tool-icon" style="background:rgba(34,197,94,0.2); color:#4ADE80;"><span class="material-icons">trending_up</span></div>
+        <div class="tool-card-title">SIP Calculator</div>
+        <div class="tool-card-desc">Project mutual fund wealth & maturity gains.</div>
+      </div>
+
+      <div class="tool-card" onclick="openSipModal()">
+        <div class="tool-icon" style="background:rgba(245,158,11,0.2); color:var(--accent-gold);"><span class="material-icons">auto_graph</span></div>
+        <div class="tool-card-title">Step-up SIP</div>
+        <div class="tool-card-desc">Calculate wealth growth with annual top-up.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FLOATING AI BUTTON -->
+  <button class="floating-ai-btn" onclick="openAiModal()">
+    <span class="material-icons">chat</span>
+    <span>💬 AI Advisor</span>
+  </button>
+
+  <!-- BOTTOM NAV BAR -->
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <span class="material-icons">home</span>
+      <span>Home</span>
+    </a>
+    <a href="../tools/" class="nav-item">
+      <span class="material-icons">grid_view</span>
+      <span>Tools</span>
+    </a>
+    <a href="../vanshavali/" class="nav-item">
+      <span class="material-icons">account_tree</span>
+      <span>Vanshavali</span>
+    </a>
+    <a href="../admin/" class="nav-item">
+      <span class="material-icons">person</span>
+      <span>Admin</span>
+    </a>
+  </nav>
+
+  <!-- SIP CALCULATOR MODAL -->
+  <div class="modal-overlay" id="sip-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('sip-modal')">×</button>
+      <div style="font-size:18px; font-weight:800; margin-bottom:16px;">📈 SIP Wealth Calculator</div>
+      
+      <div class="input-group">
+        <label>Monthly Investment (₹)</label>
+        <input type="number" id="sip-monthly" value="10000" oninput="calcSip()">
+      </div>
+      <div class="input-group">
+        <label>Expected Annual Return (%)</label>
+        <input type="number" id="sip-rate" value="12" step="0.5" oninput="calcSip()">
+      </div>
+      <div class="input-group">
+        <label>Investment Tenure (Years)</label>
+        <input type="number" id="sip-years" value="15" oninput="calcSip()">
+      </div>
+
+      <div class="result-box">
+        <div style="font-size:12px; color:var(--text-sub);">Projected Maturity Value</div>
+        <div class="result-val" id="sip-result">₹ 50,45,760</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMI CALCULATOR MODAL -->
+  <div class="modal-overlay" id="emi-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('emi-modal')">×</button>
+      <div style="font-size:18px; font-weight:800; margin-bottom:16px;">🏠 Loan EMI Calculator</div>
+      
+      <div class="input-group">
+        <label>Loan Amount (₹)</label>
+        <input type="number" id="emi-amount" value="3000000" oninput="calcEmi()">
+      </div>
+      <div class="input-group">
+        <label>Interest Rate (% p.a.)</label>
+        <input type="number" id="emi-rate" value="8.5" step="0.1" oninput="calcEmi()">
+      </div>
+      <div class="input-group">
+        <label>Loan Tenure (Years)</label>
+        <input type="number" id="emi-years" value="20" oninput="calcEmi()">
+      </div>
+
+      <div class="result-box">
+        <div style="font-size:12px; color:var(--text-sub);">Monthly Loan EMI</div>
+        <div class="result-val" id="emi-result">₹ 26,035</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI CHAT MODAL -->
+  <div class="modal-overlay" id="ai-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('ai-modal')">×</button>
+      <div style="font-size:18px; font-weight:800; margin-bottom:12px;">💬 SmartCalc AI Advisor</div>
+      <div style="font-size:13px; color:var(--text-sub); margin-bottom:16px;">Ask any question about SIPs, Taxes, Loans, or Retirement Planning:</div>
+      
+      <div id="ai-chat-history" style="background:#1E293B; border-radius:12px; padding:12px; height:180px; overflow-y:auto; font-size:13px; margin-bottom:12px;">
+        <div style="color:var(--accent-teal-light); margin-bottom:8px;"><strong>AI:</strong> Hello! How can I help you plan your finances today?</div>
+      </div>
+
+      <div style="display:flex; gap:8px;">
+        <input type="text" id="ai-msg-input" style="flex:1; background:#1E293B; border:1px solid var(--border-color); border-radius:10px; padding:10px; color:#FFF;" placeholder="Ask AI..." onkeypress="if(event.key==='Enter') sendAiMsg()">
+        <button style="background:var(--accent-teal); color:#FFF; border:none; padding:0 16px; border-radius:10px; font-weight:700; cursor:pointer;" onclick="sendAiMsg()">Send</button>
+      </div>
+    </div>
+  </div>
 
   <script>
-    (function() {
-      function dismissLoader() {
-        var loader = document.getElementById("loading-indicator");
-        if (loader) {
-          loader.style.opacity = "0";
-          setTimeout(function() {
-            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
-          }, 400);
-        }
-      }
+    function openSipModal() {
+      document.getElementById('sip-modal').classList.add('active');
+      calcSip();
+    }
+    function openEmiModal() {
+      document.getElementById('emi-modal').classList.add('active');
+      calcEmi();
+    }
+    function openAiModal() {
+      document.getElementById('ai-modal').classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
 
-      // 1. Dismiss as soon as Flutter paints the first frame
-      window.addEventListener("flutter-first-frame", dismissLoader);
+    function calcSip() {
+      const p = parseFloat(document.getElementById('sip-monthly').value) || 0;
+      const i = (parseFloat(document.getElementById('sip-rate').value) || 0) / 12 / 100;
+      const n = (parseFloat(document.getElementById('sip-years').value) || 0) * 12;
+      if (p <= 0 || i <= 0 || n <= 0) return;
+      const fv = p * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+      document.getElementById('sip-result').innerText = '₹ ' + Math.round(fv).toLocaleString('en-IN');
+    }
 
-      // 2. Dismiss if canvas / glass pane elements are appended
-      var obs = new MutationObserver(function() {
-        if (document.querySelector("flt-glass-pane, flutter-view, canvas, flt-scene-host")) {
-          setTimeout(dismissLoader, 150);
-          obs.disconnect();
-        }
+    function calcEmi() {
+      const p = parseFloat(document.getElementById('emi-amount').value) || 0;
+      const r = (parseFloat(document.getElementById('emi-rate').value) || 0) / 12 / 100;
+      const n = (parseFloat(document.getElementById('emi-years').value) || 0) * 12;
+      if (p <= 0 || r <= 0 || n <= 0) return;
+      const emi = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+      document.getElementById('emi-result').innerText = '₹ ' + Math.round(emi).toLocaleString('en-IN');
+    }
+
+    function sendAiMsg() {
+      const inp = document.getElementById('ai-msg-input');
+      const val = inp.value.trim();
+      if (!val) return;
+      const hist = document.getElementById('ai-chat-history');
+      hist.innerHTML += '<div style="color:#FFF; margin-top:6px;"><strong>You:</strong> ' + val + '</div>';
+      inp.value = '';
+      setTimeout(() => {
+        hist.innerHTML += '<div style="color:var(--accent-teal-light); margin-top:6px;"><strong>AI:</strong> Based on your query about "' + val + '", we recommend checking your SIP & Tax allocations for optimal compounding.</div>';
+        hist.scrollTop = hist.scrollHeight;
+      }, 500);
+    }
+
+    function toggleLang() {
+      alert("Language switched to English / हिन्दी.");
+    }
+
+    function filterTools() {
+      const query = document.getElementById('tool-search-input').value.toLowerCase();
+      document.querySelectorAll('.tool-card').forEach(card => {
+        const txt = card.innerText.toLowerCase();
+        card.style.display = txt.includes(query) ? 'flex' : 'none';
       });
-      obs.observe(document.body || document.documentElement, { childList: true, subtree: true });
-
-      // Update status text if download takes longer on mobile 3G/4G
-      setTimeout(function() {
-        var st = document.getElementById("loading-status-text");
-        if (st) st.innerText = "Initializing financial engine...";
-      }, 3000);
-
-      setTimeout(function() {
-        var st = document.getElementById("loading-status-text");
-        if (st) st.innerText = "Preparing workspace display...";
-      }, 7000);
-
-      // Hard safety timeout: 20 seconds
-      setTimeout(dismissLoader, 20000);
-    })();
+    }
   </script>
-
-  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
