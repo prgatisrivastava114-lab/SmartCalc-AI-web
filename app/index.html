@@ -53,7 +53,65 @@
   </style>
 
   <title>MyFinancialPlan — Financial Planning & SmartCalc AI</title>
+  <!-- Google Identity Services (GIS) for One-Tap Sign-In -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    window.mfpGoogleSignIn = function(clientId) {
+      var activeClientId = clientId || "548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com";
+      console.log("mfpGoogleSignIn invoked with clientId:", activeClientId);
+
+      return new Promise(function(resolve) {
+        var done = false;
+        function fin(tokenVal) {
+          if (done) return;
+          done = true;
+          resolve(tokenVal || "");
+        }
+
+        try {
+          if (!window.google || !google.accounts || !google.accounts.id) {
+            console.warn("Google Identity Services SDK not loaded yet");
+            fin("");
+            return;
+          }
+
+          google.accounts.id.initialize({
+            client_id: activeClientId,
+            callback: function(response) {
+              if (response && response.credential) {
+                console.log("Google Sign-In credential received successfully!");
+                fin(response.credential);
+              } else {
+                console.warn("Google Sign-In response missing credential");
+                fin("");
+              }
+            },
+            auto_select: false,
+            cancel_on_tap_outside: true
+          });
+
+          google.accounts.id.prompt(function(notification) {
+            if (notification.isSkippedMoment && notification.isSkippedMoment()) {
+              console.warn("Google One-Tap prompt skipped:", notification.getSkippedReason());
+            }
+            if (notification.isDismissedMoment && notification.isDismissedMoment()) {
+              console.warn("Google One-Tap prompt dismissed:", notification.getDismissedReason());
+            }
+          });
+        } catch(err) {
+          console.error("Error during Google Authentication:", err);
+          fin("");
+        }
+
+        setTimeout(function() {
+          if (!done) {
+            console.warn("Google Authentication timed out after 90 seconds");
+            fin("");
+          }
+        }, 90000);
+      });
+    };
+  </script>
   <link rel="manifest" href="manifest.json">
 </head>
 <body style="background-color: #081028; color: #FFFFFF;">
