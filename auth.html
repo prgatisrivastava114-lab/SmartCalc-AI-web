@@ -38,7 +38,7 @@
   .foot{text-align:center;color:#93A7BC;font-size:11.5px;margin-top:16px;line-height:1.6}
   .hi{color:var(--ink2)}
 </style>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://accounts.google.com/gsi/client" onload="gsignin(0)"></script>
 
 <!-- Official Firebase App & Analytics SDK for SmartCalc-web -->
 <script type="module">
@@ -114,11 +114,24 @@ function $(id){return document.getElementById(id);}
 function fail(m){var e=$('err');e.textContent=m;e.style.display='block';}
 function clearFail(){$('err').style.display='none';}
 
-function gsignin(){
-  if(!(window.google&&google.accounts&&google.accounts.id)){fail('Google sign-in could not load — check your connection and refresh.');return;}
+function gsignin(attempts){
+  attempts = attempts || 0;
+  if (!(window.google && window.google.accounts && window.google.accounts.id)) {
+    if (attempts < 60) {
+      setTimeout(function() { gsignin(attempts + 1); }, 100);
+      return;
+    }
+    fail('Google sign-in could not load — check your connection and refresh.');
+    return;
+  }
+  clearFail();
   try{
     google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCred,auto_select:false,cancel_on_tap_outside:false});
-    google.accounts.id.renderButton($('gbtn'),{theme:'outline',size:'large',width:300,text:'continue_with',shape:'pill'});
+    var btnEl = $('gbtn');
+    if (btnEl) {
+      btnEl.style.display = 'flex';
+      google.accounts.id.renderButton(btnEl, {theme:'outline',size:'large',width:300,text:'continue_with',shape:'pill'});
+    }
     google.accounts.id.prompt();
   }catch(e){fail('Google sign-in error — please refresh the page.');}
 }
