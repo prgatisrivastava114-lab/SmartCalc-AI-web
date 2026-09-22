@@ -310,6 +310,8 @@ function shareHomeQuote(){
   logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
 </script>
 
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
 </head>
 <body id="top">
 
@@ -332,52 +334,31 @@ function shareHomeQuote(){
   <button class="burger" id="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
 </div></nav>
 
-<!-- Official TradingView Ticker Tape -->
+<!-- Single Official TradingView Ticker Tape Strip -->
 <div class="tv-ticker-tape-container" style="margin-top:64px;width:100%;min-height:48px;background:#0B192C;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
   <div class="tradingview-widget-container" style="width:100%;height:48px">
     <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        { "proName": "BSE:SENSEX", "title": "SENSEX" },
+        { "proName": "NSE:NIFTY", "title": "NIFTY 50" },
+        { "proName": "NSE:BANKNIFTY", "title": "BANK NIFTY" },
+        { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
+        { "proName": "NSE:TCS", "title": "TCS" },
+        { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
+        { "proName": "NSE:INFY", "title": "INFOSYS" },
+        { "proName": "FX_IDC:USDINR", "title": "USD/INR" }
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": false,
+      "displayMode": "adaptive",
+      "locale": "en"
+    }
+    </script>
   </div>
 </div>
-
-
-<!-- Centralized Official TradingView Ticker Tape -->
-
-</div>
-
-
-<!-- Official TradingView Real-Time Live Ticker Tape (Regular Mode) -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
 
 <div id="mnav">
   <a class="mlink" href="/vanshavali/" onclick="document.getElementById('mnav').classList.remove('open')">🌳 Digital Vanshavali 👑 (Premium) <span>›</span></a>

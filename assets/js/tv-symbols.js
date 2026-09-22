@@ -142,7 +142,7 @@ window.initTradingViewWidgets = function() {
   // 1. Initialize Ticker Tape Containers
   var tickerContainers = document.querySelectorAll('.tv-ticker-tape-container');
   tickerContainers.forEach(function(container) {
-    if (container.dataset.tvInitialized) return;
+    if (container.dataset.tvInitialized || container.querySelector('script')) return;
     container.dataset.tvInitialized = 'true';
 
     var widgetBox = container.querySelector('.tradingview-widget-container__widget');
