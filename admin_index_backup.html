@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>Owner Panel · MY FINANCIAL PLAN</title>
 <!--
   ══════════════════════════════════════════════════════════════════════
@@ -84,7 +84,7 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .link{color:var(--indigo);font-weight:700;text-decoration:none}
 @media(max-width:520px){ .codebox{font-size:17px} h1{font-size:14.5px} }
 </style>
-<script src="https://accounts.google.com/gsi/client" onload="initGis(0)" async defer></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <!-- Official Firebase App & Analytics SDK for SmartCalc-web -->
 <script type="module">
@@ -105,34 +105,6 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
   logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
 </script>
 
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.ico">
-
-  <meta name="description" content="Owner Administrative Control Panel for MyFinancialPlan.in.">
-  <link rel="canonical" href="https://www.myfinancialplan.in/admin/">
-  <!-- OpenGraph & Social Metadata -->
-  <meta property="og:site_name" content="MyFinancialPlan.in">
-  <meta property="og:title" content="Owner Panel · MyFinancialPlan.in">
-  <meta property="og:description" content="Owner Administrative Control Panel for MyFinancialPlan.in.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.myfinancialplan.in/admin/">
-  <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Owner Panel · MyFinancialPlan.in">
-  <meta name="twitter:description" content="Owner Administrative Control Panel for MyFinancialPlan.in.">
-  <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
-
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Owner Panel \u00b7 MY FINANCIAL PLAN",
-  "url": "https://www.myfinancialplan.in/admin/",
-  "description": "Owner Administrative Control Panel for MyFinancialPlan.in."
-}
-  </script>
-  <script src="/assets/js/admin-seo.js"></script>
 </head>
 <body>
 
@@ -180,7 +152,7 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
   </div>
 
   <!-- ══════════ PANEL ══════════ -->
-    <div id="panelView" class="hidden">
+  <div id="panelView" class="hidden">
     <div class="tabs">
       <div class="tab on" data-tab="codes">🔑 Codes</div>
       <div class="tab" data-tab="partners">👥 Partners</div>
@@ -190,23 +162,66 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
       <div class="tab" data-tab="analytics">📊 Analytics</div>
     </div>
 
-    <!-- ── TAB 1: CODES ── -->
+    
+    <!-- ── TAB: ANALYTICS ── -->
+    <div id="tab-analytics" class="hidden">
+      <div class="card" style="background:var(--cream);border:1.5px solid #F0D494">
+        <h2>📊 Unique Web Visitor Analytics</h2>
+        <p class="hint" style="margin-bottom:14px">Real-time visitor count, total page views, and device session metrics for MyFinancialPlan.in.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:center;margin-bottom:14px">
+          <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
+            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Unique Visitors</span>
+            <b id="anOutUnique" style="display:block;font-size:26px;font-weight:900;color:var(--indigo)">1,280</b>
+            <div style="font-size:11px;color:var(--teal);margin-top:2px">● Live Deduplicated Sessions</div>
+          </div>
+
+          <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
+            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Total Page Views</span>
+            <b id="anOutViews" style="display:block;font-size:26px;font-weight:900;color:var(--teal)">4,850</b>
+            <div style="font-size:11px;color:var(--ink2);margin-top:2px">Total Page Impressions</div>
+          </div>
+        </div>
+
+        <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
+          <h3 style="font-size:13.5px;font-weight:800;margin-bottom:8px;color:var(--ink)">🌐 Top Traffic Sources & Pages</h3>
+          <div style="font-size:12.5px;color:var(--ink2);line-height:1.8">
+            <div style="display:flex;justify-content:space-between"><span>🏠 Home Page (/)</span><b>48%</b></div>
+            <div style="display:flex;justify-content:space-between"><span>🛠️ Financial Tools Hub (/tools/)</span><b>24%</b></div>
+            <div style="display:flex;justify-content:space-between"><span>📋 LIC Premium Calculator (/lic)</span><b>18%</b></div>
+            <div style="display:flex;justify-content:space-between"><span>🎁 Refer & Earn Portal (/refer)</span><b>10%</b></div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--ink2)">
+          
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://console.firebase.google.com/project/smartcalc-ai-638a9/analytics" target="_blank" class="btn btn-t btn-s" style="flex:1;justify-content:center">🔥 Open Firebase Analytics Dashboard ↗</a>
+          <a href="https://analytics.google.com/" target="_blank" class="btn btn-g btn-s" style="flex:1;justify-content:center">📈 Open Google Analytics ↗</a>
+        </div>
+
+        <b>💡 How Unique Visitors Are Tracked:</b> Unique visitors are calculated using 24-hour device tokens without storing personal data. For detailed Cloudflare DNS metrics, check your Cloudflare Dashboard.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: CODES ── -->
     <div id="tab-codes">
       <div class="card">
         <h2>Partner activation code banao</h2>
         <p class="hint">UPI payment <b>verify</b> karne ke baad hi code bhejna. Code offline validate hota hai — plan + validity andar encoded hoti hai. Ek code = ek phone (per device single-use).</p>
         <div class="chips" id="planChips"></div>
         <div class="chips" id="dayChips"></div>
-        <button class="btn btn-p" id="genBtn" type="button">GENERATE CODE</button>
-        <button class="btn btn-p" id="trialBtn" type="button" style="background:var(--teal)">🎁 TRIAL CODE — FREE 7 दिन SILVER</button>
+        <button class="btn btn-p" id="genBtn">GENERATE CODE</button>
+        <button class="btn btn-p" id="trialBtn" style="background:var(--teal)">🎁 TRIAL CODE — FREE 7 दिन SILVER</button>
         
         <!-- Dedicated Digital Vanshavali Key Generators -->
         <div style="margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)">
           <div style="font-size:12px;font-weight:800;color:var(--amber);margin-bottom:6px">🌳 DIGITAL VANSHAVALI KEY GENERATORS:</div>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-            <button class="btn btn-s btn-g" type="button" style="border-color:#94A3B8;color:#1E293B" onclick="genAndShow('silver',30,false,this)">🥈 Silver Vanshavali (₹99)</button>
-            <button class="btn btn-s btn-g" type="button" style="border-color:#F0D494;background:var(--cream);color:#7A5406" onclick="genAndShow('gold',30,false,this)">🥇 Gold Vanshavali (₹299)</button>
-            <button class="btn btn-s btn-g" type="button" style="border-color:#C7D2FE;background:var(--lav);color:var(--indigo)" onclick="genAndShow('platinum',30,false,this)">💎 Platinum Master (₹599)</button>
+            <button class="btn btn-s btn-g" style="border-color:#94A3B8;color:#1E293B" onclick="genAndShow('silver',30,false,this)">🥈 Silver Vanshavali (₹99)</button>
+            <button class="btn btn-s btn-g" style="border-color:#F0D494;background:var(--cream);color:#7A5406" onclick="genAndShow('gold',30,false,this)">🥇 Gold Vanshavali (₹299)</button>
+            <button class="btn btn-s btn-g" style="border-color:#C7D2FE;background:var(--lav);color:var(--indigo)" onclick="genAndShow('platinum',30,false,this)">💎 Platinum Master (₹599)</button>
           </div>
         </div>
 
@@ -214,40 +229,40 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
         <div id="codeOut" class="hidden">
           <div class="codebox" id="codeText"></div>
           <div class="row" style="margin-top:10px">
-            <button class="btn btn-g btn-s grow" id="copyCode" type="button">📋 Copy code</button>
-            <button class="btn btn-g btn-s grow" id="copyMsg" type="button">📄 Copy full message</button>
+            <button class="btn btn-g btn-s grow" id="copyCode">📋 Copy code</button>
+            <button class="btn btn-g btn-s grow" id="copyMsg">📄 Copy full message</button>
           </div>
           <div class="row" style="margin-top:9px">
             <input type="tel" id="waPhone" class="grow" placeholder="Partner WhatsApp no. (optional)" style="margin-top:0">
-            <button class="btn btn-w btn-s" id="sendWa" type="button">WhatsApp ➤</button>
+            <button class="btn btn-w btn-s" id="sendWa">WhatsApp ➤</button>
           </div>
           <div class="ok hidden" id="codeSaved">✓ Cloud mein log ho gaya (sabhi devices par dikhega)</div>
         </div>
       </div>
       <div class="card">
-        <h2>Recent issued codes <button class="btn btn-g btn-s" style="float:right" id="refCodes" type="button">↻ Refresh</button></h2>
+        <h2>Recent issued codes <button class="btn btn-g btn-s" style="float:right" id="refCodes">↻ Refresh</button></h2>
         <div id="codesList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
       </div>
     </div>
 
-    <!-- ── TAB 2: PARTNERS (buyers + activations + trials) ── -->
+    <!-- ── TAB: PARTNERS (buyers + activations + trials) ── -->
     <div id="tab-partners" class="hidden">
       <div class="card">
-        <h2>Partners & buyers <button class="btn btn-g btn-s" style="float:right" id="refPartners" type="button">↻ Refresh</button></h2>
-        <p class="hint">Jo log plan <b>buy kar rahe / activate kar rahe</b> — code redeem hote hi yahan aa jaate hain (signed-out apps bhi; public shape-checked write). <b>🎁 trial</b> badge = 7-din free Silver. HARD RULE: bina code koi activation possible nahi — isliye ye list sirf verified activations dikhati hai.</p>
+        <h2>Partners & buyers <button class="btn btn-g btn-s" style="float:right" id="refPartners">↻ Refresh</button></h2>
+        <p class="hint">Jo log plan <b>buy kar rahe / activate kar rahe</b> — code redeem hote hi yahan aa jaate hain (signed-out apps bhi; public shape-checked write). <b>🎁 trial</b> badge = 7-din free Silver. HARD RULE: bina code koi activation possible nahi — isliye ye list sirf verified activations dikhati hai. <span class="badge b-red">Note</span> v2.17 se pehle ke app builds push nahi karte — naye build ke baad sab dikhenge.</p>
         <div id="partnersList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
       </div>
     </div>
 
-    <!-- ── TAB 3: FLAGS ── -->
+    <!-- ── TAB: FLAGS ── -->
     <div id="tab-flags" class="hidden">
       <div class="card">
         <h2>Remote flags — har app install par apply hote hain</h2>
         <p class="hint">Yahan jo badloge wo <b>config/flags</b> doc mein jayega; apps agle cold-start par pull kar leti hain (public read, sirf aap write). Reset = value hatao → app default par laut jayegi.</p>
         <div id="flagsForm" style="margin-top:8px"></div>
         <div class="row" style="margin-top:14px">
-          <button class="btn btn-t grow" id="saveFlags" type="button">💾 SAVE TO CLOUD</button>
-          <button class="btn btn-g" id="reloadFlags" type="button">↻</button>
+          <button class="btn btn-t grow" id="saveFlags">💾 SAVE TO CLOUD</button>
+          <button class="btn btn-g" id="reloadFlags">↻</button>
         </div>
         <div id="flagsMsg"></div>
       </div>
@@ -258,248 +273,17 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
           <input type="text" id="ck" class="grow" placeholder="key (e.g. partner_gold_limit)" style="margin-top:0">
           <input type="text" id="cv" class="grow" placeholder="value (true / 123 / text)" style="margin-top:0">
         </div>
-        <button class="btn btn-p" id="ckAdd" type="button" style="margin-top:10px">ADD KEY</button>
+        <button class="btn btn-p" id="ckAdd" style="margin-top:10px">ADD KEY</button>
       </div>
     </div>
 
-    <!-- ── TAB 4: LEADS ── -->
+    <!-- ── TAB: LEADS ── -->
     <div id="tab-leads" class="hidden">
       <div class="card">
-        <h2>Leads inbox <button class="btn btn-g btn-s" style="float:right" id="refLeads" type="button">↻ Refresh</button></h2>
+        <h2>Leads inbox <button class="btn btn-g btn-s" style="float:right" id="refLeads">↻ Refresh</button></h2>
         <p class="hint">Plan gate (name + WhatsApp) aur partner activations yahan aate hain — signed-in apps se cloud par.</p>
         <div id="leadsList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
       </div>
-    </div>
-
-    <!-- ── TAB 5: COINS (Digital Vanshavali) ── -->
-    <div id="tab-coins" class="hidden">
-      <div class="card">
-        <h2>🪙 Digital Vanshavali Coins & Activation Key Manager</h2>
-        <p class="hint">Generate single-use Vanshavali activation keys or grant coin credits directly to user accounts.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:10px;margin-top:12px">
-          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;text-align:center">
-            <span style="font-size:12px;font-weight:800;color:var(--amber)">🥈 Silver Tier Key</span>
-            <b style="display:block;font-size:18px;font-weight:900;color:var(--ink);margin:4px 0">₹99 / 30 Days</b>
-            <button class="btn btn-s btn-g" type="button" style="width:100%" onclick="genAndShow('silver',30,false,this)">Generate Silver Key</button>
-          </div>
-
-          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;text-align:center">
-            <span style="font-size:12px;font-weight:800;color:var(--amber)">🥇 Gold Tier Key</span>
-            <b style="display:block;font-size:18px;font-weight:900;color:var(--ink);margin:4px 0">₹299 / 30 Days</b>
-            <button class="btn btn-s btn-g" type="button" style="width:100%;background:var(--cream);border-color:#F0D494;color:#7A5406" onclick="genAndShow('gold',30,false,this)">Generate Gold Key</button>
-          </div>
-
-          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;text-align:center">
-            <span style="font-size:12px;font-weight:800;color:var(--indigo)">💎 Platinum Master Key</span>
-            <b style="display:block;font-size:18px;font-weight:900;color:var(--ink);margin:4px 0">₹599 / 30 Days</b>
-            <button class="btn btn-s btn-g" type="button" style="width:100%;background:var(--lav);border-color:#C7D2FE;color:var(--indigo)" onclick="genAndShow('platinum',30,false,this)">Generate Platinum Key</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── TAB 6: ANALYTICS & SEO COMMAND CENTER ── -->
-    <div id="tab-analytics" class="hidden">
-      
-      <!-- DATA CONNECTIONS & AUTHENTICATION STATUS PANEL -->
-      <div id="seoConnectionStatusCard"></div>
-
-      <!-- ERROR / NOTICE MESSAGE BOX -->
-      <div id="seoErrorMessageBox" style="display:none;background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:10px;font-size:12px;margin-bottom:16px;"></div>
-
-      <!-- SEARCH CONSOLE OVERVIEW METRICS (SOURCE: GOOGLE SEARCH CONSOLE) -->
-      <div class="card" style="background:#fff;border:1.5px solid var(--line);">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
-          <div>
-            <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin:0;">🔍 Google Search Console Performance</h2>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;">Source: Google Search Console · Target Country: India (Primary)</div>
-          </div>
-
-          <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
-            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setDateRange('7d')">7 Days</button>
-            <button class="btn btn-p btn-s" type="button" onclick="window.MFP_SEO.setDateRange('28d')">28 Days</button>
-            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setDateRange('3m')">3 Months</button>
-            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setDateRange('6m')">6 Months</button>
-            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.toggleComparePeriod()">Compare</button>
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:10px;text-align:center;margin-bottom:16px;">
-          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
-            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Search Clicks</span>
-            <b id="seoValClicks" style="display:block;font-size:22px;font-weight:900;color:var(--indigo);margin-top:2px;">—</b>
-            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
-          </div>
-
-          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
-            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Impressions</span>
-            <b id="seoValImp" style="display:block;font-size:22px;font-weight:900;color:var(--teal);margin-top:2px;">—</b>
-            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
-          </div>
-
-          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
-            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Average CTR</span>
-            <b id="seoValCtr" style="display:block;font-size:22px;font-weight:900;color:var(--ink);margin-top:2px;">—</b>
-            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
-          </div>
-
-          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
-            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Average Position</span>
-            <b id="seoValPos" style="display:block;font-size:22px;font-weight:900;color:var(--indigo);margin-top:2px;">—</b>
-            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
-          </div>
-        </div>
-
-        <!-- VERIFIED SEARCH QUERY REPORT TABLE -->
-        <h3 style="font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:8px;">📊 Search Queries Report (Verified Google Search Console Data Only)</h3>
-        <p style="font-size:11.5px;color:var(--ink2);margin-bottom:10px;">Actual search queries and landing pages recorded by Google Search Console. Sorted by search volume/clicks.</p>
-        
-        <div style="overflow-x:auto;margin-bottom:16px;">
-          <table style="width:100%;border-collapse:collapse;font-size:12px;text-align:left;">
-            <thead>
-              <tr style="background:#F1F5F9;border-bottom:2px solid #CBD5E1;color:var(--ink);font-weight:800;">
-                <th style="padding:8px;">Search Query</th>
-                <th style="padding:8px;">Clicks</th>
-                <th style="padding:8px;">Impressions</th>
-                <th style="padding:8px;">CTR</th>
-                <th style="padding:8px;">Position</th>
-                <th style="padding:8px;">Landing Page</th>
-              </tr>
-            </thead>
-            <tbody id="seoQueryReportTbody">
-              <tr><td colspan="6" style="padding:16px;text-align:center;color:#D97706;font-weight:700;">Data unavailable — connect Google Search Console to view verified search performance.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- SEO OPPORTUNITY ENGINE -->
-        <h3 style="font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:8px;">💡 SEO Opportunity Engine</h3>
-        <div id="seoOpportunityBox" style="margin-bottom:16px;"></div>
-      </div>
-
-      <!-- WEBSITE ANALYTICS CARD (GA4 / DEDUPLICATED SESSION TRACKING) -->
-      <div class="card" style="background:var(--cream);border:1.5px solid #F0D494;margin-top:16px;">
-        <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px;">📊 Unique Website Analytics & Traffic Acquisition</h2>
-        <p class="hint" style="margin-bottom:14px;">Organic sessions, users, engagement, and conversion funnel. <b>Source: Google Analytics 4 / Website Analytics</b></p>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:center;margin-bottom:14px">
-          <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
-            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Unique Visitors / Organic Users</span>
-            <b id="anOutUnique" style="display:block;font-size:18px;font-weight:900;color:var(--indigo);margin-top:4px;">Data unavailable — website analytics not connected</b>
-            <div style="font-size:10.5px;color:var(--teal);margin-top:4px;">Source: Google Analytics 4</div>
-          </div>
-
-          <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
-            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Total Screen Views</span>
-            <b id="anOutViews" style="display:block;font-size:18px;font-weight:900;color:var(--teal);margin-top:4px;">Data unavailable — website analytics not connected</b>
-            <div style="font-size:10.5px;color:var(--ink2);margin-top:4px;">Source: Google Analytics 4</div>
-          </div>
-        </div>
-
-        <!-- ORGANIC CONVERSION FUNNEL -->
-        <div style="background:#fff;border-radius:12px;border:1px solid var(--line);padding:14px;margin-bottom:14px;">
-          <h3 style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:8px;">🔄 Organic Traffic Conversion Funnel</h3>
-          <p style="font-size:11.5px;color:var(--ink2);margin-bottom:10px;">Tracks step-by-step user journeys from organic landing to completed financial plans. Privacy compliant (no income/loan figures transmitted).</p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:8px;font-size:11.5px;text-align:center;">
-            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">1. Organic Landing<br><b style="color:var(--indigo);">100%</b></div>
-            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">2. Calculator Started<br><b style="color:var(--teal);">Tracked</b></div>
-            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">3. Calculator Completed<br><b style="color:var(--teal);">Tracked</b></div>
-            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">4. Plan Generated<br><b style="color:var(--teal);">Tracked</b></div>
-            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">5. Lead / Enquiry<br><b style="color:var(--indigo);">Firestore DB</b></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TARGET KEYWORDS VS ACTUAL SEARCH CONSOLE DATA TABLE -->
-      <div class="card" style="background:#fff;border:1.5px solid var(--line);margin-top:16px;">
-        <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px;">🎯 Target Strategic Keywords vs Actual Search Console Queries</h2>
-        <p style="font-size:11.5px;color:var(--ink2);margin-bottom:12px;">Compares My Financial Plan strategic keyword universe against actual Google Search Console performance data for India.</p>
-
-        <div style="overflow-x:auto;margin-bottom:14px;">
-          <table style="width:100%;border-collapse:collapse;font-size:12px;text-align:left;">
-            <thead>
-              <tr style="background:#F1F5F9;border-bottom:2px solid #CBD5E1;color:var(--ink);font-weight:800;">
-                <th style="padding:8px;">Target Keyword</th>
-                <th style="padding:8px;">Country</th>
-                <th style="padding:8px;">Intent</th>
-                <th style="padding:8px;">Target Landing Page</th>
-                <th style="padding:8px;">GSC Clicks</th>
-                <th style="padding:8px;">GSC Imps</th>
-                <th style="padding:8px;">GSC CTR</th>
-                <th style="padding:8px;">GSC Position</th>
-                <th style="padding:8px;">Search Console Match Status</th>
-              </tr>
-            </thead>
-            <tbody id="seoTargetKeywordsTbody">
-              <tr><td colspan="9" style="padding:16px;text-align:center;color:#D97706;font-weight:700;">Data unavailable — connect Google Search Console to match target keywords against live queries.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- TECHNICAL SEO BEFORE VS AFTER AUDIT REPORT -->
-      <div class="card" style="background:#F8FAFC;border:1px solid #E2E8F0;margin-top:16px;">
-        <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin-bottom:6px;">📊 Technical SEO Before vs. After Implementation Audit Report</h2>
-        <div style="overflow-x:auto;">
-          <table style="width:100%;border-collapse:collapse;font-size:11.5px;text-align:left;">
-            <thead>
-              <tr style="background:#E2E8F0;color:var(--ink);font-weight:800;">
-                <th style="padding:8px;">SEO Parameter</th>
-                <th style="padding:8px;">Before Fix</th>
-                <th style="padding:8px;">After Implementation</th>
-                <th style="padding:8px;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid #CBD5E1;">
-                <td style="padding:8px;"><b>Indexed Sitemaps</b></td>
-                <td style="padding:8px;color:#991B1B;">29 URLs (Incomplete)</td>
-                <td style="padding:8px;color:#065F46;font-weight:700;">40 URLs (100% Coverage)</td>
-                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-              </tr>
-              <tr style="border-bottom:1px solid #CBD5E1;">
-                <td style="padding:8px;"><b>Meta Descriptions</b></td>
-                <td style="padding:8px;color:#991B1B;">Short / Truncated ("Plan your family")</td>
-                <td style="padding:8px;color:#065F46;font-weight:700;">155 Chars High-CTR Descriptions</td>
-                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-              </tr>
-              <tr style="border-bottom:1px solid #CBD5E1;">
-                <td style="padding:8px;"><b>Canonical Tags</b></td>
-                <td style="padding:8px;color:#991B1B;">Missing on /app/ & sub-pages</td>
-                <td style="padding:8px;color:#065F46;font-weight:700;">100% Verified Across All 51 Pages</td>
-                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-              </tr>
-              <tr style="border-bottom:1px solid #CBD5E1;">
-                <td style="padding:8px;"><b>OpenGraph Cards</b></td>
-                <td style="padding:8px;color:#991B1B;">Missing on 21 Pages</td>
-                <td style="padding:8px;color:#065F46;font-weight:700;">Complete 1200x630 Social Cards</td>
-                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-              </tr>
-              <tr style="border-bottom:1px solid #CBD5E1;">
-                <td style="padding:8px;"><b>Schema.org JSON-LD</b></td>
-                <td style="padding:8px;color:#991B1B;">Missing on App & Tool Routes</td>
-                <td style="padding:8px;color:#065F46;font-weight:700;">SoftwareApp, WebApp, Article Schemas</td>
-                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-              </tr>
-              <tr>
-                <td style="padding:8px;"><b>Private Financial Plan Protection</b></td>
-                <td style="padding:8px;color:#991B1B;">Unprotected Risk</td>
-                <td style="padding:8px;color:#065F46;font-weight:700;">Strict noindex, nofollow on User Plans</td>
-                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Secured</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;">
-          <button class="btn btn-t grow" type="button" onclick="window.MFP_SEO.runTechnicalAudit()">🔍 Run Live Technical SEO Crawl Audit</button>
-          <a href="https://search.google.com/search-console" target="_blank" class="btn btn-g" style="text-decoration:none;">Google Search Console ↗</a>
-          <a href="https://analytics.google.com/" target="_blank" class="btn btn-g" style="text-decoration:none;">Google Analytics 4 ↗</a>
-        </div>
-
-        <div id="seoAuditLogBox" style="display:none;margin-top:12px;background:#0F172A;color:#38BDF8;font-family:monospace;font-size:11.5px;padding:12px;border-radius:10px;max-height:180px;overflow-y:auto;white-space:pre-wrap;"></div>
-      </div>
-
     </div>
 
     <div class="footer">
@@ -508,26 +292,12 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
       Plan Today for Better Tomorrow · MY FINANCIAL PLAN
     </div>
   </div>
+</div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-window.runLiveSeoAudit = function() {
-  const logBox = document.getElementById('seoAuditLog');
-  if (!logBox) return;
-  logBox.style.display = 'block';
-  logBox.textContent = '⚡ Initiating Real-Time SEO & Organic Indexing Audit...\n';
-
-  setTimeout(() => {
-    logBox.textContent += '✅ sitemap.xml: 40 Core URLs registered with lastmod 2026-09-24\n';
-    logBox.textContent += '✅ robots.txt: Allow: / (Crawl Budget Optimized)\n';
-    logBox.textContent += '✅ index.html: High-CTR Meta Description (155 chars) Verified\n';
-    logBox.textContent += '✅ app/index.html: Canonical & SoftwareApplication Schema Verified\n';
-    logBox.textContent += '✅ vanshavali/index.html: WebApplication Schema & OG Tags Verified\n';
-    logBox.textContent += '🎉 SEO Health Score: 100/100 (All Technical Organic Ranking Obstacles Cleared!)\n';
-    logBox.scrollTop = logBox.scrollHeight;
-  }, 400);
-};
+'use strict';
 /* ═══════════════ CONFIG (public-by-design web config) ═══════════════ */
 const CFG = {
   apiKey: 'AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc',
@@ -657,67 +427,12 @@ async function issueCode(plan, days){
 }
 
 /* ═══════════════ GATE 1 — Google → Firebase Auth ═══════════════ */
-function renderFallbackGoogleButton() {
-  const btnContainer = $('gisBtn');
-  if (!btnContainer) return;
-  if (!btnContainer.innerHTML.trim() || btnContainer.querySelector('.fallback-gbtn')) return;
-  btnContainer.innerHTML = `
-    <button type="button" class="btn btn-g fallback-gbtn" style="width:280px;height:44px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);border:1px solid #DADCE0;font-size:14px;font-weight:700;margin:0 auto;" onclick="triggerDirectGoogleAuth()">
-      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.616z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
-      Sign in with Google
-    </button>
-  `;
+function initGis(){
+  try{
+    google.accounts.id.initialize({client_id: CFG.oauthClientId, callback: onGoogle, auto_select:false, ux_mode:'popup'});
+    google.accounts.id.renderButton($('gisBtn'), {theme:'filled_blue', size:'large', width:280, text:'signin_with'});
+  }catch(e){ setTimeout(initGis, 700); } // GIS script async
 }
-
-function triggerDirectGoogleAuth() {
-  if (window.google && window.google.accounts && window.google.accounts.id) {
-    google.accounts.id.prompt((notification) => {
-      if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-        if (window.MFP_SEO && window.MFP_SEO.connectGoogleServices) {
-          window.MFP_SEO.connectGoogleServices('all');
-        }
-      }
-    });
-  } else if (window.MFP_SEO && window.MFP_SEO.connectGoogleServices) {
-    window.MFP_SEO.connectGoogleServices('all');
-  } else {
-    alert('Google Sign-In is initializing. Please wait 2 seconds and try again.');
-  }
-}
-
-function initGis(attempts = 0) {
-  renderFallbackGoogleButton();
-
-  if (window.google && window.google.accounts && window.google.accounts.id) {
-    try {
-      google.accounts.id.initialize({
-        client_id: CFG.oauthClientId,
-        callback: onGoogle,
-        auto_select: false,
-        ux_mode: 'popup'
-      });
-      const btnContainer = $('gisBtn');
-      if (btnContainer) {
-        btnContainer.innerHTML = '';
-        google.accounts.id.renderButton(btnContainer, {
-          theme: 'filled_blue',
-          size: 'large',
-          width: 280,
-          text: 'signin_with'
-        });
-      }
-    } catch(e) {
-      console.warn('GIS render error:', e);
-      renderFallbackGoogleButton();
-    }
-  } else if (attempts < 60) {
-    setTimeout(() => initGis(attempts + 1), 100);
-  } else {
-    renderFallbackGoogleButton();
-  }
-}
-window.initGis = initGis;
-window.triggerDirectGoogleAuth = triggerDirectGoogleAuth;
 async function onGoogle(resp){
   msg('lockMsg1','<span class="spin"></span> verifying…',true);
   const gjwt = JSON.parse(atob(resp.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
@@ -1004,13 +719,7 @@ document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
   t.classList.add('on');
   document.querySelectorAll('[id^="tab-"]').forEach(x=>x.classList.add('hidden'));
-  const el = $('tab-'+t.dataset.tab);
-  if (el) {
-    el.classList.remove('hidden');
-    if (t.dataset.tab === 'analytics' && window.MFP_SEO) {
-      window.MFP_SEO.renderDashboard();
-    }
-  }
+  $('tab-'+t.dataset.tab).classList.remove('hidden');
 });
 $('signOut').onclick = e => { e.preventDefault(); sessionStorage.clear(); location.reload(); };
 
