@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Present Investments — My Financial Plan</title>
+  <meta name="description" content="Track mutual funds, stocks, FD, PPF, EPF, NPS, gold, and real estate in one place.">
+  <link rel="stylesheet" href="../../assets/css/mfp-design-system.css">
+  <link rel="icon" type="image/jpeg" href="../../apk_extracted/assets/flutter_assets/assets/brand/brand_logo_dark.jpg">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="mfp-header">
+    <div class="mfp-nav-container">
+      <a href="../../index.html" class="mfp-brand">
+        <img src="../../apk_extracted/assets/flutter_assets/assets/brand/brand_logo_dark.jpg" alt="Logo" style="height:32px; border-radius:6px;">
+        <span>My Financial Plan</span>
+        <span class="mfp-brand-badge">PRO</span>
+      </a>
+
+      <nav class="mfp-desktop-nav">
+        <a href="../../index.html" class="mfp-nav-link ">Home</a>
+        <a href="../../app/index.html" class="mfp-nav-link ">Financial Planning</a>
+        <a href="../../financial-health/index.html" class="mfp-nav-link ">Financial Health</a>
+        <a href="../../life-goals/index.html" class="mfp-nav-link ">Life Goals</a>
+        <a href="../../my-investments/index.html" class="mfp-nav-link active">Investments</a>
+        <a href="../../tools/index.html" class="mfp-nav-link ">Calculators</a>
+        <a href="../../learn/index.html" class="mfp-nav-link ">Financial Literacy</a>
+        <a href="../../partner/index.html" class="mfp-nav-link ">Partner</a>
+      </nav>
+
+      <div class="mfp-header-actions">
+        <a href="../../auth.html#login" class="mfp-btn mfp-btn-secondary mfp-btn-sm">Login</a>
+        <a href="../../app/index.html" class="mfp-btn mfp-btn-primary mfp-btn-sm">Create Plan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Body Content -->
+  <main class="mfp-container" style="padding-top:2rem; padding-bottom:3rem;">
+    
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+  <div>
+    <h1 style="font-size:var(--font-3xl); font-weight:800; color:var(--mfp-navy);">My Present Investments</h1>
+    <p style="color:var(--mfp-muted);">Know what you have. Know what you need.</p>
+  </div>
+  <button class="mfp-btn mfp-btn-primary" onclick="alert('Opening investment modal...')">+ Add Investment</button>
+</div>
+
+<div class="mfp-card mfp-card-mint" style="margin-bottom:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; padding:1.5rem 2rem;">
+  <div>
+    <span style="font-size:var(--font-xs); font-weight:700; color:var(--mfp-primary-dark); text-transform:uppercase;">Total Portfolio Value</span>
+    <h2 style="font-size:var(--font-4xl); font-weight:800; color:var(--mfp-navy); line-height:1.1;">₹24,80,000</h2>
+  </div>
+  <div style="display:flex; gap:1.5rem; text-align:right;">
+    <div><p style="font-size:var(--font-xs); color:var(--mfp-muted);">Equity Allocation</p><strong>62% (₹15.3L)</strong></div>
+    <div><p style="font-size:var(--font-xs); color:var(--mfp-muted);">Debt Allocation</p><strong>38% (₹9.5L)</strong></div>
+  </div>
+</div>
+
+<div class="mfp-grid-3">
+  <div class="mfp-card"><h3>📈 Mutual Funds</h3><p style="font-size:var(--font-2xl); font-weight:800; color:var(--mfp-navy);">₹9,50,000</p><p style="font-size:var(--font-xs); color:var(--mfp-muted);">SIP: ₹18,000/mo across 4 funds</p></div>
+  <div class="mfp-card"><h3>🏛️ Stocks / Equity</h3><p style="font-size:var(--font-2xl); font-weight:800; color:var(--mfp-navy);">₹5,80,000</p><p style="font-size:var(--font-xs); color:var(--mfp-muted);">Direct equity holdings</p></div>
+  <div class="mfp-card"><h3>💳 Fixed Deposits (FD/RD)</h3><p style="font-size:var(--font-2xl); font-weight:800; color:var(--mfp-navy);">₹3,60,000</p><p style="font-size:var(--font-xs); color:var(--mfp-muted);">Bank & Post Office liquid FDs</p></div>
+  <div class="mfp-card"><h3>🛡️ Public Provident Fund (PPF)</h3><p style="font-size:var(--font-2xl); font-weight:800; color:var(--mfp-navy);">₹3,20,000</p><p style="font-size:var(--font-xs); color:var(--mfp-muted);">Tax-free compounding</p></div>
+  <div class="mfp-card"><h3>💼 EPF / Provident Fund</h3><p style="font-size:var(--font-2xl); font-weight:800; color:var(--mfp-navy);">₹1,80,000</p><p style="font-size:var(--font-xs); color:var(--mfp-muted);">Employer contribution</p>
+</div>
+  <div class="mfp-card"><h3>🌴 National Pension System (NPS)</h3><p style="font-size:var(--font-2xl); font-weight:800; color:var(--mfp-navy);">₹90,000</p><p style="font-size:var(--font-xs); color:var(--mfp-muted);">Tier-1 retirement account</p></div>
+</div>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mfp-bottom-nav">
+    <a href="../../index.html" class="mfp-bottom-nav-item ">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="../../app/index.html" class="mfp-bottom-nav-item ">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+      <span>Plan</span>
+    </a>
+    <a href="../../life-goals/index.html" class="mfp-bottom-nav-item ">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <span>Goals</span>
+    </a>
+    <a href="../../my-investments/index.html" class="mfp-bottom-nav-item active">
+      <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.09-4-4L2 15.66z"/></svg>
+      <span>Investments</span>
+    </a>
+    <a href="../../my-dashboard/index.html" class="mfp-bottom-nav-item ">
+      <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <span>Dashboard</span>
+    </a>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="mfp-footer">
+    <div class="mfp-container">
+      <div class="mfp-footer-bottom">
+        <div>&copy; 2026 My Financial Plan. Plan Every Stage. Protect Every Dream.</div>
+        <div style="display:flex; gap:1rem;">
+          <a href="../../privacy/index.html">Privacy Policy</a>
+          <a href="../../terms/index.html">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
