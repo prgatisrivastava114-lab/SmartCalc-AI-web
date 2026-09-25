@@ -52,57 +52,71 @@ window.MFP_SEO = {
 
   // Initialize
   init: function() {
+    this.checkUrlOAuthToken();
     this.checkTokenLiveness();
     this.renderConnectionStatus();
     this.renderDashboard();
+
+    // If token exists, sync properties
+    if (this.state.accessToken) {
+      this.fetchAvailableGscProperties();
+      this.fetchAvailableGa4Properties();
+    }
+  },
+
+  checkUrlOAuthToken: function() {
+    const hash = window.location.hash;
+    if (hash && hash.includes('access_token=')) {
+      const params = new URLSearchParams(hash.replace('#', '?'));
+      const token = params.get('access_token');
+      const expiresIn = params.get('expires_in') || '3600';
+      if (token) {
+        this.state.accessToken = token;
+        this.state.tokenExpiry = (Date.now() + parseInt(expiresIn, 10) * 1000).toString();
+        this.state.gscConnected = true;
+        this.state.ga4Connected = true;
+        localStorage.setItem('mfp_g_access_token', token);
+        localStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
+        this.state.syncError = null;
+
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+
+        if (window.showToast) window.showToast('✅ Google Search Console & GA4 Connected!');
+      }
+    }
   },
 
   checkTokenLiveness: function() {
     if (this.state.accessToken && this.state.tokenExpiry) {
       if (Date.now() < parseInt(this.state.tokenExpiry, 10)) {
-        if (this.state.gscProperty) this.state.gscConnected = true;
-        if (this.state.ga4Property) this.state.ga4Connected = true;
+        this.state.gscConnected = true;
+        this.state.ga4Connected = true;
       } else {
         this.state.syncError = 'Google OAuth session expired. Please click Reconnect.';
       }
     }
   },
 
-  // Initiate Google OAuth Authorization Flow
+  // Initiate Universal Google OAuth Authorization Flow (Mobile Compatible)
   connectGoogleServices: function(serviceType) {
     const clientId = '548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com';
+    const redirectUri = window.location.origin + window.location.pathname;
     const scopes = [
       'https://www.googleapis.com/auth/webmasters.readonly',
       'https://www.googleapis.com/auth/analytics.readonly'
     ].join(' ');
 
-    if (window.google && window.google.accounts && window.google.accounts.oauth2) {
-      const client = window.google.accounts.oauth2.initTokenClient({
-        client_id: clientId,
-        scope: scopes,
-        callback: (response) => {
-          if (response && response.access_token) {
-            this.state.accessToken = response.access_token;
-            this.state.tokenExpiry = Date.now() + (response.expires_in * 1000);
-            localStorage.setItem('mfp_g_access_token', response.access_token);
-            localStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry.toString());
-            this.state.syncError = null;
+    const authUrl = 'https://accounts.google.com/o/oauth2/v2/auth' +
+      '?client_id=' + encodeURIComponent(clientId) +
+      '&redirect_uri=' + encodeURIComponent(redirectUri) +
+      '&response_type=token' +
+      '&scope=' + encodeURIComponent(scopes) +
+      '&include_granted_scopes=true' +
+      '&prompt=consent';
 
-            if (window.showToast) window.showToast('✅ Google Authentication Successful!');
-            
-            // Fetch available properties for GSC and GA4
-            this.fetchAvailableGscProperties();
-            this.fetchAvailableGa4Properties();
-          } else {
-            this.state.syncError = 'Google authorization failed or was canceled by user.';
-            this.renderDashboard();
-          }
-        }
-      });
-      client.requestAccessToken();
-    } else {
-      alert('Google Identity Services SDK loading. Please refresh and try again in 3 seconds.');
-    }
+    window.location.href = authUrl;
   },
 
   // Fetch verified GSC Sites
