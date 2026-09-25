@@ -271,14 +271,7 @@ window.MFP_SEO = {
     this.renderDashboard();
   },
 
-  // Toggle Feature Flags
-  toggleFeatureFlag: function(flagName, isEnabled) {
-    if (window.MFP_ENGINE && window.MFP_ENGINE.profile) {
-      window.MFP_ENGINE.profile.featureFlags[flagName] = isEnabled;
-    }
-    localStorage.setItem('mfp_flag_' + flagName, isEnabled ? 'true' : 'false');
-    if (window.showToast) window.showToast(`✅ ${flagName} set to ${isEnabled}`);
-  },
+  // Get Start/End Dates for GSC Query
   getDateParams: function() {
     const end = new Date();
     end.setDate(end.getDate() - 1); // Yesterday
