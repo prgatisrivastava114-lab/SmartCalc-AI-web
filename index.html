@@ -334,17 +334,14 @@ function shareHomeQuote(){
 <nav class="top"><div class="wrap">
   <a href="/"><img class="logo" src="assets/brand/brand_logo.png?v=1" alt="My Financial Plan - Plan Today for Better Tomorrow"></a>
   <div class="links">
-    <a href="tools/">Free Tools</a>
-      <a href="/vanshavali/" style="color:var(--amber);font-weight:700">🌳 Digital Vanshavali 👑</a>
-      <a href="/tools/lic-premium-calculator/">📋 LIC Calculator & Reminders</a>
-    <a href="#market">📈 Live Market</a>
-    <a href="/learn/">Learn</a>
-    <a href="/download/">Download</a>
-    <a href="#why">Why us</a>
-    <a href="#pricing">Plans</a>
-    <a href="#refer" onclick="switchReferTab('ind')">Refer & Earn 🎁</a>
+    <a href="/app/" style="color:var(--teal);font-weight:700">🎯 Financial Plan</a>
+    <a href="/app/#health" style="color:var(--indigo);font-weight:700">💡 Financial Health</a>
+    <a href="/tools/">📊 14 Free Tools</a>
+    <a href="/learn/">📖 Money School</a>
+    <a href="#goals">🎯 Life Goals</a>
+    <a href="#pricing">Plans & Pricing</a>
+    <a href="/refer/">Refer & Earn 🎁</a>
     <a href="#faq">FAQ</a>
-    <a href="#legal" onclick="switchLegalTab('privacy')">Legal</a>
   </div>
   <a class="btn b-teal" href="/app/" style="margin-left:14px;padding:10px 18px;font-size:14px">Open App 🚀</a>
   <button class="burger" id="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
@@ -391,31 +388,76 @@ function shareHomeQuote(){
 
 <header class="hero"><div class="wrap">
   <div class="rise on">
-    <span class="kick">🇮🇳 India's family-first money planner</span>
-    <h1>Your family's entire <span class="grad">financial future</span>, planned in 5 min.</h1>
-    <p class="lede">Child education, her marriage, your dream home, a worry-free pension, even a legacy — one guided plan with exact monthly investments and a branded PDF. Plus <b>500+ smart calculators</b> for every money question — free, instant, private.</p>
+    <span class="kick">🇮🇳 PLAN TODAY FOR BETTER TOMORROW · MY FINANCIAL PLAN</span>
+    <h1>Have You Planned For Your Life's <span class="grad">Important Moments?</span></h1>
+    <p class="lede">Plan Every Stage. Protect Every Dream. Calculate inflation-adjusted costs for your children's future, daughter's marriage, retirement, emergencies, life cover, and family legacy — all in one unified profile with a downloadable PDF report.</p>
     <div class="cta-row">
-      <a class="btn b-teal b-big" href="/app/">🚀 Open Web App — free</a>
-      <a class="btn b-indigo b-big" href="/download/">📲 Download Android App</a>
+      <a class="btn b-teal b-big" href="/app/">🎯 CREATE MY FINANCIAL PLAN — FREE</a>
+      <a class="btn b-indigo b-big" href="/app/#health">💡 CHECK MY FINANCIAL HEALTH</a>
     
     <!-- Featured Premium Banner: Digital Vanshavali -->
-    <div style="margin-top:20px;background:linear-gradient(135deg,#FFFDF0,#FFF6E3);border:1.5px solid #F0D494;border-radius:18px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 4px 16px -6px rgba(212,175,55,.25)">
-      <div>
-        <span style="background:linear-gradient(135deg,#D4AF37,#AA820A);color:#fff;font-weight:900;font-size:10.5px;padding:3px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:.06em">👑 PREMIUM FEATURE</span>
-        <h3 style="font-size:16.5px;font-weight:900;color:var(--ink);margin:4px 0 2px">🌳 Digital Vanshavali (डिजिटल वंशावली)</h3>
-        <p style="font-size:13px;color:var(--ink2);margin:0">🥈 Silver (3 Gen Back + 1 Forward) · 🥇 Gold (5 Gen Back + 1 Forward + Vault) · 💎 Platinum (Unlimited 7+7 Gen & AI)</p>
+    
+    <!-- ── LIFE-GOAL DASHBOARD CARDS ("HAVE YOU PLANNED FOR?") ── -->
+    <section id="goals" style="margin-top:32px;padding:24px 0;background:#fff;border-radius:24px;border:1px solid var(--line);box-shadow:0 4px 20px rgba(23,50,74,0.06);">
+      <div style="padding:0 20px;margin-bottom:16px;">
+        <span style="font-size:11px;font-weight:900;letter-spacing:1px;color:var(--teal);text-transform:uppercase;">Family Life Goals Dashboard</span>
+        <h2 style="font-size:22px;font-weight:900;color:var(--ink);margin-top:2px;">Have You Planned For?</h2>
+        <p style="font-size:13.5px;color:var(--ink2);margin-top:4px;">Swipe or tap any life goal to calculate exact inflation-adjusted requirements and monthly SIP roadmap.</p>
       </div>
-      <a href="/vanshavali/" class="btn b-gold" style="padding:9px 18px;font-size:13.5px;text-decoration:none">Open Digital Vanshavali 👑</a>
-    </div>
 
-    <p style="margin-top:14px;font-size:14px"><a href="/download/" style="color:var(--teal);font-weight:700;text-decoration:none">📥 Android APK + 2-minute install guide — all on the Download page →</a></p>
-    <div class="trust">
-      <span><b>✓</b> 500+ calculators</span>
-      <span><b>✓</b> Web + Android</span>
-      <span><b>✓</b> Hindi + English PDF</span>
-      <span><b>✓</b> Human advisor on call</span>
-    </div>
-  </div>
+      <div style="display:flex;gap:14px;overflow-x:auto;padding:0 20px 14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
+        
+        <!-- Card 1: Child Education -->
+        <div style="flex:0 0 260px;scroll-snap-align:start;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:18px;padding:18px;">
+          <div style="font-size:28px;margin-bottom:6px;">🎓</div>
+          <h3 style="font-size:16px;font-weight:800;color:#1E40AF;">Child Education</h3>
+          <p style="font-size:12px;color:#1E3A8A;margin-top:4px;line-height:1.4;">Higher education costs grow at 8–10% inflation. Calculate exact corpus needed at age 18.</p>
+          <a href="/tools/sip-goal-calculator/" class="btn btn-s" style="margin-top:12px;background:#1D4ED8;color:#fff;width:100%;text-decoration:none;justify-content:center;">Calculate Goal SIP ↗</a>
+        </div>
+
+        <!-- Card 2: Daughter's Marriage -->
+        <div style="flex:0 0 260px;scroll-snap-align:start;background:linear-gradient(135deg,#FCE7F3,#FBCFE8);border:1.5px solid #F472B6;border-radius:18px;padding:18px;">
+          <div style="font-size:28px;margin-bottom:6px;">💍</div>
+          <h3 style="font-size:16px;font-weight:800;color:#9D174D;">Daughter's Marriage</h3>
+          <p style="font-size:12px;color:#831843;margin-top:4px;line-height:1.4;">Plan a grand, stress-free celebration with SSY and goal-based mutual fund portfolios.</p>
+          <a href="/tools/ssy-calculator/" class="btn btn-s" style="margin-top:12px;background:#BE185D;color:#fff;width:100%;text-decoration:none;justify-content:center;">Calculate SSY / SIP ↗</a>
+        </div>
+
+        <!-- Card 3: Self & Spouse Retirement -->
+        <div style="flex:0 0 260px;scroll-snap-align:start;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1.5px solid #34D399;border-radius:18px;padding:18px;">
+          <div style="font-size:28px;margin-bottom:6px;">🌅</div>
+          <h3 style="font-size:16px;font-weight:800;color:#065F46;">Self & Spouse Retirement</h3>
+          <p style="font-size:12px;color:#064E3B;margin-top:4px;line-height:1.4;">Future Retirement Fund Corpus needed to sustain household expenses without income.</p>
+          <a href="/tools/retirement-calculator/" class="btn btn-s" style="margin-top:12px;background:#047857;color:#fff;width:100%;text-decoration:none;justify-content:center;">Calculate Retirement ↗</a>
+        </div>
+
+        <!-- Card 4: Emergency Safety Net -->
+        <div style="flex:0 0 260px;scroll-snap-align:start;background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FBBF24;border-radius:18px;padding:18px;">
+          <div style="font-size:28px;margin-bottom:6px;">🛡️</div>
+          <h3 style="font-size:16px;font-weight:800;color:#92400E;">Emergency Safety Net</h3>
+          <p style="font-size:12px;color:#78350F;margin-top:4px;line-height:1.4;">6 months household expenses saved in liquid funds for job loss and unforeseen emergencies.</p>
+          <a href="/learn/emergency-fund-kitna-hona-chahiye/" class="btn btn-s" style="margin-top:12px;background:#B45309;color:#fff;width:100%;text-decoration:none;justify-content:center;">Size Emergency Fund ↗</a>
+        </div>
+
+        <!-- Card 5: Family Protection -->
+        <div style="flex:0 0 260px;scroll-snap-align:start;background:linear-gradient(135deg,#F5F3FF,#DDD6FE);border:1.5px solid #A78BFA;border-radius:18px;padding:18px;">
+          <div style="font-size:28px;margin-bottom:6px;">❤️</div>
+          <h3 style="font-size:16px;font-weight:800;color:#5B21B6;">Family Protection</h3>
+          <p style="font-size:12px;color:#4C1D95;margin-top:4px;line-height:1.4;">10X annual income term life insurance cover + family health insurance shield.</p>
+          <a href="/tools/lic-premium-calculator/" class="btn btn-s" style="margin-top:12px;background:#6D28D9;color:#fff;width:100%;text-decoration:none;justify-content:center;">Calculate Insurance Gap ↗</a>
+        </div>
+
+        <!-- Card 6: Legacy & Estate Fund -->
+        <div style="flex:0 0 260px;scroll-snap-align:start;background:linear-gradient(135deg,#FEF2F2,#FECACA);border:1.5px solid #F87171;border-radius:18px;padding:18px;">
+          <div style="font-size:28px;margin-bottom:6px;">🏛️</div>
+          <h3 style="font-size:16px;font-weight:800;color:#991B1B;">Legacy & Estate Fund</h3>
+          <p style="font-size:12px;color:#7F1D1D;margin-top:4px;line-height:1.4;">Preserve generational wealth and nominee distributions for future generations.</p>
+          <a href="/app/" class="btn btn-s" style="margin-top:12px;background:#B91C1C;color:#fff;width:100%;text-decoration:none;justify-content:center;">Include in Plan ↗</a>
+        </div>
+
+      </div>
+    </section>
+
   <div class="hero-vis rise on">
     <div class="chip chip-a">🛡️ <div>₹7.5 Cr protection<small>term + health shield</small></div></div>
     <div class="chip chip-b">📄 <div>Branded PDF plan<small>Hindi · English</small></div></div>

@@ -242,6 +242,46 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
     <!-- ── TAB 3: FLAGS ── -->
     <div id="tab-flags" class="hidden">
       <div class="card">
+        <h2>🚩 System Feature Flags & Module Toggles</h2>
+        <p class="hint">Control public launch visibility for feature modules. Disabling a module hides it from the launch UI while 100% preserving underlying database records and user data.</p>
+
+        <div style="display:grid;gap:10px;margin-top:12px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;">
+            <div>
+              <b style="font-size:13.5px;color:var(--ink);">🌳 Digital Vanshavali Module (VANSHAVALI_ENABLED)</b>
+              <div style="font-size:11.5px;color:var(--ink2);margin-top:2px;">When disabled (false), hides genealogy tree from primary launch UI while preserving all database tables & records.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="flagVanshavaliToggle" onchange="window.MFP_SEO.toggleFeatureFlag('VANSHAVALI_ENABLED', this.checked)">
+              <span class="sl"></span>
+            </label>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;">
+            <div>
+              <b style="font-size:13.5px;color:var(--ink);">📊 Calculator Hub Module (CALCULATORS_HUB_ENABLED)</b>
+              <div style="font-size:11.5px;color:var(--ink2);margin-top:2px;">Controls public indexability and visibility of the 14+ financial planning calculators.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="flagCalculatorsToggle" checked onchange="window.MFP_SEO.toggleFeatureFlag('CALCULATORS_HUB_ENABLED', this.checked)">
+              <span class="sl"></span>
+            </label>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;">
+            <div>
+              <b style="font-size:13.5px;color:var(--ink);">📖 Money School / Literacy Center (FINANCIAL_LITERACY_ENABLED)</b>
+              <div style="font-size:11.5px;color:var(--ink2);margin-top:2px;">Controls financial education articles and Hindi/Hinglish guides.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="flagLiteracyToggle" checked onchange="window.MFP_SEO.toggleFeatureFlag('FINANCIAL_LITERACY_ENABLED', this.checked)">
+              <span class="sl"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
         <h2>Remote flags — har app install par apply hote hain</h2>
         <p class="hint">Yahan jo badloge wo <b>config/flags</b> doc mein jayega; apps agle cold-start par pull kar leti hain (public read, sirf aap write). Reset = value hatao → app default par laut jayegi.</p>
         <div id="flagsForm" style="margin-top:8px"></div>
