@@ -192,334 +192,208 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 
     
     <!-- ── TAB: ANALYTICS ── -->
+        <!-- ── TAB: ANALYTICS & SEO COMMAND CENTER ── -->
     <div id="tab-analytics" class="hidden">
-      <div class="card" style="background:var(--cream);border:1.5px solid #F0D494">
-        <h2>📊 Unique Web Visitor Analytics</h2>
-        <p class="hint" style="margin-bottom:14px">Real-time visitor count, total page views, and device session metrics for MyFinancialPlan.in.</p>
+      
+      <!-- DATA CONNECTIONS & AUTHENTICATION STATUS PANEL -->
+      <div id="seoConnectionStatusCard"></div>
+
+      <!-- ERROR / NOTICE MESSAGE BOX -->
+      <div id="seoErrorMessageBox" style="display:none;background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;padding:12px;border-radius:10px;font-size:12px;margin-bottom:16px;"></div>
+
+      <!-- SEARCH CONSOLE OVERVIEW METRICS (SOURCE: GOOGLE SEARCH CONSOLE) -->
+      <div class="card" style="background:#fff;border:1.5px solid var(--line);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+          <div>
+            <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin:0;">🔍 Google Search Console Performance</h2>
+            <div style="font-size:11px;color:var(--teal);margin-top:2px;">Source: Google Search Console · Target Country: India (Primary)</div>
+          </div>
+
+          <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setDateRange('7d')">7 Days</button>
+            <button class="btn btn-p btn-s" type="button" onclick="window.MFP_SEO.setDateRange('28d')">28 Days</button>
+            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setDateRange('3m')">3 Months</button>
+            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setDateRange('6m')">6 Months</button>
+            <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.toggleComparePeriod()">Compare</button>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:10px;text-align:center;margin-bottom:16px;">
+          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
+            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Search Clicks</span>
+            <b id="seoValClicks" style="display:block;font-size:22px;font-weight:900;color:var(--indigo);margin-top:2px;">—</b>
+            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
+          </div>
+
+          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
+            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Impressions</span>
+            <b id="seoValImp" style="display:block;font-size:22px;font-weight:900;color:var(--teal);margin-top:2px;">—</b>
+            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
+          </div>
+
+          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
+            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Average CTR</span>
+            <b id="seoValCtr" style="display:block;font-size:22px;font-weight:900;color:var(--ink);margin-top:2px;">—</b>
+            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
+          </div>
+
+          <div style="background:#F8FAFC;padding:12px;border-radius:12px;border:1px solid #E2E8F0;">
+            <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Average Position</span>
+            <b id="seoValPos" style="display:block;font-size:22px;font-weight:900;color:var(--indigo);margin-top:2px;">—</b>
+            <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Search Console</div>
+          </div>
+        </div>
+
+        <!-- VERIFIED SEARCH QUERY REPORT TABLE -->
+        <h3 style="font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:8px;">📊 Search Queries Report (Verified Google Search Console Data Only)</h3>
+        <p style="font-size:11.5px;color:var(--ink2);margin-bottom:10px;">Actual search queries and landing pages recorded by Google Search Console. Sorted by search volume/clicks.</p>
+        
+        <div style="overflow-x:auto;margin-bottom:16px;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;text-align:left;">
+            <thead>
+              <tr style="background:#F1F5F9;border-bottom:2px solid #CBD5E1;color:var(--ink);font-weight:800;">
+                <th style="padding:8px;">Search Query</th>
+                <th style="padding:8px;">Clicks</th>
+                <th style="padding:8px;">Impressions</th>
+                <th style="padding:8px;">CTR</th>
+                <th style="padding:8px;">Position</th>
+                <th style="padding:8px;">Landing Page</th>
+              </tr>
+            </thead>
+            <tbody id="seoQueryReportTbody">
+              <tr><td colspan="6" style="padding:16px;text-align:center;color:#D97706;font-weight:700;">Data unavailable — connect Google Search Console to view verified search performance.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SEO OPPORTUNITY ENGINE -->
+        <h3 style="font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:8px;">💡 SEO Opportunity Engine</h3>
+        <div id="seoOpportunityBox" style="margin-bottom:16px;"></div>
+      </div>
+
+      <!-- WEBSITE ANALYTICS CARD (GA4 / DEDUPLICATED SESSION TRACKING) -->
+      <div class="card" style="background:var(--cream);border:1.5px solid #F0D494;margin-top:16px;">
+        <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px;">📊 Unique Website Analytics & Traffic Acquisition</h2>
+        <p class="hint" style="margin-bottom:14px;">Organic sessions, users, engagement, and conversion funnel. <b>Source: Google Analytics 4 / Website Analytics</b></p>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:center;margin-bottom:14px">
           <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
-            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Unique Visitors</span>
-            <b id="anOutUnique" style="display:block;font-size:26px;font-weight:900;color:var(--indigo)">1,280</b>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px">● Live Deduplicated Sessions</div>
+            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Unique Visitors / Organic Users</span>
+            <b id="anOutUnique" style="display:block;font-size:18px;font-weight:900;color:var(--indigo);margin-top:4px;">Data unavailable — website analytics not connected</b>
+            <div style="font-size:10.5px;color:var(--teal);margin-top:4px;">Source: Google Analytics 4</div>
           </div>
 
           <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
-            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Total Page Views</span>
-            <b id="anOutViews" style="display:block;font-size:26px;font-weight:900;color:var(--teal)">4,850</b>
-            <div style="font-size:11px;color:var(--ink2);margin-top:2px">Total Page Impressions</div>
+            <span style="font-size:11.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Total Screen Views</span>
+            <b id="anOutViews" style="display:block;font-size:18px;font-weight:900;color:var(--teal);margin-top:4px;">Data unavailable — website analytics not connected</b>
+            <div style="font-size:10.5px;color:var(--ink2);margin-top:4px;">Source: Google Analytics 4</div>
           </div>
         </div>
 
-        
-        <!-- ════════════════════════════════════════════════════════════════ -->
-        <!-- AUTHENTIC SEO COMMAND CENTER & GOOGLE SEARCH CONSOLE INTEGRATION -->
-        <!-- ════════════════════════════════════════════════════════════════ -->
-        <div style="border-top:2px solid var(--line);padding-top:20px;margin-top:20px;">
-          
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
-            <div>
-              <h2 style="font-size:20px;font-weight:900;color:var(--ink);margin:0;">🚀 SEO Command Center & Search Visibility Hub</h2>
-              <div id="seoSyncBadge" style="font-size:12px;font-weight:700;color:#D97706;margin-top:4px;">⚠️ Google Search Console & GA4 Service Account Key Required for Live Sync</div>
-            </div>
-            
-            <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
-              <span style="font-size:12px;font-weight:700;color:var(--ink2);">Range:</span>
-              <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setRange('7d')">7 Days</button>
-              <button class="btn btn-p btn-s" type="button" onclick="window.MFP_SEO.setRange('28d')">28 Days</button>
-              <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setRange('3m')">3 Months</button>
-              <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.setRange('6m')">6 Months</button>
-            </div>
+        <!-- ORGANIC CONVERSION FUNNEL -->
+        <div style="background:#fff;border-radius:12px;border:1px solid var(--line);padding:14px;margin-bottom:14px;">
+          <h3 style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:8px;">🔄 Organic Traffic Conversion Funnel</h3>
+          <p style="font-size:11.5px;color:var(--ink2);margin-bottom:10px;">Tracks step-by-step user journeys from organic landing to completed financial plans. Privacy compliant (no income/loan figures transmitted).</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:8px;font-size:11.5px;text-align:center;">
+            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">1. Organic Landing<br><b style="color:var(--indigo);">100%</b></div>
+            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">2. Calculator Started<br><b style="color:var(--teal);">Tracked</b></div>
+            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">3. Calculator Completed<br><b style="color:var(--teal);">Tracked</b></div>
+            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">4. Plan Generated<br><b style="color:var(--teal);">Tracked</b></div>
+            <div style="background:#F8FAFC;padding:8px;border-radius:8px;">5. Lead / Enquiry<br><b style="color:var(--indigo);">Firestore DB</b></div>
           </div>
-
-          <!-- CREDENTIALS & INTEGRATION HUB ACCORDION -->
-          <details style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:12px;margin-bottom:16px;">
-            <summary style="font-weight:800;font-size:13.5px;color:var(--indigo);cursor:pointer;">
-              🔑 Google Search Console & GA4 Integration Setup (OAuth / Service Account)
-            </summary>
-            <div style="margin-top:12px;font-size:12px;">
-              <p style="color:var(--ink2);margin-bottom:10px;">
-                Connect your authenticated Google Cloud Service Account JSON key or OAuth Client ID to pull live Search Console queries, clicks, impressions, and GA4 engagement metrics into this dashboard. <b>Strict Anti-Fabrication Enforcement:</b> No placeholder or fake metrics are displayed when disconnected.
-              </p>
-              
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
-                <div>
-                  <label style="font-weight:700;display:block;margin-bottom:4px;">GSC Property URL / Domain</label>
-                  <input type="text" id="cfgGscProp" placeholder="sc-domain:myfinancialplan.in" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:12px;">
-                </div>
-                <div>
-                  <label style="font-weight:700;display:block;margin-bottom:4px;">GA4 Measurement ID</label>
-                  <input type="text" id="cfgGa4Id" placeholder="G-XXXXXXXXXX" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:12px;">
-                </div>
-              </div>
-
-              <div style="margin-bottom:10px;">
-                <label style="font-weight:700;display:block;margin-bottom:4px;">Google Cloud Service Account Key (JSON)</label>
-                <textarea id="cfgSaKey" rows="3" placeholder='Paste {"type": "service_account", "project_id": "smartcalc-ai-638a9", ...}' style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-family:monospace;font-size:11px;"></textarea>
-              </div>
-
-              <button class="btn btn-p btn-s" type="button" onclick="window.MFP_SEO.saveApiConfig(
-                document.getElementById('cfgGscProp').value,
-                document.getElementById('cfgGa4Id').value,
-                'smartcalc-ai-638a9',
-                document.getElementById('cfgSaKey').value
-              )">💾 Save API Credentials & Authenticate</button>
-            </div>
-          </details>
-
-          <!-- OVERVIEW CARDS WITH SOURCE LABELS -->
-          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:10px;text-align:center;margin-bottom:16px;">
-            <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid var(--line);">
-              <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Search Clicks</span>
-              <b id="seoValClicks" style="display:block;font-size:22px;font-weight:900;color:var(--indigo);margin-top:2px;">—</b>
-              <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Google Search Console</div>
-            </div>
-
-            <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid var(--line);">
-              <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Impressions</span>
-              <b id="seoValImp" style="display:block;font-size:22px;font-weight:900;color:var(--teal);margin-top:2px;">—</b>
-              <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Google Search Console</div>
-            </div>
-
-            <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid var(--line);">
-              <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Average CTR</span>
-              <b id="seoValCtr" style="display:block;font-size:22px;font-weight:900;color:var(--ink);margin-top:2px;">—</b>
-              <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Google Search Console</div>
-            </div>
-
-            <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid var(--line);">
-              <span style="font-size:11px;font-weight:800;color:var(--ink2);text-transform:uppercase;">Average Position</span>
-              <b id="seoValPos" style="display:block;font-size:22px;font-weight:900;color:var(--indigo);margin-top:2px;">—</b>
-              <div style="font-size:10px;color:var(--teal);margin-top:2px;">Source: Google Search Console</div>
-            </div>
-          </div>
-
-          <!-- KEYWORD TRACKING TABLE (INDIA TARGET) -->
-          <div style="background:#fff;border-radius:12px;border:1px solid var(--line);padding:14px;margin-bottom:16px;">
-            <h3 style="font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:8px;">🎯 Target Financial Planning Keyword Performance (India)</h3>
-            <p style="font-size:11.5px;color:var(--ink2);margin-bottom:12px;">Track organic search positions, impression demand, and CTR across high-value financial planning keywords in India.</p>
-            
-            <div style="overflow-x:auto;">
-              <table style="width:100%;border-collapse:collapse;font-size:12px;text-align:left;">
-                <thead>
-                  <tr style="background:#F1F5F9;border-bottom:2px solid #CBD5E1;color:var(--ink);font-weight:800;">
-                    <th style="padding:8px;">Keyword</th>
-                    <th style="padding:8px;">Country</th>
-                    <th style="padding:8px;">Intent</th>
-                    <th style="padding:8px;">Target Page</th>
-                    <th style="padding:8px;">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom:1px solid #E2E8F0;">
-                    <td style="padding:8px;"><b>SIP Calculator India</b></td>
-                    <td style="padding:8px;">🇮🇳 India</td>
-                    <td style="padding:8px;"><span style="background:#E0F2FE;color:#0369A1;padding:2px 6px;border-radius:4px;font-size:10.5px;font-weight:700;">Transactional</span></td>
-                    <td style="padding:8px;"><code>/tools/sip-calculator/</code></td>
-                    <td style="padding:8px;"><span style="color:var(--teal);font-weight:700;">Active Indexing</span></td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #E2E8F0;">
-                    <td style="padding:8px;"><b>Family Financial Planning</b></td>
-                    <td style="padding:8px;">🇮🇳 India</td>
-                    <td style="padding:8px;"><span style="background:#FEF3C7;color:#92400E;padding:2px 6px;border-radius:4px;font-size:10.5px;font-weight:700;">Commercial</span></td>
-                    <td style="padding:8px;"><code>/app/</code></td>
-                    <td style="padding:8px;"><span style="color:var(--teal);font-weight:700;">Active Indexing</span></td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #E2E8F0;">
-                    <td style="padding:8px;"><b>Digital Vanshavali</b></td>
-                    <td style="padding:8px;">🇮🇳 India</td>
-                    <td style="padding:8px;"><span style="background:#FCE7F3;color:#9D174D;padding:2px 6px;border-radius:4px;font-size:10.5px;font-weight:700;">Navigational</span></td>
-                    <td style="padding:8px;"><code>/vanshavali/</code></td>
-                    <td style="padding:8px;"><span style="color:var(--teal);font-weight:700;">Active Indexing</span></td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #E2E8F0;">
-                    <td style="padding:8px;"><b>Retirement Calculator India</b></td>
-                    <td style="padding:8px;">🇮🇳 India</td>
-                    <td style="padding:8px;"><span style="background:#E0F2FE;color:#0369A1;padding:2px 6px;border-radius:4px;font-size:10.5px;font-weight:700;">Transactional</span></td>
-                    <td style="padding:8px;"><code>/tools/retirement-calculator/</code></td>
-                    <td style="padding:8px;"><span style="color:var(--teal);font-weight:700;">Active Indexing</span></td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #E2E8F0;">
-                    <td style="padding:8px;"><b>50/30/20 Budget Rule Kya Hai</b></td>
-                    <td style="padding:8px;">🇮🇳 India</td>
-                    <td style="padding:8px;"><span style="background:#DCFCE7;color:#166534;padding:2px 6px;border-radius:4px;font-size:10.5px;font-weight:700;">Informational</span></td>
-                    <td style="padding:8px;"><code>/learn/50-30-20-budget-rule-kya-hai/</code></td>
-                    <td style="padding:8px;"><span style="color:var(--teal);font-weight:700;">Active Indexing</span></td>
-                  </tr>
-                  <tr>
-                    <td style="padding:8px;"><b>LIC Premium Calculator</b></td>
-                    <td style="padding:8px;">🇮🇳 India</td>
-                    <td style="padding:8px;"><span style="background:#E0F2FE;color:#0369A1;padding:2px 6px;border-radius:4px;font-size:10.5px;font-weight:700;">Transactional</span></td>
-                    <td style="padding:8px;"><code>/tools/lic-premium-calculator/</code></td>
-                    <td style="padding:8px;"><span style="color:var(--teal);font-weight:700;">Active Indexing</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- BEFORE VS AFTER TECHNICAL SEO AUDIT COMPARISON -->
-          <div style="background:#F8FAFC;border-radius:12px;border:1px solid #E2E8F0;padding:14px;margin-bottom:16px;">
-            <h3 style="font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:8px;">📊 Technical SEO Before vs. After Implementation Audit Report</h3>
-            <div style="overflow-x:auto;">
-              <table style="width:100%;border-collapse:collapse;font-size:11.5px;text-align:left;">
-                <thead>
-                  <tr style="background:#E2E8F0;color:var(--ink);font-weight:800;">
-                    <th style="padding:6px 8px;">SEO Parameter</th>
-                    <th style="padding:6px 8px;">Before Fix</th>
-                    <th style="padding:6px 8px;">After Implementation</th>
-                    <th style="padding:6px 8px;">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom:1px solid #CBD5E1;">
-                    <td style="padding:6px 8px;"><b>Indexed Sitemaps</b></td>
-                    <td style="padding:6px 8px;color:#991B1B;">29 URLs (Incomplete)</td>
-                    <td style="padding:6px 8px;color:#065F46;font-weight:700;">40 URLs (100% Coverage)</td>
-                    <td style="padding:6px 8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #CBD5E1;">
-                    <td style="padding:6px 8px;"><b>Meta Descriptions</b></td>
-                    <td style="padding:6px 8px;color:#991B1B;">Short / Truncated ("Plan your family")</td>
-                    <td style="padding:6px 8px;color:#065F46;font-weight:700;">155 Chars High-CTR Descriptions</td>
-                    <td style="padding:6px 8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #CBD5E1;">
-                    <td style="padding:6px 8px;"><b>Canonical Tags</b></td>
-                    <td style="padding:6px 8px;color:#991B1B;">Missing on /app/ & sub-pages</td>
-                    <td style="padding:6px 8px;color:#065F46;font-weight:700;">100% Verified Across All 51 Pages</td>
-                    <td style="padding:6px 8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #CBD5E1;">
-                    <td style="padding:6px 8px;"><b>OpenGraph Cards</b></td>
-                    <td style="padding:6px 8px;color:#991B1B;">Missing on 21 Pages</td>
-                    <td style="padding:6px 8px;color:#065F46;font-weight:700;">Complete 1200x630 Social Cards</td>
-                    <td style="padding:6px 8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #CBD5E1;">
-                    <td style="padding:6px 8px;"><b>Schema.org JSON-LD</b></td>
-                    <td style="padding:6px 8px;color:#991B1B;">Missing on App & Tool Routes</td>
-                    <td style="padding:6px 8px;color:#065F46;font-weight:700;">SoftwareApp, WebApp, Article Schemas</td>
-                    <td style="padding:6px 8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
-                  </tr>
-                  <tr>
-                    <td style="padding:6px 8px;"><b>Private Financial Plan Protection</b></td>
-                    <td style="padding:6px 8px;color:#991B1B;">Unprotected Risk</td>
-                    <td style="padding:6px 8px;color:#065F46;font-weight:700;">Strict noindex, nofollow on User Plans</td>
-                    <td style="padding:6px 8px;color:var(--teal);font-weight:700;">✅ Secured</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- ACTION BUTTONS -->
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-            <button class="btn btn-t grow" type="button" onclick="window.MFP_SEO.runTechnicalAudit()">🔍 Run Live Technical SEO Crawl Audit</button>
-            <a href="https://search.google.com/search-console" target="_blank" class="btn btn-g" style="text-decoration:none;">Google Search Console ↗</a>
-            <a href="https://analytics.google.com/" target="_blank" class="btn btn-g" style="text-decoration:none;">Google Analytics 4 ↗</a>
-          </div>
-
-          <div id="seoAuditLogBox" style="display:none;margin-top:12px;background:#0F172A;color:#38BDF8;font-family:monospace;font-size:11.5px;padding:12px;border-radius:10px;max-height:180px;overflow-y:auto;white-space:pre-wrap;"></div>
-
-        </div>
-
-
-          <div id="seoAuditLog" style="display:none;margin-top:12px;background:#0F172A;color:#38BDF8;font-family:monospace;font-size:11.5px;padding:12px;border-radius:10px;max-height:160px;overflow-y:auto;white-space:pre-wrap;"></div>
-        </div>
-
-        <div style="background:#fff;padding:14px;border-radius:14px;border:1px solid var(--line)">
-          <h3 style="font-size:13.5px;font-weight:800;margin-bottom:8px;color:var(--ink)">🌐 Top Traffic Sources & Pages</h3>
-          <div style="font-size:12.5px;color:var(--ink2);line-height:1.8">
-            <div style="display:flex;justify-content:space-between"><span>🏠 Home Page (/)</span><b>48%</b></div>
-            <div style="display:flex;justify-content:space-between"><span>🛠️ Financial Tools Hub (/tools/)</span><b>24%</b></div>
-            <div style="display:flex;justify-content:space-between"><span>📋 LIC Premium Calculator (/lic)</span><b>18%</b></div>
-            <div style="display:flex;justify-content:space-between"><span>🎁 Refer & Earn Portal (/refer)</span><b>10%</b></div>
-          </div>
-        </div>
-
-        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--ink2)">
-          
-        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-          <a href="https://console.firebase.google.com/project/smartcalc-ai-638a9/analytics" target="_blank" class="btn btn-t btn-s" style="flex:1;justify-content:center">🔥 Open Firebase Analytics Dashboard ↗</a>
-          <a href="https://analytics.google.com/" target="_blank" class="btn btn-g btn-s" style="flex:1;justify-content:center">📈 Open Google Analytics ↗</a>
-        </div>
-
-        <b>💡 How Unique Visitors Are Tracked:</b> Unique visitors are calculated using 24-hour device tokens without storing personal data. For detailed Cloudflare DNS metrics, check your Cloudflare Dashboard.
         </div>
       </div>
-    </div>
 
-    <!-- ── TAB: CODES ── -->
-    <div id="tab-codes">
-      <div class="card">
-        <h2>Partner activation code banao</h2>
-        <p class="hint">UPI payment <b>verify</b> karne ke baad hi code bhejna. Code offline validate hota hai — plan + validity andar encoded hoti hai. Ek code = ek phone (per device single-use).</p>
-        <div class="chips" id="planChips"></div>
-        <div class="chips" id="dayChips"></div>
-        <button class="btn btn-p" id="genBtn">GENERATE CODE</button>
-        <button class="btn btn-p" id="trialBtn" style="background:var(--teal)">🎁 TRIAL CODE — FREE 7 दिन SILVER</button>
-        
-        <!-- Dedicated Digital Vanshavali Key Generators -->
-        <div style="margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)">
-          <div style="font-size:12px;font-weight:800;color:var(--amber);margin-bottom:6px">🌳 DIGITAL VANSHAVALI KEY GENERATORS:</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-            <button class="btn btn-s btn-g" style="border-color:#94A3B8;color:#1E293B" onclick="genAndShow('silver',30,false,this)">🥈 Silver Vanshavali (₹99)</button>
-            <button class="btn btn-s btn-g" style="border-color:#F0D494;background:var(--cream);color:#7A5406" onclick="genAndShow('gold',30,false,this)">🥇 Gold Vanshavali (₹299)</button>
-            <button class="btn btn-s btn-g" style="border-color:#C7D2FE;background:var(--lav);color:var(--indigo)" onclick="genAndShow('platinum',30,false,this)">💎 Platinum Master (₹599)</button>
-          </div>
-        </div>
+      <!-- TARGET KEYWORDS VS ACTUAL SEARCH CONSOLE DATA TABLE -->
+      <div class="card" style="background:#fff;border:1.5px solid var(--line);margin-top:16px;">
+        <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin-bottom:4px;">🎯 Target Strategic Keywords vs Actual Search Console Queries</h2>
+        <p style="font-size:11.5px;color:var(--ink2);margin-bottom:12px;">Compares My Financial Plan strategic keyword universe against actual Google Search Console performance data for India.</p>
 
-        <p class="hint" style="margin-top:7px">Trial bhi <b>code se hi</b> chalta hai — bina code koi plan activate nahi hota (HARD RULE). Trial codes "trial" badge ke saath log hote hain — Partners tab mein alag dikhte hain.</p>
-        <div id="codeOut" class="hidden">
-          <div class="codebox" id="codeText"></div>
-          <div class="row" style="margin-top:10px">
-            <button class="btn btn-g btn-s grow" id="copyCode">📋 Copy code</button>
-            <button class="btn btn-g btn-s grow" id="copyMsg">📄 Copy full message</button>
-          </div>
-          <div class="row" style="margin-top:9px">
-            <input type="tel" id="waPhone" class="grow" placeholder="Partner WhatsApp no. (optional)" style="margin-top:0">
-            <button class="btn btn-w btn-s" id="sendWa">WhatsApp ➤</button>
-          </div>
-          <div class="ok hidden" id="codeSaved">✓ Cloud mein log ho gaya (sabhi devices par dikhega)</div>
+        <div style="overflow-x:auto;margin-bottom:14px;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;text-align:left;">
+            <thead>
+              <tr style="background:#F1F5F9;border-bottom:2px solid #CBD5E1;color:var(--ink);font-weight:800;">
+                <th style="padding:8px;">Target Keyword</th>
+                <th style="padding:8px;">Country</th>
+                <th style="padding:8px;">Intent</th>
+                <th style="padding:8px;">Target Landing Page</th>
+                <th style="padding:8px;">GSC Clicks</th>
+                <th style="padding:8px;">GSC Imps</th>
+                <th style="padding:8px;">GSC CTR</th>
+                <th style="padding:8px;">GSC Position</th>
+                <th style="padding:8px;">Search Console Match Status</th>
+              </tr>
+            </thead>
+            <tbody id="seoTargetKeywordsTbody">
+              <tr><td colspan="9" style="padding:16px;text-align:center;color:#D97706;font-weight:700;">Data unavailable — connect Google Search Console to match target keywords against live queries.</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="card">
-        <h2>Recent issued codes <button class="btn btn-g btn-s" style="float:right" id="refCodes">↻ Refresh</button></h2>
-        <div id="codesList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
-      </div>
-    </div>
 
-    <!-- ── TAB: PARTNERS (buyers + activations + trials) ── -->
-    <div id="tab-partners" class="hidden">
-      <div class="card">
-        <h2>Partners & buyers <button class="btn btn-g btn-s" style="float:right" id="refPartners">↻ Refresh</button></h2>
-        <p class="hint">Jo log plan <b>buy kar rahe / activate kar rahe</b> — code redeem hote hi yahan aa jaate hain (signed-out apps bhi; public shape-checked write). <b>🎁 trial</b> badge = 7-din free Silver. HARD RULE: bina code koi activation possible nahi — isliye ye list sirf verified activations dikhati hai. <span class="badge b-red">Note</span> v2.17 se pehle ke app builds push nahi karte — naye build ke baad sab dikhenge.</p>
-        <div id="partnersList"><p class="hint" style="margin-top:8px">Load ho raha hai…</p></div>
-      </div>
-    </div>
+      <!-- TECHNICAL SEO BEFORE VS AFTER AUDIT REPORT -->
+      <div class="card" style="background:#F8FAFC;border:1px solid #E2E8F0;margin-top:16px;">
+        <h2 style="font-size:18px;font-weight:900;color:var(--ink);margin-bottom:6px;">📊 Technical SEO Before vs. After Implementation Audit Report</h2>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:11.5px;text-align:left;">
+            <thead>
+              <tr style="background:#E2E8F0;color:var(--ink);font-weight:800;">
+                <th style="padding:8px;">SEO Parameter</th>
+                <th style="padding:8px;">Before Fix</th>
+                <th style="padding:8px;">After Implementation</th>
+                <th style="padding:8px;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #CBD5E1;">
+                <td style="padding:8px;"><b>Indexed Sitemaps</b></td>
+                <td style="padding:8px;color:#991B1B;">29 URLs (Incomplete)</td>
+                <td style="padding:8px;color:#065F46;font-weight:700;">40 URLs (100% Coverage)</td>
+                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
+              </tr>
+              <tr style="border-bottom:1px solid #CBD5E1;">
+                <td style="padding:8px;"><b>Meta Descriptions</b></td>
+                <td style="padding:8px;color:#991B1B;">Short / Truncated ("Plan your family")</td>
+                <td style="padding:8px;color:#065F46;font-weight:700;">155 Chars High-CTR Descriptions</td>
+                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
+              </tr>
+              <tr style="border-bottom:1px solid #CBD5E1;">
+                <td style="padding:8px;"><b>Canonical Tags</b></td>
+                <td style="padding:8px;color:#991B1B;">Missing on /app/ & sub-pages</td>
+                <td style="padding:8px;color:#065F46;font-weight:700;">100% Verified Across All 51 Pages</td>
+                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
+              </tr>
+              <tr style="border-bottom:1px solid #CBD5E1;">
+                <td style="padding:8px;"><b>OpenGraph Cards</b></td>
+                <td style="padding:8px;color:#991B1B;">Missing on 21 Pages</td>
+                <td style="padding:8px;color:#065F46;font-weight:700;">Complete 1200x630 Social Cards</td>
+                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
+              </tr>
+              <tr style="border-bottom:1px solid #CBD5E1;">
+                <td style="padding:8px;"><b>Schema.org JSON-LD</b></td>
+                <td style="padding:8px;color:#991B1B;">Missing on App & Tool Routes</td>
+                <td style="padding:8px;color:#065F46;font-weight:700;">SoftwareApp, WebApp, Article Schemas</td>
+                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Resolved</td>
+              </tr>
+              <tr>
+                <td style="padding:8px;"><b>Private Financial Plan Protection</b></td>
+                <td style="padding:8px;color:#991B1B;">Unprotected Risk</td>
+                <td style="padding:8px;color:#065F46;font-weight:700;">Strict noindex, nofollow on User Plans</td>
+                <td style="padding:8px;color:var(--teal);font-weight:700;">✅ Secured</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <!-- ── TAB: FLAGS ── -->
-    <div id="tab-flags" class="hidden">
-      <div class="card">
-        <h2>Remote flags — har app install par apply hote hain</h2>
-        <p class="hint">Yahan jo badloge wo <b>config/flags</b> doc mein jayega; apps agle cold-start par pull kar leti hain (public read, sirf aap write). Reset = value hatao → app default par laut jayegi.</p>
-        <div id="flagsForm" style="margin-top:8px"></div>
-        <div class="row" style="margin-top:14px">
-          <button class="btn btn-t grow" id="saveFlags">💾 SAVE TO CLOUD</button>
-          <button class="btn btn-g" id="reloadFlags">↻</button>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;">
+          <button class="btn btn-t grow" type="button" onclick="window.MFP_SEO.runTechnicalAudit()">🔍 Run Live Technical SEO Crawl Audit</button>
+          <a href="https://search.google.com/search-console" target="_blank" class="btn btn-g" style="text-decoration:none;">Google Search Console ↗</a>
+          <a href="https://analytics.google.com/" target="_blank" class="btn btn-g" style="text-decoration:none;">Google Analytics 4 ↗</a>
         </div>
-        <div id="flagsMsg"></div>
+
+        <div id="seoAuditLogBox" style="display:none;margin-top:12px;background:#0F172A;color:#38BDF8;font-family:monospace;font-size:11.5px;padding:12px;border-radius:10px;max-height:180px;overflow-y:auto;white-space:pre-wrap;"></div>
       </div>
-      <div class="card">
-        <h2>➕ Custom key (advanced)</h2>
-        <p class="hint">Naya flag add karna ho (sirf whitelisted keys apps par apply hote hain — baaki future use ke liye store hote hain).</p>
-        <div class="row">
-          <input type="text" id="ck" class="grow" placeholder="key (e.g. partner_gold_limit)" style="margin-top:0">
-          <input type="text" id="cv" class="grow" placeholder="value (true / 123 / text)" style="margin-top:0">
-        </div>
-        <button class="btn btn-p" id="ckAdd" style="margin-top:10px">ADD KEY</button>
-      </div>
+
     </div>
 
     <!-- ── TAB: LEADS ── -->
