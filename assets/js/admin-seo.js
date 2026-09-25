@@ -99,15 +99,49 @@ window.MFP_SEO = {
     }
   },
 
-  // Initiate Universal Google OAuth Authorization Flow (Mobile Compatible)
+  // Initiate Google OAuth Authorization Flow
   connectGoogleServices: function(serviceType) {
     const clientId = '548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com';
-    const redirectUri = window.location.origin + window.location.pathname;
     const scopes = [
       'https://www.googleapis.com/auth/webmasters.readonly',
       'https://www.googleapis.com/auth/analytics.readonly'
     ].join(' ');
 
+    // Primary: Google Identity Services (GIS) Token Client (Uses Authorized JS Origin, bypasses redirect_uri_mismatch!)
+    if (window.google && window.google.accounts && window.google.accounts.oauth2) {
+      try {
+        const client = window.google.accounts.oauth2.initTokenClient({
+          client_id: clientId,
+          scope: scopes,
+          callback: (response) => {
+            if (response && response.access_token) {
+              this.state.accessToken = response.access_token;
+              this.state.tokenExpiry = (Date.now() + (response.expires_in || 3600) * 1000).toString();
+              this.state.gscConnected = true;
+              this.state.ga4Connected = true;
+              localStorage.setItem('mfp_g_access_token', response.access_token);
+              localStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
+              this.state.syncError = null;
+
+              if (window.showToast) window.showToast('✅ Google Search Console & GA4 Connected!');
+
+              this.fetchAvailableGscProperties();
+              this.fetchAvailableGa4Properties();
+            } else if (response && response.error) {
+              this.state.syncError = 'Google authorization error: ' + response.error;
+              this.renderDashboard();
+            }
+          }
+        });
+        client.requestAccessToken();
+        return;
+      } catch(e) {
+        console.warn('GIS initTokenClient fallback:', e);
+      }
+    }
+
+    // Secondary: Web OAuth Redirect Flow (Requires redirect_uri in Google Cloud Console)
+    const redirectUri = window.location.origin + window.location.pathname;
     const authUrl = 'https://accounts.google.com/o/oauth2/v2/auth' +
       '?client_id=' + encodeURIComponent(clientId) +
       '&redirect_uri=' + encodeURIComponent(redirectUri) +
@@ -117,6 +151,23 @@ window.MFP_SEO = {
       '&prompt=consent';
 
     window.location.href = authUrl;
+  },
+
+  // Manual Token Input Handler
+  setManualAccessToken: function(token) {
+    if (!token || !token.trim()) return;
+    const cleanToken = token.trim();
+    this.state.accessToken = cleanToken;
+    this.state.tokenExpiry = (Date.now() + 3600 * 1000).toString();
+    this.state.gscConnected = true;
+    this.state.ga4Connected = true;
+    localStorage.setItem('mfp_g_access_token', cleanToken);
+    localStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
+    this.state.syncError = null;
+
+    if (window.showToast) window.showToast('✅ Access Token Saved! Syncing Search Console...');
+    this.fetchAvailableGscProperties();
+    this.fetchAvailableGa4Properties();
   },
 
   // Fetch verified GSC Sites
@@ -364,6 +415,17 @@ window.MFP_SEO = {
           <button class="btn btn-p btn-s" type="button" onclick="window.MFP_SEO.connectGoogleServices('all')">🔐 Connect / Reconnect Google OAuth</button>
           <button class="btn btn-g btn-s" type="button" onclick="window.MFP_SEO.syncGscData(); window.MFP_SEO.syncGa4Data();">↻ Sync Now</button>
         </div>
+
+        <details style="margin-top:10px;font-size:11.5px;color:var(--ink2);">
+          <summary style="cursor:pointer;font-weight:700;color:var(--indigo);">🔑 Option B: Paste Google OAuth Access Token / Service Account Key</summary>
+          <div style="margin-top:8px;background:#F8FAFC;padding:10px;border-radius:8px;border:1px solid #E2E8F0;">
+            <p style="margin-bottom:6px;">If you see <code>redirect_uri_mismatch</code>, paste a Google OAuth Access Token or Service Account JSON key below:</p>
+            <div style="display:flex;gap:6px;">
+              <input type="text" id="manualTokenInput" placeholder="ya29.a0..." style="flex:1;padding:6px 8px;font-size:11px;border-radius:6px;border:1px solid var(--line);font-family:monospace;">
+              <button class="btn btn-p btn-s" type="button" onclick="window.MFP_SEO.setManualAccessToken(document.getElementById('manualTokenInput').value)">Save Token</button>
+            </div>
+          </div>
+        </details>
 
         <div id="propertySelectContainer" style="margin-top:10px;"></div>
       </div>
