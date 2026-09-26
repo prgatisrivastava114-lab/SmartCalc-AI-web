@@ -53,148 +53,6 @@ p{color:var(--ink2);margin:8px 0;font-size:15px}
 #fab{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;z-index:20}
 #fab a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .ft{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2);text-align:center}
-
-/* ==========================================================================
-   MY FINANCIAL PLAN — UNIVERSAL MULTI-DEVICE RESPONSIVE DESIGN SYSTEM
-   Supports Mobile (360px-414px), Tablet (768px-1024px), Desktop (1024px-1440px+)
-   ========================================================================== */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  -webkit-text-size-adjust: 100%;
-}
-
-img, video, canvas, svg, iframe, table {
-  max-width: 100%;
-  height: auto;
-}
-
-.wrap, .container, .main-content {
-  width: 100% !important;
-  max-width: 1280px !important;
-  margin: 0 auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  box-sizing: border-box !important;
-}
-
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
-
-/* Touch Targets & Button Responsiveness */
-.btn, button, input, select {
-  touch-action: manipulation;
-}
-
-/* Tablet Breakpoint (<= 1024px) */
-@media (max-width: 1024px) {
-  nav.top .links { display: none !important; }
-  .burger { display: flex !important; }
-  #langSw { margin-left: auto !important; }
-  nav.top .btn { margin-left: 0 !important; padding: 8px 14px !important; font-size: 13px !important; }
-  nav.top .wrap { gap: 10px !important; }
-  
-  .hero .wrap {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-  
-  .calc-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-  
-  footer .cols {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 24px !important;
-  }
-
-  .stats {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-  }
-  
-  .fgrid, .pgrid, .plans, .steps, .tgrid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-  }
-}
-
-/* Mobile Breakpoint (<= 640px) */
-@media (max-width: 640px) {
-  .wrap, .container {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-  }
-  
-  section {
-    padding: 44px 0 !important;
-  }
-  
-  h1 {
-    font-size: clamp(26px, 7vw, 38px) !important;
-    line-height: 1.12 !important;
-  }
-  
-  .sec-h {
-    font-size: clamp(22px, 5.5vw, 30px) !important;
-  }
-  
-  .lede {
-    font-size: 15px !important;
-  }
-  
-  .cta-row {
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 10px !important;
-  }
-  
-  .cta-row .btn, .band .btn, .mcta .btn {
-    width: 100% !important;
-    justify-content: center !important;
-  }
-  
-  .fgrid, .pgrid, .plans, .steps, .tgrid, .stats, footer .cols {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-  
-  .band {
-    padding: 32px 18px !important;
-    border-radius: 20px !important;
-  }
-  
-  .vid-card {
-    border-radius: 18px !important;
-  }
-  
-  .panel {
-    padding: 16px !important;
-    border-radius: 18px !important;
-  }
-  
-  #fabs {
-    right: 12px !important;
-    bottom: 12px !important;
-  }
-  
-  #fabs a {
-    width: 48px !important;
-    height: 48px !important;
-    font-size: 20px !important;
-  }
-}
-
 </style>
 
 
@@ -206,155 +64,13 @@ img, video, canvas, svg, iframe, table {
 #fab a svg,#fabs a svg{display:block}
 .vic svg{animation:vib 2.6s ease-in-out infinite;transform-origin:50% 50%}
 @keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
-
-/* ==========================================================================
-   MY FINANCIAL PLAN — UNIVERSAL MULTI-DEVICE RESPONSIVE DESIGN SYSTEM
-   Supports Mobile (360px-414px), Tablet (768px-1024px), Desktop (1024px-1440px+)
-   ========================================================================== */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  -webkit-text-size-adjust: 100%;
-}
-
-img, video, canvas, svg, iframe, table {
-  max-width: 100%;
-  height: auto;
-}
-
-.wrap, .container, .main-content {
-  width: 100% !important;
-  max-width: 1280px !important;
-  margin: 0 auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  box-sizing: border-box !important;
-}
-
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
-
-/* Touch Targets & Button Responsiveness */
-.btn, button, input, select {
-  touch-action: manipulation;
-}
-
-/* Tablet Breakpoint (<= 1024px) */
-@media (max-width: 1024px) {
-  nav.top .links { display: none !important; }
-  .burger { display: flex !important; }
-  #langSw { margin-left: auto !important; }
-  nav.top .btn { margin-left: 0 !important; padding: 8px 14px !important; font-size: 13px !important; }
-  nav.top .wrap { gap: 10px !important; }
-  
-  .hero .wrap {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-  
-  .calc-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-  
-  footer .cols {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 24px !important;
-  }
-
-  .stats {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-  }
-  
-  .fgrid, .pgrid, .plans, .steps, .tgrid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-  }
-}
-
-/* Mobile Breakpoint (<= 640px) */
-@media (max-width: 640px) {
-  .wrap, .container {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-  }
-  
-  section {
-    padding: 44px 0 !important;
-  }
-  
-  h1 {
-    font-size: clamp(26px, 7vw, 38px) !important;
-    line-height: 1.12 !important;
-  }
-  
-  .sec-h {
-    font-size: clamp(22px, 5.5vw, 30px) !important;
-  }
-  
-  .lede {
-    font-size: 15px !important;
-  }
-  
-  .cta-row {
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 10px !important;
-  }
-  
-  .cta-row .btn, .band .btn, .mcta .btn {
-    width: 100% !important;
-    justify-content: center !important;
-  }
-  
-  .fgrid, .pgrid, .plans, .steps, .tgrid, .stats, footer .cols {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-  
-  .band {
-    padding: 32px 18px !important;
-    border-radius: 20px !important;
-  }
-  
-  .vid-card {
-    border-radius: 18px !important;
-  }
-  
-  .panel {
-    padding: 16px !important;
-    border-radius: 18px !important;
-  }
-  
-  #fabs {
-    right: 12px !important;
-    bottom: 12px !important;
-  }
-  
-  #fabs a {
-    width: 48px !important;
-    height: 48px !important;
-    font-size: 20px !important;
-  }
-}
-
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.myfinancialplan.in/"},{"@type":"ListItem","position":2,"name":"Free tools","item":"https://www.myfinancialplan.in/tools/"},{"@type":"ListItem","position":3,"name":"Free Financial Calculators"}]}</script>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="">
-
+<script src="/assets/js/tv-symbols.js"></script>
 <script src="/assets/js/visitor-tracker.js"></script>
 
 <!-- Official Firebase App & Analytics SDK for SmartCalc-web -->
@@ -421,15 +137,43 @@ img, video, canvas, svg, iframe, table {
 
 <div class="top"><div class="wrap"><a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a><nav><a class="hot" href="/app/">Open App</a></nav>
 
+<!-- Official TradingView Ticker Tape -->
+<div class="tv-ticker-tape-container" style="margin-top:64px;width:100%;min-height:48px;background:#0B192C;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
+  <div class="tradingview-widget-container" style="width:100%;height:48px">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        { "proName": "NSE:NIFTY", "title": "NIFTY 50" },
+        { "proName": "NSE:BANKNIFTY", "title": "BANK NIFTY" },
+        { "proName": "BSE:SENSEX", "title": "SENSEX" },
+        { "proName": "NSE:CNXIT", "title": "NIFTY IT" },
+        { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
+        { "proName": "NSE:TCS", "title": "TCS" },
+        { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
+        { "proName": "NSE:INFY", "title": "INFOSYS" },
+        { "proName": "NSE:ICICIBANK", "title": "ICICI BANK" },
+        { "proName": "NSE:BHARTIARTL", "title": "BHARTI AIRTEL" },
+        { "proName": "FX_IDC:USDINR", "title": "USD/INR" }
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": false,
+      "displayMode": "adaptive",
+      "locale": "in"
+    }
+    </script>
+  </div>
+</div>
+</div>
 
 
-
-
-
+<!-- Centralized Official TradingView Ticker Tape -->
 
 </div>
 
 
+<!-- Official TradingView Real-Time Live Ticker Tape (Regular Mode) -->
 
 
 
@@ -458,19 +202,22 @@ img, video, canvas, svg, iframe, table {
 
 
 
-
+<!-- Official TradingView Market Overview Section -->
 <section id="market" style="padding:40px 0;background:#F8FAFC">
   <div class="wrap rise">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
       <div>
+        <span class="kick" style="background:#E2E8F0;color:#1E293B;font-weight:800">📈 Official TradingView Market Data</span>
         <h2 class="sec-h" style="margin:4px 0 2px">Live Indian & Global Markets</h2>
       </div>
     </div>
 
-    
+    <!-- TradingView Market Overview Container -->
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:16px;box-shadow:0 4px 20px -8px rgba(0,0,0,.08);overflow:hidden;min-height:500px">
       <div class="tv-market-overview-container" style="min-height:500px;width:100%">
-        
+        <div class="tradingview-widget-container" style="height:500px;width:100%">
+          <div class="tradingview-widget-container__widget" style="height:500px;width:100%"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
           {
             "colorTheme": "light",
             "dateRange": "12M",
