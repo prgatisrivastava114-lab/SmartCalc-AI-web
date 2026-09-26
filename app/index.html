@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <base href="../app/index.html">
+  <base href="/app/">
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -145,19 +145,6 @@
     };
   </script>
   <link rel="manifest" href="manifest.json">
-
-<!-- Logged-in Individual User Dashboard: Digital Vanshavali Module (Preserved for Dashboard Launch) -->
-<script>
-  window.VANSHAVALI_ENABLED = false; // Feature flag managed via Admin Panel
-  function checkVanshavaliDashboardAccess() {
-    if (window.VANSHAVALI_ENABLED || localStorage.getItem('VANSHAVALI_USER_ACTIVE') === 'true') {
-      const card = document.getElementById('dashboard-vanshavali-card');
-      if (card) card.style.display = 'block';
-    }
-  }
-  document.addEventListener('DOMContentLoaded', checkVanshavaliDashboardAccess);
-</script>
-
 </head>
 <body style="background-color: #081028; color: #FFFFFF;">
 
