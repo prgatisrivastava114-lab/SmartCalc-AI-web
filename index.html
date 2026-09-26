@@ -485,7 +485,7 @@ function shareHomeQuote(){
     <a href="./download/index.html">Download</a>
     <a href="#why">Why us</a>
     <a href="#pricing">Plans</a>
-    <a href="#refer" onclick="switchReferTab('ind')">Refer & Earn 🎁</a>
+    
     <a href="#faq">FAQ</a>
     <a href="#legal" onclick="switchLegalTab('privacy')">Legal</a>
   </div>
@@ -615,116 +615,7 @@ function shareHomeQuote(){
   </div>
 </div></section>
 
-<section id="refer" style="background:linear-gradient(135deg,#17324A,#1E4260);color:#fff;padding:60px 0;margin-top:20px">
-  <div class="wrap rise on">
-    <span class="kick" style="background:rgba(255,255,255,.15);color:#5FE3B8">🪙 Refer & Earn Coins</span>
-    <h2 class="sec-h" style="color:#fff">Coin Rewards & Plan Rebates</h2>
-    <p class="sec-s" style="color:#C5D5E4">Earn coins for referring families or advisor partners. Redeem coins for instant plan rebates, free PDF reports, and subscription discounts.</p>
 
-    <!-- Interactive Mode Switcher -->
-    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-      <button class="ctab on" id="rtab-ind" onclick="switchReferTab('ind')" style="background:#fff;color:var(--ink)">👨‍👩‍👧‍👦 Individual Mode (Families)</button>
-      <button class="ctab" id="rtab-part" onclick="switchReferTab('part')" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">💼 Partner Mode (Advisors)</button>
-    </div>
-
-    <div style="margin-top:20px;background:#fff;color:var(--ink);border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.25)">
-      
-      <!-- Individual Mode View -->
-      <div id="rbox-ind">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🪙 Family Coin Rewards</h3>
-            <p style="font-size:14px;color:var(--ink2);margin-bottom:14px">Earn <b>50 Coins</b> per family referred + <b>20 Bonus Coins</b> on completing your profile. 100 Coins = ₹100 Rebate!</p>
-            <div style="background:var(--cream);border:1.5px solid #F0D494;padding:14px;border-radius:14px;text-align:center">
-              <span style="font-size:12px;font-weight:800;color:#7A4E00;text-transform:uppercase">Family Coin Balance</span>
-              <div style="font-size:32px;font-weight:900;color:#8F5C00">100 🪙 (₹100 Rebate)</div>
-            </div>
-          </div>
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🔗 Share & Redeem</h3>
-            <p style="font-size:13.5px;color:var(--ink2)">Share your personal link with friends on WhatsApp or social media:</p>
-            <div style="background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:10px;font-family:monospace;font-size:13px;word-break:break-all;margin:10px 0;text-align:center">https://www.myfinancialplan.in/app/?ref=FAMILY</div>
-            <div style="display:flex;gap:10px">
-              <a href="./refer/index.html" class="btn b-indigo" style="flex:1;justify-content:center">Open Coin Portal →</a>
-              <a href="https://wa.me/?text=Hi%21%20Use%20my%20link%20to%20plan%20your%20family%20financial%20goals%20for%20free%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2Fapp%2F%3Fref%3DFAMILY" target="_blank" class="btn b-wa">WhatsApp Share</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Partner Mode View -->
-      <div id="rbox-part" style="display:none">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">💎 Partner Rebate Desk</h3>
-            <p style="font-size:14px;color:var(--ink2);margin-bottom:14px">Earn <b>200 Partner Coins</b> per referred advisor + <b>50 Coins</b> per client lead conversion. Redeem for 50% subscription discounts!</p>
-            <div style="background:var(--lav);border:1.5px solid #B3C1F5;padding:14px;border-radius:14px;text-align:center">
-              <span style="font-size:12px;font-weight:800;color:var(--indigo);text-transform:uppercase">Partner Rebate Coins</span>
-              <div style="font-size:32px;font-weight:900;color:var(--indigo)">200 🪙 (50% Off Plan)</div>
-            </div>
-          </div>
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🔗 Advisor Join Link</h3>
-            <p style="font-size:13.5px;color:var(--ink2)">Invite fellow distributors and advisors to join Partner Desk:</p>
-            <div style="background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:10px;font-family:monospace;font-size:13px;word-break:break-all;margin:10px 0;text-align:center">https://www.myfinancialplan.in/?partner_ref=ADV8840</div>
-            <div style="display:flex;gap:10px">
-              <a href="/refer.html?mode=partner" class="btn b-teal" style="flex:1;justify-content:center">Open Partner Portal →</a>
-              <a href="https://wa.me/?text=Hi%21%20Join%20MyFinancialPlan%20Partner%20Desk%20with%20a%20FREE%207-day%20trial%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2F%3Fpartner_ref%3DADV8840" target="_blank" class="btn b-wa">WhatsApp Share</a>
-            </div>
-          </div>
-
-        <!-- Embedded LIC Partner Suite inside Home Page Partner View -->
-        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-            <h4 style="font-size:16px;font-weight:800;color:var(--indigo);margin:0">📋 LIC Advisor Tools & All-Plan Calculator</h4>
-            <a href="./tools/lic-premium-calculator/index.html" target="_blank" style="font-size:12px;font-weight:700;color:var(--teal);text-decoration:none">Open Standalone Tool ↗</a>
-          </div>
-          
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
-            <div>
-              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">LIC Plan Table:</label>
-              <select id="hLicPlan" onchange="calcHomeLic()" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12.5px;font-weight:700">
-                <option value="936" selected>Table 936 — Jeevan Labh</option>
-                <option value="945">Table 945 — Jeevan Umang</option>
-                <option value="915">Table 915 — Jeevan Anand</option>
-                <option value="914">Table 914 — New Endowment</option>
-                <option value="920">Table 920 — Money Back 20Y</option>
-                <option value="871">Table 871 — Jeevan Utsav</option>
-                <option value="933">Table 933 — Jeevan Lakshya</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Sum Assured (₹):</label>
-              <input type="number" id="hLicSum" value="500000" step="50000" oninput="calcHomeLic()" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12.5px;font-weight:700">
-            </div>
-          </div>
-
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;text-align:center">
-            <div style="background:var(--lav);padding:6px;border-radius:6px">
-              <span style="font-size:9.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Premium</span>
-              <b id="hOutPrem" style="display:block;font-size:14px;color:var(--indigo)">₹23,450</b>
-            </div>
-            <div style="background:var(--mint);padding:6px;border-radius:6px">
-              <span style="font-size:9.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Est. Bonus</span>
-              <b id="hOutBonus" style="display:block;font-size:14px;color:#0B7A5C">₹6,25,000</b>
-            </div>
-            <div style="background:var(--cream);padding:6px;border-radius:6px">
-              <span style="font-size:9.5px;font-weight:800;color:var(--ink2);text-transform:uppercase">Maturity</span>
-              <b id="hOutMat" style="display:block;font-size:14px;color:var(--amber)">₹11,25,000</b>
-            </div>
-          </div>
-
-          <div style="margin-top:8px;display:flex;gap:6px">
-            <button class="btn b-wa" style="flex:1;font-size:11.5px;padding:6px" onclick="shareHomeQuote()">📲 Share WhatsApp Proposal</button>
-            <a href="./tools/lic-premium-reminder/index.html" target="_blank" class="btn b-indigo" style="font-size:11.5px;padding:6px">Policy Reminders ↗</a>
-          </div>
-        </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <section id="pricing"><div class="wrap rise">
   <span class="kick">Simple pricing</span>
@@ -890,11 +781,11 @@ function shareHomeQuote(){
       <a href="#pricing">Partner Plans</a>
     </div>
     <div>
-      <h4>Rewards & Referrals</h4>
-      <a href="./refer/index.html">Refer & Earn Portal</a>
-      <a href="/refer.html?mode=individual">Family Coins</a>
-      <a href="/refer.html?mode=partner">Partner Rebates</a>
-      <a href="./refer/index.html">Redeem Coins</a>
+      
+      
+      
+      
+      
     </div>
     <div>
       <h4>Legal & Policies</h4>
@@ -1087,13 +978,7 @@ function shareHomeQuote(){
 
 <script>
 
-function switchReferTab(mode){
-  var btnInd = document.getElementById('rtab-ind');
-  var btnPart = document.getElementById('rtab-part');
-  var boxInd = document.getElementById('rbox-ind');
-  var boxPart = document.getElementById('rbox-part');
-  if(mode==='ind'){
-    if(btnInd){ btnInd.style.background='#fff'; btnInd.style.color='var(--ink)'; }
+
     if(btnPart){ btnPart.style.background='rgba(255,255,255,.15)'; btnPart.style.color='#fff'; }
     if(boxInd) boxInd.style.display='block';
     if(boxPart) boxPart.style.display='none';
