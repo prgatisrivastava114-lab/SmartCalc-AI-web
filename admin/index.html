@@ -83,6 +83,47 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .setup code{background:#fff;padding:1px 6px;border-radius:6px;font-size:12px;border:1px solid #EFDFB5}
 .link{color:var(--indigo);font-weight:700;text-decoration:none}
 @media(max-width:520px){ .codebox{font-size:17px} h1{font-size:14.5px} }
+
+/* UNIVERSAL RESPONSIVE MEDIA QUERIES FOR MOBILE, TABLET & DESKTOP */
+*, *::before, *::after { box-sizing: border-box; }
+body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+img, video, iframe, canvas, svg, table { max-width: 100%; height: auto; }
+
+.container, .wrap, .main-content, .admin-container, .tools-container, .learn-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* Tablet & Mobile Grid Responsiveness */
+@media (max-width: 1024px) {
+  .grid, .grid-3, .grid-4, .cols, .fgrid, .pgrid, .calc-grid, .admin-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .sidebar, .nav-desktop { display: none !important; }
+  .mobile-menu-btn, .burger { display: flex !important; }
+}
+
+@media (max-width: 640px) {
+  .grid, .grid-2, .grid-3, .grid-4, .cols, .fgrid, .pgrid, .calc-grid, .admin-grid, .stats {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .btn, button {
+    width: 100%;
+    justify-content: center;
+  }
+  h1 { font-size: clamp(24px, 6.5vw, 36px) !important; }
+  h2 { font-size: clamp(20px, 5.5vw, 28px) !important; }
+  .card, .panel, .fcard, .toolc, .plan {
+    padding: 16px !important;
+  }
+}
+
 </style>
 <script src="https://accounts.google.com/gsi/client" onload="initGis(0)" async defer></script>
 
@@ -105,8 +146,8 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
   logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
 </script>
 
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="../apk_extracted/assets/flutter_assets/assets/brand/brand_logo_dark.jpg">
+<link rel="shortcut icon" href="../apk_extracted/assets/flutter_assets/assets/brand/brand_logo_dark.jpg">
 
   <meta name="description" content="Owner Administrative Control Panel for MyFinancialPlan.in.">
   <link rel="canonical" href="https://www.myfinancialplan.in/admin/">
@@ -143,7 +184,7 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
       <h1>OWNER PANEL · <span style="opacity:.8;font-weight:600">My Financial Plan</span></h1>
       <div class="sub">2FA secured · sirf aapke liye · v1.2</div>
     </div>
-    <a href="/vanshavali/" target="_blank" class="btn btn-g btn-s" style="margin-left:auto;background:var(--cream);border-color:#F0D494;color:#7A5406;text-decoration:none">🌳 Digital Vanshavali 👑 ↗</a>
+    <a href="../vanshavali/index.html" target="_blank" class="btn btn-g btn-s" style="margin-left:auto;background:var(--cream);border-color:#F0D494;color:#7A5406;text-decoration:none">🌳 Digital Vanshavali 👑 ↗</a>
     <div class="chip hidden" id="emailChip"></div>
   </div>
 </header>

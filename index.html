@@ -28,7 +28,7 @@
 <meta property="og:url" content="https://www.myfinancialplan.in/">
 <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/brand/mfp_icon.png">
+<link rel="icon" type="image/png" href="./apk_extracted/assets/flutter_assets/assets/brand/brand_logo_dark.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"My Financial Plan","url":"https://www.myfinancialplan.in/","logo":"https://www.myfinancialplan.in/assets/brand/mfp_icon.png","contactPoint":{"@type":"ContactPoint","telephone":"+91-88401-92702","contactType":"customer service","areaServed":"IN"}}
 function calcHomeLic(){
   var plan = document.getElementById('hLicPlan').value;
@@ -257,8 +257,116 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
 #fabs a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:23px;box-shadow:0 8px 22px rgba(0,0,0,.28);transition:transform .18s}
 #fabs a:hover{transform:scale(1.08)}
 .rise{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-</style><noscript><style>.rise{opacity:1!important;transform:none!important}</style></noscript><style>
+
+/* === UNIVERSAL MULTI-DEVICE RESPONSIVE ENHANCEMENTS === */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; box-sizing: border-box; }
+img, video, canvas, svg, iframe, table { max-width: 100%; height: auto; }
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+  nav.top .links { display: none !important; }
+  .burger { display: flex !important; }
+  #langSw { margin-left: auto !important; }
+  nav.top .btn { margin-left: 0 !important; padding: 9px 15px !important; font-size: 13px !important; }
+  nav.top .wrap { gap: 8px !important; }
+  footer .cols { grid-template-columns: repeat(3, 1fr) !important; gap: 24px; }
+  .hero .wrap { grid-template-columns: 1fr !important; gap: 32px; }
+  .calc-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 48px 0 !important; }
+  footer .cols { grid-template-columns: repeat(2, 1fr) !important; }
+  .stats { grid-template-columns: repeat(2, 1fr) !important; padding: 24px 18px !important; }
+  .cta-row { flex-direction: column; width: 100%; }
+  .cta-row .btn { width: 100%; justify-content: center; }
+  h1 { font-size: clamp(28px, 7vw, 42px) !important; }
+  .sec-h { font-size: clamp(22px, 5.5vw, 32px) !important; }
+  .band { padding: 32px 20px !important; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px !important; }
+  footer .cols { grid-template-columns: 1fr !important; }
+  .stats { grid-template-columns: 1fr !important; }
+  .plan { padding: 20px 16px !important; }
+  .btn { width: 100%; justify-content: center; }
+}
+
+</style><noscript><style>.rise{opacity:1!important;transform:none!important}
+/* === UNIVERSAL MULTI-DEVICE RESPONSIVE ENHANCEMENTS === */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; box-sizing: border-box; }
+img, video, canvas, svg, iframe, table { max-width: 100%; height: auto; }
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+  nav.top .links { display: none !important; }
+  .burger { display: flex !important; }
+  #langSw { margin-left: auto !important; }
+  nav.top .btn { margin-left: 0 !important; padding: 9px 15px !important; font-size: 13px !important; }
+  nav.top .wrap { gap: 8px !important; }
+  footer .cols { grid-template-columns: repeat(3, 1fr) !important; gap: 24px; }
+  .hero .wrap { grid-template-columns: 1fr !important; gap: 32px; }
+  .calc-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 48px 0 !important; }
+  footer .cols { grid-template-columns: repeat(2, 1fr) !important; }
+  .stats { grid-template-columns: repeat(2, 1fr) !important; padding: 24px 18px !important; }
+  .cta-row { flex-direction: column; width: 100%; }
+  .cta-row .btn { width: 100%; justify-content: center; }
+  h1 { font-size: clamp(28px, 7vw, 42px) !important; }
+  .sec-h { font-size: clamp(22px, 5.5vw, 32px) !important; }
+  .band { padding: 32px 20px !important; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px !important; }
+  footer .cols { grid-template-columns: 1fr !important; }
+  .stats { grid-template-columns: 1fr !important; }
+  .plan { padding: 20px 16px !important; }
+  .btn { width: 100%; justify-content: center; }
+}
+
+</style></noscript><style>
 .rise.on{opacity:1;transform:none}
+
+/* === UNIVERSAL MULTI-DEVICE RESPONSIVE ENHANCEMENTS === */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; box-sizing: border-box; }
+img, video, canvas, svg, iframe, table { max-width: 100%; height: auto; }
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+  nav.top .links { display: none !important; }
+  .burger { display: flex !important; }
+  #langSw { margin-left: auto !important; }
+  nav.top .btn { margin-left: 0 !important; padding: 9px 15px !important; font-size: 13px !important; }
+  nav.top .wrap { gap: 8px !important; }
+  footer .cols { grid-template-columns: repeat(3, 1fr) !important; gap: 24px; }
+  .hero .wrap { grid-template-columns: 1fr !important; gap: 32px; }
+  .calc-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 48px 0 !important; }
+  footer .cols { grid-template-columns: repeat(2, 1fr) !important; }
+  .stats { grid-template-columns: repeat(2, 1fr) !important; padding: 24px 18px !important; }
+  .cta-row { flex-direction: column; width: 100%; }
+  .cta-row .btn { width: 100%; justify-content: center; }
+  h1 { font-size: clamp(28px, 7vw, 42px) !important; }
+  .sec-h { font-size: clamp(22px, 5.5vw, 32px) !important; }
+  .band { padding: 32px 20px !important; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px !important; }
+  footer .cols { grid-template-columns: 1fr !important; }
+  .stats { grid-template-columns: 1fr !important; }
+  .plan { padding: 20px 16px !important; }
+  .btn { width: 100%; justify-content: center; }
+}
+
 </style>
 
 <style>
@@ -269,6 +377,42 @@ footer .brandline{color:#fff;font-weight:800;font-size:16px;margin:10px 0 4px}
 #fab a svg,#fabs a svg{display:block}
 .vic svg{animation:vib 2.6s ease-in-out infinite;transform-origin:50% 50%}
 @keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
+
+/* === UNIVERSAL MULTI-DEVICE RESPONSIVE ENHANCEMENTS === */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; box-sizing: border-box; }
+img, video, canvas, svg, iframe, table { max-width: 100%; height: auto; }
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+  nav.top .links { display: none !important; }
+  .burger { display: flex !important; }
+  #langSw { margin-left: auto !important; }
+  nav.top .btn { margin-left: 0 !important; padding: 9px 15px !important; font-size: 13px !important; }
+  nav.top .wrap { gap: 8px !important; }
+  footer .cols { grid-template-columns: repeat(3, 1fr) !important; gap: 24px; }
+  .hero .wrap { grid-template-columns: 1fr !important; gap: 32px; }
+  .calc-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 48px 0 !important; }
+  footer .cols { grid-template-columns: repeat(2, 1fr) !important; }
+  .stats { grid-template-columns: repeat(2, 1fr) !important; padding: 24px 18px !important; }
+  .cta-row { flex-direction: column; width: 100%; }
+  .cta-row .btn { width: 100%; justify-content: center; }
+  h1 { font-size: clamp(28px, 7vw, 42px) !important; }
+  .sec-h { font-size: clamp(22px, 5.5vw, 32px) !important; }
+  .band { padding: 32px 20px !important; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px !important; }
+  footer .cols { grid-template-columns: 1fr !important; }
+  .stats { grid-template-columns: 1fr !important; }
+  .plan { padding: 20px 16px !important; }
+  .btn { width: 100%; justify-content: center; }
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the app really free?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 the full planner and all calculators are free for families. Partners (advisors) get premium branding & CRM powers on a subscription."}},{"@type":"Question","name":"Is my financial data safe?","acceptedAnswer":{"@type":"Answer","text":"Working offline stays fully on-device; when you sign in, your data syncs to your private Google-secured cloud space \u2014 never sold, never shared."}},{"@type":"Question","name":"Hindi mein plan milega kya?","acceptedAnswer":{"@type":"Answer","text":"Haan! Poora PDF report Hindi ya English mein \u2014 ek tap mein language switch."}},{"@type":"Question","name":"I'm an insurance/mutual fund advisor \u2014 what's in it for me?","acceptedAnswer":{"@type":"Answer","text":"Partner mode: your logo & contact on every client PDF, client list with follow-ups, broadcast tools and lead tracking \u2014 built in India, for Indian advisors. Silver \u20b999 \u00b7 Gold \u20b9299 \u00b7 Platinum \u20b9599 per 30 days \u2014 and every plan starts with a FREE 7-day trial, no payment needed. Auto-payments coming soon."}},{"@type":"Question","name":"Android app kab aayega?","acceptedAnswer":{"@type":"Answer","text":"It is already here! Get the free Android APK from our Download page \\u2014 with a simple 2-minute install guide. The web app runs on every device too."}}]}
 function calcHomeLic(){
@@ -326,8 +470,8 @@ function shareHomeQuote(){
   logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
 </script>
 
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="./apk_extracted/assets/flutter_assets/assets/brand/brand_logo_dark.jpg">
+<link rel="shortcut icon" href="./apk_extracted/assets/flutter_assets/assets/brand/brand_logo_dark.jpg">
 </head>
 <body id="top">
 
@@ -335,18 +479,18 @@ function shareHomeQuote(){
   <a href="/"><img class="logo" src="assets/brand/brand_logo.png?v=1" alt="My Financial Plan - Plan Today for Better Tomorrow"></a>
   <div class="links">
     <a href="tools/">Free Tools</a>
-      <a href="/vanshavali/" style="color:var(--amber);font-weight:700">🌳 Digital Vanshavali 👑</a>
-      <a href="/tools/lic-premium-calculator/">📋 LIC Calculator & Reminders</a>
+      <a href="./vanshavali/index.html" style="color:var(--amber);font-weight:700">🌳 Digital Vanshavali 👑</a>
+      <a href="./tools/lic-premium-calculator/index.html">📋 LIC Calculator & Reminders</a>
     <a href="#market">📈 Live Market</a>
-    <a href="/learn/">Learn</a>
-    <a href="/download/">Download</a>
+    <a href="./learn/index.html">Learn</a>
+    <a href="./download/index.html">Download</a>
     <a href="#why">Why us</a>
     <a href="#pricing">Plans</a>
     <a href="#refer" onclick="switchReferTab('ind')">Refer & Earn 🎁</a>
     <a href="#faq">FAQ</a>
     <a href="#legal" onclick="switchLegalTab('privacy')">Legal</a>
   </div>
-  <a class="btn b-teal" href="/app/" style="margin-left:14px;padding:10px 18px;font-size:14px">Open App 🚀</a>
+  <a class="btn b-teal" href="./app/index.html" style="margin-left:14px;padding:10px 18px;font-size:14px">Open App 🚀</a>
   <button class="burger" id="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
 </div></nav>
 
@@ -377,16 +521,16 @@ function shareHomeQuote(){
 </div>
 
 <div id="mnav">
-  <a class="mlink" href="/vanshavali/" onclick="document.getElementById('mnav').classList.remove('open')">🌳 Digital Vanshavali 👑 (Premium) <span>›</span></a>
-  <a class="mlink" href="/learn/" onclick="document.getElementById('mnav').classList.remove('open')">Learn <span>›</span></a>
+  <a class="mlink" href="./vanshavali/index.html" onclick="document.getElementById('mnav').classList.remove('open')">🌳 Digital Vanshavali 👑 (Premium) <span>›</span></a>
+  <a class="mlink" href="./learn/index.html" onclick="document.getElementById('mnav').classList.remove('open')">Learn <span>›</span></a>
   <a class="mlink" href="tools/" onclick="document.getElementById('mnav').classList.remove('open')">Free Tools <span>›</span></a>
-  <a class="mlink" href="/download/" onclick="document.getElementById('mnav').classList.remove('open')">Download <span>›</span></a>
+  <a class="mlink" href="./download/index.html" onclick="document.getElementById('mnav').classList.remove('open')">Download <span>›</span></a>
   <a class="mlink" href="#why" onclick="document.getElementById('mnav').classList.remove('open')">Why us <span>›</span></a>
   <a class="mlink" href="#pricing" onclick="document.getElementById('mnav').classList.remove('open')">Plans <span>›</span></a>
   <a class="mlink" href="#refer" onclick="document.getElementById('mnav').classList.remove('open');switchReferTab('ind')">Refer & Earn (Coins) <span>›</span></a>
   <a class="mlink" href="#faq" onclick="document.getElementById('mnav').classList.remove('open')">FAQ <span>›</span></a>
   <a class="mlink" href="#legal" onclick="document.getElementById('mnav').classList.remove('open');switchLegalTab('privacy')">Legal & Policies <span>›</span></a>
-  <div class="mcta"><a class="btn b-teal b-big" href="/app/">Open App — free 🚀</a></div>
+  <div class="mcta"><a class="btn b-teal b-big" href="./app/index.html">Open App — free 🚀</a></div>
 </div>
 
 <header class="hero"><div class="wrap">
@@ -395,8 +539,8 @@ function shareHomeQuote(){
     <h1>Your family's entire <span class="grad">financial future</span>, planned in 5 min.</h1>
     <p class="lede">Child education, her marriage, your dream home, a worry-free pension, even a legacy — one guided plan with exact monthly investments and a branded PDF. Plus <b>500+ smart calculators</b> for every money question — free, instant, private.</p>
     <div class="cta-row">
-      <a class="btn b-teal b-big" href="/app/">🚀 Open Web App — free</a>
-      <a class="btn b-indigo b-big" href="/download/">📲 Download Android App</a>
+      <a class="btn b-teal b-big" href="./app/index.html">🚀 Open Web App — free</a>
+      <a class="btn b-indigo b-big" href="./download/index.html">📲 Download Android App</a>
     
     <!-- Featured Premium Banner: Digital Vanshavali -->
     <div style="margin-top:20px;background:linear-gradient(135deg,#FFFDF0,#FFF6E3);border:1.5px solid #F0D494;border-radius:18px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 4px 16px -6px rgba(212,175,55,.25)">
@@ -405,10 +549,10 @@ function shareHomeQuote(){
         <h3 style="font-size:16.5px;font-weight:900;color:var(--ink);margin:4px 0 2px">🌳 Digital Vanshavali (डिजिटल वंशावली)</h3>
         <p style="font-size:13px;color:var(--ink2);margin:0">🥈 Silver (3 Gen Back + 1 Forward) · 🥇 Gold (5 Gen Back + 1 Forward + Vault) · 💎 Platinum (Unlimited 7+7 Gen & AI)</p>
       </div>
-      <a href="/vanshavali/" class="btn b-gold" style="padding:9px 18px;font-size:13.5px;text-decoration:none">Open Digital Vanshavali 👑</a>
+      <a href="./vanshavali/index.html" class="btn b-gold" style="padding:9px 18px;font-size:13.5px;text-decoration:none">Open Digital Vanshavali 👑</a>
     </div>
 
-    <p style="margin-top:14px;font-size:14px"><a href="/download/" style="color:var(--teal);font-weight:700;text-decoration:none">📥 Android APK + 2-minute install guide — all on the Download page →</a></p>
+    <p style="margin-top:14px;font-size:14px"><a href="./download/index.html" style="color:var(--teal);font-weight:700;text-decoration:none">📥 Android APK + 2-minute install guide — all on the Download page →</a></p>
     <div class="trust">
       <span><b>✓</b> 500+ calculators</span>
       <span><b>✓</b> Web + Android</span>
@@ -524,7 +668,7 @@ function shareHomeQuote(){
   <h2 class="sec-h">Calculators people <span class="grad">actually use.</span></h2>
   <p class="sec-s">Instant answers in your browser — no app, no signup. Full library of 500+ inside the app.</p>
   <div class="tgrid">
-    <a class="toolc" style="background:var(--gold-bg);border:1.5px solid #F0D494" href="/vanshavali/"><b>🌳 Digital Vanshavali 👑</b><span>7-Gen Lineage & Vault (Premium)</span></a>
+    <a class="toolc" style="background:var(--gold-bg);border:1.5px solid #F0D494" href="./vanshavali/index.html"><b>🌳 Digital Vanshavali 👑</b><span>7-Gen Lineage & Vault (Premium)</span></a>
     
     <a class="toolc" style="background:var(--mint)" href="tools/sip-calculator/"><b>💹 SIP Calculator</b><span>Monthly wealth builder</span></a>
     <a class="toolc" style="background:var(--lav)" href="tools/swp-calculator/"><b>🏖️ SWP Calculator</b><span>Pension from corpus</span></a>
@@ -576,7 +720,7 @@ function shareHomeQuote(){
             <p style="font-size:13.5px;color:var(--ink2)">Share your personal link with friends on WhatsApp or social media:</p>
             <div style="background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:10px;font-family:monospace;font-size:13px;word-break:break-all;margin:10px 0;text-align:center">https://www.myfinancialplan.in/app/?ref=FAMILY</div>
             <div style="display:flex;gap:10px">
-              <a href="/refer.html" class="btn b-indigo" style="flex:1;justify-content:center">Open Coin Portal →</a>
+              <a href="./refer/index.html" class="btn b-indigo" style="flex:1;justify-content:center">Open Coin Portal →</a>
               <a href="https://wa.me/?text=Hi%21%20Use%20my%20link%20to%20plan%20your%20family%20financial%20goals%20for%20free%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2Fapp%2F%3Fref%3DFAMILY" target="_blank" class="btn b-wa">WhatsApp Share</a>
             </div>
           </div>
@@ -608,7 +752,7 @@ function shareHomeQuote(){
         <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
             <h4 style="font-size:16px;font-weight:800;color:var(--indigo);margin:0">📋 LIC Advisor Tools & All-Plan Calculator</h4>
-            <a href="/tools/lic-premium-calculator/" target="_blank" style="font-size:12px;font-weight:700;color:var(--teal);text-decoration:none">Open Standalone Tool ↗</a>
+            <a href="./tools/lic-premium-calculator/index.html" target="_blank" style="font-size:12px;font-weight:700;color:var(--teal);text-decoration:none">Open Standalone Tool ↗</a>
           </div>
           
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
@@ -647,7 +791,7 @@ function shareHomeQuote(){
 
           <div style="margin-top:8px;display:flex;gap:6px">
             <button class="btn b-wa" style="flex:1;font-size:11.5px;padding:6px" onclick="shareHomeQuote()">📲 Share WhatsApp Proposal</button>
-            <a href="/tools/lic-premium-reminder/" target="_blank" class="btn b-indigo" style="font-size:11.5px;padding:6px">Policy Reminders ↗</a>
+            <a href="./tools/lic-premium-reminder/index.html" target="_blank" class="btn b-indigo" style="font-size:11.5px;padding:6px">Policy Reminders ↗</a>
           </div>
         </div>
         </div>
@@ -667,7 +811,7 @@ function shareHomeQuote(){
       <h3>Family Planner</h3>
       <div class="pr">₹0</div>
       <ul><li>Full 5-minute financial plan</li><li>All 500+ calculators</li><li>PDF report (EN + हिं)</li><li>Cloud sync on every device</li></ul>
-      <a class="btn b-teal" href="/app/">Start free →</a>
+      <a class="btn b-teal" href="./app/index.html">Start free →</a>
     </div>
     <div class="plan">
       <span class="tag">PARTNER · STARTER</span>
@@ -728,7 +872,7 @@ function shareHomeQuote(){
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">We do <b>NOT</b> sell, rent, or trade your personal or financial data to third-party telemarketers, credit bureaus, or ad networks.</p>
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">4. Data Deletion Rights</h4>
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">You have the right to request full account and data deletion at any time by emailing <a href="mailto:care@myfinancialplan.in" style="color:var(--indigo);font-weight:700">care@myfinancialplan.in</a> or WhatsApping +91 88401 92702.</p>
-        <a href="/privacy.html" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Privacy Policy Document →</a>
+        <a href="./privacy/index.html" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Privacy Policy Document →</a>
       </div>
 
       <!-- Terms & Conditions Tab Content -->
@@ -744,7 +888,7 @@ function shareHomeQuote(){
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">Advisor Partner plans (Silver ₹99, Gold ₹299, Platinum ₹599) grant access to branded client PDFs and CRM features. All partner plans include a 100% FREE 7-day trial with no card required.</p>
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">3. Governing Law</h4>
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">These terms are governed by the laws of India. Any disputes are subject to the exclusive jurisdiction of the courts in Varanasi, Uttar Pradesh, India.</p>
-        <a href="/terms.html" style="display:inline-block;background:var(--lav);color:var(--indigo);padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Terms & Conditions Document →</a>
+        <a href="./terms/index.html" style="display:inline-block;background:var(--lav);color:var(--indigo);padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Terms & Conditions Document →</a>
       </div>
 
       <!-- Refund Policy Tab Content -->
@@ -758,7 +902,7 @@ function shareHomeQuote(){
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">If you purchase a paid Partner subscription and are not 100% satisfied for any reason, request a full refund within 7 days of activation.</p>
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">2. Refund Request & Processing</h4>
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">Simply message us on WhatsApp (+91-88401-92702) or email <code>care@myfinancialplan.in</code>. Approved refunds are processed within 24 hours and credited to your UPI/bank account within 5–7 working days.</p>
-        <a href="/refund.html" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Refund Policy Document →</a>
+        <a href="./refund/index.html" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Refund Policy Document →</a>
       </div>
 
       <!-- Cookies Policy Tab Content -->
@@ -771,7 +915,7 @@ function shareHomeQuote(){
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px"><code>sessionStorage</code> is used for Owner Admin 2FA (<code>/admin/</code>) and is cleared as soon as you close your browser tab. Google Identity Services uses standard auth cookies to maintain secure sign-in.</p>
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">3. No Ad-Tracking Cookies</h4>
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">We do not deploy invasive third-party ad trackers or cross-site behavioral tracking scripts.</p>
-        <a href="/cookies.html" style="display:inline-block;background:var(--lav);color:var(--indigo);padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Cookies Policy Document →</a>
+        <a href="./cookies/index.html" style="display:inline-block;background:var(--lav);color:var(--indigo);padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Cookies Policy Document →</a>
       </div>
 
     </div>
@@ -811,29 +955,29 @@ function shareHomeQuote(){
     </div>
     <div>
       <h4>Product</h4>
-      <a href="/app/">Open Web App</a>
-      <a href="/download/">📲 Download Android App</a>
+      <a href="./app/index.html">Open Web App</a>
+      <a href="./download/index.html">📲 Download Android App</a>
       <a href="tools/">Free Tools</a>
-      <a href="/vanshavali/" style="color:var(--amber);font-weight:700">🌳 Digital Vanshavali 👑</a>
-      <a href="/tools/lic-premium-calculator/">📋 LIC Calculator & Reminders</a>
+      <a href="./vanshavali/index.html" style="color:var(--amber);font-weight:700">🌳 Digital Vanshavali 👑</a>
+      <a href="./tools/lic-premium-calculator/index.html">📋 LIC Calculator & Reminders</a>
       <a href="#market">📈 Live Market</a>
-    <a href="/learn/">Learn</a>
+    <a href="./learn/index.html">Learn</a>
       <a href="#why">Features</a>
       <a href="#pricing">Partner Plans</a>
     </div>
     <div>
       <h4>Rewards & Referrals</h4>
-      <a href="/refer.html">Refer & Earn Portal</a>
+      <a href="./refer/index.html">Refer & Earn Portal</a>
       <a href="/refer.html?mode=individual">Family Coins</a>
       <a href="/refer.html?mode=partner">Partner Rebates</a>
-      <a href="/refer.html">Redeem Coins</a>
+      <a href="./refer/index.html">Redeem Coins</a>
     </div>
     <div>
       <h4>Legal & Policies</h4>
-      <a href="/privacy.html" onclick="switchLegalTab('privacy')">Privacy Policy</a>
-      <a href="/terms.html" onclick="switchLegalTab('terms')">Terms & Conditions</a>
-      <a href="/refund.html" onclick="switchLegalTab('refund')">Refund & Cancellation</a>
-      <a href="/cookies.html" onclick="switchLegalTab('cookies')">Cookies Policy</a>
+      <a href="./privacy/index.html" onclick="switchLegalTab('privacy')">Privacy Policy</a>
+      <a href="./terms/index.html" onclick="switchLegalTab('terms')">Terms & Conditions</a>
+      <a href="./refund/index.html" onclick="switchLegalTab('refund')">Refund & Cancellation</a>
+      <a href="./cookies/index.html" onclick="switchLegalTab('cookies')">Cookies Policy</a>
     </div>
     <div>
       <h4>Contact</h4>
