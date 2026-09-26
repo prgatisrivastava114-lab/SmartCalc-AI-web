@@ -123,7 +123,7 @@ nav.top .links a:hover{color:var(--teal)}
 .b-wa{background:#25D366;color:#fff;box-shadow:0 8px 22px -8px rgba(37,211,102,.5)}
 .b-big{padding:16px 30px;font-size:16px}
 /* — hero — */
-.hero{position:relative;padding:120px 0 40px;background:radial-gradient(1200px 500px at 80% -10%,#E1E6FA 0%,transparent 55%),radial-gradient(900px 500px at 5% 10%,#DDF4EC 0%,transparent 50%)}
+.hero{position:relative;padding:80px 0 40px;background:radial-gradient(1200px 500px at 80% -10%,#E1E6FA 0%,transparent 55%),radial-gradient(900px 500px at 5% 10%,#DDF4EC 0%,transparent 50%)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
 @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
 h1{font-size:clamp(34px,5.6vw,58px);line-height:1.06;letter-spacing:-1.5px;font-weight:900;margin:16px 0 14px}
@@ -289,13 +289,6 @@ img, video, canvas, svg, iframe, table {
   box-sizing: border-box !important;
 }
 
-/* TradingView Container Responsiveness */
-.tv-ticker-tape-container, .tradingview-widget-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
-
 /* Touch Targets & Button Responsiveness */
 .btn, button, input, select {
   touch-action: manipulation;
@@ -431,13 +424,6 @@ img, video, canvas, svg, iframe, table {
   padding-left: 20px !important;
   padding-right: 20px !important;
   box-sizing: border-box !important;
-}
-
-/* TradingView Container Responsiveness */
-.tv-ticker-tape-container, .tradingview-widget-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
 }
 
 /* Touch Targets & Button Responsiveness */
@@ -577,13 +563,6 @@ img, video, canvas, svg, iframe, table {
   padding-left: 20px !important;
   padding-right: 20px !important;
   box-sizing: border-box !important;
-}
-
-/* TradingView Container Responsiveness */
-.tv-ticker-tape-container, .tradingview-widget-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
 }
 
 /* Touch Targets & Button Responsiveness */
@@ -731,13 +710,6 @@ img, video, canvas, svg, iframe, table {
   padding-left: 20px !important;
   padding-right: 20px !important;
   box-sizing: border-box !important;
-}
-
-/* TradingView Container Responsiveness */
-.tv-ticker-tape-container, .tradingview-widget-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
 }
 
 /* Touch Targets & Button Responsiveness */
@@ -926,29 +898,7 @@ function shareHomeQuote(){
   <button class="burger" id="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">☰</button>
 </div></nav>
 
-<!-- Single Official TradingView Ticker Tape Strip -->
-<div class="tv-ticker-tape-container" style="margin-top:64px;width:100%;min-height:48px;background:#0B192C;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.22);position:relative;z-index:50">
-  <div class="tradingview-widget-container" style="width:100%;height:48px">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-      "symbols": [
-        { "proName": "BSE:SENSEX", "title": "SENSEX" },
-        { "proName": "NSE:NIFTY", "title": "NIFTY 50" },
-        { "proName": "NSE:BANKNIFTY", "title": "BANK NIFTY" },
-        { "proName": "NSE:RELIANCE", "title": "RELIANCE" },
-        { "proName": "NSE:TCS", "title": "TCS" },
-        { "proName": "NSE:HDFCBANK", "title": "HDFC BANK" },
-        { "proName": "NSE:INFY", "title": "INFOSYS" },
-        { "proName": "FX_IDC:USDINR", "title": "USD/INR" }
-      ],
-      "showSymbolLogo": true,
-      "colorTheme": "dark",
-      "isTransparent": false,
-      "displayMode": "adaptive",
-      "locale": "en"
-    }
-    </script>
+
   </div>
 </div>
 
