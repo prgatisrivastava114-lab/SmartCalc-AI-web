@@ -145,6 +145,19 @@
     };
   </script>
   <link rel="manifest" href="manifest.json">
+
+<!-- Logged-in Individual User Dashboard: Digital Vanshavali Module (Preserved for Dashboard Launch) -->
+<script>
+  window.VANSHAVALI_ENABLED = false; // Feature flag managed via Admin Panel
+  function checkVanshavaliDashboardAccess() {
+    if (window.VANSHAVALI_ENABLED || localStorage.getItem('VANSHAVALI_USER_ACTIVE') === 'true') {
+      const card = document.getElementById('dashboard-vanshavali-card');
+      if (card) card.style.display = 'block';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', checkVanshavaliDashboardAccess);
+</script>
+
 </head>
 <body style="background-color: #081028; color: #FFFFFF;">
 
