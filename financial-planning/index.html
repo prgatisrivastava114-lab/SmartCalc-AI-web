@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/app/">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MyFinancialPlan Web App — Financial Planning & SmartCalc AI</title>
+  <meta name="description" content="Official MyFinancialPlan Web Application — Plan your family's retirement, SIPs, loans, insurance shield, and 500+ calculators in 5 minutes.">
+  <link rel="canonical" href="https://www.myfinancialplan.in/app/">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:site_name" content="MyFinancialPlan Web App">
+  <meta property="og:title" content="MyFinancialPlan Web App — Financial Planning & SmartCalc AI">
+  <meta property="og:description" content="Plan your family's full financial future in 5 minutes. SIP, EMI, SWP, Tax & Retirement calculators.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.myfinancialplan.in/app/">
+  <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MyFinancialPlan Web App">
+  <meta name="twitter:description" content="Plan your family's full financial future in 5 minutes.">
+  <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+
+  <!-- Schema.org SoftwareApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MyFinancialPlan Web App",
+    "operatingSystem": "All (Web, Android, iOS)",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "description": "Family financial planning application with 500+ calculators, retirement planner, and instant PDF report generator."
+  }
+  </script>
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="My Financial Plan">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <!-- Google Material Icons & Fonts for Flutter Web -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'MaterialIcons';
+      font-style: normal;
+      font-weight: 400;
+      src: url('fonts/MaterialIcons-Regular.otf') format('opentype'),
+           url('assets/fonts/MaterialIcons-Regular.otf') format('opentype'),
+           url('https://fonts.gstatic.com/s/materialicons/v142/flJgRqGRbvU15MZE9tC5A7A.woff2') format('woff2');
+    }
+
+    html, body {
+      background-color: #081028 !important;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    @keyframes mfp-spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <title>MyFinancialPlan — Financial Planning & SmartCalc AI</title>
+  <!-- Google Identity Services (GIS) for One-Tap Sign-In -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    window.mfpGoogleSignIn = function(clientId) {
+      var activeClientId = clientId || "548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com";
+      console.log("mfpGoogleSignIn invoked with clientId:", activeClientId);
+
+      return new Promise(function(resolve) {
+        var done = false;
+        function fin(tokenVal) {
+          if (done) return;
+          done = true;
+          resolve(tokenVal || "");
+        }
+
+        try {
+          if (!window.google || !google.accounts || !google.accounts.id) {
+            console.warn("Google Identity Services SDK not loaded yet");
+            fin("");
+            return;
+          }
+
+          google.accounts.id.initialize({
+            client_id: activeClientId,
+            callback: function(response) {
+              if (response && response.credential) {
+                console.log("Google Sign-In credential received successfully!");
+                fin(response.credential);
+              } else {
+                console.warn("Google Sign-In response missing credential");
+                fin("");
+              }
+            },
+            auto_select: false,
+            cancel_on_tap_outside: true
+          });
+
+          google.accounts.id.prompt(function(notification) {
+            if (notification.isSkippedMoment && notification.isSkippedMoment()) {
+              console.warn("Google One-Tap prompt skipped:", notification.getSkippedReason());
+            }
+            if (notification.isDismissedMoment && notification.isDismissedMoment()) {
+              console.warn("Google One-Tap prompt dismissed:", notification.getDismissedReason());
+            }
+          });
+        } catch(err) {
+          console.error("Error during Google Authentication:", err);
+          fin("");
+        }
+
+        setTimeout(function() {
+          if (!done) {
+            console.warn("Google Authentication timed out after 90 seconds");
+            fin("");
+          }
+        }, 90000);
+      });
+    };
+  </script>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body style="background-color: #081028; color: #FFFFFF;">
+
+  <div id="loading-indicator" style="position: fixed; inset: 0; background: #081028; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; font-family: system-ui, -apple-system, sans-serif; transition: opacity 0.4s ease;">
+    <div style="width: 52px; height: 52px; border: 4px solid rgba(251, 191, 36, 0.2); border-top-color: #FBBF24; border-radius: 50%; animation: mfp-spin 0.9s linear infinite; margin-bottom: 20px;"></div>
+    <div style="color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: 0.5px;">MyFinancialPlan</div>
+    <div id="loading-status-text" style="color: #94A3B8; font-size: 13px; margin-top: 6px;">Loading full financial application...</div>
+  </div>
+
+  <script>
+    (function() {
+      function dismissLoader() {
+        var loader = document.getElementById("loading-indicator");
+        if (loader) {
+          loader.style.opacity = "0";
+          setTimeout(function() {
+            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 400);
+        }
+      }
+
+      window.addEventListener("flutter-first-frame", dismissLoader);
+
+      var obs = new MutationObserver(function() {
+        if (document.querySelector("flt-glass-pane, flutter-view, canvas, flt-scene-host")) {
+          setTimeout(dismissLoader, 200);
+          obs.disconnect();
+        }
+      });
+      obs.observe(document.body || document.documentElement, { childList: true, subtree: true });
+
+      setTimeout(function() {
+        var st = document.getElementById("loading-status-text");
+        if (st) st.innerText = "Initializing 500+ financial calculators...";
+      }, 3000);
+
+      setTimeout(dismissLoader, 15000);
+    })();
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

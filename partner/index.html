@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Advisory Dashboard — My Financial Plan</title>
+  <meta name="description" content="Dedicated Partner Advisory Portal & Client CRM for financial advisors, distributor partners, and planners.">
+  <link rel="icon" type="image/png" href="../assets/brand/brand_logo.png">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --teal: #0E9D78;
+      --navy: #0F172A;
+      --slate: #334155;
+      --muted: #64748B;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --border: #E2E8F0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--navy); line-height: 1.5; padding-bottom: 70px; }
+    
+    /* Header */
+    header.partner-header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); height: 64px; }
+    .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 16px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; color: var(--navy); text-decoration: none; }
+    .badge { background: #EFF6FF; color: var(--primary); font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(37,99,235,0.2); }
+    
+    .container { max-width: 1280px; margin: 0 auto; padding: 20px 16px; }
+    
+    /* Partner Banner */
+    .partner-card { background: linear-gradient(135deg, #1E3A8A, #1E40AF); color: #FFFFFF; border-radius: 20px; padding: 24px; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(30,58,138,0.25); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .partner-info h1 { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+    .partner-id { font-size: 13px; opacity: 0.85; background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 99px; display: inline-block; }
+    
+    /* Metrics Grid */
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+    .card .lbl { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .card .val { font-size: 28px; font-weight: 900; color: var(--navy); margin-top: 4px; }
+    
+    /* Pipeline Deck */
+    .pipeline-deck { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 24px; scroll-snap-type: x mandatory; }
+    .pipeline-col { flex: 0 0 220px; background: #FFFFFF; border: 1px solid var(--border); border-radius: 16px; padding: 16px; scroll-snap-align: start; }
+    .pipeline-head { font-size: 13px; font-weight: 800; color: var(--slate); display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 2px solid var(--border); padding-bottom: 6px; }
+    
+    /* Client Table */
+    .table-container { background: #FFFFFF; border: 1px solid var(--border); border-radius: 20px; padding: 20px; overflow-x: auto; margin-bottom: 24px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+    th { padding: 12px; color: var(--muted); font-size: 12px; font-weight: 800; border-bottom: 2px solid var(--border); text-transform: uppercase; }
+    td { padding: 14px 12px; border-bottom: 1px solid var(--border); }
+    
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 16px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; border: none; cursor: pointer; }
+    .btn-primary { background: var(--primary); color: #FFF; }
+    .btn-wa { background: #25D366; color: #FFF; }
+    .btn-call { background: #0E9D78; color: #FFF; }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--slate); }
+
+    /* Mobile Bottom Bar for Partner */
+    .partner-bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; height: 60px; background: #0F172A; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-around; align-items: center; z-index: 1000; }
+    .partner-tab { display: flex; flex-direction: column; align-items: center; color: #94A3B8; text-decoration: none; font-size: 10px; font-weight: 700; }
+    .partner-tab.active { color: #60A5FA; }
+
+    @media (min-width: 769px) {
+      .partner-bottom-bar { display: none; }
+      body { padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Partner Header -->
+  <header class="partner-header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <img src="../assets/brand/brand_logo.png" alt="Logo" style="height:32px;">
+        <span>My Financial Plan</span>
+        <span class="badge">PARTNER PORTAL</span>
+      </a>
+
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="../index.html" class="btn btn-outline">Exit to Home</a>
+        <a href="../app/index.html" class="btn btn-primary">Individual App Mode</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Partner Content -->
+  <main class="container">
+    
+    <!-- Partner Profile Banner -->
+    <div class="partner-card">
+      <div class="partner-info">
+        <h1>Welcome, Partner Advisor 👋</h1>
+        <span class="partner-id">Partner ID: MFP-PARTNER-8840</span>
+        <p style="font-size:13px; margin-top:6px; opacity:0.9;">Manage client financial plans, leads, follow-ups, and branded PDF reports.</p>
+      </div>
+      <button class="btn btn-primary" style="background:#FFFFFF; color:var(--primary);" onclick="alert('Opening new lead modal...')">+ Add Client Lead</button>
+    </div>
+
+    <!-- 4 Metric Cards -->
+    <div class="grid-4">
+      <div class="card">
+        <div class="lbl">TOTAL CLIENT ACCOUNTS</div>
+        <div class="val">142</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">12 added this month</p>
+      </div>
+      <div class="card">
+        <div class="lbl">NEW LEADS</div>
+        <div class="val" style="color:var(--primary);">28</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">Requires contact</p>
+      </div>
+      <div class="card">
+        <div class="lbl">TODAY'S FOLLOW-UPS</div>
+        <div class="val" style="color:#D97706;">6</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">Scheduled meetings</p>
+      </div>
+      <div class="card">
+        <div class="lbl">CONVERTED PLANS</div>
+        <div class="val" style="color:var(--teal);">84%</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">High conversion rate</p>
+      </div>
+    </div>
+
+    <!-- 9-Status CRM Pipeline Preview -->
+    <h2 style="font-size:18px; font-weight:800; margin-bottom:12px; color:var(--navy);">Client Lead Lifecycle Pipeline (9 Statuses)</h2>
+    <div class="pipeline-deck">
+      <div class="pipeline-col"><div class="pipeline-head"><span>NEW LEAD</span><strong>12</strong></div><p style="font-size:12px; color:var(--muted);">Fresh inquiries</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>CONTACTED</span><strong>8</strong></div><p style="font-size:12px; color:var(--muted);">Initial call done</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>FOLLOW-UP</span><strong>5</strong></div><p style="font-size:12px; color:var(--muted);">Follow-up set</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>MEETING FIXED</span><strong>6</strong></div><p style="font-size:12px; color:var(--muted);">Plan review set</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>PROPOSAL SENT</span><strong>4</strong></div><p style="font-size:12px; color:var(--muted);">PDF plan delivered</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>CONVERTED</span><strong>18</strong></div><p style="font-size:12px; color:var(--muted);">Active client plan</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>LOST</span><strong>2</strong></div><p style="font-size:12px; color:var(--muted);">Inactive lead</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>NOT INTERESTED</span><strong>1</strong></div><p style="font-size:12px; color:var(--muted);">Closed lead</p></div>
+      <div class="pipeline-col"><div class="pipeline-head"><span>FUTURE PROSPECT</span><strong>7</strong></div><p style="font-size:12px; color:var(--muted);">Revisit next year</p></div>
+    </div>
+
+    <!-- Client Roster & Direct Action Table -->
+    <h2 style="font-size:18px; font-weight:800; margin-bottom:12px; color:var(--navy);">Recent Client Reports & CRM Action Roster</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Client Name</th>
+            <th>Phone / City</th>
+            <th>Health Score</th>
+            <th>Req. Monthly SIP</th>
+            <th>Prepared By</th>
+            <th>Quick Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rajesh Sharma</strong></td>
+            <td>+91 98765 43210<br><span style="font-size:11px; color:var(--muted);">Varanasi</span></td>
+            <td><strong style="color:var(--teal);">82 / 100</strong></td>
+            <td><strong>₹24,500/mo</strong></td>
+            <td><span style="background:#EFF6FF; color:var(--primary); font-size:11px; font-weight:800; padding:2px 8px; border-radius:99px;">Partner Advisory</span></td>
+            <td>
+              <div style="display:flex; gap:6px;">
+                <a href="https://wa.me/919876543210?text=Hello%20Rajesh%20ji,%20your%20Financial%20Plan%20Report%20is%20ready!" target="_blank" class="btn btn-wa">WhatsApp</a>
+                <a href="tel:+919876543210" class="btn btn-call">Call</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Ananya Verma</strong></td>
+            <td>+91 91234 56789<br><span style="font-size:11px; color:var(--muted);">Lucknow</span></td>
+            <td><strong style="color:#D97706;">68 / 100</strong></td>
+            <td><strong>₹18,200/mo</strong></td>
+            <td><span style="background:#EFF6FF; color:var(--primary); font-size:11px; font-weight:800; padding:2px 8px; border-radius:99px;">Partner Advisory</span></td>
+            <td>
+              <div style="display:flex; gap:6px;">
+                <a href="https://wa.me/919123456789?text=Hello%20Ananya%20ji,%20your%20Financial%20Plan%20Report%20is%20ready!" target="_blank" class="btn btn-wa">WhatsApp</a>
+                <a href="tel:+919123456789" class="btn btn-call">Call</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Partner Mobile Bottom Navigation Bar -->
+  <nav class="partner-bottom-bar">
+    <a href="#" class="partner-tab active"><span style="font-size:18px;">📊</span><span>Dashboard</span></a>
+    <a href="#" class="partner-tab"><span style="font-size:18px;">🗂️</span><span>Leads CRM</span></a>
+    <a href="#" class="partner-tab"><span style="font-size:18px;">📄</span><span>Reports</span></a>
+    <a href="#" class="partner-tab"><span style="font-size:18px;">👥</span><span>Clients</span></a>
+  </nav>
+
+</body>
+</html>
