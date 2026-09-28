@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Separate Audio Player Preview — English & Hindi</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0F172A;
+      color: #F8FAFC;
+      margin: 0;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 640px;
+      width: 100%;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .tag-en { background: #0E9D78; color: #FFF; }
+    .tag-hi { background: #2563EB; color: #FFF; }
+    h2 { margin: 0 0 1rem 0; font-size: 20px; font-weight: 800; color: #FFFFFF; }
+    p { margin: 0 0 1.25rem 0; color: #CBD5E1; font-size: 14px; line-height: 1.6; }
+    audio { width: 100%; height: 44px; outline: none; }
+  </style>
+</head>
+<body>
+
+  <div style="text-align:center; max-width:640px; margin-bottom:2rem;">
+    <h1 style="font-size:26px; font-weight:900; color:#5FE3B8; margin-bottom:8px;">Separate Audio Voiceovers</h1>
+    <p style="color:#94A3B8; font-size:14px; margin:0;">Listen to the English and Hindi voiceovers individually below.</p>
+  </div>
+
+  <!-- 1. English Separate Audio Player -->
+  <div class="card" style="border-left: 4px solid #0E9D78;">
+    <span class="tag tag-en">🇬🇧 Separate Audio 1: English Voiceover</span>
+    <h2>English Promo Voiceover Audio</h2>
+    <p>
+      “One day, your child will leave for college… your daughter will begin a new life… and you’ll finally want to slow down and enjoy yours. But have you planned for the cost of all those tomorrows? Education. Marriage. A home. Retirement. Emergencies. And a secure life for the people who depend on you. Because dreams don’t become expensive overnight. They become expensive while we keep postponing the plan. MyFinancialPlan helps you see your financial future clearly—your goals, your responsibilities, your possible funding needs, and the steps you can start taking today. Create your financial roadmap, understand your Financial Health, and explore 500+ smart calculators—all in one place. Because the greatest gift you can give your family isn’t just money. It’s being prepared. Don’t wait for tomorrow to plan tomorrow. Start today. MyFinancialPlan.in. Your Dreams Deserve a Plan. Calculate it now.”
+    </p>
+    <audio controls>
+      <source src="assets/promo_voiceover_en.mp3" type="audio/mp3">
+      Your browser does not support audio playback.
+    </audio>
+    <div style="margin-top:12px; font-size:12px; color:#94A3B8;">
+      📁 File: <code>assets/promo_voiceover_en.mp3</code>
+    </div>
+  </div>
+
+  <!-- 2. Hindi Separate Audio Player -->
+  <div class="card" style="border-left: 4px solid #2563EB;">
+    <span class="tag tag-hi">🇮🇳 Separate Audio 2: Hindi Voiceover</span>
+    <h2>Hindi Promo Voiceover Audio (हिंदी ऑडियो)</h2>
+    <p>
+      “एक दिन आपका बच्चा कॉलेज जाएगा… आपकी बेटी अपनी नई ज़िंदगी शुरू करेगी… और आप भी अपनी ज़िंदगी को सुकून से जीना चाहेंगे। लेकिन क्या आपने उन आने वाले कल की आर्थिक ज़रूरतों की योजना बनाई है? बच्चों की शिक्षा… बेटी की शादी… अपना घर… रिटायरमेंट… आपातकाल… और उन अपनों का सुरक्षित भविष्य, जो आप पर निर्भर हैं। क्योंकि सपने एक दिन में महंगे नहीं होते… उनकी कीमत तब बढ़ती जाती है, जब हम उनकी तैयारी को टालते रहते हैं। MyFinancialPlan आपके वित्तीय भविष्य की तस्वीर को स्पष्ट करने में मदद करता है—आपके लक्ष्य, आपकी ज़िम्मेदारियाँ, भविष्य की संभावित जरूरतें और आज से उठाए जाने वाले कदम। अपना Financial Roadmap बनाइए, अपनी Financial Health समझिए और 500+ स्मार्ट कैलकुलेटर—सब एक ही जगह पर। क्योंकि अपने परिवार को दिया जाने वाला सबसे बड़ा तोहफ़ा सिर्फ पैसा नहीं… बल्कि भविष्य के लिए तैयार होना है। कल की तैयारी के लिए कल का इंतज़ार मत कीजिए। शुरुआत आज कीजिए। MyFinancialPlan.in। आपके सपने… एक सही योजना के हकदार हैं। आज ही तैयार करें।”
+    </p>
+    <audio controls>
+      <source src="assets/promo_voiceover_hi.mp3" type="audio/mp3">
+      Your browser does not support audio playback.
+    </audio>
+    <div style="margin-top:12px; font-size:12px; color:#94A3B8;">
+      📁 File: <code>assets/promo_voiceover_hi.mp3</code>
+    </div>
+  </div>
+
+</body>
+</html>
