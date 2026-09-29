@@ -56,7 +56,7 @@ Sizes to mimic the site: H1 ≈ 48–52px extra bold, H2 ≈ 32–36px, body 15�
 - **Hinglish-friendly, warm, trustworthy.** Short sentences. Numbers first ("₹99/month", "one minute").
 - Always mention: **Free to start**, **500+ calculators**, **OTP-verified**, **human RM on +91 88401 92702**.
 - Mandatory legal line on anything investment-related:
-  > "Estimates for guidance only. Markets are subject to risk — read scheme documents carefully. Consult a SEBI-registered advisor."
+  > "Estimates for guidance only. Markets are subject to risk — read scheme documents carefully. Consult a financial regulatory standard-registered advisor."
 
 ## 6. Ready asset library (where everything lives)
 

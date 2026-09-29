@@ -115606,7 +115606,7 @@ l=l<=0?"":" \u2014 SIP "+A.c(s.$1(B.b.D(l)))+"/mo"}l=p+("\u2022 "+m.b+": "+o+" b
 q+="  "+k.a+": "+k.b+" \u2014 "+A.b1a(k.d)+"\n"}j=j.x
 q=q+"\n"+("Term life cover (HLV): "+A.c(s.$1(j.a))+" + Accidental Disability & Waiver of Premium riders\n")+("Family floater health cover: "+A.c(s.$1(j.c))+"\n")
 r=j.d
-j=(r>0?q+("Senior-citizen policy: "+A.c(s.$1(j.e))+" each for "+r+" adult dependent(s)\n"):q)+"\nPersonalised consultancy: Relationship Manager +91 88401 92702\n\nEstimates only \u2014 consult a SEBI advisor. (Financial Planning & SmartCalc AI)\n"
+j=(r>0?q+("Senior-citizen policy: "+A.c(s.$1(j.e))+" each for "+r+" adult dependent(s)\n"):q)+"\nPersonalised consultancy: Relationship Manager +91 88401 92702\n\nEstimates only \u2014 consult a financial regulatory standard advisor. (Financial Planning & SmartCalc AI)\n"
 A.io(new A.hx(j.charCodeAt(0)==0?j:j))
 this.c.a8(t.J).f.ec(B.aiR)},
 arG(){var s,r=this.f,q=r.a,p=r.b,o=r.c,n=r.d,m=r.e,l=r.f,k=r.r
@@ -128499,7 +128499,7 @@ B.ap5=new A.h(!0,B.v,null,null,null,null,21,B.aQ,null,0.2,null,null,null,null,nu
 B.asG=new A.ab("My Financial Plan & Calculator",null,B.ap5,B.a7,null,null,null,null,null,null,null)
 B.asH=new A.ab("How will you use the planner?",null,B.ed,B.a7,null,null,null,null,null,null,null)
 B.ap8=new A.h(!0,B.y,null,null,null,null,12.5,null,null,null,null,null,1.55,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.asI=new A.ab("disclaimer: according to taxation law, investment in equity & debt attracts tax \u2014 adjust your withdrawals to your needs. investment in equity markets is subject to market risk; please read all scheme related documents carefully before investing. values are estimates for guidance only \u2014 consult a sebi-registered advisor.",null,B.ap8,B.a7,null,null,null,null,null,null,null)
+B.asI=new A.ab("disclaimer: according to taxation law, investment in equity & debt attracts tax \u2014 adjust your withdrawals to your needs. investment in equity markets is subject to market risk; please read all scheme related documents carefully before investing. values are estimates for guidance only \u2014 consult a financial regulatory standard-registered advisor.",null,B.ap8,B.a7,null,null,null,null,null,null,null)
 B.asJ=new A.ab("ACTIVE",null,B.qT,null,null,null,null,null,null,null,null)
 B.and=new A.h(!0,B.y,null,null,null,null,null,B.r,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.asK=new A.ab("Skip",null,B.and,null,null,null,null,null,null,null,null)
