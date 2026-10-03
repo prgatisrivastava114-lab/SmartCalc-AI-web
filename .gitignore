@@ -1,0 +1,10 @@
+# ═══════════════════════════════════════════════════════════════
+# BACKEND ONLY — must never reach the public site
+# ═══════════════════════════════════════════════════════════════
+backend/
+*.serviceAccount.json
+sa.json
+
+# build / cache
+node_modules/
+.cache/

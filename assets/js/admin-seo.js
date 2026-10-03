@@ -8,6 +8,18 @@
 
 'use strict';
 
+/* Drop a lapsed token instead of leaving it resident in the browser. */
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) return;
+  try {
+    var exp = parseInt(sessionStorage.getItem('mfp_g_token_exp') || '0', 10);
+    if (exp && Date.now() > exp) {
+      sessionStorage.removeItem('mfp_g_access_token');
+      sessionStorage.removeItem('mfp_g_token_exp');
+    }
+  } catch (e) {}
+});
+
 window.MFP_SEO = {
   // State Storage
   state: {
@@ -16,8 +28,30 @@ window.MFP_SEO = {
     firebaseConnected: true, // App connected to smartcalc-ai-638a9
     gscProperty: localStorage.getItem('mfp_gsc_prop') || null,
     ga4Property: localStorage.getItem('mfp_ga4_prop') || null,
-    accessToken: localStorage.getItem('mfp_g_access_token') || null,
-    tokenExpiry: localStorage.getItem('mfp_g_token_exp') || null,
+    /* SECURITY: the OAuth access token is held in sessionStorage (cleared when
+       the tab closes) rather than localStorage. The owner panel shares an origin
+       with the public site, so a token in localStorage would survive for weeks and
+       be readable by anything that achieves script execution on this origin.
+       Any token previously written to localStorage is migrated once and erased. */
+    accessToken: (function () {
+      try {
+        var legacy = localStorage.getItem('mfp_g_access_token');
+        if (legacy) {
+          sessionStorage.setItem('mfp_g_access_token', legacy);
+          localStorage.removeItem('mfp_g_access_token');
+          localStorage.removeItem('mfp_g_token_exp');
+        }
+        var t = sessionStorage.getItem('mfp_g_access_token');
+        var exp = parseInt(sessionStorage.getItem('mfp_g_token_exp') || '0', 10);
+        if (t && exp && Date.now() > exp) {
+          sessionStorage.removeItem('mfp_g_access_token');
+          sessionStorage.removeItem('mfp_g_token_exp');
+          return null;
+        }
+        return t || null;
+      } catch (e) { return null; }
+    })(),
+    tokenExpiry: (function () { try { return sessionStorage.getItem('mfp_g_token_exp') || null; } catch (e) { return null; } })(),
     availableGscProperties: [],
     availableGa4Properties: [],
     dateRange: '28d',
@@ -75,8 +109,8 @@ window.MFP_SEO = {
         this.state.tokenExpiry = (Date.now() + parseInt(expiresIn, 10) * 1000).toString();
         this.state.gscConnected = true;
         this.state.ga4Connected = true;
-        localStorage.setItem('mfp_g_access_token', token);
-        localStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
+        sessionStorage.setItem('mfp_g_access_token', token);
+        sessionStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
         this.state.syncError = null;
 
         if (window.history && window.history.replaceState) {
@@ -119,8 +153,8 @@ window.MFP_SEO = {
               this.state.tokenExpiry = (Date.now() + (response.expires_in || 3600) * 1000).toString();
               this.state.gscConnected = true;
               this.state.ga4Connected = true;
-              localStorage.setItem('mfp_g_access_token', response.access_token);
-              localStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
+              sessionStorage.setItem('mfp_g_access_token', response.access_token);
+              sessionStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
               this.state.syncError = null;
 
               if (window.showToast) window.showToast('✅ Google Search Console & GA4 Connected!');
@@ -153,6 +187,20 @@ window.MFP_SEO = {
     window.location.href = authUrl;
   },
 
+  /* SECURITY: wipe the token on sign-out, scope change or panel close. */
+  clearAccessToken: function () {
+    this.state.accessToken = null;
+    this.state.tokenExpiry = null;
+    this.state.gscConnected = false;
+    this.state.ga4Connected = false;
+    try {
+      sessionStorage.removeItem('mfp_g_access_token');
+      sessionStorage.removeItem('mfp_g_token_exp');
+      localStorage.removeItem('mfp_g_access_token');
+      localStorage.removeItem('mfp_g_token_exp');
+    } catch (e) {}
+  },
+
   // Manual Token Input Handler
   setManualAccessToken: function(token) {
     if (!token || !token.trim()) return;
@@ -161,8 +209,8 @@ window.MFP_SEO = {
     this.state.tokenExpiry = (Date.now() + 3600 * 1000).toString();
     this.state.gscConnected = true;
     this.state.ga4Connected = true;
-    localStorage.setItem('mfp_g_access_token', cleanToken);
-    localStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
+    sessionStorage.setItem('mfp_g_access_token', cleanToken);
+    sessionStorage.setItem('mfp_g_token_exp', this.state.tokenExpiry);
     this.state.syncError = null;
 
     if (window.showToast) window.showToast('✅ Access Token Saved! Syncing Search Console...');

@@ -140,43 +140,7 @@ window.MFP_ENGINE = {
   calculateRetirementCorpus: function() {
     const p = this.profile;
     const rGoal = p.goals.find(g => g.id === 'retirement');
-    if (!rGoal) return { futureCorpus: 0, requiredSip: 0, shortage: 0 
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
-    };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
-
+    if (!rGoal) return { futureCorpus: 0, requiredSip: 0, shortage: 0 };
 
     const yearsToRetire = Math.max(1, p.retirementAge - p.age);
     const inflation = (rGoal.expectedInflation || 6.0) / 100;
@@ -215,47 +179,12 @@ window.MFP_ENGINE = {
     return {
       futureMonthlyExpense: Math.round(futureMonthlyExpense),
       futureCorpus: Math.round(futureCorpus),
+      requiredCorpus: Math.round(futureCorpus), // alias: report templates read .requiredCorpus
       futureAllocatedValue: Math.round(futureAllocatedValue),
       shortage: Math.round(shortage),
       requiredSip: Math.round(requiredSip),
-      yearsToRetire
-    
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
+      yearsToRetire: yearsToRetire
     };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
-
   },
 
   // Calculate Goal Details Engine
@@ -296,43 +225,7 @@ window.MFP_ENGINE = {
       requiredLumpsumToday: Math.round(requiredLumpsumToday),
       requiredSip: Math.round(requiredSip),
       progressPct: Math.min(100, Math.round((futureAllocatedVal / (futureReq || 1)) * 100))
-    
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
     };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
-
   },
 
   // Calculate Synchronized Financial Health Score (1 - 100)
@@ -376,6 +269,16 @@ window.MFP_ENGINE = {
     return Math.min(100, Math.max(10, Math.round(score)));
   },
 
+  // Derive a human-readable health badge from the 1-100 score
+  getHealthBadge: function(score) {
+    const s = typeof score === 'number' ? score : 0;
+    if (s >= 80) return 'Excellent';
+    if (s >= 65) return 'Strong';
+    if (s >= 50) return 'Fair';
+    if (s >= 35) return 'Needs Attention';
+    return 'Action Required';
+  },
+
   // Get Age Guidance Category
   getAgeGuidance: function() {
     const age = this.profile.age || 30;
@@ -384,169 +287,28 @@ window.MFP_ENGINE = {
         badge: 'Early Starter (18–25)',
         class: 'b-mint',
         message: 'Great age to leverage the power of compounding! Focus on aggressive growth SIPs and establishing a 6-month emergency fund.'
-      
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
-    };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
+      };
 
     } else if (age <= 35) {
       return {
         badge: 'At the Edge (26–35)',
         class: 'b-lav',
         message: 'Key career & family building years. Prioritize 10X income term insurance, child goal planning, and structured retirement SIPs.'
-      
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
-    };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
+      };
 
     } else if (age <= 45) {
       return {
         badge: 'Late Starter (36–45)',
         class: 'b-cream',
         message: 'Prime earning phase! Boost Step-Up SIPs to close goal shortages, review health cover, and accelerate retirement corpus building.'
-      
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
-    };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
+      };
 
     } else {
       return {
         badge: 'Delayed Action Needed (46+)',
         class: 'b-red',
         message: 'Consolidate assets into debt & equity balance. Maximize retirement corpus accumulation and plan estate/legacy distribution.'
-      
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
-    };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
-
+      };
     }
   },
 
@@ -566,43 +328,7 @@ window.MFP_ENGINE = {
       totalGoalFutureReq += calc.futureRequirement;
       totalGoalShortage += calc.shortage;
       totalCombinedSipNeeded += calc.requiredSip;
-      return { goal: g, calc 
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
-    };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
-
+      return { goal: g, calc  };
     });
 
     return {
@@ -616,24 +342,39 @@ window.MFP_ENGINE = {
       totalCombinedSipNeeded,
       goalSummaries,
       lastCalculated: new Date().toISOString()
-    
+    };
+  },
+
   // PDF Report Generation & Synchronization Engine
   generatePdfReportData: function(lang) {
     const summary = this.getFinancialSummary();
     const isHindi = lang === 'hi';
+
+    /* Normalise the summary shape.
+       calculateFinancialHealthScore() returns a plain number, and
+       calculateRetirementCorpus() names its corpus field `futureCorpus`.
+       Report templates historically read `healthScore.score` and
+       `retCorpus.requiredCorpus`, which threw on a real summary. Map both
+       shapes here so neither the engine's public contract nor the report breaks. */
+    const score = (summary.healthScore && typeof summary.healthScore === 'object')
+      ? summary.healthScore.score : summary.healthScore;
+    const badge = (summary.healthScore && summary.healthScore.badge)
+      ? summary.healthScore.badge : this.getHealthBadge(score);
+    const corpus = (summary.retCorpus.requiredCorpus !== undefined)
+      ? summary.retCorpus.requiredCorpus : summary.retCorpus.futureCorpus;
 
     return {
       title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
       preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
       preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
       date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
+      healthScore: score,
+      healthBadge: badge,
       monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
       monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
       totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
+      retCorpus: '₹' + (corpus || 0).toLocaleString('en-IN'),
+      retSip: '₹' + (summary.retCorpus.requiredSip || 0).toLocaleString('en-IN'),
       totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
       totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
       disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
@@ -652,42 +393,3 @@ window.MFP_ENGINE = {
     window.open(`https://wa.me/?text=${text}`, '_blank');
   }
 };
-
-  }
-
-  // PDF Report Generation & Synchronization Engine
-  generatePdfReportData: function(lang) {
-    const summary = this.getFinancialSummary();
-    const isHindi = lang === 'hi';
-
-    return {
-      title: isHindi ? 'वित्तीय योजना रिपोर्ट' : 'Comprehensive Family Financial Plan Report',
-      preparedFor: summary.profile.name || (isHindi ? 'प्रतिष्ठित परिवार' : 'Valued Family'),
-      preparedBy: summary.profile.partnerName || 'MyFinancialPlan.in',
-      date: new Date().toLocaleDateString(isHindi ? 'hi-IN' : 'en-IN'),
-      healthScore: summary.healthScore.score,
-      healthBadge: summary.healthScore.badge,
-      monthlyIncome: '₹' + summary.profile.monthlyIncome.toLocaleString('en-IN'),
-      monthlyExpenses: '₹' + summary.profile.monthlyExpenses.toLocaleString('en-IN'),
-      totalInvestments: '₹' + summary.totalInvestments.toLocaleString('en-IN'),
-      retCorpus: '₹' + summary.retCorpus.requiredCorpus.toLocaleString('en-IN'),
-      retSip: '₹' + summary.retCorpus.requiredSip.toLocaleString('en-IN'),
-      totalGoalShortage: '₹' + summary.totalGoalShortage.toLocaleString('en-IN'),
-      totalSipNeeded: '₹' + summary.totalCombinedSipNeeded.toLocaleString('en-IN'),
-      disclaimer: isHindi ? 'यह गणना ऐतिहासिक रिटर्न और मान्यताओं पर आधारित है।' : 'Estimates based on historical return assumptions (12% equity, 7% inflation).'
-    };
-  },
-
-  downloadPdfReport: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    alert((lang === 'hi' ? 'पीडीएफ रिपोर्ट तैयार की जा रही है: ' : 'Generating PDF Report for: ') + data.preparedFor);
-    window.print();
-  },
-
-  sharePdfWhatsApp: function(lang) {
-    const data = this.generatePdfReportData(lang);
-    const text = encodeURIComponent(`*My Financial Plan Report*\nPrepared For: ${data.preparedFor}\nFinancial Health Score: ${data.healthScore}/100\nTotal Present Investments: ${data.totalInvestments}\nRequired Monthly SIP: ${data.totalSipNeeded}\nView Plan: https://www.myfinancialplan.in/`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-  }
-};
-
