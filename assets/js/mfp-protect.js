@@ -19,7 +19,7 @@
   /* --- sealed default profile --------------------------------------------- */
   /* Applied instantly so the page is never exposed, then replaced by the
      policy the backend issues. Opaque by design. */
-  var _d = '2.ZKsZyyo_czxLljP8N8W0r1mila4K8pl2f_uoCnw5Dn71BpB4A86dTtEzZ_dO-Pt8syuxo3iMW6PXihiwjXyQKqCYllzBDe5nUQfDkictMctgkZ7ZSGEh5SUg_YIU4m23RZOApPcs4gyEW4XuEslCYelCQ3tFTIcYtybGb4PB0QrgXpeq9jGJOMjTH0ZxCZGKCmbZ35chwIcVnIZcdgq2vVinIDR9ljObY3Vev4fPgbJrczCwRU6_ZRnsVYjjHBv5tPClNS9NJ2qowIywt5VSd-eqkQ7iUYx0Txk85KvWr62xKqhUZ8PSokAY7VOmN0wQHTMVgHKPFHb7_AnQG8YnqlRz_-DtfBe0wJOTmvYMImT8DbB7TTT8XQ98ozwafaYqXOHGzHn8PQu5aIeVxSehPrYXaUvuE-rM1UVl4BqgufxmsqIiJN6VXi3AyeQnZbbs-rnwIWGZVZiBzRjzCS3AG88gDVYyY73O4NtS0vGm8NjnMG46V61t7XHHTaX0Qk0_bzvbCUdDoqZGlSjYkwYxtsz2vucSqX_GqLdbzAW22nykApBj4jVYDoMt63HO5KRyjLiEkpgg_KDSpReLv0AkJR85Igy86pq5LlYpmnLcay-7PO-NVrab8PRAwDVdzcTrrpiU91I0GiyoSHBSKAvOTepqyhPgYIs4-gTqcxhSDGFRmu_Zq4lfV5eWfropf9-KT9LjEz9Nn-LrYJZA1uzf74IHP4SAxA9WXriGQDhTKHy1Ggi85Yb4Odp0_TJRWYxEyEFHOtS_o_CUnmJGT_m8Xy_MNCbog0rFBSpPPA2QhHDlSnV4tx8bjZR5Iqfh0CjYRdsgXQ2h53tbepwN2wUukXa2Kvbm00tNq7oRPkgun5Q2GU7Np-kH4NvlX17ObIIfkZ59pLOQkb5DQ_MtkEsxXixqTGSYh7UnEZopvvGZTndJVpgytawVPX06ICoO12jCGDqZXKYLJ0sr2iQkS9gjLq35SGS-5ipyFwrqs0yWxMa-c3t3Xs2mlyBlB28BwFgFc1Sw7EH363If0u1XXtGQtvbH-vBB22kz78VzgVJ-DKcRFt-H3ml9fPpTGu1BNzPxwzq5IzJiKQmCFIPxJPIDRjGAW4bN7Vc4Az9PhP1S2E3SEY31BsCLAST1hA4uqOaoWmrQjRGmUO-IUFVSxID07F31KnzF58FhaWOqdh1cOLOwzUdhkrnq-ut2z7cjld6hrLIDPl1QQWhUvKH0XUEf-a3zJ8gS64xSO4iGY7up.384617';
+  var _d = '2.ZKsZyyo_czxLljP8N8W0r1mila4K8pl2f_uoCnw5Dn71BpB4A86dTtEzZ_dO-Pt8syuxo3iMW6PXihiwjXyQKqCYllzBDe5nUQfDkictMctgkZ7ZSGEh5SUg_YIU4m23RZOApPcs4gyEW4XuEslCYelCQ3tFTIcYtybGb4PB0QrgXpeq9jGJOMjTH0ZxCZGKCmbZ35chwIcVnIZcdgq2vVinIDR9ljObY3Vev4fPgbJrczCwRU6_ZRnsVYjjHBv5tPClNS9NJ2qowIywt5VSd-eqkQ7iUYx0Txk85KvWr62xKqhUZ8PSokAY7VOmN0wQHTMVgHKPFHb7_AnQG8YnqlRz_-DtfBe0wJOTmvYMImT8DbB7TTT8XQ98ozwafaYqXOHGzHj8PQu5aIeVxSehPrYXaUvuE-rM1UVl4BqgufxmsqIiJN6VXi3AyeQnZbbs-rnwIWGZVZiBzRjzCS3AG88gDVYyY73O4NtS0vGm8NjnMG46V61t7XHHTaX0Qk0_bzvbCUdDoqZGlSjYkwYxtsz2vucSqX_GqLdbzAW22nykApBj4jVYDoMt63HO5KRyjLiEkpgg_KDSpReLv0AkJR85Igy86pq5LlYpmnLcay-7PO-NVrab8PRAwDVdzcTrrpiU91I0GiyoSHBSKAvOTepqyhPgYIs4-gTqcxhSDGFRmu_Zq4lfV5eWfropf9-KT9LjEz9Nn-LrYJZA1uzf74IHP4SAxA9WXriGQDhTKHy1Ggi85Yb4Odp0_TJRWYxEyEFHOtS_o_CUnmJGT_m8Xy_MNCbog0rFBSpPPA2QhHDlSnV4tx8bjZR5Iqfh0CjYRdsgXQ2h53tbepwN2wUukXa2Kvbm00tNq7oRPkgun5Q2GU7Np-kH4NvlX17ObIIfkZ59pLOQkb5DQ_MtkEsxXixqTGSYh7UnEZopvvGZTndJVpgytawVPX06ICoO12jCGDqZXKYLJ0sr2iQkS9gjLq35SGS-5ipyFwrqs0yWxMa-c3t3Xs2mlyBlB28BwFgFc1Sw7EH363If0u1XXtGQtvbH-vBB22kz78VzgVJ-DKcRFt-H3ml9fPpTGu1BNzPxwzq5IzJiKQmCFIPxJPIDRjGAW4bN7Vc4Az9PhP1S2E3SEY31BsCLAST1hA4uqOaoWmrQjRGmUO-IUFVSxID07F31KnzF58FhaWOqdh1cOLOwzUdhkrnq-ut2z7cjld6hrLIDPl1QQWhUvKH0XUEf-a3zJ8gS64xSO4iGY7up.283506';
 
   var _n = 'MyFinancialPlan.in';
   var _wmo = 0.085;   /* fallback watermark opacity if the policy omits one */
@@ -238,12 +238,15 @@
       }
     }, true);
 
-    /* ---- focus shield ---- */
-    if (cap.bl) {
-      var sh = null;
-      function shield(on) {
-        if (on) {
-          if (!sh) {
+    /* ---- focus shield ----------------------------------------------------
+       The shield is declared at function scope so that the print shield below
+       can still use it when the tab-switch blur is switched off. Declaring it
+       inside the "if" would make it block-scoped under 'use strict' and the
+       print shield would throw. */
+    var sh = null;
+    function shield(on) {
+      if (on) {
+        if (!sh) {
             sh = document.createElement('div');
             sh.style.cssText =
               'position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;' +
@@ -256,14 +259,25 @@
               esc(msg(p, 'sw', '')) + '</div></div>';
             add(sh);
           }
-          sh.style.display = 'flex';
-        } else if (sh) { sh.style.display = 'none'; }
-      }
+        sh.style.display = 'flex';
+      } else if (sh) { sh.style.display = 'none'; }
+    }
+
+    /* Blur while the visitor is away from the tab — switchable on its own. */
+    if (cap.bl) {
       hook(window, 'blur', function () { shield(true); });
       hook(window, 'focus', function () { shield(false); });
       hook(document, 'visibilitychange', function () { shield(!!document.hidden); });
       hook(document, 'click', function () { shield(false); });
-      if (!cap.pr) { hook(window, 'beforeprint', function () { shield(true); }); hook(window, 'afterprint', function () { shield(false); }); }
+      G.shield = shield;
+    }
+
+    /* Independent of cap.bl: when printing IS allowed, blank the screen while
+       the print dialog renders. This must keep working even with the blur off,
+       otherwise allowing print would expose the protected layout. */
+    if (!cap.pr) {
+      hook(window, 'beforeprint', function () { shield(true); });
+      hook(window, 'afterprint', function () { shield(false); });
       G.shield = shield;
     }
 
