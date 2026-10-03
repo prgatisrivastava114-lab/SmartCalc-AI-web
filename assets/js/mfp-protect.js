@@ -19,9 +19,10 @@
   /* --- sealed default profile --------------------------------------------- */
   /* Applied instantly so the page is never exposed, then replaced by the
      policy the backend issues. Opaque by design. */
-  var _d = '2.ZKsZyyo_czxLljP8N8W0r1mila4K8pl2f_uoCnw5Dn71BpB4A86dTtEzZ_dO-Pt8syuxo3iMW6PXihiwjXyQKqCYllzBDe5nUQfDkictMctgkZ7ZSGEh5SUg_YIU4m23RZOApPcs4gyEW4XuEslCYelCQ3tFTIcYtybGb4PB0QrgXpeq9jGJOMjTH0ZxCZGKCmbZ35chwIcVnIZcdgq2vVinIDR9ljObY3Vev4fPgbJrczCwRU6_ZRnsVYjjHBv5tPClNS9NJ2qowIywt5VSd-eqkQ7iUYx0Txk85KvWr62xKqhUZ8PSokAY7VOmN0wQHTMVgHKPFHb7_AnQG8YnqlRz_-DtfBe0wJOTmvYMImT8DbB7TTT8XQ98ozwafaYqXOHGzHn8PQu5aIeUxSehPrYXaRrgRuLb1UV3p0Tj-fVm5KIicoXFUiKcz_VndLDgooPhK27BQ5OZzR_uURfBGMRpNBoydKzCyJhtkrr2yoq-IXQvcu5SrTqGcLG4VUNiezzJSEEAibt6w2XXiQ01uZW7te0yq3MGX3gPzkT93HSsX5ChgBfaDtg_8neZtaY_TAJdkNsruufSeapyD1ocaAwwaVj5OnVf0wIPlnbAZmG_c_GLXKyKs-lWhHtR1or-p5qPoF4jFGDrHiJQZl2DyhCadhGeK54zrBOr7-6l9WFqgKjVttddWZKQcbovYt-aTsjxUSNJnKeqLJoWzveO9dCWx3U8xnMGR6TQE3TEl4lJXnieyK6sNcxjsiFLHc1m6ScVOt-7vuuDymZQBPviGDjOZHWpB7A1uSgnex-DyiW335jMUVAwhJE8L7r0lT6RQtUtXRvlqCsSeIsSil5uDYxGlvSZkE5S5-cTur_TfpQVGV_B6edUtN3jWF7fYYkVxpJqqv_Tx-5RDaVgF7HGyC4VDWaOwOF2iWrOJrWvWWBPR5Ml8-M1dXAsdD8MxGiGX2uVCbQIYANkS8nbvJxOY--vXn3o_Hjw5-od8Huczpz7T2ojW82nwzFpU34Nhwt3YkGnvlu4v35QyPFXQ4SB-bbLrO8Vmjx_azOJZhcERuJARtnAlCT_l06oSZlZLC-l1Dy9KSQ4K0zTR5ehcaQiSjKLU8eOpVUyCGgHhtZbyUrdF439BsmIFTj1mQ04rve1G2-ejhSjW--OXUAd14SkpVz0Y3fO5-JhbTe4Rx0MeePtjgs1sb2ptKsHj-svw9evtPRDYk9GUD4F-e-iE0FGp_awcoASoc9dOYiGY_q4mzo1x3VqrfU-f3MFz60.132160';
+  var _d = '2.ZKsZyyo_czxLljP8N8W0r1mila4K8pl2f_uoCnw5Dn71BpB4A86dTtEzZ_dO-Pt8syuxo3iMW6PXihiwjXyQKqCYllzBDe5nUQfDkictMctgkZ7ZSGEh5SUg_YIU4m23RZOApPcs4gyEW4XuEslCYelCQ3tFTIcYtybGb4PB0QrgXpeq9jGJOMjTH0ZxCZGKCmbZ35chwIcVnIZcdgq2vVinIDR9ljObY3Vev4fPgbJrczCwRU6_ZRnsVYjjHBv5tPClNS9NJ2qowIywt5VSd-eqkQ7iUYx0Txk85KvWr62xKqhUZ8PSokAY7VOmN0wQHTMVgHKPFHb7_AnQG8YnqlRz_-DtfBe0wJOTmvYMImT8DbB7TTT8XQ98ozwafaYqXOHGzHn8PQu5aIeVxSehPrYXaUvuE-rM1UVl4BqgufxmsqIiJN6VXi3AyeQnZbbs-rnwIWGZVZiBzRjzCS3AG88gDVYyY73O4NtS0vGm8NjnMG46V61t7XHHTaX0Qk0_bzvbCUdDoqZGlSjYkwYxtsz2vucSqX_GqLdbzAW22nykApBj4jVYDoMt63HO5KRyjLiEkpgg_KDSpReLv0AkJR85Igy86pq5LlYpmnLcay-7PO-NVrab8PRAwDVdzcTrrpiU91I0GiyoSHBSKAvOTepqyhPgYIs4-gTqcxhSDGFRmu_Zq4lfV5eWfropf9-KT9LjEz9Nn-LrYJZA1uzf74IHP4SAxA9WXriGQDhTKHy1Ggi85Yb4Odp0_TJRWYxEyEFHOtS_o_CUnmJGT_m8Xy_MNCbog0rFBSpPPA2QhHDlSnV4tx8bjZR5Iqfh0CjYRdsgXQ2h53tbepwN2wUukXa2Kvbm00tNq7oRPkgun5Q2GU7Np-kH4NvlX17ObIIfkZ59pLOQkb5DQ_MtkEsxXixqTGSYh7UnEZopvvGZTndJVpgytawVPX06ICoO12jCGDqZXKYLJ0sr2iQkS9gjLq35SGS-5ipyFwrqs0yWxMa-c3t3Xs2mlyBlB28BwFgFc1Sw7EH363If0u1XXtGQtvbH-vBB22kz78VzgVJ-DKcRFt-H3ml9fPpTGu1BNzPxwzq5IzJiKQmCFIPxJPIDRjGAW4bN7Vc4Az9PhP1S2E3SEY31BsCLAST1hA4uqOaoWmrQjRGmUO-IUFVSxID07F31KnzF58FhaWOqdh1cOLOwzUdhkrnq-ut2z7cjld6hrLIDPl1QQWhUvKH0XUEf-a3zJ8gS64xSO4iGY7up.384617';
 
   var _n = 'MyFinancialPlan.in';
+  var _wmo = 0.085;   /* fallback watermark opacity if the policy omits one */
   var _q = 'mfp_sp';
   var _r = 'mfp_vid';
 
@@ -272,14 +273,18 @@
       var d = new Date().toLocaleString('en-IN', {
         day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
       });
+      /* Opacity comes from the policy so the backend can retune the mark
+         without a code change. Kept very low by default — a mark nobody
+         notices while browsing still survives in image forensics. */
+      var wmo = (typeof p.wmo === 'number' && p.wmo >= 0) ? p.wmo : _wmo;
       var line = String(p.wmt || '{s} • {i}{u} • {d}')
         .replace('{s}', _n).replace('{i}', w.i).replace('{u}', w.u).replace('{d}', d);
       var t = esc(line.replace(/&/g, '&amp;').replace(/</g, '&lt;'));
       var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="520" height="320">' +
         '<text x="0" y="60" transform="rotate(-27 0 60)" font-family="system-ui,sans-serif" font-size="15" ' +
-        'font-weight="700" fill="rgba(11,59,46,0.085)" letter-spacing="0.5">' + t + '</text>' +
+        'font-weight="700" fill="rgba(11,59,46,' + wmo + ')" letter-spacing="0.5">' + t + '</text>' +
         '<text x="0" y="220" transform="rotate(-27 0 220)" font-family="system-ui,sans-serif" font-size="15" ' +
-        'font-weight="700" fill="rgba(11,59,46,0.085)" letter-spacing="0.5">' + t + '</text></svg>';
+        'font-weight="700" fill="rgba(11,59,46,' + wmo + ')" letter-spacing="0.5">' + t + '</text></svg>';
       var wm = document.createElement('div');
       wm.setAttribute('aria-hidden', 'true');
       wm.style.cssText = 'position:fixed;inset:0;z-index:2147483645;pointer-events:none;opacity:.9;' +
