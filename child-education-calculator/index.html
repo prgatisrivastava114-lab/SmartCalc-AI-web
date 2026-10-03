@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Child Education Cost Calculator India — Free, No Login | MyFinancialPlan</title>
-<meta name="description" content="Free child education cost calculator for Indian families. Estimate future college cost with inflation and find the monthly SIP you need. No login, no signup required.">
+<title>Child Education Cost Calculator India | MyFinancialPlan</title>
+<meta name="description" content="Free child education cost calculator for Indian families. Estimate future college cost with inflation and find the monthly SIP you need. No login.">
 <link rel="canonical" href="https://www.myfinancialplan.in/child-education-calculator/">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 <meta name="theme-color" content="#0E9D78">
@@ -465,15 +465,22 @@ body{
 }
 .gc-print-head{display:none}
 </style>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
 </head>
 <body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
 
 <header class="gc-bar"><div class="gc-wrap">
   <a class="gc-brand" href="/"><i>₹</i> MyFinancialPlan</a>
   <a class="gc-navlink" href="/financial-goal-calculator/">All calculators</a>
 </div></header>
 
-<main class="gc-wrap">
+<main id="main" class="gc-wrap" tabindex="-1">
 
   <section class="gc-hero">
     <span class="badge">Free · No login · Nothing stored</span>
@@ -1520,7 +1527,7 @@ body{
   function renderResult(el, r, key, cfg, inputs) {
     if (!r.ok) {
       el.innerHTML =
-        '<div class="gc-card" id="gc-results">' +
+        '<div class="gc-card" id="gc-results" role="status" aria-live="polite">' +
           '<h2>\u26A0\uFE0F Please check your inputs</h2>' +
           '<div class="gc-msgs">' + r.errors.map(function (e) {
             return '<div class="gc-msg err">' + e + '</div>';
@@ -1533,7 +1540,7 @@ body{
     }
 
     var h = [];
-    h.push('<div class="gc-card" id="gc-results">');
+    h.push('<div class="gc-card" id="gc-results" role="status" aria-live="polite">');
 
     /* print-only letterhead — appears on the PDF, hidden on screen */
     h.push('<div class="gc-print-head"><b>' + E.GOALS[key].label + ' \u2014 MyFinancialPlan</b>' +
@@ -1741,7 +1748,7 @@ body{
 
       var extra = '';
       if (key === 'emergency') {
-        extra = '<div class="gc-toggle"><button class="gc-switch" type="button" data-gc-toggle="inflationAdjust" aria-pressed="false"></button>' +
+        extra = '<div class="gc-toggle"><button class="gc-switch" type="button" aria-label="Adjust for inflation" data-gc-toggle="inflationAdjust" aria-pressed="false"></button>' +
           '<span><span class="tl">Adjust for inflation</span>' +
           '<span class="td">Usually off \u2014 an emergency fund is needed now, not in 10 years. Turn on only if you will build it over a long period.</span></span></div>';
       }
@@ -1772,7 +1779,7 @@ body{
             assum.map(inputHTML).join('') + '</div></div></details>' : '') +
           '<div style="margin-top:16px"><button class="gc-btn" type="button" id="gc-calc">Calculate my goal</button></div>' +
         '</div>' +
-        '<div id="gc-out"></div>';
+        '<div id="gc-out" role="status" aria-live="polite"></div>';
 
       /* Yes/No control for existing savings */
       if (asksExisting) {

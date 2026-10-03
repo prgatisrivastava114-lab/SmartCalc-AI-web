@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Retirement Calculator — How Much Corpus & SIP Do You Need? | MyFinancialPlan</title>
-<meta name="description" content="Free retirement calculator for India: enter age, expenses & inflation to get the exact retirement corpus you need and the monthly SIP to build it. Plan a worry-free pension.">
+<title>Retirement Calculator — Corpus & SIP | MyFinancialPlan</title>
+<meta name="description" content="Free retirement calculator for India: enter age, expenses and inflation to get the exact retirement corpus you need and the monthly SIP to build it.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/retirement-calculator/">
 <meta property="og:title" content="Retirement Calculator — How Much Corpus & SIP Do You Need? | MyFinancialPlan">
 <meta property="og:description" content="Free retirement calculator for India: enter age, expenses & inflation to get the exact retirement corpus you need and the monthly SIP to build it. Plan a worry-free pension.">
@@ -81,8 +81,15 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 @keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
 </style>
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
 </head>
 <body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
   <nav><a href="/tools/">All tools</a><a class="hot" href="/app/">Open App</a></nav>
@@ -91,10 +98,10 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
   <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › Retirement Planning Calculator</p>
   <div class="hero">
     <span class="kick">Free tool · No sign-up · Instant result</span>
-    <h1>Retirement Planning Calculator</h1>
+    <h1 id="main" tabindex="-1">Retirement Planning Calculator</h1>
     <p class="sub">The one number every family must know: the corpus that keeps your lifestyle alive after salary stops.</p>
   </div>
-  <div class="calc"><label>Current age</label><input id='a' type='number' value='35' min='18' oninput='calc()'><label>Retirement age</label><input id='b' type='number' value='58' min='40' oninput='calc()'><label>Today's monthly household expense (₹)</label><input id='c' type='number' value='50000' min='5000' oninput='calc()'><label>Inflation (%)</label><input id='d' type='number' value='6' step='0.1' oninput='calc()'><label>Return on investments (%)</label><input id='e' type='number' value='11' step='0.1' oninput='calc()'><label>Plan till age</label><input id='f' type='number' value='85' min='70' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1'>—</b><span>Expense at retirement</span></div><div class='res r2'><b id='o2'>—</b><span>Corpus needed</span></div><div class='res r3'><b id='o3'>—</b><span>Monthly SIP from today</span></div></div><p class='note' id='o4'></p></div>
+  <div class="calc"><label>Current age</label><input id='a' type='number' value='35' min='18' oninput='calc()'><label>Retirement age</label><input id='b' type='number' value='58' min='40' oninput='calc()'><label>Today's monthly household expense (₹)</label><input id='c' type='number' value='50000' min='5000' oninput='calc()'><label>Inflation (%)</label><input id='d' type='number' value='6' step='0.1' oninput='calc()'><label>Return on investments (%)</label><input id='e' type='number' value='11' step='0.1' oninput='calc()'><label>Plan till age</label><input id='f' type='number' value='85' min='70' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Expense at retirement</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Corpus needed</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Monthly SIP from today</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
   <h2>About this calculator</h2>
   <p>Retirement planning is not about age 60 — it is about making money keep working after you stop. Inflation quietly doubles your expenses every 12 years; this calculator shows your target corpus and the SIP that reaches it, with realistic defaults for India.</p>
   <h3>Why 6% inflation changes everything</h3><p>₹50,000/month today becomes ₹1.6 lakh/month in 20 years at 6% inflation. Plans that ignore inflation leave families with a corpus that runs dry in their 70s — the riskiest decade to be broke.</p><h3>The 3-bucket pension strategy</h3><p>Bucket 1: 2 years of expenses in FD/liquid funds. Bucket 2: 3–10 years in balanced/debt funds feeding the SWP. Bucket 3: 10+ years in equity for growth that refills bucket 1. This is what our full Plan page builds for you.</p><h3>When should I start?</h3><p>At 30, a ₹12,600/month SIP (12%, 20 years) builds ~₹1.25 crore. The same corpus starting at 40 needs ~₹38,000/month. Time, not money, is the main ingredient.</p>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FD Calculator 2026 — Fixed Deposit Maturity & Interest | MyFinancialPlan</title>
-<meta name="description" content="Free FD calculator: compute fixed deposit maturity value with quarterly compounding for any bank rate and tenure. Compare FD vs RD vs SIP before locking your money.">
+<title>FD Calculator 2026 — Maturity & Interest | MyFinancialPlan</title>
+<meta name="description" content="Free FD calculator: work out fixed deposit maturity with quarterly compounding for any bank rate and tenure. Compare FD, RD and SIP before you lock in.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/fd-calculator/">
 <meta property="og:title" content="FD Calculator 2026 — Fixed Deposit Maturity & Interest | MyFinancialPlan">
 <meta property="og:description" content="Free FD calculator: compute fixed deposit maturity value with quarterly compounding for any bank rate and tenure. Compare FD vs RD vs SIP before locking your money.">
@@ -86,8 +86,15 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 <meta name="twitter:description" content="Free FD calculator: compute fixed deposit maturity value with quarterly compounding for any bank rate and tenure. Compare FD vs RD vs SIP before locking your money.">
 <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
 </head>
 <body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
   <nav><a href="/tools/">All tools</a><a class="hot" href="/app/">Open App</a></nav>
@@ -96,10 +103,10 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
   <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › FD Calculator</p>
   <div class="hero">
     <span class="kick">Free tool · No sign-up · Instant result</span>
-    <h1>FD Calculator</h1>
+    <h1 id="main" tabindex="-1">FD Calculator</h1>
     <p class="sub">Exact FD maturity with quarterly compounding — check before you lock the rate.</p>
   </div>
-  <div class="calc"><label>Deposit amount (₹)</label><input id='a' type='number' value='500000' min='1000' oninput='calc()'><label>Annual interest rate (%)</label><input id='b' type='number' value='7' step='0.05' min='0' oninput='calc()'><label>Tenure (years)</label><input id='c' type='number' value='3' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1'>—</b><span>Deposited</span></div><div class='res r2'><b id='o2'>—</b><span>Interest earned</span></div><div class='res r3'><b id='o3'>—</b><span>Maturity value</span></div></div><p class='note' id='o4'></p></div>
+  <div class="calc"><label>Deposit amount (₹)</label><input id='a' type='number' value='500000' min='1000' oninput='calc()'><label>Annual interest rate (%)</label><input id='b' type='number' value='7' step='0.05' min='0' oninput='calc()'><label>Tenure (years)</label><input id='c' type='number' value='3' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Deposited</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Interest earned</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Maturity value</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
   <h2>About this calculator</h2>
   <p>Fixed Deposits remain India's default safe investment — but few people compute the actual maturity or compare it with alternatives. This FD calculator uses the same quarterly-compounding method banks use.</p>
   <h3>FD interest is fully taxable</h3><p>Bank FD interest adds to your income and is taxed at your slab (up to 30%+). At 7% FD and 30% slab, your real post-tax return is ~4.9% — often below inflation. That is why emergency money suits FDs, long-horizon money does not.</p><h3>Laddering beats one big FD</h3><p>Split into 3–5 FDs maturing in different years: better liquidity, better average rates, and you always have one FD close to maturity.</p><h3>FD vs Debt mutual funds</h3><p>Debt funds historically return similarly to FDs pre-tax, but taxation now aligns with slabs (post-2023 rules). FD still wins for simplicity and deposit insurance up to ₹5 lakh (DICGC).</p>

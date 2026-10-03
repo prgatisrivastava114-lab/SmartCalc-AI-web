@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SWP Calculator — Monthly Withdrawal Plan from Mutual Funds | MyFinancialPlan</title>
-<meta name="description" content="Free SWP calculator for retirees: check how long your corpus lasts with monthly withdrawals, expected balance left, and plan a worry-free pension from your mutual fund corpus.">
+<title>SWP Calculator — Monthly Withdrawal Plan | MyFinancialPlan</title>
+<meta name="description" content="Free SWP calculator: see how long your corpus lasts with monthly withdrawals, the balance you have left over time, and plan a steady retirement income.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/swp-calculator/">
 <meta property="og:title" content="SWP Calculator — Monthly Withdrawal Plan from Mutual Funds | MyFinancialPlan">
 <meta property="og:description" content="Free SWP calculator for retirees: check how long your corpus lasts with monthly withdrawals, expected balance left, and plan a worry-free pension from your mutual fund corpus.">
@@ -86,8 +86,15 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 <meta name="twitter:description" content="Free SWP calculator for retirees: check how long your corpus lasts with monthly withdrawals, expected balance left, and plan a worry-free pension from your mutual fund corpus.">
 <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
 </head>
 <body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
   <nav><a href="/tools/">All tools</a><a class="hot" href="/app/">Open App</a></nav>
@@ -96,10 +103,10 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
   <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › SWP Calculator</p>
   <div class="hero">
     <span class="kick">Free tool · No sign-up · Instant result</span>
-    <h1>SWP Calculator</h1>
+    <h1 id="main" tabindex="-1">SWP Calculator</h1>
     <p class="sub">Turn your retirement corpus into a monthly pension — see if the money survives you.</p>
   </div>
-  <div class="calc"><label>Total corpus (₹)</label><input id='a' type='number' value='10000000' min='100000' oninput='calc()'><label>Monthly withdrawal (₹)</label><input id='b' type='number' value='50000' min='1000' oninput='calc()'><label>Expected annual return (%)</label><input id='c' type='number' value='7' step='0.1' min='0' oninput='calc()'><label>Years you need the income</label><input id='d' type='number' value='25' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1'>—</b><span>Total withdrawn</span></div><div class='res r2'><b id='o2'>—</b><span>Balance left</span></div><div class='res r3'><b id='o3'>—</b><span>Money lasts</span></div></div><p class='note' id='o4'></p></div>
+  <div class="calc"><label>Total corpus (₹)</label><input id='a' type='number' value='10000000' min='100000' oninput='calc()'><label>Monthly withdrawal (₹)</label><input id='b' type='number' value='50000' min='1000' oninput='calc()'><label>Expected annual return (%)</label><input id='c' type='number' value='7' step='0.1' min='0' oninput='calc()'><label>Years you need the income</label><input id='d' type='number' value='25' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Total withdrawn</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Balance left</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Money lasts</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
   <h2>About this calculator</h2>
   <p>A Systematic Withdrawal Plan (SWP) is the mirror of a SIP: your invested corpus stays at work while you withdraw a fixed amount every month. For retirees it is the most tax-efficient pension most families never get told about.</p>
   <h3>How long will my corpus last?</h3><p>It depends on three numbers: corpus size, monthly withdrawal, and the return the remaining balance keeps earning. If your withdrawal rate stays below your long-term return minus inflation, the corpus can last 30+ years. That is why planners target a 4–5% annual withdrawal rate with 6–7% balanced-fund returns.</p><h3>SWP vs bank FD for pension?</h3><p>FD interest is fully taxable every year; SWP withdrawals are partly capital and partly gains — historically far more tax-efficient and usually higher net income.</p><h3>What if markets crash in my first years?</h3><p>Sequence-of-returns risk is real: keep 2 years of withdrawals in a liquid/FD bucket, SWP from the rest. Our Plan page builds this bucket automatically.</p>

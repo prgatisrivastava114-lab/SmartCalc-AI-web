@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EMI Calculator 2026 — Home, Car & Personal Loan EMI | MyFinancialPlan</title>
-<meta name="description" content="Free EMI calculator: home loan, car loan or personal loan — get exact monthly EMI, total interest and total payment. Compare tenures before you sign the loan papers.">
+<title>EMI Calculator 2026 — Home, Car & Personal | MyFinancialPlan</title>
+<meta name="description" content="Free EMI calculator for home, car and personal loans. Get your exact monthly EMI, total interest and total payment, and compare tenures before you sign.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/emi-calculator/">
 <meta property="og:title" content="EMI Calculator 2026 — Home, Car & Personal Loan EMI | MyFinancialPlan">
 <meta property="og:description" content="Free EMI calculator: home loan, car loan or personal loan — get exact monthly EMI, total interest and total payment. Compare tenures before you sign the loan papers.">
@@ -86,8 +86,15 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 <meta name="twitter:description" content="Free EMI calculator: home loan, car loan or personal loan — get exact monthly EMI, total interest and total payment. Compare tenures before you sign the loan papers.">
 <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
 </head>
 <body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
   <nav><a href="/tools/">All tools</a><a class="hot" href="/app/">Open App</a></nav>
@@ -96,10 +103,10 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
   <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › EMI Calculator</p>
   <div class="hero">
     <span class="kick">Free tool · No sign-up · Instant result</span>
-    <h1>EMI Calculator</h1>
+    <h1 id="main" tabindex="-1">EMI Calculator</h1>
     <p class="sub">Know your exact EMI — and the shocking total interest — before you sign.</p>
   </div>
-  <div class="calc"><label>Loan amount (₹)</label><input id='a' type='number' value='3000000' min='10000' oninput='calc()'><label>Annual interest rate (%)</label><input id='b' type='number' value='8.5' step='0.05' min='0' oninput='calc()'><label>Tenure (years)</label><input id='c' type='number' value='20' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1'>—</b><span>Monthly EMI</span></div><div class='res r2'><b id='o2'>—</b><span>Total interest</span></div><div class='res r3'><b id='o3'>—</b><span>Total payment</span></div></div><p class='note' id='o4'></p></div>
+  <div class="calc"><label>Loan amount (₹)</label><input id='a' type='number' value='3000000' min='10000' oninput='calc()'><label>Annual interest rate (%)</label><input id='b' type='number' value='8.5' step='0.05' min='0' oninput='calc()'><label>Tenure (years)</label><input id='c' type='number' value='20' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Monthly EMI</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Total interest</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Total payment</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
   <h2>About this calculator</h2>
   <p>Every loan you will ever take — home, car, personal — runs on one EMI formula. Banks quote the easy monthly number; this calculator shows you the FULL picture including total interest, which on long home loans often exceeds the loan itself.</p>
   <h3>The 40% rule for Indian families</h3><p>Keep total EMIs under 40% of take-home pay; under 30% if you also want to invest for goals. A family earning ₹1 lakh/month EMIs above ₹40,000 leave nothing for education or retirement SIPs.</p><h3>Shorter tenure = massive savings</h3><p>On a ₹50 lakh loan at 9% for 20 years you pay ~₹58 lakh interest. Cut tenure to 10 years and interest drops to ~₹26 lakh — over ₹32 lakh saved for a slightly higher EMI.</p><h3>Prepayment is a cheat code</h3><p>Even 1 extra EMI prepaid per year can cut a 20-year loan to ~16 years. Prepay in the first half of the loan for maximum impact.</p>

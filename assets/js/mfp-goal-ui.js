@@ -455,7 +455,7 @@
 
       var extra = '';
       if (key === 'emergency') {
-        extra = '<div class="gc-toggle"><button class="gc-switch" type="button" data-gc-toggle="inflationAdjust" aria-pressed="false"></button>' +
+        extra = '<div class="gc-toggle"><button class="gc-switch" type="button" aria-label="Adjust for inflation" data-gc-toggle="inflationAdjust" aria-pressed="false"></button>' +
           '<span><span class="tl">Adjust for inflation</span>' +
           '<span class="td">Usually off \u2014 an emergency fund is needed now, not in 10 years. Turn on only if you will build it over a long period.</span></span></div>';
       }

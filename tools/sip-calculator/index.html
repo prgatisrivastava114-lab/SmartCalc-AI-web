@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SIP Calculator 2026 — Monthly SIP Returns in ₹ | MyFinancialPlan</title>
-<meta name="description" content="Free SIP calculator: enter monthly investment, return % and years to see your maturity value, total invested and wealth gained. Plan education, marriage & retirement SIPs.">
+<title>SIP Calculator 2026 — Monthly Returns | MyFinancialPlan</title>
+<meta name="description" content="Free SIP calculator: enter your monthly investment, expected return and years to see maturity value, total invested and wealth gained. No signup needed.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/sip-calculator/">
 <meta property="og:title" content="SIP Calculator 2026 — Monthly SIP Returns in ₹ | MyFinancialPlan">
 <meta property="og:description" content="Free SIP calculator: enter monthly investment, return % and years to see your maturity value, total invested and wealth gained. Plan education, marriage & retirement SIPs.">
@@ -81,8 +81,15 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 @keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
 </style>
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
 </head>
 <body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
   <nav><a href="/tools/">All tools</a><a class="hot" href="/app/">Open App</a></nav>
@@ -91,10 +98,10 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
   <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › SIP Calculator</p>
   <div class="hero">
     <span class="kick">Free tool · No sign-up · Instant result</span>
-    <h1>SIP Calculator</h1>
+    <h1 id="main" tabindex="-1">SIP Calculator</h1>
     <p class="sub">See exactly what your monthly SIP becomes — before you invest a rupee.</p>
   </div>
-  <div class="calc"><label>Monthly SIP amount (₹)</label><input id='a' type='number' value='10000' min='100' oninput='calc()'><label>Expected annual return (%)</label><input id='b' type='number' value='12' step='0.1' min='0' oninput='calc()'><label>Time period (years)</label><input id='c' type='number' value='15' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1'>—</b><span>Invested</span></div><div class='res r2'><b id='o2'>—</b><span>Wealth gained</span></div><div class='res r3'><b id='o3'>—</b><span>Maturity value</span></div></div><p class='note' id='o4'></p></div>
+  <div class="calc"><label>Monthly SIP amount (₹)</label><input id='a' type='number' value='10000' min='100' oninput='calc()'><label>Expected annual return (%)</label><input id='b' type='number' value='12' step='0.1' min='0' oninput='calc()'><label>Time period (years)</label><input id='c' type='number' value='15' min='1' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Invested</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Wealth gained</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Maturity value</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
   <h2>About this calculator</h2>
   <p>A Systematic Investment Plan (SIP) is India's favourite way to build wealth — small monthly amounts into mutual funds, compound interest doing the heavy lifting. This free SIP calculator shows your maturity value instantly: no login, no signup, no ads.</p>
   <h3>How does SIP compounding work?</h3><p>Every month's instalment earns returns, and next month's return is calculated on the bigger balance. Over long horizons the growth (interest) portion usually overtakes the money you invested — that is the magic of compounding. Example: a ₹10,000 monthly SIP at 12% for 20 years becomes ~₹99 lakh, of which ~₹75 lakh is pure growth.</p><h3>Which return % should I assume?</h3><p>Conservative long-term planning: 10–12% for diversified equity funds, 6–7% for debt funds, 7.1% for PPF. Never plan a family's essentials on best-case returns — use our Plan page for a 3-scenario view.</p><h3>SIP vs Lumpsum — which wins?</h3><p>For salaried families SIP wins on discipline and rupee-cost averaging: you buy more units when markets fall. Lumpsum wins only if you already hold cash and can stay invested 7+ years.</p>

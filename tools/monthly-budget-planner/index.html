@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Monthly Budget Planner 2026 — Free Household Budget Tool India | MyFinancialPlan</title>
-<meta name="description" content="Free monthly budget planner: enter take-home income and 8 expense categories — instantly see total spend, savings left and your savings rate vs the 20% benchmark.">
+<title>Monthly Budget Planner 2026 (Free) | MyFinancialPlan</title>
+<meta name="description" content="Free monthly budget planner: enter your take-home pay and 8 expense categories to instantly see total spend, savings left and your savings rate.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/monthly-budget-planner/">
 <meta property="og:title" content="Monthly Budget Planner 2026 — Free Household Budget Tool India | MyFinancialPlan">
 <meta property="og:description" content="Free monthly budget planner: enter take-home income and 8 expense categories — instantly see total spend, savings left and your savings rate vs the 20% benchmark.">
@@ -81,8 +81,15 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 @keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
 </style>
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
 </head>
 <body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
 <div class="top"><div class="wrap">
   <a href="/"><img class="logo" src="/assets/brand/brand_logo.png" alt="My Financial Plan"></a>
   <nav><a href="/tools/">All tools</a><a class="hot" href="/app/">Open App</a></nav>
@@ -91,10 +98,10 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
   <p class="crumbs"><a href="/">Home</a> › <a href="/tools/">Free tools</a> › Monthly Budget Planner</p>
   <div class="hero">
     <span class="kick">Free tool · No sign-up · Instant result</span>
-    <h1>Monthly Budget Planner</h1>
+    <h1 id="main" tabindex="-1">Monthly Budget Planner</h1>
     <p class="sub">Income in, 8 expense buckets out — instantly see what you save and how you score.</p>
   </div>
-  <div class="calc"><label>Monthly take-home income (₹)</label><input id='inc' type='number' value='80000' min='0' oninput='calc()'><label>Rent / Home EMI (₹)</label><input id='e1' type='number' value='20000' min='0' oninput='calc()'><label>Groceries & food (₹)</label><input id='e2' type='number' value='12000' min='0' oninput='calc()'><label>Utilities & bills (₹)</label><input id='e3' type='number' value='4000' min='0' oninput='calc()'><label>Transport / fuel (₹)</label><input id='e4' type='number' value='3000' min='0' oninput='calc()'><label>Kids & education (₹)</label><input id='e5' type='number' value='5000' min='0' oninput='calc()'><label>Insurance & health (₹)</label><input id='e6' type='number' value='2000' min='0' oninput='calc()'><label>Entertainment & lifestyle (₹)</label><input id='e7' type='number' value='3000' min='0' oninput='calc()'><label>Other expenses (₹)</label><input id='e8' type='number' value='4000' min='0' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1'>—</b><span>Monthly spend</span></div><div class='res r2'><b id='o2'>—</b><span>Savings left</span></div><div class='res r3'><b id='o3'>—</b><span>Savings rate</span></div></div><p class='note' id='o4'></p></div>
+  <div class="calc"><label>Monthly take-home income (₹)</label><input id='inc' type='number' value='80000' min='0' oninput='calc()'><label>Rent / Home EMI (₹)</label><input id='e1' type='number' value='20000' min='0' oninput='calc()'><label>Groceries & food (₹)</label><input id='e2' type='number' value='12000' min='0' oninput='calc()'><label>Utilities & bills (₹)</label><input id='e3' type='number' value='4000' min='0' oninput='calc()'><label>Transport / fuel (₹)</label><input id='e4' type='number' value='3000' min='0' oninput='calc()'><label>Kids & education (₹)</label><input id='e5' type='number' value='5000' min='0' oninput='calc()'><label>Insurance & health (₹)</label><input id='e6' type='number' value='2000' min='0' oninput='calc()'><label>Entertainment & lifestyle (₹)</label><input id='e7' type='number' value='3000' min='0' oninput='calc()'><label>Other expenses (₹)</label><input id='e8' type='number' value='4000' min='0' oninput='calc()'><div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Monthly spend</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Savings left</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Savings rate</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
   <h2>About this calculator</h2>
   <p>A budget is not about cutting chai — it is about telling every rupee where to go before the month begins. This free monthly budget planner shows your total spend, leftover savings and savings rate in one glance, and scores you against the benchmark advisors use.</p><h3>What savings rate should an Indian family target?</h3><p>Under 10%: fragile — one emergency can push you into debt. 10–20%: stable — start goal SIPs. 20–30%: wealth-building zone — financial freedom becomes visible. Above 30%: aggressive savers reach retirement years early.</p><h3>Budget first, invest second?</h3><p>Almost — but the correct order is: (1) emergency fund of 6 months' expenses, (2) adequate term + health insurance, (3) goal SIPs. This planner shows whether your monthly surplus can support steps 1–3. Our 50/30/20 calculator shows the ideal split.</p><h3>The automation trick</h3><p>Willpower budgets fail; automated budgets work. Set SIPs and insurance premiums on the 2nd of the month — right after salary — and live on the rest. What you never see, you never miss.</p>
   <h2>Frequently asked questions</h2>
