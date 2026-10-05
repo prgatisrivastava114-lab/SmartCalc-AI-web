@@ -865,6 +865,117 @@ padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-s
 text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
 .mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
 </style>
+<style id="mfp-header-fit">
+/* ══ DESKTOP HEADER FIT — layout only ══════════════════════════════════════════
+   MEASURED before this fix (Chromium, 1920→1280px):
+     header row needs ....... ~1454px of content
+       logo (height 48px) ... 269px      11 nav labels ... ~1029px + gaps
+       हिंदी button .......... 89px       Goal Calculator CTA ... 154px
+     container gives ......... 1240px    (1280px max-width − 20px padding each side)
+   The ~214px shortfall made the row overflow its container, so at every desktop
+   width the 11 labels wrapped onto 2–3 lines and the CTA hung past the right edge
+   of the page column. This block fixes only that geometry: the container is sized
+   to the row, nothing is allowed to wrap, and below 1531px the burger takes over
+   instead of a squeezed row (same takeover rules the site already uses at ≤1024px).
+   No navigation item is added, removed, renamed or reordered. */
+@media (min-width:1531px){
+  nav.top .wrap{max-width:1530px!important;gap:10px}
+  nav.top .links{white-space:nowrap;gap:10px;font-size:12.5px}
+  nav.top .links a{white-space:nowrap}
+  nav.top .wrap>a:first-child{flex:0 0 auto}
+  nav.top .logo{height:40px;max-width:none}
+  #langSw{flex:0 0 auto}
+  nav.top a.btn{flex:0 0 auto;white-space:nowrap;margin-left:0!important;padding:8px 12px!important;font-size:12.5px!important}
+}
+/* Below 1531px the eleven labels cannot sit on one line, so the burger takes over.
+   Container and logo keep their original values here, so the logo stays aligned
+   with the page column exactly as on every other page of the site. */
+@media (max-width:1530px){
+  nav.top .links{display:none!important}
+  .burger{display:flex!important}
+  #langSw{margin-left:auto!important}
+  nav.top a.btn{margin-left:0!important;padding:8px 14px!important;font-size:13px!important}
+}
+</style>
+<style id="mfp-responsive-fit">
+/* MFP responsive + layout fit — measurements and reasoning for every rule
+   are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
+nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
+/* MEASURED at 390px: a correctly-proportioned logo (168px) + the हिंदी switch */
+@media (max-width:620px){
+  nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
+  nav.top .logo{height:30px}
+  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:11.5px;margin-right:0}
+  nav.top a.btn{display:flex;align-items:center;justify-content:center;height:40px;
+                padding:0 12px;font-size:12.5px;margin-left:0!important}
+  .burger{width:40px;height:40px;margin-left:0}
+}
+@media (max-width:360px){
+  nav.top .logo{height:26px}
+  #langSw{font-size:11px;padding:0 10px}
+}
+.top .wrap{flex-wrap:wrap;row-gap:6px}
+.top .wrap>nav{min-width:0;flex-wrap:wrap}
+@media (max-width:560px){
+  .top .wrap{padding:10px 14px}
+  .top .wrap>a:first-child{flex:0 0 auto}
+  a.hot{margin-left:auto}
+  .rel{gap:8px}
+  .rel a{flex:0 1 auto;min-width:0}
+}
+img,svg,video,canvas{max-width:100%}
+/* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
+@media (max-width:620px){
+  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+}
+@media (max-width:620px){
+  /* grid tracks: a 1fr column still refuses to shrink below its content's */
+  .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
+  .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
+  input,select,textarea{min-width:0;max-width:100%}
+  /* a scenario table 2px wider than the screen: let it scroll inside itself */
+  .gc-scen{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* nowrap buttons 10px over the edge */
+  .btn-estate{white-space:normal;max-width:100%}
+  /* the vanshavali page renders a 281px-wide brand logo plus its broken-image */
+  .mfp-brand-group{max-width:100%;flex-wrap:wrap}
+  .mfp-brand-logo,.mfp-brand-group svg{max-width:100%;height:auto;width:auto}
+}
+@media (max-width:519px){
+  nav.top .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 8px;
+                height:auto;min-height:0;align-items:center;padding:8px 14px}
+  #langSw{margin-left:0!important;justify-self:end}
+  nav.top a.btn{width:100%}
+  .burger{justify-self:end}
+  #mnav{top:98px}
+  header.hero{padding-top:114px}
+}
+@media (min-width:520px) and (max-width:620px){
+  nav.top .wrap{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:0 8px;
+                height:auto;min-height:0;align-items:center;padding:8px 14px}
+  #langSw{margin-left:0!important}
+  nav.top a.btn{width:100%}
+  #mnav{top:56px}
+  header.hero{padding-top:72px}
+}
+@media (min-width:1024px){
+  .goals{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(5,minmax(0,1fr));
+         overflow:visible;scroll-snap-type:none;padding-bottom:0}
+  .goal{aspect-ratio:4/3}                 /* the card keeps its original shape */
+  .goal img{width:100%;height:100%;object-fit:cover}   /* 800×600 source in a 4:3 box = no crop at all */
+  .tgrid{grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
+  .fgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:1024px){
+  .hero-vis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+  /* the two trust chips are position:absolute so they can float over the big */
+  .hero-vis .chip{position:static;width:100%;animation:none}
+  .vid-card{grid-column:1/-1;justify-self:center;width:100%;max-width:352px;aspect-ratio:9/16;
+            overflow:hidden;border-radius:22px}
+  .vid-card video{width:100%;height:100%;object-fit:cover;display:block}
+  .vid-card .unmute{position:absolute;bottom:12px;left:50%;transform:translateX(-50%)}
+}
+</style>
 </head>
 <body id="top">
 <a href="#main" class="mfp-skip">Skip to main content</a>
@@ -913,9 +1024,9 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
     <div class="cta-row">
       <a class="btn b-teal b-big" href="/app/">🚀 Open Web App — free</a>
       <a class="btn b-indigo b-big" href="/download/">📲 Download Android App</a>
-    
-    
-  <div class="hero-vis rise on">
+      </div><!-- /cta-row -->
+    </div><!-- /hero text column -->
+    <div class="hero-vis rise on">
     <div class="chip chip-a">🛡️ <div>₹7.5 Cr protection<small>term + health shield</small></div></div>
     <div class="chip chip-b">📄 <div>Branded PDF plan<small>Hindi · English</small></div></div>
     <div class="vid-card">
@@ -959,38 +1070,38 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
   <div class="calc-grid" style="margin-top:18px">
     <div class="panel">
       <div id="box-sip">
-        <label>MONTHLY SIP (₹)</label>
+        <label for="sipA">MONTHLY SIP (₹)</label>
         <input id="sipA" type="number" value="10000" oninput="calcGo()">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div><label>RETURN (%/yr)</label><input id="sipB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
-          <div><label>YEARS</label><input id="sipC" type="number" value="15" oninput="calcGo()"></div>
+          <div><label for="sipB">RETURN (%/yr)</label><input id="sipB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
+          <div><label for="sipC">YEARS</label><input id="sipC" type="number" value="15" oninput="calcGo()"></div>
         </div>
         <p class="chint">Hint: raise years, not risk — time is the real multiplier.</p>
       </div>
       <div id="box-lum" hidden>
-        <label>ONE-TIME AMOUNT (₹)</label>
+        <label for="lumA">ONE-TIME AMOUNT (₹)</label>
         <input id="lumA" type="number" value="100000" oninput="calcGo()">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div><label>RETURN (%/yr)</label><input id="lumB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
-          <div><label>YEARS</label><input id="lumC" type="number" value="15" oninput="calcGo()"></div>
+          <div><label for="lumB">RETURN (%/yr)</label><input id="lumB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
+          <div><label for="lumC">YEARS</label><input id="lumC" type="number" value="15" oninput="calcGo()"></div>
         </div>
         <p class="chint">Lumpsum wins when the money can stay invested for 7+ years.</p>
       </div>
       <div id="box-fd" hidden>
-        <label>DEPOSIT AMOUNT (₹)</label>
+        <label for="fdA">DEPOSIT AMOUNT (₹)</label>
         <input id="fdA" type="number" value="100000" oninput="calcGo()">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div><label>INTEREST (%/yr)</label><input id="fdB" type="number" value="7" step="0.05" oninput="calcGo()"></div>
-          <div><label>YEARS</label><input id="fdC" type="number" value="5" oninput="calcGo()"></div>
+          <div><label for="fdB">INTEREST (%/yr)</label><input id="fdB" type="number" value="7" step="0.05" oninput="calcGo()"></div>
+          <div><label for="fdC">YEARS</label><input id="fdC" type="number" value="5" oninput="calcGo()"></div>
         </div>
         <p class="chint">FD is steady and guaranteed — best for goals within 3 years.</p>
       </div>
       <div id="box-emi" hidden>
-        <label>LOAN AMOUNT (₹)</label>
+        <label for="emiA">LOAN AMOUNT (₹)</label>
         <input id="emiA" type="number" value="2500000" oninput="calcGo()">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div><label>INTEREST (%/yr)</label><input id="emiB" type="number" value="8.5" step="0.05" oninput="calcGo()"></div>
-          <div><label>YEARS</label><input id="emiC" type="number" value="20" oninput="calcGo()"></div>
+          <div><label for="emiB">INTEREST (%/yr)</label><input id="emiB" type="number" value="8.5" step="0.05" oninput="calcGo()"></div>
+          <div><label for="emiC">YEARS</label><input id="emiC" type="number" value="20" oninput="calcGo()"></div>
         </div>
         <p class="chint">A shorter tenure saves more interest than a smaller EMI.</p>
       </div>
@@ -1148,7 +1259,7 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
               </select>
             </div>
             <div>
-              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Sum Assured (₹):</label>
+              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px" for="hLicSum">Sum Assured (₹):</label>
               <input type="number" id="hLicSum" value="500000" step="50000" oninput="calcHomeLic()" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12.5px;font-weight:700">
             </div>
           </div>

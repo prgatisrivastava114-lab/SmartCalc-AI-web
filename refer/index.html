@@ -109,6 +109,55 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-alig
 }
   </script>
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-responsive-fit">
+/* MFP responsive + layout fit — measurements and reasoning for every rule
+   are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
+nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
+/* MEASURED at 390px: a correctly-proportioned logo (168px) + the हिंदी switch */
+@media (max-width:620px){
+  nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
+  nav.top .logo{height:30px}
+  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:11.5px;margin-right:0}
+  nav.top a.btn{display:flex;align-items:center;justify-content:center;height:40px;
+                padding:0 12px;font-size:12.5px;margin-left:0!important}
+  .burger{width:40px;height:40px;margin-left:0}
+}
+@media (max-width:360px){
+  nav.top .logo{height:26px}
+  #langSw{font-size:11px;padding:0 10px}
+}
+.top .wrap{flex-wrap:wrap;row-gap:6px}
+.top .wrap>nav{min-width:0;flex-wrap:wrap}
+@media (max-width:560px){
+  .top .wrap{padding:10px 14px}
+  .top .wrap>a:first-child{flex:0 0 auto}
+  a.hot{margin-left:auto}
+  .rel{gap:8px}
+  .rel a{flex:0 1 auto;min-width:0}
+}
+img,svg,video,canvas{max-width:100%}
+/* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
+@media (max-width:620px){
+  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+}
+@media (max-width:620px){
+  /* grid tracks: a 1fr column still refuses to shrink below its content's */
+  .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
+  .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
+  input,select,textarea{min-width:0;max-width:100%}
+  /* a scenario table 2px wider than the screen: let it scroll inside itself */
+  .gc-scen{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* nowrap buttons 10px over the edge */
+  .btn-estate{white-space:normal;max-width:100%}
+  /* the vanshavali page renders a 281px-wide brand logo plus its broken-image */
+  .mfp-brand-group{max-width:100%;flex-wrap:wrap}
+  .mfp-brand-logo,.mfp-brand-group svg{max-width:100%;height:auto;width:auto}
+}
+@media (min-width:1024px){
+  .container{max-width:1080px!important}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+}
+</style>
 </head>
 <body>
 
@@ -290,7 +339,7 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0;text-alig
               </select>
             </div>
             <div>
-              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Sum Assured (₹):</label>
+              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px" for="pLicSum">Sum Assured (₹):</label>
               <input type="number" id="pLicSum" value="500000" step="50000" oninput="calcPartnerLic()" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-weight:700">
             </div>
           </div>

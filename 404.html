@@ -62,6 +62,85 @@
 }
   </script>
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-responsive-fit">
+/* MFP responsive + layout fit — measurements and reasoning for every rule
+   are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
+nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
+/* MEASURED at 390px: a correctly-proportioned logo (168px) + the हिंदी switch */
+@media (max-width:620px){
+  nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
+  nav.top .logo{height:30px}
+  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:11.5px;margin-right:0}
+  nav.top a.btn{display:flex;align-items:center;justify-content:center;height:40px;
+                padding:0 12px;font-size:12.5px;margin-left:0!important}
+  .burger{width:40px;height:40px;margin-left:0}
+}
+@media (max-width:360px){
+  nav.top .logo{height:26px}
+  #langSw{font-size:11px;padding:0 10px}
+}
+.top .wrap{flex-wrap:wrap;row-gap:6px}
+.top .wrap>nav{min-width:0;flex-wrap:wrap}
+@media (max-width:560px){
+  .top .wrap{padding:10px 14px}
+  .top .wrap>a:first-child{flex:0 0 auto}
+  a.hot{margin-left:auto}
+  .rel{gap:8px}
+  .rel a{flex:0 1 auto;min-width:0}
+}
+img,svg,video,canvas{max-width:100%}
+/* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
+@media (max-width:620px){
+  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+}
+@media (max-width:620px){
+  /* grid tracks: a 1fr column still refuses to shrink below its content's */
+  .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
+  .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
+  input,select,textarea{min-width:0;max-width:100%}
+  /* a scenario table 2px wider than the screen: let it scroll inside itself */
+  .gc-scen{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* nowrap buttons 10px over the edge */
+  .btn-estate{white-space:normal;max-width:100%}
+  /* the vanshavali page renders a 281px-wide brand logo plus its broken-image */
+  .mfp-brand-group{max-width:100%;flex-wrap:wrap}
+  .mfp-brand-logo,.mfp-brand-group svg{max-width:100%;height:auto;width:auto}
+}
+@media (max-width:519px){
+  nav.top .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 8px;
+                height:auto;min-height:0;align-items:center;padding:8px 14px}
+  #langSw{margin-left:0!important;justify-self:end}
+  nav.top a.btn{width:100%}
+  .burger{justify-self:end}
+  #mnav{top:98px}
+  header.hero{padding-top:114px}
+}
+@media (min-width:520px) and (max-width:620px){
+  nav.top .wrap{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:0 8px;
+                height:auto;min-height:0;align-items:center;padding:8px 14px}
+  #langSw{margin-left:0!important}
+  nav.top a.btn{width:100%}
+  #mnav{top:56px}
+  header.hero{padding-top:72px}
+}
+@media (min-width:1024px){
+  .goals{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(5,minmax(0,1fr));
+         overflow:visible;scroll-snap-type:none;padding-bottom:0}
+  .goal{aspect-ratio:4/3}                 /* the card keeps its original shape */
+  .goal img{width:100%;height:100%;object-fit:cover}   /* 800×600 source in a 4:3 box = no crop at all */
+  .tgrid{grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
+  .fgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:1024px){
+  .hero-vis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+  /* the two trust chips are position:absolute so they can float over the big */
+  .hero-vis .chip{position:static;width:100%;animation:none}
+  .vid-card{grid-column:1/-1;justify-self:center;width:100%;max-width:352px;aspect-ratio:9/16;
+            overflow:hidden;border-radius:22px}
+  .vid-card video{width:100%;height:100%;object-fit:cover;display:block}
+  .vid-card .unmute{position:absolute;bottom:12px;left:50%;transform:translateX(-50%)}
+}
+</style>
 </head>
 <body>
 <p>Redirecting to <a href="/vanshavali/">Digital Vanshavali</a>...</p>
