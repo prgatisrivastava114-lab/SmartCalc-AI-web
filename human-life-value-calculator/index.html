@@ -554,7 +554,43 @@ img,svg,video,canvas{max-width:100%}
     <p style="font-size:16px;color:var(--ink);font-weight:600">Life insurance is the only financial product whose payout you will never receive. That makes it easy to buy too little, too late, or through an expensive product when a plain term plan would have done the job.</p>
     <h2>What Human Life Value means</h2><p>The Human Life Value method estimates the income your household would lose if you were not there, and puts a number on replacing it. The common planning benchmark is 15 times your annual income, though the range in practice runs from 10 to 20 depending on your circumstances.</p><p>A monthly income of ₹1 lakh gives an annual income of ₹12 lakh. At 15 times, that is an indicative value of ₹1.80 crore. The multiplier is editable — if your household relies entirely on one income and has young children, a higher multiplier is often more realistic.</p><h2>Why this is indicative, not a prescription</h2><p>Two households with identical incomes can need very different cover. One has a working spouse, no loans, children grown, and substantial existing assets. The other has a non-working spouse, a home loan, two young children and minimal savings. Same income, very different requirement.</p><p>So the output here is described as an <strong>indicative</strong> Human Life Value and an <strong>indicative</strong> insurance gap. It is a starting point for a conversation about your actual obligations, not a figure to accept without thinking. The fields for liabilities and future obligations exist precisely so you can make it more specific to your situation.</p><h2>What this calculation does not include</h2><p>Several things genuinely affect the right cover and are not part of a simple income-multiple estimate. Rising education costs for your children. Inflation, which makes a fixed payout worth less over time. Disability, which is a separate risk from death and needs its own cover. Critical illness, which can be financially worse than death because the household also loses the carer’s time.</p><p>Waiver of premium riders, which keep a policy running if the payer is disabled, are also outside the basic calculation. Treat the number here as a floor rather than a ceiling, and review it as your circumstances change.</p><h2>Why term insurance is usually the answer</h2><p>For pure protection, a term plan gives the largest cover for the lowest premium because it has no investment component. The cover is the product; there is nothing returned if you outlive it, which is exactly why it is affordable.</p><p>Endowment and unit-linked policies bundle insurance with investment and charge for both, which usually means either too little cover or a high premium. If someone is recommending one, ask what the premium would buy as a pure term plan and compare the cover. This calculator does not recommend products, but it will show you the size of the gap you are trying to fill — which is the number that matters when comparing options.</p>
 
-    <h2>Frequently asked questions</h2>
+    
+
+
+
+
+
+
+
+
+
+<section class="calc-facts" aria-labelledby="cf-h">
+  <div class="cf-in">
+  <style>
+    .calc-facts{background:#F7FAFC;border:1px solid #E3EAF2;border-radius:14px;margin:26px 0;padding:20px 0}
+    .calc-facts .cf-in{max-width:1140px;margin:0 auto;padding:0 22px}
+    .calc-facts h2{margin:0 0 12px;font-size:1.15rem}
+    .calc-facts h3{margin:16px 0 5px;font-size:.98rem}
+    .calc-facts p{margin:0;font-size:.94rem;line-height:1.72;color:#33465A}
+    .calc-facts .lbl{display:inline-block;background:#0B5CAD;color:#fff;border-radius:6px;padding:1px 9px;font-size:.72rem;font-weight:800;letter-spacing:.4px;margin-right:7px;vertical-align:2px}
+    .calc-facts .lim .lbl{background:#B45309}
+    .calc-facts .frm{background:#fff;border-left:3px solid #0B5CAD;border-radius:8px;padding:11px 14px;margin:6px 0 0;font-size:.92rem}
+    @media(max-width:640px){.calc-facts{padding:16px 0}.calc-facts .cf-in{padding:0 15px}}
+  </style>
+  <h2 id="cf-h">How this calculator works</h2>
+  <p style="margin-bottom:14px">This calculator works out <b>the life-insurance cover that would replace your income for your family</b>. Here is exactly what it assumes, the equation it runs, and what it leaves out.</p>
+  <h3><span class="lbl">STEP 1</span>What does this calculator assume?</h3>
+  <p>This calculator uses the MyFinancialPlan core engine. Unless you change them, it assumes <b>6% inflation</b> and a <b>12% annual investment return</b>. Any amount you have already allocated to the goal also compounds at that same 12%.</p>
+  <h3><span class="lbl">STEP 2</span>What formula does it use?</h3>
+  <p class="frm">Future cost = today's cost × (1 + inflation)^years. The plan then compares that future cost with the future value of what you have already allocated, and converts the shortfall into a monthly SIP at the assumed return.</p>
+  <h3 class="lim"><span class="lbl">STEP 3</span>What does this calculator <em>not</em> include?</h3>
+  <p>Two constant rates held for up to 20+ years is a simplification — a real portfolio does not return the same amount every year. Tax, expense ratios and exit loads are not modelled. Education and medical inflation in India often runs higher than general inflation, so for those goals the real number is frequently larger than this estimate.</p>
+  <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
+  <p>At the default settings shown at the top of this page — <b>Your monthly income</b> ₹85,000 · <b>Human Life Value multiplier</b> 15 · <b>Life cover you already have</b> 5000000 · <b>Employer cover</b> 0 · <b>Outstanding loans</b> 0 — this calculator returns <b>₹1,03,00,000</b> <span style="color:#5B6B7F">Indicative insurance gap</span> · <b>₹1.53 Cr</b> <span style="color:#5B6B7F">Indicative HLV</span> · <b>₹50 L</b> <span style="color:#5B6B7F">Your cover</span> · <b>₹1.03 Cr</b> <span style="color:#5B6B7F">Gap</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
+  </div>
+</section>
+<h2>Frequently asked questions</h2>
     <div class="gc-faq">
       <details><summary>What multiplier should I use for Human Life Value?</summary><div class="a">Fifteen times annual income is a common planning benchmark. Use a higher multiplier (18–20) if you are the sole earner with young children and loans. Use a lower one if there is a second income, your children are independent, or you hold substantial assets.</div></details><details><summary>Should I count my employer group cover?</summary><div class="a">Include it in the employer cover field, but be aware that group cover ends when the job ends. Most planners count it only as a temporary supplement, not as the foundation of the plan.</div></details><details><summary>Is the 15× rule correct for everyone?</summary><div class="a">No. It is a starting benchmark, not a rule. The correct figure comes from your family’s actual obligations, liabilities, existing assets and how long support would be needed. Use this as a first estimate and refine it.</div></details><details><summary>Why is my insurance gap larger than I expected?</summary><div class="a">Most people hold far less cover than they assume. A ₹50 lakh policy against an indicative requirement of ₹1.8 crore leaves a gap of ₹1.3 crore. Adding loans and future education obligations widens it further. That is the normal result, and why term cover is usually the first correction made in a financial plan.</div></details><details><summary>Does this calculator sell insurance?</summary><div class="a">No. It performs an arithmetic estimate and shows the gap. MyFinancialPlan is an intelligent digital platform that helps you build a plan and connects you with Certified Financial Planners, investment advisers and wealth managers for personal advice.</div></details>
     </div>
@@ -578,6 +614,35 @@ img,svg,video,canvas{max-width:100%}
 
 </main>
 
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      <li><a href="https://irdai.gov.in/" target="_blank" rel="noopener">Insurance Regulatory and Development Authority of India (IRDAI)</a> — insurance products, policy terms and policyholder rights</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+</div></div>
 <footer class="gc-footer"><div class="gc-wrap">
   <div class="lnks">
     <a href="/financial-goal-calculator/">Goal Calculators</a><a href="/child-education-calculator/">Child Education Cost</a><a href="/child-marriage-calculator/">Child Marriage Cost</a><a href="/retirement-goal-calculator/">Retirement Goal</a><a href="/legacy-planning-calculator/">Legacy & Estate Fund</a><a href="/emergency-fund-calculator/">Emergency Fund</a><a href="/human-life-value-calculator/">Human Life Value</a>
@@ -586,6 +651,7 @@ img,svg,video,canvas{max-width:100%}
   An intelligent digital platform that helps you build a custom family financial plan and connects you
   with Certified Financial Planners (CFP), investment advisers and wealth managers.</p>
   <p style="margin-top:8px">These calculators provide illustrative estimates, not financial advice.</p>
+<p style="margin-top:8px;font-size:12.5px"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
 </div></footer>
 
 <script>/* ============================================================================

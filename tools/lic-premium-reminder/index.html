@@ -6,7 +6,8 @@
 <title>LIC Premium Reminder & Policy Tracker | MyFinancialPlan</title>
 <meta name="description" content="Free LIC client policy tracker and WhatsApp premium reminder tool for advisors. Track renewal dates and send 1-click Hindi or English reminders.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/lic-premium-reminder/">
-<link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mfp_icon_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/mfp_icon_180.png">
 <style>
 :root{--ink:#17324A;--ink2:#44586E;--teal:#0E9D78;--indigo:#4C62CE;--amber:#BF7B0B;--cream:#FFF6E3;--mint:#DDF4EC;--lav:#E1E6FA;--line:#E3E9F1}
 *{box-sizing:border-box;margin:0}
@@ -283,5 +284,73 @@ function esc(s){ return String(s).replace(/[&<>"]/g, function(c){return{'&':'&am
 renderPolicies();
 </script>
 
+<style id="mfp-foot-css">.mfp-foot{margin-top:40px;background:#0B1B2A;color:#9FB3C8;padding:30px 0;font-size:13.5px;text-align:center}
+.mfp-foot .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-foot img{height:56px;width:auto;margin-bottom:10px;max-width:88vw}
+.mfp-foot a{color:#fff;text-decoration:none;font-weight:800;margin:0 6px;display:inline-block;padding:5px 2px}
+.mfp-foot p{margin:10px 0 0}
+.mfp-foot .lg a{font-weight:600;font-size:12.5px;color:#C7D6E5}</style>
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="faqh" aria-labelledby="faqh-h">
+  <style>
+    .faqh{margin:26px 0 8px}
+    .faqh h2{margin:0 0 10px}
+    .faqh h3{font-size:16px;margin:18px 0 5px;color:#1E3A5F}
+    .faqh p{margin:0 0 8px;line-height:1.72;color:#33465A}
+  </style>
+  <h2 id="faqh-h">LIC renewal — sawaal jo har advisor poochhta hai</h2>
+
+  <h3>LIC premium ki due date kaise tay hoti hai?</h3>
+  <p>Due date aapke chune gaye payment mode se bandhti hai — yearly me policy ke issuance ya anniversary date par, aur monthly/quarterly/half-yearly me usi din ke hisaab se har cycle par. Client ne jo mode chuna hai, wahi date ledger me entry kariye; mode badla to date bhi badalti hai. Yahi wajah hai ki reminder 30 din pehle bhejna sabse asardar hota hai — client ko paisa jodne ka waqt mil jata hai.</p>
+
+  <h3>Grace period kitna hota hai?</h3>
+  <p>IRDAI ke niyamon ke hisaab se premium bharne ke liye ek grace period milta hai — <b>monthly mode me 15 din</b>, aur <b>quarterly, half-yearly ya yearly mode me 30 din</b>. Grace period ke andar bhugtan karne par policy lagatar chalti rehti hai, par cover us waqt ke liye aksar restricted rehta hai. Isi liye is tool me due date ke 30 din pehle reminder chala jata hai — grace period ka sahara lene se behtar hai usse pehle yaad dila dena.</p>
+
+  <h3>Grace period ke baad kya hota hai?</h3>
+  <p>Grace period nikal jane par policy lapse ho jati hai (linked/ULIP policies me "discontinued" kehlati hai). Lap se ke baad revival aam taur par mumkin hota hai, lekin usme baki premium ke saath byaaj, aur aksar health declaration ya kuch medical requirement bhi lagti hai. Isliye lapse se bachna hi sabse sasta rasta hai — ek chhota premium miss karne par client ka saal-ha-saal bhara premium aur cover dono khatre me aa jate hain.</p>
+
+  <h3>Kya lapse hone par cover turant khatam ho jata hai?</h3>
+  <p>Zaroori nahi. Jo policy surrender value kama chuki hai usme paid-up ya reduced-sum-assured ka provision hota hai, yaani cover turant shoonya nahi hota — lekin yeh policy ki shart par depend karta hai, isliye exact position client ke policy document aur LIC branch se confirm kariye. Is page ka reminder sirf aapko waqt par intimation dene me madad karta hai; policy ke terms ka faisla insurer karta hai.</p>
+
+  <h3>Client ka data kahan save hota hai?</h3>
+  <p>Yahin — aapke browser me, locally. Client ka naam, mobile number aur policy details kisi server par nahi jate, isliye yeh data aapke device se bahar nahi nikalti. Browser cache saaf karne par ya doosre device par yeh list nahi milegi, isliye zaroori clients ka backup apne paas rakhiye. WhatsApp reminder ka message aapke phone se aapke client ko jata hai — beech me koi third party nahi hota.</p>
+</section>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      
+      
+      <li><a href="https://irdai.gov.in/" target="_blank" rel="noopener">Insurance Regulatory and Development Authority of India (IRDAI)</a> — insurance policy terms, the grace period for premium payment, lapse and revival rules, and policyholder rights</li><li><a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener">Income Tax Department, Government of India</a> — the Section 80C deduction limit on life-insurance premiums, and the tax treatment of maturity proceeds</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+  <p class="disc"><b>Disclaimer:</b> This page is for information and education only. It is not financial, investment, tax or legal advice, and it does not take your personal circumstances into account. Figures shown are estimates based on the inputs and assumptions you enter — investment returns are not guaranteed and can fall as well as rise. Please consult a qualified financial adviser before making any financial decision.</p>
+</div></div>
+<footer class="mfp-foot"><div class="in">
+  <img src="/assets/brand/brand_logo_light.png?v=1" alt="My Financial Plan" loading="lazy" decoding="async" width="760" height="136"><br>
+  <a href="/">Home</a> · <a href="/tools/">Free Tools</a> · <a href="/learn/">Learn</a> · <a href="/financial-goal-calculator/">Goal Calculator</a>
+  <p class="lg"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
+  <p>© 2026 My Financial Plan · Plan Today for Better Tomorrow · Guidance only — not investment advice.</p>
+</div></footer>
 </body>
 </html>

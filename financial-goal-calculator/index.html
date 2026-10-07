@@ -592,7 +592,43 @@ img,svg,video,canvas{max-width:100%}
     <p style="font-size:16px;color:var(--ink);font-weight:600">undefined</p>
     <h2>One calculator for every goal your family has</h2><p>Most people plan goals one at a time, with a different tool each time — one site for a SIP, another for education, a spreadsheet for insurance. The problem is that each tool makes its own assumptions, so the numbers never quite agree.</p><p>This calculator uses <strong>one calculation engine</strong> for all six goals. The inflation rate, the expected return and the SIP formula are identical everywhere. Change an assumption in one place and it changes consistently.</p><h2>What makes this different from a basic SIP calculator</h2><p>A SIP calculator tells you what a monthly investment grows to. That is the easy half of the question. The hard half is <strong>what the goal will actually cost by the time you get there</strong> — and whether the money you have already set aside is enough.</p><p>So this calculator does both. It inflates your goal to its future cost, grows your existing savings separately at the assumed return, and only then works out the gap. It does not subtract today’s savings from tomorrow’s cost, which is the single most common mistake in goal planning.</p><h2>Nothing is saved, and no login is needed</h2><p>Every calculation happens inside your browser. No account, no phone number, no email. Nothing you type is transmitted or stored, and no figure you enter is sent to analytics.</p><p>The plan you build here is a one-page estimate. If you later want the complete family roadmap — with a health score, protection review and a PDF you can share — that needs an account. That step is entirely your choice, and it is never required to use the calculators.</p><h2>Which six goals are covered</h2><p><strong>Child education</strong> and <strong>child marriage</strong> for long-horizon family goals. <strong>Retirement</strong> for the one date you cannot move. <strong>Emergency fund</strong> and <strong>family protection</strong> because they come before investing. <strong>Legacy</strong> for what you want to leave behind.</p><p>Each has its own page with a full explanation, or you can switch between them below without losing what you have already typed.</p>
 
-    <h2>Frequently asked questions</h2>
+    
+
+
+
+
+
+
+
+
+
+<section class="calc-facts" aria-labelledby="cf-h">
+  <div class="cf-in">
+  <style>
+    .calc-facts{background:#F7FAFC;border:1px solid #E3EAF2;border-radius:14px;margin:26px 0;padding:20px 0}
+    .calc-facts .cf-in{max-width:1140px;margin:0 auto;padding:0 22px}
+    .calc-facts h2{margin:0 0 12px;font-size:1.15rem}
+    .calc-facts h3{margin:16px 0 5px;font-size:.98rem}
+    .calc-facts p{margin:0;font-size:.94rem;line-height:1.72;color:#33465A}
+    .calc-facts .lbl{display:inline-block;background:#0B5CAD;color:#fff;border-radius:6px;padding:1px 9px;font-size:.72rem;font-weight:800;letter-spacing:.4px;margin-right:7px;vertical-align:2px}
+    .calc-facts .lim .lbl{background:#B45309}
+    .calc-facts .frm{background:#fff;border-left:3px solid #0B5CAD;border-radius:8px;padding:11px 14px;margin:6px 0 0;font-size:.92rem}
+    @media(max-width:640px){.calc-facts{padding:16px 0}.calc-facts .cf-in{padding:0 15px}}
+  </style>
+  <h2 id="cf-h">How this calculator works</h2>
+  <p style="margin-bottom:14px">This calculator works out <b>the cost of any goal in the future, and the monthly investment needed for it</b>. Here is exactly what it assumes, the equation it runs, and what it leaves out.</p>
+  <h3><span class="lbl">STEP 1</span>What does this calculator assume?</h3>
+  <p>This calculator uses the MyFinancialPlan core engine. Unless you change them, it assumes <b>6% inflation</b> and a <b>12% annual investment return</b>. Any amount you have already allocated to the goal also compounds at that same 12%.</p>
+  <h3><span class="lbl">STEP 2</span>What formula does it use?</h3>
+  <p class="frm">Future cost = today's cost × (1 + inflation)^years. The plan then compares that future cost with the future value of what you have already allocated, and converts the shortfall into a monthly SIP at the assumed return.</p>
+  <h3 class="lim"><span class="lbl">STEP 3</span>What does this calculator <em>not</em> include?</h3>
+  <p>Two constant rates held for up to 20+ years is a simplification — a real portfolio does not return the same amount every year. Tax, expense ratios and exit loads are not modelled. Education and medical inflation in India often runs higher than general inflation, so for those goals the real number is frequently larger than this estimate.</p>
+  <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
+  <p>At the default settings shown at the top of this page — <b>Child's current age</b> 4 · <b>Education at age</b> 21 · <b>Current estimated education cost</b> ₹10,00,000 · <b>Amount available today</b> 0 · <b>Inflation assumption</b> 6 — this calculator returns <b>₹4,032</b> <span style="color:#5B6B7F">Required monthly SIP</span> · <b>₹26.9 L</b> <span style="color:#5B6B7F">Future cost</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
+  </div>
+</section>
+<h2>Frequently asked questions</h2>
     <div class="gc-faq">
       <details><summary>Do I need to create an account?</summary><div class="a">No. Every calculator works fully without login, signup or a phone number. Calculations run inside your browser and nothing is stored.</div></details><details><summary>Do these calculators save my financial data?</summary><div class="a">No. Nothing you type is transmitted, stored or shared. No income, goal or personal figure is sent to analytics either.</div></details><details><summary>Are the results guaranteed?</summary><div class="a">No. Every figure is illustrative and depends entirely on the assumptions you set. Actual inflation and investment returns will differ, and no projection can promise an outcome.</div></details><details><summary>Which goal should I calculate first?</summary><div class="a">Protection and the emergency fund come before investing, because they stop a single bad year from undoing everything else. After that, most families plan education, then retirement.</div></details><details><summary>Is this the same as the full MyFinancialPlan plan?</summary><div class="a">No. These are standalone public calculators. The complete plan is separate — it needs an account, saves your data and generates a branded PDF report.</div></details>
     </div>
@@ -616,6 +652,36 @@ img,svg,video,canvas{max-width:100%}
 
 </main>
 
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      <li><a href="https://www.amfiindia.com/investor" target="_blank" rel="noopener">Association of Mutual Funds in India (AMFI)</a> — mutual fund categories, SIP method and investor education</li>
+      <li><a href="https://www.rbi.org.in/" target="_blank" rel="noopener">Reserve Bank of India</a> — banking, deposits, loans and monetary policy</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+</div></div>
 <footer class="gc-footer"><div class="gc-wrap">
   <div class="lnks">
     <a href="/financial-goal-calculator/">Goal Calculators</a><a href="/child-education-calculator/">Child Education Cost</a><a href="/child-marriage-calculator/">Child Marriage Cost</a><a href="/retirement-goal-calculator/">Retirement Goal</a><a href="/legacy-planning-calculator/">Legacy & Estate Fund</a><a href="/emergency-fund-calculator/">Emergency Fund</a><a href="/human-life-value-calculator/">Human Life Value</a>
@@ -624,6 +690,7 @@ img,svg,video,canvas{max-width:100%}
   An intelligent digital platform that helps you build a custom family financial plan and connects you
   with Certified Financial Planners (CFP), investment advisers and wealth managers.</p>
   <p style="margin-top:8px">These calculators provide illustrative estimates, not financial advice.</p>
+<p style="margin-top:8px;font-size:12.5px"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
 </div></footer>
 
 <script>/* ============================================================================

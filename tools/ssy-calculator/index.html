@@ -11,7 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.myfinancialplan.in/tools/ssy-calculator/">
 <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
-<link rel="icon" type="image/png" href="/assets/brand/mfp_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mfp_icon_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/mfp_icon_180.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who can open an SSY account?", "acceptedAnswer": {"@type": "Answer", "text": "Parents or legal guardians of a girl child below 10 years. One account per daughter, maximum two per family (twins/triplets get relaxation)."}}, {"@type": "Question", "name": "How much can I deposit in SSY?", "acceptedAnswer": {"@type": "Answer", "text": "Between ₹250 and ₹1.5 lakh per financial year, for the first 15 years. The account matures 21 years after opening."}}, {"@type": "Question", "name": "Is SSY completely tax-free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — EEE status: deposits are deductible under Section 80C, and both interest and maturity are 100% tax-free."}}, {"@type": "Question", "name": "Can I withdraw money before 21 years?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — up to 50% of the previous year-end balance for the daughter's higher education after she turns 18; full amount at 21 years or on her marriage after 18."}}]}</script>
 
 <style>
@@ -175,7 +176,43 @@ img,svg,video,canvas{max-width:100%}
 <div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Deposited (15y)</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Interest earned</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Maturity (21y)</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
   <h2>About this calculator</h2>
   <p>Sukanya Samriddhi Yojana (SSY) is the government's flagship scheme for the girl child — one of the highest guaranteed interest rates in India plus full EEE tax benefits. This free SSY calculator projects the exact maturity corpus your daughter receives at year 21.</p><h3>How SSY works</h3><p>Deposit anything between ₹250 and ₹1.5 lakh every year for 15 years. The account then keeps compounding at the government-set rate (8.2% recently) until maturity at 21 years from opening. No deposits needed in the last 6 years — the money grows on its own.</p><h3>Who can open an account?</h3><p>Parents or legal guardians of a girl child below age 10. One account per daughter, maximum two daughters per family (relaxation for twins/triplets). Open at any post office or authorised bank branch.</p><h3>Withdrawals and maturity</h3><p>Up to 50% of the previous year's balance can be withdrawn for the daughter's education after she turns 18. Full withdrawal at 21 years, or on her marriage after 18. Combine SSY (safe floor) with an equity SIP (growth) for a complete child plan.</p>
-  <h2>Frequently asked questions</h2>
+  
+
+
+
+
+
+
+
+
+
+<section class="calc-facts" aria-labelledby="cf-h">
+  <div class="cf-in">
+  <style>
+    .calc-facts{background:#F7FAFC;border:1px solid #E3EAF2;border-radius:14px;margin:26px 0;padding:20px 0}
+    .calc-facts .cf-in{max-width:1140px;margin:0 auto;padding:0 22px}
+    .calc-facts h2{margin:0 0 12px;font-size:1.15rem}
+    .calc-facts h3{margin:16px 0 5px;font-size:.98rem}
+    .calc-facts p{margin:0;font-size:.94rem;line-height:1.72;color:#33465A}
+    .calc-facts .lbl{display:inline-block;background:#0B5CAD;color:#fff;border-radius:6px;padding:1px 9px;font-size:.72rem;font-weight:800;letter-spacing:.4px;margin-right:7px;vertical-align:2px}
+    .calc-facts .lim .lbl{background:#B45309}
+    .calc-facts .frm{background:#fff;border-left:3px solid #0B5CAD;border-radius:8px;padding:11px 14px;margin:6px 0 0;font-size:.92rem}
+    @media(max-width:640px){.calc-facts{padding:16px 0}.calc-facts .cf-in{padding:0 15px}}
+  </style>
+  <h2 id="cf-h">How this calculator works</h2>
+  <p style="margin-bottom:14px">This calculator works out <b>the maturity value of a Sukanya Samriddhi Yojana account</b>. Here is exactly what it assumes, the equation it runs, and what it leaves out.</p>
+  <h3><span class="lbl">STEP 1</span>What does this calculator assume?</h3>
+  <p>Deposits are made for the first 15 years, each added at the start of the year, and the account compounds annually until it matures after 21 years.</p>
+  <h3><span class="lbl">STEP 2</span>What formula does it use?</h3>
+  <p class="frm">For years 1–15: balance = (balance + deposit) × (1 + r). For years 16–21: balance = balance × (1 + r).</p>
+  <h3 class="lim"><span class="lbl">STEP 3</span>What does this calculator <em>not</em> include?</h3>
+  <p>The rate is an assumption — SSY's rate is also notified quarterly and can change. The scheme's deposit limits (minimum ₹250, maximum ₹1.5 lakh per year), the one-account-per-daughter rule and the partial-withdrawal-for-education conditions are outside this calculation.</p>
+  <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
+  <p>At the default settings shown at the top of this page — <b>Yearly deposit (₹)</b> ₹50,000 · <b>Interest rate (%)</b> 8.2 — this calculator returns <b>₹7,50,000</b> <span style="color:#5B6B7F">Deposited (15y)</span> · <b>₹16,44,040</b> <span style="color:#5B6B7F">Interest earned</span> · <b>₹23,94,040</b> <span style="color:#5B6B7F">Maturity (21y)</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
+  </div>
+</section>
+<h2>Frequently asked questions</h2>
   <div class="faq"><details><summary>Who can open an SSY account?</summary><p>Parents or legal guardians of a girl child below 10 years. One account per daughter, maximum two per family (twins/triplets get relaxation).</p></details><details><summary>How much can I deposit in SSY?</summary><p>Between ₹250 and ₹1.5 lakh per financial year, for the first 15 years. The account matures 21 years after opening.</p></details><details><summary>Is SSY completely tax-free?</summary><p>Yes — EEE status: deposits are deductible under Section 80C, and both interest and maturity are 100% tax-free.</p></details><details><summary>Can I withdraw money before 21 years?</summary><p>Yes — up to 50% of the previous year-end balance for the daughter's higher education after she turns 18; full amount at 21 years or on her marriage after 18.</p></details></div>
   <div class="cta">
     <h2>Want the FULL plan — not just one number?</h2>
@@ -195,5 +232,46 @@ img,svg,video,canvas{max-width:100%}
   <a href="https://wa.me/918840192702" style="background:#25D366" aria-label="WhatsApp"><span class="wic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
 </div>
 <script>calc();</script>
+<style id="mfp-foot-css">.mfp-foot{margin-top:40px;background:#0B1B2A;color:#9FB3C8;padding:30px 0;font-size:13.5px;text-align:center}
+.mfp-foot .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-foot img{height:56px;width:auto;margin-bottom:10px;max-width:88vw}
+.mfp-foot a{color:#fff;text-decoration:none;font-weight:800;margin:0 6px;display:inline-block;padding:5px 2px}
+.mfp-foot p{margin:10px 0 0}
+.mfp-foot .lg a{font-weight:600;font-size:12.5px;color:#C7D6E5}</style>
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      <li><a href="https://www.indiapost.gov.in/" target="_blank" rel="noopener">India Post, Government of India</a> — small-savings schemes: PPF, SSY, NSC and post-office deposits</li>
+      <li><a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener">Income Tax Department, Government of India</a> — income-tax rules, deduction limits and slab rates</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+</div></div>
+<footer class="mfp-foot"><div class="in">
+  <img src="/assets/brand/brand_logo_light.png?v=1" alt="My Financial Plan" loading="lazy" decoding="async" width="760" height="136"><br>
+  <a href="/">Home</a> · <a href="/tools/">Free Tools</a> · <a href="/learn/">Learn</a> · <a href="/financial-goal-calculator/">Goal Calculator</a>
+  <p class="lg"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
+</div></footer>
 </body>
 </html>

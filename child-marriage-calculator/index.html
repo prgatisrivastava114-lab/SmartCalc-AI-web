@@ -554,7 +554,43 @@ img,svg,video,canvas{max-width:100%}
     <p style="font-size:16px;color:var(--ink);font-weight:600">A wedding planned for 20 years from now will not cost what one costs today. Venues, catering and decoration all rise with inflation, and in most Indian cities faster than it. Planning with today’s estimate is the most common reason families end up borrowing near the date.</p>
     <h2>The inflation effect is larger than it looks</h2><p>Over 21 years, even a moderate inflation rate multiplies the cost several times over. ₹15 lakh today becomes roughly ₹51 lakh at 6%. That is a large number, and it is the honest one — the alternative is discovering it later with no time left.</p><p>You can change the inflation figure to match what you actually observe in your city. If you are unsure, calculate at two rates and plan for the higher one. Being pleasantly surprised is better than being short.</p><h2>Starting early changes the monthly figure dramatically</h2><p>This is the single most useful thing to understand about long-horizon goals. The same wedding costs far less per month if you start when the child is four rather than when they are eighteen.</p><p>The reason is compounding. Early instalments have decades to grow, so each rupee you commit does more of the work. Starting late means the contributions themselves have to be larger, because there is almost no growth to help. Change the current age field and watch the SIP figure move — the difference is usually the strongest argument for starting now.</p><h2>Existing savings and family contributions</h2><p>If grandparents, relatives or a dedicated gold or FD reserve is earmarked for this, enter the total as existing savings. It grows over the full term like any other investment.</p><p>If contributions are expected to come in later rather than now — a bonus, a property sale, a maturity — this calculator cannot model future lump sums. A practical approach is to plan the full SIP now, then reduce it when those amounts actually arrive. Planning for money you expect but do not yet have is how shortfalls happen.</p><h2>An important note on expectations</h2><p>This calculator tells you what a wedding of a given cost requires. It does not tell you what to spend, and a larger number is not a better plan. Many families find that deciding the budget first, then checking what it needs monthly, leads to a more comfortable decision than working out what they can afford and spending it.</p><p>If the required SIP looks impossible, the honest options are: a longer horizon by starting earlier, a lower budget, or a partial plan funded by a loan at the time. Knowing which of those you are choosing, years in advance, is far better than finding out in the final year.</p>
 
-    <h2>Frequently asked questions</h2>
+    
+
+
+
+
+
+
+
+
+
+<section class="calc-facts" aria-labelledby="cf-h">
+  <div class="cf-in">
+  <style>
+    .calc-facts{background:#F7FAFC;border:1px solid #E3EAF2;border-radius:14px;margin:26px 0;padding:20px 0}
+    .calc-facts .cf-in{max-width:1140px;margin:0 auto;padding:0 22px}
+    .calc-facts h2{margin:0 0 12px;font-size:1.15rem}
+    .calc-facts h3{margin:16px 0 5px;font-size:.98rem}
+    .calc-facts p{margin:0;font-size:.94rem;line-height:1.72;color:#33465A}
+    .calc-facts .lbl{display:inline-block;background:#0B5CAD;color:#fff;border-radius:6px;padding:1px 9px;font-size:.72rem;font-weight:800;letter-spacing:.4px;margin-right:7px;vertical-align:2px}
+    .calc-facts .lim .lbl{background:#B45309}
+    .calc-facts .frm{background:#fff;border-left:3px solid #0B5CAD;border-radius:8px;padding:11px 14px;margin:6px 0 0;font-size:.92rem}
+    @media(max-width:640px){.calc-facts{padding:16px 0}.calc-facts .cf-in{padding:0 15px}}
+  </style>
+  <h2 id="cf-h">How this calculator works</h2>
+  <p style="margin-bottom:14px">This calculator works out <b>the future cost of a daughter's marriage, and the monthly investment needed to fund it</b>. Here is exactly what it assumes, the equation it runs, and what it leaves out.</p>
+  <h3><span class="lbl">STEP 1</span>What does this calculator assume?</h3>
+  <p>This calculator uses the MyFinancialPlan core engine. Unless you change them, it assumes <b>6% inflation</b> and a <b>12% annual investment return</b>. Any amount you have already allocated to the goal also compounds at that same 12%.</p>
+  <h3><span class="lbl">STEP 2</span>What formula does it use?</h3>
+  <p class="frm">Future cost = today's cost × (1 + inflation)^years. The plan then compares that future cost with the future value of what you have already allocated, and converts the shortfall into a monthly SIP at the assumed return.</p>
+  <h3 class="lim"><span class="lbl">STEP 3</span>What does this calculator <em>not</em> include?</h3>
+  <p>Two constant rates held for up to 20+ years is a simplification — a real portfolio does not return the same amount every year. Tax, expense ratios and exit loads are not modelled. Education and medical inflation in India often runs higher than general inflation, so for those goals the real number is frequently larger than this estimate.</p>
+  <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
+  <p>At the default settings shown at the top of this page — <b>Child's current age</b> 4 · <b>Marriage at age</b> 25 · <b>Current estimated marriage cost</b> 1000000 · <b>Amount available today</b> 0 · <b>Inflation assumption</b> 6 — this calculator returns <b>₹2,986</b> <span style="color:#5B6B7F">Required monthly SIP</span> · <b>₹34 L</b> <span style="color:#5B6B7F">Future cost</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
+  </div>
+</section>
+<h2>Frequently asked questions</h2>
     <div class="gc-faq">
       <details><summary>What inflation rate should I assume for a wedding?</summary><div class="a">Venue and catering costs in Indian cities have often risen faster than general inflation. 6% is the default; try 7–8% as well and plan for the higher figure.</div></details><details><summary>Should I include gold and jewellery in the goal amount?</summary><div class="a">Yes, include everything you expect to fund. If you plan to buy gold steadily, remember gold does not compound like an investment — treat that portion separately rather than assuming a 12% return on it.</div></details><details><summary>Is it better to save in gold or in mutual funds for this?</summary><div class="a">Gold is traditional for weddings but volatile and offers no compounding. A mix is common: financial assets for the bulk, gold bought over time for the ceremony itself. The calculator does not recommend one over the other.</div></details><details><summary>My child is already 20 and the wedding is in 5 years. What now?</summary><div class="a">The monthly figure will be high, and over five years you should favour safer instruments. Consider a shorter-term debt or hybrid allocation rather than equity, because there is little time to recover from a downturn.</div></details><details><summary>Does this replace talking to a financial adviser?</summary><div class="a">No. It is an estimate tool. MyFinancialPlan is an intelligent digital platform that helps you build a plan and connects you with Certified Financial Planners, investment advisers and wealth managers for personal advice.</div></details>
     </div>
@@ -578,6 +614,35 @@ img,svg,video,canvas{max-width:100%}
 
 </main>
 
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      <li><a href="https://www.amfiindia.com/investor" target="_blank" rel="noopener">Association of Mutual Funds in India (AMFI)</a> — mutual fund categories, SIP method and investor education</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+</div></div>
 <footer class="gc-footer"><div class="gc-wrap">
   <div class="lnks">
     <a href="/financial-goal-calculator/">Goal Calculators</a><a href="/child-education-calculator/">Child Education Cost</a><a href="/child-marriage-calculator/">Child Marriage Cost</a><a href="/retirement-goal-calculator/">Retirement Goal</a><a href="/legacy-planning-calculator/">Legacy & Estate Fund</a><a href="/emergency-fund-calculator/">Emergency Fund</a><a href="/human-life-value-calculator/">Human Life Value</a>
@@ -586,6 +651,7 @@ img,svg,video,canvas{max-width:100%}
   An intelligent digital platform that helps you build a custom family financial plan and connects you
   with Certified Financial Planners (CFP), investment advisers and wealth managers.</p>
   <p style="margin-top:8px">These calculators provide illustrative estimates, not financial advice.</p>
+<p style="margin-top:8px;font-size:12.5px"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
 </div></footer>
 
 <script>/* ============================================================================

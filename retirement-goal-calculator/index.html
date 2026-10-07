@@ -554,7 +554,43 @@ img,svg,video,canvas{max-width:100%}
     <p style="font-size:16px;color:var(--ink);font-weight:600">Retirement is the one goal with a fixed date you cannot postpone and no loan available when you get there. It is also the goal people start latest, because it feels the furthest away. Thirty-five is not early.</p>
     <h2>Two numbers, not one</h2><p>Most retirement calculators give you a single corpus figure and stop. That figure is meaningless without knowing what it buys, because the monthly expense you need is also moving.</p><p>So this calculator shows both. First, what your current monthly requirement becomes after inflation — ₹40,000 today at 6% over 25 years is roughly ₹1.72 lakh a month. Then the corpus needed to pay that income for a 25-year retirement, which is where the ₹4.57 crore figure comes from.</p><h2>How the corpus is calculated</h2><p>The corpus is not simply the annual expense multiplied by 25. During retirement your money is still invested, so it earns something while you draw from it. The calculation therefore uses a <strong>real return</strong> — the post-retirement return minus inflation — and works out the present value of a 25-year income stream at that rate.</p><p>This calculator uses a 7% post-retirement return and 6% inflation, so the real return is close to 1%. A low real return produces a large corpus, and that is deliberate: it assumes you will not want to take equity risk with money you are living on.</p><h2>Why the requirement is illustrative, not a target to hit exactly</h2><p>A 25-year retirement duration is an assumption. So is 7% post-retirement return, and so is 6% inflation over 25 years. Change any one of them and the corpus moves significantly.</p><p>This is why the output is described as an <strong>illustrative retirement requirement based on your assumptions</strong>. It is a planning anchor, not a verdict. Use it to understand the order of magnitude and to start, then revisit it every year or two as your income, expenses and the actual inflation numbers become clearer.</p><h2>The levers that actually move the number</h2><p>Three things matter more than any investment selection. <strong>Time</strong>: starting ten years earlier can cut the required SIP by more than half. <strong>Expenses</strong>: every ₹5,000 you reduce from your current monthly lifestyle permanently lowers the target, because the whole calculation compounds from it. <strong>Existing corpus</strong>: EPF, NPS, PPF and existing investments all grow for the full term.</p><p>Change each of those in the calculator and watch what happens. For most people the order of impact is time first, then expenses, then corpus — which is not the order most people spend their attention on.</p>
 
-    <h2>Frequently asked questions</h2>
+    
+
+
+
+
+
+
+
+
+
+<section class="calc-facts" aria-labelledby="cf-h">
+  <div class="cf-in">
+  <style>
+    .calc-facts{background:#F7FAFC;border:1px solid #E3EAF2;border-radius:14px;margin:26px 0;padding:20px 0}
+    .calc-facts .cf-in{max-width:1140px;margin:0 auto;padding:0 22px}
+    .calc-facts h2{margin:0 0 12px;font-size:1.15rem}
+    .calc-facts h3{margin:16px 0 5px;font-size:.98rem}
+    .calc-facts p{margin:0;font-size:.94rem;line-height:1.72;color:#33465A}
+    .calc-facts .lbl{display:inline-block;background:#0B5CAD;color:#fff;border-radius:6px;padding:1px 9px;font-size:.72rem;font-weight:800;letter-spacing:.4px;margin-right:7px;vertical-align:2px}
+    .calc-facts .lim .lbl{background:#B45309}
+    .calc-facts .frm{background:#fff;border-left:3px solid #0B5CAD;border-radius:8px;padding:11px 14px;margin:6px 0 0;font-size:.92rem}
+    @media(max-width:640px){.calc-facts{padding:16px 0}.calc-facts .cf-in{padding:0 15px}}
+  </style>
+  <h2 id="cf-h">How this calculator works</h2>
+  <p style="margin-bottom:14px">This calculator works out <b>the retirement corpus you need and the monthly investment to reach it</b>. Here is exactly what it assumes, the equation it runs, and what it leaves out.</p>
+  <h3><span class="lbl">STEP 1</span>What does this calculator assume?</h3>
+  <p>This calculator uses the MyFinancialPlan core engine. Unless you change them, it assumes <b>6% inflation</b> and a <b>12% annual investment return</b>. Any amount you have already allocated to the goal also compounds at that same 12%.</p>
+  <h3><span class="lbl">STEP 2</span>What formula does it use?</h3>
+  <p class="frm">Future cost = today's cost × (1 + inflation)^years. The plan then compares that future cost with the future value of what you have already allocated, and converts the shortfall into a monthly SIP at the assumed return.</p>
+  <h3 class="lim"><span class="lbl">STEP 3</span>What does this calculator <em>not</em> include?</h3>
+  <p>Two constant rates held for up to 20+ years is a simplification — a real portfolio does not return the same amount every year. Tax, expense ratios and exit loads are not modelled. Education and medical inflation in India often runs higher than general inflation, so for those goals the real number is frequently larger than this estimate.</p>
+  <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
+  <p>At the default settings shown at the top of this page — <b>Your current age</b> 35 · <b>Retire at age</b> 60 · <b>Monthly expense you want in retirement</b> ₹40,000 · <b>Amount available today</b> 0 · <b>Inflation assumption</b> 6 — this calculator returns <b>₹24,077</b> <span style="color:#5B6B7F">Required monthly SIP</span> · <b>₹4.57 Cr</b> <span style="color:#5B6B7F">Corpus needed</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
+  </div>
+</section>
+<h2>Frequently asked questions</h2>
     <div class="gc-faq">
       <details><summary>How much corpus do I need for retirement in India?</summary><div class="a">There is no universal figure — it depends on your monthly expenses, your retirement age and how long you expect retirement to last. This calculator derives it from your own numbers rather than using a rule of thumb.</div></details><details><summary>Is 25 years the right retirement duration?</summary><div class="a">It is a reasonable planning assumption if you retire at 60 and are thinking about longevity into your mid-eighties. Many people plan for 30 years to be more conservative. The duration is built into the engine, not adjustable in the form.</div></details><details><summary>Should I include EPF, NPS and PPF as existing corpus?</summary><div class="a">Yes. Enter the current total value. They will grow over the term, and the calculator applies the return assumption you choose. If you want to be precise, note that EPF and PPF grow more slowly than equity — consider running the calculation once with them included at 12% and once at a blended lower rate.</div></details><details><summary>What if I want to retire early, at 50?</summary><div class="a">Change the target age to 50 and check the result honestly. Early retirement needs a larger corpus and gives you fewer years to build it, so the required SIP usually jumps sharply. It is better to see that now.</div></details><details><summary>Does this guarantee my retirement corpus?</summary><div class="a">No. The result is illustrative and based entirely on the assumptions you provide. Actual inflation and returns will differ, and no calculator can promise an outcome. Review the plan periodically and take personal advice before making changes.</div></details>
     </div>
@@ -578,6 +614,36 @@ img,svg,video,canvas{max-width:100%}
 
 </main>
 
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      <li><a href="https://www.pfrda.org.in/" target="_blank" rel="noopener">Pension Fund Regulatory and Development Authority (PFRDA)</a> — the National Pension System and retirement schemes</li>
+      <li><a href="https://www.amfiindia.com/investor" target="_blank" rel="noopener">Association of Mutual Funds in India (AMFI)</a> — mutual fund categories, SIP method and investor education</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+</div></div>
 <footer class="gc-footer"><div class="gc-wrap">
   <div class="lnks">
     <a href="/financial-goal-calculator/">Goal Calculators</a><a href="/child-education-calculator/">Child Education Cost</a><a href="/child-marriage-calculator/">Child Marriage Cost</a><a href="/retirement-goal-calculator/">Retirement Goal</a><a href="/legacy-planning-calculator/">Legacy & Estate Fund</a><a href="/emergency-fund-calculator/">Emergency Fund</a><a href="/human-life-value-calculator/">Human Life Value</a>
@@ -586,6 +652,7 @@ img,svg,video,canvas{max-width:100%}
   An intelligent digital platform that helps you build a custom family financial plan and connects you
   with Certified Financial Planners (CFP), investment advisers and wealth managers.</p>
   <p style="margin-top:8px">These calculators provide illustrative estimates, not financial advice.</p>
+<p style="margin-top:8px;font-size:12.5px"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
 </div></footer>
 
 <script>/* ============================================================================

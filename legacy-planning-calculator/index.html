@@ -554,7 +554,43 @@ img,svg,video,canvas{max-width:100%}
     <p style="font-size:16px;color:var(--ink);font-weight:600">A legacy fund is the goal that only exists if you decide it should. Nobody sends you a fee notice for it. That is precisely why it needs a number attached — an intention without a figure rarely survives contact with everything else competing for the same money.</p>
     <h2>What a legacy fund is for</h2><p>It can be a gift to children at a point when it genuinely helps — a first home, a business, a grandchild’s education. It can be a donation you want to make certain. It can simply be the assurance that your spouse will not need to sell the family home.</p><p>Because the purpose varies so much, the calculation is deliberately simple. You enter the amount in today’s value and the age you have in mind. Everything else works the same way as any other goal.</p><h2>Why inflate an amount you intend to give away?</h2><p>If you want to leave ₹50 lakh in today’s terms, then in 30 years you need a significantly larger nominal amount to deliver the same real value. At 6% inflation, ₹50 lakh today is roughly ₹2.87 crore in 30 years.</p><p>If you would rather fix the nominal figure — leave exactly ₹50 lakh whenever the time comes — set the inflation field to 0%. The calculator will then work with the literal amount. Both approaches are valid; they answer slightly different questions.</p><h2>The interaction with your other goals</h2><p>This is where legacy planning gets interesting. The same rupee cannot fund a child’s education and a legacy gift at the same time. If the combined monthly SIP across all your goals exceeds what you can genuinely save, something has to be sequenced.</p><p>A common and sensible order is: protection cover first, then the emergency fund, then education, then retirement, and legacy last — because the first two protect everything else, and retirement is the one goal with no fallback. Run each goal here and add up the monthly figures to see whether the total is realistic.</p><h2>A note on wills and nominations</h2><p>A funded legacy goal still needs paperwork to actually reach the people you intend. Nominations on mutual funds, insurance and bank accounts, and a valid will, matter more than the investment return on this money.</p><p>This calculator does not provide legal advice and cannot tell you how to structure an estate. For anything involving property, business interests or significant sums, speak to a qualified professional. The arithmetic here is the easy part.</p>
 
-    <h2>Frequently asked questions</h2>
+    
+
+
+
+
+
+
+
+
+
+<section class="calc-facts" aria-labelledby="cf-h">
+  <div class="cf-in">
+  <style>
+    .calc-facts{background:#F7FAFC;border:1px solid #E3EAF2;border-radius:14px;margin:26px 0;padding:20px 0}
+    .calc-facts .cf-in{max-width:1140px;margin:0 auto;padding:0 22px}
+    .calc-facts h2{margin:0 0 12px;font-size:1.15rem}
+    .calc-facts h3{margin:16px 0 5px;font-size:.98rem}
+    .calc-facts p{margin:0;font-size:.94rem;line-height:1.72;color:#33465A}
+    .calc-facts .lbl{display:inline-block;background:#0B5CAD;color:#fff;border-radius:6px;padding:1px 9px;font-size:.72rem;font-weight:800;letter-spacing:.4px;margin-right:7px;vertical-align:2px}
+    .calc-facts .lim .lbl{background:#B45309}
+    .calc-facts .frm{background:#fff;border-left:3px solid #0B5CAD;border-radius:8px;padding:11px 14px;margin:6px 0 0;font-size:.92rem}
+    @media(max-width:640px){.calc-facts{padding:16px 0}.calc-facts .cf-in{padding:0 15px}}
+  </style>
+  <h2 id="cf-h">How this calculator works</h2>
+  <p style="margin-bottom:14px">This calculator works out <b>the estate you would leave behind, and the cover needed to protect it</b>. Here is exactly what it assumes, the equation it runs, and what it leaves out.</p>
+  <h3><span class="lbl">STEP 1</span>What does this calculator assume?</h3>
+  <p>This calculator uses the MyFinancialPlan core engine. Unless you change them, it assumes <b>6% inflation</b> and a <b>12% annual investment return</b>. Any amount you have already allocated to the goal also compounds at that same 12%.</p>
+  <h3><span class="lbl">STEP 2</span>What formula does it use?</h3>
+  <p class="frm">Future cost = today's cost × (1 + inflation)^years. The plan then compares that future cost with the future value of what you have already allocated, and converts the shortfall into a monthly SIP at the assumed return.</p>
+  <h3 class="lim"><span class="lbl">STEP 3</span>What does this calculator <em>not</em> include?</h3>
+  <p>Two constant rates held for up to 20+ years is a simplification — a real portfolio does not return the same amount every year. Tax, expense ratios and exit loads are not modelled. Education and medical inflation in India often runs higher than general inflation, so for those goals the real number is frequently larger than this estimate.</p>
+  <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
+  <p>At the default settings shown at the top of this page — <b>Your current age</b> 35 · <b>Target age</b> 75 · <b>Legacy amount you wish to leave</b> ₹50,00,000 · <b>Amount available today</b> 0 · <b>Inflation assumption</b> 6 — this calculator returns <b>₹4,328</b> <span style="color:#5B6B7F">Required monthly SIP</span> · <b>₹5.14 Cr</b> <span style="color:#5B6B7F">Future cost</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
+  </div>
+</section>
+<h2>Frequently asked questions</h2>
     <div class="gc-faq">
       <details><summary>What inflation rate should I use for a legacy fund?</summary><div class="a">The same long-term assumption you use elsewhere — 6% is the calculator default. If you want to leave a fixed nominal amount rather than one that preserves purchasing power, set inflation to 0%.</div></details><details><summary>Should I plan a legacy fund before retirement is fully funded?</summary><div class="a">Usually not. Retirement is the one goal with no loan and no postponement available. Most advisers would suggest funding protection, emergency cover and retirement first, then adding legacy once those are on track.</div></details><details><summary>Can I leave this money to a charity instead of family?</summary><div class="a">Yes — the calculation is identical. The purpose does not change the arithmetic. What does change is the documentation: charity bequests need to be specified clearly in a will.</div></details><details><summary>Does a legacy fund affect inheritance tax in India?</summary><div class="a">India does not currently levy inheritance tax on assets passing to legal heirs, but rules can change and the position differs for certain transfers. This calculator does not cover taxation or estate law — take professional advice.</div></details><details><summary>What if I already have investments I intend to leave?</summary><div class="a">Enter them as existing savings. The calculator will grow them at your assumed return over the term and show how much of the legacy target they already cover.</div></details>
     </div>
@@ -578,6 +614,36 @@ img,svg,video,canvas{max-width:100%}
 
 </main>
 
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      <li><a href="https://irdai.gov.in/" target="_blank" rel="noopener">Insurance Regulatory and Development Authority of India (IRDAI)</a> — insurance products, policy terms and policyholder rights</li>
+      <li><a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener">Income Tax Department, Government of India</a> — income-tax rules, deduction limits and slab rates</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+</div></div>
 <footer class="gc-footer"><div class="gc-wrap">
   <div class="lnks">
     <a href="/financial-goal-calculator/">Goal Calculators</a><a href="/child-education-calculator/">Child Education Cost</a><a href="/child-marriage-calculator/">Child Marriage Cost</a><a href="/retirement-goal-calculator/">Retirement Goal</a><a href="/legacy-planning-calculator/">Legacy & Estate Fund</a><a href="/emergency-fund-calculator/">Emergency Fund</a><a href="/human-life-value-calculator/">Human Life Value</a>
@@ -586,6 +652,7 @@ img,svg,video,canvas{max-width:100%}
   An intelligent digital platform that helps you build a custom family financial plan and connects you
   with Certified Financial Planners (CFP), investment advisers and wealth managers.</p>
   <p style="margin-top:8px">These calculators provide illustrative estimates, not financial advice.</p>
+<p style="margin-top:8px;font-size:12.5px"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
 </div></footer>
 
 <script>/* ============================================================================
