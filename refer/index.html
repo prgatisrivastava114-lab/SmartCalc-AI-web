@@ -33,7 +33,7 @@ nav a:hover{color:var(--teal)}
 @media(max-width:760px){.grid2{grid-template-columns:1fr}}
 .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 4px 20px -10px rgba(23,50,74,.1)}
 .card h3{font-size:19px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.badge{display:inline-block;padding:4px 12px;border-radius:99px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.badge{display:inline-block;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
 .b-mint{background:var(--mint);color:#0B7A5C}
 .b-lav{background:var(--lav);color:var(--indigo)}
 .b-cream{background:var(--cream);color:var(--amber)}
@@ -118,14 +118,14 @@ nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
 @media (max-width:620px){
   nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
   nav.top .logo{height:30px}
-  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:11.5px;margin-right:0}
+  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:12px;margin-right:0}
   nav.top a.btn{display:flex;align-items:center;justify-content:center;height:40px;
                 padding:0 12px;font-size:12.5px;margin-left:0!important}
   .burger{width:40px;height:40px;margin-left:0}
 }
 @media (max-width:360px){
   nav.top .logo{height:26px}
-  #langSw{font-size:11px;padding:0 10px}
+  #langSw{font-size:12px;padding:0 10px}
 }
 .top .wrap{flex-wrap:wrap;row-gap:6px}
 .top .wrap>nav{min-width:0;flex-wrap:wrap}
@@ -327,7 +327,7 @@ img,svg,video,canvas{max-width:100%}
         <div id="lic-sub-calc">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div>
-              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Select LIC Plan Table:</label>
+              <label style="font-size:12px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">Select LIC Plan Table:</label>
               <select id="pLicPlan" onchange="calcPartnerLic()" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-weight:700">
                 <option value="936" selected>Table 936 — Jeevan Labh (Limited)</option>
                 <option value="945">Table 945 — Jeevan Umang (8% Pension)</option>
@@ -340,22 +340,22 @@ img,svg,video,canvas{max-width:100%}
               </select>
             </div>
             <div>
-              <label style="font-size:11px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px" for="pLicSum">Sum Assured (₹):</label>
+              <label style="font-size:12px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px" for="pLicSum">Sum Assured (₹):</label>
               <input type="number" id="pLicSum" value="500000" step="50000" oninput="calcPartnerLic()" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-weight:700">
             </div>
           </div>
 
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;text-align:center">
             <div style="background:var(--lav);padding:8px;border-radius:8px">
-              <span style="font-size:10px;font-weight:800;color:var(--ink2);text-transform:uppercase">Yearly Premium</span>
+              <span style="font-size:12px;font-weight:800;color:var(--ink2);text-transform:uppercase">Yearly Premium</span>
               <b id="pOutPrem" style="display:block;font-size:15px;color:var(--indigo)">₹23,450</b>
             </div>
             <div style="background:var(--mint);padding:8px;border-radius:8px">
-              <span style="font-size:10px;font-weight:800;color:var(--ink2);text-transform:uppercase">Est. Bonus</span>
+              <span style="font-size:12px;font-weight:800;color:var(--ink2);text-transform:uppercase">Est. Bonus</span>
               <b id="pOutBonus" style="display:block;font-size:15px;color:#0B7A5C">₹6,25,000</b>
             </div>
             <div style="background:var(--cream);padding:8px;border-radius:8px">
-              <span style="font-size:10px;font-weight:800;color:var(--ink2);text-transform:uppercase">Maturity (10(10D))</span>
+              <span style="font-size:12px;font-weight:800;color:var(--ink2);text-transform:uppercase">Maturity (10(10D))</span>
               <b id="pOutMat" style="display:block;font-size:15px;color:var(--amber)">₹11,25,000</b>
             </div>
           </div>
