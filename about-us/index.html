@@ -195,6 +195,37 @@
           padding:16px 18px;margin:0 0 18px;font-size:16.5px}
   .answer b{color:var(--teal-dark)}
 
+
+  /* ── site navigation bar ─────────────────────────────────────────────── */
+  /* The page shipped without any nav at all: a visitor arriving from Google
+     had no route into the site except the footer, 9,000px down. This mirrors
+     the header used on the learn/ guides so the page reads as part of the
+     site rather than a standalone document. */
+  .sitenav{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
+  .sitenav .in{max-width:1060px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:18px}
+  .sitenav .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px;color:var(--ink);
+                  letter-spacing:-.2px;min-height:44px}
+  .sitenav .brand svg{flex:0 0 auto}
+  .sitenav .nl{margin-left:auto;display:flex;align-items:center;gap:4px}
+  .sitenav a{text-decoration:none}
+  .sitenav .navlogo{height:40px;width:auto;display:block}
+  .sitenav .nl a{display:inline-flex;align-items:center;min-height:44px;padding:4px 11px;border-radius:9px;
+                 font-weight:600;font-size:14.5px;color:var(--ink2);white-space:nowrap}
+  .sitenav .nl a:hover{background:#f1f5f9;color:var(--ink)}
+  .sitenav .nl a[aria-current="page"]{color:var(--teal);background:#ecfdf5}
+  .sitenav .nl .cta{background:var(--teal);color:#fff;font-weight:700;padding:4px 15px}
+  .sitenav .nl .cta:hover{background:#047857;color:#fff}
+  @media (max-width:760px){
+    .sitenav .in{padding:8px 14px;gap:10px}
+    /* the wordmark is hidden on narrow screens, which would leave the brand
+       link only as wide as its 26px icon — below the 44px tap minimum */
+    .sitenav .navlogo{height:32px}
+    .sitenav .brand{min-width:44px}
+    .sitenav .nl{gap:2px}
+    .sitenav .nl a{padding:4px 8px;font-size:13.5px}
+    .sitenav .nl a.hide-sm{display:none}
+  }
+
   /* ── cards grid ─────────────────────────────────────────────────────── */
   /* Flex rather than grid on purpose: with grid auto-fit, a trailing row that is
      not full leaves visibly empty tracks (5 cards in 3 columns = 3 + 2 + a hole).
@@ -300,9 +331,114 @@
     .btn:hover,.tile:hover{transform:none}
   }
 </style>
+
+
+
+
+
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
+        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+@media(max-width:1000px){
+  .mfp-sh-tabs,.mfp-sh-cta{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:11.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style>
 </head>
 <body>
 <a href="#main" class="mfp-skip">Skip to main content</a>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/about-us/" aria-current="page">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
+    <a href="/about-us/" aria-current="page">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
+
+
+
+
+
+
+
+
 
 <header class="hero">
   <div class="in">
@@ -593,10 +729,57 @@
   <p class="disc"><b>Disclaimer:</b> This page is for information and education only. It is not financial, investment, tax or legal advice, and it does not take your personal circumstances into account. My Financial Plan provides software-based analysis and financial education; it does not claim any regulatory registration or professional certification. Figures produced by the tools on this site are estimates based on the inputs and assumptions you enter — investment returns are not guaranteed and can fall as well as rise. Please consult a qualified financial adviser before making any financial decision.</p>
 </div></div>
 
-<footer>
-  <p>© 2026 MyFinancialPlan.in — Family financial planning, made simple.</p>
-  <p><a class="explore" href="/">← Back to Home Page</a></p>
-  <p style="margin-top:8px;font-size:12.5px"><a href="/about-us/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/cookies/">Cookies</a></p>
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/app/">Open Web App</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/vanshavali/">Digital Vanshavali</a>
+        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+      <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+    </div>
+  </div>
 </footer>
 
 <style id="mfp-a11y-mobile">
