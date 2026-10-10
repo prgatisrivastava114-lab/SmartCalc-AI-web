@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Notification Settings · MY FINANCIAL PLAN</title>
+<meta name="description" content="Choose which notifications you receive from My Financial Plan, or turn them off completely. Settings apply to this device.">
+<link rel="canonical" href="https://www.myfinancialplan.in/notifications/">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-180.png">
+<link rel="icon" href="/assets/brand/mfp_icon_32.png" sizes="32x32">
+<meta name="theme-color" content="#17324A">
+<style>
+:root{--ink:#17324A;--teal:#0E9D78;--cta:#047857;--mut:#5B6B7F;--line:#E3E9F1;--mint:#DDF4EC}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f7fafc}
+.wrap{max-width:720px;margin:0 auto;padding:30px 18px 70px}
+h1{font-size:28px;line-height:1.2;margin:0 0 8px;letter-spacing:-.5px}
+.lede{color:var(--mut);font-size:15px;margin:0 0 24px}
+.box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+h2{font-size:17px;margin:0 0 4px;letter-spacing:-.2px}
+.h2s{font-size:13.5px;color:var(--mut);margin:0 0 16px}
+.cat{display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid #eef2f7}
+.cat:last-child{border-bottom:0;padding-bottom:0}
+.cat-t{flex:1;min-width:0}
+.cat-t b{display:block;font-size:15px;margin-bottom:3px}
+.cat-t span{font-size:13.5px;color:var(--mut);line-height:1.55;display:block}
+.sw{position:relative;width:48px;height:28px;flex:none;margin-top:2px}
+.sw input{opacity:0;width:0;height:0;position:absolute}
+.sw i{position:absolute;inset:0;background:#cfd9e4;border-radius:30px;transition:.2s;cursor:pointer;display:block}
+.sw i:after{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.sw input:checked + i{background:var(--teal)}
+.sw input:checked + i:after{transform:translateX(20px)}
+.sw input:focus-visible + i{outline:2px solid var(--cta);outline-offset:2px}
+.sw input:disabled + i{opacity:.45;cursor:not-allowed}
+.btn{background:var(--cta);color:#fff;border:0;border-radius:9px;padding:12px 20px;font:700 14.5px/1 inherit;cursor:pointer;font-family:inherit;transition:.15s}
+.btn:hover:not(:disabled){background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid #cfdae6}
+.btn.ghost:hover:not(:disabled){background:#f4f8fb;box-shadow:none}
+.btn.danger{background:#fff;color:#b42222;border:1px solid #e8c4c4}
+.btn.danger:hover:not(:disabled){background:#fff6f6;box-shadow:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.state{display:flex;align-items:center;gap:11px;padding:14px 16px;border-radius:10px;margin-bottom:18px;font-size:14px}
+.s-on{background:#f2fbf5;border:1px solid #bfe6cd;color:#15663a}
+.s-off{background:#f4f7fa;border:1px solid #dde5ee;color:var(--mut)}
+.s-no{background:#fff4f4;border:1px solid #f0c0c0;color:#8c1f1f}
+.s-ios{background:#fffaf0;border:1px solid #f0dcb4;color:#845000}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.d-on{background:#28a055}.d-off{background:#9bacc0}.d-no{background:#d63c3c}.d-ios{background:#e0a020}
+.note{font-size:13px;color:var(--mut);line-height:1.6;margin:14px 0 0;padding-top:14px;border-top:1px solid #eef2f7}
+.ol{margin:10px 0 0;padding-left:20px;font-size:13.5px;color:var(--mut)}
+.ol li{margin:5px 0}
+.hide{display:none!important}
+.msg{padding:11px 14px;border-radius:9px;font-size:13.5px;margin-top:14px}
+.m-ok{background:#f2fbf5;border:1px solid #bfe6cd;color:#15663a}
+.m-er{background:#fff4f4;border:1px solid #f0c0c0;color:#8c1f1f}
+.dev{font-size:12.5px;color:#8294a8;font-family:ui-monospace,Menlo,monospace;word-break:break-all}
+a{color:var(--cta)}
+@media(max-width:560px){.wrap{padding:20px 14px 50px}h1{font-size:23px}.box{padding:17px 16px}.row .btn{width:100%}}
+</style>
+
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
+        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:36px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style>
+</head>
+<body>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
+
+
+
+
+<div class="wrap">
+  <h1>Notification settings</h1>
+  <p class="lede">Choose what you hear about. These settings apply to <strong>this device and browser</strong> — if you use the site on your phone and your laptop, set each one separately.</p>
+
+  <!-- state banner -->
+  <div id="banner" class="state s-off"><span class="dot d-off"></span><span id="bannerText">Checking…</span></div>
+
+  <!-- not subscribed -->
+  <div class="box hide" id="boxOff">
+    <h2>Notifications are off</h2>
+    <p class="h2s">Turn them on to get a short alert when we publish something useful. About once a month.</p>
+    <div class="row"><button class="btn" id="btnOn">Enable notifications</button></div>
+    <p class="note">We never put your personal or financial details in a notification — no amounts, no client names, no account numbers. Ever.</p>
+  </div>
+
+  <!-- blocked -->
+  <div class="box hide" id="boxDenied">
+    <h2>Your browser is blocking notifications</h2>
+    <p class="h2s">We can’t ask again — only you can change this.</p>
+    <ol class="ol">
+      <li>Tap the <strong>lock icon</strong> next to the web address</li>
+      <li>Find <strong>Notifications</strong> in the list</li>
+      <li>Switch it to <strong>Allow</strong></li>
+      <li>Reload this page</li>
+    </ol>
+    <p class="note">Everything else on the site works exactly as normal while notifications are blocked.</p>
+  </div>
+
+  <!-- iOS -->
+  <div class="box hide" id="boxIos">
+    <h2>Add to Home Screen first</h2>
+    <p class="h2s">On iPhone and iPad, Apple only allows notifications for sites you’ve added to your Home Screen.</p>
+    <ol class="ol">
+      <li>Tap <strong>Share</strong> at the bottom of Safari</li>
+      <li>Choose <strong>Add to Home Screen</strong></li>
+      <li>Open My Financial Plan from your Home Screen</li>
+      <li>Come back to this page and switch notifications on</li>
+    </ol>
+    <p class="note">Requires iOS 16.4 or later.</p>
+  </div>
+
+  <!-- unsupported -->
+  <div class="box hide" id="boxUnsup">
+    <h2>Notifications aren’t available in this browser</h2>
+    <p class="h2s" id="unsupWhy">This browser doesn’t support web notifications.</p>
+    <p class="note">Nothing else is affected — every calculator and tool on the site works normally.</p>
+  </div>
+
+  <!-- categories -->
+  <div class="box hide" id="boxCats">
+    <h2>What you’ll hear about</h2>
+    <p class="h2s">Switch off anything you don’t want. Changes save as soon as you toggle.</p>
+    <div id="cats"></div>
+    <div id="catMsg"></div>
+    <p class="note">We aim for about one notification a month, and never more than one a week. No investment advice, no promises of returns, no urgency tactics.</p>
+  </div>
+
+  <!-- manage -->
+  <div class="box hide" id="boxManage">
+    <h2>This device</h2>
+    <p class="h2s">Your subscription is stored against a random ID — not your name, email or phone number.</p>
+    <p class="dev" id="devId"></p>
+    <div class="row">
+      <button class="btn ghost" id="btnOff">Turn off all notifications</button>
+      <button class="btn danger" id="btnDel">Remove this device completely</button>
+    </div>
+    <div id="manMsg"></div>
+    <p class="note"><strong>Turn off</strong> keeps your preferences so you can switch back on easily. <strong>Remove</strong> deletes the stored record for this device entirely — use this if it’s a shared or public computer.</p>
+  </div>
+
+  <div class="box">
+    <h2>What we store</h2>
+    <p class="h2s" style="margin:0">A notification token from your browser, a random device ID, the categories you chose, your device type and language, and the dates. That’s all. No name, email, phone number or anything from your financial plans. <a href="/privacy/">Privacy policy</a>.</p>
+  </div>
+</div>
+
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/app/">Open Web App</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/vanshavali/">Digital Vanshavali</a>
+        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+        <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/mfp-push.js"></script>
+  </footer>
+
+<!-- mfp-push.js is supplied by the shared footer chrome — do not add it again here -->
+<script type="module">
+const $ = (s) => document.querySelector(s);
+const show = (id, on) => $(id).classList.toggle('hide', !on);
+
+function msg(where, text, ok) {
+  const e = $(where);
+  e.innerHTML = '';
+  if (!text) return;
+  const d = document.createElement('div');
+  d.className = 'msg ' + (ok ? 'm-ok' : 'm-er');
+  d.textContent = text;
+  e.appendChild(d);
+  if (ok) setTimeout(() => { if (e.contains(d)) d.remove(); }, 4000);
+}
+
+/* Partner category is visible only to a signed-in partner. The public site has
+   no auth SDK, so the flag is set by the Flutter app on the shared origin.
+   This is a UI affordance only — the server re-checks the claim before it will
+   ever send to that topic, so showing it cannot grant access to it. */
+function isPartner() {
+  try { return localStorage.getItem('mfp_role') === 'partner' || localStorage.getItem('mfp_is_partner') === '1'; }
+  catch (_) { return false; }
+}
+
+const DESC = {
+  planning:      'Reminders about goals and reviews you have set up yourself.',
+  calculators:   'When we publish a new calculator or a guide worth reading.',
+  announcements: 'Occasional, important news about the website itself.',
+  partner:       'Follow-up reminders for your clients. Never contains a client name or any figure.'
+};
+
+function waitForPush() {
+  return new Promise((res) => {
+    let n = 0;
+    (function poll() {
+      if (window.MFPPush) return res(window.MFPPush);
+      if (++n > 60) return res(null);
+      setTimeout(poll, 50);
+    })();
+  });
+}
+
+const P = await waitForPush();
+
+if (!P) {
+  $('#bannerText').textContent = 'Could not load notification settings. Please reload the page.';
+  $('#banner').className = 'state s-no';
+  $('#banner').firstElementChild.className = 'dot d-no';
+} else {
+  render();
+}
+
+function render() {
+  const st = P.state();
+
+  ['#boxOff','#boxDenied','#boxIos','#boxUnsup','#boxCats','#boxManage'].forEach((i) => show(i, false));
+
+  const b = $('#banner'), t = $('#bannerText'), d = b.firstElementChild;
+
+  if (st === 'subscribed') {
+    b.className = 'state s-on'; d.className = 'dot d-on';
+    t.textContent = 'Notifications are on for this device.';
+    show('#boxCats', true); show('#boxManage', true);
+    buildCats();
+    $('#devId').textContent = 'Device ID: ' + P.installId();
+  } else if (st === 'denied') {
+    b.className = 'state s-no'; d.className = 'dot d-no';
+    t.textContent = 'Notifications are blocked by your browser.';
+    show('#boxDenied', true);
+  } else if (st === 'ios-needs-install') {
+    b.className = 'state s-ios'; d.className = 'dot d-ios';
+    t.textContent = 'Add this site to your Home Screen to enable notifications.';
+    show('#boxIos', true);
+  } else if (st === 'unsupported') {
+    b.className = 'state s-off'; d.className = 'dot d-off';
+    t.textContent = 'Notifications are not available in this browser.';
+    const inApp = /FBAN|FBAV|Instagram|Line\/|Twitter|MicroMessenger/i.test(navigator.userAgent);
+    if (inApp) $('#unsupWhy').textContent = 'In-app browsers inside Instagram, Facebook and similar apps don’t support web notifications. Open the site in Chrome or Safari instead.';
+    show('#boxUnsup', true);
+  } else {
+    b.className = 'state s-off'; d.className = 'dot d-off';
+    t.textContent = 'Notifications are off for this device.';
+    show('#boxOff', true);
+  }
+}
+
+function buildCats() {
+  const host = $('#cats');
+  host.innerHTML = '';
+  const on = P.getCategories();
+  const partner = isPartner();
+
+  P.CATEGORIES.forEach((c) => {
+    if (c.partnerOnly && !partner) return;
+    const row = document.createElement('div');
+    row.className = 'cat';
+    row.innerHTML =
+      `<div class="cat-t"><b></b><span></span></div>
+       <label class="sw"><input type="checkbox" ${on.includes(c.id) ? 'checked' : ''}><i></i></label>`;
+    row.querySelector('b').textContent    = c.label;
+    row.querySelector('span').textContent = DESC[c.id] || '';
+    const cb = row.querySelector('input');
+    cb.setAttribute('aria-label', c.label);
+    cb.dataset.cat = c.id;                       // read the id off the element, never by index
+    cb.onchange = async () => {
+      const all = [...host.querySelectorAll('input[data-cat]')];
+      const sel = all.filter((i) => i.checked).map((i) => i.dataset.cat);
+      all.forEach((i) => (i.disabled = true));
+      try {
+        await P.setCategories(sel);
+        msg('#catMsg', 'Saved.', true);
+      } catch (e) {
+        cb.checked = !cb.checked;
+        msg('#catMsg', 'Could not save that change. Please try again.', false);
+      }
+      all.forEach((i) => (i.disabled = false));
+    };
+    host.appendChild(row);
+  });
+
+  if (!host.children.length) host.innerHTML = '<p class="h2s" style="margin:0">No categories available.</p>';
+}
+
+$('#btnOn').onclick = () => P.openSheet();
+
+$('#btnOff').onclick = async () => {
+  const b = $('#btnOff');
+  b.disabled = true; b.textContent = 'Turning off…';
+  try { await P.unsubscribe(); msg('#manMsg', 'Notifications turned off.', true); }
+  catch (e) { msg('#manMsg', 'Something went wrong. Please try again.', false); }
+  b.disabled = false; b.textContent = 'Turn off all notifications';
+  render();
+};
+
+$('#btnDel').onclick = async () => {
+  if (!confirm('Remove this device completely?\n\nYour notification token and preferences will be deleted. You can subscribe again at any time.')) return;
+  const b = $('#btnDel');
+  b.disabled = true; b.textContent = 'Removing…';
+  try {
+    await P.unsubscribe();
+    try { localStorage.removeItem('mfp_install_id'); localStorage.removeItem('mfp_push_cats'); localStorage.removeItem('mfp_push_state'); } catch (_) {}
+    msg('#manMsg', 'This device has been removed.', true);
+  } catch (e) { msg('#manMsg', 'Could not remove the device. Please try again.', false); }
+  b.disabled = false; b.textContent = 'Remove this device completely';
+  render();
+};
+</script>
+</body>
+</html>

@@ -48,6 +48,47 @@ input:focus{outline:none;border-color:var(--indigo)}
 .tabs{display:flex;gap:7px;margin-top:16px}
 .tab{flex:1;text-align:center;padding:11px 4px;border-radius:12px;background:#fff;border:1.4px solid var(--line);font-size:13px;font-weight:800;color:var(--ink2);cursor:pointer}
 .tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ── push notifications tab ── */
+#tab-push .fld{margin:14px 0}
+#tab-push label{display:block;font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:5px}
+#tab-push .hint{font-weight:500;color:#8294a8;font-size:11.5px}
+#tab-push input[type=text],#tab-push textarea,#tab-push select{width:100%;padding:11px 13px;
+  border:1.4px solid var(--line);border-radius:11px;font:15px/1.4 inherit;color:var(--ink);background:#fff}
+#tab-push textarea{resize:vertical;min-height:72px}
+#tab-push .cnt{text-align:right;font-size:11px;color:#8294a8;margin-top:3px}
+#tab-push .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#tab-push .btnRow{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+#tab-push .btn{flex:1;min-width:120px;min-height:46px;border:0;border-radius:12px;background:var(--ink);
+  color:#fff;font:800 14px/1 inherit;cursor:pointer}
+#tab-push .btn.ghost{background:#fff;color:var(--ink);border:1.4px solid var(--line)}
+#tab-push .btn:disabled{opacity:.5;cursor:not-allowed}
+#tab-push .pvWrap{margin:18px 0 4px}
+#tab-push .pvLbl{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:#8294a8;margin-bottom:7px}
+#tab-push .pv{display:flex;gap:11px;background:#f1f4f8;border:1px solid var(--line);border-radius:14px;padding:12px 13px}
+#tab-push .pvIc{width:36px;height:36px;border-radius:9px;flex:none}
+#tab-push .pvTx{min-width:0;flex:1}
+#tab-push .pvTx b{display:block;font-size:13.5px;color:var(--ink);word-break:break-word}
+#tab-push .pvTx span{display:block;font-size:12.5px;color:var(--ink2);line-height:1.45;word-break:break-word}
+#tab-push .pvTx em{display:block;font-style:normal;font-size:10.5px;color:#8294a8;margin-top:4px}
+#tab-push .warnbox{background:#fff8ec;border:1px solid #f0dcb4;border-radius:11px;padding:11px 13px;
+  font-size:12.5px;color:#845000;line-height:1.55;margin:14px 0 0}
+#tab-push .hist{margin-top:13px;font-size:13px}
+#tab-push .hrow{border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:9px;background:#fff}
+#tab-push .hrow .ht{font-weight:800;font-size:13.5px;color:var(--ink);margin-bottom:3px}
+#tab-push .hrow .hm{color:var(--ink2);font-size:12.5px;line-height:1.5}
+#tab-push .hrow .hs{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px;font-size:11px}
+#tab-push .pill{padding:2.5px 9px;border-radius:20px;font-weight:800;letter-spacing:.3px}
+#tab-push .p-sent{background:#d9f2e3;color:#15663a}
+#tab-push .p-fail{background:#fadcdc;color:#8c1f1f}
+#tab-push .p-sch{background:#dde7f5;color:#1d4e87}
+#tab-push .p-draft{background:#eceff3;color:#5a6b80}
+#tab-push .p-sending{background:#fdeecd;color:#845000}
+#tab-push .pcres{padding:11px 13px;border-radius:11px;font-size:13px;margin-top:13px;line-height:1.55}
+#tab-push .pcok{background:#eafaf1;border:1px solid #bfe6cd;color:#15663a}
+#tab-push .pcerr{background:#fff1f1;border:1px solid #f0c0c0;color:#8c1f1f}
+@media(max-width:560px){#tab-push .grid2{grid-template-columns:1fr}#tab-push .btn{min-width:100%}}
+
 .row{display:flex;gap:9px;align-items:center}
 .grow{flex:1}
 .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
@@ -188,6 +229,98 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
       <div class="tab" data-tab="leads">📥 Leads</div>
       <div class="tab" data-tab="coins">🪙 Coins</div>
       <div class="tab" data-tab="analytics">📊 Analytics</div>
+      <div class="tab" data-tab="push">🔔 Push</div>
+    </div>
+
+    <!-- ── TAB 7: PUSH NOTIFICATIONS ── -->
+    <div id="tab-push" class="hidden">
+
+      <div class="card">
+        <h2>Naya campaign banao</h2>
+        <p class="sub">Notification lock screen par dikhta hai. Isliye naam, number, amount ya koi
+          personal detail kabhi mat likho — server wese bhi reject kar dega.</p>
+
+        <div class="fld">
+          <label for="pcName">Campaign ka naam <span class="hint">(sirf tumhare liye, user ko nahi dikhta)</span></label>
+          <input id="pcName" type="text" maxlength="80" placeholder="Oct 2026 — income tax calculator launch">
+        </div>
+
+        <div class="fld">
+          <label for="pcTitle">Title <span class="hint">(max 80)</span></label>
+          <input id="pcTitle" type="text" maxlength="80" placeholder="New: Income Tax Calculator">
+          <div class="cnt"><span id="pcTitleN">0</span>/80</div>
+        </div>
+
+        <div class="fld">
+          <label for="pcBody">Message <span class="hint">(max 240)</span></label>
+          <textarea id="pcBody" rows="3" maxlength="240" placeholder="Compare the new and old regime side by side."></textarea>
+          <div class="cnt"><span id="pcBodyN">0</span>/240</div>
+        </div>
+
+        <div class="fld">
+          <label for="pcUrl">Kahan le jaye <span class="hint">(sirf myfinancialplan.in ka path)</span></label>
+          <input id="pcUrl" type="text" maxlength="200" placeholder="/tools/income-tax-calculator/" value="/">
+        </div>
+
+        <div class="grid2">
+          <div class="fld">
+            <label for="pcCat">Category <span class="hint">(jinhone ye choose kiya sirf unhe jayega)</span></label>
+            <select id="pcCat">
+              <option value="announcements">Important announcements</option>
+              <option value="calculators">New calculators &amp; guides</option>
+              <option value="planning">Planning &amp; goal reminders</option>
+              <option value="partner">Partner follow-ups</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="pcAud">Audience</label>
+            <select id="pcAud">
+              <option value="all">All opted-in devices</option>
+              <option value="anonymous">Anonymous visitors only</option>
+              <option value="registered">Registered users only</option>
+              <option value="partner">Partners only</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- live preview -->
+        <div class="pvWrap">
+          <div class="pvLbl">Phone par aisa dikhega</div>
+          <div class="pv">
+            <img src="/assets/icons/icon-192.png" alt="" class="pvIc">
+            <div class="pvTx">
+              <b id="pvTitle">Title yahan aayega</b>
+              <span id="pvBody">Message yahan aayega</span>
+              <em>myfinancialplan.in &middot; now</em>
+            </div>
+          </div>
+        </div>
+
+        <div class="fld">
+          <label for="pcTestId">Test device ID <span class="hint">(notification settings page par milega)</span></label>
+          <input id="pcTestId" type="text" maxlength="128" placeholder="paste install id here">
+        </div>
+
+        <div class="btnRow">
+          <button class="btn ghost" id="pcTest">Test bhejo</button>
+          <button class="btn ghost" id="pcDraft">Draft save karo</button>
+          <button class="btn" id="pcSend">Sabko bhejo</button>
+        </div>
+        <div id="pcMsg"></div>
+
+        <p class="warnbox">⚠️ <b>Sabko bhejo</b> dabane par confirmation maangega. Ek baar chala gaya to
+          wapas nahi aata. Pehle hamesha test bhej kar dekho.</p>
+      </div>
+
+      <div class="card">
+        <h2>Campaign history</h2>
+        <p class="sub">Sabse naye upar. Counts server se aate hain, browser se nahi.</p>
+        <div class="btnRow" style="margin-top:0">
+          <button class="btn ghost" id="pcRefresh">Refresh</button>
+        </div>
+        <div id="pcHist" class="hist">Load karne ke liye Refresh dabao.</div>
+      </div>
+
     </div>
 
     <!-- ── TAB 1: CODES ── -->
@@ -999,6 +1132,171 @@ function issueCoinBonus(){
   $('coinMsg').classList.remove('hidden');
 }
 
+
+/* ═══════════════ PUSH NOTIFICATIONS ═══════════════
+   Calls Cloud Functions with the SAME Google ID token the rest of this panel
+   already uses. No FCM server key, no service-account key, no privileged
+   credential ever exists in this page — the function verifies the owner/admin
+   custom claim server-side before it will do anything. */
+
+var PUSH_REGION = 'asia-south1';
+var PUSH_FNBASE = 'https://' + PUSH_REGION + '-' + (CFG.projectId || '') + '.cloudfunctions.net/';
+
+async function callFn(name, data){
+  var r = await authFetch(PUSH_FNBASE + name, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ data: data || {} })
+  });
+  var j = null;
+  try { j = await r.json(); } catch(e){}
+  if (!r.ok || (j && j.error)) {
+    var m = (j && j.error && (j.error.message || j.error.status)) || ('HTTP ' + r.status);
+    throw new Error(m);
+  }
+  return (j && j.result) || {};
+}
+
+function pcMsg(html, ok){
+  var e = $('pcMsg');
+  e.innerHTML = html ? '<div class="pcres ' + (ok ? 'pcok' : 'pcerr') + '">' + html + '</div>' : '';
+}
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function pcPreview(){
+  var t = $('pcTitle').value.trim(), b = $('pcBody').value.trim();
+  $('pvTitle').textContent = t || 'Title yahan aayega';
+  $('pvBody').textContent  = b || 'Message yahan aayega';
+  $('pcTitleN').textContent = $('pcTitle').value.length;
+  $('pcBodyN').textContent  = $('pcBody').value.length;
+}
+
+function pcFields(){
+  return {
+    name:     $('pcName').value.trim(),
+    title:    $('pcTitle').value.trim(),
+    body:     $('pcBody').value.trim(),
+    url:      $('pcUrl').value.trim() || '/',
+    category: $('pcCat').value,
+    audience: $('pcAud').value
+  };
+}
+
+function pcValidLocal(f){
+  if (!f.title) return 'Title likhna zaroori hai.';
+  if (!f.body)  return 'Message likhna zaroori hai.';
+  if (f.url && !/^\//.test(f.url) && !/^https:\/\/(www\.)?myfinancialplan\.in/.test(f.url))
+    return 'URL "/" se shuru hona chahiye ya myfinancialplan.in ka hona chahiye.';
+  return null;
+}
+
+/* a stable key per composed campaign — the server collapses duplicates on it */
+var pcKey = null;
+function pcNewKey(){
+  pcKey = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+  return pcKey;
+}
+
+async function pcDoTest(){
+  var f = pcFields(), err = pcValidLocal(f);
+  if (err) return pcMsg(esc(err), false);
+  var id = $('pcTestId').value.trim();
+  if (!id) return pcMsg('Test device ID daalo. Apne phone par /notifications/ kholo, wahan Device ID likha hoga.', false);
+  var b = $('pcTest'); b.disabled = true; b.textContent = 'Bhej rahe...';
+  try {
+    await callFn('sendTestPush', Object.assign({}, f, { installId: id }));
+    pcMsg('✅ Test bhej diya. Apna phone dekho.', true);
+  } catch(e){ pcMsg('❌ ' + esc(e.message), false); }
+  b.disabled = false; b.textContent = 'Test bhejo';
+}
+
+async function pcDoSend(){
+  var f = pcFields(), err = pcValidLocal(f);
+  if (err) return pcMsg(esc(err), false);
+
+  var aud = $('pcAud').options[$('pcAud').selectedIndex].text;
+  var cat = $('pcCat').options[$('pcCat').selectedIndex].text;
+  if (!confirm(
+      'Sach me sabko bhejna hai?\n\n' +
+      'Title   : ' + f.title + '\n' +
+      'Audience: ' + aud + '\n' +
+      'Category: ' + cat + '\n\n' +
+      'Ye wapas nahi aata. Pehle test bhej kar dekh liya?')) return;
+
+  var b = $('pcSend'); b.disabled = true; b.textContent = 'Bhej rahe...';
+  try {
+    var r = await callFn('sendCampaign', Object.assign({}, f, { idempotencyKey: pcKey || pcNewKey() }));
+    pcMsg('✅ <b>Bhej diya.</b><br>' +
+          'Pahuncha: ' + (r.sent||0) + ' &nbsp;·&nbsp; Fail: ' + (r.failed||0) +
+          ' &nbsp;·&nbsp; Purane token hataye: ' + (r.cleaned||0) +
+          (r.note ? '<br>' + esc(r.note) : ''), true);
+    pcKey = null;
+    pcLoadHistory();
+  } catch(e){ pcMsg('❌ ' + esc(e.message), false); }
+  b.disabled = false; b.textContent = 'Sabko bhejo';
+}
+
+async function pcDoDraft(){
+  var f = pcFields(), err = pcValidLocal(f);
+  if (err) return pcMsg(esc(err), false);
+  var b = $('pcDraft'); b.disabled = true;
+  try {
+    /* Drafts go through a Cloud Function, not a direct write: the Firestore
+       rules make push_campaigns read-only to every browser, deliberately. */
+    await callFn('saveDraft', Object.assign({}, f, { idempotencyKey: pcKey || pcNewKey() }));
+    pcMsg('💾 Draft save ho gaya.', true);
+    pcLoadHistory();
+  } catch(e){ pcMsg('❌ Draft save nahi hua: ' + esc(e.message), false); }
+  b.disabled = false;
+}
+
+async function pcLoadHistory(){
+  var h = $('pcHist');
+  h.textContent = 'Load ho raha hai...';
+  try {
+    var rows = await fsQuery('push_campaigns', 'createdAt', 25);
+    if (!rows.length){ h.textContent = 'Abhi koi campaign nahi bheja gaya.'; return; }
+    h.innerHTML = rows.map(function(c){
+      var st = c.status || 'draft';
+      var cls = st === 'sent' ? 'p-sent' : st === 'failed' ? 'p-fail'
+              : st === 'scheduled' ? 'p-sch' : st === 'sending' ? 'p-sending' : 'p-draft';
+      var when = c.finishedAt || c.createdAt || '';
+      try { when = new Date(when).toLocaleString('en-IN'); } catch(e){}
+      return '<div class="hrow">' +
+        '<div class="ht">' + esc(c.name || c.title || '(no name)') + '</div>' +
+        '<div class="hm">' + esc(c.title || '') + ' — ' + esc(c.body || '') + '</div>' +
+        '<div class="hs">' +
+          '<span class="pill ' + cls + '">' + esc(st) + '</span>' +
+          (c.sent     != null ? '<span class="pill p-draft">sent ' + esc(c.sent) + '</span>' : '') +
+          (c.failed   != null ? '<span class="pill p-draft">failed ' + esc(c.failed) + '</span>' : '') +
+          (c.cleaned  != null ? '<span class="pill p-draft">cleaned ' + esc(c.cleaned) + '</span>' : '') +
+          (c.audience        ? '<span class="pill p-draft">' + esc(c.audience) + '</span>' : '') +
+          (c.createdByEmail  ? '<span class="pill p-draft">' + esc(c.createdByEmail) + '</span>' : '') +
+          (when              ? '<span class="pill p-draft">' + esc(when) + '</span>' : '') +
+        '</div>' +
+        (c.error ? '<div class="hm" style="color:#8c1f1f;margin-top:6px">' + esc(c.error) + '</div>' : '') +
+      '</div>';
+    }).join('');
+  } catch(e){
+    h.innerHTML = '<div class="pcres pcerr">History nahi aa payi: ' + esc(e.message) +
+      '<br><span style="font-size:12px">Agar "permission denied" dikhe to Firestore rules deploy karna baaki hai.</span></div>';
+  }
+}
+
+(function wirePush(){
+  var t = $('pcTitle'), b = $('pcBody');
+  if (!t) return;                       // panel markup not present
+  t.oninput = pcPreview; b.oninput = pcPreview;
+  $('pcTest').onclick    = pcDoTest;
+  $('pcSend').onclick    = pcDoSend;
+  $('pcDraft').onclick   = pcDoDraft;
+  $('pcRefresh').onclick = pcLoadHistory;
+  pcPreview();
+})();
+
 /* ---- tabs + signout ---- */
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
@@ -1007,6 +1305,7 @@ document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
   const el = $('tab-'+t.dataset.tab);
   if (el) {
     el.classList.remove('hidden');
+    if (t.dataset.tab === 'push') { try { pcLoadHistory(); } catch(e){} }
     if (t.dataset.tab === 'analytics' && window.MFP_SEO) {
       window.MFP_SEO.renderDashboard();
     }
