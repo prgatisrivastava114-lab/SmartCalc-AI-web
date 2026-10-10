@@ -963,7 +963,7 @@ nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
 @media (max-width:560px){
   .top .wrap{padding:10px 14px}
   .top .wrap>a:first-child{flex:0 0 auto}
-  a.hot{margin-left:auto}
+  a.hot:not(.plan){margin-left:auto}
   .rel{gap:8px}
   .rel a{flex:0 1 auto;min-width:0}
 }
@@ -1025,6 +1025,30 @@ img,svg,video,canvas{max-width:100%}
 
 
 
+
+<style id="mfp-mobile-sections">
+/* 2026-10-10 — phone layout repair for #pricing and #refer.
+   #refer's inner grids are inline-styled (grid-template-columns:1fr 1fr) with no
+   class, so earlier responsive rules could never reach them; inline styles need
+   !important. #pricing's card blowout is fixed at source above by scoping the
+   .hot tap-target rule away from .plan.hot. */
+@media (max-width:760px){
+  #refer div[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr) !important}
+  #refer div[style*="grid"]>*{min-width:0 !important}
+  #refer code,#refer input{word-break:break-all !important;max-width:100% !important}
+  #pricing .plans,#pricing .pgrid{grid-template-columns:minmax(0,1fr) !important}
+  #pricing .plan{min-width:0 !important}
+}
+@media (max-width:560px){
+  /* #refer action rows are inline display:flex — stack them so buttons are
+     full width instead of squeezing into tall circles */
+  #refer div[style*="display:flex"]{flex-direction:column;align-items:stretch}
+  #refer div[style*="display:flex"]>a{width:100%;justify-content:center;text-align:center}
+}
+</style>
+
+
+
 <style id="mfp-site-chrome">
 /* ===== shared site header ================================================= */
 .mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
@@ -1044,6 +1068,10 @@ img,svg,video,canvas{max-width:100%}
         white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
         transition:background .15s,box-shadow .15s}
 .mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
 /* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
 .mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
         margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
@@ -1060,11 +1088,26 @@ img,svg,video,canvas{max-width:100%}
 .mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
 .mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
         border-radius:11px;border-bottom:0;min-height:50px}
-@media(max-width:1000px){
-  .mfp-sh-tabs,.mfp-sh-cta{display:none}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
   .mfp-sh-burger{display:flex}
   .mfp-sh-in{padding:8px 14px}
   .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:36px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
 }
 /* ===== shared site footer ================================================= */
 .mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
@@ -1103,7 +1146,8 @@ img,svg,video,canvas{max-width:100%}
     <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
       <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
     </a>
-    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/" aria-current="page">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/" aria-current="page">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
     <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
     <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
             aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
@@ -1115,11 +1159,17 @@ img,svg,video,canvas{max-width:100%}
     <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
     <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
     <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
     <a href="/about-us/">About<span aria-hidden="true">›</span></a>
     <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
     <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
   </nav>
 </header>
+
+
+
+
 
 
 
@@ -1893,7 +1943,7 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
   /* number inputs — the control a thumb aims at most on a calculator page */
   input,select,textarea{min-height:46px !important}
   /* buttons and call-to-action links */
-  a.btn,.btn,.hot,.tlink,.gc-navlink,.gc-brand{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  a.btn,.btn,.hot:not(.plan),.tlink,.gc-navlink,.gc-brand{min-height:46px !important;display:inline-flex !important;align-items:center !important}
   /* footer navigation — people tap these with a thumb.
      Two different footer markups exist in the site: .mfp-foot (added by the
      footer pass) and the original footer>.wrap>.cols used on the homepage and
