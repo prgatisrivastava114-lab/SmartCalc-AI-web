@@ -469,10 +469,55 @@ function render() {
 }
 
 /* ── boot ───────────────────────────────────────────────────────────────── */
+/* ── recovery for a stranded device ──────────────────────────────────────
+   If permission was granted but the subscription never got stored, the device
+   is stuck: the browser will not ask again, the opt-in card no longer shows
+   (permission is no longer "askable"), and nothing retries. The visitor would
+   receive nothing, forever, having explicitly said yes.
+
+   The realistic cause is the backend not being live yet when they opted in —
+   the Firestore write is refused and subscribe() throws after the permission
+   prompt has already succeeded. Retry quietly so those devices heal themselves
+   the moment the backend is up.
+
+   A deliberate unsubscribe is NOT touched: that writes 'unsubscribed' to
+   LS_STATE, and this only acts when LS_STATE was never set to anything. */
+const LS_HEAL = 'mfp_push_heal';
+const HEAL_EVERY = 6 * 60 * 60 * 1000;
+
+async function healIfStranded() {
+  if (support() !== 'ok') return;
+  if (!window.Notification || Notification.permission !== 'granted') return;
+
+  /* Read the raw value, not the parsed one. readLS() returns its default when
+     JSON.parse throws, so a malformed entry would look like "no state at all"
+     and could re-subscribe somebody who had deliberately opted out. Both
+     'subscribed' and 'unsubscribed' contain the substring, so this heals only
+     a device that has never recorded any state. */
+  let raw = '';
+  try { raw = localStorage.getItem(LS_STATE) || ''; } catch (_) { return; }
+  if (/subscribed/.test(raw)) return;
+
+  /* Rate-limit: a persistent failure must not pull the Firebase SDK down on
+     every single page view. */
+  const last = Number(readLS(LS_HEAL, 0)) || 0;
+  if (Date.now() - last < HEAL_EVERY) return;
+  writeLS(LS_HEAL, Date.now());
+
+  try {
+    await subscribe();
+    log('recovered a subscription that had failed to store');
+    render();
+  } catch (e) {
+    log('recovery attempt failed, will retry later', e.message);
+  }
+}
+
 function boot() {
   try {
     render();
     if (state() === 'subscribed') { attachForeground(); refreshIfNeeded(); }
+    else healIfStranded();
 
     navigator.serviceWorker?.addEventListener('message', (e) => {
       if (e.data?.type === 'mfp-push-resubscribe') refreshIfNeeded();
@@ -485,7 +530,7 @@ else boot();
 
 /* Exposed for the preferences page and for testing. */
 window.MFPPush = {
-  state, subscribe, unsubscribe, refreshIfNeeded, openSheet, installId,
+  state, subscribe, unsubscribe, refreshIfNeeded, openSheet, installId, healIfStranded,
   CATEGORIES, support,
   async setCategories(cats) {
     await fsWrite(installId(), { categories: cats, updatedAt: new Date().toISOString() });
