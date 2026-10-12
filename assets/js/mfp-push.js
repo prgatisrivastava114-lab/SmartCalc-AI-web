@@ -238,7 +238,16 @@ const CSS = `
 .mfp-np-x{background:none;border:0;color:#8294a8;font-size:21px;line-height:1;cursor:pointer;
   min-width:40px;min-height:40px;display:grid;place-items:center;border-radius:8px;flex:none;font-family:inherit}
 .mfp-np-x:hover{color:#5B6B7F}
-.mfp-np-ov{position:fixed;inset:0;background:rgba(15,34,51,.55);display:grid;place-items:center;
+/* \u2500\u2500 v1.3: owner mock v2 — brand colors, reminder box, tagline, ring+pop anim \u2500\u2500 */\n.mfp-np-sh{max-height:92dvh;overflow:auto}\n.mfp-np-sh.mfp-np2{padding:18px 18px 14px;position:relative;max-width:400px;border-radius:18px;animation:mfpPop2 .34s cubic-bezier(.2,.9,.3,1.15)}
+@keyframes mfpPop2{from{transform:scale(.93) translateY(14px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.mfp-np2-remind{display:flex;gap:10px;background:#F4F6F8;border:1px solid #E3E9EF;border-radius:11px;padding:10px 12px;margin-bottom:11px;align-items:flex-start}
+.mfp-np2-remind .ric{width:30px;height:30px;border-radius:8px;background:#E4EEF0;display:grid;place-items:center;flex:none}
+.mfp-np2-remind b{display:block;font-size:14px;color:#17324A;margin-bottom:2px}
+.mfp-np2-remind span{display:block;font-size:12.5px;color:#5B6B7F;line-height:1.5}
+.mfp-np2-bell svg{transform-origin:top center;animation:mfpRing 1.6s ease .35s 2}
+@keyframes mfpRing{0%,100%{transform:rotate(0)}18%{transform:rotate(14deg)}36%{transform:rotate(-12deg)}54%{transform:rotate(8deg)}72%{transform:rotate(-5deg)}88%{transform:rotate(3deg)}}
+.mfp-np2-foot{margin:11px 0 0;text-align:center;font-size:11.5px;color:#90A0B1;letter-spacing:.04em}\n.mfp-np2-x{position:absolute;top:9px;right:9px;background:none;border:0;color:#8294a8;font-size:22px;line-height:1;min-width:36px;min-height:36px;cursor:pointer;border-radius:8px;font-family:inherit}\n.mfp-np2-x:hover{color:#17324A;background:#F0F5F9}\n.mfp-np2-head{display:flex;align-items:center;gap:11px;margin-bottom:9px;padding-right:30px}\n.mfp-np2-bell{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#17324A,#0E9D78);display:grid;place-items:center;flex:none;box-shadow:0 6px 16px rgba(14,157,120,.35)}\n.mfp-np2-head h3{font-size:17.5px;margin:0;color:#0f2233;line-height:1.25}\n.mfp-np2-head span{font-size:12.5px;color:#5B6B7F}\n.mfp-np2-sub{font-size:14px;color:#33475c;margin:0 0 10px;line-height:1.5}\n.mfp-np2-list{list-style:none;margin:0 0 11px;padding:0}\n.mfp-np2-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:#17324A;padding:5px 0}\n.mfp-np2-list svg{flex:none}\n.mfp-np2-privacy{background:#E8F6EE;border:1px solid #CBEBD9;border-radius:11px;padding:10px 12px;margin-bottom:13px}\n.mfp-np2-privacy b{display:flex;align-items:center;gap:7px;font-size:13.5px;color:#0B7A53;margin-bottom:3px}\n.mfp-np2-privacy span{font-size:12.5px;color:#3F5A4E;line-height:1.5;display:block}\n.mfp-np2-go{width:100%;min-height:49px;border:0;border-radius:26px;background:#14304A;color:#fff;font:700 15.5px/1 inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 8px 20px rgba(20,48,74,.28);transition:transform .12s,box-shadow .2s,background .15s}\n.mfp-np2-go:hover{background:#1d4066}
+.mfp-np2-go:active{transform:scale(.985)}\n.mfp-np2-go:disabled{opacity:.65;cursor:default}\n.mfp-np2-later{display:block;margin:9px auto 0;background:none;border:0;color:#5B6B7F;font:600 13.5px/1 inherit;cursor:pointer;padding:8px;font-family:inherit}\n.mfp-np2-later:hover{color:#17324A}\n@media(min-width:600px){.mfp-np-sh.mfp-np2{max-width:420px;padding:22px 22px 17px}.mfp-np2-head h3{font-size:19px}.mfp-np2-sub{font-size:14.5px}}\n.mfp-np-ov{position:fixed;inset:0;background:rgba(15,34,51,.55);display:grid;place-items:center;
   z-index:2147483000;padding:18px;backdrop-filter:blur(2px)}
 .mfp-np-sh{background:#fff;border-radius:15px;max-width:410px;width:100%;padding:23px;
   box-shadow:0 18px 50px rgba(15,34,51,.3);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#17324A}
@@ -342,19 +351,32 @@ function openSheet() {
         <button class="mfp-np-go" data-prefs>Settings</button>
       </div></div>`;
   } else {
-    ov.innerHTML = `<div class="mfp-np-sh"><div class="ic">${BELL_T}</div>
-      <h3>Turn on notifications?</h3>
-      <p>We’ll send a short alert when something genuinely useful lands. You choose the categories, and you can turn them off at any time.</p>
-      <ul>
-        <li><i>✓</i><span>New calculators and money guides</span></li>
-        <li><i>✓</i><span>Goal and planning reminders you have set yourself</span></li>
-        <li><i>✓</i><span>Important website announcements</span></li>
-      </ul>
-      <div class="mfp-np-row">
-        <button class="mfp-np-ghost" data-no>Not now</button>
-        <button class="mfp-np-go" data-yes>Yes, enable</button>
+    /* v1.2 — owner-approved design. Logic bilkul wahi: [data-x]=band,
+       [data-no]=Maybe Later (45 din snooze), [data-yes]=Enable → browser prompt. */
+    ov.innerHTML = `<div class="mfp-np-sh mfp-np2">
+      <button class="mfp-np2-x" data-x aria-label="Close">&times;</button>
+      <div class="mfp-np2-head">
+        <div class="mfp-np2-bell"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <div><h3>Plan Today. Secure Tomorrow.</h3><span>My Financial Plan</span></div>
       </div>
-      <p class="mfp-np-fine">About once a month. No investment advice, no promises of returns, and never your personal financial details in a notification.</p></div>`;
+      <p class="mfp-np2-sub">Your family&rsquo;s future deserves a plan. Get expert support and helpful reminders to stay financially prepared.</p>
+      <ul class="mfp-np2-list">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0E9D78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>Higher Education &amp; Marriage Goals</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0E9D78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg>Retirement &amp; Legacy Planning</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0E9D78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Insurance &amp; Expert Support</li>
+      </ul>
+      <div class="mfp-np2-remind">
+        <div class="ric"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#17324A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16l2 2 4-4"/></svg></div>
+        <div><b>Complete. Review. Update.</b><span>Get reminders to complete your financial plan and review it regularly as your life and goals change.</span></div>
+      </div>
+      <div class="mfp-np2-privacy">
+        <b><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0B7A53" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Your Privacy. Your Peace of Mind.</b>
+        <span>No financial products sold through our planning tools. Your data is not shared with third parties.</span>
+      </div>
+      <button class="mfp-np2-go" data-yes><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>Enable Notifications</button>
+      <button class="mfp-np2-later" data-no>Maybe Later</button>
+      <p class="mfp-np2-foot">Your goals. Your choices. A better financial future.</p>
+    </div>`;
   }
 
   document.body.appendChild(ov);
@@ -442,7 +464,18 @@ function mountContextual() {
      Sitting after the card keeps it full width and clearly separate from the
      tool, which is also what the no-interference rule requires. */
   const anchor = $('.calc');
-  if (!anchor || !anchor.parentElement) return;
+  if (!anchor || !anchor.parentElement) {
+    /* v1.2 — home/learn/about jaise pages par popup APNE AAP khule (7s baad).
+       Snooze + askable pehle hi check ho chuka; overlay pehle se khuli ho to mat kholo. */
+    setTimeout(() => {
+      if (state() !== 'askable') return;
+      const sn2 = readLS(LS_SNOOZE, 0);
+      if (sn2 && now() < sn2) return;
+      if (document.querySelector('.mfp-np-ov')) return;
+      openSheet();
+    }, 7000);
+    return;
+  }
 
   const card = document.createElement('div');
   card.id = 'mfp-np-card';
