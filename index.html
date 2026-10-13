@@ -1260,17 +1260,195 @@ img,svg,video,canvas{max-width:100%}
 </div></header>
 
 <!-- Every stage, one plan (Section) -->
-<section id="goals"><div class="wrap rise">
-  <span class="kick">Every stage, one plan</span>
-  <h2 class="sec-h">Life's big moments — <span class="grad">funded, on time.</span></h2>
-  <div class="goals">
-    <div class="goal"><img width="800" height="600" src="assets/shots/s01.jpg?v=2" loading="lazy" alt="Young couple starting"><b>New family, new budget</b></div>
-    <div class="goal"><img width="800" height="600" src="assets/shots/s02.jpg?v=2" loading="lazy" alt="Baby fund planning"><b>Baby's first fund</b></div>
-    <div class="goal"><img width="800" height="600" src="assets/shots/s03.jpg?v=2" loading="lazy" alt="Education planning"><b>IIT/IIM — no loan needed</b></div>
-    <div class="goal"><img width="800" height="600" src="assets/shots/s04.jpg?v=2" loading="lazy" alt="Dream home planning"><b>Keys to your own home</b></div>
-    <div class="goal"><img width="800" height="600" src="assets/shots/s05.jpg?v=2" alt="Worry-free retirement" loading="lazy"><b>Retire rich, pension ready</b></div>
+<section id="goals" style="background:linear-gradient(180deg,#f5f8fb 0%,#eef4f9 100%);padding:26px 0 12px" aria-label="Life stage financial planning">
+<style>
+.ls-track{display:grid;grid-auto-flow:column;grid-auto-columns:min(330px,86vw);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 6px 20px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.ls-card{scroll-snap-align:start;background:#fff;border:1px solid #e3e9f0;border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(23,50,74,.07);display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.ls-imgw{position:relative;aspect-ratio:16/10;overflow:hidden;background:#dde6ee}
+.ls-imgw img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.ls-num{position:absolute;top:10px;left:10px;background:linear-gradient(135deg,#17324A,#0E9D78);color:#fff;font-weight:800;font-size:12px;border-radius:10px;padding:5px 9px;box-shadow:0 2px 8px rgba(23,50,74,.25)}
+.ls-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ls-age{display:inline-block;font-size:11px;font-weight:700;color:#8a5c07;background:#fdf1dc;border-radius:99px;padding:3px 10px}
+.ls-body h3{font-size:17px;line-height:1.25;color:#17324A}
+.ls-desc{font-size:13px;color:#44586E;flex:1}
+.ls-calc{font-size:11.5px;font-weight:700;color:#0E9D78}
+.ls-cta{margin-top:2px;border:0;cursor:pointer;border-radius:12px;padding:11px 14px;font-size:14px;font-weight:800;color:#fff;background:linear-gradient(135deg,#17324A,#0E9D78);transition:filter .2s ease,transform .15s ease}
+.ls-cta:active{transform:scale(.98)}
+.ls-eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;color:#0E9D78;background:#e6f7f0;border-radius:99px;padding:4px 12px;margin-bottom:10px}
+.ls-tag{margin-top:8px;font-size:clamp(14px,2.2vw,17px);font-weight:700;background:linear-gradient(90deg,#0E9D78,#4C62CE);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ls-journey{display:flex;justify-content:center;gap:6px;margin:16px auto 20px}
+.ls-journey i{width:26px;height:5px;border-radius:99px;background:linear-gradient(90deg,#0E9D78,#4C62CE);opacity:.35}
+.ls-journey i.on{opacity:1}
+.ls-ov{position:fixed;inset:0;background:rgba(10,22,34,.6);display:none;align-items:center;justify-content:center;z-index:9999;padding:10px}
+.ls-ov.open{display:flex}
+.ls-sheet{background:#fff;border-radius:16px;width:min(900px,96vw);height:min(92dvh,860px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.ls-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:linear-gradient(135deg,#17324A,#0E9D78);color:#fff}
+.ls-bar b{font-size:14px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ls-back{border:0;background:rgba(255,255,255,.16);color:#fff;font-weight:700;font-size:12.5px;border-radius:10px;padding:7px 12px;cursor:pointer}
+.ls-frame{flex:1;border:0;width:100%;background:#f2f5f9}
+@media(min-width:900px){
+ .ls-track{grid-auto-flow:row;grid-auto-columns:unset;grid-template-columns:repeat(3,1fr);overflow:visible}
+ .ls-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(23,50,74,.14)}
+ .ls-card:hover .ls-imgw img{transform:scale(1.04)}
+ .ls-cta:hover{filter:brightness(1.12)}
+ .ls-card[data-stage="7"]{grid-column:2}
+}
+@media(min-width:700px) and (max-width:899px){.ls-track{grid-auto-columns:min(360px,60vw)}}
+</style>
+  <div style="max-width:1200px;margin:auto;padding:0 10px">
+    <div style="text-align:center;margin-bottom:6px">
+      <span class="ls-eyebrow">LIFE-STAGE PLANNING</span>
+      <h2 style="font-size:clamp(24px,4.6vw,36px);line-height:1.15;letter-spacing:-.01em;margin:0;color:#17324A">Every Life Stage, One Plan</h2>
+      <p class="ls-tag">Life's Big Moments, Funded on Time.</p>
+      <p style="max-width:620px;margin:12px auto 4px;color:#44586E;font-size:14px">Shaadi se retirement tak — jahan bhi aapki family khadi hai, wahan ke liye sahi calculator tayyar hai.</p>
+    </div>
+    <div class="ls-journey" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="ls-track">
+      <article class="ls-card" data-stage="1">
+        <div class="ls-imgw">
+          <picture>
+            <source srcset="/assets/img/lifestage/stage1_married-960.webp" type="image/webp">
+            <img loading="lazy" decoding="async" width="960" height="600" src="/assets/img/lifestage/stage1_married-960.jpg" alt="Young Indian newlywed couple planning their monthly household budget in their first home">
+          </picture>
+          <span class="ls-num">01</span>
+        </div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="ls-age">Ideal planning age: 21–28 years</span></div>
+          <h3>Starting Our Life Together</h3>
+          <p class="ls-desc">Build healthy money habits, manage household expenses, start saving, and prepare for the goals you will share together.</p>
+          <p class="ls-calc">🧮 Monthly Budgeting Planner</p>
+          <button type="button" class="ls-cta" data-calc="/tools/budget-calculator/" data-title="Monthly Budgeting Planner" data-stage="1">Plan Our Monthly Budget →</button>
+        </div>
+      </article>
+      <article class="ls-card" data-stage="2">
+        <div class="ls-imgw">
+          <picture>
+            <source srcset="/assets/img/lifestage/stage2_baby-960.webp" type="image/webp">
+            <img loading="lazy" decoding="async" width="960" height="600" src="/assets/img/lifestage/stage2_baby-960.jpg" alt="Happy Indian parents holding their newborn baby in a naturally lit bedroom">
+          </picture>
+          <span class="ls-num">02</span>
+        </div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="ls-age">Ideal planning age: 25–30 years</span></div>
+          <h3>Planning for Our Growing Family</h3>
+          <p class="ls-desc">Prepare for parenthood — household expenses, emergency savings, life &amp; health insurance, childcare, and long-term family goals.</p>
+          <p class="ls-calc">🧮 Complete Financial Plan</p>
+          <button type="button" class="ls-cta" data-calc="/financial-goal-calculator/" data-title="Complete Financial Plan" data-stage="2">Create Our Family Plan →</button>
+        </div>
+      </article>
+      <article class="ls-card" data-stage="3">
+        <div class="ls-imgw">
+          <picture>
+            <source srcset="/assets/img/lifestage/stage3_school-960.webp" type="image/webp">
+            <img loading="lazy" decoding="async" width="960" height="600" src="/assets/img/lifestage/stage3_school-960.jpg" alt="Indian parents walking their son and daughter in school uniforms on their first day of school">
+          </picture>
+          <span class="ls-num">03</span>
+        </div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="ls-age">Ideal planning age: 25–32 years</span></div>
+          <h3>Their First Day at School</h3>
+          <p class="ls-desc">Estimate the life insurance cover your family needs so your dependants stay secure even if your income isn't there.</p>
+          <p class="ls-calc">🧮 Human Life Value (HLV) Calculator</p>
+          <button type="button" class="ls-cta" data-calc="/human-life-value-calculator/" data-title="Human Life Value (HLV) Calculator" data-stage="3">Protect My Family →</button>
+        </div>
+      </article>
+      <article class="ls-card" data-stage="4">
+        <div class="ls-imgw">
+          <picture>
+            <source srcset="/assets/img/lifestage/stage4_graduation-960.webp" type="image/webp">
+            <img loading="lazy" decoding="async" width="960" height="600" src="/assets/img/lifestage/stage4_graduation-960.jpg" alt="Proud Indian family with son and daughter in graduation gowns and caps holding certificates at university">
+          </picture>
+          <span class="ls-num">04</span>
+        </div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="ls-age">Ideal planning age: 25–32 years</span></div>
+          <h3>Turning Their Dreams into Degrees</h3>
+          <p class="ls-desc">Estimate future education costs with inflation and the investments needed to fund higher education without pressure on family finances.</p>
+          <p class="ls-calc">🧮 Higher Education Cost Calculator</p>
+          <button type="button" class="ls-cta" data-calc="/child-education-calculator/" data-title="Higher Education Cost Calculator" data-stage="4">Plan Their Education Fund →</button>
+        </div>
+      </article>
+      <article class="ls-card" data-stage="5">
+        <div class="ls-imgw">
+          <picture>
+            <source srcset="/assets/img/lifestage/stage5_wedding-960.webp" type="image/webp">
+            <img loading="lazy" decoding="async" width="960" height="600" src="/assets/img/lifestage/stage5_wedding-960.jpg" alt="Indian bride in traditional red wedding attire sharing an emotional moment with her parents">
+          </picture>
+          <span class="ls-num">05</span>
+        </div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="ls-age">Ideal planning age: 25–32 years</span></div>
+          <h3>Preparing for Her Special Day</h3>
+          <p class="ls-desc">Estimate your daughter's future wedding cost with inflation and build a savings or investment plan well in advance.</p>
+          <p class="ls-calc">🧮 Daughter's Marriage Cost Calculator</p>
+          <button type="button" class="ls-cta" data-calc="/child-marriage-calculator/" data-title="Daughter's Marriage Cost Calculator" data-stage="5">Plan Her Wedding Fund →</button>
+        </div>
+      </article>
+      <article class="ls-card" data-stage="6">
+        <div class="ls-imgw">
+          <picture>
+            <source srcset="/assets/img/lifestage/stage6_retirement-960.webp" type="image/webp">
+            <img loading="lazy" decoding="async" width="960" height="600" src="/assets/img/lifestage/stage6_retirement-960.jpg" alt="Elderly Indian couple smiling together on a park bench in a green garden with soft morning light">
+          </picture>
+          <span class="ls-num">06</span>
+        </div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="ls-age">Personalised to your age &amp; goal</span></div>
+          <h3>Enjoy the Retirement You’ve Earned</h3>
+          <p class="ls-desc">Estimate your retirement corpus with inflation and life expectancy, and plan investments for the lifestyle you want after retirement.</p>
+          <p class="ls-calc">🧮 Retirement Planning Calculator</p>
+          <button type="button" class="ls-cta" data-calc="/retirement-goal-calculator/" data-title="Retirement Planning Calculator" data-stage="6">Plan Our Retirement →</button>
+        </div>
+      </article>
+      <article class="ls-card" data-stage="7">
+        <div class="ls-imgw">
+          <picture>
+            <source srcset="/assets/img/lifestage/stage7_legacy-960.webp" type="image/webp">
+            <img loading="lazy" decoding="async" width="960" height="600" src="/assets/img/lifestage/stage7_legacy-960.jpg" alt="Multigenerational Indian family with grandparents, parents and grandchildren together in a warm home">
+          </picture>
+          <span class="ls-num">07</span>
+        </div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="ls-age">Ideal planning age: 30–35 years</span></div>
+          <h3>Building a Legacy That Lives On</h3>
+          <p class="ls-desc">Plan how to preserve and transfer your wealth to the next generation while caring for long-term family needs.</p>
+          <p class="ls-calc">🧮 Legacy Calculator</p>
+          <button type="button" class="ls-cta" data-calc="/legacy-planning-calculator/" data-title="Legacy Calculator" data-stage="7">Build Our Family Legacy →</button>
+        </div>
+      </article>
+    </div>
+    <p style="text-align:center;font-size:12px;color:#44586E;margin:0 0 10px">Age sirf ek guide hai, rule nahi — jo stage aapki family ke liye sahi ho, wahi choose karein. 💚</p>
   </div>
-</div></section>
+</section>
+<div class="ls-ov" id="lsOv" role="dialog" aria-modal="true" aria-label="Calculator">
+  <div class="ls-sheet">
+    <div class="ls-bar"><b id="lsTitle">Calculator</b><button type="button" class="ls-back" id="lsBack">← Journey pe wapas</button></div>
+    <iframe class="ls-frame" id="lsFrame" title="Calculator" src="about:blank"></iframe>
+  </div>
+</div>
+<script>
+(function(){
+window.dataLayer=window.dataLayer||[];
+var ov=document.getElementById('lsOv'),frame=document.getElementById('lsFrame'),tt=document.getElementById('lsTitle');
+if(!ov||!frame)return;
+document.querySelectorAll('.ls-cta').forEach(function(b){
+ b.addEventListener('click',function(){
+  try{window.dataLayer.push({event:'lifestage_cta',stage:b.dataset.stage,calculator:b.dataset.calc});}catch(e){}
+  tt.textContent=b.dataset.title; frame.src=b.dataset.calc; ov.classList.add('open'); document.body.style.overflow='hidden';
+ });
+});
+function closeOv(){ov.classList.remove('open');frame.src='about:blank';document.body.style.overflow='';}
+var back=document.getElementById('lsBack'); if(back)back.addEventListener('click',closeOv);
+ov.addEventListener('click',function(e){if(e.target===ov)closeOv();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOv();});
+var trk=document.querySelector('.ls-track'),dots=document.querySelectorAll('.ls-journey i');
+if(trk)trk.addEventListener('scroll',function(){
+ var cs=document.querySelectorAll('.ls-card'),mid=trk.scrollLeft+trk.clientWidth/2,idx=0;
+ cs.forEach(function(c,i){if(c.offsetLeft<=mid)idx=i;});
+ dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});
+},{passive:true});
+})();
+</script>
 
 <div class="mq"><div class="mq-track" id="mqt">
   <span>🧮 <b>500+</b> calculators</span><span>⏱️ Plan in <b>5 min</b></span><span>🔓 No sign-up needed</span><span>🗣️ Human RM on <b>call</b></span><span>📄 <b>Hindi + English</b> PDF</span><span>☁️ <b>Cloud sync</b> every device</span><span>🇮🇳 Built for <b>Indian families</b></span>
