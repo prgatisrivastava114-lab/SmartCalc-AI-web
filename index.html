@@ -1250,7 +1250,7 @@ img,svg,video,canvas{max-width:100%}
     <div class="chip chip-b">📄 <div>Branded PDF plan<small>Hindi · English</small></div></div>
     <div class="vid-card">
       <video id="promo" src="assets/promo.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline></video>
-      <button class="unmute" id="unmuteBtn" style="display:none">🔊 Tap to listen</button>
+      <button class="unmute" id="unmuteBtn" style="display:none;font-size:15px;font-weight:800;padding:11px 18px;border-radius:99px">🔊 Tap to listen — promo</button>
     </div>
 
       
@@ -1992,13 +1992,19 @@ const rio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.ta
 document.querySelectorAll('.rise').forEach(el=>rio.observe(el));
 // marquee dup
 const t=document.getElementById('mqt');t.innerHTML+=t.innerHTML;
-// promo voice sequence — English (sound) → Hindi (sound) → auto-mute; runs again on every open/refresh.
+// promo voice sequence — default UNMUTED: English (sound) → Hindi (sound) → auto-mute; repeats on every open/refresh.
+// Browser rule: sound needs one user touch — so the promo auto-starts WITH SOUND on the visitor's first tap/scroll anywhere (once).
 (function(){
 var v=document.getElementById('promo'),u=document.getElementById('unmuteBtn');
 if(!v)return;
-var EN='assets/promo.mp4',HI='assets/promo_hi.mp4',ph=0;
+var EN='assets/promo.mp4',HI='assets/promo_hi.mp4',ph=0,gest=0;
 function show(t){if(u){u.style.display=t?'':'none';if(t)u.textContent=t;}}
-function toMuted(){ph=2;v.muted=true;v.loop=true;try{v.currentTime=0;v.play().catch(function(){});}catch(e){}show('🔊 Tap to listen');}
+function toMuted(){ph=2;v.muted=true;v.loop=true;try{v.currentTime=0;v.play().catch(function(){});}catch(e){}show('🔊 Tap to listen — promo');arm();}
+function arm(){if(gest)return;gest=1;
+ ['pointerdown','touchstart','keydown'].forEach(function(ev){
+  document.addEventListener(ev,function once(){if(ph===2){show('');startSeq();}},{once:true,capture:true});
+ });
+}
 v.addEventListener('ended',function(){
  if(ph===0){ph=1;v.loop=false;v.muted=false;v.src=HI;v.load();var p=v.play();if(p&&p.catch)p.catch(toMuted);}
  else if(ph===1){ph=2;v.muted=true;v.loop=true;v.src=EN;v.load();try{v.play().catch(function(){});}catch(e){}show('🔁 Replay (English → Hindi)');try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'promo_sequence_done'});}catch(e){}}
