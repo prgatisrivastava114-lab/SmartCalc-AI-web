@@ -1250,7 +1250,7 @@ img,svg,video,canvas{max-width:100%}
     <div class="chip chip-b">📄 <div>Branded PDF plan<small>Hindi · English</small></div></div>
     <div class="vid-card">
       <video id="promo" src="assets/promo.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline></video>
-      <button class="unmute" id="unmuteBtn">🔊 Tap for sound</button>
+      <button class="unmute" id="unmuteBtn" style="display:none">🔊 Tap to listen</button>
     </div>
 
       
@@ -1992,9 +1992,22 @@ const rio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.ta
 document.querySelectorAll('.rise').forEach(el=>rio.observe(el));
 // marquee dup
 const t=document.getElementById('mqt');t.innerHTML+=t.innerHTML;
-// unmute
-const v=document.getElementById('promo'),u=document.getElementById('unmuteBtn');
-u&&u.addEventListener('click',()=>{v.muted=!v.muted;u.textContent=v.muted?'🔊 Tap for sound':'🔇 Mute';v.play();});
+// promo voice sequence — English (sound) → Hindi (sound) → auto-mute; runs again on every open/refresh.
+(function(){
+var v=document.getElementById('promo'),u=document.getElementById('unmuteBtn');
+if(!v)return;
+var EN='assets/promo.mp4',HI='assets/promo_hi.mp4',ph=0;
+function show(t){if(u){u.style.display=t?'':'none';if(t)u.textContent=t;}}
+function toMuted(){ph=2;v.muted=true;v.loop=true;try{v.currentTime=0;v.play().catch(function(){});}catch(e){}show('🔊 Tap to listen');}
+v.addEventListener('ended',function(){
+ if(ph===0){ph=1;v.loop=false;v.muted=false;v.src=HI;v.load();var p=v.play();if(p&&p.catch)p.catch(toMuted);}
+ else if(ph===1){ph=2;v.muted=true;v.loop=true;v.src=EN;v.load();try{v.play().catch(function(){});}catch(e){}show('🔁 Replay (English → Hindi)');try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'promo_sequence_done'});}catch(e){}}
+});
+u&&u.addEventListener('click',function(){show('');startSeq();});
+v.addEventListener('error',function(){toMuted();});
+function startSeq(){ph=0;v.loop=false;v.muted=false;v.src=EN;v.load();try{v.currentTime=0;}catch(e){}var p=v.play();if(p&&p.catch)p.catch(toMuted);}
+startSeq();
+})();
 
 
 </script>
