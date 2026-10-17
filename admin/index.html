@@ -961,13 +961,13 @@ async function fsCount(coll){
   return parseInt(v||'0',10)||0;
 }
 async function lcSaveTo(fam, ptr){
-  await fsPatch('public_stats/launch', {fam_used:fam, ptr_used:ptr});
+  await fsPatch('config/launch', {fam_used:fam, ptr_used:ptr});
   $('lcOk').classList.remove('hidden');
   setTimeout(()=>$('lcOk').classList.add('hidden'), 2500);
 }
 async function lcLoad(){
   try{
-    const d = await fsGet('public_stats/launch', true);
+    const d = await fsGet('config/launch', true);
     if (d){ $('lcFam').value = d.fam_used||0; $('lcPtr').value = d.ptr_used||0; }
   }catch(_){}
 }
