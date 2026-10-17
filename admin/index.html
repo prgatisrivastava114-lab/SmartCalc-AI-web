@@ -325,6 +325,19 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 
     <!-- ── TAB 1: CODES ── -->
     <div id="tab-codes">
+      <div class="card" style="border:1.5px solid #F0D494;background:linear-gradient(135deg,#FFFBF0,#FFF3DC)">
+        <h2>🚀 Launch counters <button class="btn btn-g btn-s" style="float:right" id="lcSyncBtn" type="button">🔢 Sync from data</button></h2>
+        <p class="hint">Website pricing section ye numbers LIVE dikhata hai ("<b>slots left</b>"). Payment ke baad ek baar <b>🔢 Sync</b> dabao — leads (family, of 1000) + partner_redeems (partners, of 100) ka COUNT website pe chala jayega. Galat lage toh numbers khud badal kar 💾 Save bhi kar sakte ho.</p>
+        <div class="row" style="gap:10px;flex-wrap:wrap;margin-top:8px">
+          <div class="grow"><label>Family plans used (of 1,000)</label><input type="number" id="lcFam" min="0" value="0" style="margin-top:2px"></div>
+          <div class="grow"><label>Partner plans used (of 100)</label><input type="number" id="lcPtr" min="0" value="0" style="margin-top:2px"></div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn btn-g btn-s grow" id="lcSaveBtn" type="button">💾 Save to website</button>
+        </div>
+        <div class="ok hidden" id="lcOk">✓ Website counters update ho gaye</div>
+      </div>
+
       <div class="card">
         <h2>Partner activation code banao</h2>
         <p class="hint">UPI payment <b>verify</b> karne ke baad hi code bhejna. Code offline validate hota hai — plan + validity andar encoded hoti hai. Ek code = ek phone (per device single-use).</p>
@@ -933,7 +946,48 @@ let curPlan='gold', curDays=30, flagsDoc={};
 async function openPanel(){
   $('lockView').classList.add('hidden');
   $('panelView').classList.remove('hidden');
-  buildChips(); loadCodes(); loadPartners(); loadFlags(); loadLeads();
+
+/* ---- launch counters (website public_stats/launch) ---- */
+async function fsCount(coll){
+  const r = await authFetch(`${CFG.fsBase}:runAggregationQuery?key=${CFG.apiKey}`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({structuredAggregationQuery:{
+      structuredQuery:{from:[{collectionId:coll}]},
+      aggregations:[{count:{},alias:'n'}]}})});
+  if (!r.ok){ const t=await r.text(); throw new Error(r.status+' '+t.slice(0,150)); }
+  const j = await r.json();
+  const v = j && j[0] && j[0].result && j[0].result.aggregateFields &&
+            j[0].result.aggregateFields.n && j[0].result.aggregateFields.n.integerValue;
+  return parseInt(v||'0',10)||0;
+}
+async function lcSaveTo(fam, ptr){
+  await fsPatch('public_stats/launch', {fam_used:fam, ptr_used:ptr});
+  $('lcOk').classList.remove('hidden');
+  setTimeout(()=>$('lcOk').classList.add('hidden'), 2500);
+}
+async function lcLoad(){
+  try{
+    const d = await fsGet('public_stats/launch', true);
+    if (d){ $('lcFam').value = d.fam_used||0; $('lcPtr').value = d.ptr_used||0; }
+  }catch(_){}
+}
+$('lcSaveBtn').onclick = async (ev)=>{
+  ev.target.disabled = true;
+  try{ await lcSaveTo(parseInt($('lcFam').value||'0',10)||0, parseInt($('lcPtr').value||'0',10)||0); }
+  catch(e){ alert('Save nahi hua: '+e.message); }
+  ev.target.disabled = false;
+};
+$('lcSyncBtn').onclick = async (ev)=>{
+  ev.target.disabled = true;
+  try{
+    const fam = await fsCount('leads');
+    const ptr = await fsCount('partner_redeems');
+    $('lcFam').value = fam; $('lcPtr').value = ptr;
+    await lcSaveTo(fam, ptr);
+  }catch(e){ alert('Sync nahi hua: '+e.message); }
+  ev.target.disabled = false;
+};
+  buildChips(); loadCodes(); loadPartners(); loadFlags(); loadLeads(); lcLoad();
   // flags se live prices laao (code card par dikhane ke liye)
   try{ flagsDoc = await fsGet('config/flags', false) || {}; }catch(e){}
   buildChips();

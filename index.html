@@ -103,6 +103,20 @@ h1{font-size:clamp(34px,5.6vw,58px);line-height:1.06;letter-spacing:-1.5px;font-
 .plan .btn{width:100%;justify-content:center}
 .tlink{display:block;margin-top:11px;text-align:center;font-size:13px;font-weight:800;color:var(--teal);text-decoration:underline}
 .pnote{margin-top:18px;font-size:13px;color:var(--ink2);text-align:center}
+.lcbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:24px}
+.lcbox{background:linear-gradient(135deg,#FFF6E3,#FFEED0);border:1.5px solid #EBCFA0;border-radius:18px;padding:14px 18px;text-align:center}
+.lcl{display:block;font-size:11.5px;font-weight:800;color:#7A5406;letter-spacing:.06em}
+.lcnum{display:block;font-size:32px;font-weight:900;color:#B4530A;margin:2px 0 1px}
+.lcof{font-size:12px;color:#8A6A2A;font-weight:700}
+.plan .mrp{display:inline;font-size:16px;font-weight:800;color:#9AA9BA;text-decoration:line-through;letter-spacing:0;margin-right:6px}
+.plan .off{display:inline-block;background:#FFE3D3;color:#B4530A;font-size:11px;font-weight:900;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle;letter-spacing:.04em}
+.bill{font-size:13px;font-weight:800;color:#0B7A5C;margin:-6px 0 10px;min-height:18px}
+.freey{background:linear-gradient(135deg,#DDF4EC,#CBEFE0);border:1.5px solid #A7E0C8;border-radius:14px;padding:11px 14px;font-size:13.5px;font-weight:800;color:#0B6B4F;margin:8px 0 12px;line-height:1.5}
+.addon{margin-top:14px;border-top:1.5px dashed var(--line);padding-top:12px;font-size:13.5px;color:var(--ink2)}
+.addon .bill{margin:2px 0 0}
+.refbox{margin-top:26px;background:linear-gradient(135deg,#EDEBFF,#E1E6FA);border:1.5px solid #C5CDF5;color:#33428F;border-radius:18px;padding:16px 22px;font-size:14.5px;line-height:1.55}
+.refbox b{font-weight:900}
+.refbox a{font-weight:800;color:#3A4BA6;text-decoration:underline}
 /* — marquee — */
 .mq{background:var(--ink);color:#fff;overflow:hidden;padding:13px 0;white-space:nowrap}
 .mq-track{display:inline-block;animation:mq 26s linear infinite;font-weight:700;font-size:14px}
@@ -758,7 +772,7 @@ img, video, canvas, svg, iframe, table {
       "name": "Is the app really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — the full planner and all calculators are free for families. Partners (advisors) get premium branding & CRM powers on a subscription."
+        "text": "All 500+ calculators are free forever. The full family plan PDF is FREE for the first 1,000 families, then a one-time ₹199 (MRP ₹299); dashboard tracking + expert reviews are an optional ₹99/month add-on. Partners (advisors) get branding & CRM on launch-offer subscriptions."
       }
     },
     {
@@ -1701,46 +1715,63 @@ if(trk)trk.addEventListener('scroll',function(){
 </section>
 
 <section id="pricing"><div class="wrap rise">
-  <span class="kick">Simple pricing</span>
-  <h2 class="sec-h">Free for families. <span class="grad">Powerful for partners.</span></h2>
+  <span class="kick">🚀 Launch pricing</span>
+  <h2 class="sec-h">Launch offer: <span class="grad">first 1,000 families FREE.</span></h2>
+  <p class="sec-s">Early subscribers lock our lowest introductory prices — <b>first 1,000 family plans FREE</b>, then just ₹199 one-time, and <b>Founding 100 Partner plans at up to 67% off</b>. The counters below are live and drop as people join.</p>
+  <div class="lcbar">
+    <div class="lcbox"><span class="lcl">👨‍👩‍👧‍👦 FAMILY FREE SLOTS LEFT</span><b class="lcnum" id="lcFamN">1,000</b><span class="lcof">of 1,000 introductory slots</span></div>
+    <div class="lcbox"><span class="lcl">💼 FOUNDING PARTNER SLOTS LEFT</span><b class="lcnum" id="lcPtrN">100</b><span class="lcof">of 100 founding slots</span></div>
+  </div>
   <div class="tbanner">🎁 <b>Every partner plan now starts with a FREE 7-day trial</b> <span>— no card, no payment. WhatsApp us, get your trial code, and activate in the app within 2 minutes.</span><br><a href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">Get free trial code →</a></div>
+  <div class="ctabs" id="tenTabs" style="justify-content:center;margin-top:24px">
+    <button class="ctab on" data-m="1" data-r="0" type="button">Monthly</button>
+    <button class="ctab" data-m="3" data-r="5" type="button">Quarterly · −5%</button>
+    <button class="ctab" data-m="6" data-r="10" type="button">Half-yearly · −10%</button>
+    <button class="ctab" data-m="12" data-r="20" type="button">Yearly · −20%</button>
+  </div>
+  <p class="chint" style="text-align:center">Pay upfront for 3, 6 or 12 months and the rebate applies on every monthly plan below.</p>
   <div class="plans pgrid">
     <div class="plan hot">
-      <span class="tag">INDIVIDUAL · FREE</span>
+      <span class="tag">FAMILY · ONE-TIME</span>
       <h3>Family Planner</h3>
-      <div class="pr">₹0</div>
-      <ul><li>Full 5-minute financial plan</li><li>All 500+ calculators</li><li>PDF report (EN + हिं)</li><li>Cloud sync on every device</li></ul>
+      <div class="freey">🎁 <b>FREE for first <span id="lcFamN2">1,000</span> families</b><br>then <s style="color:#9AA9BA;font-weight:800">₹299</s> <b>₹199 one-time</b> — full plan download</div>
+      <ul><li>Full 5-minute financial plan</li><li>All 500+ calculators free forever</li><li>PDF report (EN + हिं)</li><li>Cloud sync on every device</li></ul>
       <a class="btn b-teal" href="/app/">Start free →</a>
+      <div class="addon">➕ <b>Optional add-on:</b> dashboard tracking + expert review service — <b>₹<span class="pval" data-mo="99">99</span>/month</b><br><span class="bill" data-bill data-mo="99"></span></div>
     </div>
     <div class="plan">
       <span class="tag">PARTNER · STARTER</span>
       <h3>Silver</h3>
-      <div class="pr">₹99<small>/30 days</small></div>
+      <div class="pr"><span class="mrp">₹299</span> ₹<span class="pval" data-mo="99">99</span><small>/mo</small><span class="off">SAVE 67%</span></div>
+      <div class="bill" data-bill data-mo="99"></div>
       <p class="pd">For new advisors</p>
       <ul><li>10 client reports</li><li>Your branding on client PDFs</li><li>Client CRM & follow-ups</li><li>WhatsApp support</li></ul>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Mode%20Silver%20(%E2%82%B999%20%2F%2030%20days).%20Please%20share%20UPI%20payment%20details.">Buy Silver →</a>
+      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Silver%20launch%20offer%20(%E2%82%B999%2Fmo%2C%20MRP%20%E2%82%B9299).%20Please%20share%20UPI%20payment%20details.">Buy Silver →</a>
       <a class="tlink" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">or start FREE 7-day trial →</a>
     </div>
     <div class="plan pop">
       <span class="tag" style="background:var(--lav);color:#3A4BA6">PARTNER · MOST POPULAR</span>
       <h3>Gold</h3>
-      <div class="pr">₹299<small>/30 days</small></div>
+      <div class="pr"><span class="mrp">₹999</span> ₹<span class="pval" data-mo="299">299</span><small>/mo</small><span class="off">SAVE 70%</span></div>
+      <div class="bill" data-bill data-mo="299"></div>
       <p class="pd">Growing practice</p>
       <ul><li>25 client reports</li><li>Your branding on client PDFs</li><li>Client CRM & follow-ups</li><li>Priority support</li></ul>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Mode%20Gold%20(%E2%82%B9299%20%2F%2030%20days).%20Please%20share%20UPI%20payment%20details.">Buy Gold →</a>
+      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Gold%20launch%20offer%20(%E2%82%B9299%2Fmo%2C%20MRP%20%E2%82%B9999).%20Please%20share%20UPI%20payment%20details.">Buy Gold →</a>
       <a class="tlink" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">or start FREE 7-day trial →</a>
     </div>
     <div class="plan">
       <span class="tag" style="background:#EFE6F7;color:#6D3BB5">PARTNER · PRO</span>
       <h3>Platinum</h3>
-      <div class="pr">₹599<small>/30 days</small></div>
+      <div class="pr"><span class="mrp">₹2,999</span> ₹<span class="pval" data-mo="999">999</span><small>/mo</small><span class="off">SAVE 67%</span></div>
+      <div class="bill" data-bill data-mo="999"></div>
       <p class="pd">Full-scale desk</p>
       <ul><li>50 client reports</li><li>Your branding on client PDFs</li><li>Client CRM & follow-ups</li><li>Priority support</li></ul>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Mode%20Platinum%20(%E2%82%B9599%20%2F%2030%20days).%20Please%20share%20UPI%20payment%20details.">Buy Platinum →</a>
+      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Platinum%20launch%20offer%20(%E2%82%B9999%2Fmo%2C%20MRP%20%E2%82%B92%2C999).%20Please%20share%20UPI%20payment%20details.">Buy Platinum →</a>
       <a class="tlink" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">or start FREE 7-day trial →</a>
     </div>
   </div>
-  <p class="pnote">Pay via UPI on WhatsApp · activation code in ~2 minutes · auto-payments coming soon.</p>
+  <div class="refbox">🤝 <b>Refer &amp; Earn during launch:</b> every successful referral earns you <b>+5% OFF on your next payment</b> — and your friend gets <b>5% OFF on their first payment</b> too. <a href="#refer">See Coin Rewards →</a></div>
+  <p class="pnote">Pay via UPI on WhatsApp · activation code in ~2 minutes · auto-payments coming soon. Introductory prices are locked for early subscribers — once the slots fill, regular MRP applies.</p>
 </div></section>
 
 <section id="legal" style="background:var(--bg);border-top:1px solid var(--line);padding:60px 0">
@@ -1773,7 +1804,7 @@ if(trk)trk.addEventListener('scroll',function(){
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">3. We Never Sell Your Data</h4>
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">We do <b>NOT</b> sell, rent, or trade your personal or financial data to third-party telemarketers, credit bureaus, or ad networks.</p>
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">4. Data Deletion Rights</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">You have the right to request full account and data deletion at any time by emailing <a href="mailto:care@myfinancialplan.in" style="color:var(--indigo);font-weight:700">care@myfinancialplan.in</a> or WhatsApping +91 88401 92702.</p>
+        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">You have the right to request full account and data deletion at any time by emailing <a href="/cdn-cgi/l/email-protection#1073716275507d6976797e717e7379717c607c717e3e797e" style="color:var(--indigo);font-weight:700"><span class="__cf_email__" data-cfemail="0764667562476a7e616e696669646e666b776b6669296e69">[email&#160;protected]</span></a> or WhatsApping +91 88401 92702.</p>
         <a href="/privacy/" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Privacy Policy Document →</a>
       </div>
 
@@ -1803,7 +1834,7 @@ if(trk)trk.addEventListener('scroll',function(){
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">1. 7-Day Money-Back Guarantee</h4>
         <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">If you purchase a paid Partner subscription and are not 100% satisfied for any reason, request a full refund within 7 days of activation.</p>
         <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">2. Refund Request & Processing</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">Simply message us on WhatsApp (+91-88401-92702) or email <code>care@myfinancialplan.in</code>. Approved refunds are processed within 24 hours and credited to your UPI/bank account within 5–7 working days.</p>
+        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">Simply message us on WhatsApp (+91-88401-92702) or email <code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2d4e4c5f486d40544b44434c434e444c415d414c43034443">[email&#160;protected]</a></code>. Approved refunds are processed within 24 hours and credited to your UPI/bank account within 5–7 working days.</p>
         <a href="/refund/" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Refund Policy Document →</a>
       </div>
 
@@ -1828,7 +1859,7 @@ if(trk)trk.addEventListener('scroll',function(){
   <span class="kick">Good questions</span>
   <h2 class="sec-h">FAQ</h2>
   <div class="faq">
-    <details><summary>Is the app really free?</summary><p>Yes — the full planner and all calculators are free for families. Partners (advisors) get premium branding & CRM powers on a subscription.</p></details>
+    <details><summary>Is the app really free?</summary><p>All 500+ calculators are free forever. The full family plan PDF is FREE for the first 1,000 families, then a one-time ₹199 (MRP ₹299); dashboard tracking + expert reviews are an optional ₹99/month add-on. Partners (advisors) get branding & CRM on launch-offer subscriptions.</p></details>
     <details><summary>Is my financial data safe?</summary><p>Working offline stays fully on-device; when you sign in, your data syncs to your private Google-secured cloud space — never sold, never shared.</p></details>
     <details><summary>Hindi mein plan milega kya?</summary><p>Haan! Poora PDF report Hindi ya English mein — ek tap mein language switch.</p></details>
     <details><summary>I'm an insurance/mutual fund advisor — what's in it for me?</summary><p>Partner mode: your logo & contact on every client PDF, client list with follow-ups, broadcast tools and lead tracking — built in India, for Indian advisors. Silver ₹99 · Gold ₹299 · Platinum ₹599 per 30 days — and every plan starts with a FREE 7-day trial, no payment needed. Auto-payments coming soon.</p></details>
@@ -1950,7 +1981,7 @@ if(trk)trk.addEventListener('scroll',function(){
         <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
       </div>
     </div>
-    <script type="module" src="/assets/js/mfp-push.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="/assets/js/mfp-push.js"></script>
   </footer>
 
 <div id="fabs">
@@ -2249,6 +2280,46 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
   .lnks{line-height:1.5 !important}
 }
 </style>
+<script>
+/* — launch pricing: tenure rebate calculator — */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('#tenTabs .ctab'));
+  if(!tabs.length) return;
+  function fmt(n){ return Math.round(n).toLocaleString('en-IN'); }
+  function upd(m,r,btn){
+    tabs.forEach(function(b){ b.classList.toggle('on', b===btn); });
+    document.querySelectorAll('.plan .pval').forEach(function(el){
+      var mo=parseFloat(el.getAttribute('data-mo'))||0;
+      el.textContent=fmt(mo*(1-r/100));
+    });
+    document.querySelectorAll('[data-bill]').forEach(function(el){
+      var mo=parseFloat(el.getAttribute('data-mo'))||0;
+      if(m===1){ el.textContent='Monthly billing · pick 3, 6 or 12 months above to save 5–20%'; return; }
+      var total=mo*m*(1-r/100), full=mo*m;
+      el.textContent='Billed ₹'+fmt(total)+' every '+m+' months · you save ₹'+fmt(full-total);
+    });
+    document.querySelectorAll('.plan .pper-m').forEach(function(el){ el.textContent = m===1 ? '/mo' : '/mo eff.'; });
+  }
+  tabs.forEach(function(b){ b.addEventListener('click', function(){ upd(parseInt(b.getAttribute('data-m'),10), parseInt(b.getAttribute('data-r'),10), b); }); });
+  upd(1,0,tabs[0]);
+})();
+/* — launch counters (live from Firestore public_stats/launch) — */
+(function(){
+  var URL='https://firestore.googleapis.com/v1/projects/smartcalc-ai-638a9/databases/(default)/documents/public_stats/launch?key=AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc';
+  function put(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
+  try{
+    fetch(URL).then(function(r){ return r.json(); }).then(function(d){
+      var f=(d&&d.fields)||{};
+      var famU=parseInt((f.fam_used||{}).integerValue||'0',10)||0;
+      var ptrU=parseInt((f.ptr_used||{}).integerValue||'0',10)||0;
+      var fam=Math.max(0,1000-famU), ptr=Math.max(0,100-ptrU);
+      var famS=fam.toLocaleString('en-IN');
+      put('lcFamN',famS); put('lcFamN2',famS); put('lcPtrN',ptr.toLocaleString('en-IN'));
+      if(fam===0){ put('lcFamN','0'); }
+    }).catch(function(){});
+  }catch(_){}
+})();
+</script>
 </body>
 
 </html>
