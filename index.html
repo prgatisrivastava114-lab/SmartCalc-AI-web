@@ -117,6 +117,22 @@ h1{font-size:clamp(34px,5.6vw,58px);line-height:1.06;letter-spacing:-1.5px;font-
 .refbox{margin-top:26px;background:linear-gradient(135deg,#EDEBFF,#E1E6FA);border:1.5px solid #C5CDF5;color:#33428F;border-radius:18px;padding:16px 22px;font-size:14.5px;line-height:1.55}
 .refbox b{font-weight:900}
 .refbox a{font-weight:800;color:#3A4BA6;text-decoration:underline}
+.payov{position:fixed;inset:0;background:rgba(15,30,48,.55);z-index:120;display:flex;align-items:center;justify-content:center;padding:18px}
+.paym{background:#fff;border-radius:22px;padding:26px;max-width:400px;width:100%;position:relative;box-shadow:0 24px 60px -20px rgba(15,30,48,.5);max-height:90vh;overflow:auto}
+.payx{position:absolute;top:10px;right:12px;border:none;background:none;font-size:26px;color:var(--ink2);cursor:pointer}
+.paym h3{margin:0 0 2px}
+.paym .payp{font-size:13.5px;color:var(--ink2);margin:0 0 14px}
+.paym label{font-size:12px;font-weight:800;color:var(--ink2);letter-spacing:.04em;display:block;margin-top:10px}
+.paym input{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;font-weight:700;color:var(--ink);margin-top:4px;outline:none;box-sizing:border-box}
+.paym input:focus{border-color:var(--teal)}
+.paygo{width:100%;justify-content:center;margin-top:16px}
+.paymini{font-size:12px;color:var(--ink2);margin-top:12px;line-height:1.5}
+.payok{text-align:center;padding:8px 2px}
+.payok .big{font-size:46px}
+.payok h3{margin:8px 0 6px}
+.payok p{font-size:14px;color:var(--ink2);line-height:1.6}
+.payok .pid{font-size:12px;background:var(--mint2);border-radius:8px;padding:6px 10px;display:inline-block;margin-top:8px;font-weight:700;color:#0B6B4F;word-break:break-all}
+.payok .btn{margin-top:14px}
 /* — marquee — */
 .mq{background:var(--ink);color:#fff;overflow:hidden;padding:13px 0;white-space:nowrap}
 .mq-track{display:inline-block;animation:mq 26s linear infinite;font-weight:700;font-size:14px}
@@ -917,6 +933,7 @@ img, video, canvas, svg, iframe, table {
 }</script>
 
   <script src="/assets/js/mfp-protect.js" defer></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
 <style id="mfp-skip-style">
 .mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
 padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
@@ -1746,7 +1763,7 @@ if(trk)trk.addEventListener('scroll',function(){
       <div class="bill" data-bill data-mo="99"></div>
       <p class="pd">For new advisors</p>
       <ul><li>10 client reports</li><li>Your branding on client PDFs</li><li>Client CRM & follow-ups</li><li>WhatsApp support</li></ul>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Silver%20launch%20offer%20(%E2%82%B999%2Fmo%2C%20MRP%20%E2%82%B9299).%20Please%20share%20UPI%20payment%20details.">Buy Silver →</a>
+      <a class="btn b-teal" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Silver%20launch%20offer%20(%E2%82%B999%2Fmo%2C%20MRP%20%E2%82%B9299).%20Please%20share%20UPI%20payment%20details." data-wa="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Silver%20launch%20offer%20(%E2%82%B999%2Fmo%2C%20MRP%20%E2%82%B9299).%20Please%20share%20UPI%20payment%20details." onclick="payNow('silver');return false;">Pay &amp; Activate →</a>
       <a class="tlink" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">or start FREE 7-day trial →</a>
     </div>
     <div class="plan pop">
@@ -1756,7 +1773,7 @@ if(trk)trk.addEventListener('scroll',function(){
       <div class="bill" data-bill data-mo="299"></div>
       <p class="pd">Growing practice</p>
       <ul><li>25 client reports</li><li>Your branding on client PDFs</li><li>Client CRM & follow-ups</li><li>Priority support</li></ul>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Gold%20launch%20offer%20(%E2%82%B9299%2Fmo%2C%20MRP%20%E2%82%B9999).%20Please%20share%20UPI%20payment%20details.">Buy Gold →</a>
+      <a class="btn b-teal" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Gold%20launch%20offer%20(%E2%82%B9299%2Fmo%2C%20MRP%20%E2%82%B9999).%20Please%20share%20UPI%20payment%20details." data-wa="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Gold%20launch%20offer%20(%E2%82%B9299%2Fmo%2C%20MRP%20%E2%82%B9999).%20Please%20share%20UPI%20payment%20details." onclick="payNow('gold');return false;">Pay &amp; Activate →</a>
       <a class="tlink" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">or start FREE 7-day trial →</a>
     </div>
     <div class="plan">
@@ -1766,7 +1783,7 @@ if(trk)trk.addEventListener('scroll',function(){
       <div class="bill" data-bill data-mo="999"></div>
       <p class="pd">Full-scale desk</p>
       <ul><li>50 client reports</li><li>Your branding on client PDFs</li><li>Client CRM & follow-ups</li><li>Priority support</li></ul>
-      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Platinum%20launch%20offer%20(%E2%82%B9999%2Fmo%2C%20MRP%20%E2%82%B92%2C999).%20Please%20share%20UPI%20payment%20details.">Buy Platinum →</a>
+      <a class="btn b-teal" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Platinum%20launch%20offer%20(%E2%82%B9999%2Fmo%2C%20MRP%20%E2%82%B92%2C999).%20Please%20share%20UPI%20payment%20details." data-wa="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Platinum%20launch%20offer%20(%E2%82%B9999%2Fmo%2C%20MRP%20%E2%82%B92%2C999).%20Please%20share%20UPI%20payment%20details." onclick="payNow('platinum');return false;">Pay &amp; Activate →</a>
       <a class="tlink" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">or start FREE 7-day trial →</a>
     </div>
   </div>
@@ -2287,6 +2304,7 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
   if(!tabs.length) return;
   function fmt(n){ return Math.round(n).toLocaleString('en-IN'); }
   function upd(m,r,btn){
+    window.mfpTenure={m:m,r:r};
     tabs.forEach(function(b){ b.classList.toggle('on', b===btn); });
     document.querySelectorAll('.plan .pval').forEach(function(el){
       var mo=parseFloat(el.getAttribute('data-mo'))||0;
@@ -2318,6 +2336,118 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
       if(fam===0){ put('lcFamN','0'); }
     }).catch(function(){});
   }catch(_){}
+})();
+</script>
+<div id="payOv" class="payov" style="display:none" onclick="if(event.target===this)payClose()">
+  <div class="paym">
+    <button class="payx" onclick="payClose()" aria-label="Close">×</button>
+    <div id="payFormBox">
+      <h3 id="payTitle">Partner plan</h3>
+      <p class="payp" id="paySub"></p>
+      <label>FULL NAME</label><input id="pfName" type="text" placeholder="Your name">
+      <label>EMAIL (app/Google login wahi)</label><input id="pfEmail" type="email" placeholder="you@gmail.com">
+      <label>WHATSAPP NUMBER</label><input id="pfPhone" type="tel" placeholder="10-digit mobile">
+      <button class="btn b-teal paygo" id="pfGo">Pay securely →</button>
+      <p class="paymini">🔒 Payment Razorpay se (UPI · Card · NetBanking). Payment ke baad app mein <b>isi email se login</b> karo — plan auto-activate ho jayega.<br>💡 Quarterly / Half-yearly / Yearly rebate ke liye WhatsApp pe UPI se lein (link neeche card pe).</p>
+    </div>
+    <div id="payDoneBox" style="display:none"></div>
+  </div>
+</div>
+<script>
+/* — Razorpay online payment + auto-activation record (Phase 1) — */
+(function(){
+  var FSKEY='AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc';
+  var FSDOC='https://firestore.googleapis.com/v1/projects/smartcalc-ai-638a9/databases/(default)/documents';
+  var RZP={key:null};
+  try{
+    fetch(FSDOC+'/config/flags?key='+FSKEY).then(function(r){return r.json();}).then(function(d){
+      var f=(d&&d.fields)||{}; var k=(f.razorpay_key_id||{}).stringValue||'';
+      if(/^rzp_(live|test)_/.test(k)) RZP.key=k;
+    }).catch(function(){});
+  }catch(_){}
+  var PLANS={
+    silver:{mo:99,name:'Partner Silver (Starter)'},
+    gold:{mo:299,name:'Partner Gold (Most Popular)'},
+    platinum:{mo:999,name:'Partner Platinum (Pro)'}
+  };
+  var CUR=null;
+  function $(i){return document.getElementById(i);}
+  function digits(s){return (s||'').replace(/[^0-9]/g,'');}
+  function sha256hex(s){
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function(b){
+      return Array.from(new Uint8Array(b)).map(function(x){return ('0'+x.toString(16)).slice(-2);}).join('');
+    });
+  }
+  function fsPatch(path, fields){
+    var body={fields:{}};
+    for(var k in fields){ var v=fields[k];
+      body.fields[k]= (typeof v==='number') ? {integerValue:String(Math.round(v))} : {stringValue:String(v)};
+    }
+    return fetch(FSDOC+'/'+path+'?key='+FSKEY,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  }
+  function fsCreate(coll, fields){
+    var body={fields:{}};
+    for(var k in fields){ var v=fields[k];
+      body.fields[k]= (typeof v==='number') ? {integerValue:String(Math.round(v))} : {stringValue:String(v)};
+    }
+    return fetch(FSDOC+'/'+coll+'?key='+FSKEY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  }
+  function showDone(ok, htmlMsg){
+    $('payFormBox').style.display='none';
+    var d=$('payDoneBox'); d.style.display='block'; d.innerHTML=htmlMsg;
+  }
+  window.payClose=function(){ $('payOv').style.display='none'; $('payFormBox').style.display='block'; $('payDoneBox').style.display='none'; };
+  window.payNow=function(plan){
+    CUR=plan;
+    var P=PLANS[plan];
+    $('payTitle').textContent=P.name;
+    $('paySub').innerHTML='Amount: <b>₹'+P.mo+'</b> / 30 days · <s style="color:#9AA9BA">MRP ₹'+({'99':'299','299':'999','999':'2,999'}[P.mo])+'</s> · auto-activation included';
+    var a=document.querySelector('a[data-wa][onclick*="'+plan+'"]')||document.querySelector('a[onclick*="payNow(\''+plan+'\')"]');
+    CUR_WA = a ? (a.getAttribute('href')||'') : '';
+    $('payFormBox').style.display='block'; $('payDoneBox').style.display='none';
+    $('payOv').style.display='flex';
+    var go=$('pfGo');
+    go.onclick=function(){
+      var name=$('pfName').value.trim(), email=$('pfEmail').value.trim().toLowerCase(), ph=digits($('pfPhone').value);
+      if(name.length<2){ $('pfName').focus(); return; }
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $('pfEmail').focus(); return; }
+      if(ph.length<10){ $('pfPhone').focus(); return; }
+      ph=ph.slice(-10);
+      if(!RZP.key || typeof Razorpay==='undefined'){
+        var wa=CUR_WA||('https://wa.me/918840192702?text='+encodeURIComponent('Hi! I want '+P.name+' (online payment).'));
+        window.open(wa,'_blank'); payClose(); return;
+      }
+      var rzp=new Razorpay({
+        key:RZP.key, amount:P.mo*100, currency:'INR',
+        name:'My Financial Plan — '+P.name,
+        description:'30-day subscription · launch offer',
+        prefill:{name:name, email:email, contact:ph},
+        theme:{color:'#0E9D78'},
+        notes:{plan:plan, source:'website'},
+        handler:function(resp){ finish(plan,name,email,ph,resp.razorpay_payment_id||''); }
+      });
+      rzp.on('payment.failed',function(){
+        showDone(false, '<div class="payok"><div class="big">😕</div><h3>Payment complete nahi hua</h3><p>Koi charge nahi hua. Dobara try karein — ya <a href="'+(CUR_WA||'#')+'" style="color:#0B7A5C;font-weight:800">WhatsApp se UPI</a> se lein.</p><button class="btn b-ghost" onclick="payClose()">Close</button></div>');
+      });
+      payClose(); rzp.open();
+    };
+  };
+  function finish(plan,name,email,ph,payId){
+    var P=PLANS[plan];
+    var exp=Date.now()+32*24*3600*1000;
+    try{
+      sha256hex('sub:'+email).then(function(id){
+        return fsPatch('partner_subs/'+id, {plan:plan, expiresAt:exp, payId:payId, email:email, mobile:ph, name:name, source:'web', uid:'', updatedAt:Date.now()});
+      }).catch(function(){});
+      fsCreate('partner_redeems', {plan:plan, days:30, paymentId:payId, email:email, mobile:ph, name:name, source:'web-razorpay', ts:Date.now()}).catch(function(){});
+    }catch(_){}
+    $('payOv').style.display='flex';
+    showDone(true, '<div class="payok"><div class="big">🎉</div><h3>Payment successful!</h3>'
+      +'<p><b>'+P.name+'</b> — 30 days active for <b>'+email+'</b>.<br><br><b>Next step:</b> App kholo → <b>same email se Google login</b> karo → aapka plan khud active ho jayega. Kisi bhi device pe, kabhi bhi.</p>'
+      +'<div class="pid">Payment ID: '+payId+'</div><br>'
+      +'<a class="btn b-teal" href="/app/" style="margin-top:14px">Open app →</a>'
+      +'<p class="paymini" style="margin-top:12px">Receipt SMS/email Razorpay bhejta hai. Problem ho toh WhatsApp: 88401 92702 par ye Payment ID bhej dein.</p></div>');
+  }
 })();
 </script>
 </body>
