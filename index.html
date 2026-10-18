@@ -2338,23 +2338,30 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
   }catch(_){}
 })();
 </script>
+<style>
+.pten{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.pten button{border:1.5px solid #DCE6EF;background:#fff;border-radius:99px;padding:8px 13px;font:800 12.5px/1 inherit;color:#38506B;cursor:pointer}
+.pten button.on{background:#0E9D78;border-color:#0E9D78;color:#fff}
+.pten button small{opacity:.85;font-weight:700}
+</style>
 <div id="payOv" class="payov" style="display:none" onclick="if(event.target===this)payClose()">
   <div class="paym">
     <button class="payx" onclick="payClose()" aria-label="Close">×</button>
     <div id="payFormBox">
       <h3 id="payTitle">Partner plan</h3>
       <p class="payp" id="paySub"></p>
+      <div id="pfTen" class="pten"></div>
       <label>FULL NAME</label><input id="pfName" type="text" placeholder="Your name">
       <label>EMAIL (app/Google login wahi)</label><input id="pfEmail" type="email" placeholder="you@gmail.com">
       <label>WHATSAPP NUMBER</label><input id="pfPhone" type="tel" placeholder="10-digit mobile">
       <button class="btn b-teal paygo" id="pfGo">Pay securely →</button>
-      <p class="paymini">🔒 Payment Razorpay se (UPI · Card · NetBanking). Payment ke baad app mein <b>isi email se login</b> karo — plan auto-activate ho jayega.<br>💡 Quarterly / Half-yearly / Yearly rebate ke liye WhatsApp pe UPI se lein (link neeche card pe).</p>
+      <p class="paymini">🔒 Razorpay से सुरक्षित payment (UPI · Card · NetBanking). Payment ke turant baad app mein <b>isi email se login</b> karo — plan <b>khud activate</b> ho jayega, har device pe. Rebate upar tenure chunte hi lag jaati hai.</p>
     </div>
     <div id="payDoneBox" style="display:none"></div>
   </div>
 </div>
 <script>
-/* — Razorpay online payment + auto-activation record (Phase 1) — */
+/* — Razorpay online payment + auto-activation, ALL tenures (Phase 1.1) — */
 (function(){
   var FSKEY='AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc';
   var FSDOC='https://firestore.googleapis.com/v1/projects/smartcalc-ai-638a9/databases/(default)/documents';
@@ -2370,42 +2377,58 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
     gold:{mo:299,name:'Partner Gold (Most Popular)'},
     platinum:{mo:999,name:'Partner Platinum (Pro)'}
   };
-  var CUR=null;
+  var MRP={'99':'299','299':'999','999':'2,999'};
+  var TEN=[
+    {m:1,r:0,l:'Monthly'},
+    {m:3,r:5,l:'Quarterly',sub:'−5%'},
+    {m:6,r:10,l:'Half-yearly',sub:'−10%'},
+    {m:12,r:20,l:'Yearly',sub:'−20%'}
+  ];
+  var CUR=null, CT=0;
+  try{ var t=(window.mfpTenure&&window.mfpTenure.m)||1; for(var q=0;q<TEN.length;q++){ if(TEN[q].m===t){CT=q;break;} } }catch(_){}
   function $(i){return document.getElementById(i);}
   function digits(s){return (s||'').replace(/[^0-9]/g,'');}
+  function fmt(n){var v=Math.round(n*100)/100; if(v%1===0)v=Math.round(v); return (''+v).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+  function bill(){ var P=PLANS[CUR],T=TEN[CT]; return Math.round(P.mo*T.m*(100-T.r)/100); }
+  function days(){ return 30*TEN[CT].m+2; }
   function sha256hex(s){
     return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function(b){
       return Array.from(new Uint8Array(b)).map(function(x){return ('0'+x.toString(16)).slice(-2);}).join('');
     });
   }
-  function fsPatch(path, fields){
-    var body={fields:{}};
-    for(var k in fields){ var v=fields[k];
-      body.fields[k]= (typeof v==='number') ? {integerValue:String(Math.round(v))} : {stringValue:String(v)};
-    }
-    return fetch(FSDOC+'/'+path+'?key='+FSKEY,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  function fsBody(fields){ var body={fields:{}}; for(var k in fields){ var v=fields[k];
+    body.fields[k]=(typeof v==='number')?{integerValue:String(Math.round(v))}:{stringValue:String(v)}; } return body; }
+  function fsPatch(path,fields){ return fetch(FSDOC+'/'+path+'?key='+FSKEY,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(fsBody(fields))}); }
+  function fsCreate(coll,fields){ return fetch(FSDOC+'/'+coll+'?key='+FSKEY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(fsBody(fields))}); }
+  function showDone(htmlMsg){ $('payFormBox').style.display='none'; var d=$('payDoneBox'); d.style.display='block'; d.innerHTML=htmlMsg; }
+  function refreshSub(){
+    var P=PLANS[CUR],T=TEN[CT],b=bill(),full=P.mo*T.m;
+    var s='Amount: <b>₹'+fmt(b)+'</b> for '+(T.m===1?'1 month':T.m+' months')
+      +' · <s style="color:#9AA9BA">MRP ₹'+(MRP[''+P.mo]||'')+'/mo</s> · auto-activation included';
+    if(T.r>0) s+='<br><span style="color:#0B7A5C;font-weight:800">You save ₹'+fmt(full-b)+' ('+T.l+' '+T.sub+' OFF)</span>';
+    $('paySub').innerHTML=s;
+    $('pfGo').textContent='Pay ₹'+fmt(b)+' securely →';
   }
-  function fsCreate(coll, fields){
-    var body={fields:{}};
-    for(var k in fields){ var v=fields[k];
-      body.fields[k]= (typeof v==='number') ? {integerValue:String(Math.round(v))} : {stringValue:String(v)};
+  function renderTen(){
+    var h='';
+    for(var i=0;i<TEN.length;i++){ var T=TEN[i];
+      h+='<button type="button" data-t="'+i+'" class="'+(i===CT?'on':'')+'">'+T.l+(T.sub?' <small>'+T.sub+'</small>':'')+'</button>';
     }
-    return fetch(FSDOC+'/'+coll+'?key='+FSKEY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  }
-  function showDone(ok, htmlMsg){
-    $('payFormBox').style.display='none';
-    var d=$('payDoneBox'); d.style.display='block'; d.innerHTML=htmlMsg;
+    $('pfTen').innerHTML=h;
+    Array.prototype.forEach.call($('pfTen').querySelectorAll('button'),function(b){
+      b.onclick=function(){ CT=parseInt(b.getAttribute('data-t'),10)||0; renderTen(); refreshSub(); };
+    });
   }
   window.payClose=function(){ $('payOv').style.display='none'; $('payFormBox').style.display='block'; $('payDoneBox').style.display='none'; };
   window.payNow=function(plan){
     CUR=plan;
     var P=PLANS[plan];
     $('payTitle').textContent=P.name;
-    $('paySub').innerHTML='Amount: <b>₹'+P.mo+'</b> / 30 days · <s style="color:#9AA9BA">MRP ₹'+({'99':'299','299':'999','999':'2,999'}[P.mo])+'</s> · auto-activation included';
     var a=document.querySelector('a[data-wa][onclick*="'+plan+'"]')||document.querySelector('a[onclick*="payNow(\''+plan+'\')"]');
     CUR_WA = a ? (a.getAttribute('href')||'') : '';
     $('payFormBox').style.display='block'; $('payDoneBox').style.display='none';
     $('payOv').style.display='flex';
+    renderTen(); refreshSub();
     var go=$('pfGo');
     go.onclick=function(){
       var name=$('pfName').value.trim(), email=$('pfEmail').value.trim().toLowerCase(), ph=digits($('pfPhone').value);
@@ -2413,40 +2436,41 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $('pfEmail').focus(); return; }
       if(ph.length<10){ $('pfPhone').focus(); return; }
       ph=ph.slice(-10);
+      var T=TEN[CT], b=bill();
       if(!RZP.key || typeof Razorpay==='undefined'){
-        var wa=CUR_WA||('https://wa.me/918840192702?text='+encodeURIComponent('Hi! I want '+P.name+' (online payment).'));
+        var wa=CUR_WA||('https://wa.me/918840192702?text='+encodeURIComponent('Hi! I want '+P.name+' ('+T.l+', ₹'+b+').'));
         window.open(wa,'_blank'); payClose(); return;
       }
       var rzp=new Razorpay({
-        key:RZP.key, amount:P.mo*100, currency:'INR',
+        key:RZP.key, amount:b*100, currency:'INR',
         name:'My Financial Plan — '+P.name,
-        description:'30-day subscription · launch offer',
+        description:T.l+' subscription · '+(T.r>0?('save '+T.r+'% · '):'')+days()+' days access',
         prefill:{name:name, email:email, contact:ph},
         theme:{color:'#0E9D78'},
-        notes:{plan:plan, source:'website'},
+        notes:{plan:plan, tenure:T.m+'m', rebate:T.r+'%', source:'website'},
         handler:function(resp){ finish(plan,name,email,ph,resp.razorpay_payment_id||''); }
       });
       rzp.on('payment.failed',function(){
-        showDone(false, '<div class="payok"><div class="big">😕</div><h3>Payment complete nahi hua</h3><p>Koi charge nahi hua. Dobara try karein — ya <a href="'+(CUR_WA||'#')+'" style="color:#0B7A5C;font-weight:800">WhatsApp se UPI</a> se lein.</p><button class="btn b-ghost" onclick="payClose()">Close</button></div>');
+        showDone('<div class="payok"><div class="big">😕</div><h3>Payment complete nahi hua</h3><p>Koi charge nahi hua. Dobara try karein — ya <a href="'+(CUR_WA||'#')+'" style="color:#0B7A5C;font-weight:800">WhatsApp se</a> lein.</p><button class="btn b-ghost" onclick="payClose()">Close</button></div>');
       });
       payClose(); rzp.open();
     };
   };
   function finish(plan,name,email,ph,payId){
-    var P=PLANS[plan];
-    var exp=Date.now()+32*24*3600*1000;
+    var P=PLANS[plan], T=TEN[CT], D=days();
+    var exp=Date.now()+D*24*3600*1000;
     try{
       sha256hex('sub:'+email).then(function(id){
         return fsPatch('partner_subs/'+id, {plan:plan, expiresAt:exp, payId:payId, email:email, mobile:ph, name:name, source:'web', uid:'', updatedAt:Date.now()});
       }).catch(function(){});
-      fsCreate('partner_redeems', {plan:plan, days:30, paymentId:payId, email:email, mobile:ph, name:name, source:'web-razorpay', ts:Date.now()}).catch(function(){});
+      fsCreate('partner_redeems', {plan:plan, days:30*T.m, tenure:T.l, paymentId:payId, email:email, mobile:ph, name:name, source:'web-razorpay', ts:Date.now()}).catch(function(){});
     }catch(_){}
     $('payOv').style.display='flex';
-    showDone(true, '<div class="payok"><div class="big">🎉</div><h3>Payment successful!</h3>'
-      +'<p><b>'+P.name+'</b> — 30 days active for <b>'+email+'</b>.<br><br><b>Next step:</b> App kholo → <b>same email se Google login</b> karo → aapka plan khud active ho jayega. Kisi bhi device pe, kabhi bhi.</p>'
+    showDone('<div class="payok"><div class="big">🎉</div><h3>Payment successful!</h3>'
+      +'<p><b>'+P.name+'</b> — <b>'+D+' days</b> active for <b>'+email+'</b> ('+T.l+').<br><br><b>Next step:</b> App kholo → <b>same email se Google login</b> karo → aapka plan khud active ho jayega. Kisi bhi device pe, kabhi bhi.</p>'
       +'<div class="pid">Payment ID: '+payId+'</div><br>'
       +'<a class="btn b-teal" href="/app/" style="margin-top:14px">Open app →</a>'
-      +'<p class="paymini" style="margin-top:12px">Receipt SMS/email Razorpay bhejta hai. Problem ho toh WhatsApp: 88401 92702 par ye Payment ID bhej dein.</p></div>');
+      +'<p class="paymini" style="margin-top:12px">Receipt SMS/email Razorpay bhejta hai. Problem ho — payment hua par plan active nahi? WhatsApp 88401 92702 par ye Payment ID bhej dein, emergency code mil jayega.</p></div>');
   }
 })();
 </script>
