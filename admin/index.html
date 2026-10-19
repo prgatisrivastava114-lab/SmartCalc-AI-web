@@ -45,7 +45,7 @@ input:focus{outline:none;border-color:var(--indigo)}
 .btn-g{background:#fff;border:1.4px solid var(--line);color:var(--ink)}
 .btn-s{padding:8px 13px;font-size:12.5px;border-radius:10px}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.tabs{display:flex;gap:7px;margin-top:16px}
+.tabs{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap}
 .tab{flex:1;text-align:center;padding:11px 4px;border-radius:12px;background:#fff;border:1.4px solid var(--line);font-size:13px;font-weight:800;color:var(--ink2);cursor:pointer}
 .tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 
@@ -88,6 +88,18 @@ input:focus{outline:none;border-color:var(--indigo)}
 #tab-push .pcok{background:#eafaf1;border:1px solid #bfe6cd;color:#15663a}
 #tab-push .pcerr{background:#fff1f1;border:1px solid #f0c0c0;color:#8c1f1f}
 @media(max-width:560px){#tab-push .grid2{grid-template-columns:1fr}#tab-push .btn{min-width:100%}}
+/* ── grand launch tab ── */
+#tab-launch .fld{margin:14px 0}
+#tab-launch label{display:block;font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:5px}
+#tab-launch input[type=text],#tab-launch input[type=datetime-local],#tab-launch select{width:100%;padding:11px 13px;border:1.4px solid var(--line);border-radius:12px;font-size:14px;font-weight:600;color:var(--ink);background:#fff}
+#tab-launch .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#tab-launch .btnRow{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+#tab-launch .btnRow .btn{flex:1;min-width:120px;min-height:46px;border:0;border-radius:12px;background:var(--ink);color:#fff;font-weight:800;cursor:pointer}
+#tab-launch .btnRow .btn.ghost{background:#fff;color:var(--ink);border:1.4px solid var(--line)}
+#tab-launch .lcres{padding:11px 13px;border-radius:11px;font-size:13px;margin-top:13px;line-height:1.55}
+#tab-launch .lcok{background:#eafaf1;border:1px solid #bfe6cd;color:#15663a}
+#tab-launch .lcerr{background:#fff1f1;border:1px solid #f0c0c0;color:#8c1f1f}
+@media(max-width:560px){#tab-launch .grid2{grid-template-columns:1fr}}
 
 .row{display:flex;gap:9px;align-items:center}
 .grow{flex:1}
@@ -230,6 +242,7 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
       <div class="tab" data-tab="coins">🪙 Coins</div>
       <div class="tab" data-tab="analytics">📊 Analytics</div>
       <div class="tab" data-tab="push">🔔 Push</div>
+      <div class="tab" data-tab="launch">🎬 Launch</div>
     </div>
 
     <!-- ── TAB 7: PUSH NOTIFICATIONS ── -->
@@ -324,6 +337,54 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
     </div>
 
     <!-- ── TAB 1: CODES ── -->
+    <!-- ── TAB: GRAND LAUNCH (temporary feature) ── -->
+    <div id="tab-launch" class="hidden">
+      <div class="card">
+        <h2>🎬 Website Launch Control <button class="btn btn-g btn-s" style="float:right" id="lcReload" type="button">↻</button></h2>
+        <p class="hint">Grand launch: homepage par <b>red velvet curtain + countdown</b>. Config <b>config/grandLaunch</b> mein save hota hai (existing Firebase — koi naya project nahi). Curtain sirf tab dikhta hai jab status <b>Scheduled</b> ho aur launch time baaki ho — baaki sab states mein site bilkul normal rehti hai. Sirf <b>homepage</b> cover hota hai; /app/, /download/, admin hamesha chalte rehte hain. <b style="color:#845000">Default schedule pehle se set hai: 19 Oct 2026, 11:45 AM IST (Varanasi time) — aap yahan kuch bhi SAVE kar denge to wahi final ho jayega.</b></p>
+        <div style="margin:12px 0;font-size:13px;font-weight:800;color:var(--ink2)">Saved status: <span id="lcPill" class="pill p-draft">—</span></p>
+        </div>
+        <div class="fld"><label>Launch status</label>
+          <select id="lcStatus">
+            <option value="draft">Draft — configure karo, curtain OFF</option>
+            <option value="scheduled">Scheduled — curtain + countdown ON</option>
+            <option value="live">Live — site normal (launch ho chuka)</option>
+            <option value="paused">Paused — curtain temporarily OFF</option>
+          </select>
+        </div>
+        <div class="grid2">
+          <div class="fld"><label>Launch date &amp; time</label><input type="datetime-local" id="lcWhen"></div>
+          <div class="fld"><label>Time zone</label>
+            <select id="lcTz">
+              <option value="+05:30" selected>Asia/Kolkata (IST)</option>
+              <option value="Z">UTC</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld"><label>Headline (optional)</label><input type="text" id="lcHead" maxlength="120" placeholder="A New Beginning for Your Financial Future"></div>
+        <div class="fld"><label>Subtitle (optional)</label><input type="text" id="lcSub" maxlength="120" placeholder="Plan Today. Secure Tomorrow."></div>
+        <div class="btnRow"><button class="btn grow" id="lcSave" type="button" style="width:100%">💾 SAVE LAUNCH SCHEDULE</button></div>
+        <div id="lcMsg"></div>
+      </div>
+      <div class="card">
+        <h2>👀 Preview &amp; testing</h2>
+        <div class="btnRow">
+          <button class="btn ghost" id="lcPreview" type="button">🎭 Preview closed curtain</button>
+          <button class="btn ghost" id="lcTest" type="button">▶️ Test curtain opening</button>
+        </div>
+        <p class="hint" style="margin-top:10px">Ye naye tab mein special demo URL kholte hain — public schedule ya database par <b>koi asar nahi</b> padta.</p>
+      </div>
+      <div class="card">
+        <h2>⚡ Quick actions</h2>
+        <div class="btnRow">
+          <button class="btn ghost" id="lcGoLive" type="button">🚀 Go Live Now</button>
+          <button class="btn ghost" id="lcPause" type="button">⏸ Pause</button>
+          <button class="btn ghost" id="lcReset" type="button">🗑 Reset</button>
+        </div>
+        <p class="hint" style="margin-top:10px"><b>Go Live</b> = site sabke liye normal. <b>Pause</b> = curtain temporarily band (config saved rehta hai). <b>Reset</b> = pura config draft par wapas. Go Live aur Reset par confirmation maanga jayega.</p>
+      </div>
+    </div>
+
     <div id="tab-codes">
       <div class="card" style="border:1.5px solid #F0D494;background:linear-gradient(135deg,#FFFBF0,#FFF3DC)">
         <h2>🚀 Launch counters <button class="btn btn-g btn-s" style="float:right" id="lcSyncBtn" type="button">🔢 Sync from data</button></h2>
@@ -1367,9 +1428,76 @@ document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
 });
 $('signOut').onclick = e => { e.preventDefault(); sessionStorage.clear(); location.reload(); };
 
+/* ═══════════════ GRAND LAUNCH CONTROL (temporary feature) ═══════════════ */
+function lcInit(){
+  const PILLS={draft:['p-draft','Draft (curtain OFF)'],scheduled:['p-sch','Scheduled ⏳'],live:['p-sent','LIVE 🟢'],paused:['p-sending','Paused ⏸']};
+  let cur={};
+  function msg(t,ok){ const m=$('lcMsg'); m.className='lcres '+(ok?'lcok':'lcerr'); m.textContent=t; }
+  function paint(){
+    const st=(cur&&cur.status)||'draft', p=PILLS[st]||PILLS.draft;
+    const pl=$('lcPill'); pl.className='pill '+p[0]; pl.textContent=p[1];
+    if(cur&&cur.launchAt){ pl.textContent+='  ·  '+new Date(cur.launchAt).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})+' IST'; }
+  }
+  async function load(){
+    $('lcPill').textContent='load ho raha hai…';
+    try{
+      cur=await fsGet('config/grandLaunch',true)||{};
+      $('lcStatus').value=['draft','scheduled','live','paused'].includes(cur.status)?cur.status:'draft';
+      if(cur.launchAt){
+        /* UTC ms → chosen tz ka local datetime-local value */
+        const tz=(cur.tz==='UTC')?'Z':'+05:30'; $('lcTz').value=tz;
+        const off=tz==='Z'?0:5.5*3600000;
+        const d=new Date(cur.launchAt+off);
+        $('lcWhen').value=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0')+'T'+String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0');
+      }
+      if(!cur.launchAt){ $('lcStatus').value='scheduled'; $('lcTz').value='+05:30'; $('lcWhen').value='2026-10-19T11:45'; }
+      $('lcHead').value=cur.headline||''; $('lcSub').value=cur.sub||'';
+      if(!cur.launchAt){ const pl=$('lcPill'); pl.className='pill p-sch'; pl.textContent='(Built-in default) Scheduled ⏳ · 19 Oct 2026, 11:45 AM IST'; } else paint();
+    }catch(e){ $('lcPill').textContent='load error'; msg('Load nahi hua: '+e.message,false); }
+  }
+  async function patch(fields,okText){
+    try{
+      await fsPatch('config/grandLaunch',Object.assign({},fields,{updatedAt:Date.now()}));
+      cur=await fsGet('config/grandLaunch',true)||{};
+      paint(); msg(okText,true);
+    }catch(e){ msg('Save nahi hua: '+e.message,false); }
+  }
+  $('lcSave').onclick=async()=>{
+    const status=$('lcStatus').value, tz=$('lcTz').value, w=$('lcWhen').value;
+    let launchAt=0;
+    if(w){
+      launchAt=Date.parse(w+(w.length===16?':00':'')+tz);
+      if(!isFinite(launchAt)){ msg('Date/time sahi nahi hai — dobara chunein.',false); return; }
+    }
+    if(status==='scheduled'){
+      if(!launchAt){ msg('Scheduled ke liye launch date & time zaroori hai.',false); return; }
+      if(launchAt<=Date.now()){ if(!confirm('Launch time abhi ya past ka hai — curtain turant khul jayega (site live jaisi). Phir bhi save karein?')) return; }
+    }
+    await patch({status,launchAt,tz:tz==='Z'?'UTC':'Asia/Kolkata',headline:$('lcHead').value.trim(),sub:$('lcSub').value.trim()},
+      '✅ Save ho gaya! Website ~1 min mein naya schedule follow karegi. Status: '+status.toUpperCase());
+  };
+  $('lcReload').onclick=load;
+  $('lcPreview').onclick=()=>window.open('/?mfpCurtain=closed','_blank');
+  $('lcTest').onclick=()=>window.open('/?mfpCurtain=open','_blank');
+  $('lcGoLive').onclick=async()=>{
+    if(!confirm('GO LIVE NOW?\n\nCurtain sab visitors ke liye hata diya jayega — site turant poori tarah live/normal ho jayegi.')) return;
+    await patch({status:'live'},'🟢 Site LIVE hai — curtain band. Sab visitors ko normal website dikhegi.');
+  };
+  $('lcPause').onclick=async()=>{
+    await patch({status:'paused'},'⏸ Launch experience PAUSE ho gaya — curtain temporarily OFF. Schedule saved hai; wapas Scheduled chuno to chalu hoga.');
+  };
+  $('lcReset').onclick=async()=>{
+    if(!confirm('RESET launch configuration?\n\nStatus Draft + date/headline sab clear ho jayega. (Koi website data/user record delete nahi hota.)')) return;
+    await patch({status:'draft',launchAt:0,headline:'',sub:''},'🗑 Reset ho gaya — sab kuch Draft/default par.');
+  };
+  const tabBtn=document.querySelector('.tab[data-tab="launch"]');
+  if(tabBtn) tabBtn.addEventListener('click',load);
+}
+
 /* ═══════════════ BOOT ═══════════════ */
 (function boot(){
   initGis();
+  lcInit();
   // session zinda hai to seedha PIN gate / panel
   if (S.idt && S.email && S.pinOk){
     $('emailChip').textContent=S.email; $('emailChip').classList.remove('hidden');
