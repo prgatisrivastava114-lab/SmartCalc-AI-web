@@ -1,0 +1,23 @@
+{
+  "name": "Digital Vanshavali — Ancestral Family Lineage & Heritage Vault",
+  "short_name": "Vanshavali App",
+  "start_url": "/vanshavali/",
+  "scope": "/vanshavali/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B192C",
+  "theme_color": "#0B192C",
+  "description": "Preserve your family lineage across 7 paternal and 7 maternal generations. Gotra tracing, Bahi Khatta document vault, AI OCR reader, and certified lineage certificate export.",
+  "icons": [
+    {
+      "src": "/assets/brand/mfp_icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/brand/mfp_icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

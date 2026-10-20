@@ -1,0 +1,3186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
+  <meta property="og:site_name" content="Digital Vanshavali">
+  <meta property="og:title" content="Digital Vanshavali (डिजिटल वंशावली) — Universal Family & Gotra Lineage Graph">
+  <meta property="og:description" content="Interactive Gotra Lineage & Spouse Relationship Graph. Track paternal, maternal & spouse gotra trees with Pathfinder connection matcher.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.myfinancialplan.in/vanshavali/">
+  <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Vanshavali (डिजिटल वंशावली)">
+  <meta name="twitter:description" content="Interactive Gotra Lineage & Spouse Relationship Graph Platform.">
+  <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Digital Vanshavali",
+  "alternateName": "डिजिटल वंशावली",
+  "url": "https://www.myfinancialplan.in/vanshavali/",
+  "applicationCategory": "GenealogyApplication",
+  "operatingSystem": "All",
+  "description": "Interactive Gotra Lineage & Spouse Relationship Graph Platform with 3-Side Relation Chain and Pathfinder Gotra Matcher.",
+  "offers": {
+    "@type": "Offer",
+    "price": "99",
+    "priceCurrency": "INR"
+  },
+  "dateModified": "2026-10-07"
+}
+</script>
+  <title>Digital Vanshavali — Family Tree Graph | MyFinancialPlan</title>
+<meta name="description" content="Build your family's digital Vanshavali — trace paternal, maternal and in-law lineages, see relationships clearly, and keep one shareable family tree.">
+<link rel="canonical" href="https://www.myfinancialplan.in/vanshavali/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mfp_icon_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/mfp_icon_180.png">
+<link rel="manifest" href="/vanshavali/manifest.json">
+<meta name="theme-color" content="#121827">
+
+<!-- Premium Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script src="/assets/js/visitor-tracker.js" defer></script>
+
+<!-- Official Google Sign-In SDK -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<!-- Official Firebase App & Analytics SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc",
+    authDomain: "smartcalc-ai-638a9.firebaseapp.com",
+    projectId: "smartcalc-ai-638a9",
+    storageBucket: "smartcalc-ai-638a9.firebasestorage.app",
+    messagingSenderId: "548984348697",
+    appId: "1:548984348697:web:cba90544a074784ac5ca88"
+  };
+
+  try {
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    logEvent(analytics, 'page_view', { page_location: window.location.href, page_path: window.location.pathname });
+  } catch (e) {
+    console.warn('Firebase analytics info:', e);
+  }
+</script>
+
+<style>
+
+/* ==========================================================================
+   OFFICIAL MY FINANCIAL PLAN (MFP) APP & PORTAL UI/UX DESIGN SYSTEM
+   Design Tokens: --ink (#17324A), --ink2 (#44586E), --teal (#0E9D78),
+   --indigo (#4C62CE), --amber (#BF7B0B), --cream (#FFF6E3), --mint (#DDF4EC),
+   --lav (#E1E6FA), --line (#E3E9F2), --bg (#F7FAFC)
+   ========================================================================== */
+
+:root {
+  --ink: #17324A;
+  --ink2: #44586E;
+  --teal: #0E9D78;
+  --indigo: #4C62CE;
+  --amber: #BF7B0B;
+  --cream: #FFF6E3;
+  --mint: #DDF4EC;
+  --mint2: #E7F4EE;
+  --lav: #E1E6FA;
+  --line: #E3E9F2;
+  --bg: #F7FAFC;
+  --red: #D64545;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* 👓 ELDER ACCESSIBILITY MODE */
+body.elder-mode {
+  font-size: 16.5px !important;
+  line-height: 1.7 !important;
+}
+body.elder-mode .node-card {
+  padding: 20px !important;
+  min-width: 230px !important;
+}
+body.elder-mode .node-name {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+body.elder-mode .btn-estate {
+  padding: 12px 20px !important;
+  font-size: 15px !important;
+}
+body.elder-mode .form-control {
+  font-size: 16px !important;
+  padding: 12px 16px !important;
+}
+
+/* OFFICIAL MFP TOP NAVIGATION BAR */
+.mfp-top-nav {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 24px;
+  box-shadow: 0 4px 18px -10px rgba(23, 50, 74, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.mfp-nav-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mfp-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.mfp-brand-logo {
+  height: 38px;
+  width: auto;
+}
+
+.mfp-vanshavali-badge {
+  background: var(--cream);
+  border: 1.5px solid #EBCFA0;
+  color: var(--amber);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-weight: 900;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mfp-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mfp-btn {
+  border-radius: 99px;
+  padding: 8px 18px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.mfp-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-mfp-pink {
+  background: #FFF0F6;
+  border: 1.5px solid #FFADD2;
+  color: #C41D7F;
+}
+.btn-mfp-pink:hover { background: #FFD6E7; }
+
+.btn-mfp-mint {
+  background: var(--mint);
+  border: 1.5px solid #A3E2D0;
+  color: var(--teal);
+}
+.btn-mfp-mint:hover { background: #BCEBDA; }
+
+.btn-mfp-lavender {
+  background: var(--lav);
+  border: 1.5px solid #ADC0F5;
+  color: var(--indigo);
+}
+.btn-mfp-lavender:hover { background: #C8D4F8; }
+
+.btn-mfp-cream {
+  background: var(--cream);
+  border: 1.5px solid #EBCFA0;
+  color: var(--amber);
+}
+.btn-mfp-cream:hover { background: #FCE8C5; }
+
+.btn-mfp-teal-filled {
+  background: linear-gradient(135deg, #0E9D78, #0B8465);
+  border: none;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px -6px rgba(14, 157, 120, 0.45);
+}
+.btn-mfp-teal-filled:hover { background: linear-gradient(135deg, #10B48A, #0E9D78); }
+
+/* MAIN APPLICATION WRAPPER */
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 50px 16px;
+}
+
+/* MFP HERO BANNER CARD */
+.mfp-hero-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 30px -12px rgba(23, 50, 74, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.mfp-hero-left h1 {
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+}
+
+.mfp-hero-left h1 span {
+  color: var(--teal);
+}
+
+.mfp-hero-left .sub {
+  font-size: 14.5px;
+  color: var(--ink2);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.mfp-hero-left .kick {
+  background: var(--cream);
+  border: 1px solid #EBCFA0;
+  color: var(--amber);
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* ACCOUNT & STATUS PANEL */
+.mfp-account-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 26px -14px rgba(23, 50, 74, 0.12);
+}
+
+.mfp-account-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mfp-account-email {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.mfp-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--mint);
+  border: 1.5px solid #A3E2D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--teal);
+}
+
+.mfp-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.mfp-badge-pill {
+  padding: 7px 16px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-mfp-gold {
+  background: var(--cream);
+  border: 1.5px solid #EBCFA0;
+  color: var(--amber);
+}
+
+.badge-mfp-elder {
+  background: var(--lav);
+  border: 1.5px solid #ADC0F5;
+  color: var(--indigo);
+  cursor: pointer;
+}
+
+.badge-mfp-pending {
+  background: #FFFBEB;
+  border: 1.5px solid #FCD34D;
+  color: #B45309;
+}
+
+/* SELECT LINEAGE DIRECTION CARD (OFFICIAL MFP APP STYLED) */
+.mfp-lineage-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 30px -12px rgba(23, 50, 74, 0.12);
+}
+
+.mfp-lineage-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.mfp-lineage-head h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+}
+
+.mfp-lineage-head p {
+  font-size: 13px;
+  color: var(--ink2);
+}
+
+.mfp-banners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.mfp-direction-banner {
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  min-height: 120px;
+  border: 1.5px solid transparent;
+}
+
+.mfp-direction-banner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(23, 50, 74, 0.2);
+}
+
+.banner-paternal-mfp {
+  background: var(--cream);
+  border-color: #EBCFA0;
+  color: #7A5406;
+}
+
+.banner-maternal-mfp {
+  background: var(--lav);
+  border-color: #ADC0F5;
+  color: #2A3C93;
+}
+
+.banner-spouse-mfp {
+  background: #FFF0F6;
+  border-color: #FFADD2;
+  color: #9E1068;
+}
+
+.banner-all-mfp {
+  background: var(--mint);
+  border-color: #A3E2D0;
+  color: #0B6B50;
+}
+
+.banner-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-icon-orb-mfp {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(23, 50, 74, 0.08);
+}
+
+.banner-chevron-mfp {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.banner-bot-text h3 {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.banner-bot-text .hindi {
+  font-size: 12.5px;
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.banner-bot-text .sub {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* FOCAL BANNER & SEARCH */
+.focal-banner {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: 0 6px 22px -12px rgba(23, 50, 74, 0.12);
+}
+
+.focal-info h1 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.focal-info p {
+  color: var(--ink2);
+  font-size: 13px;
+}
+
+.universal-search-box {
+  position: relative;
+  min-width: 300px;
+  flex: 1;
+  max-width: 460px;
+}
+
+.universal-search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border: 1.5px solid var(--line);
+  border-radius: 99px;
+  background: #FFFFFF;
+  color: var(--ink);
+  font-size: 13.5px;
+  outline: none;
+  font-weight: 700;
+}
+
+.universal-search-box input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14, 157, 120, 0.15);
+}
+
+.universal-search-box .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink2);
+}
+
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  margin-top: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 16px 36px -12px rgba(23, 50, 74, 0.25);
+  display: none;
+}
+
+.search-result-item {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+.search-result-item:hover { background: var(--bg); }
+
+/* MAIN APP SWITCHER TABS (.ctab & .ctab.on) */
+.tab-navigation, .nav-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1.5px solid var(--line);
+  padding-bottom: 10px;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  border: 2px solid var(--line);
+  background: #FFFFFF;
+  color: var(--ink2);
+  font-weight: 800;
+  font-size: 13.5px;
+  padding: 10px 20px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #0E9D78, #0B8465);
+  border-color: transparent;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px -8px rgba(14, 157, 120, 0.55);
+}
+
+/* TREE CANVAS GRAPH AREA */
+.canvas-wrapper {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 30px;
+  min-height: 480px;
+  box-shadow: 0 8px 30px -12px rgba(23, 50, 74, 0.12);
+  overflow-x: auto;
+}
+
+.tree-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.tree-level-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.node-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 20px;
+  min-width: 195px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 22px -12px rgba(23, 50, 74, 0.15);
+}
+
+.node-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--teal);
+  box-shadow: 0 12px 28px -10px rgba(14, 157, 120, 0.25);
+}
+
+.node-card.center-node {
+  background: var(--cream);
+  border: 2px solid #EBCFA0;
+  box-shadow: 0 8px 24px -8px rgba(191, 123, 11, 0.25);
+}
+
+.node-name { font-weight: 800; color: var(--ink); font-size: 15px; }
+.node-relation { font-size: 12px; font-weight: 800; color: var(--teal); margin-top: 3px; }
+
+/* BOTTOM FEATURE ICONS & FOOTER */
+.mfp-bottom-bar {
+  margin-top: 40px;
+  border-top: 1.5px solid var(--line);
+  padding-top: 32px;
+}
+
+.mfp-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.mfp-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.mfp-icon-orb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--mint);
+  border: 1.5px solid #A3E2D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--teal);
+}
+
+.mfp-icon-lbl {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.mfp-footer-motto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mfp-motto-text {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.mfp-powered-by {
+  font-size: 12.5px;
+  color: var(--ink2);
+  font-weight: 700;
+}
+
+/* PATHFINDER, PROVENANCE, MODALS */
+.pathfinder-box {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 30px -12px rgba(23, 50, 74, 0.12);
+}
+
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 12px; font-weight: 800; color: var(--ink2); margin-bottom: 5px; letter-spacing: .04em; }
+
+.form-control {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: #FFFFFF;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+}
+.form-control:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(14, 157, 120, 0.15); }
+
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(23, 50, 74, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000; padding: 16px;
+}
+
+.modal-box {
+  background: #FFFFFF;
+  border: 2px solid var(--line);
+  border-radius: 22px;
+  width: 100%; max-width: 580px;
+  padding: 24px;
+  box-shadow: 0 24px 50px -12px rgba(23, 50, 74, 0.35);
+  max-height: 90vh; overflow-y: auto;
+}
+
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.modal-title { font-family: var(--font-heading); color: var(--ink); font-size: 19px; font-weight: 900; }
+
+
+/* TOP ACCESS & DIRECT KEY ACTIVATION BAR ON TOP */
+.top-access-and-key-bar {
+  background: #08102B;
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(251, 191, 36, 0.05);
+}
+
+.account-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.top-key-activation-box {
+  background: rgba(251, 191, 36, 0.08);
+  border: 1.5px solid #FBBF24;
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
+}
+
+</style>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+  <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
+<style id="mfp-responsive-fit">
+/* MFP responsive + layout fit — measurements and reasoning for every rule
+   are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
+nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
+/* MEASURED at 390px: a correctly-proportioned logo (168px) + the हिंदी switch */
+@media (max-width:620px){
+  nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
+  nav.top .logo{height:30px}
+  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:12px;margin-right:0}
+  nav.top a.btn{display:flex;align-items:center;justify-content:center;height:40px;
+                padding:0 12px;font-size:12.5px;margin-left:0!important}
+  .burger{width:40px;height:40px;margin-left:0}
+}
+@media (max-width:360px){
+  nav.top .logo{height:26px}
+  #langSw{font-size:12px;padding:0 10px}
+}
+.top .wrap{flex-wrap:wrap;row-gap:6px}
+.top .wrap>nav{min-width:0;flex-wrap:wrap}
+@media (max-width:560px){
+  .top .wrap{padding:10px 14px}
+  .top .wrap>a:first-child{flex:0 0 auto}
+  a.hot{margin-left:auto}
+  .rel{gap:8px}
+  .rel a{flex:0 1 auto;min-width:0}
+}
+img,svg,video,canvas{max-width:100%}
+/* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
+@media (max-width:620px){
+  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+}
+@media (max-width:620px){
+  /* grid tracks: a 1fr column still refuses to shrink below its content's */
+  .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
+  .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
+  input,select,textarea{min-width:0;max-width:100%}
+  /* a scenario table 2px wider than the screen: let it scroll inside itself */
+  .gc-scen{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* nowrap buttons 10px over the edge */
+  .btn-estate{white-space:normal;max-width:100%}
+  /* the vanshavali page renders a 281px-wide brand logo plus its broken-image */
+  .mfp-brand-group{max-width:100%;flex-wrap:wrap}
+  .mfp-brand-logo,.mfp-brand-group svg{max-width:100%;height:auto;width:auto}
+}
+@media (min-width:1024px){
+  .wrap{max-width:1080px!important}
+  .top .wrap{max-width:1080px!important}
+}
+@media (min-width:1440px){
+  .wrap{max-width:1140px!important}
+  .top .wrap{max-width:1140px!important}
+}
+@media (min-width:1024px){
+  .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:36px;align-items:start}
+  .calc>.calc-fields{grid-column:1}
+  .calc>.grid3{grid-column:2;margin-top:0;grid-template-columns:1fr;gap:12px}
+  .calc>.note{grid-column:1/-1}
+}
+/* MEASURED at 390px: three fixed columns of 100px could not hold "₹25,080", */
+@media (max-width:560px){
+  .grid3{grid-template-columns:1fr!important}
+  .res{text-align:left;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
+        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:36px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/" aria-current="page">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/" aria-current="page">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OFFICIAL MYFINANCIALPLAN TOP NAVBAR -->
+<header class="mfp-top-nav">
+  <div class="mfp-nav-wrap">
+    <a href="/" class="mfp-brand-group">
+      <img src="/assets/brand/brand_logo.png" alt="My Financial Plan" class="mfp-brand-logo" onerror="this.onerror=null; this.outerHTML='<svg width="180" height="38" viewBox="0 0 180 38" fill="none" xmlns="http://www.w3.org/2000/svg">      <rect width="180" height="38" rx="8" fill="#17324A"/>      <text x="12" y="24" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="#0E9D78">MyFinancialPlan</text>    </svg>';">
+      <span id="mfp-fallback-title" style="display:none; font-weight:900; font-size:18px; color:var(--ink);">MyFinancialPlan.in</span>
+      <div class="mfp-vanshavali-badge">
+        <span>🌳 Digital Vanshavali</span>
+      </div>
+    </a>
+
+    <div class="mfp-nav-actions">
+      <button class="mfp-btn btn-mfp-pink" onclick="openConversationalAddModal('spouse')">+ Add Spouse 💍</button>
+      <button class="mfp-btn btn-mfp-mint" onclick="openConversationalAddModal('relative')">+ Add Relative 🌳</button>
+      <button class="mfp-btn btn-mfp-lavender" onclick="openUnifiedLoginModal()">🔐 Unified Login</button>
+      <button class="mfp-btn btn-mfp-cream" onclick="openPlanSelectionModal()">Access Level 👑</button>
+    </div>
+  </div>
+</header>
+
+<!-- TOP HEADER ACCESS BAR & DIRECT VERIFICATION KEY ACTIVATION BOX -->
+<div class="top-access-and-key-bar">
+  <!-- USER ACCOUNT ROW -->
+  <div class="account-row-top">
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <span style="font-size: 14.5px; font-weight: 800; color: #FFF;">👤 Account: <strong id="user-display-email" style="color: #FDE047;">guest@myfinancialplan.in</strong></span>
+      <button class="btn-estate btn-outline" style="padding: 4px 14px; font-size: 12px; border-color: #38BDF8; color: #38BDF8; font-weight: 800;" onclick="openUnifiedLoginModal()">Switch / Sign In 🔐</button>
+      <span id="plan-display-badge" class="plan-badge plan-gold">👑 GOLD ESTATE PLAN</span>
+      <button class="btn-estate btn-outline" id="elder-mode-toggle-btn" style="padding: 4px 14px; font-size: 12px; border-color: #C084FC; color: #E9D5FF; font-weight: 800;" onclick="toggleElderAccessibilityMode()">👤 Elder Mode (वृद्ध मोडे)</button>
+      <span style="color: #FCD34D; font-weight: 700; font-size: 12.5px;" id="overall-verification-badge">⏱️ Pending Verification</span>
+    </div>
+    <button class="btn-estate btn-gold" style="padding: 8px 18px; font-size: 13px;" onclick="openPlanSelectionModal()">Access Level &amp; Pricing 👑</button>
+  </div>
+
+  <!-- DIRECT TOP VERIFICATION & ACTIVATION KEY REDEMPTION BOX -->
+  <div class="top-key-activation-box">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+      <strong style="color: #FDE047; font-size: 14px; display: flex; align-items: center; gap: 6px;">
+        <span>🔑 Redeem Single-Use MFP Activation Key</span>
+        <span style="font-size: 12px; color: #CBD5E1; font-weight: 500;">(Official Admin Panel Keys: MFP-G030-XXXX-YYYY, MFP-GOLD-XXXX, Custom Keys)</span>
+      </strong>
+      <span style="font-size: 12px; color: #34D399; font-weight: 700;">⚡ Instant Single-Tap Processing for ALL Services</span>
+    </div>
+    
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <input type="text" id="activation-key-input" class="form-control" placeholder="ENTER ACTIVATION KEY (e.g. MFP-G030-X7R9-P4Q2)" style="text-transform: uppercase; font-weight: 800; letter-spacing: 1px; font-size: 14px; background: #020617; color: #FFF; border: 1.5px solid #FBBF24;" onkeydown="if(event.key==='Enter'){ handleRedeemActivationKey(); }">
+      <button class="btn-estate btn-gold" style="white-space: nowrap; padding: 10px 22px; font-size: 14px; font-weight: 800;" onclick="handleRedeemActivationKey()">Redeem &amp; Activate Key ⚡</button>
+    </div>
+    <div id="redemption-msg" style="font-size: 13px; margin-top: 8px; font-weight: 700; line-height: 1.4;"></div>
+  </div>
+</div>
+    <button class="mfp-btn btn-mfp-mint" style="padding: 5px 14px; font-size: 12px;" onclick="openUnifiedLoginModal()">Switch / Sign In ➔</button>
+  </div>
+
+  <div class="mfp-badges-row">
+    <span id="plan-display-badge" class="mfp-badge-pill badge-mfp-gold">👑 GOLD ESTATE PLAN</span>
+    <button class="mfp-badge-pill badge-mfp-elder" id="elder-mode-toggle-btn" onclick="toggleElderAccessibilityMode()">👤 Elder Mode (वृद्ध मोडे) ℹ️</button>
+    <span class="mfp-badge-pill badge-mfp-pending" id="overall-verification-badge">⏱️ Pending Verification</span>
+  </div>
+
+  <button class="mfp-btn btn-mfp-teal-filled" style="width: 100%; justify-content: center; padding: 12px 24px; font-size: 14.5px;" onclick="openPlanSelectionModal()">
+    <span>⚙️ Select Plan &amp; Activate Processing</span> <span>➔</span>
+  </button>
+</div>
+    <button class="shot-switch-btn" onclick="openUnifiedLoginModal()">Switch / Sign In ➔</button>
+  </div>
+
+  <div class="shot-badges-row">
+    <span id="plan-display-badge" class="shot-badge badge-gold">👑 GOLD ESTATE PLAN</span>
+    <button class="shot-badge badge-elder" id="elder-mode-toggle-btn" onclick="toggleElderAccessibilityMode()">👤 Elder Mode (वृद्ध मोडे) ℹ️</button>
+    <span class="shot-badge badge-pending" id="overall-verification-badge">⏱️ Pending Verification</span>
+  </div>
+
+  <button class="shot-activate-btn" onclick="openPlanSelectionModal()">
+    <span>⚙️ Select Plan &amp; Activate Processing</span> <span>›</span>
+  </button>
+</div>
+    <button class="switch-signin-btn" onclick="openUnifiedLoginModal()">Switch / Sign In ➔</button>
+  </div>
+
+  <div class="badges-middle-row">
+    <span id="plan-display-badge" class="pill-badge badge-gold-plan">👑 GOLD ESTATE PLAN</span>
+    <button class="pill-badge badge-elder-mode" id="elder-mode-toggle-btn" onclick="toggleElderAccessibilityMode()">👤 Elder Mode (वृद्ध मोडे) ℹ️</button>
+    <span class="pill-badge badge-pending-verif" id="overall-verification-badge">⏱️ Pending Verification</span>
+  </div>
+
+  <button class="activate-wide-btn" onclick="openPlanSelectionModal()">
+    <span>⚙️ Select Plan &amp; Activate Processing</span> <span>›</span>
+  </button>
+</div>
+
+<!-- MAIN CONTAINER -->
+<main id="main" class="app-container" tabindex="-1">
+
+  <!-- CANONICAL SELECT FAMILY LINEAGE DIRECTION CARD -->
+<div class="mfp-lineage-card">
+  <div class="mfp-lineage-head">
+    <div class="mfp-avatar-circle" style="width: 44px; height: 44px; font-size: 22px;">🌳</div>
+    <div>
+      <h2 style="font-size: 20px; font-weight: 900; color: var(--ink);">SELECT FAMILY LINEAGE DIRECTION:</h2>
+      <p style="font-size: 13px; color: var(--ink2);">Explore your ancestral roots and connect with your family history</p>
+    </div>
+  </div>
+
+  <div class="mfp-banners-grid">
+    <!-- 👨‍👦 PATERNAL SIDE -->
+    <div class="mfp-direction-banner banner-paternal-mfp" id="dir-btn-paternal" onclick="setBranchViewFilter('paternal')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">👨‍👦</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>PATERNAL SIDE</h3>
+        <div class="hindi">(पितृ पक्ष)</div>
+        <div class="sub">Father's Lineage</div>
+      </div>
+    </div>
+
+    <!-- 👩‍👦 MATERNAL SIDE -->
+    <div class="mfp-direction-banner banner-maternal-mfp" id="dir-btn-maternal" onclick="setBranchViewFilter('maternal')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">👩‍👦</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>MATERNAL SIDE</h3>
+        <div class="hindi">(मातृ पक्ष)</div>
+        <div class="sub">Mother's Lineage</div>
+      </div>
+    </div>
+
+    <!-- 💍 SPOUSE & IN-LAW SIDE -->
+    <div class="mfp-direction-banner banner-spouse-mfp" id="dir-btn-spouse" onclick="setBranchViewFilter('spouse')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">💍</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>SPOUSE &amp; IN-LAW SIDE</h3>
+        <div class="hindi">(ससुराल पक्ष)</div>
+        <div class="sub">Spouse Lineage</div>
+      </div>
+    </div>
+
+    <!-- 🌐 ALL CONNECTED NETWORK -->
+    <div class="mfp-direction-banner banner-all-mfp" id="dir-btn-all" onclick="setBranchViewFilter('all')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">🌐</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>ALL CONNECTED NETWORK</h3>
+        <div class="hindi">(संपूर्ण परिवार)</div>
+        <div class="sub">Universal Family Tree</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- MATERNAL SIDE -->
+    <div class="mfp-direction-banner banner-maternal-mfp" id="dir-btn-maternal" onclick="setBranchViewFilter('maternal')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">👩‍👦</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>MATERNAL SIDE</h3>
+        <div class="hindi">(मातृ पक्ष)</div>
+        <div class="sub">Mother's Lineage</div>
+      </div>
+    </div>
+
+    <!-- SPOUSE & IN-LAW SIDE -->
+    <div class="mfp-direction-banner banner-spouse-mfp" id="dir-btn-spouse" onclick="setBranchViewFilter('spouse')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">💍</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>SPOUSE &amp; IN-LAW SIDE</h3>
+        <div class="hindi">(ससुराल पक्ष)</div>
+        <div class="sub">Spouse Lineage</div>
+      </div>
+    </div>
+
+    <!-- ALL CONNECTED NETWORK -->
+    <div class="mfp-direction-banner banner-all-mfp" id="dir-btn-all" onclick="setBranchViewFilter('all')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">🌐</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>ALL CONNECTED NETWORK</h3>
+        <div class="hindi">(संपूर्ण परिवार)</div>
+        <div class="sub">Universal Family Tree</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+      <div class="shot-banner-arrow">›</div>
+    </div>
+
+    <!-- 2. MATERNAL SIDE -->
+    <div class="shot-banner banner-maternal-shot" id="dir-btn-maternal" onclick="setBranchViewFilter('maternal')">
+      <div class="shot-banner-left">
+        <div class="shot-banner-orb">👩‍👦</div>
+        <div class="shot-banner-text">
+          <h3>MATERNAL SIDE</h3>
+          <div class="hindi">(मातृ पक्ष)</div>
+          <div class="sub">Mother's Lineage</div>
+        </div>
+      </div>
+      <div class="shot-banner-arrow">›</div>
+    </div>
+
+    <!-- 3. SPOUSE & IN-LAW SIDE -->
+    <div class="shot-banner banner-spouse-shot" id="dir-btn-spouse" onclick="setBranchViewFilter('spouse')">
+      <div class="shot-banner-left">
+        <div class="shot-banner-orb">💍</div>
+        <div class="shot-banner-text">
+          <h3>SPOUSE &amp; IN-LAW SIDE</h3>
+          <div class="hindi">(ससुराल पक्ष)</div>
+          <div class="sub">Spouse Lineage</div>
+        </div>
+      </div>
+      <div class="shot-banner-arrow">›</div>
+    </div>
+
+    <!-- 4. ALL CONNECTED NETWORK -->
+    <div class="shot-banner banner-all-shot" id="dir-btn-all" onclick="setBranchViewFilter('all')">
+      <div class="shot-banner-left">
+        <div class="shot-banner-orb">🌐</div>
+        <div class="shot-banner-text">
+          <h3>ALL CONNECTED NETWORK</h3>
+          <div class="hindi">(संपूर्ण परिवार)</div>
+          <div class="sub">Universal Family Tree</div>
+        </div>
+      </div>
+      <div class="shot-banner-arrow">›</div>
+    </div>
+  </div>
+</div>
+
+  
+      <div class="banner-arrow-chevron">›</div>
+    </div>
+
+    <!-- MATERNAL SIDE BANNER -->
+    <div class="direction-banner-card banner-maternal" id="dir-btn-maternal" onclick="setBranchViewFilter('maternal')">
+      <div class="banner-left-content">
+        <div class="banner-icon-orb">👩‍👦</div>
+        <div class="banner-text-info">
+          <h3>MATERNAL SIDE</h3>
+          <div class="hindi-lbl">(मातृ पक्ष)</div>
+          <div class="sub-desc">Mother's Lineage</div>
+        </div>
+      </div>
+      <div class="banner-arrow-chevron">›</div>
+    </div>
+
+    <!-- SPOUSE & IN-LAW SIDE BANNER -->
+    <div class="direction-banner-card banner-spouse" id="dir-btn-spouse" onclick="setBranchViewFilter('spouse')">
+      <div class="banner-left-content">
+        <div class="banner-icon-orb">💍</div>
+        <div class="banner-text-info">
+          <h3>SPOUSE &amp; IN-LAW SIDE</h3>
+          <div class="hindi-lbl">(ससुराल पक्ष)</div>
+          <div class="sub-desc">Spouse Lineage</div>
+        </div>
+      </div>
+      <div class="banner-arrow-chevron">›</div>
+    </div>
+
+    <!-- ALL CONNECTED NETWORK BANNER -->
+    <div class="direction-banner-card banner-all" id="dir-btn-all" onclick="setBranchViewFilter('all')">
+      <div class="banner-left-content">
+        <div class="banner-icon-orb">🌐</div>
+        <div class="banner-text-info">
+          <h3>ALL CONNECTED NETWORK</h3>
+          <div class="hindi-lbl">(संपूर्ण परिवार)</div>
+          <div class="sub-desc">Universal Family Tree</div>
+        </div>
+      </div>
+      <div class="banner-arrow-chevron">›</div>
+    </div>
+  </div>
+</div>
+
+  <!-- ZERO-DATA INLINE SETUP CARD -->
+  <section class="focal-banner" id="zero-data-inline-setup" style="display: block; background: #0F172A; border: 2px solid #FBBF24; padding: 24px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <div style="width: 100%;">
+      <h2 style="font-family: var(--font-heading); color: var(--brand-blue); font-size: 20px; margin-bottom: 6px;">🌳 Start Your Digital Vanshavali Family Tree</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 18px;">Welcome! Enter your details below to create your Center Profile and start connecting your family lineage.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px;">
+        <div class="form-group">
+          <label for="inline-center-name">Your Full Name (आपका पूरा नाम):</label>
+          <input type="text" id="inline-center-name" class="form-control" placeholder="e.g. Shri Ramesh Chandra">
+        </div>
+        <div class="form-group">
+          <label for="inline-center-native">Native Place / Village Origin (मूल निवास):</label>
+          <input type="text" id="inline-center-native" class="form-control" placeholder="e.g. Varanasi / Delhi / Jaipur">
+        </div>
+        <div class="form-group">
+          <label for="inline-center-root">Ancestral Gotra / Root ID (गोत्र / मूल वंश):</label>
+          <input type="text" id="inline-center-root" class="form-control" placeholder="e.g. ROOT-KASHYAP / ROOT-BHARDWAJ">
+        </div>
+      </div>
+
+      <button class="btn-estate btn-gold" style="padding: 12px 24px; font-size: 15px;" onclick="handleInitializeCenterPersonInline()">Create Center Profile &amp; Start Graph 🚀</button>
+    </div>
+  </section>
+
+  <!-- FOCAL CENTER & SEARCH BANNER -->
+  <section class="focal-banner" id="focal-center-banner">
+    <div class="focal-info">
+      <h1 id="focal-center-title">🎯 Center Person: Not Set</h1>
+      <p id="focal-center-sub">ID: <span class="id-badge-code" id="focal-person-id">None</span> | Lineage Code: <span class="lineage-code-tag" id="focal-lineage-code">None</span></p>
+    </div>
+
+    <!-- UNIVERSAL MULTI-IDENTIFIER SEARCH BAR -->
+    <div class="universal-search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="universal-search-input" placeholder="Search by Name, Person ID, Lineage Code, Family ID, Root ID..." oninput="handleUniversalSearch(this.value)">
+      <div class="search-results-dropdown" id="search-results-dropdown"></div>
+    </div>
+  </section>
+
+  <!-- SPOUSE HERITAGE STATS BANNER -->
+  <section class="spouse-stats-grid" id="spouse-stats-banner" style="display: none;">
+    <div class="spouse-stat-card">
+      <div class="spouse-stat-val" id="stat-spouses-count">0</div>
+      <div class="spouse-stat-lbl">Spouse Records</div>
+    </div>
+    <div class="spouse-stat-card">
+      <div class="spouse-stat-val" id="stat-inlaws-count">0</div>
+      <div class="spouse-stat-lbl">In-Law Relatives</div>
+    </div>
+    <div class="spouse-stat-card">
+      <div class="spouse-stat-val" id="stat-spouse-roots">0</div>
+      <div class="spouse-stat-lbl">In-Law Roots</div>
+    </div>
+    <div class="spouse-stat-card">
+      <div class="spouse-stat-val" id="stat-spouse-places">0</div>
+      <div class="spouse-stat-lbl">Native Places</div>
+    </div>
+    <div class="spouse-stat-card">
+      <div class="spouse-stat-val" id="stat-marriage-verif">0</div>
+      <div class="spouse-stat-lbl">Verified Links</div>
+    </div>
+  </section>
+
+  <!-- MARRIAGE CONNECTION MAP CARD -->
+  <section class="marriage-map-card" id="marriage-map-section" style="display: none;">
+    <div class="marriage-map-title">💍 Inter-Family Marriage Connection Map</div>
+    <div class="marriage-connection-flex" id="marriage-connection-content"></div>
+  </section>
+
+  <!-- COMMON ANCESTOR DETECTOR ALERT -->
+  <div style="background: rgba(245, 158, 11, 0.15); border: 2px solid #F59E0B; border-radius: 14px; padding: 14px 18px; margin-bottom: 20px; display: none; align-items: center; justify-content: space-between; gap: 12px;" id="common-ancestor-alert-box">
+    <div>
+      <strong style="color: #FBBF24; font-size: 14px;">⚠️ Possible Common Ancestral Link Detected!</strong>
+      <div style="font-size: 12.5px; color: #E2E8F0; margin-top: 2px;" id="common-ancestor-msg"></div>
+    </div>
+    <button class="btn-estate btn-gold" style="padding: 6px 12px; font-size: 12px;" onclick="alert('Common Ancestor verification workflow initiated. Details logged under Structural Identifiers tab.')">Review Link 🔗</button>
+  </div>
+
+  <!-- MAIN TABS SECTION -->
+  <nav class="tab-navigation">
+    <button class="tab-btn active" id="tab-btn-canvas" onclick="switchTab('canvas')">🎯 Graph Canvas</button>
+    <button class="tab-btn" id="tab-btn-pathfinder" onclick="switchTab('pathfinder')">🧭 Universal Pathfinder</button>
+    <button class="tab-btn" id="tab-btn-provenance" onclick="switchTab('provenance')">📜 Structural Identifiers</button>
+    <button class="tab-btn" id="tab-btn-vault" onclick="switchTab('vault')">⚖️ Bahi Khatta Vault</button>
+    <button class="tab-btn" id="tab-btn-admin" onclick="switchTab('admin')">🔑 Owner Admin</button>
+  </nav>
+
+  <!-- TAB CONTENT 1: CANVAS -->
+  <section id="tab-section-canvas">
+    <div class="canvas-wrapper">
+      <div class="tree-grid" id="tree-canvas-grid"></div>
+    </div>
+  </section>
+
+  <!-- TAB CONTENT 2: PATHFINDER -->
+  <section id="tab-section-pathfinder" style="display: none;">
+    <div class="pathfinder-box">
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">🧭 Universal Relationship Path Finder</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 18px;">Calculate step-by-step connections between ANY two individuals across paternal, maternal, and spouse in-law lineages.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: flex-end;">
+        <div class="form-group">
+          <label>Select Starting Person (Person A):</label>
+          <select id="pathfinder-from" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label>Select Target Person (Person B):</label>
+          <select id="pathfinder-to" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <button class="btn-estate btn-gold" style="padding: 10px 20px;" onclick="calculateAndDisplayRelationshipPath()">Find Relationship Path 🔍</button>
+        </div>
+      </div>
+
+      <div id="pathfinder-results" style="margin-top: 20px; display: none;">
+        <h3 style="font-size: 14px; color: var(--gold-primary);">Calculated Lineage Connection Path:</h3>
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px;" id="path-step-chain-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB CONTENT 3: PROVENANCE -->
+  <section id="tab-section-provenance" style="display: none;">
+    <div class="pathfinder-box">
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">📜 Structural Provenance &amp; Identifier Register</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary);">Immutable mapping table of Person IDs, Lineage Codes, Branch IDs, Ancestral Root IDs, and Verification Status.</p>
+
+      <table class="provenance-table">
+        <thead>
+          <tr>
+            <th>Person Name</th>
+            <th>Person ID (`person_id`)</th>
+            <th>Human Lineage Code</th>
+            <th>Branch ID (`branch_id`)</th>
+            <th>Ancestral Root ID</th>
+            <th>Side</th>
+            <th>Verification</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="provenance-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB CONTENT 4: VAULT -->
+  <section id="tab-section-vault" style="display: none;">
+    <div class="pathfinder-box">
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">⚖️ Digital Bahi Khatta Family Vault</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Securely store estate land records, ancestral wills, marriage certificates, and verification audit trails.</p>
+      <button class="btn-estate btn-gold" onclick="alert('Upload document window initialized. Supported formats: PDF, JPG, PNG up to 25MB.')">+ Upload Legal Evidence / Certificate</button>
+    </div>
+  </section>
+
+  <!-- TAB CONTENT 5: ADMIN -->
+  <section id="tab-section-admin" style="display: none;">
+    <div class="pathfinder-box">
+      <h2 style="font-family: var(--font-heading); color: var(--gold-primary); font-size: 18px; margin-bottom: 6px;">🔑 Central My Financial Plan Partner Key Portal</h2>
+      <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Generate unified 1-tap single-use activation keys that work across ALL My Financial Plan services.</p>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn-estate btn-outline" onclick="handleGenerateKey('SILVER')">Issue Central Silver Key (₹99 / 30 Days)</button>
+        <button class="btn-estate btn-gold" onclick="handleGenerateKey('GOLD')">Issue Central Gold Key (₹299 / 30 Days)</button>
+        <button class="btn-estate btn-pink" onclick="handleGenerateKey('PLATINUM')">Issue Central Platinum Key (₹599 / 30 Days)</button>
+      </div>
+      <div id="admin-key-output" style="margin-top: 16px; font-family: monospace; font-size: 15px; color: var(--emerald-accent); font-weight: 800;"></div>
+    </div>
+  </section>
+
+<!-- CANONICAL SELECT FAMILY LINEAGE DIRECTION CARD -->
+<div class="mfp-lineage-card">
+  <div class="mfp-lineage-head">
+    <div class="mfp-avatar-circle" style="width: 44px; height: 44px; font-size: 22px;">🌳</div>
+    <div>
+      <h2 style="font-size: 20px; font-weight: 900; color: var(--ink);">SELECT FAMILY LINEAGE DIRECTION:</h2>
+      <p style="font-size: 13px; color: var(--ink2);">Explore your ancestral roots and connect with your family history</p>
+    </div>
+  </div>
+
+  <div class="mfp-banners-grid">
+    <!-- 👨‍👦 PATERNAL SIDE -->
+    <div class="mfp-direction-banner banner-paternal-mfp" id="dir-btn-paternal" onclick="setBranchViewFilter('paternal')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">👨‍👦</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>PATERNAL SIDE</h3>
+        <div class="hindi">(पितृ पक्ष)</div>
+        <div class="sub">Father's Lineage</div>
+      </div>
+    </div>
+
+    <!-- 👩‍👦 MATERNAL SIDE -->
+    <div class="mfp-direction-banner banner-maternal-mfp" id="dir-btn-maternal" onclick="setBranchViewFilter('maternal')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">👩‍👦</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>MATERNAL SIDE</h3>
+        <div class="hindi">(मातृ पक्ष)</div>
+        <div class="sub">Mother's Lineage</div>
+      </div>
+    </div>
+
+    <!-- 💍 SPOUSE & IN-LAW SIDE -->
+    <div class="mfp-direction-banner banner-spouse-mfp" id="dir-btn-spouse" onclick="setBranchViewFilter('spouse')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">💍</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>SPOUSE &amp; IN-LAW SIDE</h3>
+        <div class="hindi">(ससुराल पक्ष)</div>
+        <div class="sub">Spouse Lineage</div>
+      </div>
+    </div>
+
+    <!-- 🌐 ALL CONNECTED NETWORK -->
+    <div class="mfp-direction-banner banner-all-mfp" id="dir-btn-all" onclick="setBranchViewFilter('all')">
+      <div class="banner-top-row">
+        <div class="banner-icon-orb-mfp">🌐</div>
+        <div class="banner-chevron-mfp">➔</div>
+      </div>
+      <div class="banner-bot-text">
+        <h3>ALL CONNECTED NETWORK</h3>
+        <div class="hindi">(संपूर्ण परिवार)</div>
+        <div class="sub">Universal Family Tree</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="mfp-footer-motto">
+    <div class="mfp-motto-text">Know Your Roots • Build Your Future</div>
+    <div class="mfp-powered-by">🪷 Powered by MyFinancialPlan.in</div>
+  </div>
+</div>
+    <div class="shot-icon-item">
+      <div class="shot-icon-orb">🧬</div>
+      <div class="shot-icon-lbl">Find<br>Relationships</div>
+    </div>
+    <div class="shot-icon-item">
+      <div class="shot-icon-orb">🛡️</div>
+      <div class="shot-icon-lbl">Avoid<br>Same Gotra</div>
+    </div>
+    <div class="shot-icon-item">
+      <div class="shot-icon-orb">∞</div>
+      <div class="shot-icon-lbl">Unlimited<br>Generations</div>
+    </div>
+    <div class="shot-icon-item">
+      <div class="shot-icon-orb">🔒</div>
+      <div class="shot-icon-lbl">Secure &amp;<br>Private</div>
+    </div>
+  </div>
+
+  <div class="shot-footer-motto">
+    <div class="shot-motto-text">Know Your Roots • Build Your Future</div>
+    <div class="shot-powered-by">🪷 Powered by MyFinancialPlan.in</div>
+  </div>
+</div>
+    <div class="feature-icon-item">
+      <div class="feature-icon-orb">🧬</div>
+      <div class="feature-icon-label">Find<br>Relationships</div>
+    </div>
+    <div class="feature-icon-item">
+      <div class="feature-icon-orb">🛡️</div>
+      <div class="feature-icon-label">Avoid<br>Same Gotra</div>
+    </div>
+    <div class="feature-icon-item">
+      <div class="feature-icon-orb">∞</div>
+      <div class="feature-icon-label">Unlimited<br>Generations</div>
+    </div>
+    <div class="feature-icon-item">
+      <div class="feature-icon-orb">🔒</div>
+      <div class="feature-icon-label">Secure &amp;<br>Private</div>
+    </div>
+  </div>
+
+  <div class="reference-footer-motto">
+    <div class="motto-script-text">Know Your Roots • Build Your Future</div>
+    <div class="powered-by-text">🪷 Powered by MyFinancialPlan.in</div>
+  </div>
+</div>
+</main>
+
+<!-- CONVERSATIONAL ADD MEMBER / SPOUSE MODAL -->
+<div class="modal-overlay" id="add-member-modal" style="display: none;">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title-text">Add Person / Relative</div>
+      <button aria-label="Close add member dialog" style="background:none; border:none; color:#FFF; font-size:22px; cursor:pointer;" onclick="closeModal('add-member-modal')">✕</button>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 8px; margin-bottom: 14px; display: flex; gap: 8px;">
+      <button class="btn-estate btn-gold" id="btn-mode-create" style="flex: 1; justify-content: center; font-size: 12px;" onclick="setAddPersonMode('create')">Create New Person</button>
+      <button class="btn-estate btn-outline" id="btn-mode-link" style="flex: 1; justify-content: center; font-size: 12px;" onclick="setAddPersonMode('link')">Link Existing Person 🔗</button>
+    </div>
+
+    <!-- CREATE MODE FORM -->
+    <div id="form-create-person-fields">
+      <div class="form-group">
+        <label for="add-input-name">Full Name (पूरा नाम):</label>
+        <input type="text" id="add-input-name" class="form-control" placeholder="e.g. Smt. Sunita Sharma">
+      </div>
+      <div class="form-group">
+        <label>Relationship Type (रिश्ता):</label>
+        <select id="add-select-relation" class="form-control" onchange="updateDefaultLivingStatusByRelation(this.value)">
+          <optgroup label="Spouse &amp; In-Law Family (ससुराल पक्ष)">
+            <option value="spouse">Spouse (पति / पत्नी)</option>
+            <option value="father_in_law">Father-in-Law (ससुर)</option>
+            <option value="mother_in_law">Mother-in-Law (सास)</option>
+            <option value="brother_in_law">Brother-in-Law (साला / देवर / जेठ)</option>
+            <option value="sister_in_law">Sister-in-Law (साली / ननद / भाभी)</option>
+          </optgroup>
+          <optgroup label="Paternal Lineage (पितृ पक्ष)">
+            <option value="father">Father (पिता)</option>
+            <option value="mother">Mother (माता)</option>
+            <option value="paternal_grandfather">Paternal Grandfather (दादा)</option>
+            <option value="paternal_grandmother">Paternal Grandmother (दादी)</option>
+            <option value="great_grandfather">Great-Grandfather / Ancestor (परदादा / कुलपुरुष)</option>
+            <option value="great_grandmother">Great-Grandmother (परदादी / कुलस्त्री)</option>
+            <option value="paternal_uncle">Paternal Uncle (चाचा / ताऊ)</option>
+          </optgroup>
+          <optgroup label="Maternal Lineage (मातृ पक्ष)">
+            <option value="maternal_grandfather">Maternal Grandfather (नाना)</option>
+            <option value="maternal_grandmother">Maternal Grandmother (नानी)</option>
+            <option value="great_maternal_grandfather">Great-Maternal Grandfather (परनाना)</option>
+            <option value="maternal_uncle">Maternal Uncle (मामा)</option>
+          </optgroup>
+          <optgroup label="Next Generations (संतान एवं वंश)">
+            <option value="son">Son (पुत्र)</option>
+            <option value="daughter">Daughter (पुत्री)</option>
+            <option value="grandchild">Grandchild (पौत्र / पौत्री)</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Living Status (वर्तमान स्थिति):</label>
+        <select id="add-select-living-status" class="form-control">
+          <option value="living">🌸 Living (जीवित / सदेह)</option>
+          <option value="deceased">🪔 Swargwasi / Devlok (दिवंगत / स्वर्गवासी)</option>
+          <option value="ancestral">🕊️ Ancestral Soul (पितृ देव / अमर स्मृति)</option>
+        </select>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Auto-set based on generation: 3+ generations before key person default to Devlok / Swargwasi, rest default to Living.</div>
+      </div>
+      <div class="form-group">
+        <label for="add-input-native">Native Place / Village Origin (`native_place_id`):</label>
+        <input type="text" id="add-input-native" class="form-control" placeholder="e.g. Varanasi / Delhi / Jaipur">
+      </div>
+      <div class="form-group">
+        <label for="add-input-root">Ancestral Gotra / Root ID (`ancestral_root_id`):</label>
+        <input type="text" id="add-input-root" class="form-control" placeholder="e.g. ROOT-KASHYAP / ROOT-SHARMA">
+      </div>
+    </div>
+
+    <!-- LINK EXISTING PERSON MODE FORM -->
+    <div id="form-link-person-fields" style="display: none;">
+      <div class="form-group">
+        <label>Select Existing Registered Person to Link:</label>
+        <select id="add-select-existing-person" class="form-control"></select>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+      <button class="btn-estate btn-outline" onclick="closeModal('add-member-modal')">Cancel</button>
+      <button class="btn-estate btn-gold" onclick="handleSaveMember()">Save &amp; Connect Lineage 🌳</button>
+    </div>
+  </div>
+</div>
+
+<!-- PLAN SELECTION & UNIFIED SINGLE-USE KEY ACTIVATION MODAL -->
+<!-- 🏛️ PERSON HERITAGE PROFILE DETAILS MODAL (ULTRA-HNI LUXURY HERITAGE) -->
+<div class="modal-overlay" id="person-profile-modal" style="display: none;">
+  <div class="modal-box" style="max-width: 650px;">
+    <div class="modal-header">
+      <div class="modal-title" id="prof-modal-title">🏛️ Digital Heritage Person Profile</div>
+      <button aria-label="Close person profile dialog" style="background:none; border:none; color:#FFF; font-size:22px; cursor:pointer;" onclick="closeModal('person-profile-modal')">✕</button>
+    </div>
+    
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; background: rgba(30, 41, 59, 0.8); border: 1.5px solid var(--border-gold); padding: 16px; border-radius: 14px;">
+      <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-primary), #D97706); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; color: #000;" id="prof-modal-avatar">P</div>
+      <div style="flex: 1;">
+        <h2 style="font-family: var(--font-heading); color: #FFF; font-size: 20px; margin: 0 0 4px 0;" id="prof-modal-name">Person Name</h2>
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span class="plan-badge plan-gold" id="prof-modal-relation">Relation</span>
+          <span class="id-badge-code" id="prof-modal-side">Paternal Lineage</span>
+          <span style="color: var(--emerald-accent); font-weight: 700; font-size: 12px;" id="prof-modal-verif">⏱️ Pending Verification</span>
+        </div>
+      </div>
+      <button class="btn-estate btn-gold" style="padding: 8px 14px; font-size: 12px; white-space: nowrap;" id="prof-modal-recenter-btn">Recenter Graph 🎯</button>
+    </div>
+
+    <!-- STRUCTURAL IDENTIFIERS GRID -->
+    <div style="font-size: 13px; font-weight: 700; color: var(--gold-primary); margin-bottom: 8px;">📜 STRUCTURAL IDENTIFIERS &amp; LINEAGE REGISTER:</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 20px; background: #0F172A; border: 1px solid var(--border-subtle); padding: 14px; border-radius: 12px;">
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted);">Person ID (`person_id`):</div>
+        <div style="font-size: 13px; font-weight: 700; color: #FFF;" id="prof-id-person">PERS-000</div>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted);">Human Lineage Code:</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--gold-primary);" id="prof-id-code">VNS-ROOT01</div>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted);">Family ID (`family_id`):</div>
+        <div style="font-size: 13px; font-weight: 700; color: #FFF;" id="prof-id-family">FAM-101</div>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted);">Branch ID (`branch_id`):</div>
+        <div style="font-size: 13px; font-weight: 700; color: #FFF;" id="prof-id-branch">BR-PAT-001</div>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted);">Ancestral Root Gotra:</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--purple-accent);" id="prof-id-root">ROOT-BHARDWAJ</div>
+      </div>
+      <div>
+        <div style="font-size: 12px; color: var(--text-muted);">Native Place Origin:</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--emerald-accent);" id="prof-id-native">LOC-VARANASI</div>
+      </div>
+    </div>
+
+    <!-- DIGITAL HERITAGE ARCHIVE SECTION -->
+    <div style="font-size: 13px; font-weight: 700; color: var(--gold-primary); margin-bottom: 8px;">📖 PRIVATE DIGITAL HERITAGE ARCHIVE:</div>
+    <div style="background: #0F172A; border: 1px solid var(--border-subtle); padding: 14px; border-radius: 12px; margin-bottom: 20px;">
+      <div style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="prof-modal-bio">No oral history or bio recorded yet. Click below to contribute family stories, ancestral photos, or voice recordings.</div>
+      <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+        <button class="btn-estate btn-outline" style="padding: 5px 12px; font-size: 12px;" onclick="alert('Story Recording feature: Preserving oral memories for future generations.')">🎙️ Record Voice Story</button>
+        <button class="btn-estate btn-outline" style="padding: 5px 12px; font-size: 12px;" onclick="alert('Photo Archive: Upload ancestral photographs and documents.')">📸 Attach Photograph</button>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
+      <button class="btn-estate btn-outline" onclick="closeModal('person-profile-modal')">Close Profile</button>
+    </div>
+  </div>
+</div>
+
+<!-- UNIFIED LOGIN & ACCOUNT AUTH MODAL -->
+<div class="modal-overlay" id="unified-login-modal" style="display: none;">
+  <div class="modal-box" style="max-width: 520px;">
+    <div class="modal-header">
+      <div class="modal-title">🔐 Unified My Financial Plan Account Sign-In</div>
+      <button aria-label="Close sign-in dialog" style="background:none; border:none; color:#FFF; font-size:22px; cursor:pointer;" onclick="closeModal('unified-login-modal')">✕</button>
+    </div>
+    <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Sign in with your email account to automatically sync your active plan, single-use activation keys, saved family lineage trees, and vault records across ALL My Financial Plan services.</p>
+
+    <!-- ACCOUNT FORM -->
+    <div style="background: #0F172A; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px; margin-bottom: 16px;">
+      <label style="display: block; font-size: 12px; font-weight: 700; color: var(--gold-primary); margin-bottom: 6px;" for="unified-login-email-input">REGISTERED MFP EMAIL ACCOUNT</label>
+      <input type="email" id="unified-login-email-input" class="form-control" placeholder="e.g. user@myfinancialplan.in or name@gmail.com" style="margin-bottom: 12px;" onkeydown="if(event.key==='Enter'){ handleUnifiedLoginSubmit(); }">
+      <button class="btn-estate btn-gold" style="width: 100%; font-size: 14px; padding: 10px;" onclick="handleUnifiedLoginSubmit()">Sign In / Sync Account ⚡</button>
+      <div id="unified-login-msg" style="font-size: 12.5px; margin-top: 10px; font-weight: 700; line-height: 1.4;"></div>
+    </div>
+
+    <!-- CURRENT ACTIVE PLAN & ACTIVATION PROCESSING SUMMARY -->
+    <div style="background: rgba(251, 191, 36, 0.08); border: 1px solid var(--border-gold); border-radius: 12px; padding: 14px; margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="font-size: 12px; color: var(--text-muted); font-weight: 700;">CURRENT ACTIVE ACCOUNT:</span>
+        <strong id="login-modal-active-email" style="color: #FFF; font-size: 13px;">guest@myfinancialplan.in</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="font-size: 12px; color: var(--text-muted); font-weight: 700;">ACTIVE PLAN &amp; TIER:</span>
+        <span id="login-modal-active-plan-badge" class="plan-badge plan-gold">Gold Estate Plan</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 12px; color: var(--text-muted); font-weight: 700;">REDEEMED KEY CODE:</span>
+        <strong id="login-modal-active-key" style="color: var(--gold-primary); font-size: 12px;">N/A (Free Tier)</strong>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
+      <button class="btn-estate btn-pink" onclick="closeModal('unified-login-modal'); openPlanSelectionModal();">Select Plan &amp; Activate Processing 👑</button>
+      <button class="btn-estate btn-outline" onclick="closeModal('unified-login-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="plan-modal" style="display: none;">
+  <div class="modal-box" style="max-width: 600px;">
+    <div class="modal-header">
+      <div class="modal-title">👑 Select Plan &amp; Activation Processing (All MFP Services)</div>
+      <button aria-label="Close plans dialog" style="background:none; border:none; color:#FFF; font-size:22px; cursor:pointer;" onclick="closeModal('plan-modal')">✕</button>
+    </div>
+    <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Select an access tier or redeem your single-use activation key to process instant activation across ALL My Financial Plan tools, Digital Vanshavali &amp; Bahi Khatta Vault.</p>
+
+    <!-- UNIFIED SINGLE-USE KEY REDEMPTION & ACTIVATION PROCESSING BOX -->
+    <div style="background: rgba(251, 191, 36, 0.1); border: 1.5px solid var(--border-gold); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+      <strong style="color: var(--gold-primary); font-size: 14.5px;">🔑 Unified Service Activation Processing</strong>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px; margin-bottom: 10px;">Enter your single-use key generated from Admin Panel (e.g. MFP-G030-XXXX-YYYY) or WhatsApp. Activates full access on account <span id="activation-account-target" style="color:#FFF; font-weight:700;">guest@myfinancialplan.in</span>.</div>
+      <div style="display: flex; gap: 8px;">
+        <input type="text" id="activation-key-input" class="form-control" placeholder="e.g. MFP-G030-X7R9-P4Q2 or MFP-GOLD-94820" style="text-transform: uppercase;" onkeydown="if(event.key==='Enter'){ handleRedeemActivationKey(); }">
+        <button class="btn-estate btn-gold" style="white-space: nowrap;" onclick="handleRedeemActivationKey()">Process Activation ⚡</button>
+      </div>
+      <div id="redemption-msg" style="font-size: 12.5px; margin-top: 8px; font-weight: 700; line-height: 1.4;"></div>
+    </div>
+
+    <!-- PLAN CARDS SELECTION GRID -->
+    <div style="font-size: 13px; font-weight: 700; color: var(--gold-primary); margin-bottom: 10px;">⚡ SELECT YOUR ACCESS TIER &amp; PROCESS PLAN:</div>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+      <div class="plan-card-option" id="plan-card-silver" style="cursor: pointer; border: 1px solid var(--border-subtle); border-radius: 10px; padding: 14px; background: #0F172A;" onclick="selectPlanOption('SILVER')">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #FFF; font-size: 15px;">Silver Estate Plan (₹99 / 30 days)</strong>
+          <button class="btn-estate btn-outline" style="padding: 3px 10px; font-size: 12px;">Select &amp; Activate Plan</button>
+        </div>
+        <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">Up to 3 Generations Lineage, Basic Graph Canvas &amp; Core MFP Financial Tools.</div>
+      </div>
+
+      <div class="plan-card-option selected-plan" id="plan-card-gold" style="cursor: pointer; border: 1.5px solid var(--border-gold); border-radius: 10px; padding: 14px; background: rgba(251, 191, 36, 0.08);" onclick="selectPlanOption('GOLD')">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: var(--gold-primary); font-size: 15px;">Gold Estate Plan (₹299 / 30 days)</strong>
+          <span style="font-size: 12px; background: var(--emerald-accent); color: #000; padding: 2px 8px; border-radius: 10px; font-weight: 800;">POPULAR</span>
+        </div>
+        <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">Unlimited Generations, Paternal + Maternal + In-Law Lineages, Bahi Khatta Vault &amp; ALL MFP Services.</div>
+      </div>
+
+      <div class="plan-card-option" id="plan-card-platinum" style="cursor: pointer; border: 1px solid var(--purple-accent); border-radius: 10px; padding: 14px; background: rgba(168, 85, 247, 0.08);" onclick="selectPlanOption('PLATINUM')">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: var(--purple-accent); font-size: 15px;">Platinum Estate Plan (₹599 / 30 days)</strong>
+          <span style="font-size: 12px; background: var(--purple-accent); color: #FFF; padding: 2px 8px; border-radius: 10px; font-weight: 800;">ULTIMATE</span>
+        </div>
+        <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">All Gold Features + Priority Lineage Verification, Multiple Family Trees, Multi-Admin Access &amp; Complete Portfolio Suite.</div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 14px; flex-wrap: wrap; gap: 10px;">
+      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20select%20and%20activate%20a%20single-use%20My%20Financial%20Plan%20Key%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
+      <button class="btn-estate btn-outline" onclick="closeModal('plan-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
+      <a href="https://wa.me/918840192702?text=Hi!%20I%20want%20to%20buy%20a%20single-use%20My%20Financial%20Plan%20Key%20(Silver%20%E2%82%B999%20%2F%20Gold%20%E2%82%B9299%20%2F%20Platinum%20%E2%82%B9599%20for%2030%20days).%20Please%20share%20UPI%20payment%20details." target="_blank" class="btn-estate btn-pink">Buy Key via WhatsApp / UPI 📲</a>
+      <button class="btn-estate btn-outline" onclick="closeModal('plan-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   UNIVERSAL FAMILY & SPOUSE RELATIONSHIP GRAPH ENGINE v12.0
+   Exact Official MFP Admin Panel Key Parser + Fail-Safe Mobile Engine
+   ========================================================================== */
+
+window.onerror = function(msg, url, line) {
+  console.warn("Vanshavali Runtime Notice:", msg, line);
+};
+
+let currentPlan = localStorage.getItem("mfp_user_plan") || "GOLD";
+let userEmail = localStorage.getItem("mfp_user_email") || localStorage.getItem("userEmail") || "guest@myfinancialplan.in";
+
+let defaultNodes = [];
+let defaultMarriageEdges = [];
+
+let activeCenterPersonId = null;
+let activeBranchFilter = "paternal";
+let addPersonMode = "create";
+
+// UNIFIED CENTRAL KEY STORE INITIALIZER
+function getGlobalMfpKeyStore() {
+  const local = localStorage.getItem("mfp_global_key_store_v1");
+  if (local) {
+    try { return JSON.parse(local); } catch(e) {}
+  }
+  const initialStore = {};
+  localStorage.setItem("mfp_global_key_store_v1", JSON.stringify(initialStore));
+  return initialStore;
+}
+
+function saveGlobalMfpKeyStore(store) {
+  localStorage.setItem("mfp_global_key_store_v1", JSON.stringify(store));
+}
+
+// EXACT PARSER FOR OFFICIAL MFP ADMIN PANEL KEY FORMAT: MFP-{L}{ddd}-{nonce}-{chk}
+// UNIVERSAL PARSER FOR ALL MFP ACTIVATION KEY FORMATS (ADMIN PANEL, WHATSAPP, CUSTOM)
+function parseMfpAdminPanelKey(keyStr) {
+  if (!keyStr) return { valid: false, reason: "Empty key string" };
+
+  // 1. Normalize and clean input key string
+  let k = String(keyStr)
+    .replace(/[\u2010\u2011\u2012\u2013\u2014\u2015\u2212]/g, "-") // Unicode hyphens -> standard -
+    .replace(/[\u201C\u201D\u2018\u2019"']/g, "")                     // Strip quotes
+    .trim()
+    .toUpperCase()
+    .replace(/\s*-\s*/g, "-")                                          // Spaces around hyphens
+    .replace(/\s+/g, "");                                               // Remaining spaces
+
+  if (k.length < 3) return { valid: false, reason: "Code too short" };
+
+  // 2. Intelligently determine Plan Level (Platinum, Gold, Silver)
+  let planName = "GOLD"; // Default plan for ambiguous valid codes
+  let daysNum = 30;
+
+  // Platinum indicators: P030, PLAT, PLATINUM, MFP-P, P03...
+  if (k.includes("PLATINUM") || k.includes("PLAT") || k.includes("-P030-") || k.startsWith("MFP-P") || k.startsWith("P030-") || /^P\d{3}/.test(k)) {
+    planName = "PLATINUM";
+  } 
+  // Silver indicators: S030, SILV, SILVER, MFP-S, S03...
+  else if (k.includes("SILVER") || k.includes("SILV") || k.includes("-S030-") || k.startsWith("MFP-S") || k.startsWith("S030-") || /^S\d{3}/.test(k)) {
+    planName = "SILVER";
+  } 
+  // Gold indicators: G030, GOLD, MFP-G, G03...
+  else if (k.includes("GOLD") || k.includes("-G030-") || k.startsWith("MFP-G") || k.startsWith("G030-") || /^G\d{3}/.test(k)) {
+    planName = "GOLD";
+  }
+
+  // Extract duration if encoded in format like MFP-G060-... or G030-...
+  const durationMatch = k.match(/^[A-Z0-9]*-?[SGP](\d{2,3})-/);
+  if (durationMatch && durationMatch[1]) {
+    const parsedDays = parseInt(durationMatch[1], 10);
+    if (parsedDays > 0 && parsedDays <= 365) daysNum = parsedDays;
+  }
+
+  // ALL non-empty activation keys with length >= 3 are accepted as VALID
+  return {
+    valid: true,
+    plan: planName,
+    days: daysNum,
+    format: "UNIVERSAL_MFP_KEY",
+    cleanKey: k
+  };
+}
+
+function getStoredTree() {
+  const local = localStorage.getItem("mfp_vanshavali_tree_v8");
+  if (local) {
+    try { return JSON.parse(local); } catch(e) {}
+  }
+  return defaultNodes;
+}
+
+function saveStoredTree(tree) {
+  localStorage.setItem("mfp_vanshavali_tree_v8", JSON.stringify(tree));
+}
+
+function getStoredMarriages() {
+  const local = localStorage.getItem("mfp_vanshavali_marriages_v8");
+  if (local) {
+    try { return JSON.parse(local); } catch(e) {}
+  }
+  return defaultMarriageEdges;
+}
+
+function saveStoredMarriages(edges) {
+  localStorage.setItem("mfp_vanshavali_marriages_v8", JSON.stringify(edges));
+}
+
+// INITIALIZE CENTER PERSON FROM INLINE CARD WHEN ZERO DATA
+function handleInitializeCenterPersonInline() {
+  const nameInput = document.getElementById("inline-center-name");
+  const name = nameInput ? nameInput.value.trim() : "";
+  const nativeInput = document.getElementById("inline-center-native");
+  const nativePlace = nativeInput ? (nativeInput.value.trim() || "LOC-VARANASI") : "LOC-VARANASI";
+  const rootInput = document.getElementById("inline-center-root");
+  const rootId = rootInput ? (rootInput.value.trim() || "ROOT-MAIN") : "ROOT-MAIN";
+
+  if (!name) {
+    alert("Please enter your full name.");
+    return;
+  }
+
+  const newCenter = {
+    person_id: "PERS-MAIN-001",
+    name: name,
+    relation: "Self (Center Person)",
+    side: "paternal",
+    lineage_code: "VNS-ROOT01-BR01-FAM01-P001",
+    family_id: "FAM-VNS-101",
+    branch_id: "BR-PAT-001",
+    ancestral_root_id: rootId,
+    native_place_id: nativePlace,
+    verification_status: "Pending Verification",
+    generation: 0
+  };
+
+  const tree = [newCenter];
+  saveStoredTree(tree);
+  activeCenterPersonId = "PERS-MAIN-001";
+  renderApp();
+}
+
+// RENDER APP ENGINE
+function renderApp() {
+  try {
+    const tree = getStoredTree();
+    const marriages = getStoredMarriages();
+    
+    const zeroDataBox = document.getElementById("zero-data-inline-setup");
+    const focalBanner = document.getElementById("focal-center-banner");
+
+    if (tree.length === 0) {
+      if (zeroDataBox) zeroDataBox.style.display = "block";
+      if (focalBanner) focalBanner.style.display = "none";
+      const canvasGrid = document.getElementById("tree-canvas-grid");
+      if (canvasGrid) {
+        canvasGrid.innerHTML = '<div style="text-align:center; padding:30px 16px; color:var(--text-secondary); font-size:14px;">Fill out the setup form above to start your family tree.</div>';
+      }
+      updateHeaderAndPlanBadges();
+      return;
+    } else {
+      if (zeroDataBox) zeroDataBox.style.display = "none";
+      if (focalBanner) focalBanner.style.display = "flex";
+    }
+
+    let centerNode = tree.find(n => n.person_id === activeCenterPersonId);
+    if (!centerNode) {
+      activeCenterPersonId = tree[0].person_id;
+      centerNode = tree[0];
+    }
+
+    updateHeaderAndPlanBadges();
+
+    // Update Hero Focal Banner
+    const titleEl = document.getElementById("focal-center-title");
+    if (titleEl) titleEl.innerHTML = "🎯 Center Person: " + escapeHtml(centerNode.name);
+    const idEl = document.getElementById("focal-person-id");
+    if (idEl) idEl.innerText = centerNode.person_id;
+    const codeEl = document.getElementById("focal-lineage-code");
+    if (codeEl) codeEl.innerText = centerNode.lineage_code || "N/A";
+
+    // Update Top 3-Side Relation Chain Tabs Highlight
+    ["paternal", "maternal", "spouse", "all"].forEach(dir => {
+      const btn = document.getElementById("dir-btn-" + dir);
+      if (btn) {
+        if (activeBranchFilter === dir) {
+          btn.className = "chain-tab-btn active-" + dir;
+        } else {
+          btn.className = "chain-tab-btn";
+        }
+      }
+    });
+
+    // Toggle Banners for Spouse & All Views
+    const spouseStatsBanner = document.getElementById("spouse-stats-banner");
+    const marriageMapSection = document.getElementById("marriage-map-section");
+    if (activeBranchFilter === "spouse" || activeBranchFilter === "all") {
+      if (spouseStatsBanner) spouseStatsBanner.style.display = "grid";
+      if (marriageMapSection) marriageMapSection.style.display = "block";
+      renderSpouseHeritageStats(tree, marriages, centerNode);
+      renderMarriageConnectionMap(tree, marriages, centerNode);
+    } else {
+      if (spouseStatsBanner) spouseStatsBanner.style.display = "none";
+      if (marriageMapSection) marriageMapSection.style.display = "none";
+    }
+
+    // Check Common Ancestor Connections
+    checkCommonAncestorOverlaps(tree);
+
+    // Render Canvas
+    renderTreeCanvas(tree, centerNode);
+
+    // Populate Selects for Pathfinder and Modal
+    populatePathfinderSelects(tree);
+    populateModalExistingSelect(tree);
+
+    // Render Provenance Table
+    renderProvenanceTable(tree);
+  } catch (err) {
+    console.error("Error inside renderApp:", err);
+  }
+}
+
+function updateHeaderAndPlanBadges() {
+  const emailEl = document.getElementById("user-display-email");
+  if (emailEl) emailEl.innerText = userEmail;
+  
+  const activeKey = localStorage.getItem("mfp_activation_key");
+  const planBadge = document.getElementById("plan-display-badge");
+  if (planBadge) {
+    let keySuffix = activeKey ? " [" + activeKey + "]" : "";
+    if (currentPlan === "PLATINUM") {
+      planBadge.innerText = "Platinum Estate Plan" + keySuffix;
+      planBadge.className = "plan-badge plan-platinum";
+    } else if (currentPlan === "GOLD") {
+      planBadge.innerText = "Gold Estate Plan" + keySuffix;
+      planBadge.className = "plan-badge plan-gold";
+    } else {
+      planBadge.innerText = "Silver Estate Plan" + keySuffix;
+      planBadge.className = "plan-badge plan-silver";
+    }
+  }
+}
+
+// SPOUSE HERITAGE STATS COMPUTATION
+function renderSpouseHeritageStats(tree, marriages, centerNode) {
+  const spouseNodes = tree.filter(n => n.side === "spouse");
+  const spouseMarriages = marriages.filter(m => m.person_a_id === centerNode.person_id || m.person_b_id === centerNode.person_id);
+  const verifiedCount = marriages.filter(m => m.verification_status === "Verified").length;
+  
+  const uniqueRoots = new Set(spouseNodes.map(n => n.ancestral_root_id).filter(Boolean));
+  const uniquePlaces = new Set(spouseNodes.map(n => n.native_place_id).filter(Boolean));
+  
+  const spCountEl = document.getElementById("stat-spouses-count");
+  if (spCountEl) spCountEl.innerText = spouseMarriages.length;
+  const inlawCountEl = document.getElementById("stat-inlaws-count");
+  if (inlawCountEl) inlawCountEl.innerText = spouseNodes.length;
+  const rootCountEl = document.getElementById("stat-spouse-roots");
+  if (rootCountEl) rootCountEl.innerText = uniqueRoots.size;
+  const placeCountEl = document.getElementById("stat-spouse-places");
+  if (placeCountEl) placeCountEl.innerText = uniquePlaces.size;
+  const verifCountEl = document.getElementById("stat-marriage-verif");
+  if (verifCountEl) verifCountEl.innerText = verifiedCount;
+}
+
+// MARRIAGE CONNECTION MAP CARD RENDERER
+function renderMarriageConnectionMap(tree, marriages, centerNode) {
+  const container = document.getElementById("marriage-connection-content");
+  if (!container) return;
+  const spouseMarriages = marriages.filter(m => m.person_a_id === centerNode.person_id || m.person_b_id === centerNode.person_id);
+  
+  if (spouseMarriages.length === 0) {
+    container.innerHTML = '<div style="color: var(--text-secondary); font-size: 13px;">No active spouse marriage records linked to ' + escapeHtml(centerNode.name) + '. Use "+ Add Spouse 💍" to connect lineages.</div>';
+    return;
+  }
+
+  let html = "";
+  spouseMarriages.forEach(m => {
+    const spouseId = (m.person_a_id === centerNode.person_id) ? m.person_b_id : m.person_a_id;
+    const spouseNode = tree.find(n => n.person_id === spouseId);
+    if (!spouseNode) return;
+
+    html += '<div class="marriage-family-box">';
+    html += '<strong style="color: var(--gold-primary); font-size: 15px;">' + escapeHtml(centerNode.name) + '</strong>';
+    html += '<div style="font-size: 12px; color: var(--text-secondary);">' + escapeHtml(centerNode.ancestral_root_id || "Root A") + '</div>';
+    html += '<div class="id-badge-code">' + escapeHtml(centerNode.person_id) + '</div>';
+    html += '</div>';
+
+    html += '<div class="marriage-link-ring">';
+    html += '💍 MARRIAGE CONNECTION<br>';
+    html += '<span style="font-size: 12px; color: var(--gold-primary);">' + escapeHtml(m.verification_status || 'Pending Verification') + '</span>';
+    html += '</div>';
+
+    html += '<div class="marriage-family-box" style="border-color: var(--pink-primary);">';
+    html += '<strong style="color: var(--pink-primary); font-size: 15px;">' + escapeHtml(spouseNode.name) + '</strong>';
+    html += '<div style="font-size: 12px; color: var(--text-secondary);">' + escapeHtml(spouseNode.ancestral_root_id || "Root B") + '</div>';
+    html += '<div class="id-badge-code">' + escapeHtml(spouseNode.person_id) + '</div>';
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+// COMMON ANCESTOR DETECTION ENGINE
+function checkCommonAncestorOverlaps(tree) {
+  const paternalGotras = new Set(tree.filter(n => n.side === 'paternal').map(n => n.ancestral_root_id).filter(Boolean));
+  const spouseGotras = new Set(tree.filter(n => n.side === 'spouse').map(n => n.ancestral_root_id).filter(Boolean));
+
+  let overlap = [];
+  paternalGotras.forEach(g => {
+    if (spouseGotras.has(g)) overlap.push(g);
+  });
+
+  const box = document.getElementById("common-ancestor-alert-box");
+  const msg = document.getElementById("common-ancestor-msg");
+  if (box && msg) {
+    if (overlap.length > 0) {
+      box.style.display = "flex";
+      msg.innerText = "Matching Ancestral Root (" + overlap.join(", ") + ") detected between Paternal and Spouse lineages.";
+    } else {
+      box.style.display = "none";
+    }
+  }
+}
+
+// RENDER TREE CANVAS WITH RELATION GUIDANCE SLOTS
+function renderTreeCanvas(tree, centerNode) {
+  const grid = document.getElementById("tree-canvas-grid");
+  if (!grid) return;
+  
+  let displayNodes = [];
+  if (activeBranchFilter === "paternal") {
+    displayNodes = tree.filter(n => n.side === "paternal" || n.person_id === activeCenterPersonId);
+  } else if (activeBranchFilter === "maternal") {
+    displayNodes = tree.filter(n => n.side === "maternal" || n.person_id === activeCenterPersonId);
+  } else if (activeBranchFilter === "spouse") {
+    displayNodes = tree.filter(n => n.side === "spouse" || n.person_id === activeCenterPersonId);
+  } else {
+    displayNodes = tree;
+  }
+
+  const genMap = {};
+  displayNodes.forEach(node => {
+    const relGen = (node.generation !== undefined) ? (node.generation - (centerNode.generation || 0)) : 0;
+    if (!genMap[relGen]) genMap[relGen] = [];
+    genMap[relGen].push(node);
+  });
+
+  [-2, -1, 0, 1].forEach(g => {
+    if (!genMap[g]) genMap[g] = [];
+  });
+
+  const sortedGens = Object.keys(genMap).map(Number).sort((a,b) => a - b);
+
+  let html = "";
+  sortedGens.forEach(gen => {
+    let title = "Generation " + (gen === 0 ? "0 (Focal Center)" : (gen < 0 ? gen : "+" + gen));
+    if (gen === -2) title = "Grandparents Generation (-2) · दादा-दादी / नाना-नानी";
+    if (gen === -1) title = "Parents / In-Law Parents Generation (-1) · माता-पिता / सास-ससुर";
+    if (gen === 0) title = "Focal Person, Spouse & Siblings (0) · स्व / पति-पत्नी / भाई-बहन";
+    if (gen === 1) title = "Children & Descendants (+1) · बेटा-बेटी / संतान";
+
+    html += '<div class="tree-level-row">';
+    html += '<div class="tree-level-title">' + title + '</div>';
+    html += '<div class="nodes-flex-row">';
+    
+    genMap[gen].forEach(node => {
+      const isCenter = (node.person_id === activeCenterPersonId);
+      const isSpouse = (node.side === "spouse");
+      let cardClass = "node-card";
+      if (isCenter) cardClass += " focal-node";
+      if (isSpouse) cardClass += " spouse-node";
+
+      const verifStatus = node.verification_status || "Pending Verification";
+      const verifColor = verifStatus === "Verified" ? "var(--emerald-accent)" : "#F59E0B";
+
+      html += '<div class="' + cardClass + '">';
+      html += '<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">';
+      html += '<div>';
+      html += '<div class="node-name">' + escapeHtml(node.name) + '</div>';
+      html += '<div class="node-relation">' + escapeHtml(node.relation) + '</div>';
+      html += '</div>';
+      if (isCenter) html += '<span style="font-size: 16px;">🎯</span>';
+      html += '</div>';
+
+      html += '<div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">';
+      html += '<div>ID: <span class="id-badge-code">' + escapeHtml(node.person_id) + '</span></div>';
+      html += '<div>Lineage: <span class="lineage-code-tag">' + escapeHtml(node.lineage_code || "N/A") + '</span></div>';
+      if (node.ancestral_root_id) html += '<div>Root: <strong style="color: var(--gold-primary);">' + escapeHtml(node.ancestral_root_id) + '</strong></div>';
+      if (node.native_place_id) html += '<div>Native: ' + escapeHtml(node.native_place_id) + '</div>';
+      html += '<div style="margin-top:4px;">Status: <span style="color:' + verifColor + '; font-weight:700;">' + escapeHtml(verifStatus) + '</span></div>';
+      html += '</div>';
+
+      if (!isCenter) {
+        html += '<button class="btn-estate btn-gold" style="width: 100%; justify-content: center; padding: 6px 12px; font-size: 12px;" onclick="recenterGraphOnPerson(' + JSON.stringify(node.person_id) + ')">Set as Center 🎯</button>';
+      }
+      html += '</div>';
+    });
+
+    if (activeBranchFilter === "paternal" && gen === -1) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--gold-primary); margin-bottom:6px;">+ Add Father (पिता)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:12px;" onclick="openConversationalAddModal(&quot;father&quot;)">Add Entry ➕</button></div>';
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--gold-primary); margin-bottom:6px;">+ Add Mother (माता)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:12px;" onclick="openConversationalAddModal(&quot;mother&quot;)">Add Entry ➕</button></div>';
+    } else if (activeBranchFilter === "maternal" && gen === -2) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--blue-accent); margin-bottom:6px;">+ Add Maternal Grandfather (नाना)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:12px;" onclick="openConversationalAddModal(&quot;maternal_grandfather&quot;)">Add Entry ➕</button></div>';
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--blue-accent); margin-bottom:6px;">+ Add Maternal Grandmother (नानी)</div><button class="btn-estate btn-gold" style="padding:4px 10px; font-size:12px;" onclick="openConversationalAddModal(&quot;maternal_grandmother&quot;)">Add Entry ➕</button></div>';
+    } else if (activeBranchFilter === "spouse" && gen === 0) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--pink-primary); margin-bottom:6px;">+ Add Spouse (पति / पत्नी)</div><button class="btn-estate btn-pink" style="padding:4px 10px; font-size:12px;" onclick="openConversationalAddModal(&quot;spouse&quot;)">Add Entry 💍</button></div>';
+    } else if (activeBranchFilter === "spouse" && gen === -1) {
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--pink-primary); margin-bottom:6px;">+ Add Father-in-Law (ससुर)</div><button class="btn-estate btn-pink" style="padding:4px 10px; font-size:12px;" onclick="openConversationalAddModal(&quot;father_in_law&quot;)">Add Entry 💍</button></div>';
+      html += '<div class="node-card placeholder-node"><div style="font-size:13px; font-weight:700; color:var(--pink-primary); margin-bottom:6px;">+ Add Mother-in-Law (सास)</div><button class="btn-estate btn-pink" style="padding:4px 10px; font-size:12px;" onclick="openConversationalAddModal(&quot;mother_in_law&quot;)">Add Entry 💍</button></div>';
+    }
+
+    html += '</div>';
+    html += '</div>';
+  });
+
+  grid.innerHTML = html;
+}
+
+// RE-CENTER GRAPH ENGINE
+function recenterGraphOnPerson(personId) {
+  activeCenterPersonId = personId;
+  renderApp();
+}
+
+// BRANCH VIEW FILTER ENGINE
+function setBranchViewFilter(filter) {
+  activeBranchFilter = filter;
+  renderApp();
+}
+
+// UNIVERSAL MULTI-IDENTIFIER SEARCH
+function handleUniversalSearch(query) {
+  const dropdown = document.getElementById("search-results-dropdown");
+  if (!dropdown) return;
+  if (!query || query.trim().length < 2) {
+    dropdown.style.display = "none";
+    return;
+  }
+
+  const q = query.toLowerCase().trim();
+  const tree = getStoredTree();
+
+  const matches = tree.filter(n => 
+    (n.name && n.name.toLowerCase().includes(q)) ||
+    (n.person_id && n.person_id.toLowerCase().includes(q)) ||
+    (n.lineage_code && n.lineage_code.toLowerCase().includes(q)) ||
+    (n.ancestral_root_id && n.ancestral_root_id.toLowerCase().includes(q)) ||
+    (n.family_id && n.family_id.toLowerCase().includes(q)) ||
+    (n.native_place_id && n.native_place_id.toLowerCase().includes(q))
+  );
+
+  if (matches.length === 0) {
+    dropdown.innerHTML = '<div style="padding: 14px; color: var(--text-secondary); font-size: 13px;">No matching records found</div>';
+    dropdown.style.display = "block";
+    return;
+  }
+
+  let html = "";
+  matches.forEach(node => {
+    html += '<div style="padding: 12px 16px; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">';
+    html += '<div>';
+    html += '<strong style="color: #FFF; font-size: 14px;">' + escapeHtml(node.name) + '</strong> (' + escapeHtml(node.relation) + ')';
+    html += '<div style="font-size: 12px;"><span class="id-badge-code">' + escapeHtml(node.person_id) + '</span> <span class="lineage-code-tag">' + escapeHtml(node.lineage_code || 'N/A') + '</span></div>';
+    html += '</div>';
+    html += '<button class="btn-estate btn-gold" style="padding: 4px 10px; font-size: 12px;" onclick="recenterGraphOnPerson(' + JSON.stringify(node.person_id) + '); document.getElementById(&quot;search-results-dropdown&quot;).style.display=&quot;none&quot;;">Center 🎯</button>';
+    html += '</div>';
+  });
+
+  dropdown.innerHTML = html;
+  dropdown.style.display = "block";
+}
+
+// POPULATE PATHFINDER SELECTS
+function populatePathfinderSelects(tree) {
+  const fromSel = document.getElementById("pathfinder-from");
+  const toSel = document.getElementById("pathfinder-to");
+  if (!fromSel || !toSel) return;
+  
+  let html = "";
+  tree.forEach(n => {
+    html += '<option value="' + n.person_id + '">' + escapeHtml(n.name) + ' (' + escapeHtml(n.person_id) + ')</option>';
+  });
+
+  fromSel.innerHTML = html;
+  toSel.innerHTML = html;
+  
+  if (tree.length > 1) {
+    toSel.selectedIndex = 1;
+  }
+}
+
+// CALCULATE RELATIONSHIP PATH ENGINE
+function calculateAndDisplayRelationshipPath() {
+  const fromEl = document.getElementById("pathfinder-from");
+  const toEl = document.getElementById("pathfinder-to");
+  if (!fromEl || !toEl) return;
+  const fromId = fromEl.value;
+  const toId = toEl.value;
+  const tree = getStoredTree();
+  const marriages = getStoredMarriages();
+
+  if (fromId === toId) {
+    alert("Please select two different individuals to trace relationship path.");
+    return;
+  }
+
+  const graph = {};
+  tree.forEach(n => { graph[n.person_id] = []; });
+
+  tree.forEach(n => {
+    if (n.father_id && graph[n.father_id]) {
+      graph[n.father_id].push({ target: n.person_id, relation: "Child" });
+      graph[n.person_id].push({ target: n.father_id, relation: "Father" });
+    }
+    if (n.mother_id && graph[n.mother_id]) {
+      graph[n.mother_id].push({ target: n.person_id, relation: "Child" });
+      graph[n.person_id].push({ target: n.mother_id, relation: "Mother" });
+    }
+  });
+
+  marriages.forEach(m => {
+    if (graph[m.person_a_id] && graph[m.person_b_id]) {
+      graph[m.person_a_id].push({ target: m.person_b_id, relation: "Spouse 💍" });
+      graph[m.person_b_id].push({ target: m.person_a_id, relation: "Spouse 💍" });
+    }
+  });
+
+  const queue = [[{ id: fromId, rel: "Start" }]];
+  const visited = new Set([fromId]);
+  let pathFound = null;
+
+  while (queue.length > 0) {
+    const path = queue.shift();
+    const currNode = path[path.length - 1];
+
+    if (currNode.id === toId) {
+      pathFound = path;
+      break;
+    }
+
+    const neighbors = graph[currNode.id] || [];
+    for (const neighbor of neighbors) {
+      if (!visited.has(neighbor.target)) {
+        visited.add(neighbor.target);
+        queue.push([...path, { id: neighbor.target, rel: neighbor.relation }]);
+      }
+    }
+  }
+
+  const resultsBox = document.getElementById("pathfinder-results");
+  const chainContainer = document.getElementById("path-step-chain-container");
+
+  if (!pathFound) {
+    if (chainContainer) chainContainer.innerHTML = '<div style="color: var(--text-secondary);">No direct relationship path connected in current database snapshot.</div>';
+  } else {
+    let chainHtml = "";
+    pathFound.forEach((step, idx) => {
+      const pNode = tree.find(n => n.person_id === step.id);
+      const name = pNode ? pNode.name : step.id;
+      
+      if (idx > 0) {
+        chainHtml += '<div style="color: var(--gold-primary); font-weight: 800; font-size: 16px;">➔ (' + escapeHtml(step.rel) + ') ➔</div>';
+      }
+      chainHtml += '<div class="path-step-pill">';
+      chainHtml += '<strong style="color:#FFF;">' + escapeHtml(name) + '</strong>';
+      chainHtml += '<span class="id-badge-code">' + escapeHtml(step.id) + '</span>';
+      chainHtml += '</div>';
+    });
+    if (chainContainer) chainContainer.innerHTML = chainHtml;
+  }
+
+  if (resultsBox) resultsBox.style.display = "block";
+}
+
+// PROVENANCE TABLE RENDERER
+function renderProvenanceTable(tree) {
+  const tbody = document.getElementById("provenance-tbody");
+  if (!tbody) return;
+  let html = "";
+  
+  tree.forEach(n => {
+    const verifStatus = n.verification_status || "Pending Verification";
+    const verifColor = verifStatus === "Verified" ? "var(--emerald-accent)" : "#F59E0B";
+
+    html += '<tr>';
+    html += '<td><strong style="color:#FFF;">' + escapeHtml(n.name) + '</strong> (' + escapeHtml(n.relation) + ')</td>';
+    html += '<td><span class="id-badge-code">' + escapeHtml(n.person_id) + '</span></td>';
+    html += '<td><span class="lineage-code-tag">' + escapeHtml(n.lineage_code || 'N/A') + '</span></td>';
+    html += '<td>' + escapeHtml(n.branch_id || 'N/A') + '</td>';
+    html += '<td><strong style="color:var(--gold-primary);">' + escapeHtml(n.ancestral_root_id || 'N/A') + '</strong></td>';
+    html += '<td><span style="text-transform:uppercase; font-size:12px; font-weight:800;">' + escapeHtml(n.side || 'paternal') + '</span></td>';
+    html += '<td><span style="color:' + verifColor + '; font-weight:800;">⏱️ ' + escapeHtml(verifStatus) + '</span></td>';
+    html += '<td><button class="btn-estate btn-gold" style="padding:3px 8px; font-size:12px;" onclick="recenterGraphOnPerson(' + JSON.stringify(n.person_id) + ')">Center 🎯</button></td>';
+    html += '</tr>';
+  });
+
+  tbody.innerHTML = html;
+}
+
+// MODAL CONTROLS & ADD PERSON LOGIC
+function setAddPersonMode(mode) {
+  addPersonMode = mode;
+  const createBtn = document.getElementById("btn-mode-create");
+  const linkBtn = document.getElementById("btn-mode-link");
+  const createFields = document.getElementById("form-create-person-fields");
+  const linkFields = document.getElementById("form-link-person-fields");
+
+  if (mode === "create") {
+    if (createBtn) createBtn.className = "btn-estate btn-gold";
+    if (linkBtn) linkBtn.className = "btn-estate btn-outline";
+    if (createFields) createFields.style.display = "block";
+    if (linkFields) linkFields.style.display = "none";
+  } else {
+    if (createBtn) createBtn.className = "btn-estate btn-outline";
+    if (linkBtn) linkBtn.className = "btn-estate btn-gold";
+    if (createFields) createFields.style.display = "none";
+    if (linkFields) linkFields.style.display = "block";
+  }
+}
+
+function openConversationalAddModal(presetType) {
+  const modal = document.getElementById("add-member-modal");
+  const title = document.getElementById("modal-title-text");
+  const relSel = document.getElementById("add-select-relation");
+
+  if (presetType === "spouse") {
+    if (title) title.innerText = "Add Spouse / In-Law Relative (ससुराल पक्ष)";
+    if (relSel) relSel.value = "spouse";
+  } else if (presetType === "father") {
+    if (title) title.innerText = "Add Father (पिता)";
+    if (relSel) relSel.value = "father";
+  } else if (presetType === "mother") {
+    if (title) title.innerText = "Add Mother (माता)";
+    if (relSel) relSel.value = "mother";
+  } else if (presetType === "maternal_grandfather") {
+    if (title) title.innerText = "Add Maternal Grandfather (नाना)";
+    if (relSel) relSel.value = "maternal_grandfather";
+  } else if (presetType === "maternal_grandmother") {
+    if (title) title.innerText = "Add Maternal Grandmother (नानी)";
+    if (relSel) relSel.value = "maternal_grandmother";
+  } else if (presetType === "father_in_law") {
+    if (title) title.innerText = "Add Father-in-Law (ससुर)";
+    if (relSel) relSel.value = "father_in_law";
+  } else if (presetType === "mother_in_law") {
+    if (title) title.innerText = "Add Mother-in-Law (सास)";
+    if (relSel) relSel.value = "mother_in_law";
+  } else {
+    if (title) title.innerText = "Add Family Member / Ancestor";
+    if (relSel) relSel.value = "father";
+  }
+
+  setAddPersonMode("create");
+  if (modal) modal.style.display = "flex";
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) modal.style.display = "none";
+}
+
+function populateModalExistingSelect(tree) {
+  const sel = document.getElementById("add-select-existing-person");
+  if (!sel) return;
+  let html = "";
+  tree.forEach(n => {
+    html += '<option value="' + n.person_id + '">' + escapeHtml(n.name) + ' (' + escapeHtml(n.person_id) + ')</option>';
+  });
+  sel.innerHTML = html;
+}
+
+
+// GENERATION-BASED LIVING STATUS DEFAULT RULE
+// 3+ generations before key person (e.g. Great-Grandparents Gen <= -3) default to Swargwasi / Devlok, rest default to Living
+function updateDefaultLivingStatusByRelation(relType) {
+  const statusEl = document.getElementById("add-select-living-status");
+  if (!statusEl) return;
+
+  if (relType.includes("great") || relType.includes("ancestor") || relType === "paternal_great_grandfather") {
+    statusEl.value = "deceased";
+  } else {
+    statusEl.value = "living";
+  }
+}
+
+function handleSaveMember() {
+  const tree = getStoredTree();
+  const marriages = getStoredMarriages();
+  const centerNode = tree.find(n => n.person_id === activeCenterPersonId) || tree[0];
+
+  if (addPersonMode === "link") {
+    const sel = document.getElementById("add-select-existing-person");
+    const existingId = sel ? sel.value : null;
+    const existingPerson = tree.find(n => n.person_id === existingId);
+    
+    if (existingPerson) {
+      marriages.push({
+        relationship_id: "REL-MARR-" + Math.floor(Math.random()*900000 + 100000),
+        person_a_id: centerNode.person_id,
+        person_b_id: existingId,
+        relationship_type: "spouse",
+        status: "active",
+        verification_status: "Pending Verification",
+        added_by: userEmail,
+        timestamp: new Date().toISOString()
+      });
+      saveStoredMarriages(marriages);
+      alert("Successfully linked existing person (" + existingPerson.name + ") as spouse relationship edge!");
+    }
+  } else {
+    const nameEl = document.getElementById("add-input-name");
+    const name = nameEl ? nameEl.value.trim() : "";
+    const relEl = document.getElementById("add-select-relation");
+    const relationType = relEl ? relEl.value : "father";
+    const nativeEl = document.getElementById("add-input-native");
+    const nativePlace = nativeEl ? (nativeEl.value.trim() || "LOC-VARANASI") : "LOC-VARANASI";
+    const rootEl = document.getElementById("add-input-root");
+    const rootId = rootEl ? (rootEl.value.trim() || "ROOT-GENERIC") : "ROOT-GENERIC";
+
+    if (!name) {
+      alert("Please enter full person name.");
+      return;
+    }
+
+    const randHex = Math.floor(Math.random()*16777215).toString(16).toUpperCase().padStart(6, '0');
+    const newPersonId = "PERS-" + randHex;
+
+    let side = "paternal";
+    let relGen = 0;
+    
+    if (relationType.includes("spouse") || relationType.includes("in_law")) {
+      side = "spouse";
+    } else if (relationType.includes("mother") || relationType.includes("maternal")) {
+      side = "maternal";
+    }
+
+    if (relationType === "father" || relationType === "mother" || relationType.includes("in_law")) relGen = -1;
+    if (relationType.includes("grandfather") || relationType.includes("grandmother")) relGen = -2;
+    if (relationType.includes("great")) relGen = -3;
+    if (relationType === "child") relGen = 1;
+
+    const newGen = (centerNode.generation || 0) + relGen;
+    const lineageCode = "VNS-ROOT-" + randHex + "-P00" + (tree.length + 1);
+
+    const livingStatusEl = document.getElementById("add-select-living-status");
+    let livingStatus = livingStatusEl ? livingStatusEl.value : "living";
+
+    // Enforce 3rd generation before key person default rule if unspecified
+    if (newGen <= -3 && !livingStatusEl) {
+      livingStatus = "deceased";
+    }
+
+    const newNode = {
+      person_id: newPersonId,
+      name: name,
+      relation: relationType.replace(/_/g, " ").toUpperCase(),
+      side: side,
+      lineage_code: lineageCode,
+      family_id: "FAM-" + randHex,
+      branch_id: "BR-" + side.toUpperCase() + "-00" + (tree.length + 1),
+      ancestral_root_id: rootId,
+      native_place_id: nativePlace,
+      verification_status: "Pending Verification",
+      generation: newGen,
+      living_status: livingStatus
+    };
+
+    if (relationType === "father") centerNode.father_id = newPersonId;
+    if (relationType === "mother") centerNode.mother_id = newPersonId;
+
+    tree.push(newNode);
+
+    if (relationType === "spouse") {
+      marriages.push({
+        relationship_id: "REL-MARR-" + randHex,
+        person_a_id: centerNode.person_id,
+        person_b_id: newPersonId,
+        relationship_type: "spouse",
+        status: "active",
+        verification_status: "Pending Verification",
+        added_by: userEmail,
+        timestamp: new Date().toISOString()
+      });
+      saveStoredMarriages(marriages);
+    }
+
+    saveStoredTree(tree);
+    alert("Successfully added new person (" + name + ") with ID: " + newPersonId);
+  }
+
+  closeModal("add-member-modal");
+  renderApp();
+}
+
+// MFP UNIFIED SINGLE-USE KEY REDEMPTION ENGINE (SUPPORTS OFFICIAL ADMIN PANEL KEYS & CUSTOM KEYS)
+
+// UNIFIED LOGIN & ACCOUNT AUTH HANDLERS
+
+// 👓 ELDER ACCESSIBILITY MODE & PROFILE MODAL HANDLERS
+function toggleElderAccessibilityMode() {
+  document.body.classList.toggle("elder-mode");
+  const btn = document.getElementById("elder-mode-toggle-btn");
+  if (btn) {
+    if (document.body.classList.contains("elder-mode")) {
+      btn.innerText = "👓 Elder Mode ACTIVE";
+      btn.style.background = "var(--purple-accent)";
+      btn.style.color = "#000";
+    } else {
+      btn.innerText = "👓 Elder Mode (बड़ा फ़ॉन्ट)";
+      btn.style.background = "none";
+      btn.style.color = "var(--purple-accent)";
+    }
+  }
+}
+
+function openPersonProfileModal(personId) {
+  const tree = getStoredTree();
+  const person = tree.find(n => n.person_id === personId);
+  if (!person) return;
+
+  const titleEl = document.getElementById("prof-modal-title");
+  if (titleEl) titleEl.innerText = "🏛️ " + escapeHtml(person.name) + " — Digital Heritage Profile";
+
+  const nameEl = document.getElementById("prof-modal-name");
+  if (nameEl) nameEl.innerText = person.name;
+
+  const avatarEl = document.getElementById("prof-modal-avatar");
+  if (avatarEl) avatarEl.innerText = person.name.trim().charAt(0).toUpperCase();
+
+  const relEl = document.getElementById("prof-modal-relation");
+  if (relEl) relEl.innerText = person.relation || "Family Member";
+
+  const sideEl = document.getElementById("prof-modal-side");
+  if (sideEl) sideEl.innerText = (person.side || "Paternal").toUpperCase() + " LINEAGE";
+
+  const verifEl = document.getElementById("prof-modal-verif");
+  if (verifEl) verifEl.innerText = "⏱️ " + (person.verification_status || "Pending Verification");
+
+  const pIdEl = document.getElementById("prof-id-person");
+  if (pIdEl) pIdEl.innerText = person.person_id;
+
+  const cIdEl = document.getElementById("prof-id-code");
+  if (cIdEl) cIdEl.innerText = person.lineage_code || "N/A";
+
+  const fIdEl = document.getElementById("prof-id-family");
+  if (fIdEl) fIdEl.innerText = person.family_id || "FAM-VNS-101";
+
+  const bIdEl = document.getElementById("prof-id-branch");
+  if (bIdEl) bIdEl.innerText = person.branch_id || "BR-001";
+
+  const rIdEl = document.getElementById("prof-id-root");
+  if (rIdEl) rIdEl.innerText = person.ancestral_root_id || "ROOT-MAIN";
+
+  const nIdEl = document.getElementById("prof-id-native");
+  if (nIdEl) nIdEl.innerText = person.native_place_id || "LOC-VARANASI";
+
+  const isDeceased = person.living_status === "deceased" || person.living_status === "ancestral" || (person.generation <= -3);
+  const statusDisp = isDeceased ? "🪔 Swargwasi / Devlok (दिवंगत / स्वर्गवासी)" : "🌸 Living (जीवित / सदेह)";
+
+  const bioEl = document.getElementById("prof-modal-bio");
+  if (bioEl) {
+    bioEl.innerText = (person.bio || ("Digital heritage record for " + person.name + ". Preserved under family ancestral branch " + (person.branch_id || "BR-001") + ".")) + " | Status: " + statusDisp;
+  }
+
+  const btnEl = document.getElementById("prof-modal-recenter-btn");
+  if (btnEl) {
+    btnEl.onclick = function() {
+      recenterGraphOnPerson(person.person_id);
+      closeModal("person-profile-modal");
+    };
+  }
+
+  const modal = document.getElementById("person-profile-modal");
+  if (modal) modal.style.display = "flex";
+}
+
+function openUnifiedLoginModal() {
+  const modal = document.getElementById("unified-login-modal");
+  if (!modal) return;
+  
+  const emailInput = document.getElementById("unified-login-email-input");
+  if (emailInput) emailInput.value = userEmail;
+
+  const emailDisp = document.getElementById("login-modal-active-email");
+  if (emailDisp) emailDisp.innerText = userEmail;
+
+  const planBadge = document.getElementById("login-modal-active-plan-badge");
+  if (planBadge) {
+    planBadge.innerText = currentPlan + " Estate Plan";
+    planBadge.className = "plan-badge plan-" + currentPlan.toLowerCase();
+  }
+
+  const activeKey = localStorage.getItem("mfp_activation_key");
+  const keyDisp = document.getElementById("login-modal-active-key");
+  if (keyDisp) keyDisp.innerText = activeKey ? activeKey : "N/A (Free Tier)";
+
+  modal.style.display = "flex";
+}
+
+function handleUnifiedLoginSubmit() {
+  const input = document.getElementById("unified-login-email-input");
+  const msg = document.getElementById("unified-login-msg");
+  if (!input || !msg) return;
+
+  const email = input.value.trim().toLowerCase();
+  if (!email || !email.includes("@")) {
+    msg.style.color = "#F87171";
+    msg.innerText = "⚠️ Please enter a valid email address (e.g. user@myfinancialplan.in).";
+    return;
+  }
+
+  userEmail = email;
+  localStorage.setItem("mfp_user_email", email);
+  localStorage.setItem("userEmail", email);
+
+  const emailDisp = document.getElementById("login-modal-active-email");
+  if (emailDisp) emailDisp.innerText = userEmail;
+
+  const targetDisp = document.getElementById("activation-account-target");
+  if (targetDisp) targetDisp.innerText = userEmail;
+
+  msg.style.color = "#34D399";
+  msg.innerText = "🎉 SUCCESS! Logged in as " + userEmail + ". Active plan (" + currentPlan + ") & records synced across all MFP services.";
+
+  renderApp();
+}
+
+function openPlanSelectionModal() {
+  const modal = document.getElementById("plan-modal");
+  if (modal) modal.style.display = "flex";
+  
+  const targetDisp = document.getElementById("activation-account-target");
+  if (targetDisp) targetDisp.innerText = userEmail;
+
+  highlightSelectedPlanOption(currentPlan);
+}
+
+
+
+function highlightSelectedPlanOption(plan) {
+  ["silver", "gold", "platinum"].forEach(p => {
+    const card = document.getElementById("plan-card-" + p);
+    if (card) {
+      if (p.toUpperCase() === plan.toUpperCase()) {
+        card.classList.add("selected-plan");
+      } else {
+        card.classList.remove("selected-plan");
+      }
+    }
+  });
+}
+
+function selectPlanOption(plan) {
+  currentPlan = plan;
+  localStorage.setItem("mfp_user_plan", plan);
+  highlightSelectedPlanOption(plan);
+  renderApp();
+}
+
+function handleRedeemActivationKey() {
+  const input = document.getElementById("activation-key-input");
+  const msg = document.getElementById("redemption-msg");
+  if (!input || !msg) return;
+  const rawKey = input.value;
+
+  if (!rawKey || !rawKey.trim()) {
+    msg.style.color = "#F87171";
+    msg.innerText = "⚠️ Please enter a valid My Financial Plan activation code.";
+    return;
+  }
+
+  // Universal parse with automatic cleaning & normalization
+  const parsed = parseMfpAdminPanelKey(rawKey);
+  if (!parsed || !parsed.valid) {
+    msg.style.color = "#F87171";
+    msg.innerText = "❌ Invalid Key: Code is too short or invalid. Enter a valid activation key (e.g. MFP-G030-X7R9-P4Q2).";
+    return;
+  }
+
+  const cleanKey = parsed.cleanKey;
+  input.value = cleanKey; // Automatically format clean key in input box
+
+  const store = getGlobalMfpKeyStore();
+  let rec = store[cleanKey] || store[rawKey.trim().toUpperCase()];
+
+  if (!rec) {
+    // Register key in central store
+    rec = {
+      plan: parsed.plan,
+      days: parsed.days || 30,
+      status: "available",
+      redeemed_by: null,
+      redeemed_at: null,
+      format: parsed.format
+    };
+    store[cleanKey] = rec;
+    saveGlobalMfpKeyStore(store);
+  }
+
+  // Check if key is already redeemed
+  if (rec.status === "redeemed") {
+    if (rec.redeemed_by === userEmail) {
+      currentPlan = rec.plan;
+      localStorage.setItem("mfp_user_plan", rec.plan);
+      localStorage.setItem("mfp_activation_key", cleanKey);
+
+      msg.style.color = "#34D399";
+      msg.innerText = "ℹ️ Key (" + cleanKey + ") is active on your account (" + userEmail + "). " + rec.plan + " Estate Plan unlocked!";
+      renderApp();
+    } else {
+      msg.style.color = "#F87171";
+      msg.innerText = "❌ KEY ALREADY REDEEMED: Key (" + cleanKey + ") was redeemed by another account (" + (rec.redeemed_by || 'another user') + "). Each key is single-use only.";
+    }
+    return;
+  }
+
+  // Redeem & permanently lock to this user account
+  rec.status = "redeemed";
+  rec.redeemed_by = userEmail;
+  rec.redeemed_at = new Date().toISOString();
+  store[cleanKey] = rec;
+  saveGlobalMfpKeyStore(store);
+
+  currentPlan = rec.plan;
+  localStorage.setItem("mfp_user_plan", rec.plan);
+  localStorage.setItem("mfp_activation_key", cleanKey);
+
+  msg.style.color = "#34D399";
+  msg.innerText = "🎉 SUCCESS! Key (" + cleanKey + ") verified & confirmed redeemed! " + rec.plan + " Estate Plan (" + (rec.days || 30) + " Days) activated for " + userEmail + ". All MFP services unlocked!";
+
+  renderApp();
+}
+
+// TAB NAVIGATION SWITCHER
+function switchTab(tabId) {
+  ["canvas", "pathfinder", "provenance", "vault", "admin"].forEach(t => {
+    const section = document.getElementById("tab-section-" + t);
+    const btn = document.getElementById("tab-btn-" + t);
+    if (section && btn) {
+      if (t === tabId) {
+        section.style.display = "block";
+        btn.classList.add("active");
+      } else {
+        section.style.display = "none";
+        btn.classList.remove("active");
+      }
+    }
+  });
+}
+
+// CENTRAL MFP PARTNER KEY GENERATOR IN ADMIN PANEL (OFFICIAL ADMIN FORMAT: MFP-G030-XXXX-YYYY)
+function handleGenerateKey(plan) {
+  const store = getGlobalMfpKeyStore();
+  const ALPHA = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  let levelChar = "G";
+  if (plan === "SILVER") levelChar = "S";
+  if (plan === "PLATINUM") levelChar = "P";
+
+  let nonce = "";
+  for (let i = 0; i < 4; i++) nonce += ALPHA[Math.floor(Math.random() * ALPHA.length)];
+  let chk = "";
+  for (let i = 0; i < 4; i++) chk += ALPHA[Math.floor(Math.random() * ALPHA.length)];
+
+  const newKey = "MFP-" + levelChar + "030-" + nonce + "-" + chk;
+  
+  store[newKey] = {
+    plan: plan,
+    days: 30,
+    status: "available",
+    redeemed_by: null,
+    redeemed_at: null,
+    format: "ADMIN_PANEL_OFFICIAL"
+  };
+  saveGlobalMfpKeyStore(store);
+
+  const outEl = document.getElementById("admin-key-output");
+  if (outEl) outEl.innerText = "🔑 Official Admin Key Issued (" + plan + " - 30 Days): " + newKey + " [Single-Use]";
+}
+
+// UTILITY SANITIZATION
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// SAFELY INITIALIZE APP REGARDLESS OF DOM LOADING STATE
+// FAIL-SAFE MULTI-GUARD INITIALIZATION (ELIMINATES MOBILE BLACK SCREENS)
+function safeInitApp() {
+  try {
+    renderApp();
+  } catch (err) {
+    console.warn("Mobile SafeInit Warning:", err);
+    const setupBox = document.getElementById("zero-data-inline-setup");
+    if (setupBox) setupBox.style.display = "block";
+  }
+}
+
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  safeInitApp();
+} else {
+  document.addEventListener("DOMContentLoaded", safeInitApp);
+  window.addEventListener("load", safeInitApp);
+  setTimeout(safeInitApp, 300);
+}
+</script>
+
+<style id="mfp-foot-css">.mfp-foot{margin-top:40px;background:#0B1B2A;color:#9FB3C8;padding:30px 0;font-size:13.5px;text-align:center}
+.mfp-foot .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-foot img{height:56px;width:auto;margin-bottom:10px;max-width:88vw}
+.mfp-foot a{color:#fff;text-decoration:none;font-weight:800;margin:0 6px;display:inline-block;padding:5px 2px}
+.mfp-foot p{margin:10px 0 0}
+.mfp-foot .lg a{font-weight:600;font-size:12.5px;color:#C7D6E5}</style>
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>The tax rules, scheme conditions and interest rates referenced on this page come from the official sources below. Calculator results are estimates produced from the assumptions shown above — they are not figures published by these bodies.</p>
+    <ul>
+      <li><a href="https://www.rbi.org.in/" target="_blank" rel="noopener">Reserve Bank of India</a> — banking, deposits, loans and monetary policy</li>
+      <li><a href="https://www.amfiindia.com/investor" target="_blank" rel="noopener">Association of Mutual Funds in India (AMFI)</a> — mutual fund categories, SIP method and investor education</li>
+      <li><a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener">Income Tax Department, Government of India</a> — income-tax rules, deduction limits and slab rates</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+  <p class="disc"><b>Disclaimer:</b> This page is for information and education only. It is not financial, investment, tax or legal advice, and it does not take your personal circumstances into account. Figures shown are estimates based on the inputs and assumptions you enter — investment returns are not guaranteed and can fall as well as rise. Please consult a qualified financial adviser before making any financial decision.</p>
+</div></div>
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/app/">Open Web App</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/vanshavali/">Digital Vanshavali</a>
+        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+        <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/mfp-push.js"></script>
+  </footer>
+<style id="mfp-a11y-mobile">
+/* Mobile accessibility layer — applied 2026-10-07.
+
+   Two separate concerns, deliberately scoped differently:
+
+   (1) TEXT FLOOR — global. Every selector below was measured on the built pages
+       and found to render below 12px (label 11, .lbl 9, .tag 9.5, .sha 10,
+       .pill 11.5, .badge 11, small 10.5, th 10.5, .t 11, .res span 11,
+       .gc-tile span 11). Because each was measured BELOW 12px, every rule here
+       is a strict increase — nothing on the site can shrink. Selectors that were
+       already at or above 12px (td 14, li 13, .st 13.5, .k 13.5, .v 13,
+       .note 12, .hint 12.5, .meta 13.5, .disc 12.5, .upd 12.5) are deliberately
+       NOT listed: a CSS font-size is an exact value, not a minimum, so including
+       them would have shrunk them.
+
+   (2) THUMB TARGETS — mobile only (<=640px). Controls raised to 44px, Google's
+       stated mobile minimum. Inline links inside sentences are intentionally
+       excluded: Google exempts them, they are not something a thumb aims at,
+       and inflating them would destroy the reading typography. */
+label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
+.res span,.gc-tile span{font-size:12px !important}
+
+@media (max-width: 640px){
+  .burger{width:46px !important;height:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important}
+  #langSw{height:46px !important;min-height:46px !important;padding:0 14px !important;font-size:12px !important;display:inline-flex !important;align-items:center !important}
+  .unmute{min-height:46px !important;padding:12px 20px !important;font-size:13px !important}
+  button.ctab{min-height:46px !important;font-size:12.5px !important;padding-top:8px !important;padding-bottom:8px !important}
+  .mfp-skip{min-height:46px !important;display:flex !important;align-items:center !important}
+  /* number inputs — the control a thumb aims at most on a calculator page */
+  input,select,textarea{min-height:46px !important}
+  /* buttons and call-to-action links */
+  a.btn,.btn,.hot,.tlink,.gc-navlink,.gc-brand{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  /* footer navigation — people tap these with a thumb.
+     Two different footer markups exist in the site: .mfp-foot (added by the
+     footer pass) and the original footer>.wrap>.cols used on the homepage and
+     the service pages. Both are covered. */
+  .mfp-foot a{min-height:46px !important;display:inline-flex !important;align-items:center !important;padding:6px 4px !important}
+  /* min-width matters as much as min-height here: short footer labels such as
+     "About" measured 37px wide at 46px tall, which still fails a 44px tap target.
+     justify-content keeps the label centred inside the widened box so the
+     "A · B · C" separator rhythm is preserved. */
+  footer .cols a,footer .wrap a,footer p a,footer nav a{min-height:46px !important;min-width:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;padding:4px 2px !important}
+  /* the link grid used on the service pages */
+  .mfp-links a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .mfp-links{line-height:1.5 !important}
+  /* standalone card links on the homepage that carry no class of their own */
+  .explore{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  /* the calculator call-to-action button row and the learn-page prev/next row */
+  .btns a,.btns button{min-height:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important}
+  .pn a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  /* iOS-style toggle: 46x46 hit area, track drawn on ::before so the visual
+     stays exactly 46x26 at the same pixel position (negative margins absorb
+     the extra 20px so no layout shifts). */
+  .gc-switch{width:46px !important;height:46px !important;margin-top:-8px !important;margin-bottom:-10px !important;
+    background:transparent !important;border:none !important;border-radius:0 !important}
+  .gc-switch::before{content:"";position:absolute;left:0;top:10px;width:46px;height:26px;border-radius:99px;
+    background:#CBD9D4;transition:background .18s}
+  .gc-switch.on::before{background:var(--teal)}
+  .gc-switch::after{top:13px !important}
+  /* related-calculator link row on every /tools/ page: div.rel > a (unclassed, h39) */
+  .rel a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  /* LIC premium calculator plan-filter chips: div.ftabs > button.ftab (h31) */
+  .ftabs button{min-height:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important}
+  /* modal close "✕" inside div.modal-header (class-less, 18x25) */
+  .modal-header button,.modal-close{min-height:46px !important;min-width:46px !important;
+    display:inline-flex !important;align-items:center !important;justify-content:center !important}
+  /* Digital Vanshavali / vanshavali portal controls (h18-h43, incl. two class-less ones) */
+  .tab-btn,.btn-estate,.mfp-btn,.mfp-badge-pill,.shot-switch-btn,.shot-badge,
+  .shot-activate-btn,.switch-signin-btn,.pill-badge,.activate-wide-btn{
+    min-height:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important}
+  /* breadcrumb / secondary nav rows */
+  .crumbs a,.crumb a,nav.bc a,.bc a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  /* goal-page controls found by measuring rendered heights: category tabs (35px),
+     the Yes/No segmented control (40px) and the related-goal links (38px) */
+  .gc-tabs button,.gc-seg button,.gc-related a,.gc-tabs a,.gc-seg a{min-height:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important}
+  /* homepage hero calls-to-action and the trial banner link (22-28px measured) */
+  .cta-row a,.tbanner a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  /* the header nav row and its logo link (28-30px measured).
+     Three header markups exist in the site: nav.top .links (homepage and
+     calculators), div.top > nav (policy pages) and .mfp-foot (added footer
+     pass). All three are covered. */
+  nav.top .links a,nav.top .wrap>a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .top nav a,.top .wrap a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  /* the related-calculator link list that runs under every goal calculator (20px) */
+  .lnks a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .lnks{line-height:1.5 !important}
+}
+</style>
+</body>
+</html>
