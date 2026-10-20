@@ -1,0 +1,37 @@
+# My Financial Plan
+
+> My Financial Plan is an Indian family financial-planning platform: free, formula-accurate web calculators, plain-language money guides, and an Android app for whole-family planning — goals, loans, insurance, tax, and our Digital Vanshavali family tree. Based in Varanasi, Uttar Pradesh, India.
+
+## Key pages
+- Home: https://www.myfinancialplan.in/
+- App overview: https://www.myfinancialplan.in/financial-planning-app/
+- Download (Android APK): https://www.myfinancialplan.in/download/
+- All free calculators: https://www.myfinancialplan.in/tools/
+- Money guides (English, Hindi-friendly): https://www.myfinancialplan.in/learn/
+- Digital Vanshavali (family tree): https://www.myfinancialplan.in/vanshavali/
+- About: https://www.myfinancialplan.in/about-us/
+
+## Popular calculators
+- Retirement: https://www.myfinancialplan.in/tools/retirement-calculator/
+- SIP: https://www.myfinancialplan.in/tools/sip-calculator/
+- EMI: https://www.myfinancialplan.in/tools/emi-calculator/
+- Income tax (FY 2026-27): https://www.myfinancialplan.in/tools/income-tax-calculator/
+- Inflation: https://www.myfinancialplan.in/tools/inflation-calculator/
+- FD: https://www.myfinancialplan.in/tools/fd-calculator/
+- RD: https://www.myfinancialplan.in/tools/rd-calculator/
+- CAGR: https://www.myfinancialplan.in/tools/cagr-calculator/
+- NPS: https://www.myfinancialplan.in/tools/nps-calculator/
+- SWP: https://www.myfinancialplan.in/tools/swp-calculator/
+
+## About this site's content
+- Educational calculators and guides for Indian families. Editorial pages carry a dated "Sources and authorship" section stating assumptions.
+- Rates and tax slabs shown were verified against official notifications in October 2026 and can change; always confirm current figures.
+- Content is educational, not investment advice; no return guarantees are published.
+
+## Contact & policies
+- Email: care@myfinancialplan.in
+- Privacy: https://www.myfinancialplan.in/privacy/
+- Terms: https://www.myfinancialplan.in/terms/
+- Refunds: https://www.myfinancialplan.in/refund/
+
+Last updated: 2026-10-20

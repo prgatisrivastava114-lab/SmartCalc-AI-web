@@ -433,6 +433,33 @@ img,svg,video,canvas{max-width:100%}
   <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
   </div>
 </section>
+<section class="mfp-bench" aria-labelledby="bench-h">
+<style>
+.mfp-bench{max-width:1140px;margin:0 auto;padding:26px 16px}
+.mfp-bench .card{background:#F7FAFC;border:1px solid #E3EAF2;border-radius:14px;padding:20px 22px}
+.mfp-bench h2{margin:0 0 8px;font-size:19px;color:#28394C}
+.mfp-bench p{margin:0 0 6px;font-size:14.5px;color:#33465C;line-height:1.65}
+.mfp-bench table{border-collapse:collapse;width:100%;max-width:640px;margin:12px 0 4px;font-size:14px;background:#fff}
+.mfp-bench th,.mfp-bench td{border:1px solid #D8E2EE;padding:8px 12px;text-align:left;color:#33465C}
+.mfp-bench th{background:#EDF3F9;color:#28394C;font-weight:600}
+.mfp-bench .note{margin:12px 0 0;font-size:13px;color:#4A5B6E;line-height:1.6}
+</style>
+<div class="card">
+<h2 id="bench-h">EMI per &#8377;1,00,000 — the 30-second sanity check</h2>
+<p>EMIs scale linearly with loan size: take the per-lakh EMI below and multiply by the number of lakhs you borrow.</p>
+<table>
+<thead><tr><th>Loan tenure</th><th>EMI @ 9% p.a.</th><th>EMI @ 10% p.a.</th><th>EMI @ 11% p.a.</th></tr></thead>
+<tbody>
+<tr><td>5 years</td><td>₹2,076</td><td>₹2,125</td><td>₹2,174</td></tr>
+<tr><td>10 years</td><td>₹1,267</td><td>₹1,322</td><td>₹1,378</td></tr>
+<tr><td>15 years</td><td>₹1,014</td><td>₹1,075</td><td>₹1,137</td></tr>
+<tr><td>20 years</td><td>₹900</td><td>₹965</td><td>₹1,032</td></tr>
+<tr><td>30 years</td><td>₹805</td><td>₹878</td><td>₹952</td></tr>
+</tbody>
+</table><p class="note">Computed on monthly reducing balance using the standard EMI formula P&#183;r&#183;(1+r)&#8319;/((1+r)&#8319;&#8722;1). Example: <b>&#8377;30 lakh for 20 years at 9% &#8776; 30 &#215; &#8377;900 = &#8377;27,000/month</b>. Actual bank quotes differ slightly with processing fees, insurance and rate resets.</p>
+</div>
+</section>
+
 <h2>Frequently asked questions</h2>
   <div class="faq"><details><summary>What formula does an EMI calculator use?</summary><p>EMI = P·r·(1+r)^n / ((1+r)^n − 1), where r is the monthly interest rate (annual ÷ 12 ÷ 100) and n the months.</p></details><details><summary>Home loan EMI for ₹30, ₹50, ₹75 lakh?</summary><p>At 8.5% for 20 years: ₹26,035 / ₹43,391 / ₹65,087 per month — verify instantly above.</p></details><details><summary>Can my EMI change after taking the loan?</summary><p>With floating rates, yes — RBI repo changes flow into your rate (and usually tenure). Fixed-rate loans don't change.</p></details><details><summary>Is prepaying better than an FD?</summary><p>Usually yes: prepaying saves interest at the loan rate (8.5%+), tax-free — more than most FDs earn after tax.</p></details></div>
   <div class="cta">
@@ -482,11 +509,11 @@ img,svg,video,canvas{max-width:100%}
     <ul>
       <li><a href="https://www.rbi.org.in/" target="_blank" rel="noopener">Reserve Bank of India</a> — banking, deposits, loans and monetary policy</li>
     </ul>
-    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-07">7 October 2026</time></p>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-20">20 October 2026</time></p>
   </div>
 </section>
 <div class="mfp-trust"><div class="in">
-  <p class="upd">Last updated: <time datetime="2026-10-07">7 October 2026</time></p>
+  <p class="upd">Last updated: <time datetime="2026-10-20">20 October 2026</time></p>
 </div></div>
 <footer class="mfp-sf">
   <div class="mfp-sf-in">
