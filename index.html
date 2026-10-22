@@ -1138,8 +1138,9 @@ img,svg,video,canvas{max-width:100%}
     <div class="chip chip-a">🛡️ <div>₹7.5 Cr protection<small>term + health shield</small></div></div>
     <div class="chip chip-b">📄 <div>Branded PDF plan<small>Hindi · English</small></div></div>
     <div class="vid-card">
-      <video id="promo" src="assets/promo.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline></video>
+      <video id="promo" src="assets/promo.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline preload="none"></video>
       <button class="unmute" id="unmuteBtn" style="display:none;font-size:15px;font-weight:800;padding:11px 18px;border-radius:99px">🔊 Tap to listen — promo</button>
+      <script>(function(){var MOB=false;try{MOB=window.matchMedia("(max-width:768px)").matches;}catch(e){}window.__MFP_MOBILE_PROMO__=MOB;if(MOB){var pv=document.getElementById("promo");if(pv){pv.removeAttribute("autoplay");pv.removeAttribute("src");try{pv.load();}catch(e){}}}})();</script>
     </div>
       
 
@@ -1864,6 +1865,7 @@ const t=document.getElementById('mqt');t.innerHTML+=t.innerHTML;
 (function(){
 var v=document.getElementById('promo'),u=document.getElementById('unmuteBtn');
 if(!v)return;
+var MOB=!!window.__MFP_MOBILE_PROMO__;
 var EN='assets/promo.mp4',HI='assets/promo_hi.mp4',ph=0,gest=0;
 function show(t){if(u){u.style.display=t?'':'none';if(t)u.textContent=t;}}
 function toMuted(){ph=2;v.muted=true;v.loop=true;try{v.currentTime=0;v.play().catch(function(){});}catch(e){}show('🔊 Tap to listen — promo');arm();}
@@ -1879,7 +1881,7 @@ v.addEventListener('ended',function(){
 u&&u.addEventListener('click',function(){show('');startSeq();});
 v.addEventListener('error',function(){toMuted();});
 function startSeq(){ph=0;v.loop=false;v.muted=false;v.src=EN;v.load();try{v.currentTime=0;}catch(e){}var p=v.play();if(p&&p.catch)p.catch(toMuted);}
-startSeq();
+if(MOB){show('▶ Tap to play — promo');v.addEventListener('click',function(){show('');startSeq();});}else{startSeq();}
 })();
 
 </script>
