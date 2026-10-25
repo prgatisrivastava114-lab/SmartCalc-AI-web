@@ -1,20 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive">
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=../app/index.html#partner">
-<title>Partner Advisor Dashboard — My Financial Plan</title>
-<script>
-  window.location.href = "../app/index.html#partner";
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mfp_icon_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/mfp_icon_180.png">
+<title>Partner Mode for Advisors — Branded Client Plans | MyFinancialPlan</title>
+<meta name="description" content="Partner Mode for LIC agents, mutual fund distributors and financial advisors: your name, logo and contact on every client PDF, client CRM, follow-ups and 30+ calculators. Plans from ₹99/mo with a FREE 7-day trial.">
+<meta name="keywords" content="partner mode, advisor branding tool, LIC agent software, mutual fund distributor tools, branded client report, insurance advisor CRM, financial advisor app india, advisor client PDF">
+<link rel="canonical" href="https://www.myfinancialplan.in/partner/">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "MyFinancialPlan — Partner Mode for Advisors",
+  "url": "https://www.myfinancialplan.in/partner/",
+  "logo": "https://www.myfinancialplan.in/assets/brand/brand_logo.png",
+  "description": "Branded client PDF reports, client CRM, follow-up reminders, broadcast tools, LIC calculators and 30+ financial calculators for Indian insurance and mutual fund advisors.",
+  "serviceType": ["Advisor Branding Tools", "Client Report Generator", "Advisor CRM", "Financial Planning Software"],
+  "areaServed": ["India", "Varanasi", "Delhi NCR", "Mumbai", "Bengaluru", "Hyderabad", "Kolkata", "Chennai", "Pune", "Ahmedabad"],
+  "offers": [
+    {"@type": "Offer", "name": "Partner Silver", "price": "99", "priceCurrency": "INR"},
+    {"@type": "Offer", "name": "Partner Gold", "price": "299", "priceCurrency": "INR"},
+    {"@type": "Offer", "name": "Partner Platinum", "price": "999", "priceCurrency": "INR"}
+  ]
+}
 </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.myfinancialplan.in/"},{"@type":"ListItem","position":2,"name":"Partner Mode for Advisors","item":"https://www.myfinancialplan.in/partner/"}]}</script>
+
+<style>
+  :root { --teal: #0E9D78; --teal-dark: #047857; --ink: #17324A; --bg: #F8FAFC; --wa: #25D366; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 0; line-height: 1.6; }
+  header.hero { background: linear-gradient(160deg, #0F172A, #0B2233 70%, #062A41); color: #FFF; padding: 34px 16px 30px; text-align: center; }
+  header.hero h1 { margin: 0; font-size: 27px; font-weight: 800; color: #34F0B4; line-height: 1.35; }
+  header.hero p { margin: 8px 0 0 0; font-size: 14.5px; color: #B8C7D6; }
+  header.hero p.hi { color: #7DD3B0; font-weight: 600; }
+  .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+  .card { background: #FFF; border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); margin-bottom: 24px; border: 1px solid #E2E8F0; }
+  h2 { color: #065F46; font-size: 22px; font-weight: 800; margin-top: 0; }
+  .btn-cta { display: inline-block; background: linear-gradient(135deg, #10B981, #047857); color: #FFF; text-decoration: none; padding: 14px 28px; border-radius: 14px; font-weight: 800; font-size: 16px; box-shadow: 0 6px 20px rgba(14,157,120,0.32); }
+  .btn-wa { display: inline-block; background: #25D366; color: #FFF; text-decoration: none; padding: 14px 28px; border-radius: 14px; font-weight: 800; font-size: 16px; box-shadow: 0 6px 20px rgba(37,211,102,0.32); }
+  .btn-ghost { display: inline-block; background: #FFF; color: #065F46; text-decoration: none; padding: 13px 24px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #A7F3D0; }
+  footer { text-align: center; padding: 30px; font-size: 13px; background: #0F172A; color: #94A3B8; margin-top: 40px; }
+  /* partner-page local blocks */
+  .hi { color: #0B7A5C; font-size: 14px; font-weight: 600; margin: -6px 0 12px; }
+  .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
+  .pcard { background: #F7FAFC; border: 1px solid #E3E9F1; border-radius: 16px; padding: 18px; }
+  .pcard h3 { margin: 0 0 6px; font-size: 15.5px; color: #17324A; }
+  .pcard p { margin: 0; font-size: 13.5px; color: #44586E; }
+  .step { display: flex; gap: 14px; align-items: flex-start; margin: 14px 0; }
+  .step .n { flex: 0 0 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg,#10B981,#047857); color:#FFF; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .step .t h3 { margin: 0 0 4px; font-size: 15.5px; color: #17324A; }
+  .step .t p { margin: 0; font-size: 13.5px; color: #44586E; }
+  .plan { border: 2px solid #E3E9F1; border-radius: 18px; padding: 22px; background: #FFF; position: relative; }
+  .plan.pop { border-color: #0E9D78; box-shadow: 0 10px 26px rgba(14,157,120,0.18); }
+  .plan .tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #047857; color: #FFF; font-size: 11.5px; font-weight: 800; padding: 4px 14px; border-radius: 99px; white-space: nowrap; }
+  .plan h3 { margin: 0; font-size: 18px; color: #17324A; }
+  .plan .aud { font-size: 12.5px; color: #5B6B7F; margin-top: 2px; }
+  .plan .pr { margin: 10px 0 12px; font-size: 26px; font-weight: 800; color: #065F46; }
+  .plan .pr .mrp { font-size: 15px; color: #94A3B8; text-decoration: line-through; font-weight: 600; }
+  .plan .pr small { font-size: 13px; color: #5B6B7F; font-weight: 600; }
+  .plan .pr .off { font-size: 11.5px; background: #ECFDF5; color: #047857; border-radius: 8px; padding: 2px 8px; margin-left: 6px; vertical-align: middle; }
+  .plan ul { margin: 0 0 16px 18px; padding: 0; font-size: 13.5px; color: #44586E; }
+  .plan ul li { margin-bottom: 7px; }
+  .roi { background: linear-gradient(135deg, #ECFDF5, #F0FDF4); border: 1.5px solid #A7F3D0; border-radius: 18px; padding: 22px; }
+  .roi h2 { margin-top: 0; }
+  .tstrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 14px; }
+  .tstrip div { background: #F7FAFC; border: 1px solid #E3E9F1; border-radius: 12px; padding: 12px 14px; font-size: 13px; color: #44586E; font-weight: 600; }
+  .soon { background: linear-gradient(150deg, #0F172A, #062A41); color: #FFF; border-radius: 20px; padding: 26px; }
+  .soon h2 { color: #FCD34D; }
+  .soon p { color: #B8C7D6; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .badges span { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: #E2E8F0; font-size: 12.5px; font-weight: 700; padding: 6px 13px; border-radius: 99px; }
+  .psticky { display: none; }
+  @media (max-width: 768px) {
+    .psticky { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: rgba(6,42,65,.97); border-top: 1px solid rgba(255,255,255,.14); padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }
+    .psticky a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 12px; font-weight: 800; font-size: 14px; text-decoration: none; color: #FFF; }
+    .psticky a.pl { background: #0E9D78; }
+    .psticky a.wa { background: #25D366; }
+    body { padding-bottom: 78px; }
+  }
+</style>
   <script src="/assets/js/mfp-protect.js" defer></script>
+<style id="mfp-skip-style">
+.mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
+padding:11px 18px;border-radius:0 0 12px 0;font:700 14px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.mfp-skip:focus{left:0;outline:3px solid #0E9D78;outline-offset:2px}
+</style>
+<style id="mfp-landing-extra">
+ .mfp-block{margin-top:24px}
+ .mfp-block h2{font-size:22px;font-weight:800;margin:0 0 10px}
+ .mfp-block h3{font-size:16px;font-weight:800;margin:18px 0 6px}
+ .mfp-block p{color:#44586E;margin:0 0 12px}
+ .mfp-block ul{margin:0 0 14px 20px;color:#44586E}
+ .mfp-block li{margin-bottom:8px}
+ .mfp-block strong{color:#17324A}
+ .mfp-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+ .mfp-links a{background:#E7F4EE;color:#0B7A5C;font-weight:700;padding:8px 15px;border-radius:99px;text-decoration:none;font-size:13.5px}
+ .mfp-links a:hover{background:#D3EDE2}
+ .mfp-faq{margin-top:24px}
+ .mfp-faq details{background:#FFF;border:1px solid #E3E9F1;border-radius:14px;padding:0;margin-bottom:10px;overflow:hidden}
+ .mfp-faq summary{cursor:pointer;padding:15px 18px;font-weight:700;color:#17324A;list-style:none}
+ .mfp-faq summary::-webkit-details-marker{display:none}
+ .mfp-faq summary::after{content:"+";float:right;font-weight:800;color:#0E9D78}
+ .mfp-faq details[open] summary::after{content:"\2212"}
+ .mfp-faq details p{padding:0 18px 16px;margin:0;color:#44586E}
+@media(max-width:640px){ .mfp-block h2{font-size:19px}}
+</style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Partner Mode for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LIC agents and insurance advisors, mutual fund distributors, wealth managers, CFPs and tax professionals — anyone who prepares financial plans for clients and wants their own name and brand on the report. Families use the same app in free Individual Mode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need technical knowledge to use Partner Mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. If you can use WhatsApp, you can use Partner Mode. Enter the client's details, tap once, and a branded PDF is ready in about five minutes. A Relationship Manager walks you through the first setup on call in Hindi or English."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do activation and payment work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every plan starts with a FREE 7-day trial — no card, no payment. WhatsApp us for a trial code, then log in to the app with the same email and the plan activates itself on every device. Paid plans are activated through secure Razorpay payment (UPI, card, net-banking) with a 7-day money-back guarantee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What branding appears on the client PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your name, your logo and your contact details appear on every client PDF report, in Hindi or English. The client remembers you — not us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel anytime? Is my client data safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — there is no lock-in; cancel anytime, and a 7-day money-back guarantee covers every new subscription. Client data stays private: we never sell or share personal or financial data with telemarketers, credit bureaus or ad networks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will MyFinancialPlan send me client leads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Today Partner Mode gives you the tools — branded reports, CRM, follow-ups and calculators. A Verified Professional Network with city-wise listings and routed client enquiries is coming soon; partners on the waitlist get first access."
+      }
+    }
+  ],
+  "dateModified": "2026-10-25"
+}
+</script>
+
+  <meta property="og:title" content="Partner Mode for Advisors — Branded Client Plans | MyFinancialPlan">
+  <meta property="og:description" content="Your name, logo and contact on every client PDF. Client CRM, follow-ups and 30+ calculators. Plans from ₹99/mo — FREE 7-day trial.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.myfinancialplan.in/partner/">
+  <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+  <meta property="og:site_name" content="MyFinancialPlan.in">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Partner Mode for Advisors — Branded Client Plans | MyFinancialPlan">
+  <meta name="twitter:description" content="Your name, logo and contact on every client PDF. Client CRM, follow-ups and 30+ calculators. Plans from ₹99/mo — FREE 7-day trial.">
+  <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
 <style id="mfp-responsive-fit">
 /* MFP responsive + layout fit — measurements and reasoning for every rule
    are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
 nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
-/* MEASURED at 390px: a correctly-proportioned logo (168px) + the हिंदी switch */
 @media (max-width:620px){
   nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
   nav.top .logo{height:30px}
@@ -37,20 +204,15 @@ nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
   .rel a{flex:0 1 auto;min-width:0}
 }
 img,svg,video,canvas{max-width:100%}
-/* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
 @media (max-width:620px){
   img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
 }
 @media (max-width:620px){
-  /* grid tracks: a 1fr column still refuses to shrink below its content's */
   .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
   .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
   input,select,textarea{min-width:0;max-width:100%}
-  /* a scenario table 2px wider than the screen: let it scroll inside itself */
   .gc-scen{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  /* nowrap buttons 10px over the edge */
   .btn-estate{white-space:normal;max-width:100%}
-  /* the vanshavali page renders a 281px-wide brand logo plus its broken-image */
   .mfp-brand-group{max-width:100%;flex-wrap:wrap}
   .mfp-brand-logo,.mfp-brand-group svg{max-width:100%;height:auto;width:auto}
 }
@@ -61,13 +223,430 @@ img,svg,video,canvas{max-width:100%}
 </style>
 
   <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-180.png">
   <meta name="theme-color" content="#17324A">
+
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
+        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:36px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYC3NP9W42"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SYC3NP9W42');
+</script>
 </head>
-<body style="background:#081028; color:#FFFFFF; font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0;">
-  <div style="text-align:center;">
-    <h2 style="font-size:20px; font-weight:700;">Redirecting to Partner Advisor Dashboard...</h2>
-    <p style="font-size:14px; color:#94A3B8; margin-top:8px;">Opening WebApp & Android App Partner Gateway</p>
+<body>
+<a href="#main" class="mfp-skip">Skip to main content</a>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/" aria-current="page">Partner</a>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
   </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/" aria-current="page">Partner</a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
+
+<header class="hero">
+  <h1 id="main" tabindex="-1">Your Name. Your Brand. Professional Client Plans in 5 Minutes.</h1>
+  <p>Partner Mode for LIC agents, mutual fund distributors, wealth advisors &amp; CFPs</p>
+  <p class="hi">हर client report पर आपका नाम, आपका logo, आपका number — client को याद रहेंगे आप।</p>
+  <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye." rel="noopener">🎁 Get FREE 7-Day Trial Code</a>
+    <a class="btn-ghost" href="#plans" style="background:transparent;color:#E2E8F0;border-color:rgba(255,255,255,.35)">See Plans &amp; Pricing ↓</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Three problems every advisor knows</h2>
+    <p class="hi">तीन परेशानियाँ जो हर advisor जानता है</p>
+    <div class="pgrid">
+      <div class="pcard">
+        <h3>😶 Clients forget your name</h3>
+        <p>Meeting ends, plan stays on paper, and a year later the client buys from whoever called last. No recall — no referrals.<br><b>Meeting के बाद client आपका नाम भूल जाता है।</b></p>
+      </div>
+      <div class="pcard">
+        <h3>📄 Excel &amp; paper look unprofessional</h3>
+        <p>A hand-made sheet undersells twenty years of your experience. Trust drops before the pitch even starts.<br><b>Excel या काग़ज़ का plan professional नहीं लगता।</b></p>
+      </div>
+      <div class="pcard">
+        <h3>📞 Follow-ups slip away</h3>
+        <p>Premium due dates, SIP starts and renewals live in memory — and memory misses. Every miss is lost income.<br><b>Follow-up miss हुआ — renewal और SIP दोनों रुके।</b></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mfp-block">
+    <h2>How Partner Mode works</h2>
+    <p class="hi">Partner Mode कैसे काम करता है — बस 3 steps</p>
+    <div class="step">
+      <div class="n">1</div>
+      <div class="t">
+        <h3>Get your FREE trial code on WhatsApp</h3>
+        <p>No card, no payment. Log in to the app with the same email — your plan activates itself on every device, in about 2 minutes. <b>WhatsApp पर trial code लीजिए — 2 मिनट setup।</b></p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">
+        <h3>Enter client details — the plan computes live</h3>
+        <p>Goals, protection GAP, exact monthly SIPs, retirement corpus — everything calculated automatically with the same 30+ engines families use free on this site. <b>Client details डालिए — सब automatic calculate।</b></p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">
+        <h3>Share the branded PDF</h3>
+        <p>Your name, logo and contact on every page, in Hindi or English — straight to the client's WhatsApp. The client remembers you, not us. <b>आपके नाम का PDF — सीधे client के WhatsApp पर।</b></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mfp-block">
+    <h2>Everything in Partner Mode</h2>
+    <p class="hi">Partner Mode में क्या-क्या मिलता है</p>
+    <div class="pgrid">
+      <div class="pcard"><h3>📄 Branded PDF reports</h3><p>Client-ready reports in Hindi + English — your name, logo &amp; contact on every page.</p></div>
+      <div class="pcard"><h3>👥 Client CRM &amp; follow-ups</h3><p>Client list, follow-up reminders and notes — renewals and SIP starts never slip.</p></div>
+      <div class="pcard"><h3>📣 Broadcast &amp; lead tracking</h3><p>Announcements to your full client list and simple lead tracking built in.</p></div>
+      <div class="pcard"><h3>🧮 30+ pro calculators</h3><p>SIP to SSY, EMI to HLV, tax to goal planning — the complete free toolkit, always with you.</p></div>
+      <div class="pcard"><h3>🛡️ LIC premium tools</h3><p><a href="/tools/lic-premium-calculator/">All-plan premium calculator</a> with WhatsApp proposal share + <a href="/tools/lic-premium-reminder/">policy premium reminders</a>.</p></div>
+      <div class="pcard"><h3>☁️ Web + Android, one login</h3><p>Cloud sync on every device — office computer, personal phone, your plans follow you.</p></div>
+    </div>
+  </div>
+
+  <div class="card mfp-block roi">
+    <h2>See it before you pay anything</h2>
+    <p class="hi">Pehle खुद देखिए — payment बाद में</p>
+    <p>WhatsApp us the word <strong>SAMPLE PDF</strong> and we will send you a demo client report — the same branded report your clients would receive with your name on it. Seeing it once decides faster than any pitch.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+      <a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20Please%20send%20me%20a%20SAMPLE%20branded%20client%20PDF%20report." rel="noopener">📲 Send me a sample PDF</a>
+      <a class="btn-ghost" href="https://www.myfinancialplan.in/app/index.html#partner">Open Partner Mode in the app →</a>
+    </div>
+  </div>
+
+  <div class="card mfp-block" id="plans">
+    <h2>Plans &amp; launch pricing</h2>
+    <p class="hi">Plans और launch pricing — पहले 100 partners के लिए introductory दाम</p>
+    <p>🎁 <strong>Every plan starts with a FREE 7-day trial</strong> — no card, no payment. Pay quarterly, half-yearly or yearly and save an extra 5% / 10% / 20% on every plan.</p>
+    <div class="pgrid">
+      <div class="plan">
+        <h3>🥈 Silver</h3>
+        <p class="aud">For new advisors</p>
+        <div class="pr"><span class="mrp">₹299</span> ₹99<small>/mo</small><span class="off">SAVE 67%</span></div>
+        <ul>
+          <li>10 client reports</li>
+          <li>Your branding on client PDFs</li>
+          <li>Client CRM &amp; follow-ups</li>
+          <li>WhatsApp support</li>
+        </ul>
+        <a class="btn-cta" style="display:block;text-align:center" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Silver%20launch%20offer%20(%E2%82%B999%2Fmo%2C%20MRP%20%E2%82%B9299).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
+      </div>
+      <div class="plan pop">
+        <span class="tag">MOST POPULAR</span>
+        <h3>🥇 Gold</h3>
+        <p class="aud">Growing practice</p>
+        <div class="pr"><span class="mrp">₹999</span> ₹299<small>/mo</small><span class="off">SAVE 70%</span></div>
+        <ul>
+          <li>25 client reports</li>
+          <li>Your branding on client PDFs</li>
+          <li>Client CRM &amp; follow-ups</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn-cta" style="display:block;text-align:center" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Gold%20launch%20offer%20(%E2%82%B9299%2Fmo%2C%20MRP%20%E2%82%B9999).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
+      </div>
+      <div class="plan">
+        <h3>💎 Platinum</h3>
+        <p class="aud">Full-scale desk</p>
+        <div class="pr"><span class="mrp">₹2,999</span> ₹999<small>/mo</small><span class="off">SAVE 67%</span></div>
+        <ul>
+          <li>50 client reports</li>
+          <li>Your branding on client PDFs</li>
+          <li>Client CRM &amp; follow-ups</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn-cta" style="display:block;text-align:center" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Platinum%20launch%20offer%20(%E2%82%B9999%2Fmo%2C%20MRP%20%E2%82%B92%2C999).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
+      </div>
+    </div>
+    <p style="margin-top:16px"><a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye." rel="noopener">🎁 or start FREE 7-day trial →</a></p>
+    <p style="font-size:13px;color:#5B6B7F">Pay securely via Razorpay (UPI · Card · NetBanking) · activation in ~2 minutes · auto-payments coming soon. Introductory prices are locked for early subscribers — once the founding slots fill, regular MRP applies.</p>
+  </div>
+
+  <div class="card mfp-block roi">
+    <h2>The honest maths</h2>
+    <p class="hi">सीधा हिसाब — ₹99/month ≈ ₹3.3/day, एक chai से भी कम</p>
+    <p>Silver costs <strong>₹99 a month — about ₹3.3 a day</strong>. If one professional branded plan helps you keep even <strong>one client</strong> or restart one lapsed SIP in a whole year, the subscription has paid for itself many times over. <span style="font-size:12.5px;color:#5B6B7F">(Illustrative — your results depend on your own practice and clients.)</span></p>
+  </div>
+
+  <div class="card mfp-block">
+    <h2>Your trust checklist</h2>
+    <p class="hi">भरोसे की checklist</p>
+    <div class="tstrip">
+      <div>🎁 <b>7-day FREE trial</b><br>No card, no payment — full plan, not a demo.</div>
+      <div>💰 <b>7-day money-back</b><br>Not satisfied? Full refund within 7 days of activation.</div>
+      <div>🔓 <b>No lock-in</b><br>Cancel anytime. Monthly plans, no long contracts.</div>
+      <div>🔒 <b>Client data private</b><br>Never sold, never shared. Your clients stay yours.</div>
+    </div>
+  </div>
+
+  <div class="soon mfp-block">
+    <h2>🏅 Verified Professional Network — Coming Soon</h2>
+    <p>A city-wise directory of verified professionals on MyFinancialPlan — so families searching this site can find <strong style="color:#FFF">you</strong>. Founding partners on the waitlist get listed first.</p>
+    <div class="badges">
+      <span>📋 Certified Financial Planner (CFP)</span>
+      <span>📈 SEBI Registered Investment Adviser</span>
+      <span>💹 MF Distributor (ARN)</span>
+      <span>🛡️ Insurance Advisor (IRDAI)</span>
+      <span>🧾 Chartered Accountant</span>
+      <span>📑 GST Practitioner</span>
+      <span>⚖️ Tax Advocate</span>
+    </div>
+    <p style="font-size:12.5px">The platform only connects; advice and service responsibility remain with the listed professional. Listing follows a credential check — it is not an endorsement.</p>
+    <a class="btn-cta" href="https://wa.me/918840192702?text=Hi%21%20Please%20add%20me%20to%20the%20Verified%20Professional%20Network%20waitlist.%20My%20profession%3A%20" rel="noopener">Join the founding waitlist →</a>
+  </div>
+
+  <div class="card mfp-block mfp-faq">
+    <h2>Advisors ask us</h2>
+    <p class="hi">Advisors के सवाल, हमारे सीधे जवाब</p>
+    <details><summary>Who is Partner Mode for?</summary><p>LIC agents and insurance advisors, mutual fund distributors, wealth managers, CFPs and tax professionals — anyone who prepares financial plans for clients and wants their own name and brand on the report. Families use the same app in free Individual Mode.</p></details>
+    <details><summary>Do I need technical knowledge?</summary><p>No. If you can use WhatsApp, you can use Partner Mode. Enter the client's details, tap once, and a branded PDF is ready in about five minutes. A Relationship Manager walks you through the first setup on call — in Hindi or English.</p></details>
+    <details><summary>How do activation and payment work?</summary><p>Every plan starts with a FREE 7-day trial — no card, no payment. WhatsApp us for a trial code, log in to the app with the same email, and the plan activates itself on every device. Paid plans activate through secure Razorpay payment (UPI, card, net-banking) with a 7-day money-back guarantee.</p></details>
+    <details><summary>What branding appears on the client PDF?</summary><p>Your name, your logo and your contact details on every client PDF report — in Hindi or English. The client remembers you, not us.</p></details>
+    <details><summary>Can I cancel anytime? Is my client data safe?</summary><p>Yes — no lock-in, cancel anytime, and every new subscription carries a 7-day money-back guarantee. Client data stays private: we never sell or share personal or financial data with telemarketers, credit bureaus or ad networks.</p></details>
+    <details><summary>Will MyFinancialPlan send me client leads?</summary><p>Today Partner Mode gives you the tools — branded reports, CRM, follow-ups and calculators. The Verified Professional Network above — city-wise listings with routed client enquiries — is coming soon, and waitlist partners get first access.</p></details>
+  </div>
+
+  <div class="card mfp-block">
+    <h2>Talk to a human first</h2>
+    <p class="hi">पहले इंसान से बात कीजिए — zero pressure</p>
+    <p>One call. A Relationship Manager will show you Partner Mode on your own phone — in Hindi or English — before you spend a single rupee.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20see%20Partner%20Mode%20for%20advisors." rel="noopener">💬 WhatsApp us</a>
+      <a class="btn-ghost" href="tel:+918840192702">📞 +91 88401 92702</a>
+    </div>
+  </div>
+
+</div>
+
+<style id="mfp-trust-css">.mfp-trust{border-top:1px solid #E3EAF2;background:#F7FAFC;padding:18px 0;font-size:12.5px;color:#4A5B6E;line-height:1.65}
+.mfp-trust .in{max-width:1140px;margin:0 auto;padding:0 16px}
+.mfp-trust .upd{margin:0 0 6px;font-weight:600;color:#28394C}
+.mfp-trust .disc{margin:0}
+.mfp-trust b{color:#28394C}</style>
+<section class="mfp-src" aria-labelledby="src-h">
+  <style>
+    .mfp-src{border-top:1px solid #E3EAF2;background:#fff;padding:20px 0;font-size:13px;color:#4A5B6E;line-height:1.7}
+    .mfp-src .in{max-width:1140px;margin:0 auto;padding:0 16px}
+    .mfp-src h2{margin:0 0 8px;font-size:15px;color:#28394C}
+    .mfp-src p{margin:0 0 10px}
+    .mfp-src ul{margin:0 0 12px;padding-left:20px}
+    .mfp-src li{margin:0 0 4px}
+    .mfp-src a{color:#0B5CAD;font-weight:700;text-decoration:none}
+    .mfp-src a:hover{text-decoration:underline}
+    .mfp-src .by{margin:0;font-size:12.5px;color:#5B6B7F;border-top:1px solid #EEF3F8;padding-top:10px}
+  </style>
+  <div class="in">
+    <h2 id="src-h">Sources and authorship</h2>
+    <p>Professional designations and regulations referenced on this page are governed by the official bodies below. Prices and features are MyFinancialPlan's current launch offers as shown.</p>
+    <ul>
+      <li><a href="https://www.sebi.gov.in/" target="_blank" rel="noopener">Securities and Exchange Board of India (SEBI)</a> — Registered Investment Adviser (RIA) regulation</li>
+      <li><a href="https://www.amfiindia.com/investor" target="_blank" rel="noopener">Association of Mutual Funds in India (AMFI)</a> — MF distributor (ARN) registration</li>
+      <li><a href="https://irdai.gov.in/" target="_blank" rel="noopener">Insurance Regulatory and Development Authority of India (IRDAI)</a> — insurance advisor regulation</li>
+    </ul>
+    <p class="by">Written by MyFinancialPlan Editorial Team · Last reviewed <time datetime="2026-10-25">25 October 2026</time></p>
+  </div>
+</section>
+<div class="mfp-trust"><div class="in">
+  <p class="upd">Last updated: <time datetime="2026-10-25">25 October 2026</time></p>
+  <p class="disc"><b>Disclaimer:</b> MyFinancialPlan is a planning-software platform. It is not itself a SEBI-registered investment adviser, insurance company or broker, and it does not sell or recommend any financial product. Figures and examples are illustrative. Advice and service responsibility rest solely with the individual professional you engage.</p>
+</div></div>
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/app/">Open Web App</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/vanshavali/">Digital Vanshavali</a>
+        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+        <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/mfp-push.js"></script>
+  </footer>
+
+<div class="psticky">
+  <a class="pl" href="#plans">Plans ₹99/mo ↓</a>
+  <a class="wa" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye." rel="noopener">🎁 FREE Trial Code</a>
+</div>
+
+<style id="mfp-a11y-mobile">
+/* Mobile accessibility layer — applied 2026-10-07.
+   (1) TEXT FLOOR — global: every selector below was measured on the built pages
+       rendering below 12px; rules here are strict increases only.
+   (2) THUMB TARGETS — mobile only (<=640px): controls raised to 44px. */
+label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
+.res span,.gc-tile span{font-size:12px !important}
+
+@media (max-width: 640px){
+  .mfp-skip{min-height:46px !important;display:flex !important;align-items:center !important}
+  input,select,textarea{min-height:46px !important}
+  a.btn,.btn,.hot,.tlink,.gc-navlink,.gc-brand{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .mfp-foot a{min-height:46px !important;display:inline-flex !important;align-items:center !important;padding:6px 4px !important}
+  footer .cols a,footer .wrap a,footer p a,footer nav a{min-height:46px !important;min-width:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;padding:4px 2px !important}
+  .mfp-links a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .mfp-links{line-height:1.5 !important}
+  .explore{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .btns a,.btns button{min-height:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important}
+  .pn a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .crumbs a,.crumb a,nav.bc a,.bc a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  nav.top .links a,nav.top .wrap>a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .top nav a,.top .wrap a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .lnks a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  .lnks{line-height:1.5 !important}
+}
+</style>
 </body>
 </html>
