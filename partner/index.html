@@ -31,56 +31,95 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.myfinancialplan.in/"},{"@type":"ListItem","position":2,"name":"Partner Mode for Advisors","item":"https://www.myfinancialplan.in/partner/"}]}</script>
 
 <style>
-  :root { --teal: #0E9D78; --teal-dark: #047857; --ink: #17324A; --bg: #F8FAFC; --wa: #25D366; }
-  body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 0; line-height: 1.6; }
-  header.hero { background: linear-gradient(160deg, #0F172A, #0B2233 70%, #062A41); color: #FFF; padding: 34px 16px 30px; text-align: center; }
-  header.hero h1 { margin: 0; font-size: 27px; font-weight: 800; color: #34F0B4; line-height: 1.35; }
-  header.hero p { margin: 8px 0 0 0; font-size: 14.5px; color: #B8C7D6; }
-  header.hero p.hi { color: #7DD3B0; font-weight: 600; }
-  .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
-  .card { background: #FFF; border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); margin-bottom: 24px; border: 1px solid #E2E8F0; }
-  h2 { color: #065F46; font-size: 22px; font-weight: 800; margin-top: 0; }
-  .btn-cta { display: inline-block; background: linear-gradient(135deg, #10B981, #047857); color: #FFF; text-decoration: none; padding: 14px 28px; border-radius: 14px; font-weight: 800; font-size: 16px; box-shadow: 0 6px 20px rgba(14,157,120,0.32); }
-  .btn-wa { display: inline-block; background: #25D366; color: #FFF; text-decoration: none; padding: 14px 28px; border-radius: 14px; font-weight: 800; font-size: 16px; box-shadow: 0 6px 20px rgba(37,211,102,0.32); }
-  .btn-ghost { display: inline-block; background: #FFF; color: #065F46; text-decoration: none; padding: 13px 24px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #A7F3D0; }
-  footer { text-align: center; padding: 30px; font-size: 13px; background: #0F172A; color: #94A3B8; margin-top: 40px; }
-  /* partner-page local blocks */
-  .hi { color: #0B7A5C; font-size: 14px; font-weight: 600; margin: -6px 0 12px; }
-  .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
-  .pcard { background: #F7FAFC; border: 1px solid #E3E9F1; border-radius: 16px; padding: 18px; }
-  .pcard h3 { margin: 0 0 6px; font-size: 15.5px; color: #17324A; }
-  .pcard p { margin: 0; font-size: 13.5px; color: #44586E; }
-  .step { display: flex; gap: 14px; align-items: flex-start; margin: 14px 0; }
-  .step .n { flex: 0 0 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg,#10B981,#047857); color:#FFF; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-  .step .t h3 { margin: 0 0 4px; font-size: 15.5px; color: #17324A; }
-  .step .t p { margin: 0; font-size: 13.5px; color: #44586E; }
-  .plan { border: 2px solid #E3E9F1; border-radius: 18px; padding: 22px; background: #FFF; position: relative; }
-  .plan.pop { border-color: #0E9D78; box-shadow: 0 10px 26px rgba(14,157,120,0.18); }
-  .plan .tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #047857; color: #FFF; font-size: 11.5px; font-weight: 800; padding: 4px 14px; border-radius: 99px; white-space: nowrap; }
-  .plan h3 { margin: 0; font-size: 18px; color: #17324A; }
-  .plan .aud { font-size: 12.5px; color: #5B6B7F; margin-top: 2px; }
-  .plan .pr { margin: 10px 0 12px; font-size: 26px; font-weight: 800; color: #065F46; }
-  .plan .pr .mrp { font-size: 15px; color: #94A3B8; text-decoration: line-through; font-weight: 600; }
-  .plan .pr small { font-size: 13px; color: #5B6B7F; font-weight: 600; }
-  .plan .pr .off { font-size: 11.5px; background: #ECFDF5; color: #047857; border-radius: 8px; padding: 2px 8px; margin-left: 6px; vertical-align: middle; }
-  .plan ul { margin: 0 0 16px 18px; padding: 0; font-size: 13.5px; color: #44586E; }
-  .plan ul li { margin-bottom: 7px; }
-  .roi { background: linear-gradient(135deg, #ECFDF5, #F0FDF4); border: 1.5px solid #A7F3D0; border-radius: 18px; padding: 22px; }
-  .roi h2 { margin-top: 0; }
-  .tstrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 14px; }
-  .tstrip div { background: #F7FAFC; border: 1px solid #E3E9F1; border-radius: 12px; padding: 12px 14px; font-size: 13px; color: #44586E; font-weight: 600; }
-  .soon { background: linear-gradient(150deg, #0F172A, #062A41); color: #FFF; border-radius: 20px; padding: 26px; }
-  .soon h2 { color: #FCD34D; }
-  .soon p { color: #B8C7D6; }
-  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-  .badges span { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: #E2E8F0; font-size: 12.5px; font-weight: 700; padding: 6px 13px; border-radius: 99px; }
-  .psticky { display: none; }
-  @media (max-width: 768px) {
-    .psticky { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: rgba(6,42,65,.97); border-top: 1px solid rgba(255,255,255,.14); padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }
-    .psticky a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 12px; font-weight: 800; font-size: 14px; text-decoration: none; color: #FFF; }
-    .psticky a.pl { background: #0E9D78; }
-    .psticky a.wa { background: #25D366; }
-    body { padding-bottom: 78px; }
+  :root{--ink:#17324A;--ink2:#44586E;--teal:#0E9D78;--indigo:#4C62CE;--amber:#BF7B0B;--cream:#FFF6E3;--mint:#DDF4EC;--mint2:#E7F4EE;--lav:#E1E6FA;--line:#E3E9F1;--bg:#F7FAFC}
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;margin:0;padding:0;overflow-x:hidden}
+  h1{font-size:clamp(34px,5.6vw,52px);line-height:1.06;letter-spacing:-1.5px;font-weight:900;margin:16px 0 14px}
+  .sec-h{font-size:clamp(26px,4vw,36px);font-weight:900;letter-spacing:-1px;margin:14px 0 10px;line-height:1.15}
+  .kick{display:inline-flex;align-items:center;gap:8px;background:var(--mint);color:#0B7A5C;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:99px}
+  .grad{background:linear-gradient(92deg,#0E9D78 10%,#4C62CE 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:17px;color:var(--ink2);max-width:52ch}
+  .hi{color:#0B7A5C;font-size:14.5px;font-weight:600;margin:-4px 0 12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:99px;font-weight:800;font-size:15px;border:none;cursor:pointer;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .b-teal{background:linear-gradient(135deg,#0E9D78,#0B8465);color:#fff;box-shadow:0 8px 22px -8px rgba(14,157,120,.5)}
+  .b-wa{background:#25D366;color:#fff;box-shadow:0 8px 22px -8px rgba(37,211,102,.5)}
+  .b-ghost{background:#fff;color:#065F46;border:2px solid #A7F3D0}
+  .b-big{padding:16px 30px;font-size:16px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 20px}
+
+  /* hero — same light radial washes as the homepage */
+  .hero{position:relative;padding:56px 0 42px;background:radial-gradient(1200px 500px at 80% -10%,#E1E6FA 0%,transparent 55%),radial-gradient(900px 500px at 5% 10%,#DDF4EC 0%,transparent 50%)}
+  .hero .wrap{max-width:1180px;margin:0 auto;padding:0 18px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  .hero-vis{display:flex;justify-content:center;position:relative}
+  .vid-card{border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(23,50,74,.35);border:1px solid rgba(255,255,255,.6);position:relative;background:#0B1B2A;width:100%;max-width:330px;aspect-ratio:9/16}
+  .vid-card video{width:100%;height:100%;object-fit:cover;display:block}
+  .unmute{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(23,50,74,.85);color:#fff;border:none;padding:11px 18px;border-radius:99px;font-weight:700;font-size:13px;cursor:pointer;backdrop-filter:blur(6px)}
+  @media (max-width:1023.5px){
+    .hero{padding:34px 0 30px}
+    .hero .wrap{grid-template-columns:1fr;gap:28px}
+    .vid-card{max-width:352px}
+  }
+
+  .container{max-width:1080px;margin:30px auto;padding:0 20px}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:28px;margin-bottom:24px;box-shadow:0 4px 16px rgba(23,50,74,.07)}
+
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px}
+  .pcard{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .pcard h3{margin:0 0 6px;font-size:15.5px;color:var(--ink)}
+  .pcard p{margin:0;font-size:13.5px;color:var(--ink2)}
+  .pcard a{color:#0B7A5C;font-weight:700}
+
+  .step{display:flex;gap:14px;align-items:flex-start;margin:14px 0}
+  .step .n{flex:0 0 40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#0E9D78,#0B8465);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .step .t h3{margin:0 0 4px;font-size:15.5px;color:var(--ink)}
+  .step .t p{margin:0;font-size:13.5px;color:var(--ink2)}
+
+  .tbanner{background:linear-gradient(135deg,#FFF6E3,#FBEED2);border:1.5px solid #EBCFA0;color:#7A5406;border-radius:18px;padding:16px 22px;font-size:14.5px;line-height:1.55}
+  .tbanner b{font-weight:900}
+  .tbanner span{color:#8A6A2A}
+  .tbanner a{display:inline-block;margin-top:8px;font-weight:800;color:#0B7A5C;text-decoration:underline}
+
+  .lcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0 4px}
+  .lcbox{background:linear-gradient(135deg,#FFF6E3,#FFEED0);border:1.5px solid #EBCFA0;border-radius:18px;padding:14px 18px;text-align:center}
+  .lcl{display:block;font-size:11.5px;font-weight:800;color:#7A5406;letter-spacing:.06em}
+  .lcnum{display:block;font-size:32px;font-weight:900;color:#B4530A;margin:2px 0 1px}
+  .lcof{font-size:12px;color:#8A6A2A;font-weight:700}
+
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:30px}
+  .plan{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:26px;position:relative}
+  .plan.pop{border-color:var(--indigo);box-shadow:0 18px 44px -18px rgba(76,98,206,.45)}
+  .plan .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--indigo);color:#fff;font-size:11px;font-weight:900;letter-spacing:.05em;padding:5px 16px;border-radius:99px;white-space:nowrap}
+  .plan h3{margin:0;font-size:19px;font-weight:900;color:var(--ink)}
+  .plan .aud{font-size:12.5px;color:#5B6B7F;margin-top:2px}
+  .plan .pr{font-size:32px;font-weight:900;letter-spacing:-1px;margin:8px 0 12px;color:var(--ink)}
+  .plan .mrp{display:inline;font-size:16px;font-weight:800;color:#9AA9BA;text-decoration:line-through;margin-right:6px}
+  .plan .pr small{font-size:13.5px;color:#5B6B7F;font-weight:700}
+  .plan .off{display:inline-block;background:#FFE3D3;color:#B4530A;font-size:11px;font-weight:900;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle;letter-spacing:.04em}
+  .plan ul{margin:0 0 18px 18px;padding:0;font-size:14px;color:var(--ink2)}
+  .plan ul li{margin-bottom:8px}
+  .plan .btn{width:100%;justify-content:center}
+  .pnote{margin-top:18px;font-size:13px;color:var(--ink2);text-align:center}
+
+  .roi{background:var(--mint2);border:1.5px solid #BCE5D9;border-radius:22px;padding:24px}
+  .roi h3{margin:0 0 8px;font-size:17px;font-weight:900;color:#0B7A5C}
+  .roi p{margin:0;font-size:14.5px;color:var(--ink2)}
+
+  .tstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+  .tstrip div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ink2);font-weight:600;line-height:1.55}
+
+  .soon{background:linear-gradient(150deg,#0B1B2A,#062A41);color:#fff;border-radius:22px;padding:26px;border:1px solid #0B1B2A}
+  .soon .sec-h{color:#FCD34D}
+  .soon p{color:#B8C7D6}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+  .badges span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#E2E8F0;font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:99px}
+
+  .psticky{display:none}
+  @media (max-width:768px){
+    .psticky{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(221,244,236,.97);border-top:2px solid #BCE5D9;padding:10px 10px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(11,122,92,.14)}
+    .psticky a{flex:1;display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;font-weight:800;font-size:14px;text-decoration:none;color:#fff}
+    .psticky a.pl{background:linear-gradient(135deg,#0E9D78,#0B8465)}
+    .psticky a.wa{background:#25D366}
+    body{padding-bottom:78px}
   }
 </style>
   <script src="/assets/js/mfp-protect.js" defer></script>
@@ -92,15 +131,6 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
 </style>
 <style id="mfp-landing-extra">
  .mfp-block{margin-top:24px}
- .mfp-block h2{font-size:22px;font-weight:800;margin:0 0 10px}
- .mfp-block h3{font-size:16px;font-weight:800;margin:18px 0 6px}
- .mfp-block p{color:#44586E;margin:0 0 12px}
- .mfp-block ul{margin:0 0 14px 20px;color:#44586E}
- .mfp-block li{margin-bottom:8px}
- .mfp-block strong{color:#17324A}
- .mfp-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
- .mfp-links a{background:#E7F4EE;color:#0B7A5C;font-weight:700;padding:8px 15px;border-radius:99px;text-decoration:none;font-size:13.5px}
- .mfp-links a:hover{background:#D3EDE2}
  .mfp-faq{margin-top:24px}
  .mfp-faq details{background:#FFF;border:1px solid #E3E9F1;border-radius:14px;padding:0;margin-bottom:10px;overflow:hidden}
  .mfp-faq summary{cursor:pointer;padding:15px 18px;font-weight:700;color:#17324A;list-style:none}
@@ -108,7 +138,7 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
  .mfp-faq summary::after{content:"+";float:right;font-weight:800;color:#0E9D78}
  .mfp-faq details[open] summary::after{content:"\2212"}
  .mfp-faq details p{padding:0 18px 16px;margin:0;color:#44586E}
-@media(max-width:640px){ .mfp-block h2{font-size:19px}}
+@media(max-width:640px){ .sec-h{font-size:24px}}
 </style>
   <script type="application/ld+json">
 {
@@ -181,43 +211,14 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
 <style id="mfp-responsive-fit">
 /* MFP responsive + layout fit — measurements and reasoning for every rule
    are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
-nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
-@media (max-width:620px){
-  nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
-  nav.top .logo{height:30px}
-  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:12px;margin-right:0}
-  nav.top a.btn{display:flex;align-items:center;justify-content:center;height:40px;
-                padding:0 12px;font-size:12.5px;margin-left:0!important}
-  .burger{width:40px;height:40px;margin-left:0}
-}
-@media (max-width:360px){
-  nav.top .logo{height:26px}
-  #langSw{font-size:12px;padding:0 10px}
-}
-.top .wrap{flex-wrap:wrap;row-gap:6px}
-.top .wrap>nav{min-width:0;flex-wrap:wrap}
-@media (max-width:560px){
-  .top .wrap{padding:10px 14px}
-  .top .wrap>a:first-child{flex:0 0 auto}
-  a.hot{margin-left:auto}
-  .rel{gap:8px}
-  .rel a{flex:0 1 auto;min-width:0}
-}
 img,svg,video,canvas{max-width:100%}
 @media (max-width:620px){
   img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
-}
-@media (max-width:620px){
   .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
   .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
   input,select,textarea{min-width:0;max-width:100%}
-  .gc-scen{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .btn-estate{white-space:normal;max-width:100%}
-  .mfp-brand-group{max-width:100%;flex-wrap:wrap}
-  .mfp-brand-logo,.mfp-brand-group svg{max-width:100%;height:auto;width:auto}
 }
 @media (min-width:1024px){
-  .container{max-width:1080px!important}
   .grid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
 }
 </style>
@@ -248,8 +249,6 @@ img,svg,video,canvas{max-width:100%}
         background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
         white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
 .mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
-.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
-        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
 .mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
         border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
         padding:0;color:#0f2233}
@@ -279,7 +278,6 @@ img,svg,video,canvas{max-width:100%}
   .mfp-sh-tabs{gap:1px}
   .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
   .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
-  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
 }
 /* ===== shared site footer ================================================= */
 .mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
@@ -348,20 +346,36 @@ img,svg,video,canvas{max-width:100%}
   </nav>
 </header>
 
-<header class="hero">
-  <h1 id="main" tabindex="-1">Your Name. Your Brand. Professional Client Plans in 5 Minutes.</h1>
-  <p>Partner Mode for LIC agents, mutual fund distributors, wealth advisors &amp; CFPs</p>
-  <p class="hi">हर client report पर आपका नाम, आपका logo, आपका number — client को याद रहेंगे आप।</p>
-  <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-    <a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye." rel="noopener">🎁 Get FREE 7-Day Trial Code</a>
-    <a class="btn-ghost" href="#plans" style="background:transparent;color:#E2E8F0;border-color:rgba(255,255,255,.35)">See Plans &amp; Pricing ↓</a>
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="kick">💼 Partner Mode — for advisors</span>
+    <h1 id="main" tabindex="-1">Your clients deserve a <span class="grad">professional plan</span> — with YOUR brand on it.</h1>
+    <p class="lede">Partner Mode for LIC agents, mutual fund distributors, wealth advisors &amp; CFPs — branded client PDFs in 5 minutes, client CRM, follow-ups and 30+ calculators.</p>
+    <p class="lede" style="margin-top:10px;font-weight:700;color:#0E9D78">हर client report पर आपका नाम, आपका logo, आपका number — client को याद रहेंगे आप।</p>
+    <div class="cta-row">
+      <a class="btn b-wa b-big" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye." rel="noopener">🎁 FREE 7-Day Trial Code</a>
+      <a class="btn b-teal b-big" href="#plans">See Launch Plans ↓</a>
+    </div>
   </div>
-</header>
+  <div class="hero-vis">
+    <div class="vid-card">
+      <video id="ppromo" src="/assets/partner-promo.mp4" poster="/assets/partner-poster.jpg" autoplay muted loop playsinline preload="none"></video>
+      <button class="unmute" id="pplay" style="display:none">▶ Tap to watch — partner promo</button>
+      <script>(function(){var MOB=false;try{MOB=window.matchMedia("(max-width:768px)").matches;}catch(e){}
+      var v=document.getElementById("ppromo"),b=document.getElementById("pplay");
+      if(!v)return;
+      if(MOB){v.removeAttribute("autoplay");v.removeAttribute("src");try{v.load();}catch(e){}
+        if(b){b.style.display="";b.addEventListener("click",function(){v.src="/assets/partner-promo.mp4";v.muted=true;v.loop=true;v.load();var p=v.play();if(p&&p.catch)p.catch(function(){});b.style.display="none";});}
+      }
+      })();</script>
+    </div>
+  </div>
+</div></header>
 
 <div class="container">
 
   <div class="card">
-    <h2>Three problems every advisor knows</h2>
+    <h2 class="sec-h">Three problems <span class="grad">every advisor knows</span></h2>
     <p class="hi">तीन परेशानियाँ जो हर advisor जानता है</p>
     <div class="pgrid">
       <div class="pcard">
@@ -379,8 +393,8 @@ img,svg,video,canvas{max-width:100%}
     </div>
   </div>
 
-  <div class="card mfp-block">
-    <h2>How Partner Mode works</h2>
+  <div class="card">
+    <h2 class="sec-h">How Partner Mode works — <span class="grad">3 steps</span></h2>
     <p class="hi">Partner Mode कैसे काम करता है — बस 3 steps</p>
     <div class="step">
       <div class="n">1</div>
@@ -405,8 +419,8 @@ img,svg,video,canvas{max-width:100%}
     </div>
   </div>
 
-  <div class="card mfp-block">
-    <h2>Everything in Partner Mode</h2>
+  <div class="card">
+    <h2 class="sec-h">Everything in <span class="grad">Partner Mode</span></h2>
     <p class="hi">Partner Mode में क्या-क्या मिलता है</p>
     <div class="pgrid">
       <div class="pcard"><h3>📄 Branded PDF reports</h3><p>Client-ready reports in Hindi + English — your name, logo &amp; contact on every page.</p></div>
@@ -418,21 +432,24 @@ img,svg,video,canvas{max-width:100%}
     </div>
   </div>
 
-  <div class="card mfp-block roi">
-    <h2>See it before you pay anything</h2>
-    <p class="hi">Pehle खुद देखिए — payment बाद में</p>
-    <p>WhatsApp us the word <strong>SAMPLE PDF</strong> and we will send you a demo client report — the same branded report your clients would receive with your name on it. Seeing it once decides faster than any pitch.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
-      <a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20Please%20send%20me%20a%20SAMPLE%20branded%20client%20PDF%20report." rel="noopener">📲 Send me a sample PDF</a>
-      <a class="btn-ghost" href="https://www.myfinancialplan.in/app/index.html#partner">Open Partner Mode in the app →</a>
+  <div class="card roi">
+    <h3>📲 See it before you pay anything</h3>
+    <p>WhatsApp us the word <strong>SAMPLE PDF</strong> and we will send you a demo client report — the same branded report your clients would receive with your name on it. Seeing it once decides faster than any pitch. <b>Pehle खुद देखिए — payment बाद में।</b></p>
+    <div class="cta-row" style="margin:14px 0 2px">
+      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20Please%20send%20me%20a%20SAMPLE%20branded%20client%20PDF%20report." rel="noopener">Send me a sample PDF →</a>
+      <a class="btn b-ghost" href="https://www.myfinancialplan.in/app/index.html#partner">Open Partner Mode in the app →</a>
     </div>
   </div>
 
-  <div class="card mfp-block" id="plans">
-    <h2>Plans &amp; launch pricing</h2>
-    <p class="hi">Plans और launch pricing — पहले 100 partners के लिए introductory दाम</p>
-    <p>🎁 <strong>Every plan starts with a FREE 7-day trial</strong> — no card, no payment. Pay quarterly, half-yearly or yearly and save an extra 5% / 10% / 20% on every plan.</p>
-    <div class="pgrid">
+  <div class="card" id="plans">
+    <h2 class="sec-h">Launch offer: <span class="grad">founding partner pricing</span></h2>
+    <p class="hi">पहले 100 partners के लिए introductory दाम — slots भरने के बाद regular MRP</p>
+    <div class="tbanner">🎁 <b>Every partner plan now starts with a FREE 7-day trial</b> — <span>no card, no payment. WhatsApp us, get your trial code, and activate in the app within 2 minutes.</span><br><a href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye." rel="noopener">Get free trial code →</a></div>
+    <div class="lcs">
+      <div class="lcbox"><span class="lcl">💼 FOUNDING PARTNER PRICING</span><b class="lcnum">67–70% OFF</b><span class="lcof">first 100 partners · then regular MRP applies</span></div>
+      <div class="lcbox"><span class="lcl">📅 PAY 3/6/12 MONTHS UPFRONT</span><b class="lcnum">−5/−10/−20%</b><span class="lcof">extra rebate on every plan</span></div>
+    </div>
+    <div class="plans">
       <div class="plan">
         <h3>🥈 Silver</h3>
         <p class="aud">For new advisors</p>
@@ -443,10 +460,10 @@ img,svg,video,canvas{max-width:100%}
           <li>Client CRM &amp; follow-ups</li>
           <li>WhatsApp support</li>
         </ul>
-        <a class="btn-cta" style="display:block;text-align:center" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Silver%20launch%20offer%20(%E2%82%B999%2Fmo%2C%20MRP%20%E2%82%B9299).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
+        <a class="btn b-teal" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Silver%20launch%20offer%20(%E2%82%B999%2Fmo%2C%20MRP%20%E2%82%B9299).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
       </div>
       <div class="plan pop">
-        <span class="tag">MOST POPULAR</span>
+        <span class="ribbon">PARTNER · MOST POPULAR</span>
         <h3>🥇 Gold</h3>
         <p class="aud">Growing practice</p>
         <div class="pr"><span class="mrp">₹999</span> ₹299<small>/mo</small><span class="off">SAVE 70%</span></div>
@@ -456,7 +473,7 @@ img,svg,video,canvas{max-width:100%}
           <li>Client CRM &amp; follow-ups</li>
           <li>Priority support</li>
         </ul>
-        <a class="btn-cta" style="display:block;text-align:center" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Gold%20launch%20offer%20(%E2%82%B9299%2Fmo%2C%20MRP%20%E2%82%B9999).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
+        <a class="btn b-teal" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Gold%20launch%20offer%20(%E2%82%B9299%2Fmo%2C%20MRP%20%E2%82%B9999).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
       </div>
       <div class="plan">
         <h3>💎 Platinum</h3>
@@ -468,21 +485,19 @@ img,svg,video,canvas{max-width:100%}
           <li>Client CRM &amp; follow-ups</li>
           <li>Priority support</li>
         </ul>
-        <a class="btn-cta" style="display:block;text-align:center" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Platinum%20launch%20offer%20(%E2%82%B9999%2Fmo%2C%20MRP%20%E2%82%B92%2C999).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
+        <a class="btn b-teal" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20Partner%20Platinum%20launch%20offer%20(%E2%82%B9999%2Fmo%2C%20MRP%20%E2%82%B92%2C999).%20Please%20share%20payment%20details." rel="noopener">Pay &amp; Activate →</a>
       </div>
     </div>
-    <p style="margin-top:16px"><a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye." rel="noopener">🎁 or start FREE 7-day trial →</a></p>
-    <p style="font-size:13px;color:#5B6B7F">Pay securely via Razorpay (UPI · Card · NetBanking) · activation in ~2 minutes · auto-payments coming soon. Introductory prices are locked for early subscribers — once the founding slots fill, regular MRP applies.</p>
+    <p class="pnote">Pay via UPI on WhatsApp · activation code in ~2 minutes · auto-payments coming soon. Introductory prices are locked for early subscribers — once the slots fill, regular MRP applies.</p>
   </div>
 
-  <div class="card mfp-block roi">
-    <h2>The honest maths</h2>
-    <p class="hi">सीधा हिसाब — ₹99/month ≈ ₹3.3/day, एक chai से भी कम</p>
-    <p>Silver costs <strong>₹99 a month — about ₹3.3 a day</strong>. If one professional branded plan helps you keep even <strong>one client</strong> or restart one lapsed SIP in a whole year, the subscription has paid for itself many times over. <span style="font-size:12.5px;color:#5B6B7F">(Illustrative — your results depend on your own practice and clients.)</span></p>
+  <div class="card roi">
+    <h3>🧮 The honest maths</h3>
+    <p>Silver costs <strong>₹99 a month — about ₹3.3 a day</strong>, less than a cup of chai. If one professional branded plan helps you keep even <strong>one client</strong> or restart one lapsed SIP in a whole year, the subscription has paid for itself many times over. <b>₹99/माह ≈ ₹3.3/day — एक chai से भी कम।</b> <span style="font-size:12.5px;color:#5B6B7F">(Illustrative — results depend on your own practice and clients.)</span></p>
   </div>
 
-  <div class="card mfp-block">
-    <h2>Your trust checklist</h2>
+  <div class="card">
+    <h2 class="sec-h">Your <span class="grad">trust checklist</span></h2>
     <p class="hi">भरोसे की checklist</p>
     <div class="tstrip">
       <div>🎁 <b>7-day FREE trial</b><br>No card, no payment — full plan, not a demo.</div>
@@ -492,9 +507,9 @@ img,svg,video,canvas{max-width:100%}
     </div>
   </div>
 
-  <div class="soon mfp-block">
-    <h2>🏅 Verified Professional Network — Coming Soon</h2>
-    <p>A city-wise directory of verified professionals on MyFinancialPlan — so families searching this site can find <strong style="color:#FFF">you</strong>. Founding partners on the waitlist get listed first.</p>
+  <div class="soon card" style="border-color:#0B1B2A">
+    <h2 class="sec-h">🏅 Verified Professional Network — Coming Soon</h2>
+    <p>A city-wise directory of verified professionals on MyFinancialPlan — so families searching this site can find <strong style="color:#fff">you</strong>. Founding partners on the waitlist get listed first.</p>
     <div class="badges">
       <span>📋 Certified Financial Planner (CFP)</span>
       <span>📈 SEBI Registered Investment Adviser</span>
@@ -505,11 +520,11 @@ img,svg,video,canvas{max-width:100%}
       <span>⚖️ Tax Advocate</span>
     </div>
     <p style="font-size:12.5px">The platform only connects; advice and service responsibility remain with the listed professional. Listing follows a credential check — it is not an endorsement.</p>
-    <a class="btn-cta" href="https://wa.me/918840192702?text=Hi%21%20Please%20add%20me%20to%20the%20Verified%20Professional%20Network%20waitlist.%20My%20profession%3A%20" rel="noopener">Join the founding waitlist →</a>
+    <a class="btn b-teal" href="https://wa.me/918840192702?text=Hi%21%20Please%20add%20me%20to%20the%20Verified%20Professional%20Network%20waitlist.%20My%20profession%3A%20" rel="noopener">Join the founding waitlist →</a>
   </div>
 
-  <div class="card mfp-block mfp-faq">
-    <h2>Advisors ask us</h2>
+  <div class="card mfp-faq">
+    <h2 class="sec-h">Advisors <span class="grad">ask us</span></h2>
     <p class="hi">Advisors के सवाल, हमारे सीधे जवाब</p>
     <details><summary>Who is Partner Mode for?</summary><p>LIC agents and insurance advisors, mutual fund distributors, wealth managers, CFPs and tax professionals — anyone who prepares financial plans for clients and wants their own name and brand on the report. Families use the same app in free Individual Mode.</p></details>
     <details><summary>Do I need technical knowledge?</summary><p>No. If you can use WhatsApp, you can use Partner Mode. Enter the client's details, tap once, and a branded PDF is ready in about five minutes. A Relationship Manager walks you through the first setup on call — in Hindi or English.</p></details>
@@ -519,13 +534,13 @@ img,svg,video,canvas{max-width:100%}
     <details><summary>Will MyFinancialPlan send me client leads?</summary><p>Today Partner Mode gives you the tools — branded reports, CRM, follow-ups and calculators. The Verified Professional Network above — city-wise listings with routed client enquiries — is coming soon, and waitlist partners get first access.</p></details>
   </div>
 
-  <div class="card mfp-block">
-    <h2>Talk to a human first</h2>
+  <div class="card">
+    <h2 class="sec-h">Talk to a <span class="grad">human first</span></h2>
     <p class="hi">पहले इंसान से बात कीजिए — zero pressure</p>
-    <p>One call. A Relationship Manager will show you Partner Mode on your own phone — in Hindi or English — before you spend a single rupee.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20see%20Partner%20Mode%20for%20advisors." rel="noopener">💬 WhatsApp us</a>
-      <a class="btn-ghost" href="tel:+918840192702">📞 +91 88401 92702</a>
+    <p class="lede" style="font-size:15.5px">One call. A Relationship Manager will show you Partner Mode on your own phone — in Hindi or English — before you spend a single rupee.</p>
+    <div class="cta-row" style="margin:14px 0 2px">
+      <a class="btn b-wa" href="https://wa.me/918840192702?text=Hi%21%20I%20want%20to%20see%20Partner%20Mode%20for%20advisors." rel="noopener">💬 WhatsApp us</a>
+      <a class="btn b-ghost" href="tel:+918840192702">📞 +91 88401 92702</a>
     </div>
   </div>
 
@@ -623,29 +638,18 @@ img,svg,video,canvas{max-width:100%}
 </div>
 
 <style id="mfp-a11y-mobile">
-/* Mobile accessibility layer — applied 2026-10-07.
-   (1) TEXT FLOOR — global: every selector below was measured on the built pages
-       rendering below 12px; rules here are strict increases only.
-   (2) THUMB TARGETS — mobile only (<=640px): controls raised to 44px. */
+/* Mobile accessibility layer — same floors as the rest of the site */
 label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
 .res span,.gc-tile span{font-size:12px !important}
 
 @media (max-width: 640px){
   .mfp-skip{min-height:46px !important;display:flex !important;align-items:center !important}
   input,select,textarea{min-height:46px !important}
-  a.btn,.btn,.hot,.tlink,.gc-navlink,.gc-brand{min-height:46px !important;display:inline-flex !important;align-items:center !important}
+  a.btn,.btn{min-height:46px !important;display:inline-flex !important;align-items:center !important}
   .mfp-foot a{min-height:46px !important;display:inline-flex !important;align-items:center !important;padding:6px 4px !important}
   footer .cols a,footer .wrap a,footer p a,footer nav a{min-height:46px !important;min-width:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;padding:4px 2px !important}
-  .mfp-links a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
-  .mfp-links{line-height:1.5 !important}
-  .explore{min-height:46px !important;display:inline-flex !important;align-items:center !important}
-  .btns a,.btns button{min-height:46px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important}
-  .pn a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
-  .crumbs a,.crumb a,nav.bc a,.bc a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
-  nav.top .links a,nav.top .wrap>a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
-  .top nav a,.top .wrap a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
-  .lnks a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
-  .lnks{line-height:1.5 !important}
+  .unmute{min-height:46px !important;padding:12px 20px !important;font-size:13px !important}
+  .cta-row a,.tbanner a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
 }
 </style>
 </body>
