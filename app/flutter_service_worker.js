@@ -3,13 +3,13 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"version.json": "d2420edb504794c806a1a8b81953bf09",
-"flutter_bootstrap.js": "c801152d48b05d1c39a42acbe7a146ad",
-"index.html": "8a1343620148fa31ce002ec22fa39b47",
-"/": "8a1343620148fa31ce002ec22fa39b47",
-"main.dart.js": "540092a770cd3e8eb87a42ddc918fa60",
+const RESOURCES = {"version.json": "d444f729756e608ec52abcfd3ba998c5",
+"flutter_bootstrap.js": "695692f7ebad70ec8f1af1dceb5508d6",
+"index.html": "cb757cce9c3214fb09a140b88604e9fb",
+"/": "cb757cce9c3214fb09a140b88604e9fb",
+"main.dart.js": "feb78d5deb646fa2aee3c0b23fd9ef3a",
 "assets/FontManifest.json": "e69c337dcd3471b8c09855e73ad84689",
-"assets/fonts/MaterialIcons-Regular.otf": "240d3a44c5d933917bc1f2d3f3a938e4",
+"assets/fonts/MaterialIcons-Regular.otf": "fdf128b2583dea788c741cd4f2130f66",
 "assets/NOTICES": "9b8aa0f4a895c2a40cd84015c811df43",
 "assets/assets/brand/brand_watermark.jpg": "2e514b7dc1ee06d853bff7bc8294a8bd",
 "assets/assets/brand/brand_logo_dark.jpg": "66220954f0189bc8e1dfe86133410e78",
