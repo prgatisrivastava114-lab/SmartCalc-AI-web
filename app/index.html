@@ -67,7 +67,41 @@
        session over REST (zero pub packages). Client ID injected by Dart. -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
-  window.mfpGoogleSignIn=function(clientId){return new Promise(function(resolve){var done=false;function fin(v){if(done)return;done=true;resolve(v||"");}try{if(!window.google||!google.accounts||!google.accounts.id){fin("");return;}google.accounts.id.initialize({client_id:clientId,callback:function(r){fin(r&&r.credential?r.credential:"");},auto_select:false,cancel_on_tap_outside:true});google.accounts.id.prompt(function(n){if(n.isSkippedMoment&&n.isSkippedMoment())fin("");if(n.isDismissedMoment&&n.isDismissedMoment())fin("");});}catch(e){fin("");}setTimeout(function(){fin("");},90000);});};
+  /* v2.27 auth repair — Google GIS/FedCM is loaded asynchronously and current
+     Chrome no longer guarantees the old One-Tap moment callbacks. Wait for
+     GIS, remove deprecated isSkipped/isDismissed handling, and render a real
+     Google button as a visible fallback whenever One-Tap is suppressed. */
+  window.mfpGoogleSignIn=function(clientId){return new Promise(function(resolve){
+    var done=false, timer=null, waitTimer=null;
+    function overlay(){
+      var el=document.getElementById('mfpGoogleButton');
+      if(!el){
+        el=document.createElement('div'); el.id='mfpGoogleButton';
+        el.style.cssText='position:fixed;z-index:2147483647;left:50%;bottom:24px;transform:translateX(-50%);padding:12px;background:#fff;border:1px solid #DCE8EF;border-radius:16px;box-shadow:0 12px 36px rgba(23,50,74,.25);display:block;';
+        document.body.appendChild(el);
+      }
+      el.style.display='block'; return el;
+    }
+    function hide(){var el=document.getElementById('mfpGoogleButton');if(el){el.style.display='none';el.innerHTML='';}}
+    function fin(v){if(done)return;done=true;if(timer)clearTimeout(timer);if(waitTimer)clearTimeout(waitTimer);hide();resolve(v||'');}
+    function start(){
+      try{
+        if(!window.google||!google.accounts||!google.accounts.id){fin('');return;}
+        google.accounts.id.initialize({client_id:clientId,callback:function(r){fin(r&&r.credential?r.credential:'');},auto_select:false,cancel_on_tap_outside:false});
+        var el=overlay();
+        google.accounts.id.renderButton(el,{theme:'outline',size:'large',width:300,text:'continue_with',shape:'pill'});
+        google.accounts.id.prompt();
+        timer=setTimeout(function(){fin('');},30000);
+      }catch(e){fin('');}
+    }
+    var tries=0;
+    function wait(){
+      if(window.google&&google.accounts&&google.accounts.id){start();return;}
+      if(++tries>120){fin('');return;}
+      waitTimer=setTimeout(wait,100);
+    }
+    wait();
+  });};
   </script>
   <link rel="manifest" href="manifest.json">
   <meta property="og:title" content="MyFinancialPlan — your family financial future in 5 minutes">
