@@ -98,13 +98,28 @@ function $(id){return document.getElementById(id);}
 function fail(m){var e=$('err');e.textContent=m;e.style.display='block';}
 function clearFail(){$('err').style.display='none';}
 
+function waitForGis(done){
+  var tries=0;
+  function tick(){
+    if(window.google&&google.accounts&&google.accounts.id){done();return;}
+    if(++tries>120){fail('Google sign-in could not load — check your connection and tap refresh.');return;}
+    setTimeout(tick,100);
+  }
+  tick();
+}
+
 function gsignin(){
-  if(!(window.google&&google.accounts&&google.accounts.id)){fail('Google sign-in could not load — check your connection and refresh.');return;}
-  try{
-    google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCred,auto_select:false,cancel_on_tap_outside:false});
-    google.accounts.id.renderButton($('gbtn'),{theme:'outline',size:'large',width:300,text:'continue_with',shape:'pill'});
-    google.accounts.id.prompt();
-  }catch(e){fail('Google sign-in error — please refresh the page.');}
+  clearFail();
+  waitForGis(function(){
+    try{
+      google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCred,auto_select:false,cancel_on_tap_outside:false});
+      var box=$('gbtn'); box.innerHTML='';
+      google.accounts.id.renderButton(box,{theme:'outline',size:'large',width:300,text:'continue_with',shape:'pill'});
+      // FedCM/browser-controlled One Tap may be suppressed; the rendered
+      // button above remains the reliable explicit fallback.
+      try{google.accounts.id.prompt();}catch(_){/* button still works */}
+    }catch(e){fail('Google sign-in error — tap refresh and try again.');}
+  });
 }
 
 var IS_APP=/[?&]src=app/.test(location.search);
