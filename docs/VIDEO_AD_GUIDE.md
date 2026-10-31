@@ -12,7 +12,7 @@ It's already embedded in your landing page (autoplays muted + "tap for sound").
 ## Where to use it (free, organic — do this today)
 
 1. **YouTube** → upload as a regular video AND it qualifies as a **Short** (under 60s, vertical). Title: *"Plan your family's full financial future in 1 minute — Free 🇮🇳"*. Description first line: `https://www.myfinancialplan.in`. Add the link again as a pinned comment.
-2. **Instagram Reels + Facebook Reels** → same file, caption: *"500+ calculators + a 1-minute money plan for your family. Free → myfinancialplan.in 📞 +91 88401 92702"*.
+2. **Instagram Reels + Facebook Reels** → same file, caption: *"30+ calculators + a 1-minute money plan for your family. Free → myfinancialplan.in 📞 +91 88401 92702"*.
 3. **WhatsApp** → Status + broadcast to your client groups. (WhatsApp compresses video — still fine.)
 4. **Play Store** → paste the YouTube link in the listing's "Promo video" field.
 5. **Website** → done ✅ (it's your landing hero).

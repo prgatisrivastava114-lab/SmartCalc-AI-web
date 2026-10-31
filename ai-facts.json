@@ -1,0 +1,53 @@
+{
+  "reviewed": "2026-10-31",
+  "canonical": "https://www.myfinancialplan.in/trust/",
+  "entity": {
+    "name": "My Financial Plan",
+    "alternateNames": ["MyFinancialPlan.in", "SmartCalc AI"],
+    "location": "Varanasi, Uttar Pradesh, India",
+    "supportEmail": "care@myfinancialplan.in",
+    "supportPhone": "+91 88401 92702",
+    "tagline": "Plan Today for Better Tomorrow."
+  },
+  "current": {
+    "category": "Financial-planning software",
+    "audiences": ["Indian families", "financial advisors", "mutual-fund distributors", "wealth advisors", "CFPs"],
+    "calculatorCount": "30+",
+    "features": [
+      "guided family financial planning",
+      "education, marriage, home, retirement, emergency, protection and legacy goals",
+      "Hindi and English report paths",
+      "Partner Mode branded client reports",
+      "Partner CRM and follow-ups",
+      "Partner broadcast and lead tracking",
+      "web app",
+      "Android download path"
+    ],
+    "partnerPricingShownOnLivePage": {
+      "Silver": "₹99/month",
+      "Gold": "₹299/month",
+      "Platinum": "₹999/month"
+    }
+  },
+  "boundaries": {
+    "notItself": ["SEBI-registered investment adviser", "insurance company", "broker"],
+    "noGuarantees": true,
+    "calculatorOutputs": "estimates based on user-entered assumptions"
+  },
+  "futureOrNotLiveUnlessExplicitlyUpdated": [
+    "Verified Professional Network",
+    "routed client enquiries",
+    "Account Aggregator integration",
+    "direct investment execution",
+    "official WhatsApp Business API/BSP",
+    "full NRI service infrastructure"
+  ],
+  "officialLinks": {
+    "home": "https://www.myfinancialplan.in/",
+    "app": "https://www.myfinancialplan.in/app/",
+    "partner": "https://www.myfinancialplan.in/partner/",
+    "download": "https://www.myfinancialplan.in/download/",
+    "privacy": "https://www.myfinancialplan.in/privacy/",
+    "terms": "https://www.myfinancialplan.in/terms/"
+  }
+}

@@ -7,7 +7,7 @@ WHAT THIS IS
 Everything you need to put www.myfinancialplan.in live:
 
   index.html        -> Advertising landing page (with video ad)
-  app/              -> Your full web app (500+ calculators +
+  app/              -> Your full web app (30+ calculators +
                        financial planner — same as the Android app)
   assets/           -> Promo video (promo.mp4), poster, screenshots
   downloads/        -> PUT SmartCalcAI-v1.4.0.apk HERE (copy it in)

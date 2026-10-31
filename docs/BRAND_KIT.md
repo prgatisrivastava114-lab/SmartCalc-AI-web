@@ -54,7 +54,7 @@ Sizes to mimic the site: H1 ≈ 48–52px extra bold, H2 ≈ 32–36px, body 15�
 ## 5. Voice & writing style
 
 - **Hinglish-friendly, warm, trustworthy.** Short sentences. Numbers first ("₹99/month", "one minute").
-- Always mention: **Free to start**, **500+ calculators**, **OTP-verified**, **human RM on +91 88401 92702**.
+- Always mention: **Free to start**, **30+ calculators**, **OTP-verified**, **human RM on +91 88401 92702**.
 - Mandatory legal line on anything investment-related:
   > "Estimates for guidance only. Markets are subject to risk — read scheme documents carefully. Consult a financial regulatory standard-registered advisor."
 
@@ -72,7 +72,7 @@ Sizes to mimic the site: H1 ≈ 48–52px extra bold, H2 ≈ 32–36px, body 15�
 
 - [ ] **Play Store listing**: use icon + 3 screenshots from `assets/shots/` + tagline + the 45s video as the "Promo video" (YouTube link, see VIDEO_AD_GUIDE).
 - [ ] **YouTube channel**: named *MyFinancialPlan.in*; banner in navy with teal→indigo gradient.
-- [ ] **Instagram / Facebook page**: profile pic = app icon; bio: *"Free financial planning & 500+ calculators 🧮 Plan in 1 minute 👇 myfinancialplan.in"*.
+- [ ] **Instagram / Facebook page**: profile pic = app icon; bio: *"Free financial planning & 30+ calculators 🧮 Plan in 1 minute 👇 myfinancialplan.in"*.
 - [ ] **WhatsApp Business (8840192702)**: logo as profile photo; about: tagline + website link; catalogue items = the 3 partner plans.
 - [ ] **Business cards / flyers**: mist-blue background, teal→indigo gradient logo, big helpline number, QR code pointing to `https://www.myfinancialplan.in`.
 - [ ] **Email signature**: Name | MyFinancialPlan.in | Plan today for a better tomorrow | 📞 +91 88401 92702 | 🌐 link.
