@@ -570,7 +570,7 @@ img,svg,video,canvas{max-width:100%}
       <div class="res r3">
         <span>Total Est. Maturity</span>
         <b id="outMaturity" role="status" aria-live="polite">₹11,25,000</b>
-        <div style="font-size:12px;color:var(--ink2);margin-top:4px">100% Tax Free Sec 10(10D)</div>
+        <div style="font-size:12px;color:var(--ink2);margin-top:4px">Before tax — see Sec 10(10D) in the FAQ below</div>
       </div>
     </div>
 
@@ -746,7 +746,7 @@ function calcLic(){
   var planObj = LIC_PLANS.find(function(x){ return x.table === plan; });
   var pTitle = planObj ? ('Table ' + planObj.table + ' — ' + planObj.name) : 'LIC Proposal';
 
-  var text = '📋 Official LIC Proposal Quote\nPlan: ' + pTitle + '\nAge: ' + age + ' Yrs | Sum Assured: ' + fmt(sa) + '\nTerm: ' + term + ' Yrs (PPT ' + ppt + ' Yrs)\nPremium: ' + fmt(instPrem) + ' (' + fmt(perDay) + '/day)\nEst. Tax Free Maturity: ' + fmt(maturity) + ' (Sec 10(10D))\n\nPrepared for client via MyFinancialPlan.in Partner Desk';
+  var text = '📋 Official LIC Proposal Quote\nPlan: ' + pTitle + '\nAge: ' + age + ' Yrs | Sum Assured: ' + fmt(sa) + '\nTerm: ' + term + ' Yrs (PPT ' + ppt + ' Yrs)\nPremium: ' + fmt(instPrem) + ' (' + fmt(perDay) + '/day)\nEst. Maturity: ' + fmt(maturity) + ' (before tax; see Sec 10(10D))\n\nPrepared for client via MyFinancialPlan.in Partner Desk';
   
   document.getElementById('quoteTxt').textContent = text;
 }

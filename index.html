@@ -1981,7 +1981,7 @@ function shareHomeQuote(){
   var sa = '₹' + (parseFloat(document.getElementById('hLicSum').value)||500000).toLocaleString('en-IN');
   var prem = document.getElementById('hOutPrem').textContent;
   var mat = document.getElementById('hOutMat').textContent;
-  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Maturity (before tax): ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
   window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
 }
 </script>

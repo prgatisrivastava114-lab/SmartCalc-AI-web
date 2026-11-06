@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LIC All Plan Tables & Premium Calculator 2026 — 936, 945, 915, 914, 920, 871, 855 | MyFinancialPlan</title>
-<meta name="description" content="Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB, 100% tax-free maturity & compare all 16+ LIC plan tables for advisors & policyholders.">
+<meta name="description" content="Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB and estimated maturity, and compare all 16+ LIC plan tables for advisors & policyholders.">
 <link rel="canonical" href="https://www.myfinancialplan.in/tools/lic-premium-calculator/">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mfp_icon_32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/mfp_icon_180.png">
@@ -89,13 +89,13 @@ tr:hover{background:#F7FAFC}
   <!-- OpenGraph Metadata -->
   <meta property="og:site_name" content="MyFinancialPlan.in">
   <meta property="og:title" content="LIC All Plan Tables & Premium Calculator 2026 — 936, 945, 915, 914, 920, 871, 855 | MyFinancialPlan">
-  <meta property="og:description" content="Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB, 100% tax-free maturity & compare all 16+ LIC plan tables for advisors & policyholders.">
+  <meta property="og:description" content="Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB and estimated maturity, and compare all 16+ LIC plan tables for advisors & policyholders.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.myfinancialplan.in/lic-premium-calculator/">
   <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LIC All Plan Tables & Premium Calculator 2026 — 936, 945, 915, 914, 920, 871, 855 | MyFinancialPlan">
-  <meta name="twitter:description" content="Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB, 100% tax-free maturity & compare all 16+ LIC plan tables for advisors & policyholders.">
+  <meta name="twitter:description" content="Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB and estimated maturity, and compare all 16+ LIC plan tables for advisors & policyholders.">
   <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -104,7 +104,7 @@ tr:hover{background:#F7FAFC}
   "@type": "WebPage",
   "name": "LIC All Plan Tables & Premium Calculator 2026 \u2014 936, 945, 915, 914, 920, 871, 855 | MyFinancialPlan",
   "url": "https://www.myfinancialplan.in/lic-premium-calculator/",
-  "description": "Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB, 100% tax-free maturity & compare all 16+ LIC plan tables for advisors & policyholders."
+  "description": "Complete LIC Plan Table Catalog & Premium Calculator 2026. Calculate net premium, bonus, FAB and estimated maturity, and compare all 16+ LIC plan tables for advisors & policyholders."
 }
   </script>
   <script src="/assets/js/mfp-protect.js" defer></script>
@@ -246,7 +246,7 @@ img,svg,video,canvas{max-width:100%}
   <div class="hero">
     <span class="kick">LIC Partner & Policyholder Series · Complete Master Catalog</span>
     <h1>LIC All Plan Tables & Premium Calculator</h1>
-    <p class="sub">Calculate net premiums, GST, bonus rates, FAB, and 100% tax-free maturity for <b>ALL 16 active LIC Plan Tables</b>. Select a plan from the master table or calculator dropdown.</p>
+    <p class="sub">Calculate net premiums, GST, bonus rates, FAB and estimated maturity for <b>ALL 16 active LIC Plan Tables</b>. Select a plan from the master table or calculator dropdown.</p>
   </div>
 
   <!-- CALCULATOR WIDGET -->
@@ -345,7 +345,7 @@ img,svg,video,canvas{max-width:100%}
       <div class="res r3">
         <span>Total Est. Maturity</span>
         <b id="outMaturity">₹11,25,000</b>
-        <div style="font-size:12px;color:var(--ink2);margin-top:4px">100% Tax Free Sec 10(10D)</div>
+        <div style="font-size:12px;color:var(--ink2);margin-top:4px">Before tax — see Sec 10(10D) in the FAQ below</div>
       </div>
     </div>
 
@@ -521,7 +521,7 @@ function calcLic(){
   var planObj = LIC_PLANS.find(function(x){ return x.table === plan; });
   var pTitle = planObj ? ('Table ' + planObj.table + ' — ' + planObj.name) : 'LIC Proposal';
 
-  var text = '📋 Official LIC Proposal Quote\nPlan: ' + pTitle + '\nAge: ' + age + ' Yrs | Sum Assured: ' + fmt(sa) + '\nTerm: ' + term + ' Yrs (PPT ' + ppt + ' Yrs)\nPremium: ' + fmt(instPrem) + ' (' + fmt(perDay) + '/day)\nEst. Tax Free Maturity: ' + fmt(maturity) + ' (Sec 10(10D))\n\nPrepared for client via MyFinancialPlan.in Partner Desk';
+  var text = '📋 Official LIC Proposal Quote\nPlan: ' + pTitle + '\nAge: ' + age + ' Yrs | Sum Assured: ' + fmt(sa) + '\nTerm: ' + term + ' Yrs (PPT ' + ppt + ' Yrs)\nPremium: ' + fmt(instPrem) + ' (' + fmt(perDay) + '/day)\nEst. Maturity: ' + fmt(maturity) + ' (Sec 10(10D))\n\nPrepared for client via MyFinancialPlan.in Partner Desk';
   
   document.getElementById('quoteTxt').textContent = text;
 }

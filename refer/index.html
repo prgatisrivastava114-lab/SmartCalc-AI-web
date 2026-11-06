@@ -328,7 +328,7 @@ img,svg,video,canvas{max-width:100%}
           <a href="/tools/lic-premium-calculator/" target="_blank" style="font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:none">Open Full Catalog ↗</a>
         </div>
         
-        <p style="font-size:13px;color:var(--ink2);margin-bottom:12px">Calculate premiums, GST, reversionary bonus, FAB & 100% tax-free maturity for all 16 LIC plan tables, or track client policy renewal dates with 1-click WhatsApp reminders.</p>
+        <p style="font-size:13px;color:var(--ink2);margin-bottom:12px">Calculate premiums, GST, reversionary bonus, FAB & estimated maturity for all 16 LIC plan tables, or track client policy renewal dates with 1-click WhatsApp reminders.</p>
 
         <div style="display:flex;gap:8px;margin-bottom:12px">
           <button class="btn b-indigo" id="btn-sub-calc" style="padding:6px 12px;font-size:12px" onclick="setLicSub('calc')">🧮 All Plan Calculator</button>
@@ -515,7 +515,7 @@ function sharePartnerQuote(){
   var sa = '₹' + (parseFloat(document.getElementById('pLicSum').value)||500000).toLocaleString('en-IN');
   var prem = document.getElementById('pOutPrem').textContent;
   var mat = document.getElementById('pOutMat').textContent;
-  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Tax Free Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
+  var txt = '📋 LIC Policy Proposal Quote\nPlan: ' + plan + '\nSum Assured: ' + sa + '\nYearly Premium: ' + prem + '\nEst. Maturity: ' + mat + '\n\nPrepared via MyFinancialPlan Partner Desk';
   window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
 }
 
