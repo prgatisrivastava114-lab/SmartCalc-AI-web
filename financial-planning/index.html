@@ -1,250 +1,2499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex, nofollow, noarchive">
-  <base href="/app/">
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyFinancialPlan Web App — Financial Planning & SmartCalc AI</title>
-  <meta name="description" content="Official MyFinancialPlan Web Application — Plan your family's retirement, SIPs, loans, insurance shield, and 30+ calculators in 5 minutes.">
-  <link rel="canonical" href="https://www.myfinancialplan.in/app/">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
-  <!-- OpenGraph Metadata -->
-  <meta property="og:site_name" content="MyFinancialPlan Web App">
-  <meta property="og:title" content="MyFinancialPlan Web App — Financial Planning & SmartCalc AI">
-  <meta property="og:description" content="Plan your family's full financial future in 5 minutes. SIP, EMI, SWP, Tax & Retirement calculators.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.myfinancialplan.in/app/">
-  <meta property="og:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MyFinancialPlan Web App">
-  <meta name="twitter:description" content="Plan your family's full financial future in 5 minutes.">
-  <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
-
-  <!-- Schema.org SoftwareApplication JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "MyFinancialPlan Web App",
-    "operatingSystem": "All (Web, Android, iOS)",
-    "applicationCategory": "FinanceApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "INR"
-    },
-    "description": "Family financial planning application with 30+ calculators, retirement planner, and instant PDF report generator."
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Financial Planning Tool with Free PDF Report | MyFinancialPlan</title>
+<meta name="description" content="Step-by-step financial planning for Indian families. Family, money, goals and protection in five steps, with a health score and full PDF plan. Free, no login.">
+<link rel="canonical" href="https://www.myfinancialplan.in/financial-planning/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="theme-color" content="#17324a">
+<meta name="geo.region" content="IN"><meta name="geo.placename" content="India">
+<meta name="keywords" content="financial planning tool, financial plan pdf, financial health score india, goal based financial planning, retirement corpus calculator india">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Financial Planning Tool with Free PDF Report | MyFinancialPlan">
+<meta property="og:description" content="Step-by-step financial planning for Indian families. Family, money, goals and protection in five steps, with a health score and full PDF plan. Free, no login.">
+<meta property="og:url" content="https://www.myfinancialplan.in/financial-planning/">
+<meta property="og:site_name" content="MyFinancialPlan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Financial Planning Tool with Free PDF Report | MyFinancialPlan">
+<meta name="twitter:description" content="Step-by-step financial planning for Indian families. Family, money, goals and protection in five steps, with a health score and full PDF plan. Free, no login.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://www.myfinancialplan.in/financial-planning/#app",
+  "name": "Financial Planning Tool",
+  "url": "https://www.myfinancialplan.in/financial-planning/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (web browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  },
+  "description": "Step-by-step financial planning for Indian families. Family, money, goals and protection in five steps, with a health score and full PDF plan. Free, no login.",
+  "featureList": [
+    "Five step guided financial plan",
+    "Financial health score across six pillars",
+    "Cash flow and surplus analysis",
+    "Emergency reserve check",
+    "Protection shield for life, health and critical illness",
+    "Unlimited goal funding with shortfall and SIP",
+    "Retirement freedom number",
+    "Every rupee has a job surplus allocation",
+    "Asset allocation against the 100 minus age rule",
+    "Twelve month action roadmap",
+    "Downloadable PDF financial plan",
+    "Hindi and English"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Financial Plan",
+    "url": "https://www.myfinancialplan.in/"
   }
-  </script>
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="My Financial Plan">
-  <link rel="apple-touch-icon" href="favicon.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <!-- Google Material Icons & Fonts for Flutter Web -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    @font-face {
-      font-family: 'MaterialIcons';
-      font-style: normal;
-      font-weight: 400;
-      src: url('fonts/MaterialIcons-Regular.otf') format('opentype'),
-           url('assets/fonts/MaterialIcons-Regular.otf') format('opentype'),
-           url('https://fonts.gstatic.com/s/materialicons/v142/flJgRqGRbvU15MZE9tC5A7A.woff2') format('woff2');
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": "https://www.myfinancialplan.in/financial-planning/#howto",
+  "name": "How to build your financial plan in five steps",
+  "totalTime": "PT10M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Family",
+      "text": "Enter your age, planned retirement age and profession."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Money",
+      "text": "Enter income, living cost, EMIs and your investments across ten asset classes."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Goals",
+      "text": "Add each goal with its horizon, inflation and expected return."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Protection",
+      "text": "Enter term life, health and critical illness cover."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Plan",
+      "text": "Read your health score, goal shortfalls and roadmap, then download the PDF."
     }
-
-    html, body {
-      background-color: #081028 !important;
-      color: #FFFFFF;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.myfinancialplan.in/financial-planning/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this the same plan as the MyFinancialPlan app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It follows the same five steps the app uses — family, money, goals, protection, plan — and runs the same calculation engine behind them. You get the same financial health score pillars, the same goal maths, the same retirement freedom number and the same every-rupee-has-a-job allocation. The app additionally saves your plan to your account, syncs it across devices and feeds the Partner CRM; this page keeps everything in the browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why five steps instead of one long form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the order matters. You cannot judge whether a goal is affordable until you know the surplus, and you should not be investing for goals at all if the emergency reserve and life cover are missing. The steps follow the same sequence a planner would work through: understand, then protect, then fund."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it free, and do I need an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free, with no account. Everything runs in your browser. No figure you enter is sent to a server, which also means nothing is stored — close the tab and your inputs are gone, so download the PDF before you leave."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the financial health score calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Six pillars: savings 22, insurance 20, emergency reserve 18, goals 15, investment mix 13 and debt 12. Each is scored against the thresholds shown in the table on this page, so the breakdown tells you exactly which pillar is costing you points rather than giving you one opaque number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the retirement goal show a corpus in crores when I entered a monthly figure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retirement is the only goal whose cost is a monthly amount rather than a one-off. Entering ₹40,000 means ₹40,000 every month from the day you retire until your life expectancy. At 6% inflation over 28 years that ₹40,000 becomes about ₹2.04 lakh a month, and paying it for 25 years from a corpus still earning the Balanced 10% needs roughly ₹3.93 crore. Change the post-retirement growth to Debt 7% and the same pension needs about ₹5.44 crore, because a slower-growing corpus has to be bigger. Every other goal treats the figure you enter as a single future cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does every rupee has a job mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It splits your monthly surplus across four jobs — protect, children, retire and wealth — based on what your goals actually demand, and shows whatever is left as flexibility. If the four jobs exceed your surplus, the plan says so rather than quietly showing a SIP you cannot afford."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get the PDF plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finish step five and press Download full plan. Your browser's print dialog opens — choose Save as PDF. The report covers the household, where you stand, all six pillars, every goal, your total financial requirement, the allocation and the assumptions used."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is any of this financial advice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. MyFinancialPlan is a software calculator provider. The tool performs arithmetic on figures you supply. It recommends no product, distributes none, and cannot see your full circumstances. It is not investment, insurance or tax advice. Speak to a qualified professional before acting."
+      }
     }
-
-    @keyframes mfp-spin {
-      to { transform: rotate(360deg); }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://www.myfinancialplan.in/financial-planning/#bc",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.myfinancialplan.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Financial Planning",
+      "item": "https://www.myfinancialplan.in/financial-planning/"
     }
-  </style>
-
-  <title>MyFinancialPlan — Financial Planning & SmartCalc AI</title>
-  <!-- Google Identity Services (GIS) for One-Tap Sign-In -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script>
-    window.mfpGoogleSignIn = function(clientId) {
-      var activeClientId = clientId || "548984348697-i4d6j8842bk8va0i2rqvehvl1pjjfm7a.apps.googleusercontent.com";
-      console.log("mfpGoogleSignIn invoked with clientId:", activeClientId);
-
-      return new Promise(function(resolve) {
-        var done = false;
-        function fin(tokenVal) {
-          if (done) return;
-          done = true;
-          resolve(tokenVal || "");
-        }
-
-        try {
-          if (!window.google || !google.accounts || !google.accounts.id) {
-            console.warn("Google Identity Services SDK not loaded yet");
-            fin("");
-            return;
-          }
-
-          google.accounts.id.initialize({
-            client_id: activeClientId,
-            callback: function(response) {
-              if (response && response.credential) {
-                console.log("Google Sign-In credential received successfully!");
-                fin(response.credential);
-              } else {
-                console.warn("Google Sign-In response missing credential");
-                fin("");
-              }
-            },
-            auto_select: false,
-            cancel_on_tap_outside: true
-          });
-
-          google.accounts.id.prompt(function(notification) {
-            if (notification.isSkippedMoment && notification.isSkippedMoment()) {
-              console.warn("Google One-Tap prompt skipped:", notification.getSkippedReason());
-            }
-            if (notification.isDismissedMoment && notification.isDismissedMoment()) {
-              console.warn("Google One-Tap prompt dismissed:", notification.getDismissedReason());
-            }
-          });
-        } catch(err) {
-          console.error("Error during Google Authentication:", err);
-          fin("");
-        }
-
-        setTimeout(function() {
-          if (!done) {
-            console.warn("Google Authentication timed out after 90 seconds");
-            fin("");
-          }
-        }, 90000);
-      });
-    };
-  </script>
-  <link rel="manifest" href="manifest.json">
-  <script src="/assets/js/mfp-protect.js" defer></script>
-<style id="mfp-responsive-fit">
-/* MFP responsive + layout fit — measurements and reasoning for every rule
-   are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
-nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
-/* MEASURED at 390px: a correctly-proportioned logo (168px) + the हिंदी switch */
-@media (max-width:620px){
-  nav.top .wrap{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 14px;gap:8px}
-  nav.top .logo{height:30px}
-  #langSw{display:flex;align-items:center;height:32px;padding:0 12px;font-size:12px;margin-right:0}
-  nav.top a.btn{display:flex;align-items:center;justify-content:center;height:40px;
-                padding:0 12px;font-size:12.5px;margin-left:0!important}
-  .burger{width:40px;height:40px;margin-left:0}
+  ]
 }
-@media (max-width:360px){
-  nav.top .logo{height:26px}
-  #langSw{font-size:12px;padding:0 10px}
+</script>
+<style>
+:root{--teal:#0e9d78;--navy:#17324a;--slate:#44586e;--mute:#8a99aa;--gold:#bf7b0b;--red:#d64545;--indigo:#4c62ce;--cream:#fbf7ee;--line:#e4eaf1;--wash:#f6f8fa}
+*{box-sizing:border-box}
+.mp{max-width:1100px;margin:0 auto;padding:16px 14px 70px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--navy)}
+.mp p,.mp li{font-size:14.5px;line-height:1.72;color:#2b3e52}
+.ttl{font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;margin:0 0 9px}
+/* hero */
+.hero{background:var(--navy);color:#fff;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 150px;gap:16px;align-items:center}
+@media(max-width:620px){.hero{grid-template-columns:1fr}.hero img{display:none}}
+.hero img{width:150px;height:150px;object-fit:cover;border-radius:14px;border:2px solid rgba(255,255,255,.2)}
+.hero .ttl{color:rgba(255,255,255,.6)}
+.hero h1{margin:0 0 7px;font-size:25px;line-height:1.2}
+.hero p{margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.88)}
+.lng{position:absolute;top:18px;right:20px;display:inline-flex;border:1.5px solid rgba(255,255,255,.4);border-radius:9px;overflow:hidden;z-index:3}
+.lng button{background:transparent;color:#fff;border:0;padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;min-height:38px}
+.lng button[aria-pressed="true"]{background:#fff;color:var(--navy)}
+/* ribbon */
+.rib{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:16px}
+.rib button{background:var(--wash);border:1.5px solid var(--line);border-radius:11px;padding:11px 6px;cursor:pointer;font-family:inherit;text-align:center;min-height:62px;transition:.15s}
+.rib .n{display:block;font-size:10px;font-weight:800;color:var(--mute);letter-spacing:.08em}
+.rib .l{display:block;font-size:12px;font-weight:800;color:var(--slate);margin-top:3px;letter-spacing:.04em}
+.rib button[aria-current="step"]{background:var(--navy);border-color:var(--navy)}
+.rib button[aria-current="step"] .n{color:rgba(255,255,255,.6)}
+.rib button[aria-current="step"] .l{color:#fff}
+.rib button.done{background:#eef9f5;border-color:#b6e0d1}
+.rib button.done .n,.rib button.done .l{color:#0a7a5c}
+@media(max-width:620px){.rib .l{font-size:10.5px}.rib button{padding:9px 3px;min-height:56px}}
+/* step */
+.step{display:none;margin-top:16px}
+.step.on{display:block}
+.shead{display:grid;grid-template-columns:86px 1fr;gap:14px;align-items:center;background:var(--cream);border:1px solid #e9d9b4;border-radius:14px;padding:14px 16px;margin-bottom:14px}
+@media(max-width:560px){.shead{grid-template-columns:60px 1fr;gap:11px}}
+.shead img{width:86px;height:86px;object-fit:cover;border-radius:11px}
+@media(max-width:560px){.shead img{width:60px;height:60px}}
+.shead h2{margin:0 0 4px;font-size:19px;line-height:1.25}
+.shead p{margin:0;font-size:13px;color:var(--slate);line-height:1.55}
+.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px 18px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.f label{display:block;font-size:11.5px;font-weight:800;color:var(--slate);margin-bottom:5px}
+.f input,.f select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;font-size:15px;font-family:inherit;color:var(--navy);background:#fff;min-height:44px}
+.f input:focus,.f select:focus{outline:2px solid var(--indigo);outline-offset:1px;border-color:var(--indigo)}
+.hint{font-size:11.5px;color:var(--mute);margin-top:7px;line-height:1.55}
+.sub{font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--mute);text-transform:uppercase;margin:16px 0 9px;padding-top:14px;border-top:1px dashed var(--line)}
+.sub:first-child{margin-top:0;padding-top:0;border:0}
+/* nav */
+.nav{display:flex;gap:10px;margin-top:16px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:48px;padding:13px 24px;border-radius:11px;font-size:14.5px;font-weight:800;border:0;cursor:pointer;font-family:inherit;text-decoration:none}
+.btn.p{background:var(--teal);color:#fff}
+.btn.n{background:var(--navy);color:#fff}
+.btn.s{background:#fff;color:var(--navy);border:1.7px solid var(--line)}
+.btn.w{background:#25D366;color:#fff}
+.btn:focus-visible{outline:3px solid var(--indigo);outline-offset:2px}
+.nav .sp{margin-left:auto}
+/* building */
+.bld{text-align:center;padding:34px 18px}
+.bld .ring{width:74px;height:74px;margin:0 auto 18px;border:5px solid var(--line);border-top-color:var(--teal);border-radius:50%;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bld .msg{font-size:15.5px;font-weight:700;color:var(--navy);min-height:24px}
+.bld .ct{font-size:12px;color:var(--mute);margin-top:7px;letter-spacing:.08em;font-weight:800}
+.bld .trk{height:7px;background:var(--line);border-radius:99px;margin:18px auto 0;max-width:300px;overflow:hidden}
+.bld .trk i{display:block;height:100%;background:var(--teal);border-radius:99px;width:0;transition:width .45s}
+/* goals */
+.goal{border:1px solid var(--line);border-radius:13px;padding:15px 16px;margin-top:12px;background:#fcfdfe}
+.gh{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:11px}
+.gn{font-weight:800;font-size:15px}
+.gk{background:#eef0fb;color:var(--indigo);font-size:10px;font-weight:800;padding:3px 9px;border-radius:99px;letter-spacing:.05em;text-transform:uppercase}
+.rmv{margin-left:auto;background:#fff;border:1.4px solid #f0bcbc;color:var(--red);border-radius:8px;padding:6px 11px;font-size:12px;font-weight:800;cursor:pointer;min-height:38px;font-family:inherit}
+.gs{display:grid;grid-template-columns:repeat(auto-fit,minmax(114px,1fr));gap:9px;margin-top:12px}
+.gs div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+.gs .t{font-size:9.5px;font-weight:800;letter-spacing:.06em;color:var(--mute);text-transform:uppercase;line-height:1.3}
+.gs .v{font-size:15px;font-weight:800;margin-top:3px}
+.bar{height:9px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:11px}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--indigo))}
+.bl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--slate);margin-top:5px;font-weight:700}
+/* plan */
+.top{display:grid;grid-template-columns:240px 1fr;gap:14px}
+@media(max-width:860px){.top{grid-template-columns:1fr}}
+.sc{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gg{width:162px;height:162px;position:relative}
+.gg svg{transform:rotate(-90deg)}
+.gg .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gg .n{font-size:43px;font-weight:800;line-height:1}
+.gg .o{font-size:9px;color:var(--mute);font-weight:800;letter-spacing:.11em;margin-top:2px}
+.bdg{margin-top:10px;font-size:13px;font-weight:800;padding:6px 16px;border-radius:99px}
+.optout{border:1px solid var(--line);background:var(--wash);border-radius:10px;padding:11px 13px;margin:0 0 12px}
+.chk{display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-weight:700;font-size:14px;color:var(--navy)}
+.chk input{width:17px;height:17px;margin:1px 0 0;accent-color:var(--teal);flex:0 0 auto;cursor:pointer}
+.chkh{margin:6px 0 0 26px;font-size:12.5px;line-height:1.5;color:var(--slate)}
+.kidrow{display:grid;grid-template-columns:1fr 110px 150px;gap:10px;margin:9px 0}
+@media(max-width:620px){.kidrow{grid-template-columns:1fr 1fr}}
+.kidrow .f{margin:0}
+.kidh{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:14px 0 2px}
+.nd{color:var(--mute);font-style:italic}
+.pil{display:grid;gap:9px}
+.pil .r{display:grid;grid-template-columns:132px 1fr 50px;gap:10px;align-items:center}
+@media(max-width:520px){.pil .r{grid-template-columns:104px 1fr 44px}}
+.pil .lbl{font-size:12.5px;font-weight:700;color:var(--slate)}
+.pil .trk{height:9px;background:var(--line);border-radius:99px;overflow:hidden}
+.pil .trk i{display:block;height:100%;border-radius:99px}
+.pil .pts{font-size:12px;font-weight:800;text-align:right}
+.pil{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:520px){.pil{grid-template-columns:repeat(2,1fr)}}
+.pr{text-align:center;position:relative;padding:4px 0}
+.pr svg{display:block;margin:0 auto}
+.pr .pv{position:absolute;top:50%;left:0;right:0;transform:translateY(-62%);font-size:17px;font-weight:800;pointer-events:none}
+.pr .pl{font-size:11px;font-weight:800;letter-spacing:.05em;color:var(--slate);margin-top:4px;text-transform:uppercase}
+.verdict{margin-top:12px;border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.68;border:1px solid}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:11px;margin-top:14px}
+.k{border-radius:13px;padding:13px 15px;border:1px solid var(--line);background:#fff}
+.k .t{font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--mute);text-transform:uppercase;line-height:1.35}
+.k .v{font-size:20px;font-weight:800;margin-top:6px;line-height:1.1;word-break:break-word}
+.k .s{font-size:11.5px;color:var(--slate);margin-top:4px;line-height:1.4}
+.k.ok{background:#eef9f5;border-color:#b6e0d1}.k.ok .v{color:#0a7a5c}
+.k.in{background:#eef0fb;border-color:#c3c9ef}.k.in .v{color:var(--indigo)}
+.k.wa{background:var(--cream);border-color:#e9d9b4}.k.wa .v{color:var(--gold)}
+.k.bd{background:#fdeeee;border-color:#f0bcbc}.k.bd .v{color:var(--red)}
+.job{display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:center}
+@media(max-width:600px){.job{grid-template-columns:1fr}}
+.jl{display:grid;gap:8px}
+.jl .r{display:grid;grid-template-columns:14px 1fr auto;gap:9px;align-items:center;font-size:13px}
+.jl .sw{width:12px;height:12px;border-radius:4px}
+.jl b{font-weight:800;font-size:11.5px;letter-spacing:.06em;display:block}
+.jl .d{font-size:11px;color:var(--mute)}
+.jl .a{font-weight:800;font-size:13.5px}
+.alc{display:grid;grid-template-columns:repeat(auto-fit,minmax(124px,1fr));gap:10px}
+.alc div{background:var(--wash);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+.alc .t{font-size:9.5px;font-weight:800;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
+.alc .v{font-size:17px;font-weight:800;margin-top:3px}
+.rm{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:760px){.rm{grid-template-columns:repeat(2,1fr)}}
+.rm div{border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff}
+.rm .ph{font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--mute)}
+.rm .nm{font-size:14px;font-weight:800;letter-spacing:.05em;margin-top:3px;color:var(--teal)}
+.rm .tx{font-size:12.5px;color:var(--slate);line-height:1.55;margin-top:6px}
+/* seo */
+.sec{margin-top:32px}
+.sec h2{font-size:20px;margin:0 0 11px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.sec h3{font-size:15.5px;margin:17px 0 6px}
+.tb{width:100%;border-collapse:collapse;font-size:13.5px;margin:11px 0;background:#fff}
+.tb th,.tb td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line)}
+.tb th{background:var(--wash);font-size:10.5px;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 16px;margin-bottom:9px}
+.faq summary{font-weight:700;font-size:14.5px;cursor:pointer}
+.faq p{margin:9px 0 0;font-size:14px}
+.lim{background:var(--cream);border:1px solid #e9d9b4;border-radius:12px;padding:15px 17px;font-size:14px;line-height:1.72}
+.rel{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
+.rel a{display:inline-flex;align-items:center;min-height:42px;padding:9px 14px;background:#fff;border:1.4px solid var(--line);border-radius:9px;font-size:13.5px;font-weight:700;color:var(--indigo);text-decoration:none}
+#rep{display:none}
+@media print{
+ body *{visibility:hidden!important}
+ #rep,#rep *{visibility:visible!important}
+ /* the app's PDF is set in a humanist sans throughout, not a serif */
+ #rep{display:block!important;position:absolute;left:0;top:0;width:100%;font-family:-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#000}
+ @page{size:A4;margin:14mm}
+ .rh{border-bottom:3px solid #17324a;padding-bottom:9px;margin-bottom:13px}
+ .rh .pe{font-size:8pt;letter-spacing:.14em;color:#555}
+ .rh h1{font-size:19pt;margin:2px 0 3px;color:#17324a}
+ .rh .s{font-size:9.5pt;color:#333}
+ .rs{margin-bottom:12px;page-break-inside:avoid}
+ .rs h2{font-size:11pt;letter-spacing:.09em;margin:0 0 6px;padding-bottom:3px;border-bottom:1px solid #999;color:#17324a}
+ .rt{width:100%;border-collapse:collapse;font-size:9.5pt}
+ .rt td{padding:4px 6px;border-bottom:1px solid #ddd}
+ .rt td.rnum{text-align:right;font-weight:bold}
+ .rt th{text-align:left;padding:4px 6px;background:#eee;font-size:8.5pt;border-bottom:1px solid #999}
+ .rsc{font-size:26pt;font-weight:bold;color:#17324a}
+ .rp{font-size:9.5pt;line-height:1.5;margin:5px 0 0}
+ .rf{margin-top:14px;padding-top:8px;border-top:2px solid #17324a;font-size:7.5pt;color:#333;line-height:1.5}
 }
-.top .wrap{flex-wrap:wrap;row-gap:6px}
-.top .wrap>nav{min-width:0;flex-wrap:wrap}
-@media (max-width:560px){
-  .top .wrap{padding:10px 14px}
-  .top .wrap>a:first-child{flex:0 0 auto}
-  a.hot{margin-left:auto}
-  .rel{gap:8px}
-  .rel a{flex:0 1 auto;min-width:0}
+@media(max-width:560px){.hero h1{font-size:20px}.lng{position:static;margin-bottom:10px}.k .v{font-size:18px}}
+@media print{
+ #rep{font-family:-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}
+ .rh{border-bottom:3px solid #17324a;padding-bottom:10px;margin-bottom:0;page-break-after:avoid}
+ .rfirst{background:#fbf7ee;border-left:4px solid #bf7b0b;padding:9px 12px;margin:12px 0}
+ .rs{margin-bottom:15px;page-break-inside:avoid}
+ .rs.rbig{page-break-before:auto}
+ .rsn{font-size:7.5pt;letter-spacing:.16em;color:#8a99aa;font-weight:bold;margin-bottom:2px}
+ .rs h2{font-size:13pt;letter-spacing:0;margin:0 0 7px;padding-bottom:4px;border-bottom:1px solid #c9d3dd;color:#17324a;font-weight:normal}
+ .rpic{width:100%;max-width:124pt;height:auto;float:right;margin:0 0 6px 11px;border-radius:5pt}
+ .rs{overflow:hidden}
+ .rt{width:100%;border-collapse:collapse;font-size:9.5pt;margin:5px 0}
+ .rt td{padding:3.5px 6px;border-bottom:1px solid #e4eaf1}
+ .rt th{text-align:left;padding:3.5px 6px;background:#17324a;color:#fff;font-size:8pt;letter-spacing:.07em}
+ .rt td,.rt th{text-align:left}
+ .rt td.rnum,.rt th.rnum{text-align:right}
+ .rt td.rnum{font-weight:700;font-variant-numeric:tabular-nums}
+ .rt td.rtl{text-align:left;font-weight:normal}
+ .rscore{margin:4px 0 9px}
+ .rsc{font-size:30pt;font-weight:bold;color:#0e9d78;line-height:1}
+ .rsb{font-size:11pt;color:#44586e}
+ .rl{margin:5px 0 0;padding-left:16px;font-size:9.5pt;line-height:1.55}
+ .rl li{margin-bottom:3.5px}
+ .rchk{list-style:none;padding-left:0}
+ .rchk li:before{content:"\25A1  ";color:#8a99aa}
+ .rp{font-size:9.5pt;line-height:1.55;margin:6px 0 0;color:#2b3e52}
+ .rf{margin-top:16px;padding-top:9px;border-top:2px solid #17324a;font-size:7.5pt;color:#44586e;line-height:1.5}
 }
-img,svg,video,canvas{max-width:100%}
-/* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
-@media (max-width:620px){
-  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+
+/* ── report: app-style blocks ── */
+#rep .rlead{font-size:12.4pt;line-height:1.5;color:#17324a;font-weight:600;margin:0 0 9pt;font-style:italic}
+#rep .rlabel{font-size:7.6pt;font-weight:800;letter-spacing:.11em;color:#8a99aa;margin:13pt 0 4pt;text-transform:uppercase}
+#rep .rstrip{display:flex;gap:5pt;margin:11pt 0}
+#rep .rstep{flex:1;text-align:center;border:.6pt solid #e4eaf1;border-radius:5pt;padding:6pt 2pt;background:#fbf7ee}
+#rep .rstep b{display:block;font-size:7.4pt;letter-spacing:.05em;color:#0e9d78}
+#rep .rstep span{display:block;font-size:6.6pt;color:#44586e;margin-top:1.5pt}
+#rep ol.rnum{list-style:none;counter-reset:rn;padding:0;margin:7pt 0}
+#rep ol.rnum li{counter-increment:rn;position:relative;padding:4pt 0 4pt 24pt;border-bottom:.5pt solid #f0f4f8}
+#rep ol.rnum li:last-child{border-bottom:0}
+#rep ol.rnum li:before{content:counter(rn);position:absolute;left:0;top:4pt;width:15pt;height:15pt;
+ border-radius:50%;background:#17324a;color:#fff;font-size:7.4pt;font-weight:800;text-align:center;line-height:15pt}
+#rep ol.rnum li b{font-size:9.4pt;letter-spacing:.04em;color:#17324a}
+#rep ol.rnum li span{display:block;font-size:8.6pt;color:#44586e;margin-top:1pt}
+#rep ol.rplain{margin:7pt 0;padding-left:16pt}
+#rep ol.rplain li{margin:4pt 0;font-size:9.4pt;line-height:1.5}
+#rep ul.rlist{list-style:none;padding:0;margin:7pt 0}
+#rep ul.rlist li{padding:5pt 0 5pt 11pt;border-bottom:.5pt solid #f0f4f8;font-size:9.2pt;line-height:1.5;position:relative}
+#rep ul.rlist li:last-child{border-bottom:0}
+#rep ul.rlist li:before{content:"";position:absolute;left:0;top:9pt;width:4pt;height:4pt;border-radius:50%;background:#0e9d78}
+#rep ul.rlist li b{color:#17324a;display:block;font-size:9.4pt}
+#rep .rband{border-left:2.4pt solid #bf7b0b;background:#fbf7ee;padding:7pt 10pt;margin:10pt 0;border-radius:0 5pt 5pt 0}
+#rep .rband b{display:block;font-size:7.4pt;letter-spacing:.09em;color:#8a5a06;margin-bottom:2pt}
+#rep .rband span{font-size:8.8pt;line-height:1.5;color:#44586e}
+#rep .rscore{display:flex;align-items:center;gap:12pt;margin:10pt 0;padding:9pt 12pt;border:.6pt solid #e4eaf1;border-radius:6pt;background:#f6f8fa}
+#rep .rsv{font-size:26pt;font-weight:800;color:#0e9d78;line-height:1}
+#rep .rsv span{font-size:11pt;color:#8a99aa;font-weight:700}
+#rep .rsb{font-size:10pt;font-weight:800;color:#17324a;letter-spacing:.03em}
+#rep .rbig2{text-align:center;border:.8pt solid #4c62ce;border-radius:7pt;padding:11pt;margin:10pt 0;background:#f4f6fd}
+#rep .rbig2 span{display:block;font-size:7.4pt;letter-spacing:.11em;color:#4c62ce;font-weight:800}
+#rep .rbig2 b{display:block;font-size:21pt;font-weight:800;color:#17324a;margin:3pt 0}
+#rep .rbig2 i{display:block;font-size:7.4pt;color:#8a99aa;font-style:normal}
+#rep .rchips{display:flex;flex-wrap:wrap;gap:5pt;margin:8pt 0}
+#rep .rchip{border:.6pt solid #e4eaf1;border-radius:4pt;padding:4pt 7pt;background:#fff}
+#rep .rchip b{display:block;font-size:7.4pt;color:#0e9d78;letter-spacing:.05em}
+#rep .rchip span{font-size:8.2pt;color:#44586e}
+#rep .rfoot1{font-size:7.4pt;letter-spacing:.07em;text-transform:uppercase;color:#8a99aa;
+ font-weight:800;margin:5pt 0 0;text-align:right}
+#rep .rnext{margin-top:12pt;padding:10pt;border-radius:6pt;background:#17324a;color:#fff;text-align:center}
+#rep .rnext b{display:block;font-size:7.6pt;letter-spacing:.13em;color:#bf7b0b}
+#rep .rnext span{display:block;font-size:10.4pt;font-weight:700;margin-top:3pt}
+@media screen{
+ #rep .rstrip{flex-wrap:wrap}
+ #rep .rstep{min-width:90px}
 }
-@media (max-width:620px){
-  /* grid tracks: a 1fr column still refuses to shrink below its content's */
-  .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
-  .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
-  input,select,textarea{min-width:0;max-width:100%}
-  /* a scenario table 2px wider than the screen: let it scroll inside itself */
-  .gc-scen{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  /* nowrap buttons 10px over the edge */
-  .btn-estate{white-space:normal;max-width:100%}
-  /* the vanshavali page renders a 281px-wide brand logo plus its broken-image */
-  .mfp-brand-group{max-width:100%;flex-wrap:wrap}
-  .mfp-brand-logo,.mfp-brand-group svg{max-width:100%;height:auto;width:auto}
+
+/* ══════════════════════════════════════════════════════════════════
+   PAGE MODEL — matched to the app's PDF.
+   The app calls fc() per section, and fc() allocates a NEW A4 page with
+   a running header band and footer band. So: one section per page, not
+   a continuous flow. A4 595.28x841.89pt, 52pt side margins, 42pt header
+   band, 52pt footer band.
+   ══════════════════════════════════════════════════════════════════ */
+/* Margins taken from the app's own a4w() page builder: content box x 52..543.28pt,
+   top edge of content at 777.89pt (= 64pt from the top), footer band 52pt + a
+   1.6pt rule. Converted: 64pt = 22.58mm, 52pt = 18.34mm, 53.6pt = 18.91mm. */
+/* Zero vertical margin: each section is a full-page flex column that paints
+   the app's own 42pt header band hard against the top edge and the 52pt footer
+   band hard against the bottom, exactly as a4w() does. Side margins stay at the
+   app's 52pt so body copy sits on the same measure. */
+/* Chrome clips page painting to the page CONTENT box, so a full-bleed band is
+   impossible while @page carries side margins. Margins are therefore zero and
+   the app's 52pt measure is reproduced with padding inside each section. */
+@page{size:A4 portrait;margin:0}
+@media print{
+  #rep .rs{break-before:page;page-break-before:always;break-inside:auto}
+  #rep .rs:first-of-type,#rep .rfirst{break-before:auto;page-break-before:auto}
+  #rep .rh{break-after:page;page-break-after:always}
+  /* Negative offsets on fixed bands land them on the neighbouring page in
+     Chrome's paged media. Because every section already begins its own page,
+     the header band is rendered IN FLOW at the top of each section instead,
+     which is reliable. Only the footer stays fixed, with @page bottom margin
+     reserving its strip. */
+  #rep .runh{display:none}
+  /* ── header: the band is full-bleed, so the whole unit is pulled out into
+     the 64pt top margin and is exactly 64pt tall, letting body copy resume
+     on the app's content line. ── */
+  /* overflow MUST be visible here: an earlier rule sets .rs{overflow:hidden}
+     for float clearing, and that silently clipped both full-bleed bands back
+     to the content box. Float containment moves to .rsbody instead. */
+  #rep .rs{min-height:841pt;box-sizing:border-box;display:flex;flex-direction:column;
+    margin:0;padding:0;overflow:visible}
+  /* flex:1 0 auto only ever grows, so overflow:hidden cannot clip the tail -
+     it is here purely to contain the floated illustration */
+  #rep .rsbody{flex:1 0 auto;overflow:hidden;padding:0 18.34mm}
+  #rep .secband{display:block;margin:0 0 7pt;height:64pt;flex:none;
+    box-sizing:border-box;background:transparent;border:0;padding:0}
+  #rep .secband .bf{height:42pt;box-sizing:border-box;background:#ddf4ec;
+    border-bottom:2pt solid #0e9d78;padding:14pt 18.34mm 0;position:relative}
+  #rep .secband .brand{font-size:10.5pt;font-weight:800;letter-spacing:.02em;color:#17324a}
+  #rep .secband .brand i{color:#0e9d78;font-style:normal}
+  #rep .secband .bmeta{float:right;font-size:7.5pt;font-weight:600;color:#44586e;
+    letter-spacing:.06em;padding-top:2.6pt}
+  #rep .secband .sx{font-size:8pt;font-weight:800;letter-spacing:.11em;color:#0e9d78;
+    text-transform:uppercase;padding:5.4pt 18.34mm 0;line-height:1}
+  #rep .secband .hl{height:.6pt;background:#e4eaf1;margin:5.2pt 18.34mm 0}
+  /* ── footer: 52pt band, 1.6pt rule, three columns on the app's baseline ── */
+  #rep .runf{display:none}
+  #rep .rsfoot{flex:none;margin:auto 0 0;height:52pt;box-sizing:border-box;
+    background:#e1e6fa;border-top:1.6pt solid #0e9d78;padding:0 18.34mm;overflow:hidden}
+  #rep .rsfoot .fr{display:flex;align-items:baseline;justify-content:space-between;
+    padding-top:12pt;gap:8pt}
+  #rep .rsfoot .fl{font-size:7.5pt;color:#44586e;white-space:nowrap}
+  #rep .rsfoot .cf{font-size:7.5pt;color:#44586e;text-align:center;flex:1}
+  #rep .rsfoot .fp{font-size:8.5pt;font-weight:700;color:#17324a;white-space:nowrap;
+    min-width:34pt;text-align:right}
+  #rep .rsfoot .fr2{display:flex;justify-content:space-between;padding-top:6.5pt;gap:8pt}
+  #rep .rsfoot .dis{font-size:7.5pt;color:#8a99aa;display:block}
+  #rep{padding-top:0;padding-bottom:0}
+  /* blocks that are not .rs sections still need the app's side measure */
+  #rep .rh,#rep .rfirst,#rep .rf{margin-left:18.34mm;margin-right:18.34mm}
+  #rep .rh{padding-top:22mm}
+  /* never split these */
+  #rep table,#rep .rband,#rep .rscore,#rep .rbig2,#rep .rnext,#rep .rstrip{break-inside:avoid;page-break-inside:avoid}
+  #rep tr,#rep li{break-inside:avoid;page-break-inside:avoid}
+  #rep h2{break-after:avoid;page-break-after:avoid}
+  #rep .rsn{break-after:avoid;page-break-after:avoid}
 }
-@media (min-width:1024px){
-  .container{max-width:1080px!important}
-  .grid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+@media screen{ #rep .runh,#rep .runf,#rep .secband,#rep .rsfoot{display:none} }
+
+/* ══ per-goal report page (mirrors the app's goal spread) ══════════════ */
+#rep .gpage h2{font-size:21pt;font-weight:700;color:#17324a;border:0;padding:0;
+  margin:0 0 3pt;line-height:1.18;letter-spacing:-.2pt}
+#rep .gkind{font-size:9.5pt;color:#44586e;margin:0 0 11pt}
+#rep .ghero{display:flex;align-items:center;gap:13pt;background:#e3f5ec;border-radius:9pt;
+  padding:13pt 15pt;margin:0 0 12pt}
+#rep .ghero .gi{width:34pt;height:34pt;border-radius:50%;background:#fff;display:flex;
+  align-items:center;justify-content:center;flex:none}
+#rep .ghero .gi svg{width:17pt;height:17pt;display:block}
+#rep .ghero b{display:block;font-size:13pt;color:#17324a;font-weight:700}
+#rep .ghero span{display:block;font-size:9pt;color:#44586e;margin-top:2pt}
+#rep .gtiles{display:grid;grid-template-columns:1fr 1fr;gap:9pt;margin:0 0 13pt}
+#rep .gtile{border:1px solid #e4eaf1;border-radius:7pt;padding:9pt 12pt}
+#rep .gtile .gt{display:block;font-size:7pt;letter-spacing:.11em;color:#8a99aa;font-weight:700}
+#rep .gtile b{display:block;font-size:15pt;color:#17324a;margin-top:3pt;font-weight:700}
+#rep .gtile b.gold{color:#bf7b0b}
+#rep .gtile b.green{color:#0e9d78}
+#rep .tlwrap{margin:2pt 0 13pt}
+#rep .tlr{display:flex;justify-content:space-between;font-size:7.5pt;color:#8a99aa}
+#rep .tlr b{font-size:8.5pt;color:#17324a;font-weight:700}
+#rep .tl{display:flex;align-items:center;justify-content:space-between;position:relative;
+  height:12pt;margin:3pt 0}
+#rep .tl::before{content:'';position:absolute;left:3pt;right:3pt;top:50%;height:1px;background:#c9d3dd}
+#rep .tl i{width:5pt;height:5pt;border-radius:50%;background:#4c62ce;position:relative}
+#rep .tl i.e{width:8pt;height:8pt;background:#17324a}
+#rep .gact{border:1.2px solid #17324a;border-radius:7pt;background:#fbf7ee;padding:10pt 13pt;margin:0 0 10pt}
+#rep .gact b{display:block;font-size:8pt;letter-spacing:.1em;color:#17324a;margin-bottom:4pt}
+#rep .gact span{font-size:9.5pt;color:#17324a}
+#rep .gdis{font-size:7.5pt;color:#8a99aa;line-height:1.5;margin:0}
+@media screen{ #rep .ghero,#rep .gtiles,#rep .tlwrap,#rep .gact{break-inside:avoid} }
+
+
+/* ══ goal chips (step 3) ══ */
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:11px;margin:4px 0 18px}
+.chip{position:relative;text-align:left;padding:14px 14px 13px 42px;border:1.5px solid #e4eaf1;border-radius:13px;
+ background:#fff;cursor:pointer;font:inherit;transition:border-color .15s,background .15s,box-shadow .15s;display:block;width:100%}
+.chip:hover:not(.dis){border-color:#0e9d78;box-shadow:0 2px 10px rgba(14,157,120,.10)}
+.chip .ck{position:absolute;left:14px;top:15px;width:19px;height:19px;border:1.5px solid #c3cdd9;border-radius:6px;background:#fff;transition:.15s}
+.chip .cl{display:block;font-weight:700;color:#17324a;font-size:14.5px;letter-spacing:-.1px}
+.chip .cs{display:block;color:#44586e;font-size:12.4px;line-height:1.45;margin-top:3px}
+.chip em{display:block;color:#bf7b0b;font-size:11.5px;font-style:normal;margin-top:6px;font-weight:600}
+.chip.on{border-color:#0e9d78;background:#f3fbf8}
+.chip.on .ck{background:#0e9d78;border-color:#0e9d78}
+.chip.on .ck::after{content:'';position:absolute;left:5.5px;top:2px;width:5px;height:10px;
+ border:solid #fff;border-width:0 2.2px 2.2px 0;transform:rotate(43deg)}
+.chip.dis{opacity:.55;cursor:not-allowed;background:#f6f8fa}
+.ownrow{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.ownrow input{flex:1 1 240px;min-width:0;padding:10px 12px;border:1.5px solid #e4eaf1;border-radius:10px;font:inherit;color:#17324a}
+.ownrow input:focus{outline:0;border-color:#0e9d78}
+#ownlist{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.ownchip{display:inline-flex;align-items:center;gap:7px;background:#eef3fb;color:#17324a;
+ border-radius:999px;padding:5px 7px 5px 13px;font-size:13px;font-weight:600}
+.ownchip button{border:0;background:#d7e0ee;color:#44586e;width:19px;height:19px;border-radius:50%;
+ cursor:pointer;font-size:13px;line-height:1;display:grid;place-items:center}
+.ownchip button:hover{background:#c3cdd9}
+
+/* ══ one goal at a time ══ */
+.gprog{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+.gprog span{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8a99aa;white-space:nowrap}
+.gptrk{flex:1;height:5px;background:#e4eaf1;border-radius:3px;overflow:hidden}
+.gptrk i{display:block;height:100%;background:#0e9d78;border-radius:3px;transition:width .3s}
+.gslidehead{margin:0 0 15px;padding-bottom:13px;border-bottom:1px solid #e4eaf1}
+.gslidehead h3{margin:0 0 5px;font-size:19px;line-height:1.3;color:#17324a;letter-spacing:-.3px}
+.gslidehead p{margin:0;color:#44586e;font-size:14px;line-height:1.55}
+.gfoot{margin-top:11px;padding-top:11px;border-top:1px dashed #e4eaf1;color:#44586e;font-size:12.8px;line-height:1.5}
+#goals .goal[hidden]{display:none}
+
+/* ══ surplus + protection readouts ══ */
+.surbar,.protchk{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:13px;
+ padding:12px 15px;border-radius:11px;background:#f3fbf8;border:1px solid #cdeee3}
+.surbar b,.protchk b{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#0e9d78}
+.surbar span,.protchk span{font-weight:800;font-size:19px;color:#17324a}
+.surbar em{font-style:normal;color:#44586e;font-size:12.8px;flex:1 1 100%;line-height:1.5}
+.surbar.neg{background:#fdf3f3;border-color:#f3cfcf}
+.surbar.neg b{color:#d64545}
+.asmp{margin-top:15px}
+@media(max-width:560px){
+  .chips{grid-template-columns:1fr}
+  .gslidehead h3{font-size:17px}
 }
+
 </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYC3NP9W42"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SYC3NP9W42');
-</script>
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
+        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:36px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style>
 </head>
-<body style="background-color: #081028; color: #FFFFFF;">
+<body>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
 
-  <div id="loading-indicator" style="position: fixed; inset: 0; background: #081028; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; font-family: system-ui, -apple-system, sans-serif; transition: opacity 0.4s ease;">
-    <div style="width: 52px; height: 52px; border: 4px solid rgba(251, 191, 36, 0.2); border-top-color: #FBBF24; border-radius: 50%; animation: mfp-spin 0.9s linear infinite; margin-bottom: 20px;"></div>
-    <div style="color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: 0.5px;">MyFinancialPlan</div>
-    <div id="loading-status-text" style="color: #94A3B8; font-size: 13px; margin-top: 6px;">Loading full financial application...</div>
+
+<div class="mp" id="wiztop">
+
+<div class="hero">
+  <div class="lng" role="group" aria-label="Language">
+    <button type="button" id="l-en" aria-pressed="true">English</button>
+    <button type="button" id="l-hi" aria-pressed="false">हिंदी</button>
+  </div>
+  <div>
+    <p class="ttl">MY FINANCIAL PLAN</p>
+    <h1 data-i="h1">Your Family. Your Goals. Your Financial Roadmap.</h1>
+    <p>One family financial plan, end to end — in five steps, with the full plan as a PDF. Free, no login, and nothing leaves your browser.</p>
+  </div>
+  <img src="/app/assets/journey/s01.jpg" alt="" width="150" height="150" loading="lazy">
+</div>
+
+<nav class="rib" aria-label="Plan steps"><button type="button"><span class="n">01</span><span class="l" data-i="r1">FAMILY</span></button><button type="button"><span class="n">02</span><span class="l" data-i="r2">MONEY</span></button><button type="button"><span class="n">03</span><span class="l" data-i="r3">GOALS</span></button><button type="button"><span class="n">04</span><span class="l" data-i="r4">PROTECTION</span></button><button type="button"><span class="n">05</span><span class="l" data-i="r5">PLAN</span></button></nav>
+
+<!-- STEP 1 FAMILY -->
+<section class="step on" aria-label="Step 1, family">
+  <div class="shead"><img src="/app/assets/journey/s01.jpg" alt="" width="86" height="86" loading="lazy">
+    <div><h2>Let’s start with your family</h2><p>Every financial plan begins with one simple question — who are we planning this money for?</p></div></div>
+  <div class="card">
+    <p class="sub">HEAD OF THE FAMILY</p>
+    <div class="g">
+    <div class="f"><label for="nm">Name of family head</label><input type="text" id="nm" value="" placeholder="Your name"></div>
+    <div class="f"><label for="age">How old are you?</label><input type="number" id="age" value="32" inputmode="decimal" min="18" max="80" step="1"></div>
+    <div class="f"><label for="rage">Retirement at</label><input type="number" id="rage" value="60" inputmode="decimal" min="40" max="75" step="1"></div>
+    <div class="f"><label for="occ">What best describes your work?</label><select id="occ">
+      <option>Salaried</option><option>Business</option><option>Self-employed / Professional</option><option>Other</option>
+    </select></div>
+  </div><div class="hint">Your plan, dashboard and PDF are personalised with your name — it is your family’s story, after all. Age decides the time available for every goal.</div>
+
+    <p class="sub">SPOUSE / PARTNER</p>
+    <div class="g">
+      <div class="f"><label for="spouse">Would you like to include your spouse/partner?</label><select id="spouse"><option>No</option><option>Yes</option></select></div>
+      <div class="f sp-f" id="spnmwrap" hidden><label for="spnm">Their name</label><input type="text" id="spnm" value="" placeholder="Name"></div>
+      <div class="f sp-f" id="spagewrap" hidden><label for="spage">Their age</label><input type="number" id="spage" value="30" inputmode="decimal" min="18" max="100" step="1"></div>
+      <div class="f sp-f" id="spworkwrap" hidden><label for="spwork">Are they working or a housewife?</label>
+        <select id="spwork"><option>Housewife / Homemaker</option><option>Working</option></select></div>
+      <div class="f sp-f" id="spincwrap" hidden><label for="spinc">Their monthly income (₹)</label>
+        <input type="number" id="spinc" value="0" inputmode="decimal" min="0" step="1000"></div>
+    </div>
+    <div class="hint" id="sphint" hidden>A homemaker earns no salary but carries real economic value. Income is only asked when the spouse is working, and only earned income is insured in the 15× life-cover test.</div>
+
+    <p class="sub">WHO DEPENDS ON YOUR FAMILY INCOME?</p>
+    <div class="g">
+      <div class="f"><label for="nkids">Number of children</label>
+        <select id="nkids"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div class="f"><label for="deps">Do you financially support parents or other adults?</label>
+        <select id="deps"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+    </div>
+    <div id="kids"></div>
+    <div class="hint">Each child gets their own education and celebration goals — by name.</div></div>
+  <div class="nav"><button type="button" class="btn n sp" data-go="1" data-i="ncont">Continue →</button></div>
+</section>
+
+<!-- STEP 2 MONEY -->
+<section class="step" aria-label="Step 2, money">
+  <div class="shead"><img src="/app/assets/journey/s02.jpg" alt="" width="86" height="86" loading="lazy">
+    <div><h2>Let’s understand your monthly money flow</h2><p>You don’t need exact figures. A realistic estimate is enough.</p></div></div>
+  <div class="card">
+    <p class="sub">EARNED INCOME</p>
+    <div class="g">
+      <div class="f"><label for="inc">Family head — monthly income (₹)</label><input type="number" id="inc" value="85000" inputmode="decimal" min="0" step="1000"></div>
+      <div class="f" id="spinc2wrap" hidden><label for="spinc2">Spouse — monthly income (₹)</label><input type="number" id="spinc2" value="0" inputmode="decimal" min="0" step="1000" readonly></div>
+    </div>
+    <div class="hint">Earned income is what a salary or a business pays while someone works. It is the figure the 15× term-cover test is built on, because it is the income that stops.</div>
+
+    <p class="sub">OTHER FAMILY INCOME</p>
+    <div class="optout">
+      <label class="chk" for="nooi"><input type="checkbox" id="nooi" checked><span>We have no other family income</span></label>
+      <p class="chkh">Untick to add income that does not come from a job — land, property, royalties or anything else. This income usually continues for the family, so it counts towards surplus but not towards the life-cover requirement.</p>
+    </div>
+    <div class="g" id="oig" hidden>
+      <div class="f"><label for="oi-agri">Agriculture income (₹/month)</label><input type="number" id="oi-agri" value="0" inputmode="decimal" min="0" step="1000"></div>
+      <div class="f"><label for="oi-rent">Rental income (₹/month)</label><input type="number" id="oi-rent" value="0" inputmode="decimal" min="0" step="1000"></div>
+      <div class="f"><label for="oi-roy">Royalty income (₹/month)</label><input type="number" id="oi-roy" value="0" inputmode="decimal" min="0" step="1000"></div>
+      <div class="f"><label for="oi-oth">Other income (₹/month)</label><input type="number" id="oi-oth" value="0" inputmode="decimal" min="0" step="1000"></div>
+    </div>
+
+    <p class="sub">OUTGO</p>
+    <div class="g">
+      <div class="f"><label for="exp">How much does your family spend each month? (₹)</label><input type="number" id="exp" value="42000" inputmode="decimal" min="0" step="1000"></div>
+      <div class="f"><label for="emi">Do you currently have any loans or EMIs? (₹/month)</label><input type="number" id="emi" value="0" inputmode="decimal" min="0" step="1000"></div>
+      <div class="f"><label for="debt">Total outstanding loans (₹)</label><input type="number" id="debt" value="0" inputmode="decimal" min="0" step="10000"></div>
+      <div class="f"><label for="liq">Money you can access immediately (₹)</label><input type="number" id="liq" value="0" inputmode="decimal" min="0" step="10000"></div>
+    </div>
+    <div class="hint">Include your bank balance and any liquid money you can access quickly. Surplus is total income minus living cost minus EMI — the only money available to fund goals.</div>
+    <div class="surbar" id="surbar" hidden><b>Your current monthly surplus</b><span id="surv">—</span><em id="surn"></em></div>
+
+    <p class="sub">MY PRESENT INVESTMENTS</p>
+    <div class="optout">
+      <label class="chk" for="noinv"><input type="checkbox" id="noinv"><span>I’d rather not disclose what I already hold</span></label>
+      <p class="chkh">Optional. Leave it ticked and the plan is built from your surplus alone — every goal is funded from new monthly investing, nothing is assumed about existing savings, and no goal card will ask you to allocate existing money.</p>
+    </div>
+    <div class="g" id="invg"><div class="f"><label for="i-mutualFunds">Mutual Funds</label><input type="number" id="i-mutualFunds" value="350000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-stocks">Stocks / Equity</label><input type="number" id="i-stocks" value="150000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-fdRd">FD / RD</label><input type="number" id="i-fdRd" value="200000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-ppf">PPF</label><input type="number" id="i-ppf" value="120000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-epf">EPF</label><input type="number" id="i-epf" value="280000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-nps">NPS</label><input type="number" id="i-nps" value="90000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-gold">Gold</label><input type="number" id="i-gold" value="110000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-bonds">Bonds</label><input type="number" id="i-bonds" value="50000" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-realEstate">Real Estate</label><input type="number" id="i-realEstate" value="0" inputmode="decimal" min="0" step="10000"></div><div class="f"><label for="i-other">Other Investments</label><input type="number" id="i-other" value="20000" inputmode="decimal" min="0" step="10000"></div></div>
+    <div class="hint" id="invhint">Enter 0 for anything you do not hold. These totals drive your emergency reserve and allocation.</div>
+  </div>
+  <div class="nav"><button type="button" class="btn s" data-go="0" data-i="nback">← Back</button>
+    <button type="button" class="btn n sp" data-go="2" data-i="ncont">Continue →</button></div>
+</section>
+
+<!-- STEP 3 GOALS -->
+<section class="step" aria-label="Step 3, goals">
+  <div class="shead"><img src="/app/assets/journey/s04.jpg" alt="" width="86" height="86" loading="lazy">
+    <div><h2>What matters most to your family?</h2><p>Select the things you would like your financial plan to prepare for.</p></div></div>
+
+  <div id="gsel">
+    <div class="card">
+      <div id="chips" class="chips"></div>
+      <p class="sub">YOUR OWN GOALS</p>
+      <p class="chkh">Write any other goal — a cost &amp; year card opens for it.</p>
+      <div class="ownrow">
+        <input type="text" id="ownnm" placeholder="e.g. Startup Fund, World Tour, Farm House" aria-label="Your own goal name">
+        <button type="button" class="btn s" id="add">Add</button>
+      </div>
+      <div id="ownlist"></div>
+      <div class="hint" id="chiphint">Tap a card to switch that goal on or off. The ones already on are the goals most families need first. Next you will set a cost and a year for each one you keep — one at a time.</div>
+    </div>
+    <div class="nav"><button type="button" class="btn s" data-go="1" data-i="nback">← Back</button>
+      <button type="button" class="btn n sp" id="gstart">Continue →</button></div>
   </div>
 
-  <script>
-    (function() {
-      function dismissLoader() {
-        var loader = document.getElementById("loading-indicator");
-        if (loader) {
-          loader.style.opacity = "0";
-          setTimeout(function() {
-            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
-          }, 400);
-        }
+  <div id="gslide" hidden>
+    <div class="gprog"><span id="gpct">Goal 1 of 1</span><div class="gptrk"><i id="gpbar"></i></div></div>
+    <div id="goals"></div>
+    <div class="nav"><button type="button" class="btn s" id="gback">← Back</button>
+      <button type="button" class="btn n sp" id="gnext">Continue →</button></div>
+  </div>
+</section>
+
+<!-- STEP 4 PROTECTION -->
+<section class="step" aria-label="Step 4, protection">
+  <div class="shead"><img src="/app/assets/journey/s07.jpg" alt="" width="86" height="86" loading="lazy">
+    <div><h2>Before building wealth, let’s protect it.</h2><p>A strong financial plan should continue even when life doesn’t go according to plan.</p></div></div>
+  <div class="card"><div class="g">
+    <div class="f"><label for="term">How much life insurance do you already have? (₹)</label><input type="number" id="term" value="5000000" inputmode="decimal" min="0" step="100000"></div>
+    <div class="f"><label for="health">How much health insurance does your family already have? (₹)</label><input type="number" id="health" value="500000" inputmode="decimal" min="0" step="100000"></div>
+    <div class="f"><label for="ci">Critical illness cover (₹)</label><input type="number" id="ci" value="0" inputmode="decimal" min="0" step="100000"></div>
+  </div><div class="hint">Add the total cover across your existing policies. Existing cover is counted first; the plan then suggests only the real gap.</div>
+  <div class="protchk" id="protchk"><b>Protection Check</b><span id="protv">—</span></div></div>
+
+  <div class="card asmp">
+    <p class="sub">REVIEW ASSUMPTIONS</p>
+    <p class="chkh">These defaults are the basis of every future value, corpus and SIP — confirm them, or fine-tune right here before we compute your roadmap.</p>
+    <div class="g">
+      <div class="f"><label for="a-infl">Standard Inflation (%)</label><input type="number" id="a-infl" value="6" inputmode="decimal" min="2" max="12" step="0.5"></div>
+      <div class="f"><label for="a-eqa">Growth — Aggressive (% p.a.)</label><input type="number" id="a-eqa" value="14" inputmode="decimal" min="6" max="20" step="0.5"></div>
+      <div class="f"><label for="a-eqb">Growth — Equity (% p.a.)</label><input type="number" id="a-eqb" value="12" inputmode="decimal" min="6" max="20" step="0.5"></div>
+      <div class="f"><label for="a-rbal">Growth — Balanced (% p.a.)</label><input type="number" id="a-rbal" value="10" inputmode="decimal" min="4" max="16" step="0.5"></div>
+      <div class="f"><label for="a-debt">Growth — Debt (% p.a.)</label><input type="number" id="a-debt" value="7" inputmode="decimal" min="3" max="10" step="0.5"></div>
+      <div class="f"><label for="a-edu">Child Higher-Education Age</label><input type="number" id="a-edu" value="21" inputmode="decimal" min="16" max="26" step="1"></div>
+      <div class="f"><label for="a-mar">Child Marriage Age</label><input type="number" id="a-mar" value="26" inputmode="decimal" min="18" max="35" step="1"></div>
+      <div class="f"><label for="a-life">Life Expectancy — pension must last until (age)</label><input type="number" id="a-life" value="85" inputmode="decimal" min="60" max="100" step="1"></div>
+    </div>
+    <div class="hint">Each goal picks its return from its own horizon: over 10 years uses the aggressive equity rate, 5–10 years the balanced rate, under 5 years the debt rate. Change any number here and every goal recalculates. These are assumptions, not forecasts — returns are not guaranteed.</div>
+  </div>
+
+  <div class="nav"><button type="button" class="btn s" data-go="2" data-i="nback">← Back</button>
+    <button type="button" class="btn p sp" data-build data-i="nplan">See my plan →</button></div>
+</section>
+
+<!-- STEP 5 PLAN -->
+<section class="step" aria-label="Step 5, your plan">
+  <div class="shead"><img src="/app/assets/journey/s08.jpg" alt="" width="86" height="86" loading="lazy">
+    <div><h2>Your financial plan</h2><p>Where you stand today, what it will cost, and what to do about it.</p></div></div>
+
+  <div class="top">
+    <div class="card sc">
+      <p class="ttl">FINANCIAL HEALTH SCORE</p>
+      <div class="gg"><svg width="162" height="162" viewBox="0 0 162 162" aria-hidden="true">
+        <circle cx="81" cy="81" r="68" fill="none" stroke="#e4eaf1" stroke-width="15"></circle>
+        <circle id="ring" cx="81" cy="81" r="68" fill="none" stroke="#0e9d78" stroke-width="15" stroke-linecap="round"></circle>
+      </svg><div class="mid"><span class="n" id="scn" role="status" aria-live="polite">—</span><span class="o">OUT OF 100</span></div></div>
+      <div class="bdg" id="scb">—</div>
+    </div>
+    <div class="card"><p class="ttl">THE SIX PILLARS</p><div class="pil" id="pillars"></div>
+      <div class="verdict" id="verdict">—</div></div>
+  </div>
+
+  <div class="kp">
+    <div class="k "><div class="t">INCOME</div><div class="v" id="k-inc" role="status" aria-live="polite">—</div></div><div class="k "><div class="t">LIVING COST + EMI</div><div class="v" id="k-cost" role="status" aria-live="polite">—</div></div>
+    <div class="k ok"><div class="t">MONTHLY SURPLUS</div><div class="v" id="k-sur" role="status" aria-live="polite">—</div><div class="s" id="k-sur-s"></div></div><div class="k "><div class="t">EMERGENCY FUND</div><div class="v" id="k-ef" role="status" aria-live="polite">—</div><div class="s" id="k-ef-s"></div></div>
+    <div class="k "><div class="t">LIFE COVER</div><div class="v" id="k-life" role="status" aria-live="polite">—</div><div class="s" id="k-life-s"></div></div><div class="k "><div class="t">HEALTH COVER</div><div class="v" id="k-hc" role="status" aria-live="polite">—</div><div class="s" id="k-hc-s"></div></div>
+  </div>
+  <div class="kp">
+    <div class="k in"><div class="t">TOTAL INVESTED SO FAR</div><div class="v" id="k-inv" role="status" aria-live="polite">—</div></div>
+    <div class="k in"><div class="t">MY TOTAL FINANCIAL REQUIREMENT</div><div class="v" id="k-req" role="status" aria-live="polite">—</div></div>
+    <div class="k bd"><div class="t">COMBINED GOAL SHORTAGE</div><div class="v" id="k-gap" role="status" aria-live="polite">—</div></div>
+    <div class="k wa"><div class="t">COMBINED SIP SHORTAGE</div><div class="v" id="k-sip" role="status" aria-live="polite">—</div><div class="s" id="k-sip-s"></div></div>
+  </div>
+
+  <div class="card" style="margin-top:14px"><p class="ttl">EVERY RUPEE HAS A JOB</p>
+    <div class="job"><svg id="jobs" width="140" height="140" viewBox="0 0 140 140" aria-label="Surplus allocation"></svg>
+      <div><div class="jl" id="joblist"></div><div class="hint" id="job-note"></div></div></div></div>
+
+  <div class="card" style="margin-top:14px"><p class="ttl">ALLOCATION SHOWN IN THE PLAN</p>
+    <div class="job"><svg id="assets" width="140" height="140" viewBox="0 0 140 140" aria-label="Asset allocation"></svg>
+      <div><div class="jl" id="assetlist"></div></div></div>
+    <div class="alc" style="margin-top:14px">
+      <div><div class="t">Equity</div><div class="v" id="a-eq">—</div></div>
+      <div><div class="t">Debt</div><div class="v" id="a-db">—</div></div>
+      <div><div class="t">Other</div><div class="v" id="a-ot">—</div></div>
+      <div><div class="t">Age rule (100 − age)</div><div class="v" id="a-rule">—</div></div>
+    </div><div class="hint" id="a-note"></div></div>
+
+  <div style="margin-top:20px"><p class="ttl">THE TWELVE MONTH ROADMAP</p>
+    <div class="rm"><div><div class="ph">MONTHS 1–3</div><div class="nm">SECURE</div><div class="tx">Build the emergency reserve to six months of household income and close any life-cover gap. Nothing else moves until this is done.</div></div><div><div class="ph">MONTHS 4–6</div><div class="nm">STABILISE</div><div class="tx">Automate every goal SIP on salary day. Top up the health floater. Clear the highest-rate loan first.</div></div><div><div class="ph">MONTHS 7–9</div><div class="nm">ACCELERATE</div><div class="tx">Add a 10% yearly SIP step-up tied to your increment month. Direct bonuses at the largest shortfall.</div></div><div><div class="ph">MONTHS 10–12</div><div class="nm">REVIEW</div><div class="tx">Re-run this plan. Check allocation against the age rule, review cover after any life change, reset targets.</div></div></div></div>
+
+  <div class="nav">
+    <button type="button" class="btn s" data-go="3" data-i="nback">← Back</button>
+    <button type="button" class="btn p" id="pdf" data-i="bpdf">⬇ Download full plan (PDF)</button>
+    <button type="button" class="btn w" id="wa">Share on WhatsApp</button>
+  </div>
+</section>
+
+<!-- BUILDING -->
+<section class="step" aria-label="Building your plan">
+  <div class="card bld">
+    <div class="ring" role="status" aria-live="polite"></div>
+    <div class="msg" id="bmsg">Reading your family profile…</div>
+    <div class="ct" id="bct">STEP 1 OF 5</div>
+    <div class="trk"><i id="btrk"></i></div>
+  </div>
+</section>
+<!-- Anchor for the shared push opt-in card (assets/js/mfp-push.js).
+     Without a .calc element that script auto-opens a full-screen modal 7s
+     after load; this routes it to the designed inline card instead, so the
+     wizard is never interrupted. The class carries no styling on this page. -->
+<div class="calc" aria-hidden="true"></div>
+
+
+<div class="sec">
+<h2>How the plan is built</h2>
+<p>This page follows the same five steps as the MyFinancialPlan app — family, money, goals, protection, plan — and runs the same planning engine behind them. The order is deliberate: you cannot judge whether a goal is affordable until the surplus is known, and goal investing should not start while the emergency reserve and life cover are missing.</p>
+
+<h3>The six pillars of the health score</h3>
+<p>The score is six separate checks. Each pillar is scored out of 100 on its own, and the headline number is their average — so the six rings tell you exactly which pillar is pulling the score down.</p>
+<table class="tb">
+<tr><th>Pillar</th><th>Scored out of</th><th>100 / 100 at</th></tr></thead><tbody><tr><td>Savings</td><td>100</td><td>30% of income left after living cost and EMI</td></tr><tr><td>Insurance</td><td>100</td><td>15× annual earned income as life cover, health cover of 10% of that figure, and a critical-illness cover</td></tr><tr><td>Emergency</td><td>100</td><td>6 months of household income held in liquid assets</td></tr><tr><td>Goals</td><td>100</td><td>Every goal fully on track</td></tr><tr><td>Debt</td><td>100</td><td>No EMI; partial marks up to 25% of income</td></tr><tr><td>Invest</td><td>100</td><td>6 or more asset types held · excluded from the average when you choose not to disclose</td></tr></tbody></table>
+<p>Bands, per pillar and for the overall score: 70 and above is strong, 40–69 is a workable foundation, under 40 needs work.<b>80+</b> Excellent · <b>65–79</b> Strong · <b>50–64</b> Fair · <b>35–49</b> Needs Attention · <b>under 35</b> Action Required.</p>
+
+<h3>The formulas</h3>
+<table class="tb">
+<tr><th>Quantity</th><th>Formula</th></tr>
+<tr><td>Future goal cost</td><td><code>Cost today × (1 + goal inflation)<sup>years</sup></code></td></tr>
+<tr><td>Retirement freedom number</td><td><code>Annual need at retirement × [1 − (1 + r)<sup>−25</sup>] ÷ r</code>, <code>r = (0.07 − inflation) ÷ (1 + inflation)</code></td></tr>
+<tr><td>Projected corpus</td><td><code>Allocated × (1 + return)<sup>years</sup></code> plus the future value of any SIP running</td></tr>
+<tr><td>Shortfall</td><td><code>max(0, target − projected corpus)</code></td></tr>
+<tr><td>Monthly SIP</td><td><code>Shortfall × i ÷ [((1 + i)<sup>n</sup> − 1) × (1 + i)]</code></td></tr>
+<tr><td>Lumpsum today</td><td><code>Shortfall ÷ (1 + return)<sup>years</sup></code></td></tr>
+</table>
+
+<h2>A worked example</h2>
+<p>The plan opens with the household the engine ships as its default: age 32, retiring at 60, ₹85,000 a month against ₹42,000 of living cost, ₹13,70,000 invested across nine asset types, ₹50,00,000 of term cover, and four goals.</p>
+<p>Twenty-eight years of 6% inflation turns a ₹40,000 monthly retirement need into <b>₹2,04,467</b> a month, which is <b>₹5,44,16,137</b> of corpus. The ₹4,00,000 allocated to retirement grows to about ₹96 lakh, leaving roughly <b>₹4.49 crore</b> to build and a required SIP near <b>₹16,263</b> a month for that goal alone.</p>
+<p>The number that matters is not the corpus. It is whether the combined SIP across all four goals fits inside the monthly surplus — and when it does not, the plan says so plainly rather than showing a figure nobody can afford.</p>
+
+<h2>Assumptions and limitations</h2>
+<div class="lim">
+<p style="margin-top:0"><b>Fixed in the engine:</b> the emergency reserve counted as fixed deposits in full plus 30% of mutual funds, a life-cover reference of 15× annual earned income, and a health-cover reference of 10% of that life cover. <b>Chosen by you:</b> growth before retirement and growth after retirement are picked separately on the retirement slide from the same four rungs — Aggressive 14%, Equity 12%, Balanced 10%, Debt 7% — and the pension is paid from the day you retire until the life expectancy you set, 85 by default.</p>
+<p><b>You control:</b> inflation and expected return on every goal, your retirement age, the allocation of existing money to each goal, and any SIP already running.</p>
+<p><b>Not modelled:</b> tax on investments or withdrawals, rental or business income, a spouse's separate finances, medical costs beyond stated living expenses, pension or annuity income, and inheritance. The projection assumes one smooth return every year, which no real market delivers — the order in which good and bad years arrive matters, especially close to retirement.</p>
+<p><b>Nothing is saved.</b> Your figures exist only in this browser tab. Download the PDF to keep the plan. The app version saves to your account; this page deliberately does not.</p>
+<p style="margin-bottom:0"><b>Disclaimer.</b> MyFinancialPlan is a software calculator provider. This tool performs calculations on figures you supply and produces an educational estimate — not financial, tax, insurance or investment advice. It recommends no product and distributes none. Verify every figure and consult a qualified professional before making decisions about your money.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Is this the same plan as the MyFinancialPlan app?</summary><p>It follows the same five steps the app uses — family, money, goals, protection, plan — and runs the same calculation engine behind them. You get the same financial health score pillars, the same goal maths, the same retirement freedom number and the same every-rupee-has-a-job allocation. The app additionally saves your plan to your account, syncs it across devices and feeds the Partner CRM; this page keeps everything in the browser.</p></details><details><summary>Why five steps instead of one long form?</summary><p>Because the order matters. You cannot judge whether a goal is affordable until you know the surplus, and you should not be investing for goals at all if the emergency reserve and life cover are missing. The steps follow the same sequence a planner would work through: understand, then protect, then fund.</p></details><details><summary>Is it free, and do I need an account?</summary><p>Free, with no account. Everything runs in your browser. No figure you enter is sent to a server, which also means nothing is stored — close the tab and your inputs are gone, so download the PDF before you leave.</p></details><details><summary>How is the financial health score calculated?</summary><p>Six pillars: savings 22, insurance 20, emergency reserve 18, goals 15, investment mix 13 and debt 12. Each is scored against the thresholds shown in the table on this page, so the breakdown tells you exactly which pillar is costing you points rather than giving you one opaque number.</p></details><details><summary>Why does the retirement goal show a corpus in crores when I entered a monthly figure?</summary><p>Retirement is the only goal whose cost is a monthly amount rather than a one-off. Entering ₹40,000 means ₹40,000 every month from the day you retire until your life expectancy. At 6% inflation over 28 years that ₹40,000 becomes about ₹2.04 lakh a month, and paying it for 25 years from a corpus still earning the Balanced 10% needs roughly ₹3.93 crore. Change the post-retirement growth to Debt 7% and the same pension needs about ₹5.44 crore, because a slower-growing corpus has to be bigger. Every other goal treats the figure you enter as a single future cost.</p></details><details><summary>What does every rupee has a job mean?</summary><p>It splits your monthly surplus across four jobs — protect, children, retire and wealth — based on what your goals actually demand, and shows whatever is left as flexibility. If the four jobs exceed your surplus, the plan says so rather than quietly showing a SIP you cannot afford.</p></details><details><summary>How do I get the PDF plan?</summary><p>Finish step five and press Download full plan. Your browser&#x27;s print dialog opens — choose Save as PDF. The report covers the household, where you stand, all six pillars, every goal, your total financial requirement, the allocation and the assumptions used.</p></details><details><summary>Is any of this financial advice?</summary><p>No. MyFinancialPlan is a software calculator provider. The tool performs arithmetic on figures you supply. It recommends no product, distributes none, and cannot see your full circumstances. It is not investment, insurance or tax advice. Speak to a qualified professional before acting.</p></details></div>
+
+<h2>Related tools</h2>
+<div class="rel">
+<a href="/financial-goal-calculator/">Financial Goal Calculator</a>
+<a href="/retirement-goal-calculator/">Retirement Goal Calculator</a>
+<a href="/emergency-fund-calculator/">Emergency Fund Calculator</a>
+<a href="/human-life-value-calculator/">Human Life Value Calculator</a>
+<a href="/child-education-calculator/">Child Education Calculator</a>
+<a href="/legacy-planning-calculator/">Legacy Planning Calculator</a>
+<a href="/tools/">All free tools</a>
+</div>
+
+<div style="margin-top:22px;padding-top:13px;border-top:1px solid var(--line);font-size:13px;color:var(--slate);line-height:1.65">
+<b>Written and reviewed by the MyFinancialPlan editorial team.</b> Last updated 2026-11-06.
+Calculations run in your browser on the same planning engine used by the MyFinancialPlan app. No figures you enter are transmitted anywhere.
+</div>
+</div>
+</div>
+
+<div id="rep" aria-hidden="true"></div>
+<script src="/assets/js/mfp-core-engine.js"></script>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},Q=function(s,r){return (r||document).querySelectorAll(s)};
+var ASSETS=[['mutualFunds','Mutual Funds','#4c62ce'],['stocks','Stocks / Equity','#0e9d78'],
+ ['fdRd','FD / RD','#17324a'],['ppf','PPF','#bf7b0b'],['epf','EPF','#44586e'],['nps','NPS','#0a7a5c'],
+ ['gold','Gold','#d1a23a'],['bonds','Bonds','#8a99aa'],['realEstate','Real Estate','#d64545'],['other','Other Investments','#b0bcc9']];
+/* the app's own build messages, verbatim */
+var BUILD=['Reading your family profile\u2026','Projecting inflation to each goal year\u2026',
+ 'Balancing equity & debt (100 \u2212 age)\u2026','Computing the SIP for every goal\u2026',
+ 'Preparing your protection shield\u2026'];
+var E=window.MFP_ENGINE,uid=0,step=0,built=false;
+var n=function(v){v=parseFloat(v);return isFinite(v)?v:0};
+var F=function(v){return '\u20B9'+Math.round(v||0).toLocaleString('en-IN')};
+var S=function(v){v=Math.round(v||0);var a=Math.abs(v);
+ if(a>=1e7)return '\u20B9'+(v/1e7).toFixed(2)+' Cr';
+ if(a>=1e5)return '\u20B9'+(v/1e5).toFixed(2)+' L';
+ return '\u20B9'+v.toLocaleString('en-IN')};
+var esc=function(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){
+ return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+
+/* ══ step navigation ══ */
+function go(i){
+  if(i===4&&!built){build();return}
+  step=i;
+  Q('.step').forEach(function(e,k){e.classList.toggle('on',k===i)});
+  Q('.rib button').forEach(function(b,k){
+    if(k===i)b.setAttribute('aria-current','step'); else b.removeAttribute('aria-current');
+    b.classList.toggle('done',k<i);
+  });
+  if(i===4)plan();
+  var t=$('wiztop'); if(t&&t.scrollIntoView)t.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function build(){
+  step=4;
+  Q('.step').forEach(function(e,k){e.classList.toggle('on',k===5)});
+  Q('.rib button').forEach(function(b,k){
+    if(k===4)b.setAttribute('aria-current','step'); else b.removeAttribute('aria-current');
+    b.classList.toggle('done',k<4)});
+  var t=$('wiztop'); if(t&&t.scrollIntoView)t.scrollIntoView({behavior:'smooth',block:'start'});
+  var i=0;
+  (function tick(){
+    if(i>=BUILD.length){built=true;go(4);return}
+    $('bmsg').textContent=BUILD[i];
+    $('bct').textContent='STEP '+(i+1)+' OF '+BUILD.length;
+    $('btrk').style.width=((i+1)/BUILD.length*100)+'%';
+    i++; setTimeout(tick,520);
+  })();
+}
+/* ══ planning assumptions — the app's own sliders, with the user's defaults ══
+   Every future value, corpus and SIP in this plan derives from these four
+   numbers. They are editable on the Protection step so the figures are never
+   a black box. Returns are assumptions, not forecasts. */
+/* eqa/eqb/debt keep their original names because every other goal still reads
+   them through retFor(); rbal is the one new rung the pension ladder adds. */
+var ASMP={infl:6,eqa:14,eqb:12,rbal:10,debt:7,eduAge:21,marAge:26,lifeExp:85};
+/* The single growth ladder. The SAME four rungs are offered for the years
+   before retirement and for the years after it, chosen independently. */
+var RATES=[['agg','Aggressive','eqa'],['eq','Equity','eqb'],
+           ['bal','Balanced','rbal'],['debt','Debt','debt']];
+function rung(k){return RATES.filter(function(x){return x[0]===k})[0]}
+function rateOf(k){var m=rung(k)||rung('bal');return ASMP[m[2]]}
+function nameOf(k){var m=rung(k)||rung('bal');return m[1]}
+/* which rung a free-typed percentage corresponds to, or '' for a custom value */
+function keyFor(v){var m=RATES.filter(function(x){return Math.abs(ASMP[x[2]]-v)<1e-9})[0];
+  return m?m[0]:''}
+function ladder(){return RATES.map(function(x){return [x[0],x[1]+' \u2014 '+ASMP[x[2]]+'% p.a.']})}
+function readAsmp(){
+  var g=function(id,d){var e=$(id);if(!e)return d;var v=parseFloat(e.value);return isFinite(v)?v:d};
+  ASMP.infl=g('a-infl',6);ASMP.eqa=g('a-eqa',14);ASMP.eqb=g('a-eqb',12);ASMP.debt=g('a-debt',7);
+  ASMP.eduAge=g('a-edu',21);ASMP.marAge=g('a-mar',26);
+  ASMP.rbal=g('a-rbal',10);ASMP.lifeExp=g('a-life',85);
+  return ASMP;
+}
+/* A goal's return follows its own horizon, not a single blanket rate: a goal
+   more than ten years out can ride equity volatility, one inside five years
+   cannot. This is why the three rates exist rather than one. */
+function retFor(y){ return y>10?ASMP.eqa : y>=5?ASMP.eqb : ASMP.debt }
+function retLabel(y){ return y>10?'Aggressive' : y>=5?'Equity' : 'Debt' }
+function retKey(y){ return y>10?'agg' : y>=5?'eq' : 'debt' }
+function yrs(v){return v+' '+(Math.abs(v)===1?'year':'years')}
+function yrs2(v){return v+' '+(Math.abs(v)===1?'year':'years')}
+/* The retirement card's one-line story: today's need -> need then -> what the
+   corpus on track can actually pay -> what is left for the next generation. */
+function retFoot(g,c){
+  var t='At '+g.infl+'% inflation your '+F(g.cost)+' monthly need becomes '+F(c.monthly)+
+    ' a month at retirement, so the corpus must reach '+S(c.target)+' and pay out for '+yrs(c.draw)+
+    ' at '+c.pr+'%. ';
+  /* The required corpus is set by the POST-retirement rate alone, so it stays
+     put when the accumulation rate moves. Say so, otherwise the figure looks
+     stuck and the growth choice looks broken. */
+  t+='Growing at '+g.ret+'% until then, you put in '+S(c.deposits)+' and growth adds '+
+    S(c.growth)+'. Changing the growth before retirement changes your SIP and how much of '+
+    'the corpus is growth \u2014 not the '+S(c.target)+' target itself, which is fixed by the '+
+    c.pr+'% your corpus earns after you retire. ';
+  t+= c.pen>=c.monthly
+    ? 'You are ahead: on current pace the corpus could instead pay '+F(c.pen)+
+      ' a month if drawn down fully, or pay the planned pension and still leave '+S(c.resid)+
+      ' for the next generation.'
+    : 'On current pace it would pay '+F(c.pen)+' a month \u2014 '+F(c.monthly-c.pen)+' short.';
+  return t;
+}
+
+/* ══ family: spouse, children, dependants ══ */
+function spouseOn(){ return $('spouse') && $('spouse').value==='Yes' }
+function spouseWorks(){ return spouseOn() && $('spwork') && $('spwork').value==='Working' }
+/* Only income that STOPS when a person dies is insurable. A homemaker draws no
+   salary, and rent or land income generally continues for the family, so
+   neither belongs in the 15x life-cover test. */
+function spouseIncome(){ return spouseWorks()?n($('spinc').value):0 }
+function otherIncome(){
+  if(!$('nooi')||$('nooi').checked) return 0;
+  return n($('oi-agri').value)+n($('oi-rent').value)+n($('oi-roy').value)+n($('oi-oth').value);
+}
+function earnedIncome(){ return n($('inc').value)+spouseIncome() }
+function totalIncome(){ return earnedIncome()+otherIncome() }
+function earners(){ return 1+(spouseWorks()?1:0) }
+
+function renderKids(){
+  var want=parseInt($('nkids').value,10)||0, box=$('kids'), have=Q('.kidrow',box).length;
+  if(want===have) return;
+  if(want<have){ while(Q('.kidrow',box).length>want) box.removeChild(box.lastChild);
+    if(!want) box.innerHTML=''; return; }
+  if(!have&&want) box.insertAdjacentHTML('beforeend','<p class="kidh">Tell us about your children</p>');
+  for(var i=have;i<want;i++){
+    var d=document.createElement('div'); d.className='kidrow'; var k=i+1;
+    d.innerHTML='<div class="f"><label for="kn'+k+'">What should we call your child?</label>'+
+      '<input type="text" id="kn'+k+'" value="" placeholder="Name / Nickname"></div>'+
+      '<div class="f"><label for="ka'+k+'">Age</label>'+
+      '<input type="number" id="ka'+k+'" value="'+(6+i*3)+'" inputmode="decimal" min="0" max="35" step="1"></div>'+
+      '<div class="f"><label for="kg'+k+'">This is my:</label><select id="kg'+k+'">'+
+      '<option>Son</option><option>Daughter</option></select></div>';
+    box.appendChild(d);
+  }
+}
+function readKids(){
+  var out=[];
+  Q('.kidrow').forEach(function(r,i){
+    var k=i+1, nm=(($('kn'+k)||{}).value||'').trim(), ag=n(($('ka'+k)||{}).value);
+    out.push({name:nm||('Child '+k), age:ag, kind:(($('kg'+k)||{}).value)||'Son'});
+  });
+  return out;
+}
+function invDisclosed(){ return !$('noinv').checked }
+
+/* ══ goal chips — the app's own eight, with its own one-line subtitles ══ */
+var CHIPS=[
+ {id:'emerg', lab:'Emergency Fund',       sub:'Money for life\u2019s unexpected moments',                   on:true},
+ {id:'edu',   lab:'Children\u2019s Education', sub:'Help your children pursue the future they choose',       on:true, kid:true},
+ {id:'mar',   lab:'Children\u2019s Marriage',  sub:'Prepare for their special day without financial pressure',on:true, kid:true},
+ {id:'ret',   lab:'Retirement',           sub:'Build the freedom to live comfortably after work',       on:true},
+ {id:'legacy',lab:'Family Legacy',        sub:'Create wealth for the next generation',                  on:true},
+ {id:'home',  lab:'Home / Land',          sub:'Work towards your dream property',                       on:false},
+ {id:'car',   lab:'Car / Vehicle',        sub:'Plan for the vehicle your family wants',                 on:false},
+ {id:'travel',lab:'Travel',               sub:'Make important family experiences possible',             on:false}
+];
+var CHIPON={}, OWN=[], GV={};
+CHIPS.forEach(function(c){CHIPON[c.id]=c.on});
+
+function renderChips(){
+  var box=$('chips'); box.innerHTML='';
+  CHIPS.forEach(function(c){
+    var kids=readKids().length;
+    var b=document.createElement('button');
+    b.type='button'; b.className='chip'+(CHIPON[c.id]?' on':'');
+    b.setAttribute('aria-pressed',CHIPON[c.id]?'true':'false');
+    var note=(c.kid&&!kids)?'<em>Add a child on the family step to switch this on</em>':'';
+    b.innerHTML='<span class="ck" aria-hidden="true"></span><span class="cl">'+esc(c.lab)+
+      '</span><span class="cs">'+esc(c.sub)+'</span>'+note;
+    if(c.kid&&!kids){ b.disabled=true; b.classList.add('dis'); b.classList.remove('on'); }
+    b.addEventListener('click',function(){
+      CHIPON[c.id]=!CHIPON[c.id]; renderChips();
+    });
+    box.appendChild(b);
+  });
+  var ol=$('ownlist'); ol.innerHTML='';
+  OWN.forEach(function(o,i){
+    var r=document.createElement('span'); r.className='ownchip';
+    r.innerHTML=esc(o.name)+'<button type="button" aria-label="Remove '+esc(o.name)+'">\u00D7</button>';
+    r.querySelector('button').addEventListener('click',function(){OWN.splice(i,1);renderChips()});
+    ol.appendChild(r);
+  });
+}
+/* ══ building the goal list from the chips ══
+   A chip is a decision; a goal is that decision with a cost and a year. The
+   two child chips fan out into one goal per child so the card can carry the
+   child's own name, which is the whole point of naming them. */
+function goalSpecs(){
+  var kids=readKids(), out=[], inc=n($('inc').value), age=n($('age').value), rage=n($('rage').value);
+  var push=function(o){ out.push(o) };
+  if(CHIPON.emerg){
+    /* Six months of monthly income. The cash declared on the money step is
+       already this goal's corpus - asking for it twice would understate how
+       much of the reserve is genuinely missing. */
+    push({id:'emerg',kind:'emerg',name:'Emergency Fund',cost:Math.round(totalIncome()*6),
+      years:2,fixedAlloc:n($('liq').value)});
+  }
+  if(CHIPON.edu) kids.forEach(function(c,i){
+    push({id:'edu'+i,kind:'edu',name:c.name+' ('+c.kind+') \u2014 Higher Education',
+      cost:2500000,years:Math.max(1,ASMP.eduAge-c.age),child:c});
+  });
+  if(CHIPON.mar) kids.forEach(function(c,i){
+    push({id:'mar'+i,kind:'mar',name:c.name+' ('+c.kind+') \u2014 Marriage',
+      cost:2000000,years:Math.max(1,ASMP.marAge-c.age),child:c});
+  });
+  if(CHIPON.ret) push({id:'ret',kind:'ret',name:'Retirement',
+      cost:Math.round(n($('exp').value)*0.75/1000)*1000||40000,years:Math.max(1,rage-age)});
+  if(CHIPON.legacy) push({id:'legacy',kind:'legacy',name:'Family Legacy',cost:2000000,
+      years:Math.max(1,ASMP.lifeExp-age)});
+  if(CHIPON.home) push({id:'home',kind:'home',name:'Home / Land',cost:5000000,years:7});
+  if(CHIPON.car) push({id:'car',kind:'car',name:'Car / Vehicle',cost:1200000,years:4});
+  if(CHIPON.travel) push({id:'travel',kind:'travel',name:'Travel',cost:400000,years:3});
+  OWN.forEach(function(o,i){ push({id:'own'+i,kind:'own',name:o.name,cost:500000,years:5}) });
+  return out;
+}
+/* the app's own per-goal opening lines */
+function slideCopy(s){
+  var age=n($('age').value), rage=n($('rage').value);
+  var c=s.child;
+  switch(s.kind){
+    case 'edu': return ['\uD83C\uDF93 Let\u2019s plan for '+c.name+'\u2019s future',
+      c.name+' is '+c.age+' today. If higher education begins around age '+ASMP.eduAge+
+      ', you have approximately '+yrs(s.years)+' to prepare.'];
+    case 'mar': return ['\uD83D\uDC8D Let\u2019s prepare for '+c.name+'\u2019s special day',
+      c.name+'\u2019s Marriage \u00B7 Today you may be thinking about school, hobbies and childhood. '+
+      'One day, you\u2019ll be preparing for one of the biggest celebrations of their life.'];
+    case 'ret': return ['\uD83C\uDF05 Let\u2019s plan for the life you want after work',
+      'Retirement isn\u2019t simply about stopping work. It\u2019s about having the freedom to live without depending on a salary.'];
+    case 'emerg': var hv=n($('liq').value), nd=totalIncome()*6;
+      return ['\uD83D\uDEE1 Money for life\u2019s unexpected moments',
+      'Your reserve target is six months of household income \u2014 '+F(nd)+
+      '. '+(hv>0?('You already hold '+F(hv)+', so '+F(Math.max(0,nd-hv))+' is still to build. ')
+            :'')+'It is held in liquid, boring, instantly-reachable form, not invested for growth.'];
+    case 'legacy': return ['\uD83C\uDF31 Family Legacy',
+      'Wealth to leave behind by age '+ASMP.lifeExp+'. Your retirement corpus counts toward this \u2014 we plan only the gap.'];
+    case 'home': return ['\uD83C\uDFE1 Home / Land','Work towards your dream property \u2014 a budget and a year is all we need.'];
+    case 'car': return ['\uD83D\uDE97 Car / Vehicle','The upgrade your family has in mind \u2014 rough budget, target year.'];
+    case 'travel':return ['\u2708 Travel','One big family experience \u2014 what would it cost today, and when?'];
+    default: return ['\u2B50 '+s.name,'Your own goal \u2014 set the budget and the year.'];
+  }
+}
+function fld(id,l,t,v,st){var ex=t==='number'?' inputmode="decimal" min="0"'+(st?' step="'+st+'"':''):'';
+ return '<div class="f"><label for="'+id+'">'+l+'</label><input type="'+t+'" id="'+id+'" value="'+esc(v)+'"'+ex+'></div>'}
+function cell(t,k){return '<div><div class="t">'+t+'</div><div class="v" data-'+k+'>\u2014</div></div>'}
+function selFld(id,l,opts,v){
+  var h='<div class="f"><label for="'+id+'">'+l+'</label><select id="'+id+'">';
+  opts.forEach(function(o){h+='<option value="'+esc(o[0])+'"'+(o[0]===v?' selected':'')+'>'+esc(o[1])+'</option>'});
+  return h+'</select></div>';
+}
+
+/* One card per goal. No "goal kind" selector: the slide heading above already
+   says what this goal is, so repeating it inside the card is noise. */
+function goalRow(s){
+  var id='g_'+s.id, d=document.createElement('div');
+  var st=GV[s.id]||{}; var cost=st.cost!=null?st.cost:s.cost, yrs=st.years!=null?st.years:s.years;
+  var infl=st.infl!=null?st.infl:ASMP.infl, rt=st.ret!=null?st.ret:retFor(yrs);
+  var cp=slideCopy(s);
+  d.className='goal'; d.dataset.id=id; d.dataset.gid=s.id; d.dataset.kind=s.kind;
+  var costLabel=s.kind==='ret'?'How much would you need every month in today\u2019s money? (\u20B9)'
+    :s.kind==='emerg'?'Reserve target \u2014 6 months of income (\u20B9)'
+    :s.kind==='legacy'?'Legacy fund target (today\u2019s value) (\u20B9)'
+    :'Today\u2019s estimated cost (\u20B9)';
+  var yrLabel=s.kind==='ret'?'Years until your retirement income begins'
+    :'When would you like this? (years from now)';
+  var h='<div class="gslidehead"><h3>'+esc(cp[0])+'</h3><p>'+esc(cp[1])+'</p></div>'+
+   '<div class="g">'+
+   fld(id+'-cr',costLabel,'number',cost,'1000')+
+   fld(id+'-yr',yrLabel,'number',yrs,'1')+
+   fld(id+'-in','Goal inflation (%)','number',infl,'0.5')+
+   (s.kind==='ret'
+     /* Dropdown first, then the exact number it wrote - otherwise the two sit
+        side by side both saying "14" and read as a duplicated control. */
+     ? selFld(id+'-ac','Growth BEFORE retirement (while you build the corpus)',
+         ladder().concat([['','Custom \u2014 '+rt+'%']]),
+         (st.acMode!=null?st.acMode:(keyFor(rt)||'')))+
+       fld(id+'-rt','\u2026 or type an exact % (before retirement)','number',rt,'0.5')
+     : fld(id+'-rt','Expected return (%) \u00B7 '+retLabel(yrs),'number',rt,'0.5'));
+  /* req 6: with investments undisclosed there is nothing to allocate, so the
+     field is not rendered at all rather than shown empty or zeroed. */
+  if(s.fixedAlloc!=null) h+='<div class="f"><label for="'+id+'-al">Already set aside (from your money step)</label>'+
+    '<input type="number" id="'+id+'-al" value="'+s.fixedAlloc+'" readonly inputmode="decimal" min="0"></div>';
+  else if(invDisclosed()) h+=fld(id+'-al','Present investment allocated (\u20B9)','number',(st.alloc!=null?st.alloc:0),'10000');
+  h+=fld(id+'-sp','Existing monthly SIP (\u20B9)','number',(st.sip!=null?st.sip:0),'500');
+  if(s.kind==='ret') h+=selFld(id+'-pr','Growth AFTER retirement (while the corpus pays your pension)',
+    ladder(), (st.prMode||'bal'));
+  h+='</div>'+
+   '<div class="gs">'+cell(s.kind==='ret'?'Required corpus':'Future goal cost','fc')+
+   cell('Projected corpus','fp')+cell('Shortfall','fs')+cell('Monthly SIP','fi')+cell('Lumpsum today','fl')+
+   (s.kind==='ret'?cell('Monthly pension needed then','fm')+
+     cell('You invest in total','fdep')+cell('Growth adds','fgro')+
+     cell('Your corpus could pay instead','fpen'):'')+'</div>'+
+   '<div class="bar"><i data-bar style="width:0%"></i></div>'+
+   '<div class="bl"><span data-pc>0% funded</span><span data-nt></span></div>'+
+   '<div class="gfoot" data-fut></div>';
+  d.innerHTML=h;
+  /* Keep the accumulation ladder and the free-typed percentage in step, in both
+     directions, so the card can never show "Balanced" next to 13.5%. */
+  var ac=d.querySelector('#'+id+'-ac'), rtf=d.querySelector('#'+id+'-rt');
+  if(ac&&rtf){
+    ac.addEventListener('change',function(){
+      if(ac.value){ rtf.value=rateOf(ac.value);
+        rtf.dispatchEvent(new Event('input',{bubbles:true})); }
+    });
+    rtf.addEventListener('input',function(){
+      var k=keyFor(n(rtf.value));
+      ac.value=k;
+      ac.options[ac.options.length-1].textContent='Custom \u2014 '+n(rtf.value)+'%';
+    });
+  }
+  Q('input,select',d).forEach(function(e){
+    var save=function(){
+      var g=GV[s.id]=GV[s.id]||{};
+      g.cost=n($(id+'-cr').value); g.years=Math.max(1,n($(id+'-yr').value));
+      g.infl=n($(id+'-in').value); g.ret=n($(id+'-rt').value);
+      if($(id+'-al')) g.alloc=n($(id+'-al').value);
+      g.sip=n($(id+'-sp').value);
+      if($(id+'-pr')) g.prMode=$(id+'-pr').value;
+      if($(id+'-ac')) g.acMode=$(id+'-ac').value;
+      if(built)plan(); else paintGoal(d);
+    };
+    e.addEventListener('input',save); e.addEventListener('change',save);
+  });
+  return d;
+}
+function readGoals(){
+  var o=[];
+  Q('#goals .goal').forEach(function(d){
+    var i=d.dataset.id,g=function(k){return $(i+'-'+k)};
+    var al=g('al');
+    o.push({el:d,id:d.dataset.gid,kind:d.dataset.kind,name:d.dataset.name||'',
+      cname:d.dataset.cname||'',ckind:d.dataset.ckind||'',cage:d.dataset.cage||'',
+      cost:n(g('cr').value),years:Math.max(1,n(g('yr').value)),
+      infl:n(g('in').value),ret:n(g('rt').value),
+      alloc:al?n(al.value):0,sip:n(g('sp').value),
+      prMode:(g('pr')?g('pr').value:'bal')});
+  });
+  return o;
+}
+/* ══ goal maths ══ */
+/* How long the corpus has to last: from the day the salary stops to the age
+   the estate is meant to pass on. Falls back to the old 25-year convention if
+   the two ages have been set to overlap. */
+function drawYears(){
+  var rage=n($('rage').value);
+  return Math.max(1, ASMP.lifeExp-rage) || 25;
+}
+/* Everything below is modelled in TODAY'S money: the withdrawal is held flat
+   and the return is the real return, which keeps the arithmetic readable.
+   The answer is converted back to rupees-of-the-day at the end. */
+function realReturn(pr,i){ return (pr-i)/(1+i) }
+
+function goalCalc(g,ctx){
+  ctx=ctx||{};
+  var y=g.years,i=g.infl/100,r=g.ret/100,m=r/12,k=y*12,target,fm=0,resid=0,pr=0,D=0;
+  if(g.kind==='ret'){
+    fm=g.cost*Math.pow(1+i,y);
+    pr=rateOf(g.prMode)/100; D=drawYears();
+    var rr=realReturn(pr,i);
+    /* corpus that is exhausted precisely at the end of the drawdown */
+    target=Math.abs(rr)>1e-4?fm*12*((1-Math.pow(1+rr,-D))/rr):fm*12*D;
+  } else if(g.kind==='legacy'){
+    /* the retirement corpus counts towards the legacy - only the gap is planned */
+    target=Math.max(0, g.cost*Math.pow(1+i,y) - (ctx.retResidual||0));
+  } else target=g.cost*Math.pow(1+i,y);
+  var fv=g.alloc*Math.pow(1+r,y);
+  if(g.sip>0&&k>0)fv+=g.sip*((Math.pow(1+m,k)-1)/m)*(1+m);
+  /* What is left for the next generation once the pension has been drawn.
+     Sized exactly to the requirement this is zero by construction; it only
+     becomes positive when the family builds more corpus than the pension needs. */
+  var pen=0,planned=0,deposits=0,growth=0;
+  if(g.kind==='ret'){
+    var rr2=realReturn(pr,i), W=fm*12, real;
+    if(Math.abs(rr2)>1e-4)
+      real = fv*Math.pow(1+rr2,D) - W*((Math.pow(1+rr2,D)-1)/rr2);
+    else
+      real = fv - W*D;
+    resid = Math.max(0, real)*Math.pow(1+i,D);
+    /* The reverse question: forget what is NEEDED - what pension can the corpus
+       the family is actually on track to build sustain for the same D years?
+       Same annuity relation, solved for the withdrawal instead of the corpus. */
+    pen = (Math.abs(rr2)>1e-4 ? fv*rr2/(1-Math.pow(1+rr2,-D)) : fv/D)/12;
+  }
+  var gap=Math.max(0,target-fv);
+  var sipNeed=gap>0&&k>0?(gap*m)/((Math.pow(1+m,k)-1)*(1+m)):0;
+  /* What the corpus actually becomes if the family follows this plan, and how
+     that total splits between money they put in and money the market adds.
+     These are the figures that move when the accumulation rate changes - the
+     REQUIRED corpus deliberately does not, because it depends only on the
+     post-retirement rate. */
+  planned = gap>0 ? target : fv;
+  deposits = g.alloc + (g.sip+sipNeed)*k;
+  growth = Math.max(0, planned-deposits);
+  return{target:target,fv:fv,gap:gap,
+   sip:sipNeed,
+   lump:gap/Math.pow(1+r,y),pct:Math.min(100,Math.round(fv/(target||1)*100)),
+   monthly:fm,resid:resid,pen:pen,pr:Math.round(pr*1e4)/100,draw:D,
+   planned:planned,deposits:deposits,growth:growth};
+}
+/* Retirement has to be solved before legacy, because legacy is only the gap
+   that the retirement corpus does not already cover. */
+function retResidual(goals){
+  var out=0;
+  goals.forEach(function(g){ if(g.kind==='ret') out+=goalCalc(g).resid });
+  return out;
+}
+function paintGoal(d){
+  var i=d.dataset.id,g=function(k){return $(i+'-'+k)},q=function(k){return d.querySelector('[data-'+k+']')};
+  var al=g('al');
+  var go={kind:d.dataset.kind,cost:n(g('cr').value),years:Math.max(1,n(g('yr').value)),
+    infl:n(g('in').value),ret:n(g('rt').value),alloc:al?n(al.value):0,sip:n(g('sp').value),
+    prMode:(g('pr')?g('pr').value:'bal')};
+  var c=goalCalc(go, go.kind==='legacy'?{retResidual:retResidual(readGoals())}:{});
+  q('fc').textContent=S(c.target);q('fp').textContent=S(c.fv);
+  q('fs').textContent=S(c.gap);q('fi').textContent=F(c.sip);q('fl').textContent=S(c.lump);
+  if(q('fm'))q('fm').textContent=F(c.monthly);
+  if(q('fdep'))q('fdep').textContent=S(c.deposits);
+  if(q('fgro'))q('fgro').textContent=S(c.growth);
+  if(q('fpen'))q('fpen').textContent=F(c.pen);
+  q('bar').style.width=c.pct+'%';q('pc').textContent=c.pct+'% funded';
+  q('nt').textContent=go.kind==='ret'&&c.monthly?('needs '+S(c.monthly)+'/mo at retirement')
+    :(c.gap>0?('in '+yrs(go.years)):'fully funded');
+  q('fut').textContent=go.kind==='ret'
+    ? retFoot(go,c)
+    : go.kind==='legacy'
+    ? 'Target '+S(n(g('cr').value)*Math.pow(1+go.infl/100,go.years))+' by age '+ASMP.lifeExp+
+      '. Your retirement corpus is expected to cover '+S(Math.max(0,n(g('cr').value)*Math.pow(1+go.infl/100,go.years)-c.target))+
+      ', so only '+S(c.target)+' is planned here.'
+    : 'At an assumed '+go.infl+'% inflation, this becomes '+S(c.target)+' in '+yrs(go.years)+'.';
+}
+/* ══ goal slides: one chip-selected goal at a time ══ */
+var gi=0, GSPECS=[];
+function buildGoalCards(){
+  readAsmp(); GSPECS=goalSpecs();
+  var box=$('goals'); box.innerHTML='';
+  GSPECS.forEach(function(s){var el=goalRow(s); el.dataset.name=s.name;
+    if(s.child){el.dataset.cname=s.child.name; el.dataset.ckind=s.child.kind; el.dataset.cage=s.child.age}
+    box.appendChild(el)});
+  Q('#goals .goal').forEach(paintGoal);
+}
+function showGoal(k){
+  var cards=Q('#goals .goal'); if(!cards.length) return;
+  gi=Math.max(0,Math.min(cards.length-1,k));
+  cards.forEach(function(c,j){ c.hidden = j!==gi });
+  $('gpct').textContent='Goal '+(gi+1)+' of '+cards.length;
+  $('gpbar').style.width=((gi+1)/cards.length*100)+'%';
+  $('gnext').textContent = gi===cards.length-1 ? 'Continue \u2192' : 'Next goal \u2192';
+  $('gback').textContent = gi===0 ? '\u2190 Back to goals' : '\u2190 Previous';
+}
+function openSlides(){
+  buildGoalCards();
+  if(!Q('#goals .goal').length){ go(3); return }
+  $('gsel').hidden=true; $('gslide').hidden=false; showGoal(0);
+}
+function closeSlides(){ $('gsel').hidden=false; $('gslide').hidden=true }
+/* ══ live readouts that must work before the plan is built ══ */
+function liveBits(){
+  var inc=totalIncome(), exp=n($('exp').value), emi=n($('emi').value), sur=inc-exp-emi;
+  var bar=$('surbar'); if(bar){
+    bar.hidden=false; bar.className='surbar'+(sur<=0?' neg':'');
+    $('surv').textContent=F(sur);
+    $('surn').textContent = sur>0
+      ? 'Based on what you\u2019ve entered, around '+F(sur)+' may currently be available each month for future goals, protection and investments.'
+      : 'Right now expenses and EMIs exceed income \u2014 your plan will honestly highlight this gap and how to close it.';
+  }
+  var pc=$('protv'); if(pc){
+    var earned=earnedIncome(), needT=earned*12*15, needH=needT*0.10;
+    var gapT=Math.max(0,needT-n($('term').value)), gapH=Math.max(0,needH-n($('health').value));
+    pc.textContent = (gapT>0?S(gapT)+' life gap':'life cover met')+' \u00B7 '+(gapH>0?S(gapH)+' health gap':'health cover met');
+    $('protchk').style.background=(gapT>0||gapH>0)?'#fdf7ee':'#f3fbf8';
+    $('protchk').style.borderColor=(gapT>0||gapH>0)?'#f0ddbb':'#cdeee3';
+  }
+}
+/* ══ the app's six pillars — each scored 0-100 independently,
+      shown as six rings, banded at 70 / 40 (matches the app) ══ */
+function pillars(d){
+  var P=[],v;
+  var sr=d.inc>0?(d.inc-d.exp-d.emi)/d.inc:0;
+  v=sr<=0?0:Math.min(100,Math.round(sr/0.30*100));
+  P.push(['savings','Savings',v]);
+  /* the reserve is measured against six months of INCOME, which is the
+     target the plan sets on the goals step - measuring it against expenses
+     would score the family on a number the plan never asked them to hit */
+  var em=d.inc>0?d.liquid/d.inc:0;
+  P.push(['insurance','Insurance',0]);
+  P.push(['emergency','Emergency',Math.min(100,Math.round(em/6*100))]);
+  var lc=d.needTerm>0?Math.min(1,d.term/d.needTerm):(d.term>0?1:0),
+      hc=d.needHealth>0?Math.min(1,d.health/d.needHealth):(d.health>0?1:0),
+      ci=d.ci>0?1:0;
+  P[1][2]=Math.round((lc*0.55+hc*0.35+ci*0.10)*100);
+  P.push(['goals','Goals',Math.round(d.goalPct)]);
+  var dl=d.inc>0?d.emi/d.inc:0;
+  P.push(['debt','Debt',dl===0?100:dl<=0.25?Math.round(100-dl/0.25*25):Math.max(0,Math.round(75-(dl-0.25)*200))]);
+  /* With holdings withheld there is no evidence either way, so the pillar is
+     dropped from the average instead of being scored zero - absence of data
+     is not evidence of a bad portfolio. */
+  if(d.disc){var kinds=0; ASSETS.forEach(function(a){if(d.inv[a[0]]>0)kinds++});
+    P.push(['invest','Invest',Math.min(100,Math.round(kinds/6*100))]);}
+  /* the app's display order: savings, insurance, emergency, goals, debt, invest */
+  return P;
+}
+/* the app's own one-line verdicts, keyed to the weakest pillar */
+var NUDGE={savings:'Audit the three biggest expense lines; cap lifestyle creep.',
+ insurance:'Covers in place \u2014 re-verify nominees and beneficiaries.',
+ emergency:'Move idle savings beyond one month\u2019s expenses.',
+ goals:'Name your first goal \u2014 funding starts there.',
+ goalsUnderfunded:'Stretch a timeline or raise the SIP \u2014 the named goals are not yet funded.',
+ debt:'Bring EMIs under 25% of income; park windfalls into prepayment.',
+ invest:'Add a 10% yearly SIP step-up tied to increments.'};
+/* ══ the plan ══ */
+function plan(){
+  readAsmp(); liveBits();
+  var headInc=n($('inc').value), spInc=spouseIncome(), othInc=otherIncome();
+  var earned=headInc+spInc, inc=earned+othInc;
+  var exp=n($('exp').value),emi=n($('emi').value),
+      age=n($('age').value),rage=n($('rage').value);
+  var disc=invDisclosed(), inv={},tot=0;
+  ASSETS.forEach(function(a){var v=disc?n($('i-'+a[0]).value):0;inv[a[0]]=v;tot+=v});
+  var term=n($('term').value),health=n($('health').value),ci=n($('ci').value),debt=n($('debt').value);
+  /* stated cash in hand counts as reserve on top of anything disclosed */
+  var liquid=n($('liq').value)+(disc?(inv.fdRd+inv.mutualFunds*0.3):0);
+  var goals=readGoals();
+  /* ── the three protection rules this plan is built on ──
+     reserve  = 6 x monthly household income
+     term     = 15 x ANNUAL EARNED income (passive income survives the earner)
+     health   = 10% of the term requirement                              */
+  var needEmerg=inc*6, needTerm=earned*12*15, needHealth=needTerm*0.10;
+
+  if(E&&E.profile){var p=E.profile;
+    p.name=$('nm').value;p.age=age;p.retirementAge=rage;p.occupation=$('occ').value;
+    p.monthlyIncome=inc;p.monthlyExpenses=exp;p.monthlySavings=Math.max(0,inc-exp-emi);
+    p.investments=inv;p.insurance={termLifeCover:term,healthCover:health,criticalIllnessCover:ci}}
+
+  var totGap=0,totSip=0,totFut=0,haveSip=0,gN=0,gP=0,retPct=0;
+  var B={PROTECT:0,CHILDREN:0,RETIRE:0,WEALTH:0};
+  /* retirement is solved first: the legacy goal plans only the part its
+     leftover corpus does not already cover */
+  var RES=retResidual(goals), retPR=0, retDraw=0, retTarget=0, retPen=0, legacyGross=0, legacyCovered=0;
+  goals.forEach(function(g){
+    var c=goalCalc(g,{retResidual:RES});
+    if(g.kind==='ret'){retPR=c.pr;retDraw=c.draw;retTarget=c.target;retPen=c.pen}
+    if(g.kind==='legacy'){
+      legacyGross=g.cost*Math.pow(1+g.infl/100,g.years);
+      legacyCovered=Math.min(legacyGross,RES);
+    }
+    totGap+=c.gap;totSip+=c.sip;totFut+=c.target;haveSip+=g.sip;
+    var q=function(k){return g.el.querySelector('[data-'+k+']')};
+    q('fc').textContent=S(c.target);q('fp').textContent=S(c.fv);
+    q('fs').textContent=S(c.gap);q('fi').textContent=F(c.sip);q('fl').textContent=S(c.lump);
+    if(q('fm'))q('fm').textContent=F(c.monthly);
+    if(q('fdep'))q('fdep').textContent=S(c.deposits);
+    if(q('fgro'))q('fgro').textContent=S(c.growth);
+    if(q('fpen'))q('fpen').textContent=F(c.pen);
+    q('bar').style.width=c.pct+'%';q('pc').textContent=c.pct+'% funded';
+    q('nt').textContent=g.kind==='ret'&&c.monthly?('needs '+S(c.monthly)+'/mo at retirement')
+      :(c.gap>0?('in '+yrs(g.years)):'fully funded');
+    q('fc').previousElementSibling.textContent=g.kind==='ret'?'Required corpus':'Future goal cost';
+    q('fut').textContent=g.kind==='ret'
+      ? retFoot(g,c)
+      : g.kind==='legacy'
+      ? 'Target '+S(legacyGross)+' by age '+ASMP.lifeExp+'. Your retirement corpus is expected to cover '+
+        S(legacyCovered)+', so only '+S(c.target)+' is planned here.'
+      : 'At an assumed '+g.infl+'% inflation, this becomes '+S(c.target)+' in '+yrs(g.years)+'.';
+    if(g.kind==='ret'){retPct=c.pct;B.RETIRE+=c.sip}
+    else if(g.kind==='emerg')B.PROTECT+=c.sip;
+    else if(g.kind==='edu'||g.kind==='mar')B.CHILDREN+=c.sip;
+    else B.WEALTH+=c.sip;
+    if(g.kind!=='ret'){gN++;gP+=c.pct}
+  });
+  /* No goals is not a perfect score. The app's own prompt for this state is
+     "Name your first goal - funding starts there", so it is a gap, not a pass. */
+  var goalPct=gN?Math.round(gP/gN):0;
+  var P=pillars({inc:inc,exp:exp,emi:emi,term:term,health:health,liquid:liquid,inv:inv,ci:ci,
+    goalPct:goalPct,disc:disc,needTerm:needTerm,needHealth:needHealth});
+  var tot6=0;P.forEach(function(x){tot6+=x[2]});
+  var score=Math.max(0,Math.min(100,Math.round(tot6/P.length)));
+  /* the app bands at 70 and 40 */
+  var band=score>=70?'Strong':score>=40?'Foundation in place':'Needs work';
+  /* set after pillars are known — see below */
+  var col=score>=70?'#0e9d78':score>=40?'#bf7b0b':'#d64545';
+  var weak=P.slice().sort(function(a,b){return a[2]-b[2]});
+  /* a failing pillar downgrades the chip and the dial colour too */
+  if(score>=70&&weak[0][2]<40){band='Strong, with a gap';col='#bf7b0b';}
+
+  var circ=2*Math.PI*68,ring=$('ring');
+  ring.setAttribute('stroke-dasharray',circ);
+  ring.setAttribute('stroke-dashoffset',circ*(1-score/100));
+  ring.setAttribute('stroke',col);
+  $('scn').textContent=score;$('scn').style.color=col;
+  var b=$('scb');b.textContent=band;b.style.background=col+'1a';b.style.color=col;
+
+  var ph=$('pillars');ph.innerHTML='';
+  P.forEach(function(x){
+    var k=x[2], c2=k>=70?'#0e9d78':k>=40?'#bf7b0b':'#d64545';
+    var C=2*Math.PI*26;
+    var d2=document.createElement('div');d2.className='pr';
+    d2.innerHTML='<svg width="68" height="68" viewBox="0 0 68 68" aria-hidden="true">'+
+      '<circle cx="34" cy="34" r="26" fill="none" stroke="#e4eaf1" stroke-width="7"></circle>'+
+      '<circle cx="34" cy="34" r="26" fill="none" stroke="'+c2+'" stroke-width="7" stroke-linecap="round"'+
+      ' stroke-dasharray="'+C+'" stroke-dashoffset="'+(C*(1-k/100))+'" transform="rotate(-90 34 34)"></circle></svg>'+
+      '<div class="pv" style="color:'+c2+'">'+k+'</div><div class="pl">'+x[1]+'</div>';
+    ph.appendChild(d2)});
+
+  var sur=inc-exp-emi;
+  $('k-inc').textContent=F(inc);$('k-cost').textContent=F(exp+emi);
+  $('k-sur').textContent=F(sur);
+  $('k-sur').parentNode.className='k '+(sur<=0?'bd':sur>=totSip?'ok':'wa');
+  $('k-sur-s').textContent=sur<=0?'Negative \u2014 fix this first':(sur>=totSip?'Covers every goal SIP':'Short of what goals demand');
+  $('k-ef').textContent=(inc>0?(liquid/inc).toFixed(1):'0')+' mo';
+  $('k-ef-s').textContent='Target 6 months of income \u2014 '+S(needEmerg);
+  var lgap=Math.max(0,needTerm-term),hgap=Math.max(0,needHealth-health);
+  $('k-life').textContent=S(term);
+  $('k-life-s').textContent=lgap>0?('gap '+S(lgap)+' vs 15\u00D7 earned income'):'meets the 15\u00D7 guideline';
+  $('k-life').parentNode.className='k '+(lgap>0?'bd':'ok');
+  $('k-hc').textContent=S(health);
+  $('k-hc-s').textContent=hgap>0?('gap '+S(hgap)+' vs 10% of life cover'):'meets the 10% guideline';
+  $('k-hc').parentNode.className='k '+(hgap>0?'wa':'ok');
+  $('k-inv').textContent=disc?S(tot):'Not disclosed';
+  $('k-inv').className=disc?'':'nd';
+  $('k-req').textContent=S(totFut);
+  $('k-gap').textContent=S(totGap);
+  $('k-sip').textContent=F(totSip);
+  $('k-sip-s').textContent=haveSip>0?('you already invest '+F(haveSip)+'/mo'):'additional, from today';
+
+  var jt=B.PROTECT+B.CHILDREN+B.RETIRE+B.WEALTH,flex=Math.max(0,sur-jt);
+  var JB=[['PROTECT',B.PROTECT,'#0e9d78','emergency reserve'],['CHILDREN',B.CHILDREN,'#17324a','education & marriage'],
+          ['RETIRE',B.RETIRE,'#4c62ce','the freedom number'],['WEALTH',B.WEALTH,'#bf7b0b','other dreams'],
+          ['FLEXIBILITY',flex,'#8a99aa','untouched buffer']];
+  donut('jobs',JB,jt+flex);
+  var jl=$('joblist');jl.innerHTML='';
+  JB.forEach(function(x){var r=document.createElement('div');r.className='r';
+    r.innerHTML='<span class="sw" style="background:'+x[2]+'"></span><span><b style="color:'+x[2]+'">'+x[0]+'</b><span class="d">'+x[3]+'</span></span><span class="a">'+F(x[1])+'</span>';
+    jl.appendChild(r)});
+  $('job-note').textContent=sur>0?('Of your '+F(sur)+' monthly surplus, '+F(Math.min(jt,sur))+' is claimed by goals'+(flex>0?(' and '+F(flex)+' is unallocated.'):'. Nothing is spare.')):'Expenses and EMIs meet or exceed income, so there is no surplus to allocate.';
+
+  var eq=inv.mutualFunds+inv.stocks,db=inv.fdRd+inv.ppf+inv.epf+inv.bonds,ot=inv.nps+inv.gold+inv.realEstate+inv.other;
+  $('a-eq').textContent=(tot>0?Math.round(eq/tot*100):0)+'%';
+  $('a-db').textContent=(tot>0?Math.round(db/tot*100):0)+'%';
+  $('a-ot').textContent=(tot>0?Math.round(ot/tot*100):0)+'%';
+  $('a-rule').textContent=(100-age)+'%';
+  $('a-note').textContent=disc
+    ? ('The 100 \u2212 age convention suggests about '+(100-age)+'% equity at your age; you hold '+(tot>0?Math.round(eq/tot*100):0)+'%. It is a convention, not a recommendation.')
+    : ('You chose not to disclose existing holdings, so there is no current mix to compare. The 100 \u2212 age convention would suggest about '+(100-age)+'% equity at your age. It is a convention, not a recommendation.');
+  donut('assets',ASSETS.map(function(a){return[a[1],inv[a[0]],a[2],'']}),tot);
+  var al=$('assetlist');al.innerHTML='';
+  if(!disc) al.innerHTML='<p class="nd" style="margin:4px 0">Existing investments not disclosed \u2014 every goal below is funded from new monthly investing alone.</p>';
+  ASSETS.forEach(function(a){if(inv[a[0]]<=0)return;
+    var r=document.createElement('div');r.className='r';
+    r.innerHTML='<span class="sw" style="background:'+a[2]+'"></span><span>'+a[1]+'</span><span class="a">'+Math.round(inv[a[0]]/tot*100)+'%</span>';
+    al.appendChild(r)});
+
+  var v=$('verdict'),msg,bg,bc;
+  var w2=weak.slice(0,2).filter(function(x){return x[2]<70}).map(function(x){return x[1].toLowerCase()});
+  var nk=weak[0][0];
+  if(nk==='goals'&&goals.length) nk='goalsUnderfunded';
+  /* a pillar under 40 vetoes the healthy headline even when the average clears 70 */
+  var anyFail=weak[0][2]<40;
+  if(score>=70&&!anyFail){
+    msg='<b>The family\u2019s finances are structurally healthy.</b> The plan now is about protecting that position and compounding it. '+NUDGE[nk];
+    bg='#eef9f5';bc='#b6e0d1';
+  } else if(score>=70&&anyFail){
+    msg='<b>Strong overall, but '+(w2.join(' and ')||'one area')+(w2.length>1?' still need':' still needs')+' attention.</b> The average clears 70 only because the other pillars carry it. '+NUDGE[nk];
+    bg='#fbf7ee';bc='#e9d9b4';
+  } else if(score>=40){
+    msg='<b>The foundation exists, but '+(w2.join(' and ')||'a few areas')+(w2.length===1?' needs':' need')+' attention.</b> '+NUDGE[nk];
+    bg='#fbf7ee';bc='#e9d9b4';
+  } else {
+    msg='<b>Today the weak points \u2014 '+(w2.join(' and ')||'several areas')+' \u2014 outweigh the strengths.</b> '+NUDGE[nk];
+    bg='#fdeeee';bc='#f0bcbc';
+  }
+  if(sur<=0){msg='<b>Repair cash flow first \u2014 growth waits for surplus.</b> Expenses and EMIs meet or exceed income, so no goal can be funded until that changes.';
+    bg='#fdeeee';bc='#f0bcbc';}
+  v.innerHTML=msg;v.style.background=bg;v.style.borderColor=bc;
+
+  window.__MP={score:score,band:band,P:P,inc:inc,exp:exp,emi:emi,sur:sur,tot:tot,inv:inv,
+   term:term,health:health,ci:ci,debt:debt,liquid:liquid,goals:goals,totGap:totGap,
+   totSip:totSip,totFut:totFut,age:age,rage:rage,lgap:lgap,hgap:hgap,buckets:JB,msg:v.textContent,jobs:B,
+   lifeNeed:needTerm,healthNeed:needHealth,emergNeed:needEmerg,earned:earned,other:othInc,
+   retResid:RES,retPR:retPR,retDraw:retDraw,retTarget:retTarget,legacyGross:legacyGross,legacyCovered:legacyCovered,
+   lifeExp:ASMP.lifeExp,retPen:retPen,
+   headInc:headInc,spInc:spInc,earners:earners(),eqPct:(tot>0?Math.round(eq/tot*100):0),disc:disc};
+}
+function donut(id,items,tot){
+  var sv=$(id);while(sv.firstChild)sv.removeChild(sv.firstChild);
+  if(tot<=0)return;
+  var off=0,R=54,NS='http://www.w3.org/2000/svg',circ=2*Math.PI*R;
+  items.forEach(function(x){var v=x[1];if(v<=0)return;
+    var fr=v/tot,c=document.createElementNS(NS,'circle');
+    c.setAttribute('cx',70);c.setAttribute('cy',70);c.setAttribute('r',R);
+    c.setAttribute('fill','none');c.setAttribute('stroke',x[2]);c.setAttribute('stroke-width','21');
+    c.setAttribute('stroke-dasharray',(circ*fr)+' '+circ);
+    c.setAttribute('stroke-dashoffset',-off*circ);
+    sv.appendChild(c);off+=fr})}
+/* ══ report ══ */
+/* ══════════════════════════════════════════════════════════════════════
+   PDF REPORT — mirrors the app's 20-section Personal Financial Planning
+   Report. Section titles and subtitles are taken verbatim from the app.
+   ══════════════════════════════════════════════════════════════════════ */
+function buildReport(){
+  plan(); var D=window.__MP, R=$('rep');
+  var H=[], img=function(n){return '/app/assets/journey/s0'+n+'.jpg'};
+  var esc2=function(x){return String(x==null?'':x).replace(/[&<>]/g,function(c){
+    return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})};
+  var name=($('nm').value||'Valued Client');
+  var dt=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  var disc=invDisclosed(), kids=readKids();
+
+  var tbl=function(rows){
+    return '<table class="rt"><tbody>'+rows.map(function(r){
+      return '<tr><td>'+esc2(r[0])+'</td><td class="rnum">'+esc2(r[1])+'</td></tr>'}).join('')+'</tbody></table>'};
+  /* A column is right-aligned only when its values are actually numeric.
+     Positional rules ("last column is a number") were wrong for descriptive
+     columns like Note and Role, which read badly right-aligned and bold. */
+  var isNum=function(v){return /^[\u20B9\u2212+-]?[\d.,]+\s*(%(\s*p\.a\.)?|yr|yrs|years|mo|months|L|Cr|\/\s*100)?$/i.test(String(v).trim())
+    ||/^[\u20B9][\d.,]/.test(String(v).trim())};
+  var grid=function(head,rows){
+    var num=head.map(function(_,i){
+      var vals=rows.map(function(r){return r[i]}).filter(function(v){return v!=null&&String(v).trim()&&String(v).trim()!=='\u2014'});
+      return vals.length>0&&vals.every(isNum)});
+    return '<table class="rt"><thead><tr>'+head.map(function(h,i){
+        return '<th'+(num[i]?' class="rnum"':'')+'>'+esc2(h)+'</th>'}).join('')+
+      '</tr></thead><tbody>'+rows.map(function(r){return '<tr>'+r.map(function(c,i){
+        return '<td'+(num[i]?' class="rnum"':'')+'>'+esc2(c)+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table>'};
+  /* the app prints a short right-aligned label in the header band */
+  var FAMLINE=(function(){var nm=($('nm')&&$('nm').value||'').trim();
+    return nm?nm+' \u00B7 '+nm+' family':'Your Family'})();
+  var PLANMETA='Plan Today for Better Tomorrow';
+  var PLANDATE=(function(){var d=new Date();
+    return d.getDate()+' '+['January','February','March','April','May','June','July','August',
+      'September','October','November','December'][d.getMonth()]+' '+d.getFullYear()})();
+  var PLANVER='v1.1';
+  var OWNER=(function(){var nm=($('nm')&&$('nm').value||'').trim();return nm||'Valued Client'})();
+  /* The app paints a footer band on every page. Chrome cannot repeat a fixed
+     element without it overlapping flowed content, so each section carries its
+     own footer and is sized to a full page - which is also exactly the app's
+     one-section-per-page model. */
+  var RFOOT=function(){
+    return '<div class="rsfoot"><div class="fr">'+
+      '<span class="fl">'+esc2(FAMLINE)+'</span>'+
+      '<span class="cf">Confidential \u2014 prepared for the addressee family</span>'+
+      '<span class="fp" data-pageno></span></div>'+
+      '<div class="fr2"><span class="dis">'+esc2(OWNER)+' Family Report</span>'+
+      '<span class="dis">Date: '+esc2(PLANDATE)+' \u00B7 Plan '+PLANVER+'</span></div></div>'};
+  var NOWY=new Date().getFullYear();
+  var sec=function(n,t,sub,body,pic,cls){
+    return '<div class="rs'+(n<=2?' rbig':'')+(cls?' '+cls:'')+'">'+
+      /* App page chrome, replicated: full-bleed 42pt band, then the section
+         title and a hairline, the whole unit occupying the 64pt top margin. */
+      '<div class="secband"><div class="bf">'+
+          '<span class="brand"><i>MY</i> FINANCIAL PLAN</span>'+
+          '<span class="bmeta">'+esc2(PLANMETA)+'</span>'+
+        '</div>'+
+        '<div class="sx">'+esc2(t.toUpperCase())+'</div>'+
+        '<div class="hl"></div></div>'+
+      /* the heading must live inside the padded body, otherwise it and its
+         underline run to the paper edge while the copy below is indented */
+      '<div class="rsbody">'+
+      '<h2>'+esc2(sub)+'</h2>'+
+      (pic?'<img class="rpic" src="'+pic+'" alt="">':'')+body+'</div>'+
+      RFOOT()+'</div>'};
+  var lead=function(t){return '<p class="rlead">'+esc2(t)+'</p>'};
+  var p=function(t){return '<p class="rp">'+esc2(t)+'</p>'};
+  var band=function(l,t){return '<div class="rband"><b>'+esc2(l)+'</b><span>'+esc2(t)+'</span></div>'};
+  var chips=function(items){return '<div class="rchips">'+items.map(function(x){
+    return '<div class="rchip"><b>'+esc2(x[0])+'</b><span>'+esc2(x[1])+'</span></div>'}).join('')+'</div>'};
+
+  var yrs=Math.max(0,D.rage-D.age), em=D.inc>0?D.liquid/D.inc:0;
+  var sur=D.inc-D.exp-D.emi;
+  var ret=null, others=[];
+  D.goals.forEach(function(g){var c=goalCalc(g,{retResidual:D.retResid});
+    if(g.kind==='ret')ret={g:g,c:c}; else others.push({g:g,c:c})});
+
+  /* ══ 01 WELCOME ══ */
+  H.push(sec(1,'Welcome','This plan is not just about money.',
+    lead('It is about the people and the moments the money is for.')+
+    p('Every family has dreams \u2014 children\u2019s education, a comfortable retirement, a home, security and '+
+      'the freedom to make choices without financial stress. This plan brings those dreams together and turns '+
+      'them into a practical financial roadmap.')+
+    p('Read it in one sitting. Question everything. The numbers inside are yours \u2014 from the answers you gave, '+
+      'on your phone, without ever leaving it.')+
+    '<div class="rstrip">'+
+      [['UNDERSTAND','know the numbers'],['PROTECT','shield the family'],['FUND','fund the goals'],
+       ['GROW','let it grow'],['REVIEW','review yearly']].map(function(x){
+        return '<div class="rstep"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('')+'</div>'+
+    '<p class="rlabel">HOW THIS REPORT READS</p>'+
+    '<ol class="rnum">'+
+      [['MY FAMILY','the people behind the plan'],
+       ['WHERE WE STAND','today\u2019s cash-flow and health'],
+       ['WHAT WE WANT','the goals that matter'],
+       ['WHAT IT MAY COST','future price of today\u2019s dreams'],
+       ['WHAT CAN GO WRONG','protection & gaps'],
+       ['WHAT WE SHOULD DO','strategy and priorities'],
+       ['HOW WE REVIEW','keeping the plan alive']].map(function(x){
+        return '<li><b>'+esc2(x[0])+'</b><span>'+esc2(x[1])+'</span></li>'}).join('')+'</ol>',img(1)));
+
+  /* ══ 02 MY FAMILY ══ */
+  /* The header already carries the family name; repeating it as a member reads
+     oddly. The app falls back to "You" for the plan holder's own row. */
+  var headNm=($('nm').value||'').trim()||'You';
+  var fam=[[headNm,'Head of the family \u00B7 plan holder',D.age+' yrs']];
+  if(spouseOn()){
+    var spNm=($('spnm').value||'').trim()||'Spouse';
+    fam.push([spNm, spouseWorks()
+      ? 'Spouse \u00B7 earning \u00B7 anchor of the plan'
+      : 'Spouse \u00B7 homemaker \u00B7 anchor of the plan', n($('spage').value)+' yrs']);
+  }
+  kids.forEach(function(c){fam.push([c.name,c.kind+' \u00B7 dreams being funded below',c.age+' yrs'])});
+  var ndep=parseInt($('deps').value,10)||0;
+  /* the app prints a generation count under the household table */
+  var gens=1+(kids.length?1:0)+(ndep?1:0);
+  for(var dI=0;dI<ndep;dI++) fam.push(['Dependent parent','care & dignity assured','\u2014']);
+  H.push(sec(2,'My Family','Meet the Family Behind the Plan',
+    lead('Every number in this report stands for one of these people.')+
+    p('Prepared '+dt+' \u00B7 profession: '+$('occ').value+' \u00B7 planning horizon '+yrs+
+      ' years to age '+D.rage+'. Every goal, cover and contribution in the pages that follow is traced back '+
+      'to one of the people in this table.')+
+    '<p class="rlabel">THE HOUSEHOLD</p>'+
+    grid(['Member','Role in the plan','Age'],fam)+
+    '<p class="rfoot1">'+gens+' '+(gens===1?'generation':'generations')+' \u00B7 one plan</p>',img(2)));
+
+  /* ══ 03 WHERE WE STAND ══ */
+  var sr=D.inc>0?Math.round(sur/D.inc*100):0;
+  H.push(sec(3,'Where We Stand','Your Financial Starting Point',
+    lead('Six honest numbers describe today \u2014 before any judgment.')+
+    grid(['Measure','Amount','Note'],[
+      ['Monthly income',F(D.inc),'what arrives'],
+      ['Monthly expenses',F(D.exp),'what living costs'],
+      ['EMIs',F(D.emi),D.emi>0?'loans being repaid':'no active EMIs'],
+      ['Monthly surplus',F(sur),sur>0?'available to invest':'shortfall'],
+      ['Savings rate',sr+'%','of income kept'],
+      ['Current investments',disc?S(D.tot):'Not disclosed',disc?'declared liquid savings':'withheld by choice']])+
+    p(sur>0
+      ? 'Your current cash flow gives the family a starting point for goal funding. The next question is whether '+
+        'the existing surplus is sufficiently protected and directed.'
+      : 'Today the family spends everything it earns \u2014 and then some. Before any goal can be funded, the cash '+
+        'flow itself needs repair. The next pages show exactly how, and in what order.')+
+    band('HOW TO READ THIS PAGE','Large numbers = today\u2019s reality. Everything after this page builds on them \u2014 nothing is assumed.')));
+
+  /* ══ 04 FINANCIAL HEALTH ══ */
+  var verdict=D.score>=70
+    ? 'The family\u2019s finances are structurally healthy. The plan now is about protecting that position and compounding it calmly.'
+    : D.score>=40
+      ? 'The foundation exists, but the weaker pillars need attention before the goals can be funded confidently. Both are fixable \u2014 and the pages ahead show the exact sequence.'
+      : 'Today the weak points decide the family\u2019s entire financial safety. The plan therefore starts with repair before growth. That is not a failure; it is the plan.';
+  H.push(sec(4,'Financial Health','Your Financial Health at a Glance',
+    lead('One score, six dimensions \u2014 computed on-device from your own data.')+
+    '<div class="rscore"><div class="rsv">'+D.score+'<span>/100</span></div><div class="rsb">'+esc2(D.band)+'</div></div>'+
+    grid(['Pillar','Score','Band'],D.P.map(function(x){
+      return [x[1],x[2]+' / 100',x[2]>=70?'Strong':x[2]>=40?'Fair':'Needs work']}))+
+    band('THE HONEST VERDICT',verdict)));
+
+  /* ══ 05 CASH FLOW ══ */
+  var jobs=D.jobs||{};
+  H.push(sec(5,'Cash Flow','Where Does Your Money Go?',
+    lead('Follow one month of the family\u2019s income, step by step.')+
+    grid(['Step','Amount'],(function(){
+      /* income is itemised only when there is more than one source, so a
+         single-earner family is not shown a table of three identical rows */
+      var r=[];
+      if(D.spInc>0||D.other>0){
+        r.push(['INCOME \u00B7 family head',F(D.headInc)]);
+        if(D.spInc>0) r.push(['INCOME \u00B7 spouse',F(D.spInc)]);
+        if(D.other>0) r.push(['INCOME \u00B7 other sources',F(D.other)]);
+        r.push(['TOTAL INCOME',F(D.inc)]);
+      } else r.push(['INCOME',F(D.inc)]);
+      r.push(['LIVING COST','\u2212 '+F(D.exp)]);
+      r.push(['EMI','\u2212 '+F(D.emi)]);
+      r.push(['AVAILABLE SURPLUS',F(sur)]);
+      return r;})())+
+    (D.other>0?p('Of the '+F(D.inc)+' arriving each month, '+F(D.earned)+' is earned income and '+
+      F(D.other)+' comes from other sources. The distinction matters: earned income stops if the earner '+
+      'does, which is why the life-cover figure in this plan is built on '+F(D.earned)+' and not on the total.'):'')+
+    '<p class="rlabel">EVERY RUPEE HAS A JOB</p>'+
+    grid(['Job','What it covers','Monthly'],[
+      ['PROTECT','reserves & covers',F(jobs.PROTECT||0)],
+      ['FUND','children & retirement',F((jobs.CHILDREN||0)+(jobs.RETIRE||0))],
+      ['GROW','wealth & other goals',F(jobs.WEALTH||0)],
+      ['FLEX','breathing room',F(Math.max(0,sur-(D.totSip||0)))]])+
+    p('The plan routes your surplus into these four jobs every month. Amounts shown are the plan\u2019s monthly SIP '+
+      'allocations \u2014 protect first, fund what must happen, grow what can wait, and keep a little room to breathe.')+
+    (sur<=0?band('DATA CHECK REQUIRED','The numbers above do not reconcile yet. See the verification page near the end.'):''),img(4)));
+
+  /* ══ 06 STRENGTHS ══ */
+  var str=[];
+  if(sur>0) str.push(['Positive monthly surplus',F(sur)+' stays home every month \u2014 the raw material every goal on the next pages is built from.']);
+  if(disc&&D.tot>0) str.push(['Existing investments',S(D.tot)+' already saved. Compounding has a head start because of past discipline.']);
+  if(yrs>=15) str.push(['Long runway ahead',yrs+' years to retirement means time, not sacrifice, can do most of the heavy lifting.']);
+  if(D.goals.length) str.push(['Goals with names and dates',D.goals.length+' goals are defined \u2014 named goals get funded; vague wishes rarely do.']);
+  if(D.term>0||D.health>0) str.push(['Some protection in place','The family already holds insurance cover \u2014 the protection section checks how adequate it is.']);
+  if(D.emi<=0) str.push(['Zero EMI pressure','No loans eating the surplus \u2014 every investable rupee stays deployable.']);
+  str.push(['You started','Most families never make a plan. This document existing is already the hardest step taken.']);
+  H.push(sec(6,'Strengths','What Is Already Working',
+    lead('Plans build faster on real strengths \u2014 these are yours.')+
+    '<ul class="rlist">'+str.map(function(x){
+      return '<li><b>'+esc2(x[0])+'</b> '+esc2(x[1])+'</li>'}).join('')+'</ul>'));
+
+  /* ══ 07 NEEDS ATTENTION ══ */
+  var att=[];
+  if(em<6) att.push(['Emergency fund','Cover today is '+em.toFixed(1)+' months against a six-month target \u2014 '+F(Math.max(0,D.emergNeed-D.liquid))+' short, in liquid, boring, instantly-reachable form.']);
+  if(D.lifeNeed>D.term) att.push(['Life cover','The cover shown in this plan is '+S(D.lifeNeed)+' against '+S(D.term)+' held. A plain term plan closes most of this for less than a dinner out per month.']);
+  if(D.health<D.healthNeed) att.push(['Health cover','A single hospital week can erase a year of SIPs. Cover today: '+S(D.health)+' against '+S(D.healthNeed)+' \u2014 10% of the life cover this plan shows.']);
+  if(D.totSip>sur&&sur>0) att.push(['Goal funding','The required SIP ('+F(D.totSip)+') exceeds today\u2019s surplus ('+F(sur)+'). The priority ladder later shows what to phase first.']);
+  if(D.inc>0&&D.emi/D.inc>0.25) att.push(['Debt load',Math.round(D.emi/D.inc*100)+'% of income feeds EMIs. Getting this under 25% quietly unlocks every other goal.']);
+  if(!att.length) att.push(['Nothing urgent','No structural gaps surfaced from the data. The priority now is consistency: step-ups, reviews and staying the course.']);
+  H.push(sec(7,'Needs Attention','Where We Need to Strengthen the Plan',
+    lead('Gaps are normal. Unnoticed gaps are the problem \u2014 these are seen.')+
+    '<ul class="rlist">'+att.map(function(x){
+      return '<li><b>'+esc2(x[0])+'</b> '+esc2(x[1])+'</li>'}).join('')+'</ul>'+
+    p('None of this is a criticism. Every family\u2019s first plan looks like this page \u2014 the difference between '+
+      'families is simply who acts on it first.')));
+
+  /* ══ 08 THE JOURNEY AHEAD ══ */
+  var mile=[['TODAY \u2014 plan begins','age '+D.age,'\u2014']];
+  D.goals.slice().sort(function(a,b){return a.years-b.years}).forEach(function(g){
+    mile.push([g.name,'in '+g.years+' yr'+(g.years===1?'':'s'),'age '+(D.age+g.years)])});
+  if(!ret) mile.push(['RETIREMENT \u2014 salary stops','in '+yrs+' yrs','age '+D.rage]);
+  H.push(sec(8,'The Journey Ahead','Your Financial Journey Ahead',
+    lead('Every milestone the family is walking toward, in order.')+
+    (mile.length>1?(grid(['Milestone','When','Your age'],mile)+
+        '<p class="rfoot1">'+(mile.length-1)+' milestones mapped</p>')
+      :p('Only today is on the timeline so far. Each goal you name adds its own milestone here.'))+
+    p('Each milestone has its own line in this report. Change a year or an amount and this entire report '+
+      'rebuilds itself around the new plan.'),img(7)));
+
+  /* ══ 09 THE COST OF DREAMS ══ */
+  var dbl=Math.round(72/7);
+  /* The per-goal narratives are composed into the body BEFORE the section is
+     built. Patching a closing </div> on the finished string hit the section
+     number's div instead, which put this block above its own heading. */
+  var nar='';
+  others.forEach(function(o){
+    var g=o.g;
+    if(g.kind==='edu')
+      nar+=p((g.cname||'This child')+
+        '\u2019s education may still feel far away. But '+g.years+
+        ' years can pass quickly. The objective is not to start finding the money when admission arrives; it is to '+
+        'have the money ready when that day comes. Small, automatic monthly investments use those '+g.years+
+        ' years the way they deserve to be used.');
+    else if(g.kind==='mar')
+      nar+=p((g.cname?g.cname+'\u2019s celebration is '+g.years+' years away. ':'')+
+        g.years+' years gives this goal something extremely valuable \u2014 time. A celebration built slowly from '+
+        'monthly investments costs the family far less stress than one funded in a hurry. When the day comes, the '+
+        'only thing left to plan should be the guest list.');
+  });
+  H.push(sec(9,'The Cost of Dreams','Today\u2019s Dream. Tomorrow\u2019s Price.',
+    lead('Inflation is quiet, patient and undefeated \u2014 so the plan prices it in.')+
+    p('A goal priced at today\u2019s rates is an illusion. At around 7% annual inflation, prices roughly double every '+
+      dbl+' years \u2014 so every goal in this report is costed at its future year, not today\u2019s.')+
+    (D.goals.length
+      ? grid(['Goal','Today\u2019s cost','In','Future cost','Monthly SIP'],
+          D.goals.map(function(g){var c=goalCalc(g,{retResidual:D.retResid});
+            /* legacy's target is the gap left AFTER the retirement corpus is
+               credited; in a table of costs that reads as a false zero, so show
+               what the goal actually costs and say who is paying for it. */
+            var fc=g.kind==='legacy'?g.cost*Math.pow(1+g.infl/100,g.years):c.target;
+            return [g.name,F(g.cost),g.years+' yr',F(fc),F(c.sip)]}))+
+      /* kept out of the table: a note inside the cell widened the column and
+         wrapped every other row onto two lines */
+      (D.legacyGross>0&&D.legacyCovered>0
+        ? p('Family Legacy is shown at its full future cost of '+F(D.legacyGross)+'. Of that, '+
+            F(D.legacyCovered)+' is expected to come from the retirement corpus still standing at age '+
+            D.lifeExp+', which is why its monthly SIP is '+
+            (D.legacyCovered>=D.legacyGross?'nil.':'only for the remainder.'))
+        : '')
+      : p('No goals have been named yet, so there is nothing to price here. Name even one \u2014 '+
+          'a target, a year, an amount \u2014 and this page fills itself in.'))+
+    band('PROJECTION \u2014 NOT GUARANTEED','Future values are illustrations from the stated assumptions. '+
+      '\u092F\u0939 \u0905\u0928\u0941\u092E\u093E\u0928 \u0939\u0948, \u0917\u093E\u0930\u0902\u091F\u0940 \u0928\u0939\u0940\u0902\u0964')+
+    p('Each goal gets its own page next, with the story behind it, the runway '+
+      'remaining and the single action it needs.'),img(3)));
+
+  /* ══ ONE PAGE PER GOAL ══ the app devotes a full page to every goal:
+     hero strip, four metric tiles, THE STORY, TODAY TO TARGET, THE ACTION. ══ */
+  var SVG=function(d){return '<svg viewBox="0 0 24 24" fill="none" stroke="#0e9d78" '+
+    'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>'};
+  var ICON={
+    shield:SVG('<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/>'),
+    cap:SVG('<path d="M2 8l10-4 10 4-10 4z"/><path d="M6 10v5c0 1.6 2.7 3 6 3s6-1.4 6-3v-5"/>'),
+    rings:SVG('<circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M9 5l3 3 3-3"/>'),
+    tree:SVG('<path d="M12 3l5 7h-3l4 6H6l4-6H7z"/><path d="M12 16v5"/>'),
+    home:SVG('<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>'),
+    car:SVG('<path d="M3 13l2-5h14l2 5v5h-3M6 18H3v-5"/><circle cx="7.5" cy="18" r="1.8"/><circle cx="16.5" cy="18" r="1.8"/>'),
+    plane:SVG('<path d="M2 13l20-7-7 20-3-8z"/>'),
+    star:SVG('<path d="M12 3l2.7 5.8 6.3.8-4.6 4.4 1.2 6.3L12 17.4 6.4 20.3l1.2-6.3L3 9.6l6.3-.8z"/>')};
+  var GKIND={emerg:['EMERGENCY RESERVE GOAL','Emergency reserve',ICON.shield],
+    edu:['EDUCATION GOAL','Education',ICON.cap], mar:['WEDDING GOAL','Wedding',ICON.rings],
+    legacy:['LEGACY GOAL','Legacy',ICON.tree], home:['HOME GOAL','Home',ICON.home],
+    car:['VEHICLE GOAL','Vehicle',ICON.car], travel:['TRAVEL GOAL','Travel',ICON.plane],
+    own:['PERSONAL GOAL','Personal goal',ICON.star]};
+  var tile=function(l,v,cls){return '<div class="gtile"><span class="gt">'+esc2(l)+
+    '</span><b class="'+(cls||'')+'">'+esc2(v)+'</b></div>'};
+  var timeline=function(y0,y1){
+    var dots=''; for(var i=0;i<6;i++) dots+='<i'+(i===0||i===5?' class="e"':'')+'></i>';
+    return '<p class="rlabel">TODAY TO TARGET</p>'+
+      '<div class="tlwrap"><div class="tlr"><span>start</span><span>goal day</span></div>'+
+      '<div class="tl">'+dots+'</div>'+
+      '<div class="tlr"><b>'+y0+'</b><b>'+y1+'</b></div></div>'};
+  var goalStory=function(g,c){
+    if(g.kind==='edu') return (g.cname||'This child')+
+      '\u2019s education may still feel far away. But '+yrs2(g.years)+
+      ' can pass quickly. The objective is not to start finding the money when admission arrives; '+
+      'it is to have the money ready when that day comes. Small, automatic monthly investments use '+
+      'those '+yrs2(g.years)+' the way they deserve to be used.';
+    if(g.kind==='mar') return (g.cname?g.cname+'\u2019s celebration is '+yrs2(g.years)+' away. ':'')+
+      yrs2(g.years)+' gives this goal something extremely valuable \u2014 time. A celebration built '+
+      'slowly from monthly investments costs the family far less stress than one funded in a hurry. '+
+      'When the day comes, the only thing left to plan should be the guest list.';
+    if(g.kind==='emerg') return 'Emergencies do not send calendar invites. This reserve exists so '+
+      'that a bad month stays a bad month \u2014 and never becomes a bad decade. The plan shows '+
+      F(c.target)+' ready by '+(NOWY+g.years)+' \u2014 built gradually, SIP by SIP.';
+    if(g.kind==='legacy') return 'A legacy is not only money. But money is the part that can be '+
+      'planned, and planning it early is what keeps the rest of the estate intact. '+
+      'This page plans only the portion your retirement corpus is not already expected to cover.';
+    return 'This goal is costed at '+F(c.target)+' in '+yrs2(g.years)+', priced at '+g.infl+
+      '% inflation from today\u2019s '+F(g.cost)+'. Starting now is what makes the monthly figure '+
+      'small enough to live with.';
+  };
+  var goalAction=function(g,c){
+    if(c.sip<=0) return 'Existing savings cover this goal. Keep that money quarantined for it '+
+      '\u2014 earmarked, not absorbed.';
+    return 'Monthly SIP shown in this plan: '+F(c.sip)+
+      ' \u2014 automated, starting this month, stepping up with income.';
+  };
+  D.goals.forEach(function(g){
+    if(g.kind==='ret') return;                   /* retirement has its own section */
+    var c=goalCalc(g,{retResidual:D.retResid});
+    var k=GKIND[g.kind]||['GOAL','Goal',ICON.star];
+    var who=g.cname?g.cname.toUpperCase()+'\u2019S AGE':'FOR WHOM';
+    var whoV=g.cname?String(g.cage||'\u2014'):'Family';
+    var tgtY=(g.years<=0)?'NOW':String(NOWY+g.years);
+    var hero=g.cname?g.cname+'\u2019s '+k[1].toLowerCase()+' journey'
+      :'The family\u2019s '+k[1].toLowerCase()+' journey';
+    var sub2=g.years<=1?'the time is now':yrs2(g.years)+' of runway ahead';
+    H.push(sec(0,k[0],g.name,
+      '<p class="gkind">'+esc2(k[1])+'</p>'+
+      '<div class="ghero"><span class="gi">'+k[2]+'</span>'+
+        '<div><b>'+esc2(hero)+'</b><span>'+esc2(sub2)+'</span></div></div>'+
+      '<div class="gtiles">'+
+        tile(who,whoV)+tile('TARGET',tgtY)+
+        tile('FUTURE COST',S(c.target),'gold')+
+        tile('MONTHLY SIP',c.sip>0?F(c.sip):'covered','green')+'</div>'+
+      '<p class="rlabel">THE STORY</p>'+p(goalStory(g,c))+
+      timeline(NOWY,g.years<=0?NOWY:NOWY+g.years)+
+      '<div class="gact"><b>THE ACTION</b><span>'+esc2(goalAction(g,c))+'</span></div>'+
+      '<p class="gdis">Goal figures are based on the current plan assumptions and should be '+
+      'reviewed whenever the goal, timeline or assumptions change. Projection \u2014 not guaranteed.</p>',
+      null,'gpage'));
+  });
+
+
+  /* ══ 10 RETIREMENT ══ */
+  var rb='';
+  if(ret){
+    var c=ret.c, covered=c.pct;
+    rb=lead('Retirement planning is about keeping your lifestyle alive when employment income stops.')+
+      '<div class="rbig2"><span>RETIREMENT FREEDOM NUMBER</span><b>'+F(c.target)+'</b>'+
+      '<i>Illustration from stated assumptions \u2014 not guaranteed.</i></div>'+
+      /* One table per stage. An earlier draft also carried a PROJECTED POSITION
+         table that repeated the corpus, the freedom number and the SIP, which
+         pushed the section onto a second page and left it without a footer. */
+      '<p class="rlabel">STAGE 1 \u2014 BUILDING THE CORPUS</p>'+
+      grid(['Measure','Value'],[
+        ['Your timeline',D.age+' today \u2192 retiring at '+D.rage+' \u00B7 '+yrs2(yrs)+' to build'],
+        ['Monthly pension wanted, today\u2019s money',F(ret.g.cost)],
+        ['Same pension at retirement',F(c.monthly)+' \u00B7 after '+yrs2(yrs)+' of '+ret.g.infl+'% inflation'],
+        ['Growth assumed while building',(keyFor(ret.g.ret)?nameOf(keyFor(ret.g.ret)):'Custom')+
+          ' \u00B7 '+ret.g.ret+'% p.a.'],
+        ['Corpus required at '+D.rage,F(c.target)],
+        ['Existing investments allocated',disc?F(ret.g.alloc||0):'Not disclosed'],
+        ['Corpus on your current pace',F(c.fv)+' \u00B7 '+covered+'% of the requirement'],
+        ['Gap to close',c.gap>0?F(c.gap):'\u2014 on track'],
+        ['You put in / growth adds',S(c.deposits)+' of your own money \u00B7 '+S(c.growth)+' from growth'],
+        ['Monthly SIP required from today',F(c.sip)]])+
+      '<p class="rlabel">STAGE 2 \u2014 DRAWING THE PENSION</p>'+
+      grid(['Measure','Value'],[
+        ['Growth assumed after retirement',nameOf(ret.g.prMode)+' \u00B7 '+c.pr+'% p.a.'],
+        ['Pension paid for',yrs2(c.draw)+' \u00B7 age '+D.rage+' to '+D.lifeExp+' (life expectancy)'],
+        ['Pension the plan plans for',F(c.monthly)+' a month, rising with inflation'],
+        ['Option A \u00B7 draw the planned pension',(c.resid>0?F(c.resid)+' left at '+D.lifeExp
+          :'nothing left at '+D.lifeExp)],
+        ['Option B \u00B7 draw the corpus down fully',F(c.pen)+' a month, nothing left']])+
+      p('Those last two lines are alternatives, not additions. A corpus that is bigger than the '+
+        'pension needs can either pay a larger pension or be preserved for the next generation '+
+        '\u2014 the same money cannot do both.')+
+      p('Two different growth rates are at work. Before retirement the corpus is built at '+ret.g.ret+
+        '%; after retirement it is de-risked to '+c.pr+'% while it pays the pension. The corpus is '+
+        'sized so that it lasts exactly to age '+D.lifeExp+'.')+
+      p(c.resid>0
+        ? 'Because the corpus outlasts the pension it has to pay, about '+S(c.resid)+
+          ' is projected to remain at age '+D.lifeExp+'. That amount is credited to the family legacy '+
+          'goal, so the legacy page plans only the part it does not already cover.'
+        : 'On these numbers the corpus is exhausted at age '+D.lifeExp+', so nothing carries over to '+
+          'the legacy goal. An inheritance comes from building corpus beyond the pension requirement, '+
+          'or from assets held outside this plan.')+
+      p(c.gap>0
+        ? 'The gap above is not a verdict \u2014 it is a dial. A 10% yearly SIP step-up, or retiring even two years '+
+          'later, closes most of it.'
+        : 'On current pace the corpus reaches the freedom number. The remaining job is defence: step-up yearly, '+
+          'glide to safety in the final three years, review annually.');
+  } else rb=lead('No retirement goal is defined in this plan yet \u2014 add one and this page fills itself in.');
+  H.push(sec(10,'Retirement','The Day Your Salary Stops',rb,img(8)));
+
+  /* ══ 11 PROTECTION ══ */
+  H.push(sec(11,'Protection','Protect the Plan Before You Grow It',
+    lead('Investments build the future. Protection keeps that future intact when life does not go according to plan.')+
+    (D.lifeNeed>D.term?band('PROTECTION GAP \u2014 TERM LIFE',
+      S(D.lifeNeed-D.term)+' of cover is missing against the 15\u00D7 earned-income reference used in this plan.'):'')+
+    grid(['Cover','Held today','Shown in this plan','Note'],[
+      ['LIFE COVER',S(D.term),S(D.lifeNeed),'Existing term cover vs 15\u00D7 earned income'],
+      ['HEALTH COVER',S(D.health),S(D.healthNeed),'Existing health cover vs 10% of the life cover'],
+      ['EMERGENCY FUND',F(D.liquid),F(D.emergNeed),'Reserve today vs six months of household income']])+
+    p('Cover levels shown are planning illustrations from your own numbers \u2014 \u201Cshown in this plan\u201D, not '+
+      'insurance requirements. Choose actual products with a licensed advisor.')));
+
+  /* ══ 12 GAP ANALYSIS ══ */
+  H.push(sec(12,'Gap Analysis','What Is Missing Today?',
+    lead('The distance between today and ready \u2014 made visible, then closed.')+
+    grid(['Item','Today','Target','Gap'],[
+      ['Emergency fund',F(D.liquid),F(D.emergNeed),F(Math.max(0,D.emergNeed-D.liquid))],
+      ['Life cover',S(D.term),S(D.lifeNeed),S(Math.max(0,D.lifeNeed-D.term))],
+      ['Health cover',S(D.health),S(D.healthNeed),S(Math.max(0,D.healthNeed-D.health))]])+
+    band('THE RIGHT MINDSET','A gap is not a failure. It is simply the distance between today\u2019s position and tomorrow\u2019s requirement.')+
+    p('Planning turns a large future number into smaller decisions that can be acted on now. The priority ladder '+
+      'on the next pages shows the order.')));
+
+  /* ══ 13 INVESTMENT STRATEGY ══ */
+  var sb=lead('The plan\u2019s mix \u2014 and the calm reference it is judged against.');
+  if(disc&&D.tot>0){
+    sb+=grid(['Sleeve','Allocation shown in the plan','Age-rule reference (100 \u2212 age)'],[
+      ['Equity (growth)',D.eqPct+'%',(100-D.age)+'%'],
+      ['Debt (stability)',(100-D.eqPct)+'%',D.age+'%']]);
+  } else {
+    sb+=p('You chose not to disclose existing holdings, so there is no current mix to show. The age-rule '+
+      'reference at your age would be about '+(100-D.age)+'% equity and '+D.age+'% debt. It is a convention, '+
+      'not a recommendation.');
+  }
+  sb+=p('The objective is not simply to maximise returns. The allocation should also reflect goal timelines, '+
+    'liquidity needs and the family\u2019s ability to tolerate market volatility.')+
+    '<p class="rlabel">PROJECTION ASSUMPTIONS USED</p>'+
+    grid(['Input','Rate'],[['Growth \u2014 Aggressive',ASMP.eqa+'% p.a.'],['Growth \u2014 Equity',ASMP.eqb+'% p.a.'],
+      ['Growth \u2014 Balanced',ASMP.rbal+'% p.a.'],['Growth \u2014 Debt',ASMP.debt+'% p.a.'],
+      ['Inflation',ASMP.infl+'% p.a. by goal'],['Blended return','calculated from the mix']])+
+    band('ILLUSTRATION / PROJECTION','Not guaranteed. Real markets do not deliver a constant annual return.');
+  H.push(sec(13,'Investment Strategy','How Your Money Is Currently Positioned',sb));
+
+  /* ══ 14 THE MONTHLY PLAN ══ */
+  var flex=Math.max(0,sur-(D.totSip||0));
+  H.push(sec(14,'The Monthly Plan','Give Every Rupee a Job',
+    lead('One salary day. One set of transfers. Every year after.')+
+    grid(['Bucket','Purpose','Monthly'],[
+      ['PROTECT','emergency reserve',F(jobs.PROTECT||0)],
+      ['CHILDREN','education & marriage',F(jobs.CHILDREN||0)],
+      ['RETIRE','the freedom number',F(jobs.RETIRE||0)],
+      ['WEALTH','other dreams',F(jobs.WEALTH||0)],
+      ['FLEXIBILITY','untouched buffer',F(flex)]])+
+    tbl([['Total monthly allocation',F(D.totSip||0)],['Available surplus',F(sur)]])+
+    (D.totSip>sur
+      ? band('FUNDING GAP DETECTED',F(D.totSip-sur)+'/month more than today\u2019s surplus. The priority page shows what to sequence first \u2014 the plan is honest, not pretty.')
+      : p('Everything fits inside the month. Protect the sequence: allocation first, spending second \u2014 never the reverse.'))));
+
+  /* ══ 15 PRIORITIES ══ */
+  var lad=[];
+  lad.push(['PROTECT', D.lifeNeed>D.term
+    ? 'Close the '+S(D.lifeNeed-D.term)+' life-cover gap with a plain term plan.'
+    : 'Covers in place \u2014 re-verify nominees and beneficiaries.']);
+  lad.push(['STABILISE', em<6
+    ? 'Build the 6-month cushion ('+F(Math.max(0,D.emergNeed-D.liquid))+' to go).'
+    : (D.inc>0&&D.emi/D.inc>0.25 ? 'Bring EMIs under 25% of income; park windfalls into prepayment.'
+                                 : 'Cash flow is steady \u2014 keep it that way with automation.')]);
+  lad.push(['FUND', D.goals.length
+    ? 'Start the SIP stack \u2014 '+F(D.totSip||0)+' a month across '+D.goals.length+' goals.'
+    : 'Name your first goal \u2014 funding starts there.']);
+  lad.push(['BUILD', sur>0 ? 'Add a 10% yearly SIP step-up tied to increments.'
+                           : 'Repair cash flow first \u2014 growth waits for surplus.']);
+  lad.push(['OPTIMISE','Review tax sections 80C/80D with your CA once a year.']);
+  lad.push(['REVIEW','Mark one date every year. The review page at the end shows the six numbers to watch.']);
+  H.push(sec(15,'Priorities','What Should Happen First?',
+    lead('The ladder is built from your data \u2014 not a template.')+
+    '<ol class="rnum">'+lad.map(function(x){
+      return '<li><b>'+esc2(x[0])+'</b><span>'+esc2(x[1])+'</span></li>'}).join('')+'</ol>'));
+
+  /* ══ 16 ROADMAP ══ */
+  H.push(sec(16,'Roadmap','From Plan to Action',
+    lead('Four quarters. A plan that fits in a single year, every year.')+
+    grid(['When','Phase','What happens'],[
+      ['MONTHS 1\u20133','SECURE','Turn on salary-day auto-debit for the SIP stack. '+
+        (D.lifeNeed>D.term?'Add '+S(D.lifeNeed-D.term)+' term cover (medicals while healthy).':'Re-verify nominees on every policy.')],
+      ['MONTHS 4\u20136','STABILISE','Audit the three biggest expense lines; cap lifestyle creep. '+
+        (em<6?'Open the emergency sweep; park tranche one of '+F(Math.max(0,(D.emergNeed-D.liquid)/3))+'.':'Move idle savings beyond one month\u2019s expenses.')],
+      ['MONTHS 7\u20139','ACCELERATE','Set the 10% annual SIP step-up date to the increment month. '+
+        (D.health<D.healthNeed?'Raise the health floater to '+S(D.healthNeed)+' \u2014 10% of the life cover this plan shows.':'Store policy PDFs and nominee notes in one place.')],
+      ['MONTHS 10\u201312','REVIEW','First full-year review: score delta, execution rate, covers. '+
+        'Rebalance toward the reference allocation. Re-run this plan on any life event \u2014 job, move, child, loan.']])));
+
+  /* ══ 17 ANNUAL REVIEW ══ */
+  H.push(sec(17,'Annual Review','Six Numbers to Watch',
+    lead('Once a year \u2014 or whenever life changes \u2014 check these and nothing else first.')+
+    grid(['#','Number','Today','Target'],[
+      ['1','Emergency Fund',em.toFixed(1)+' months','6 months of income'],
+      ['2','Life Cover',S(D.term),S(D.lifeNeed)],
+      ['3','Goal SIP',F(D.totSip||0),'running every month'],
+      ['4','Savings Rate',(D.inc>0?Math.round(sur/D.inc*100):0)+'%','keep above 20%'],
+      ['5','Equity Allocation',disc?(D.eqPct+'%'):'not disclosed',(100-D.age)+'%'],
+      ['6','Retirement Corpus',ret?F(ret.c.fv):'\u2014',ret?F(ret.c.target)+' (the freedom number)':'\u2014']])+
+    p('Review every year \u2014 or whenever life changes. Marriage \u00B7 a child \u00B7 a move \u00B7 a new loan \u00B7 '+
+      'an inheritance \u2014 each earns a fresh plan.')));
+
+  /* ══ 18 ASSUMPTIONS ══ */
+  var asm=[
+    ['Standard inflation',ASMP.infl+'% p.a.','Prices every future goal cost \u00B7 your assumption'],
+    ['Growth \u00B7 Aggressive',ASMP.eqa+'% p.a.','Goals more than 10 years away \u00B7 your assumption'],
+    ['Growth \u00B7 Equity',ASMP.eqb+'% p.a.','Goals 5 to 10 years away \u00B7 your assumption'],
+    ['Growth \u00B7 Balanced',ASMP.rbal+'% p.a.','Offered for the pension corpus \u00B7 your assumption'],
+    ['Growth \u00B7 Debt',ASMP.debt+'% p.a.','Goals inside 5 years \u00B7 your assumption'],
+    ['Return by horizon','assigned per goal','A goal inside 5 years cannot ride equity volatility \u00B7 rule'],
+    ['Retirement growth','chosen by you, per stage','Before and after retirement are picked separately \u00B7 your choice'],
+    ['Education funding age',ASMP.eduAge+' years','When the education goal lands \u00B7 your assumption'],
+    ['Marriage funding age',ASMP.marAge+' years','When the marriage goal lands \u00B7 your assumption'],
+    ['Pension corpus return',nameOf((D.goals.filter(function(g){return g.kind==='ret'})[0]||{}).prMode)+
+      ' \u00B7 '+(D.retPR||ASMP.rbal)+'% p.a.','Return on the corpus after retirement \u00B7 your choice'],
+    ['Pension drawn for',(D.retDraw||0)+' years','Age '+D.rage+' to '+D.lifeExp+' \u00B7 your assumption'],
+    ['Life expectancy',D.lifeExp+' years','How long the corpus must last \u00B7 your assumption'],
+    ['Emergency reserve','6 \u00D7 monthly income','Reserve target \u00B7 plan rule'],
+    ['Life cover reference','15 \u00D7 annual earned income','Only income that stops is insured \u00B7 plan rule'],
+    ['Health cover reference','10% of the life cover','Floater sizing \u00B7 plan rule'],
+    ['Pension from age',D.rage+' years','Salary-stop date \u00B7 chosen in the plan'],
+    ['SIP convention','monthly \u00B7 annuity-due','Timing of contributions \u00B7 calculated'],
+    ['Existing investments',disc?'declared by you':'not disclosed \u2014 treated as zero','Starting corpus \u00B7 your answer']
+  ];
+  H.push(sec(18,'Assumptions','What This Plan Assumes',
+    lead('Every projection in this document stands on these \u2014 shown openly.')+
+    grid(['ASSUMPTION','VALUE','PURPOSE \u00B7 SOURCE'],asm)+
+    p('Projections are illustrations based on assumptions. Actual investment outcomes may be materially '+
+      'different. \u092F\u0939 \u0905\u0928\u0941\u092E\u093E\u0928 \u0939\u0948, \u0917\u093E\u0930\u0902\u091F\u0940 \u0928\u0939\u0940\u0902\u0964')));
+
+  /* ══ 19 VERIFICATION ══
+     The app builds this as a structured table — category, item, value found,
+     and the action required — not a prose list. Categories and wording are
+     the app's own: CASH FLOW / SURPLUS DATA / GOAL FUNDING / DEBT LOAD /
+     FAMILY MEMBER, with "not provided", "in the past" and "above the 40%
+     comfort band" as the value strings. */
+  var ver=[];
+  if(D.inc<=0) ver.push(['CASH FLOW','Monthly income','not provided','Confirm the household monthly income.']);
+  if(D.exp<=0) ver.push(['CASH FLOW','Monthly expenses','not provided','Confirm the household monthly expenses.']);
+  if(sur<=0) ver.push(['SURPLUS DATA','Monthly surplus',
+    'expenses ('+F(D.exp)+') + EMIs ('+F(D.emi)+') exceed income ('+F(D.inc)+')',
+    'Confirm the intended monthly surplus.']);
+  if(D.totSip>sur&&sur>0) ver.push(['GOAL FUNDING','Total monthly SIP',
+    F(D.totSip)+' vs available surplus '+F(sur),'Stretch a timeline, trim a target, or raise income.']);
+  D.goals.forEach(function(g){ if(g.years<=0)
+    ver.push(['GOAL FUNDING','Goal horizon \u2014 '+g.name,'in the past','Re-check goal target years.']) });
+  if(D.inc>0&&D.emi/D.inc>0.40) ver.push(['DEBT LOAD','EMI to income ratio',
+    Math.round(D.emi/D.inc*100)+'% \u2014 above the 40% comfort band','Bring EMIs down before adding new goals.']);
+  kids.forEach(function(c){ if(c.age<=0||c.age>35)
+    ver.push(['FAMILY MEMBER',c.name+'\u2019s age',String(c.age),'Re-check the family ages entered.']) });
+  if(!disc) ver.push(['INVESTMENTS','Existing holdings','not disclosed \u2014 treated as zero',
+    'Actual progress is ahead of what this plan shows.']);
+  if(D.term<=0) ver.push(['PROTECTION','Term life cover','not provided','Confirm whether any term policy is in force.']);
+  if(D.health<=0) ver.push(['PROTECTION','Health cover','not provided','Confirm whether an employer floater exists.']);
+  H.push(sec(19,'Verification','Before We Implement \u2014 Please Verify',
+    lead('These items could not be reconciled automatically. Your answers settle them \u2014 nothing here is guessed.')+
+    (ver.length
+      ? grid(['Area','Item','What the plan found','Action'],ver)
+      : p('Every figure reconciled on this run. Nothing needs settling before the plan is acted on.'))+
+    p('This report should be acted on only after these are resolved or consciously accepted.')));
+
+  /* ══ 20 CONVERSATION ══ */
+  H.push(sec(20,'Conversation','Five Questions to Discuss',
+    lead('Bring these to your next review \u2014 answers shape the plan more than any product.')+
+    '<ol class="rplain">'+[
+      'What do you want your money to make possible?',
+      'Which goal would hurt most if we were short?',
+      'How much market volatility can you genuinely live with?',
+      'What protection does the family already have?',
+      'What should we change this month \u2014 not someday?'
+    ].map(function(x){return '<li>'+esc2(x)+'</li>'}).join('')+'</ol>'+
+    '<div class="rnext"><b>THE NEXT STEP</b><span>Protect first. Save with purpose. Invest patiently. Review regularly.</span></div>'));
+
+  /* Running bands. The app draws these on every page of the PDF; in browser
+     print a position:fixed element repeats per sheet, which is the closest
+     equivalent available without a PDF engine. */
+  var fam1=(name&&name!=='Valued Client')?esc2(name):'Your Family';
+  R.innerHTML=
+    '<div class="runh"><div class="wrapr"><span class="brand"><i>MY</i> FINANCIAL PLAN</span></div></div>'+
+    /* app footer: name left, confidential centred, then the micro disclaimer.
+       The app also prints "Page N" on the right - Chrome's print pipeline
+       cannot number pages, so that slot is intentionally left empty. */
+
+    '<div class="rh"><div class="pe">PREPARED EXCLUSIVELY FOR</div>'+
+    '<h1>'+esc2(name.toUpperCase())+'</h1>'+
+    '<div class="s">Personal Financial Planning Report \u00B7 '+esc2(dt)+' \u00B7 myfinancialplan.in</div></div>'+
+    '<div class="rs rfirst"><h2>READ THIS FIRST</h2><p class="rp">This report is an arithmetic projection built '+
+    'from figures supplied by you. It assumes a constant annual return, excludes tax and loans unless stated, '+
+    'and is not financial advice. Read the assumptions in section 18 before acting on any number in it.</p></div>'+
+    H.join('')+
+    '<div class="rf"><b>Disclaimer.</b> MyFinancialPlan is a software calculator provider, not an adviser, '+
+    'insurer or broker. This report is an educational estimate produced from figures entered by the user. It is '+
+    'not financial, tax, insurance or investment advice, recommends no product and guarantees no outcome. '+
+    'Projections assume a constant annual return, which real markets do not deliver, and exclude tax and other '+
+    'income unless stated. Verify every figure and consult a qualified professional before acting. '+
+    'Powered by My Financial Plan.</div>';
+
+  /* ── page numbers ──────────────────────────────────────────────────────
+     Chrome cannot expose counter(page) to CSS, but every .rs section is laid
+     out as exactly one full page, so the printed page index is simply the
+     section's position plus the pages that precede the first section (the
+     cover and the READ THIS FIRST block). Verified against the rasterised
+     PDF; if a section ever overflows, the check in sitegen/fp/t_pages.js
+     catches the drift. */
+  /* NB: the READ THIS FIRST block also carries class .rs, so it occupies
+     index 0 while sitting on page 2 - which makes the offset exactly 2. */
+  var LEAD_PAGES=2;
+  Q('.rs',R).forEach(function(el,i){
+    var slot=el.querySelector('[data-pageno]');
+    if(slot) slot.textContent='Page '+(i+LEAD_PAGES);
+  });
+}
+
+/* ══ i18n ══ */
+var HI={'h1':'\u0906\u092a\u0915\u093e \u092a\u0930\u093f\u0935\u093e\u0930\u0964 \u0906\u092a\u0915\u0947 \u0932\u0915\u094d\u0937\u094d\u092f\u0964',
+'r1':'\u092a\u0930\u093f\u0935\u093e\u0930','r2':'\u092a\u0948\u0938\u093e','r3':'\u0932\u0915\u094d\u0937\u094d\u092f','r4':'\u0938\u0941\u0930\u0915\u094d\u0937\u093e','r5':'\u092f\u094b\u091c\u0928\u093e',
+'nback':'\u2190 \u092a\u0940\u091b\u0947','ncont':'\u0906\u0917\u0947 \u2192','nplan':'\u092e\u0947\u0930\u0940 \u092f\u094b\u091c\u0928\u093e \u0926\u0947\u0916\u0947\u0902',
+'bpdf':'\u2b07 \u092a\u0942\u0930\u0940 \u092f\u094b\u091c\u0928\u093e PDF'};
+var EN={};
+function lang(l){var M=l==='hi'?HI:EN;
+ Q('[data-i]').forEach(function(e){var k=e.getAttribute('data-i');if(M[k])e.textContent=M[k]});
+ $('l-en').setAttribute('aria-pressed',l==='en');$('l-hi').setAttribute('aria-pressed',l==='hi')}
+/* ══ boot ══ */
+function boot(){
+  Q('[data-i]').forEach(function(e){EN[e.getAttribute('data-i')]=e.textContent});
+
+  /* ── spouse: name, age, working status, income ── */
+  function syncSpouse(){
+    var on=spouseOn(), work=spouseWorks();
+    Q('.sp-f').forEach(function(e){e.hidden=!on});
+    $('spincwrap').hidden=!(on&&work);
+    $('sphint').hidden=!on;
+    /* the money step mirrors the spouse income read-only so the earned-income
+       total is visible where the rest of the cash flow lives */
+    $('spinc2wrap').hidden=!(on&&work);
+    if(on&&work) $('spinc2').value=$('spinc').value;
+    renderChips();
+    if(built)plan();
+  }
+  $('spouse').addEventListener('change',syncSpouse);
+  $('spwork').addEventListener('change',syncSpouse);
+  $('spinc').addEventListener('input',function(){$('spinc2').value=$('spinc').value;if(built)plan()});
+
+  /* ── other family income (req 2) ── */
+  $('nooi').addEventListener('change',function(){
+    var off=$('nooi').checked;
+    $('oig').hidden=off;
+    Q('#oig input').forEach(function(e){e.disabled=off;if(off)e.value=0});
+    if(built)plan();
+  });
+
+  /* ── investments opt-out (req 4 + 6) ──
+     Not disclosed means the block is removed from the flow entirely, and no
+     goal card offers an allocation field. Re-ticking restores it verbatim. */
+  var invHTML=$('invg').innerHTML;
+  $('noinv').addEventListener('change',function(){
+    var off=$('noinv').checked;
+    if(off){ $('invg').innerHTML=''; $('invg').hidden=true; $('invhint').hidden=true; }
+    else   { $('invg').innerHTML=invHTML; $('invg').hidden=false; $('invhint').hidden=false;
+             Q('#invg input').forEach(function(e){
+               e.addEventListener('input',function(){if(built)plan()});
+               e.addEventListener('change',function(){if(built)plan()})}); }
+    if(Q('#goals .goal').length){ var k=gi; buildGoalCards(); showGoal(k); }
+    if(built)plan();
+  });
+
+  /* ── children ── */
+  /* the declared cash is the emergency goal's opening balance, so a change
+     there has to re-seed that card rather than silently disagree with it */
+  $('liq').addEventListener('change',function(){
+    if(Q('#goals .goal').length){var k=gi;delete GV['emerg'];buildGoalCards();showGoal(k)}
+    if(built)plan()});
+  $('inc').addEventListener('change',function(){
+    if(Q('#goals .goal').length){var k=gi;delete GV['emerg'];buildGoalCards();showGoal(k)}
+    if(built)plan()});
+  $('nkids').addEventListener('change',function(){renderKids();renderChips();if(built)plan()});
+  $('kids').addEventListener('input',function(e){
+    if(/^ka\d+$/.test(e.target.id)){renderChips();if(built)plan()}});
+  $('kids').addEventListener('change',function(e){
+    if(/^kn\d+$|^kg\d+$/.test(e.target.id)){renderChips();if(built)plan()}});
+
+  /* ── goal chips + own goals ── */
+  renderChips();
+  $('add').addEventListener('click',function(){
+    var v=($('ownnm').value||'').trim();
+    if(!v) { $('ownnm').focus(); return }
+    OWN.push({name:v}); $('ownnm').value=''; renderChips();
+  });
+  $('ownnm').addEventListener('keydown',function(e){
+    if(e.key==='Enter'){e.preventDefault();$('add').click()}});
+
+  /* ── one goal slide at a time (req 3) ── */
+  $('gstart').addEventListener('click',openSlides);
+  $('gnext').addEventListener('click',function(){
+    var cards=Q('#goals .goal');
+    if(gi>=cards.length-1){ closeSlides(); go(3); } else showGoal(gi+1);
+  });
+  $('gback').addEventListener('click',function(){
+    if(gi===0) closeSlides(); else showGoal(gi-1);
+  });
+
+  /* ── assumptions re-drive every goal card (req 7) ── */
+  ['a-infl','a-eqa','a-eqb','a-rbal','a-debt','a-edu','a-mar',
+   'a-life'].forEach(function(id){
+    $(id).addEventListener('change',function(){
+      readAsmp();
+      if(Q('#goals .goal').length){
+        /* a changed assumption resets only the fields the user has not touched */
+        GSPECS.forEach(function(sp){var g=GV[sp.id];if(g){delete g.infl;delete g.ret}});
+        var k=gi; buildGoalCards(); showGoal(k);
       }
+      if(built)plan();
+    });
+  });
 
-      window.addEventListener("flutter-first-frame", dismissLoader);
+  Q('.rib button').forEach(function(b,k){b.addEventListener('click',function(){
+    if(k===4&&!built){build();return}
+    if(k!==2) closeSlides();
+    go(k)})});
+  Q('[data-go]').forEach(function(b){b.addEventListener('click',function(){
+    closeSlides(); go(parseInt(b.getAttribute('data-go'),10))})});
+  Q('[data-build]').forEach(function(b){b.addEventListener('click',function(){
+    if(!Q('#goals .goal').length) buildGoalCards();
+    build()})});
+  Q('.step input,.step select').forEach(function(e){
+    e.addEventListener('input',function(){liveBits();if(built)plan()});
+    e.addEventListener('change',function(){liveBits();if(built)plan()})});
+  $('pdf').addEventListener('click',function(){buildReport();window.print()});
+  $('wa').addEventListener('click',function(){var D=window.__MP||{};
+    window.open('https://wa.me/?text='+encodeURIComponent('*MY FINANCIAL PLAN*\nHealth score: '+D.score+'/100 ('+D.band+')\nTotal invested: '+S(D.tot)+'\nCombined SIP shortage: '+F(D.totSip)+'\n\nMade free at myfinancialplan.in/financial-planning/'),'_blank','noopener')});
+  $('l-en').addEventListener('click',function(){lang('en')});
+  $('l-hi').addEventListener('click',function(){lang('hi')});
+  syncSpouse();
+  liveBits();
+  buildGoalCards();
+  go(0);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
 
-      var obs = new MutationObserver(function() {
-        if (document.querySelector("flt-glass-pane, flutter-view, canvas, flt-scene-host")) {
-          setTimeout(dismissLoader, 200);
-          obs.disconnect();
-        }
-      });
-      obs.observe(document.body || document.documentElement, { childList: true, subtree: true });
-
-      setTimeout(function() {
-        var st = document.getElementById("loading-status-text");
-        if (st) st.innerText = "Initializing 30+ financial calculators...";
-      }, 3000);
-
-      setTimeout(dismissLoader, 15000);
-    })();
-  </script>
-
-  <script src="flutter_bootstrap.js" async></script>
+</script>
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/app/">Open Web App</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/vanshavali/">Digital Vanshavali</a>
+        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+        <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/mfp-push.js"></script>
+  </footer>
 </body>
 </html>
