@@ -320,6 +320,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/repatriation/"/>
   </url>
   <url>
+    <loc>https://www.myfinancialplan.in/hi/nri/retire-in-india/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/retire-in-india/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/retire-in-india/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/retire-in-india/"/>
+  </url>
+  <url>
     <loc>https://www.myfinancialplan.in/hi/nri/returning-to-india/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -345,6 +354,15 @@
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/repatriation/"/>
     <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/repatriation/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/repatriation/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/nri/retire-in-india/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/retire-in-india/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/retire-in-india/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/retire-in-india/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/nri/returning-to-india/</loc>
