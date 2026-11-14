@@ -265,8 +265,8 @@
 .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--indigo))}
 .bl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--slate);margin-top:5px;font-weight:700}
 /* plan */
-.top{display:grid;grid-template-columns:240px 1fr;gap:14px}
-@media(max-width:860px){.top{grid-template-columns:1fr}}
+.fp-top{display:grid;grid-template-columns:240px 1fr;gap:14px}
+@media(max-width:860px){.fp-top{grid-template-columns:1fr}}
 .sc{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .gg{width:162px;height:162px;position:relative}
 .gg svg{transform:rotate(-90deg)}
@@ -337,6 +337,7 @@
 .lim{background:var(--cream);border:1px solid #e9d9b4;border-radius:12px;padding:15px 17px;font-size:14px;line-height:1.72}
 .rel{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
 .rel a{display:inline-flex;align-items:center;min-height:42px;padding:9px 14px;background:#fff;border:1.4px solid var(--line);border-radius:9px;font-size:13.5px;font-weight:700;color:var(--indigo);text-decoration:none}
+#rep,#rep *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 #rep{display:none}
 @media print{
  body *{visibility:hidden!important}
@@ -497,7 +498,7 @@
   #rep .rsfoot .dis{font-size:7.5pt;color:#8a99aa;display:block}
   #rep{padding-top:0;padding-bottom:0}
   /* blocks that are not .rs sections still need the app's side measure */
-  #rep .rh,#rep .rfirst,#rep .rf{margin-left:18.34mm;margin-right:18.34mm}
+  #rep .rfirst,#rep .rf{margin-left:18.34mm;margin-right:18.34mm}
   #rep .rh{padding-top:22mm}
   /* never split these */
   #rep table,#rep .rband,#rep .rscore,#rep .rbig2,#rep .rnext,#rep .rstrip{break-inside:avoid;page-break-inside:avoid}
@@ -588,6 +589,38 @@
   .gslidehead h3{font-size:17px}
 }
 
+
+/* ===== cover page =========================================================
+   Rebuilt to match the app's cover. Previously the cover was a name over a
+   blank sheet; a user's real export was ~85% white space. */
+#rep .rh{min-height:841pt;display:flex;flex-direction:column;padding:0;border:0}
+#rep .cvtop{background:#ddf4ec;border-bottom:2.5pt solid #0e9d78;
+            padding:46pt 18.34mm 30pt;text-align:center}
+#rep .cvmark{margin:0 0 14pt}
+#rep .cvmark svg{display:inline-block}
+#rep .cvbrand{font-size:26pt;font-weight:800;color:#17324a;letter-spacing:.4pt}
+#rep .cvbrand i{font-style:normal;color:#0e9d78}
+#rep .cvtag{margin-top:7pt;font-size:10.5pt;color:#44586e}
+#rep .cvtag2{margin-top:5pt;font-size:8.5pt;color:#0e9d78;font-weight:600}
+#rep .cvbody{flex:1 0 auto;display:flex;flex-direction:column;
+             padding:40pt 18.34mm 26pt;text-align:center}
+#rep .cvcard{border:1px solid #e4eaf1;border-radius:7pt;padding:20pt 18pt;
+             max-width:330pt;margin:0 auto}
+#rep .cvcard .pe{font-size:7.5pt;letter-spacing:1.3pt;color:#8a99aa;font-weight:700}
+#rep .cvcard h1{font-size:23pt;font-weight:800;color:#17324a;margin:9pt 0 7pt;border:0;padding:0}
+#rep .cvfam{font-size:8.5pt;color:#44586e}
+#rep .cvdate{margin-top:20pt;font-size:9pt;color:#44586e}
+#rep .cvrule{width:118pt;height:2pt;background:#0e9d78;margin:9pt auto 0}
+#rep .cvart{margin:auto auto 0;max-width:430pt;width:100%}
+#rep .cvfoot{margin-top:auto;border-top:1px solid #cfe7f5;background:#fbf7ee;
+             padding:13pt 18.34mm;display:flex;justify-content:space-between;align-items:center}
+#rep .cvf1,#rep .cvf2{font-size:8.5pt;color:#17324a;line-height:1.5}
+#rep .cvf1 b{display:block;font-size:9.5pt}
+#rep .cvf1 span,#rep .cvf2 span{display:block;color:#8a99aa;font-size:7.5pt}
+#rep .cvf2{text-align:right}
+#rep .cvdis{background:#fbf7ee;padding:0 18.34mm 14pt;text-align:center;
+            font-size:7pt;color:#8a99aa}
+
 </style>
 
 <style id="mfp-site-chrome">
@@ -595,21 +628,21 @@
 .mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 .mfp-sh *{box-sizing:border-box}
-.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-in{max-width:1220px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px}
 .mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
 .mfp-sh-brand img{height:40px;width:auto;display:block}
-.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
-.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
-        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:1px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px;border-radius:9px;
+        font-size:14px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
         border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
 .mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
 .mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
-.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
         background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
         white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
         transition:background .15s,box-shadow .15s}
 .mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
-.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:10px;
         background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
         white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
 .mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
@@ -644,10 +677,10 @@
    homepage needed 1312px uncompacted. */
 @media(min-width:1181px){
   .mfp-sh-in{gap:9px}
-  .mfp-sh-brand img{height:36px}
+  .mfp-sh-brand img{height:34px}
   .mfp-sh-tabs{gap:1px}
-  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
-  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
   .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
 }
 /* ===== shared site footer ================================================= */
@@ -679,6 +712,35 @@
   .mfp-sf-col{flex:1 1 44%;min-width:135px}
 }
 </style>
+<style id="mfp-tokens">
+/* MFP canonical design tokens — generated by sitegen/apply-design-tokens.mjs.
+   Do not hand-edit: regenerate from sitegen/design-tokens.mjs. */
+:root{--mfp-teal:#0E9D78;--mfp-teal-d:#047857;--mfp-mint:#DDF4EC;--mfp-ink:#17324A;--mfp-ink-2:#44586E;--mfp-mute:#5B6B7F;--mfp-line:#E3E9EF;--mfp-bg:#F7FAFC;--mfp-white:#FFFFFF;--mfp-amber:#BF7B0B;--mfp-red:#DC2626;--mfp-indigo:#4C62CE;--mfp-shell:1180px;--mfp-gutter:20px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--mfp-ink);background:var(--mfp-bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* One shell width: header, footer and page content share the same edges.
+   Qualified with "html body" on purpose. Several pages carry <style> blocks
+   INSIDE <body>, which land after this block in document order and would
+   otherwise win on source order at equal specificity. The extra element
+   selectors raise specificity to 0-1-2 so this rule holds regardless of
+   where a page's own stylesheet sits. Avoids !important, which is what
+   created the duplicate-override mess this replaces. */
+html body .wrap,html body .container,html body .mp,
+html body .mfp-sh-in,html body .mfp-sf-in{max-width:var(--mfp-shell);margin-inline:auto;
+  padding-inline:var(--mfp-gutter);width:100%;box-sizing:border-box}
+h1{font-size:clamp(26px,4.6vw,38px);line-height:1.18;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,28px);line-height:1.25;letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.2vw,20px);line-height:1.35}
+h1,h2,h3{text-wrap:balance}
+/* nothing below the legible floor */
+body,p,li,td,th,label,input,select,textarea,button,a,span,small{font-size:max(1em,12px)}
+small,.small{font-size:13px}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
+
+</style>
 </head>
 <body>
 <header class="mfp-sh">
@@ -686,7 +748,7 @@
     <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
       <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
     </a>
-    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/" aria-current="page">Financial Planning</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
     <a class="mfp-sh-alt" href="/partner/">Partner</a>
     <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
     <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
@@ -697,8 +759,8 @@
   <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
     <a href="/">Home<span aria-hidden="true">›</span></a>
     <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/" aria-current="page">Financial Planning<span aria-hidden="true">›</span></a>
     <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
-    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
     <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
     <a href="/about-us/">About<span aria-hidden="true">›</span></a>
     <a href="/download/">Download<span aria-hidden="true">›</span></a>
@@ -706,6 +768,18 @@
     <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
   </nav>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="mp" id="wiztop">
@@ -875,7 +949,7 @@
   <div class="shead"><img src="/app/assets/journey/s08.jpg" alt="" width="86" height="86" loading="lazy">
     <div><h2>Your financial plan</h2><p>Where you stand today, what it will cost, and what to do about it.</p></div></div>
 
-  <div class="top">
+  <div class="fp-top">
     <div class="card sc">
       <p class="ttl">FINANCIAL HEALTH SCORE</p>
       <div class="gg"><svg width="162" height="162" viewBox="0 0 162 162" aria-hidden="true">
@@ -1739,6 +1813,32 @@ function buildReport(){
       '<span class="fp" data-pageno></span></div>'+
       '<div class="fr2"><span class="dis">'+esc2(OWNER)+' Family Report</span>'+
       '<span class="dis">Date: '+esc2(PLANDATE)+' \u00B7 Plan '+PLANVER+'</span></div></div>'};
+  /* Cover artwork. Inline SVG, never emoji: emoji render as tofu in the PDF
+     wherever the system emoji font is absent. */
+  var RSMARK='<svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true">'+
+    '<rect x="2" y="2" width="60" height="60" rx="16" fill="#17324a"/>'+
+    '<text x="32" y="40" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" '+
+    'font-size="24" font-weight="700" fill="#fff">Rs</text>'+
+    '<path d="M44 34c0 6-5 11-11 11" stroke="#0e9d78" stroke-width="3" fill="none" stroke-linecap="round"/></svg>';
+
+  var COVERART='<svg viewBox="0 0 460 150" width="100%" height="150" aria-hidden="true">'+
+    '<rect x="40" y="128" width="380" height="9" rx="4.5" fill="#dff0d8"/>'+
+    '<rect x="78" y="78" width="7" height="52" fill="#8a6240"/>'+
+    '<circle cx="81" cy="62" r="25" fill="#2f8f5b"/><circle cx="62" cy="76" r="16" fill="#3da06a"/>'+
+    '<circle cx="100" cy="76" r="16" fill="#3da06a"/>'+
+    '<circle cx="372" cy="60" r="14" fill="#f5c53d"/>'+
+    '<g>'+
+      '<circle cx="196" cy="74" r="9" fill="#e8b48c"/>'+
+      '<path d="M187 86h18v34h-18z" fill="#2f5fa8"/><path d="M187 120h18v14h-18z" fill="#17324a"/>'+
+      '<circle cx="226" cy="80" r="8" fill="#e8b48c"/>'+
+      '<path d="M218 90h16v30h-16z" fill="#c0504d"/><path d="M218 118h16v16h-16z" fill="#17324a"/>'+
+      '<circle cx="254" cy="84" r="7" fill="#e8b48c"/>'+
+      '<path d="M247 93h14v27h-14z" fill="#0e9d78"/><path d="M247 118h14v16h-14z" fill="#17324a"/>'+
+      '<circle cx="284" cy="74" r="9" fill="#e8b48c"/>'+
+      '<path d="M274 86h20v48h-20z" fill="#d7b43a"/>'+
+      '<path d="M205 104h14M234 106h13M261 104h13" stroke="#e8b48c" stroke-width="3" stroke-linecap="round"/>'+
+    '</g></svg>';
+
   var NOWY=new Date().getFullYear();
   var sec=function(n,t,sub,body,pic,cls){
     return '<div class="rs'+(n<=2?' rbig':'')+(cls?' '+cls:'')+'">'+
@@ -2284,9 +2384,34 @@ function buildReport(){
        The app also prints "Page N" on the right - Chrome's print pipeline
        cannot number pages, so that slot is intentionally left empty. */
 
-    '<div class="rh"><div class="pe">PREPARED EXCLUSIVELY FOR</div>'+
-    '<h1>'+esc2(name.toUpperCase())+'</h1>'+
-    '<div class="s">Personal Financial Planning Report \u00B7 '+esc2(dt)+' \u00B7 myfinancialplan.in</div></div>'+
+    /* Cover page. The app's cover is a designed page: mint masthead with the
+       Rs mark, the wordmark and tagline, a bordered "prepared for" card, the
+       plan date/version, a family illustration and a contact band. The web
+       cover used to be a name on an otherwise blank sheet - a real user's
+       export showed ~85% white space - so it is rebuilt to the app's spine. */
+    '<div class="rh">'+
+      '<div class="cvtop">'+
+        '<div class="cvmark">'+RSMARK+'</div>'+
+        '<div class="cvbrand"><i>MY</i> FINANCIAL PLAN</div>'+
+        '<div class="cvtag">Your Family. Your Goals. Your Financial Roadmap.</div>'+
+        '<div class="cvtag2">'+PLANMETA+'</div>'+
+      '</div>'+
+      '<div class="cvbody">'+
+        '<div class="cvcard">'+
+          '<div class="pe">PREPARED EXCLUSIVELY FOR</div>'+
+          '<h1>'+esc2(name)+'</h1>'+
+          '<div class="cvfam">The '+esc2(name)+' Family \u00B7 '+esc2(name)+' Family Report</div>'+
+        '</div>'+
+        '<div class="cvdate">Plan date: '+esc2(dt)+'   \u00B7   Plan '+PLANVER+'</div>'+
+        '<div class="cvrule"></div>'+
+        '<div class="cvart">'+COVERART+'</div>'+
+      '</div>'+
+      '<div class="cvfoot">'+
+        '<div class="cvf1"><b>My Financial Plan</b><span>Financial planning software</span></div>'+
+        '<div class="cvf2">care@myfinancialplan.in<span>myfinancialplan.in</span></div>'+
+      '</div>'+
+      '<div class="cvdis">Confidential \u00B7 financial planning illustration, not investment advice.</div>'+
+    '</div>'+
     '<div class="rs rfirst"><h2>READ THIS FIRST</h2><p class="rp">This report is an arithmetic projection built '+
     'from figures supplied by you. It assumes a constant annual return, excludes tax and loans unless stated, '+
     'and is not financial advice. Read the assumptions in section 18 before acting on any number in it.</p></div>'+
@@ -2455,11 +2580,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       </div>
       <div class="mfp-sf-col">
         <h4>Product</h4>
-        <a href="/app/">Open Web App</a>
+        <a href="/financial-planning/">Financial Planning Tool</a>
         <a href="/download/">Download Android App</a>
         <a href="/tools/">Free Tools</a>
-        <a href="/vanshavali/">Digital Vanshavali</a>
-        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
         <a href="/learn/">Learn</a>
       </div>
       <div class="mfp-sf-col">

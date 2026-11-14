@@ -119,7 +119,7 @@ nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
 img,svg,video,canvas{max-width:100%}
 /* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
 @media (max-width:620px){
-  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(100%,470px)!important}
 }
 @media (max-width:620px){
   /* grid tracks: a 1fr column still refuses to shrink below its content's */
@@ -171,95 +171,7 @@ img,svg,video,canvas{max-width:100%}
 
 
 
-<style id="mfp-site-chrome">
-/* ===== shared site header ================================================= */
-.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
-        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.mfp-sh *{box-sizing:border-box}
-.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
-.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
-.mfp-sh-brand img{height:40px;width:auto;display:block}
-.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
-.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
-        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
-        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
-.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
-.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
-.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
-        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
-        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
-        transition:background .15s,box-shadow .15s}
-.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
-.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
-        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
-        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
-.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
-/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
-.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
-        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
-.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
-        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
-        padding:0;color:#0f2233}
-.mfp-sh-burger svg{pointer-events:none}
-.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
-.mfp-sh-menu.open{display:block}
-.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
-        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
-        border-bottom:1px solid #eef2f6}
-.mfp-sh-menu a:last-child{border-bottom:0}
-.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
-.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
-        border-radius:11px;border-bottom:0;min-height:50px}
-.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
-        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
-        min-height:50px;font-weight:700}
-.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
-@media(max-width:1180px){
-  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
-  .mfp-sh-burger{display:flex}
-  .mfp-sh-in{padding:8px 14px}
-  .mfp-sh-brand img{height:34px}
-}
-/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
-   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
-   homepage needed 1312px uncompacted. */
-@media(min-width:1181px){
-  .mfp-sh-in{gap:9px}
-  .mfp-sh-brand img{height:36px}
-  .mfp-sh-tabs{gap:1px}
-  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
-  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
-  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
-}
-/* ===== shared site footer ================================================= */
-.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
-        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.mfp-sf *{box-sizing:border-box}
-.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
-.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
-.mfp-sf-brand{flex:1 1 250px;min-width:230px}
-.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
-.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
-.mfp-sf-col{flex:1 1 165px;min-width:150px}
-.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
-        margin:0 0 11px;font-weight:800}
-.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
-        color:#c9d6e2;text-decoration:none;line-height:1.45}
-.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
-.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
-        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
-        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
-.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
-.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
-        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
-.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
-@media(max-width:700px){
-  .mfp-sf-in{padding:30px 15px 22px}
-  .mfp-sf-cols{gap:22px}
-  .mfp-sf-col{flex:1 1 44%;min-width:135px}
-}
-</style>
+
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYC3NP9W42"></script>
@@ -318,6 +230,126 @@ img,svg,video,canvas{max-width:100%}
   ]
 }
 </script>
+
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1220px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:1px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px;border-radius:9px;
+        font-size:14px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:34px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style>
+<style id="mfp-tokens">
+/* MFP canonical design tokens — generated by sitegen/apply-design-tokens.mjs.
+   Do not hand-edit: regenerate from sitegen/design-tokens.mjs. */
+:root{--mfp-teal:#0E9D78;--mfp-teal-d:#047857;--mfp-mint:#DDF4EC;--mfp-ink:#17324A;--mfp-ink-2:#44586E;--mfp-mute:#5B6B7F;--mfp-line:#E3E9EF;--mfp-bg:#F7FAFC;--mfp-white:#FFFFFF;--mfp-amber:#BF7B0B;--mfp-red:#DC2626;--mfp-indigo:#4C62CE;--mfp-shell:1180px;--mfp-gutter:20px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--mfp-ink);background:var(--mfp-bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* One shell width: header, footer and page content share the same edges.
+   Qualified with "html body" on purpose. Several pages carry <style> blocks
+   INSIDE <body>, which land after this block in document order and would
+   otherwise win on source order at equal specificity. The extra element
+   selectors raise specificity to 0-1-2 so this rule holds regardless of
+   where a page's own stylesheet sits. Avoids !important, which is what
+   created the duplicate-override mess this replaces. */
+html body .wrap,html body .container,html body .mp,
+html body .mfp-sh-in,html body .mfp-sf-in{max-width:var(--mfp-shell);margin-inline:auto;
+  padding-inline:var(--mfp-gutter);width:100%;box-sizing:border-box}
+h1{font-size:clamp(26px,4.6vw,38px);line-height:1.18;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,28px);line-height:1.25;letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.2vw,20px);line-height:1.35}
+h1,h2,h3{text-wrap:balance}
+/* nothing below the legible floor */
+body,p,li,td,th,label,input,select,textarea,button,a,span,small{font-size:max(1em,12px)}
+small,.small{font-size:13px}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
+/* long-form: readable measure inside the shared shell */
+.wrap>p,.wrap>ul,.wrap>ol,article p,article ul,article ol{max-width:72ch}
+</style>
 </head><body>
 <a href="#main" class="mfp-skip">Skip to main content</a>
 <header class="mfp-sh">
@@ -325,7 +357,7 @@ img,svg,video,canvas{max-width:100%}
     <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
       <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
     </a>
-    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/learn/" aria-current="page">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/learn/" aria-current="page">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
     <a class="mfp-sh-alt" href="/partner/">Partner</a>
     <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
     <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
@@ -336,8 +368,8 @@ img,svg,video,canvas{max-width:100%}
   <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
     <a href="/">Home<span aria-hidden="true">›</span></a>
     <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
     <a href="/learn/" aria-current="page">Learn<span aria-hidden="true">›</span></a>
-    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
     <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
     <a href="/about-us/">About<span aria-hidden="true">›</span></a>
     <a href="/download/">Download<span aria-hidden="true">›</span></a>
@@ -345,6 +377,30 @@ img,svg,video,canvas{max-width:100%}
     <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
   </nav>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -466,7 +522,7 @@ img,svg,video,canvas{max-width:100%}
 <h2>Build your family plan now</h2>
 <p>One salary or two &mdash; put your own numbers in the free tools, it takes two minutes:</p>
 <div class="btns">
-<a class="hot" href="/financial-goal-calculator/">Family Goal Calculator (free)</a><a class="" href="/emergency-fund-calculator/">Emergency Fund</a><a class="" href="/human-life-value-calculator/">Life Cover (HLV)</a><a class="" href="/app/">Download the app</a></div>
+<a class="hot" href="/financial-goal-calculator/">Family Goal Calculator (free)</a><a class="" href="/emergency-fund-calculator/">Emergency Fund</a><a class="" href="/human-life-value-calculator/">Life Cover (HLV)</a><a class="" href="/financial-planning/">Build your financial plan</a></div>
 </section>
 <div class="pn"><span></span><a href="/learn/child-wedding-cost-2040-india/">Your child&rsquo;s wedding cost in 2040 &rarr;</a></div>
 </div>
@@ -539,11 +595,9 @@ img,svg,video,canvas{max-width:100%}
       </div>
       <div class="mfp-sf-col">
         <h4>Product</h4>
-        <a href="/app/">Open Web App</a>
+        <a href="/financial-planning/">Financial Planning Tool</a>
         <a href="/download/">Download Android App</a>
         <a href="/tools/">Free Tools</a>
-        <a href="/vanshavali/">Digital Vanshavali</a>
-        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
         <a href="/learn/">Learn</a>
       </div>
       <div class="mfp-sf-col">

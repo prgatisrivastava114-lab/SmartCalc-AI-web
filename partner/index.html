@@ -18,7 +18,7 @@
   "name": "MyFinancialPlan — Partner Mode for Advisors",
   "url": "https://www.myfinancialplan.in/partner/",
   "logo": "https://www.myfinancialplan.in/assets/brand/brand_logo.png",
-  "description": "Branded client PDF reports, client CRM, follow-up reminders, broadcast tools, LIC calculators and 30+ financial calculators for Indian insurance and mutual fund advisors.",
+  "description": "Branded client PDF reports, client CRM, follow-up reminders, broadcast tools and 30+ financial calculators for Indian insurance and mutual fund advisors.",
   "serviceType": ["Advisor Branding Tools", "Client Report Generator", "Advisor CRM", "Financial Planning Software"],
   "areaServed": ["India", "Varanasi", "Delhi NCR", "Mumbai", "Bengaluru", "Hyderabad", "Kolkata", "Chennai", "Pune", "Ahmedabad"],
   "offers": [
@@ -234,7 +234,7 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
    are in sitegen/apply-responsive-fix.mjs and RESPONSIVE_UI_AUDIT.html */
 img,svg,video,canvas{max-width:100%}
 @media (max-width:620px){
-  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(100%,470px)!important}
   .grid2,.grid3,.cardgrid,.cards{grid-template-columns:1fr!important}
   .grid2>*,.grid3>*,.cardgrid>*,.cards>*{min-width:0}
   input,select,textarea{min-width:0;max-width:100%}
@@ -247,29 +247,45 @@ img,svg,video,canvas{max-width:100%}
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#17324A">
 
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYC3NP9W42"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SYC3NP9W42');
+</script>
+
 <style id="mfp-site-chrome">
 /* ===== shared site header ================================================= */
 .mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 .mfp-sh *{box-sizing:border-box}
-.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-in{max-width:1220px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px}
 .mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
 .mfp-sh-brand img{height:40px;width:auto;display:block}
-.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
-.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
-        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:1px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px;border-radius:9px;
+        font-size:14px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
         border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
 .mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
 .mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
-.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
         background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
         white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
         transition:background .15s,box-shadow .15s}
 .mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
-.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:10px;
         background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
         white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
 .mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
 .mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
         border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
         padding:0;color:#0f2233}
@@ -293,12 +309,16 @@ img,svg,video,canvas{max-width:100%}
   .mfp-sh-in{padding:8px 14px}
   .mfp-sh-brand img{height:34px}
 }
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
 @media(min-width:1181px){
   .mfp-sh-in{gap:9px}
-  .mfp-sh-brand img{height:36px}
+  .mfp-sh-brand img{height:34px}
   .mfp-sh-tabs{gap:1px}
-  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
-  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
 }
 /* ===== shared site footer ================================================= */
 .mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
@@ -329,17 +349,35 @@ img,svg,video,canvas{max-width:100%}
   .mfp-sf-col{flex:1 1 44%;min-width:135px}
 }
 </style>
+<style id="mfp-tokens">
+/* MFP canonical design tokens — generated by sitegen/apply-design-tokens.mjs.
+   Do not hand-edit: regenerate from sitegen/design-tokens.mjs. */
+:root{--mfp-teal:#0E9D78;--mfp-teal-d:#047857;--mfp-mint:#DDF4EC;--mfp-ink:#17324A;--mfp-ink-2:#44586E;--mfp-mute:#5B6B7F;--mfp-line:#E3E9EF;--mfp-bg:#F7FAFC;--mfp-white:#FFFFFF;--mfp-amber:#BF7B0B;--mfp-red:#DC2626;--mfp-indigo:#4C62CE;--mfp-shell:1180px;--mfp-gutter:20px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--mfp-ink);background:var(--mfp-bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* One shell width: header, footer and page content share the same edges.
+   Qualified with "html body" on purpose. Several pages carry <style> blocks
+   INSIDE <body>, which land after this block in document order and would
+   otherwise win on source order at equal specificity. The extra element
+   selectors raise specificity to 0-1-2 so this rule holds regardless of
+   where a page's own stylesheet sits. Avoids !important, which is what
+   created the duplicate-override mess this replaces. */
+html body .wrap,html body .container,html body .mp,
+html body .mfp-sh-in,html body .mfp-sf-in{max-width:var(--mfp-shell);margin-inline:auto;
+  padding-inline:var(--mfp-gutter);width:100%;box-sizing:border-box}
+h1{font-size:clamp(26px,4.6vw,38px);line-height:1.18;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,28px);line-height:1.25;letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.2vw,20px);line-height:1.35}
+h1,h2,h3{text-wrap:balance}
+/* nothing below the legible floor */
+body,p,li,td,th,label,input,select,textarea,button,a,span,small{font-size:max(1em,12px)}
+small,.small{font-size:13px}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
 
-<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYC3NP9W42"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SYC3NP9W42');
-</script>
+</style>
 </head>
 <body>
 <a href="#main" class="mfp-skip">Skip to main content</a>
@@ -348,8 +386,8 @@ img,svg,video,canvas{max-width:100%}
     <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
       <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
     </a>
-    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
-    <a class="mfp-sh-alt" href="/partner/" aria-current="page">Partner</a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
     <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
     <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
             aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
@@ -359,15 +397,39 @@ img,svg,video,canvas{max-width:100%}
   <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
     <a href="/">Home<span aria-hidden="true">›</span></a>
     <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
     <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
-    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
     <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
     <a href="/about-us/">About<span aria-hidden="true">›</span></a>
     <a href="/download/">Download<span aria-hidden="true">›</span></a>
-    <a class="mfp-sh-malt" href="/partner/" aria-current="page">Partner</a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
     <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
   </nav>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <header class="hero"><div class="wrap">
   <div>
@@ -450,7 +512,6 @@ img,svg,video,canvas{max-width:100%}
       <div class="pcard"><h3>👥 Client CRM &amp; follow-ups</h3><p>Client list, follow-up reminders and notes — renewals and SIP starts never slip.</p></div>
       <div class="pcard"><h3>📣 Broadcast &amp; lead tracking</h3><p>Announcements to your full client list and simple lead tracking built in.</p></div>
       <div class="pcard"><h3>🧮 30+ pro calculators</h3><p>SIP to SSY, EMI to HLV, tax to goal planning — the complete free toolkit, always with you.</p></div>
-      <div class="pcard"><h3>🛡️ LIC premium tools</h3><p><a href="/tools/lic-premium-calculator/">All-plan premium calculator</a> with WhatsApp proposal share + <a href="/tools/lic-premium-reminder/">policy premium reminders</a>.</p></div>
       <div class="pcard"><h3>☁️ Web + Android, one login</h3><p>Cloud sync on every device — office computer, personal phone, your plans follow you.</p></div>
     </div>
   </div>
@@ -614,11 +675,9 @@ img,svg,video,canvas{max-width:100%}
       </div>
       <div class="mfp-sf-col">
         <h4>Product</h4>
-        <a href="/app/">Open Web App</a>
+        <a href="/financial-planning/">Financial Planning Tool</a>
         <a href="/download/">Download Android App</a>
         <a href="/tools/">Free Tools</a>
-        <a href="/vanshavali/">Digital Vanshavali</a>
-        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
         <a href="/learn/">Learn</a>
       </div>
       <div class="mfp-sf-col">
@@ -780,7 +839,7 @@ img,svg,video,canvas{max-width:100%}
     showDone('<div class="payok"><div class="big">🎉</div><h3>Payment successful!</h3>'
       +'<p><b>'+P.name+'</b> — <b>'+D+' days</b> active for <b>'+email+'</b> ('+T.l+').<br><br><b>Next step:</b> App ya webapp (myfinancialplan.in/app) kholo → Partner Mode → <b>&ldquo;Already purchased? Google login&rdquo;</b> card me wahi Google email chuno jisse payment ki hai — plan turant active ho jayega. Kisi bhi device pe, kabhi bhi.<br><br><b>App (APK) users:</b> Partner Mode me blue card dikhega → <b>STEP 1 · Open Google Sign-in</b> dabao (browser me myfinancialplan.in/auth.html khulega) → Google login karo → dikha <b>6-digit code</b> app me daal do → bas!</p>'
       +'<div class="pid">Payment ID: '+payId+'</div><br>'
-      +'<a class="btn b-teal" href="/app/" style="margin-top:14px">Open app →</a>'
+      +'<a class="btn b-teal" href="/financial-planning/" style="margin-top:14px">Open the planner</a>'
       +'<p class="paymini" style="margin-top:12px">Receipt SMS/email Razorpay bhejta hai. Problem ho — payment hua par plan active nahi? WhatsApp 88401 92702 par ye Payment ID bhej dein, emergency code mil jayega.</p></div>');
   }
 })();

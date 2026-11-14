@@ -242,7 +242,7 @@ img, video, canvas, svg, iframe, table {
 }
 .wrap, .container, .main-content {
   width: 100% !important;
-  max-width: 1280px !important;
+  
   margin: 0 auto !important;
   padding-left: 20px !important;
   padding-right: 20px !important;
@@ -354,7 +354,7 @@ img, video, canvas, svg, iframe, table {
 }
 .wrap, .container, .main-content {
   width: 100% !important;
-  max-width: 1280px !important;
+  
   margin: 0 auto !important;
   padding-left: 20px !important;
   padding-right: 20px !important;
@@ -467,7 +467,7 @@ img, video, canvas, svg, iframe, table {
 }
 .wrap, .container, .main-content {
   width: 100% !important;
-  max-width: 1280px !important;
+  
   margin: 0 auto !important;
   padding-left: 20px !important;
   padding-right: 20px !important;
@@ -587,7 +587,7 @@ img, video, canvas, svg, iframe, table {
 }
 .wrap, .container, .main-content {
   width: 100% !important;
-  max-width: 1280px !important;
+  
   margin: 0 auto !important;
   padding-left: 20px !important;
   padding-right: 20px !important;
@@ -842,7 +842,7 @@ text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.3)}
    instead of a squeezed row (same takeover rules the site already uses at ≤1024px).
    No navigation item is added, removed, renamed or reordered. */
 @media (min-width:1531px){
-  nav.top .wrap{max-width:1530px!important;gap:10px}
+  nav.top .wrap{gap:10px}
   nav.top .links{white-space:nowrap;gap:10px;font-size:12.5px}
   nav.top .links a{white-space:nowrap}
   nav.top .wrap>a:first-child{flex:0 0 auto}
@@ -889,7 +889,7 @@ nav.top .logo{width:auto;max-width:none;flex:0 0 auto;object-fit:contain}
 img,svg,video,canvas{max-width:100%}
 /* The footer logo carries style="height:84px;max-width:88vw" inline. On a phone */
 @media (max-width:620px){
-  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(88vw,470px)!important}
+  img[src*="brand_logo_light"]{height:auto!important;width:auto!important;max-width:min(100%,470px)!important}
 }
 @media (max-width:620px){
   /* grid tracks: a 1fr column still refuses to shrink below its content's */
@@ -943,24 +943,12 @@ img,svg,video,canvas{max-width:100%}
 
 
 <style id="mfp-mobile-sections">
-/* 2026-10-10 — phone layout repair for #pricing and #refer.
-   #refer's inner grids are inline-styled (grid-template-columns:1fr 1fr) with no
-   class, so earlier responsive rules could never reach them; inline styles need
-   !important. #pricing's card blowout is fixed at source above by scoping the
-   .hot tap-target rule away from .plan.hot. */
+
 @media (max-width:760px){
-  #refer div[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr) !important}
-  #refer div[style*="grid"]>*{min-width:0 !important}
-  #refer code,#refer input{word-break:break-all !important;max-width:100% !important}
   #pricing .plans,#pricing .pgrid{grid-template-columns:minmax(0,1fr) !important}
   #pricing .plan{min-width:0 !important}
 }
-@media (max-width:560px){
-  /* #refer action rows are inline display:flex — stack them so buttons are
-     full width instead of squeezing into tall circles */
-  #refer div[style*="display:flex"]{flex-direction:column;align-items:stretch}
-  #refer div[style*="display:flex"]>a{width:100%;justify-content:center;text-align:center}
-}
+
 </style>
 
 
@@ -977,26 +965,37 @@ img,svg,video,canvas{max-width:100%}
   <meta name="theme-color" content="#17324A">
 
 
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYC3NP9W42"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SYC3NP9W42');
+</script>
+
 <style id="mfp-site-chrome">
 /* ===== shared site header ================================================= */
 .mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 .mfp-sh *{box-sizing:border-box}
-.mfp-sh-in{max-width:1180px;margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px}
+.mfp-sh-in{max-width:1220px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px}
 .mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
 .mfp-sh-brand img{height:40px;width:auto;display:block}
-.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:3px}
-.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:9px;
-        font-size:14.5px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:1px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px;border-radius:9px;
+        font-size:14px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
         border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
 .mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
 .mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
-.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 18px;border-radius:10px;
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
         background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
         white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
         transition:background .15s,box-shadow .15s}
 .mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
-.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:10px;
         background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
         white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
 .mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
@@ -1031,10 +1030,10 @@ img,svg,video,canvas{max-width:100%}
    homepage needed 1312px uncompacted. */
 @media(min-width:1181px){
   .mfp-sh-in{gap:9px}
-  .mfp-sh-brand img{height:36px}
+  .mfp-sh-brand img{height:34px}
   .mfp-sh-tabs{gap:1px}
-  .mfp-sh-tabs a{padding:6px 9px;font-size:14px}
-  .mfp-sh-alt,.mfp-sh-cta{padding:6px 13px;font-size:14px;margin-left:4px}
+  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
   .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
 }
 /* ===== shared site footer ================================================= */
@@ -1066,15 +1065,35 @@ img,svg,video,canvas{max-width:100%}
   .mfp-sf-col{flex:1 1 44%;min-width:135px}
 }
 </style>
+<style id="mfp-tokens">
+/* MFP canonical design tokens — generated by sitegen/apply-design-tokens.mjs.
+   Do not hand-edit: regenerate from sitegen/design-tokens.mjs. */
+:root{--mfp-teal:#0E9D78;--mfp-teal-d:#047857;--mfp-mint:#DDF4EC;--mfp-ink:#17324A;--mfp-ink-2:#44586E;--mfp-mute:#5B6B7F;--mfp-line:#E3E9EF;--mfp-bg:#F7FAFC;--mfp-white:#FFFFFF;--mfp-amber:#BF7B0B;--mfp-red:#DC2626;--mfp-indigo:#4C62CE;--mfp-shell:1180px;--mfp-gutter:20px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--mfp-ink);background:var(--mfp-bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* One shell width: header, footer and page content share the same edges.
+   Qualified with "html body" on purpose. Several pages carry <style> blocks
+   INSIDE <body>, which land after this block in document order and would
+   otherwise win on source order at equal specificity. The extra element
+   selectors raise specificity to 0-1-2 so this rule holds regardless of
+   where a page's own stylesheet sits. Avoids !important, which is what
+   created the duplicate-override mess this replaces. */
+html body .wrap,html body .container,html body .mp,
+html body .mfp-sh-in,html body .mfp-sf-in{max-width:var(--mfp-shell);margin-inline:auto;
+  padding-inline:var(--mfp-gutter);width:100%;box-sizing:border-box}
+h1{font-size:clamp(26px,4.6vw,38px);line-height:1.18;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,28px);line-height:1.25;letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.2vw,20px);line-height:1.35}
+h1,h2,h3{text-wrap:balance}
+/* nothing below the legible floor */
+body,p,li,td,th,label,input,select,textarea,button,a,span,small{font-size:max(1em,12px)}
+small,.small{font-size:13px}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYC3NP9W42"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SYC3NP9W42');
-</script>
+</style>
 </head>
 <body id="top">
 <a href="#main" class="mfp-skip">Skip to main content</a>
@@ -1083,7 +1102,7 @@ img,svg,video,canvas{max-width:100%}
     <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
       <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
     </a>
-    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/" aria-current="page">Home</a><a href="/tools/">Free Tools</a><a href="/learn/">Learn</a><a href="/vanshavali/">Vanshavali</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/" aria-current="page">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
     <a class="mfp-sh-alt" href="/partner/">Partner</a>
     <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
     <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
@@ -1094,8 +1113,8 @@ img,svg,video,canvas{max-width:100%}
   <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
     <a href="/" aria-current="page">Home<span aria-hidden="true">›</span></a>
     <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
     <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
-    <a href="/vanshavali/">Vanshavali<span aria-hidden="true">›</span></a>
     <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
     <a href="/about-us/">About<span aria-hidden="true">›</span></a>
     <a href="/download/">Download<span aria-hidden="true">›</span></a>
@@ -1103,6 +1122,30 @@ img,svg,video,canvas{max-width:100%}
     <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
   </nav>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1131,8 +1174,7 @@ img,svg,video,canvas{max-width:100%}
     <p class="lede">Child education, daughter's marriage, your dream home, a worry-free pension, even a legacy — one guided plan with exact monthly investments and a branded PDF. Plus <b>30+ smart calculators</b> for every money question — free, instant, private.</p>
     <p class="lede" style="margin-top:10px;font-weight:700;color:#0E9D78">आपके पूरे परिवार का financial plan — सिर्फ़ 5 मिनट में, बिल्कुल free।</p>
     <div class="cta-row">
-      <a class="btn b-teal b-big" href="/app/">🚀 Start My Family Plan — free</a>
-      <a class="btn b-indigo b-big" href="/downloads/SmartCalcAI-v2.35.0+62.apk" target="_blank" rel="noopener" aria-label="Download Latest APK">📲 Download Latest APK</a>
+      <a class="btn b-teal b-big" href="/financial-planning/">🚀 Start My Family Plan — free</a>
       </div><!-- /cta-row -->
     </div><!-- /hero text column -->
     <div class="hero-vis rise on">
@@ -1434,7 +1476,6 @@ if(trk)trk.addEventListener('scroll',function(){
     </div>
   </div>
   <div class="tgrid">
-    <a class="toolc" style="background:var(--gold-bg);border:1.5px solid #F0D494" href="/vanshavali/"><b>🌳 Digital Vanshavali 👑</b><span>7-Gen Lineage & Vault (Premium)</span></a>
     
     <a class="toolc" style="background:var(--mint)" href="tools/sip-calculator/"><b>💹 SIP Calculator</b><span>Monthly wealth builder</span></a>
     <a class="toolc" style="background:var(--lav)" href="tools/swp-calculator/"><b>🏖️ SWP Calculator</b><span>Pension from corpus</span></a>
@@ -1454,130 +1495,11 @@ if(trk)trk.addEventListener('scroll',function(){
     <div class="step"><b>Share the PDF / start</b><p>Download the branded report, talk to your RM, start investing with confidence.</p></div>
   </div>
 </div></section>
-<section id="refer" style="background:linear-gradient(135deg,#17324A,#1E4260);color:#fff;padding:60px 0;margin-top:20px">
-  <div class="wrap rise on">
-    <span class="kick" style="background:rgba(255,255,255,.15);color:#5FE3B8">🪙 Refer & Earn Coins</span>
-    <h2 class="sec-h" style="color:#fff">Coin Rewards & Plan Rebates</h2>
-    <p class="sec-s" style="color:#C5D5E4">Earn coins for referring families or advisor partners. Redeem coins for instant plan rebates, free PDF reports, and subscription discounts.</p>
-    <!-- Interactive Mode Switcher -->
-    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-      <button class="ctab on" id="rtab-ind" onclick="switchReferTab('ind')" style="background:#fff;color:var(--ink)">👨‍👩‍👧‍👦 Individual Mode (Families)</button>
-      <button class="ctab" id="rtab-part" onclick="switchReferTab('part')" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">💼 Partner Mode (Advisors)</button>
-    </div>
-      
 
-    <div style="margin-top:20px;background:#fff;color:var(--ink);border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.25)">
-      
-      <!-- Individual Mode View -->
-      <div id="rbox-ind">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🪙 Family Coin Rewards</h3>
-            <p style="font-size:14px;color:var(--ink2);margin-bottom:14px">Earn <b>50 Coins</b> per family referred + <b>20 Bonus Coins</b> on completing your profile. 100 Coins = ₹100 Rebate!</p>
-            <div style="background:var(--cream);border:1.5px solid #F0D494;padding:14px;border-radius:14px;text-align:center">
-              <span style="font-size:12px;font-weight:800;color:#7A4E00;text-transform:uppercase">Family Coin Balance</span>
-              <div style="font-size:32px;font-weight:900;color:#8F5C00">100 🪙 (₹100 Rebate)</div>
-            </div>
-          </div>
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🔗 Share & Redeem</h3>
-            <p style="font-size:13.5px;color:var(--ink2)">Share your personal link with friends on WhatsApp or social media:</p>
-            <div style="background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:10px;font-family:monospace;font-size:13px;word-break:break-all;margin:10px 0;text-align:center">https://www.myfinancialplan.in/app/?ref=FAMILY</div>
-            <div style="display:flex;gap:10px">
-              <a href="/refer.html" class="btn b-indigo" style="flex:1;justify-content:center">Open Coin Portal →</a>
-              <a href="https://wa.me/?text=Hi%21%20Use%20my%20link%20to%20plan%20your%20family%20financial%20goals%20for%20free%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2Fapp%2F%3Fref%3DFAMILY" target="_blank" class="btn b-wa">WhatsApp Share</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Partner Mode View -->
-      <div id="rbox-part" style="display:none">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">💎 Partner Rebate Desk</h3>
-            <p style="font-size:14px;color:var(--ink2);margin-bottom:14px">Earn <b>200 Partner Coins</b> per referred advisor + <b>50 Coins</b> per client lead conversion. Redeem for 50% subscription discounts!</p>
-            <div style="background:var(--lav);border:1.5px solid #B3C1F5;padding:14px;border-radius:14px;text-align:center">
-              <span style="font-size:12px;font-weight:800;color:var(--indigo);text-transform:uppercase">Partner Rebate Coins</span>
-              <div style="font-size:32px;font-weight:900;color:var(--indigo)">200 🪙 (50% Off Plan)</div>
-            </div>
-          </div>
-          <div>
-            <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">🔗 Advisor Join Link</h3>
-            <p style="font-size:13.5px;color:var(--ink2)">Invite fellow distributors and advisors to join Partner Desk:</p>
-            <div style="background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:10px;font-family:monospace;font-size:13px;word-break:break-all;margin:10px 0;text-align:center">https://www.myfinancialplan.in/?partner_ref=ADV8840</div>
-            <div style="display:flex;gap:10px">
-              <a href="/refer.html?mode=partner" class="btn b-teal" style="flex:1;justify-content:center">Open Partner Portal →</a>
-              <a href="https://wa.me/?text=Hi%21%20Join%20MyFinancialPlan%20Partner%20Desk%20with%20a%20FREE%207-day%20trial%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2F%3Fpartner_ref%3DADV8840" target="_blank" class="btn b-wa">WhatsApp Share</a>
-            </div>
-          </div>
-        <!-- Embedded LIC Partner Suite inside Home Page Partner View -->
-        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px">
-            <h4 style="font-size:16px;font-weight:800;color:var(--indigo);margin:0">📋 LIC Advisor Tools & All-Plan Calculator</h4>
-            <a href="/tools/lic-premium-calculator/" target="_blank" style="font-size:12px;font-weight:700;color:var(--teal);text-decoration:none">Open Standalone Tool ↗</a>
-          </div>
-          
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
-            <div>
-              <label style="font-size:12px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px">LIC Plan Table:</label>
-              <select id="hLicPlan" onchange="calcHomeLic()" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12.5px;font-weight:700">
-                <option value="936" selected>Table 936 — Jeevan Labh</option>
-                <option value="945">Table 945 — Jeevan Umang</option>
-                <option value="915">Table 915 — Jeevan Anand</option>
-                <option value="914">Table 914 — New Endowment</option>
-                <option value="920">Table 920 — Money Back 20Y</option>
-                <option value="871">Table 871 — Jeevan Utsav</option>
-                <option value="933">Table 933 — Jeevan Lakshya</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-size:12px;font-weight:800;color:var(--ink2);display:block;margin-bottom:3px" for="hLicSum">Sum Assured (₹):</label>
-              <input type="number" id="hLicSum" value="500000" step="50000" oninput="calcHomeLic()" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--line);font-size:12.5px;font-weight:700">
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;text-align:center">
-            <div style="background:var(--lav);padding:6px;border-radius:6px">
-              <span style="font-size:12px;font-weight:800;color:var(--ink2);text-transform:uppercase">Premium</span>
-              <b id="hOutPrem" style="display:block;font-size:14px;color:var(--indigo)" role="status" aria-live="polite">₹23,450</b>
-            </div>
-            <div style="background:var(--mint);padding:6px;border-radius:6px">
-              <span style="font-size:12px;font-weight:800;color:var(--ink2);text-transform:uppercase">Est. Bonus</span>
-              <b id="hOutBonus" style="display:block;font-size:14px;color:#0B7A5C" role="status" aria-live="polite">₹6,25,000</b>
-            </div>
-            <div style="background:var(--cream);padding:6px;border-radius:6px">
-              <span style="font-size:12px;font-weight:800;color:var(--ink2);text-transform:uppercase">Maturity</span>
-              <b id="hOutMat" style="display:block;font-size:14px;color:var(--amber)" role="status" aria-live="polite">₹11,25,000</b>
-            </div>
-          </div>
-          <div style="margin-top:8px;display:flex;gap:6px">
-            <button class="btn b-wa" style="flex:1;font-size:12px;padding:6px" onclick="shareHomeQuote()">📲 Share WhatsApp Proposal</button>
-            <a href="/tools/lic-premium-reminder/" target="_blank" class="btn b-indigo" style="font-size:12px;padding:6px">Policy Reminders ↗</a>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Featured Premium Banner: Digital Vanshavali -->
-<section id="vanshavali-featured" style="margin: 40px auto 20px auto; max-width: 1100px; padding: 0 20px;">
-  <div style="background:linear-gradient(135deg,#FFFDF0,#FFF6E3);border:1.5px solid #F0D494;border-radius:22px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;box-shadow:0 8px 24px -6px rgba(212,175,55,.25)">
-    <div style="flex:1; min-width:280px;">
-      <span style="background:linear-gradient(135deg,#D4AF37,#AA820A);color:#fff;font-weight:900;font-size:12px;padding:4px 12px;border-radius:99px;text-transform:uppercase;letter-spacing:.06em">👑 PREMIUM FEATURE</span>
-      <h3 style="font-size:20px;font-weight:900;color:var(--ink);margin:8px 0 4px 0">🌳 Digital Vanshavali (डिजिटल वंशावली)</h3>
-      <p style="font-size:13.5px;color:var(--ink2);margin:0;line-height:1.5">🥈 Silver (3 Gen Back + 1 Forward) · 🥇 Gold (5 Gen Back + 1 Forward + Vault) · 💎 Platinum (Unlimited 7+7 Gen & AI)</p>
-    </div>
-    <a href="./vanshavali/" class="btn b-gold" style="padding:12px 24px;font-size:14.5px;text-decoration:none;font-weight:800;border-radius:14px;box-shadow:0 6px 18px rgba(212,175,55,0.3)">Open Digital Vanshavali 👑</a>
-  </div>
-</section>
 <section id="pricing"><div class="wrap rise">
   <span class="kick">🚀 Launch pricing</span>
   <h2 class="sec-h">Launch offer: <span class="grad">first 1,000 families FREE.</span></h2>
-  <p class="sec-s">Early subscribers lock our lowest introductory prices — <b>first 1,000 family plans FREE</b>, then just ₹199 one-time, and <b>Founding 100 Partner plans at up to 67% off</b>. The counters below are live and drop as people join.</p>
-  <div class="lcbar">
-    <div class="lcbox"><span class="lcl">👨‍👩‍👧‍👦 FAMILY FREE SLOTS LEFT</span><b class="lcnum" id="lcFamN">1,000</b><span class="lcof">of 1,000 introductory slots</span></div>
-    <div class="lcbox"><span class="lcl">💼 FOUNDING PARTNER SLOTS LEFT</span><b class="lcnum" id="lcPtrN">100</b><span class="lcof">of 100 founding slots</span></div>
-  </div>
+  <p class="sec-s">Early subscribers lock our lowest introductory prices — <b>first 1,000 family plans FREE</b>, then just ₹199 one-time, and <b>Founding 100 Partner plans at up to 67% off</b>.</p>
   <div class="tbanner">🎁 <b>Every partner plan now starts with a FREE 7-day trial</b> <span>— no card, no payment. WhatsApp us, get your trial code, and activate in the app within 2 minutes.</span><br><a href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">Get free trial code →</a></div>
   <div class="ctabs" id="tenTabs" style="justify-content:center;margin-top:24px">
     <button class="ctab on" data-m="1" data-r="0" type="button">Monthly</button>
@@ -1590,9 +1512,9 @@ if(trk)trk.addEventListener('scroll',function(){
     <div class="plan hot">
       <span class="tag">FAMILY · ONE-TIME</span>
       <h3>Family Planner</h3>
-      <div class="freey">🎁 <b>FREE for first <span id="lcFamN2">1,000</span> families</b><br>then <s style="color:#9AA9BA;font-weight:800">₹299</s> <b>₹199 one-time</b> — full plan download</div>
+      <div class="freey">🎁 <b>FREE for first 1,000 families</b><br>then <s style="color:#9AA9BA;font-weight:800">₹299</s> <b>₹199 one-time</b> — full plan download</div>
       <ul><li>Full 5-minute financial plan</li><li>All 30+ calculators free forever</li><li>PDF report (EN + हिं)</li><li>Cloud sync on every device</li></ul>
-      <a class="btn b-teal" href="/app/">Start free →</a>
+      <a class="btn b-teal" href="/financial-planning/">Start free →</a>
       <div class="addon">➕ <b>Optional add-on:</b> dashboard tracking + expert review service — <b>₹<span class="pval" data-mo="99">99</span>/month</b><br><span class="bill" data-bill data-mo="99"></span></div>
     </div>
     <div class="plan">
@@ -1626,81 +1548,10 @@ if(trk)trk.addEventListener('scroll',function(){
       <a class="tlink" href="https://wa.me/918840192702?text=Hi%21%20Mujhe%20Partner%20Mode%20FREE%207-day%20trial%20code%20chahiye.">or start FREE 7-day trial →</a>
     </div>
   </div>
-  <div class="refbox">🤝 <b>Refer &amp; Earn during launch:</b> every successful referral earns you <b>+5% OFF on your next payment</b> — and your friend gets <b>5% OFF on their first payment</b> too. <a href="#refer">See Coin Rewards →</a></div>
+  <div class="refbox">🤝 <b>Refer &amp; Earn during launch:</b> every successful referral earns you <b>+5% OFF on your next payment</b> — and your friend gets <b>5% OFF on their first payment</b> too.</div>
   <p class="pnote">Pay securely online via Razorpay (UPI · Card · NetBanking) · your plan auto-activates right after payment · auto-renewal coming soon. Introductory prices are locked for early subscribers — once the slots fill, regular MRP applies.</p>
 </div></section>
-<section id="legal" style="background:var(--bg);border-top:1px solid var(--line);padding:60px 0">
-  <div class="wrap rise on">
-    <span class="kick">Trust & Transparency</span>
-    <h2 class="sec-h">Legal & Compliance Policies</h2>
-    <p class="sec-s">Clear, user-first terms governing data privacy, 100% free trials, money-back guarantees, and website cookies.</p>
-    <div class="ctabs" style="margin-top:20px">
-      <button class="ctab on" id="ltab-privacy" onclick="switchLegalTab('privacy')">🛡️ Privacy Policy</button>
-      <button class="ctab" id="ltab-terms" onclick="switchLegalTab('terms')">📜 Terms & Conditions</button>
-      <button class="ctab" id="ltab-refund" onclick="switchLegalTab('refund')">💳 Refund & Cancellation</button>
-      <button class="ctab" id="ltab-cookies" onclick="switchLegalTab('cookies')">🍪 Cookies Policy</button>
-    </div>
-      
 
-    <div style="margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:0 6px 26px -14px rgba(23,50,74,.12)">
-      <!-- Privacy Policy Tab Content -->
-      <div id="lbox-privacy" class="lbox">
-        <h3 style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px">Privacy Policy</h3>
-        <p style="font-size:13px;color:var(--ink2);margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:10px">Effective Date: September 13, 2026 · Entity: My Financial Plan (MyFinancialPlan.in / SmartCalc AI)</p>
-        <p style="color:var(--ink2);font-size:14.5px;line-height:1.7;margin-bottom:12px">At <b>My Financial Plan</b>, your privacy is paramount. This policy details how we manage and safeguard your financial calculations and personal data across our Web and Android applications.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">1. Local Storage First (Client-Side Math)</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">When using our 30+ financial calculators without logging in, all numbers (income, SIPs, loans, age) are calculated 100% locally inside your browser (<code>localStorage</code>). No calculator entries are transmitted to our servers.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">2. Google Sign-In & Cloud Sync</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">When signing in via Google Identity (<code>auth.html</code>), we store basic profile details (email address and name) to authenticate and sync your saved financial plans securely across devices in Google Cloud Firestore (<code>smartcalc-ai-638a9</code>).</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">3. We Never Sell Your Data</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">We do <b>NOT</b> sell, rent, or trade your personal or financial data to third-party telemarketers, credit bureaus, or ad networks.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">4. Data Deletion Rights</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">You have the right to request full account and data deletion at any time by emailing <a href="mailto:care@myfinancialplan.in" style="color:var(--indigo);font-weight:700">care@myfinancialplan.in</a> or WhatsApping +91 88401 92702.</p>
-        <a href="/privacy/" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Privacy Policy Document →</a>
-      </div>
-      <!-- Terms & Conditions Tab Content -->
-      <div id="lbox-terms" class="lbox" style="display:none">
-        <h3 style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px">Terms & Conditions</h3>
-        <p style="font-size:13px;color:var(--ink2);margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:10px">Effective Date: September 13, 2026 · Entity: My Financial Plan (MyFinancialPlan.in / SmartCalc AI)</p>
-        <div style="background:#FFF6E3;border:1.5px solid #F0DDB0;color:#7A5406;padding:12px 16px;border-radius:12px;font-size:13.5px;line-height:1.5;margin-bottom:14px">
-          <b>⚠️ Financial Disclaimer:</b> All calculations, estimates, and PDF reports are provided for <b>educational and planning guidance only</b>. They do not constitute registered investment advice or loan approvals.
-        </div>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">1. Scope of Service</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">By accessing <code>www.myfinancialplan.in</code>, using our Web App (<code>/app/</code>), or downloading our Android app, you agree to these Terms. Tools provide estimated projections based on standard mathematical formulas.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">2. Partner Mode Subscriptions</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">Advisor Partner plans (Silver ₹99, Gold ₹299, Platinum ₹999) grant access to branded client PDFs and CRM features. All partner plans include a 100% FREE 7-day trial with no card required.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">3. Governing Law</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">These terms are governed by the laws of India. Any disputes are subject to the exclusive jurisdiction of the courts in Varanasi, Uttar Pradesh, India.</p>
-        <a href="/terms/" style="display:inline-block;background:var(--lav);color:var(--indigo);padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Terms & Conditions Document →</a>
-      </div>
-      <!-- Refund Policy Tab Content -->
-      <div id="lbox-refund" class="lbox" style="display:none">
-        <h3 style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px">Refund & Cancellation Policy</h3>
-        <p style="font-size:13px;color:var(--ink2);margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:10px">Effective Date: September 13, 2026 · Entity: My Financial Plan (MyFinancialPlan.in / SmartCalc AI)</p>
-        <div style="background:#DDF4EC;border:1.5px solid #0E9D78;color:#0B7A5C;padding:12px 16px;border-radius:12px;font-size:13.5px;line-height:1.5;margin-bottom:14px">
-          🎁 <b>100% Free 7-Day Trial:</b> Test any Partner plan for 7 days without paying a single rupee or entering payment details.
-        </div>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">1. 7-Day Money-Back Guarantee</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">If you purchase a paid Partner subscription and are not 100% satisfied for any reason, request a full refund within 7 days of activation.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">2. Refund Request & Processing</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">Simply message us on WhatsApp (+91-88401-92702) or email <code><a href="mailto:care@myfinancialplan.in">care@myfinancialplan.in</a></code>. Approved refunds are processed within 24 hours and credited to your UPI/bank account within 5–7 working days.</p>
-        <a href="/refund/" style="display:inline-block;background:var(--mint);color:#0B7A5C;padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Refund Policy Document →</a>
-      </div>
-      <!-- Cookies Policy Tab Content -->
-      <div id="lbox-cookies" class="lbox" style="display:none">
-        <h3 style="font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px">Cookies & Local Storage Policy</h3>
-        <p style="font-size:13px;color:var(--ink2);margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:10px">Effective Date: September 13, 2026 · Entity: My Financial Plan (MyFinancialPlan.in / SmartCalc AI)</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">1. Essential Local Storage</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px">We use browser <code>localStorage</code> to save your active calculator inputs and language selection (English / Hindi) so you don't lose data when navigating between pages.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">2. Session Security & Auth</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:12px"><code>sessionStorage</code> is used for Owner Admin 2FA (<code>/admin/</code>) and is cleared as soon as you close your browser tab. Google Identity Services uses standard auth cookies to maintain secure sign-in.</p>
-        <h4 style="font-size:16px;font-weight:800;color:var(--ink);margin:16px 0 6px">3. No Ad-Tracking Cookies</h4>
-        <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:16px">We do not deploy invasive third-party ad trackers or cross-site behavioral tracking scripts.</p>
-        <a href="/cookies/" style="display:inline-block;background:var(--lav);color:var(--indigo);padding:10px 18px;border-radius:99px;font-weight:800;font-size:13px;text-decoration:none">View Full Cookies Policy Document →</a>
-      </div>
-    </div>
-  </div>
-</section>
 <section id="faq" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap rise">
   <span class="kick">Good questions</span>
   <h2 class="sec-h">FAQ</h2>
@@ -1785,11 +1636,9 @@ if(trk)trk.addEventListener('scroll',function(){
       </div>
       <div class="mfp-sf-col">
         <h4>Product</h4>
-        <a href="/app/">Open Web App</a>
+        <a href="/financial-planning/">Financial Planning Tool</a>
         <a href="/download/">Download Android App</a>
         <a href="/tools/">Free Tools</a>
-        <a href="/vanshavali/">Digital Vanshavali</a>
-        <a href="/tools/lic-premium-calculator/">LIC Calculator &amp; Reminders</a>
         <a href="/learn/">Learn</a>
       </div>
       <div class="mfp-sf-col">
@@ -1808,7 +1657,6 @@ if(trk)trk.addEventListener('scroll',function(){
         <a href="/investment-adviser/">Investment Adviser</a>
         <a href="/wealth-manager/">Wealth Manager</a>
         <a href="/refer/">Refer &amp; Earn</a>
-        <a href="/partner/">For Advisors — Partner Mode</a>
       </div>
       <div class="mfp-sf-col">
         <h4>Legal &amp; Policies</h4>
@@ -1995,7 +1843,7 @@ function shareHomeQuote(){
     <span>Home</span>
   </a>
   <!-- Tab 2: Financial Planning -->
-  <a href="./app/index.html" class="m-tab-item" style="display:flex; flex-direction:column; align-items:center; gap:2px; color:#075E46; text-decoration:none; font-size:12px; font-weight:800; padding:6px 8px; border-radius:12px; background:#FFFFFF; border:1px solid #BCE5D9; box-shadow:0 2px 6px rgba(14,157,120,0.18); width:36%; text-align:center;">
+  <a href="/financial-planning/" class="m-tab-item" style="display:flex; flex-direction:column; align-items:center; gap:2px; color:#075E46; text-decoration:none; font-size:12px; font-weight:800; padding:6px 8px; border-radius:12px; background:#FFFFFF; border:1px solid #BCE5D9; box-shadow:0 2px 6px rgba(14,157,120,0.18); width:36%; text-align:center;">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="#0E9D78"/>
     </svg>
@@ -2100,47 +1948,7 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
   .lnks{line-height:1.5 !important}
 }
 </style>
-<script>
-/* — launch pricing: tenure rebate calculator — */
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('#tenTabs .ctab'));
-  if(!tabs.length) return;
-  function fmt(n){ return Math.round(n).toLocaleString('en-IN'); }
-  function upd(m,r,btn){
-    window.mfpTenure={m:m,r:r};
-    tabs.forEach(function(b){ b.classList.toggle('on', b===btn); });
-    document.querySelectorAll('.plan .pval').forEach(function(el){
-      var mo=parseFloat(el.getAttribute('data-mo'))||0;
-      el.textContent=fmt(mo*(1-r/100));
-    });
-    document.querySelectorAll('[data-bill]').forEach(function(el){
-      var mo=parseFloat(el.getAttribute('data-mo'))||0;
-      if(m===1){ el.textContent='Monthly billing · pick 3, 6 or 12 months above to save 5–20%'; return; }
-      var total=mo*m*(1-r/100), full=mo*m;
-      el.textContent='Billed ₹'+fmt(total)+' every '+m+' months · you save ₹'+fmt(full-total);
-    });
-    document.querySelectorAll('.plan .pper-m').forEach(function(el){ el.textContent = m===1 ? '/mo' : '/mo eff.'; });
-  }
-  tabs.forEach(function(b){ b.addEventListener('click', function(){ upd(parseInt(b.getAttribute('data-m'),10), parseInt(b.getAttribute('data-r'),10), b); }); });
-  upd(1,0,tabs[0]);
-})();
-/* — launch counters (live from Firestore public_stats/launch) — */
-(function(){
-  var URL='https://firestore.googleapis.com/v1/projects/smartcalc-ai-638a9/databases/(default)/documents/config/launch?key=AIzaSyA5Sc1oRm0E9qIkCgZhYeTxlqiUddVrBIc';
-  function put(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
-  try{
-    fetch(URL).then(function(r){ return r.json(); }).then(function(d){
-      var f=(d&&d.fields)||{};
-      var famU=parseInt((f.fam_used||{}).integerValue||'0',10)||0;
-      var ptrU=parseInt((f.ptr_used||{}).integerValue||'0',10)||0;
-      var fam=Math.max(0,1000-famU), ptr=Math.max(0,100-ptrU);
-      var famS=fam.toLocaleString('en-IN');
-      put('lcFamN',famS); put('lcFamN2',famS); put('lcPtrN',ptr.toLocaleString('en-IN'));
-      if(fam===0){ put('lcFamN','0'); }
-    }).catch(function(){});
-  }catch(_){}
-})();
-</script>
+
 <style>
 .pten{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
 .pten button{border:1.5px solid #DCE6EF;background:#fff;border-radius:99px;padding:8px 13px;font:800 12.5px/1 inherit;color:#38506B;cursor:pointer}
@@ -2272,7 +2080,7 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
     showDone('<div class="payok"><div class="big">🎉</div><h3>Payment successful!</h3>'
       +'<p><b>'+P.name+'</b> — <b>'+D+' days</b> active for <b>'+email+'</b> ('+T.l+').<br><br><b>Next step:</b> App ya webapp (myfinancialplan.in/app) kholo → Partner Mode → <b>&ldquo;Already purchased? Google login&rdquo;</b> card me wahi Google email chuno jisse payment ki hai — plan turant active ho jayega. Kisi bhi device pe, kabhi bhi.<br><br><b>App (APK) users:</b> Partner Mode me blue card dikhega → <b>STEP 1 · Open Google Sign-in</b> dabao (browser me myfinancialplan.in/auth.html khulega) → Google login karo → dikha <b>6-digit code</b> app me daal do → bas!</p>'
       +'<div class="pid">Payment ID: '+payId+'</div><br>'
-      +'<a class="btn b-teal" href="/app/" style="margin-top:14px">Open app →</a>'
+      +'<a class="btn b-teal" href="/financial-planning/" style="margin-top:14px">Open the planner</a>'
       +'<p class="paymini" style="margin-top:12px">Receipt SMS/email Razorpay bhejta hai. Problem ho — payment hua par plan active nahi? WhatsApp 88401 92702 par ye Payment ID bhej dein, emergency code mil jayega.</p></div>');
   }
 })();
