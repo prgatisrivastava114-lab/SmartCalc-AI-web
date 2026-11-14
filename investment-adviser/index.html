@@ -269,14 +269,14 @@ img,svg,video,canvas{max-width:100%}
   .mfp-sh-in{padding:8px 14px}
   .mfp-sh-brand img{height:34px}
 }
-/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+/* Desktop compaction: 8 tabs (NRI added 2026-11-14) + Partner + CTA (+ the homepage हिन्दी toggle)
    must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
    homepage needed 1312px uncompacted. */
 @media(min-width:1181px){
-  .mfp-sh-in{gap:9px}
+  .mfp-sh-in{gap:7px}
   .mfp-sh-brand img{height:34px}
   .mfp-sh-tabs{gap:1px}
-  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-tabs a{padding:6px 4px;font-size:13.5px}
   .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
   .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
 }
@@ -346,7 +346,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
     <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
       <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
     </a>
-    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/about-us/">About Us</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/nri/">NRI</a><a href="/download/">Download</a></nav>
     <a class="mfp-sh-alt" href="/partner/">Partner</a>
     <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
     <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
@@ -356,14 +356,13 @@ img,svg,video,canvas{max-width:100%;height:auto}
   </div>
   <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
     <a href="/">Home<span aria-hidden="true">›</span></a>
-    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
-    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About Us<span aria-hidden="true">›</span></a>
     <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
     <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
-    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
+    <a href="/nri/">NRI<span aria-hidden="true">›</span></a>
     <a href="/download/">Download<span aria-hidden="true">›</span></a>
-    <a class="mfp-sh-malt" href="/partner/">Partner</a>
-    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
   </nav>
 </header>
 
