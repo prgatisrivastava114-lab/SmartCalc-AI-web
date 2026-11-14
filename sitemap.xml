@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.myfinancialplan.in/</loc>
     <lastmod>2026-11-14</lastmod>
@@ -49,22 +50,49 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.myfinancialplan.in/hi/nri/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/hi/nri/financial-plan/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/financial-plan/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/financial-plan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/financial-plan/"/>
+  </url>
+  <url>
     <loc>https://www.myfinancialplan.in/hi/nri/nro-tds-dtaa-calculator/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/nro-tds-dtaa-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/nro-tds-dtaa-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/nro-tds-dtaa-calculator/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/hi/nri/property-sale-tds-calculator/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/property-sale-tds-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/property-sale-tds-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/property-sale-tds-calculator/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/hi/nri/residential-status-calculator/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/residential-status-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/residential-status-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/residential-status-calculator/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/human-life-value-calculator/</loc>
@@ -85,22 +113,49 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.myfinancialplan.in/nri/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/nri/financial-plan/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/financial-plan/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/financial-plan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/financial-plan/"/>
+  </url>
+  <url>
     <loc>https://www.myfinancialplan.in/nri/nro-tds-dtaa-calculator/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/nro-tds-dtaa-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/nro-tds-dtaa-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/nro-tds-dtaa-calculator/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/nri/property-sale-tds-calculator/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/property-sale-tds-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/property-sale-tds-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/property-sale-tds-calculator/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/nri/residential-status-calculator/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/residential-status-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/residential-status-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/residential-status-calculator/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/retirement-goal-calculator/</loc>
@@ -247,6 +302,60 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.myfinancialplan.in/hi/nri/accounts-nre-nro-fcnr/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/accounts-nre-nro-fcnr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/hi/nri/repatriation/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/repatriation/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/repatriation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/repatriation/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/hi/nri/returning-to-india/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/returning-to-india/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/returning-to-india/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/returning-to-india/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/accounts-nre-nro-fcnr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/nri/repatriation/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/repatriation/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/repatriation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/repatriation/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/nri/returning-to-india/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/returning-to-india/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/returning-to-india/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/returning-to-india/"/>
+  </url>
+  <url>
     <loc>https://www.myfinancialplan.in/tools/monthly-budget-planner/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -344,66 +453,6 @@
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/about-us/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/hi/nri/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/hi/nri/accounts-nre-nro-fcnr/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/hi/nri/financial-plan/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/hi/nri/repatriation/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/hi/nri/returning-to-india/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/nri/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/nri/financial-plan/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/nri/repatriation/</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.myfinancialplan.in/nri/returning-to-india/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
