@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NRI financial plan calculator — two currencies, RNOR and repatriation | My Financial Plan</title>
+<meta name="description" content="A financial planner built for NRIs: goals priced where they will be spent, your currency mismatch, the RNOR window on return and the USD 1 million runway.">
+<link rel="canonical" href="https://www.myfinancialplan.in/nri/financial-plan/">
+<meta property="og:title" content="NRI financial plan calculator — two currencies, RNOR and repatriation | My Financial Plan">
+<meta property="og:description" content="A financial planner built for NRIs: goals priced where they will be spent, your currency mismatch, the RNOR window on return and the USD 1 million runway.">
+<meta property="og:url" content="https://www.myfinancialplan.in/nri/financial-plan/">
+<meta property="og:type" content="website">
+<meta name="robots" content="index,follow">
+<link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/financial-plan/">
+<link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/financial-plan/">
+<link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/financial-plan/">
+<style id="mfp-site-chrome">
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1220px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:1px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px;border-radius:9px;
+        font-size:14px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:34px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style></style>
+<style id="mfp-nri-css">
+.nri-hero{background:linear-gradient(135deg,#0B3B2E,#12624A);color:#fff;border-radius:18px;padding:30px 32px;margin:18px 0}
+.nri-hero h1{margin:0 0 10px;font-size:clamp(25px,3.3vw,34px);line-height:1.2;letter-spacing:-.5px;color:#fff}
+.nri-hero p{margin:0;opacity:.92;font-size:16px;max-width:66ch}
+.nri-hero .asat{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.2);font-size:12.5px;opacity:.8}
+.nri-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));margin:16px 0}
+.nri-grid a{display:block;background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:14px;
+ padding:16px 18px;text-decoration:none;color:var(--mfp-ink,#17324A);font-weight:700;line-height:1.35;
+ transition:border-color .15s,box-shadow .15s,transform .15s}
+.nri-grid a span{display:block;margin-top:5px;font-weight:500;font-size:13px;color:var(--mfp-ink-2,#44586E)}
+.nri-grid a:hover{border-color:var(--mfp-teal,#0E9D78);box-shadow:0 6px 18px -10px rgba(14,157,120,.45);transform:translateY(-1px)}
+.nri-card{background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:16px;padding:22px 24px;margin:16px 0}
+.nri-calc{background:#F7FBFA;border:1.5px solid #A3E2D0;border-radius:16px;padding:22px 24px;margin:18px 0}
+.nri-calc label{display:block;font-weight:700;font-size:13.5px;margin:12px 0 4px;color:#17324A}
+.nri-calc input,.nri-calc select{width:100%;padding:11px 13px;border:1px solid #CBD6E0;border-radius:9px;
+ font-size:15px;font-family:inherit;background:#fff;color:#17324A}
+.nri-calc input:focus,.nri-calc select:focus{outline:2px solid var(--mfp-teal,#0E9D78);outline-offset:1px;border-color:var(--mfp-teal,#0E9D78)}
+.nri-fields{display:grid;gap:4px 18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.nri-out{margin-top:20px;border-top:1.5px dashed #A3E2D0;padding-top:16px}
+.nri-big{background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:12px;padding:14px 16px;margin:10px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.nri-big>div{display:flex;flex-direction:column;min-width:0}
+.nri-big .lbl{font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:#5A6B7D;font-weight:800}
+.nri-big .val{font-size:clamp(21px,3vw,27px);font-weight:900;letter-spacing:-.5px;margin-top:2px}
+.nri-big.alarm{border-color:#FECDCA;background:#FEF3F2}.nri-big.alarm .val{color:#B42318}
+.nri-big.good{border-color:#ABEFC6;background:#ECFDF3}.nri-big.good .val{color:#067647}
+.nri-note{font-size:13px;color:#5A6B7D;margin-top:8px;line-height:1.55}
+.nri-caution{border-radius:12px;padding:13px 15px;margin:14px 0;font-size:14px;line-height:1.6}
+.nri-caution-dispute{background:#FFFAEB;border:1px solid #FEDF89;color:#7A4A05}
+.nri-caution-unver{background:#FEF3F2;border:1px solid #FECDCA;color:#8A2820}
+.nri-tbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.nri-tbl th,.nri-tbl td{border:1px solid var(--mfp-line,#E3E9EF);padding:9px 11px;text-align:left;vertical-align:top}
+.nri-tbl th{background:#F7FAFC;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:#5A6B7D}
+.nri-tbl tr:nth-child(even) td{background:#FBFCFD}
+.nri-faq{border-top:1px solid var(--mfp-line,#E3E9EF);padding:14px 0}
+.nri-faq h3{margin:0 0 6px;font-size:15.5px}
+.nri-faq p{margin:0;color:#44586E;font-size:14.5px}
+.nri-src{font-size:13px;color:#67798C;line-height:1.6}
+.nri-src a{color:#0B5F49}
+.nri-disc{background:#F7FAFC;border:1px solid var(--mfp-line,#E3E9EF);border-radius:12px;padding:15px 17px;
+ font-size:13.5px;color:#44586E;line-height:1.6;margin:16px 0}
+.nri-steps{counter-reset:s;list-style:none;padding:0;margin:10px 0}
+.nri-steps li{counter-increment:s;position:relative;padding-left:40px;margin:10px 0}
+.nri-steps li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;
+ background:var(--mfp-teal,#0E9D78);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+/* Wide comparison tables must scroll inside their own box rather than pushing
+   the page sideways. The NRE/NRO/FCNR table is four columns of prose and broke
+   the 390px layout.
+   NOTE: setting display:block on the <table> does NOT work — the overflow simply
+   reappears on the tbody/tr. The table needs a real block-level wrapper that owns
+   the scrolling. page() wraps every .nri-tbl automatically; do not hand-wrap. */
+.nri-scroll{overflow-x:auto;max-width:100%;margin:12px 0;-webkit-overflow-scrolling:touch}
+.nri-scroll .nri-tbl{margin:0;min-width:460px}
+@media(max-width:560px){.nri-hero{padding:22px 20px}.nri-card,.nri-calc{padding:17px 16px}}
+
+.nri-lang{margin:0 0 14px;text-align:right}
+.nri-lang a{display:inline-block;font-size:13.5px;font-weight:700;color:#0A7A5E;
+  text-decoration:none;background:#F3FBF8;border:1px solid #BCE3D5;
+  padding:6px 13px;border-radius:99px}
+.nri-lang a:hover{background:#E7F6F0;border-color:#0E9D78}
+/* ── planner components (/nri/financial-plan/) ───────────────────────────── */
+.nri-grid>a.nri-feat{grid-column:1/-1;background:linear-gradient(135deg,#0B5F49,#0E9D78);
+  border-color:#0B5F49;color:#fff}
+.nri-grid>a.nri-feat span{color:#D8F3E9}
+.nri-grid>a.nri-feat:hover{filter:brightness(1.07)}
+
+.nri-sub{font-size:15px;font-weight:800;color:var(--mfp-ink,#0B2B23);margin:22px 0 10px;
+  padding-bottom:7px;border-bottom:1px solid #E6EDEA}
+.nri-sub:first-of-type{margin-top:6px}
+.nri-goals{display:flex;flex-direction:column;gap:9px;margin:10px 0 12px}
+.gr{display:grid;grid-template-columns:1.5fr 1.1fr 1fr .7fr auto;gap:8px;align-items:center}
+.gr input,.gr select{width:100%;padding:9px 10px;border:1px solid #D7E2DD;border-radius:9px;
+  font:inherit;font-size:14px;background:#fff;color:inherit;min-width:0}
+.gr input:focus,.gr select:focus{outline:2px solid #0E9D78;outline-offset:1px;border-color:#0E9D78}
+.g-del{border:1px solid #E6D4D4;background:#FEF6F5;color:#B42318;border-radius:9px;
+  width:34px;height:34px;font-size:19px;line-height:1;cursor:pointer;flex:0 0 auto}
+.g-del:hover{background:#FEE4E2}
+.nri-add{margin-top:2px;border:1px dashed #9FC7B8;background:#F3FBF8;color:#0A7A5E;
+  padding:10px 16px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
+.nri-add:hover{background:#E7F6F0;border-color:#0E9D78}
+
+.nri-prog{height:9px;border-radius:99px;background:#E6EDEA;overflow:hidden;margin:12px 0 4px}
+.nri-prog>i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,#0E9D78,#12B48A);transition:width .25s ease}
+.nri-prog.alt{margin:8px 0 0}
+.nri-prog.alt>i{background:linear-gradient(90deg,#4C62CE,#6E82E8)}
+
+.nri-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:16px}
+.nri-res>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:13px 15px}
+.nri-res span{display:block;font-size:12.5px;color:#44586E;font-weight:700;
+  text-transform:uppercase;letter-spacing:.3px}
+.nri-res b{display:block;font-size:21px;font-weight:800;color:#0B2B23;margin:5px 0 3px}
+.nri-res i{display:block;font-style:normal;font-size:12.5px;color:#5A6E7F;line-height:1.45}
+
+.nri-cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+.nri-cmp>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:13px 15px}
+.nri-cmp span{display:block;font-size:12.5px;color:#44586E;font-weight:700;
+  text-transform:uppercase;letter-spacing:.3px}
+.nri-cmp b{display:block;font-size:16.5px;font-weight:800;color:#0B2B23;margin-top:5px}
+.nri-verdict{background:#F3FBF8;border-left:3px solid #0E9D78;padding:11px 14px;
+  border-radius:0 9px 9px 0;margin-top:12px;line-height:1.6}
+
+.nri-badge{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;
+  border-radius:99px;vertical-align:middle;margin-left:8px;letter-spacing:.2px}
+.nri-badge.ok{background:#E7F6F0;color:#0A7A5E;border:1px solid #9FC7B8}
+.nri-badge.warn{background:#FEF7E6;color:#8A5B00;border:1px solid #EBD79B}
+.nri-badge.bad{background:#FEF3F2;color:#B42318;border:1px solid #FECDCA}
+
+.nri-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin-top:12px}
+.nri-two>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:15px 16px}
+.nri-two h3{margin:0 0 7px;font-size:14.5px;font-weight:800;color:#0B2B23}
+.nri-two b{display:block;font-size:20px;font-weight:800;color:#0E9D78;margin-bottom:7px}
+.nri-two p{margin:0;font-size:13.5px;line-height:1.6;color:#44586E}
+
+.nri-f{background:#0B2B23;color:#D8F3E9;padding:13px 16px;border-radius:10px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;
+  line-height:1.7;overflow-x:auto;margin:11px 0;white-space:pre-wrap;word-break:break-word}
+.nri-f sup{font-size:.78em}
+
+.nri-lim{margin:10px 0 0;padding-left:20px;line-height:1.72}
+.nri-lim li{margin-bottom:9px}
+.nri-rel{margin:8px 0 0;padding-left:20px;line-height:2}
+.nri-cta{background:#F3FBF8;border-color:#BCE3D5}
+.nri-link{font-weight:800;color:#0A7A5E;text-decoration:none;border-bottom:2px solid #9FC7B8}
+.nri-link:hover{border-bottom-color:#0E9D78}
+
+@media(max-width:700px){
+  /* Five columns of inputs cannot survive a phone. Stack the goal row and let
+     the name span the full width so it stays readable. */
+  .gr{grid-template-columns:1fr 1fr;gap:7px}
+  .gr .g-name{grid-column:1/-1}
+  .gr .g-del{justify-self:end;grid-column:2}
+}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"NRI financial plan calculator","url":"https://www.myfinancialplan.in/nri/financial-plan/","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"A cross-border financial planner for non-resident Indians: goals priced in the currency they will be spent in, retirement sized as a drawdown, plus the RNOR window and the FEMA repatriation runway.","publisher":{"@type":"Organization","name":"My Financial Plan"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does the currency a goal is spent in matter so much?","acceptedAnswer":{"@type":"Answer","text":"Because it changes two things at once: the inflation rate that grows the cost, and the exchange rate that converts it. A goal in India typically inflates around 6% a year; one in the Gulf, Europe or North America usually inflates far less. Pricing an overseas university at Indian inflation overstates it badly, and pricing an Indian wedding at overseas inflation understates it. The second effect is the exchange rate — if your money is in one currency and your goal is in another, a rate move changes what you can afford even though nothing about your investments changed."}},{"@type":"Question","name":"Does the tool forecast the exchange rate?","acceptedAnswer":{"@type":"Answer","text":"No, and you should be wary of anything that claims to. Today’s rate is held flat across every future year. That is certainly wrong over a twenty-year plan, which is why the currency-match panel shows how much of your plan is exposed to it rather than pretending to a forecast."}},{"@type":"Question","name":"Is the RNOR window reliable?","acceptedAnswer":{"@type":"Answer","text":"It is an estimate from a single input — how long you have been non-resident. The actual test depends on your day counts over the preceding seven and ten financial years. Use it to understand whether a return window is worth planning around, then settle your real position with the residential status calculator and a chartered accountant before you move money or sell anything."}},{"@type":"Question","name":"Why would it take years to bring my own money home?","acceptedAnswer":{"@type":"Answer","text":"Under the FEMA remittance rules a person resident outside India may remit up to USD 1 million per financial year from an NRO account, in addition to current income. For most families that is irrelevant. For a family with a large Indian corpus, a property sale or an inheritance, the cap — not the market — decides the timetable, and it is better known early than discovered at the point of sale."}},{"@type":"Question","name":"Can I use this if I am not planning to return to India?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set the return question to No and the RNOR panel steps aside. The currency match, the goal maths and the repatriation runway all still apply, and the mismatch question is usually sharper for someone settling abroad permanently while still holding Indian assets."}},{"@type":"Question","name":"Is this investment advice?","acceptedAnswer":{"@type":"Answer","text":"No. My Financial Plan is an MSME-registered software provider, not a SEBI-registered investment adviser and not a chartered accountancy firm. This is an educational model built from published rules. It does not know your treaty position, your documentation or your risk tolerance, and no result from it should be acted on without confirming it with a qualified professional."}}]}</script>
+<style id="mfp-tokens">
+/* MFP canonical design tokens — generated by sitegen/apply-design-tokens.mjs.
+   Do not hand-edit: regenerate from sitegen/design-tokens.mjs. */
+:root{--mfp-teal:#0E9D78;--mfp-teal-d:#047857;--mfp-mint:#DDF4EC;--mfp-ink:#17324A;--mfp-ink-2:#44586E;--mfp-mute:#5B6B7F;--mfp-line:#E3E9EF;--mfp-bg:#F7FAFC;--mfp-white:#FFFFFF;--mfp-amber:#BF7B0B;--mfp-red:#DC2626;--mfp-indigo:#4C62CE;--mfp-shell:1180px;--mfp-gutter:20px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--mfp-ink);background:var(--mfp-bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* One shell width: header, footer and page content share the same edges.
+   Qualified with "html body" on purpose. Several pages carry <style> blocks
+   INSIDE <body>, which land after this block in document order and would
+   otherwise win on source order at equal specificity. The extra element
+   selectors raise specificity to 0-1-2 so this rule holds regardless of
+   where a page's own stylesheet sits. Avoids !important, which is what
+   created the duplicate-override mess this replaces. */
+html body .wrap,html body .container,html body .mp,
+html body .mfp-sh-in,html body .mfp-sf-in{max-width:var(--mfp-shell);margin-inline:auto;
+  padding-inline:var(--mfp-gutter);width:100%;box-sizing:border-box}
+h1{font-size:clamp(26px,4.6vw,38px);line-height:1.18;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,28px);line-height:1.25;letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.2vw,20px);line-height:1.35}
+h1,h2,h3{text-wrap:balance}
+/* nothing below the legible floor */
+body,p,li,td,th,label,input,select,textarea,button,a,span,small{font-size:max(1em,12px)}
+small,.small{font-size:13px}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
+
+</style>
+</head>
+<body>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+  <div class="nri-hero">
+    <h1>A financial plan that knows you live abroad</h1>
+    <p>Ordinary planners assume one currency and one tax system. This one prices every goal where it will actually be spent, shows how exposed you are to the exchange rate, and answers the two questions only an NRI has to ask — how long the RNOR shelter lasts, and how long it takes to get your money out.</p>
+    <div class="asat">Positions stated as at 2026-11-14 for FY 2026-27 (AY 2027-28). Educational estimates — not tax advice.</div>
+  </div>
+<div class="nri-lang"><a href="/hi/nri/financial-plan/" hreflang="hi-IN">यह पेज हिंदी में पढ़ें</a></div>
+
+<section class="nri-calc" id="nriform">
+  <h2>Your situation</h2>
+
+  <h3 class="nri-sub">Where you are</h3>
+  <div class="nri-grid">
+    <label>Currency you earn in
+      <select id="ccy"><option value="AED" selected>AED — UAE dirham (United Arab Emirates)</option><option value="USD">USD — US dollar (United States)</option><option value="GBP">GBP — Pound sterling (United Kingdom)</option><option value="SGD">SGD — Singapore dollar (Singapore)</option><option value="CAD">CAD — Canadian dollar (Canada)</option><option value="AUD">AUD — Australian dollar (Australia)</option><option value="EUR">EUR — Euro (Europe)</option><option value="SAR">SAR — Saudi riyal (Saudi Arabia)</option><option value="QAR">QAR — Qatari riyal (Qatar)</option><option value="OMR">OMR — Omani rial (Oman)</option></select></label>
+    <label>1 <span class="ccylbl">AED</span> = how many rupees
+      <input id="fxr" type="number" inputmode="decimal" min="0" step="0.01" value="23"></label>
+    <label>1 USD = how many rupees
+      <input id="fxusd" type="number" inputmode="decimal" min="0" step="0.01" value="88"></label>
+    <label>Years you have been non-resident
+      <input id="abroad" type="number" inputmode="decimal" min="0" value="8"></label>
+  </div>
+
+  <h3 class="nri-sub">You</h3>
+  <div class="nri-grid">
+    <label>Your age
+      <input id="age" type="number" inputmode="decimal" min="18" max="80" value="42"></label>
+    <label>Age you want to retire
+      <input id="rage" type="number" inputmode="decimal" min="35" max="80" value="58"></label>
+    <label>Monthly saving you can commit (<span class="ccylbl">AED</span>)
+      <input id="save" type="number" inputmode="decimal" min="0" value="3500"></label>
+    <label>Do you plan to return to India
+      <select id="ret_plan">
+        <option value="yes" selected>Yes, eventually</option>
+        <option value="unsure">Not sure</option>
+        <option value="no">No</option>
+      </select></label>
+  </div>
+
+  <h3 class="nri-sub">What you already have</h3>
+  <div class="nri-grid">
+    <label>Investments held in India (₹)
+      <input id="aIndia" type="number" inputmode="decimal" min="0" value="3000000"></label>
+    <label>Investments held abroad (<span class="ccylbl">AED</span>)
+      <input id="aAbroad" type="number" inputmode="decimal" min="0" value="150000"></label>
+  </div>
+
+  <h3 class="nri-sub">Retirement</h3>
+  <div class="nri-grid">
+    <label>Where will you retire
+      <select id="retwhere">
+        <option value="india" selected>In India</option>
+        <option value="abroad">Abroad</option>
+      </select></label>
+    <label>Monthly spend you want, in today's money
+      <input id="rspend" type="number" inputmode="decimal" min="0" value="120000"></label>
+  </div>
+  <p class="nri-note">Enter the retirement spend in rupees if you will retire in India, or in
+  <span class="ccylbl">AED</span> if you will retire abroad. The tool inflates it at the matching rate.</p>
+
+  <h3 class="nri-sub">Your goals</h3>
+  <p class="nri-note">Tag each goal by where the money will actually be <b>spent</b>. That is the
+  whole point of this tool: a university fee abroad and a wedding in India do not inflate at the
+  same rate and are not paid in the same currency.</p>
+  <div id="goals" class="nri-goals"></div>
+  <button type="button" id="addgoal" class="nri-add">+ Add another goal</button>
+
+  <h3 class="nri-sub">Assumptions you can change</h3>
+  <div class="nri-grid">
+    <label>Indian inflation (% a year)
+      <input id="inflIn" type="number" inputmode="decimal" min="0" step="0.1" value="6"></label>
+    <label>Inflation where you live (% a year)
+      <input id="inflAb" type="number" inputmode="decimal" min="0" step="0.1" value="2.5"></label>
+    <label>Return while building (% a year)
+      <input id="acc" type="number" inputmode="decimal" min="0" step="0.1" value="11"></label>
+    <label>Return after retiring (% a year)
+      <input id="post" type="number" inputmode="decimal" min="0" step="0.1" value="7"></label>
+    <label>Plan until age
+      <input id="life" type="number" inputmode="decimal" min="60" max="110" value="85"></label>
+  </div>
+</section>
+
+<div id="o_wrap" hidden>
+
+<section class="nri-out">
+  <h2>Your plan</h2>
+  <div class="nri-big">
+    <div><span class="lbl">Everything you are saving for</span><b class="val" id="o_need">—</b></div>
+    <div><span class="lbl">On track to build</span><b class="val" id="o_proj">—</b></div>
+    <div><span class="lbl">Shortfall</span><b class="val" id="o_gap">—</b></div>
+  </div>
+  <div class="nri-prog"><i id="o_bar"></i></div>
+  <p class="nri-note">Funded: <b id="o_pct">—</b> of the total requirement, if you keep saving what you entered.</p>
+  <div class="nri-res">
+    <div><span>Extra you need to invest</span><b id="o_sip">—</b><i id="o_sipf">—</i></div>
+    <div><span>Retirement corpus required</span><b id="o_retc">—</b><i>Drawn down over <span id="o_draw">—</span></i></div>
+    <div><span>Monthly spend at retirement</span><b id="o_retm">—</b><i>Your target in the money of that year</i></div>
+  </div>
+</section>
+
+<section class="nri-card">
+  <h2>Currency match <span id="o_mbadge" class="nri-badge">—</span></h2>
+  <p>The risk nobody shows an NRI is a mismatch between the currency the money sits in and
+  the currency it will be spent in. This is that comparison.</p>
+  <div class="nri-cmp">
+    <div><span>Where your money is</span><b id="o_amix">—</b><div class="nri-prog alt"><i id="o_abar"></i></div></div>
+    <div><span>Where it will be spent</span><b id="o_nmix">—</b><div class="nri-prog alt"><i id="o_nbar"></i></div></div>
+  </div>
+  <p class="nri-verdict" id="o_match">—</p>
+</section>
+
+<section class="nri-card">
+  <h2>Two things that only apply to you</h2>
+  <div class="nri-two">
+    <div>
+      <h3>RNOR window on return</h3>
+      <b id="o_rnor">—</b>
+      <p id="o_rnorn">—</p>
+    </div>
+    <div>
+      <h3>Getting the money out again</h3>
+      <b id="o_repat">—</b>
+      <p id="o_repatn">—</p>
+    </div>
+  </div>
+</section>
+
+<section class="nri-card">
+  <h2>Goal by goal</h2>
+  <div class="nri-scroll"><table class="nri-tbl">
+    <thead><tr><th>Goal</th><th>Paid in</th><th>Years</th><th>Needed then</th><th>Invest monthly</th></tr></thead>
+    <tbody id="o_tbody"></tbody>
+  </table></div>
+  <p class="nri-note">Each line is funded on its own. Added together the monthly figures will exceed
+  the single shortfall number above, because the shortfall counts what you already hold and these
+  lines do not.</p>
+</section>
+
+</div>
+
+<section class="nri-card">
+  <h2>About this planner</h2>
+  <p>Most financial plans assume you earn, save and spend in one currency, and that the tax
+  system you live under is the one you will retire under. For an NRI neither is true. You earn
+  in dirhams or dollars, a chunk of your money sits in India earning rupee returns, your
+  children may study in a third country, and the day you move back changes which of your income
+  the Indian system can reach.</p>
+  <p>This tool plans around those three facts. It is not a tax return and it is not advice. It
+  is the arithmetic of a cross-border family budget, written out so you can see where it breaks.</p>
+</section>
+
+<section class="nri-card">
+  <h2>How this planner works</h2>
+  <ol class="nri-steps">
+    <li><b>Each goal is priced where it will be spent.</b> A goal tagged <i>abroad</i> inflates at
+    the inflation rate where you live and is converted to rupees at the rate you enter. A goal
+    tagged <i>India</i> inflates at Indian inflation. Nothing is averaged.</li>
+    <li><b>Retirement is solved as a drawdown, not a round number.</b> The corpus is sized so it
+    is exhausted exactly at the age you plan until, using the real return — the inflation-adjusted
+    return — rather than the headline one.</li>
+    <li><b>Your existing money and your monthly saving are grown forward</b> at the accumulation
+    rate to the year you retire, and the shortfall is whatever the requirement exceeds.</li>
+    <li><b>The shortfall is converted into a monthly investment</b> using the same annuity relation,
+    and shown in rupees and in your own currency.</li>
+    <li><b>Then the two NRI-only questions are answered:</b> how long your RNOR shelter is likely to
+    last if you return, and how many years it would take to move your Indian corpus out under the
+    FEMA remittance cap.</li>
+  </ol>
+</section>
+
+<section class="nri-card">
+  <h2>The formula</h2>
+  <p>The real return — the Fisher relation, not a subtraction — drives everything:</p>
+  <pre class="nri-f">real return  r* = (r − i) ÷ (1 + i)</pre>
+  <p>A corpus that must pay a monthly sum <i>W</i> for <i>D</i> years and finish at zero:</p>
+  <pre class="nri-f">corpus = W × 12 × (1 − (1 + r*)<sup>−D</sup>) ÷ r*</pre>
+  <p>What your money becomes, and the monthly investment that closes a gap:</p>
+  <pre class="nri-f">future value = L × (1 + r)<sup>y</sup> + S × ((1 + m)<sup>k</sup> − 1) ÷ m × (1 + m)
+monthly need = gap × m ÷ (((1 + m)<sup>k</sup> − 1) × (1 + m))</pre>
+  <p class="nri-note">L is what you hold today, S the monthly investment, m the monthly rate,
+  k the number of months. Using <i>r − i</i> in place of the real return overstates a 25-year
+  corpus by several per cent, which is why it is written out above.</p>
+</section>
+
+<section class="nri-card">
+  <h2>A worked example</h2>
+  <p>Take the figures the page loads with: 42 years old, in the UAE for eight years, saving
+  AED 3,500 a month, AED 150,000 invested abroad and ₹30 lakh in India, retiring at 58 in India
+  on ₹1,20,000 a month in today's money, with a child's university abroad at AED 60,000 in twelve
+  years, a home in India at ₹90 lakh in six, and ₹25 lakh for parents in three.</p>
+  <p>That family is not on track, and the page says so rather than reassuring them. The retirement
+  line alone needs a corpus in the region of ₹8.5 crore, because ₹1,20,000 a month today becomes
+  roughly ₹3 lakh a month after sixteen years of 6% inflation, and it has to last twenty-seven
+  years. The university goal is the one that behaves differently: priced in dirhams
+  and inflated at 2.5% rather than 6%, it grows far more slowly than an Indian goal of the same
+  rupee size would — which is exactly the distinction a single-currency planner hides.</p>
+  <p>The currency-match panel is usually the surprise. A family with most of its assets abroad
+  but almost all of its goals in India is carrying a bet on the exchange rate that nobody chose
+  deliberately.</p>
+</section>
+
+<section class="nri-card">
+  <h2>Assumptions and limitations</h2>
+  <ul class="nri-lim">
+    <li><b>The exchange rate is held flat.</b> This is the single biggest simplification. We do not
+    forecast currencies — nobody can — so today's rate is applied to every future year. Over
+    twenty years that will be wrong. The currency-match panel exists so you can see how exposed
+    you are to its being wrong.</li>
+    <li><b>The starting rates are a convenience, not a quote.</b> They are rounded, and they are not
+    live. Overwrite them with the rate your bank actually gives you.</li>
+    <li><b>Returns are assumed steady.</b> Real markets deliver the same average in a different order,
+    and a bad first decade in retirement does more damage than the same bad decade later. No
+    sequence-of-returns risk is modelled.</li>
+    <li><b>Tax is not deducted from returns.</b> Treat the output as pre-tax.</li>
+    <li><b>The RNOR window is an estimate from one input.</b> The real test turns on day counts across
+    the previous seven and ten years. Use the residential status calculator, then confirm with a
+    chartered accountant before you act on it.</li>
+    <li><b>The repatriation figure assumes the whole Indian corpus moves through the NRO route.</b>
+    Money already in NRE or FCNR is freely repatriable and does not consume the limit.</li>
+    <li><b>Nothing here is tax advice.</b> Treaty positions, documentation and your own facts decide
+    the outcome.</li>
+  </ul>
+</section>
+
+<section class="nri-card nri-cta">
+  <h2>This is the short version</h2>
+  <p>This page plans the money. The full planner also sizes your emergency fund, your term cover
+  and your health cover, handles children individually, and produces a detailed PDF you can take
+  to an adviser. It runs in your browser.</p>
+  <p><a class="nri-link" href="/financial-planning/">Build your full financial plan →</a></p>
+</section>
+
+<section class="nri-card">
+  <h2>Related</h2>
+  <ul class="nri-rel">
+    <li><a href="/nri/residential-status-calculator/">Are you NRI, RNOR or resident this year?</a></li>
+    <li><a href="/nri/returning-to-india/">Returning to India and the RNOR window</a></li>
+    <li><a href="/nri/repatriation/">Sending money abroad: the USD 1 million route</a></li>
+    <li><a href="/nri/accounts-nre-nro-fcnr/">NRE vs NRO vs FCNR</a></li>
+    <li><a href="/nri/property-sale-tds-calculator/">Selling property in India</a></li>
+    <li><a href="/nri/">All NRI tools and guides</a></li>
+  </ul>
+</section>
+
+
+<section class="nri-card">
+  <h2>Frequently asked questions</h2>
+  <div class="nri-faq"><h3>Why does the currency a goal is spent in matter so much?</h3><p>Because it changes two things at once: the inflation rate that grows the cost, and the exchange rate that converts it. A goal in India typically inflates around 6% a year; one in the Gulf, Europe or North America usually inflates far less. Pricing an overseas university at Indian inflation overstates it badly, and pricing an Indian wedding at overseas inflation understates it. The second effect is the exchange rate — if your money is in one currency and your goal is in another, a rate move changes what you can afford even though nothing about your investments changed.</p></div>
+  <div class="nri-faq"><h3>Does the tool forecast the exchange rate?</h3><p>No, and you should be wary of anything that claims to. Today’s rate is held flat across every future year. That is certainly wrong over a twenty-year plan, which is why the currency-match panel shows how much of your plan is exposed to it rather than pretending to a forecast.</p></div>
+  <div class="nri-faq"><h3>Is the RNOR window reliable?</h3><p>It is an estimate from a single input — how long you have been non-resident. The actual test depends on your day counts over the preceding seven and ten financial years. Use it to understand whether a return window is worth planning around, then settle your real position with the residential status calculator and a chartered accountant before you move money or sell anything.</p></div>
+  <div class="nri-faq"><h3>Why would it take years to bring my own money home?</h3><p>Under the FEMA remittance rules a person resident outside India may remit up to USD 1 million per financial year from an NRO account, in addition to current income. For most families that is irrelevant. For a family with a large Indian corpus, a property sale or an inheritance, the cap — not the market — decides the timetable, and it is better known early than discovered at the point of sale.</p></div>
+  <div class="nri-faq"><h3>Can I use this if I am not planning to return to India?</h3><p>Yes. Set the return question to No and the RNOR panel steps aside. The currency match, the goal maths and the repatriation runway all still apply, and the mismatch question is usually sharper for someone settling abroad permanently while still holding Indian assets.</p></div>
+  <div class="nri-faq"><h3>Is this investment advice?</h3><p>No. My Financial Plan is an MSME-registered software provider, not a SEBI-registered investment adviser and not a chartered accountancy firm. This is an educational model built from published rules. It does not know your treaty position, your documentation or your risk tolerance, and no result from it should be acted on without confirming it with a qualified professional.</p></div>
+</section>
+<section class="nri-card">
+  <h2>Sources</h2>
+  <p class="nri-src">
+    <a href="https://www.rbi.org.in/scripts/FAQView.aspx?Id=52" rel="nofollow noopener" target="_blank">Reserve Bank of India — FAQ, "Accounts in India by Non-residents" (as on 16 January 2025)</a><br>
+    <a href="https://www.incometaxindia.gov.in/income-tax-act-202511" rel="nofollow noopener" target="_blank">Income-tax Act, 2025 — Income Tax Department</a> &middot; <a href="https://www.incometaxindia.gov.in/income-tax-rule-2026" rel="nofollow noopener" target="_blank">Income-tax Rules, 2026 — Income Tax Department</a> &middot; <a href="https://www.incometaxindia.gov.in/income-tax-act" rel="nofollow noopener" target="_blank">Income-tax Act, 1961 — Income Tax Department</a><br>
+    <a href="https://www.incometaxindia.gov.in/international-taxation" rel="nofollow noopener" target="_blank">International Taxation / Tax Treaties — Income Tax Department</a>
+  </p>
+  <p class="nri-src" style="margin-top:10px">The Income-tax Act, 2025 and the Income-tax Rules, 2026 are published by the Income Tax Department alongside the Income-tax Act, 1961. Section numbering differs between the two Acts and professional sources currently cite both. This site therefore describes the rule rather than leading with a section number.</p>
+</section>
+<div class="nri-disc">
+  <b>Please read.</b> My Financial Plan is an MSME-registered software provider. We are not a SEBI-registered investment adviser, not a chartered accountancy firm, and not a tax agent. These calculators are educational estimates built from published rules, and tax outcomes depend on facts specific to you — your treaty, your holding period, your documentation. Nothing here is tax advice or investment advice, and no result should be acted on without confirming it with a qualified chartered accountant. Rates change; figures are dated above.
+</div>
+</main>
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/financial-planning/">Financial Planning Tool</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+        <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/mfp-push.js"></script>
+  </footer>
+<script>
+(function(){
+'use strict';
+var $=function(i){return document.getElementById(i)};
+var n=function(v){v=parseFloat(v);return isFinite(v)?v:0};
+
+/* Indian-format money. Goals abroad are shown in their own currency too, because
+   telling a man in Dubai his son's university costs Rs 1.6 crore is less useful
+   than telling him it costs 71,000 dollars AND Rs 1.6 crore. */
+function inr(v){ return '\u20B9'+Math.round(v||0).toLocaleString('en-IN') }
+function fx(v,c){ return (Math.round(v||0)).toLocaleString('en-US')+' '+c }
+function crore(v){
+  v=Math.round(v||0);
+  if(v>=1e7) return '\u20B9'+(v/1e7).toFixed(2)+' Cr';
+  if(v>=1e5) return '\u20B9'+(v/1e5).toFixed(2)+' L';
+  return inr(v);
+}
+
+var RATES={"AED":23,"USD":88,"GBP":112,"SGD":66,"CAD":63,"AUD":57,"EUR":95,"SAR":23.5,"QAR":24,"OMR":228};
+
+/* ---- FORMULAS. Identical to wiz.js goalCalc(). Do not "simplify". ---------
+   realReturn is the Fisher relation, not return-minus-inflation: using the
+   subtraction overstates the corpus by several percent over 25 years.        */
+function realReturn(pr,i){ return (pr-i)/(1+i) }
+
+function fvOf(lump, sip, r, y){
+  var m=r/12, k=Math.round(y*12);
+  var v=lump*Math.pow(1+r,y);
+  if(sip>0&&k>0) v+=sip*((Math.pow(1+m,k)-1)/m)*(1+m);
+  return v;
+}
+function sipFor(gap, r, y){
+  var m=r/12, k=Math.round(y*12);
+  if(gap<=0||k<=0) return 0;
+  return (gap*m)/((Math.pow(1+m,k)-1)*(1+m));
+}
+/* Corpus that is exhausted precisely at the end of the drawdown. */
+function annuityCorpus(monthlyToday, inflPa, yearsTo, postRet, drawYears){
+  var fm=monthlyToday*Math.pow(1+inflPa,yearsTo);
+  var rr=realReturn(postRet,inflPa);
+  var t = Math.abs(rr)>1e-4 ? fm*12*((1-Math.pow(1+rr,-drawYears))/rr) : fm*12*drawYears;
+  return {target:t, monthlyAtRet:fm, rr:rr};
+}
+
+/* ---- residency / FEMA layers ---------------------------------------------
+   RNOR is the shelter that makes or breaks a return plan. A returner is
+   normally RNOR for 2-3 financial years, during which foreign income and
+   foreign interest generally stay outside the Indian net. We state a RANGE,
+   never a single confident number, because it turns on the day counts in the
+   preceding ten years, which we are not asking this person to reconstruct. */
+function rnorWindow(yearsAbroad){
+  if(yearsAbroad>=9) return {lo:2,hi:3,note:"You have been non-resident long enough that the usual two to three financial years of RNOR should be available on return."};
+  if(yearsAbroad>=3) return {lo:1,hi:3,note:"Your RNOR window depends on your exact day counts over the last seven and ten years. Treat two years as a planning estimate and confirm it before you move money."};
+  return {lo:0,hi:2,note:"With a short spell abroad the RNOR window may be brief or unavailable. Confirm your position before assuming any shelter."};
+}
+
+/* FEMA caps remittance out of NRO at USD 1 million per financial year. For a
+   large Indian corpus that cap, not the market, decides how fast you can leave. */
+var USD_LIMIT=1000000;
+function repatYears(indiaCorpus, usdInr){
+  var perYear=USD_LIMIT*usdInr;
+  if(perYear<=0) return 0;
+  return indiaCorpus/perYear;
+}
+
+function goalRows(){
+  return Array.prototype.slice.call(document.querySelectorAll('.gr'));
+}
+
+function calc(){
+  var c=$('ccy').value, rate=n($('fxr').value)||1;
+  var usdInr=n($('fxusd').value)||88;
+  var age=n($('age').value), ret=n($('rage').value);
+  var yrsAbroad=n($('abroad').value);
+  var saveF=n($('save').value);              /* monthly saving, foreign ccy  */
+  var saveInr=saveF*rate;
+  var inIndia=n($('aIndia').value);          /* rupees                        */
+  var abroadF=n($('aAbroad').value);         /* foreign ccy                   */
+  var abroadInr=abroadF*rate;
+  var total=inIndia+abroadInr;
+  var iIn=n($('inflIn').value)/100, iAb=n($('inflAb').value)/100;
+  var acc=n($('acc').value)/100, post=n($('post').value)/100;
+  var life=n($('life').value);
+
+  /* ---- goals -------------------------------------------------------------
+     Each goal is denominated where it will be SPENT. A university fee in
+     Toronto inflates at Canadian rates and is paid in dollars; a wedding in
+     Lucknow inflates at Indian rates and is paid in rupees. Lumping them
+     together at one inflation rate is the mistake this tool exists to stop. */
+  var goals=[], rupeeNeed=0, fcyNeed=0;
+  goalRows().forEach(function(row){
+    var nm=row.querySelector('.g-name').value||'Goal';
+    var where=row.querySelector('.g-where').value;     /* india | abroad     */
+    var cost=n(row.querySelector('.g-cost').value);
+    var yy=n(row.querySelector('.g-yrs').value);
+    if(cost<=0) return;
+    var infl = where==='abroad' ? iAb : iIn;
+    var costInr = where==='abroad' ? cost*rate : cost;
+    var target = costInr*Math.pow(1+infl,yy);
+    goals.push({name:nm,where:where,cost:cost,costInr:costInr,yrs:yy,infl:infl,target:target});
+    if(where==='abroad') fcyNeed+=target; else rupeeNeed+=target;
+  });
+
+  /* ---- retirement --------------------------------------------------------- */
+  var yearsTo=Math.max(0,ret-age);
+  var draw=Math.max(1,life-ret);
+  var retWhere=$('retwhere').value;
+  var retSpend=n($('rspend').value);                  /* monthly, today      */
+  var retInfl = retWhere==='abroad' ? iAb : iIn;
+  var retSpendInr = retWhere==='abroad' ? retSpend*rate : retSpend;
+  var R=annuityCorpus(retSpendInr, retInfl, yearsTo, post, draw);
+  if(retWhere==='abroad') fcyNeed+=R.target; else rupeeNeed+=R.target;
+
+  /* ---- funding ------------------------------------------------------------ */
+  var needTotal=rupeeNeed+fcyNeed;
+  var projected=fvOf(total, saveInr, acc, yearsTo);
+  var gap=Math.max(0, needTotal-projected);
+  var sipNeed=sipFor(gap, acc, yearsTo);
+  var pct = needTotal>0 ? Math.min(100, Math.round(projected/needTotal*100)) : 0;
+
+  /* ---- the three NRI-specific readouts ------------------------------------ */
+  /* 1. Currency match. Where the money IS versus where it will be SPENT. */
+  var assetInrPct = total>0 ? Math.round(inIndia/total*100) : 0;
+  var needInrPct  = needTotal>0 ? Math.round(rupeeNeed/needTotal*100) : 0;
+  var mismatch = Math.abs(assetInrPct-needInrPct);
+
+  /* 2. RNOR window on return. */
+  var W=rnorWindow(yrsAbroad);
+  var returning=$('ret_plan').value;
+
+  /* 3. Repatriation runway: how long the FEMA cap takes to move the corpus. */
+  var indiaAtRet = projected*(total>0?inIndia/total:0);
+  var ry = repatYears(indiaAtRet, usdInr);
+
+  /* ---- paint -------------------------------------------------------------- */
+  $('o_need').textContent   = crore(needTotal);
+  $('o_proj').textContent   = crore(projected);
+  $('o_gap').textContent    = gap>0?crore(gap):"Fully funded";
+  $('o_sip').textContent    = gap>0 ? inr(sipNeed)+" /mo" : "No extra needed";
+  $('o_sipf').textContent   = gap>0 ? '\u2248 '+fx(sipNeed/rate,c)+" per month" : "Your current saving covers the plan";
+  $('o_pct').textContent    = pct+'%';
+  $('o_bar').style.width    = pct+'%';
+  $('o_retc').textContent   = crore(R.target);
+  $('o_retm').textContent   = inr(R.monthlyAtRet);
+  $('o_draw').textContent   = draw+" years";
+
+  $('o_amix').textContent   = assetInrPct+"% in India / "+(100-assetInrPct)+"% abroad";
+  $('o_nmix').textContent   = needInrPct+"% in rupees / "+(100-needInrPct)+"% in "+c;
+  $('o_abar').style.width   = assetInrPct+'%';
+  $('o_nbar').style.width   = needInrPct+'%';
+  var mt;
+  if(mismatch<=15) mt="Reasonably matched. Your money is broadly held in the currency you will spend it in, so an exchange-rate move does not blow a hole in the plan.";
+  else if(assetInrPct>needInrPct) mt="You hold "+mismatch+" points more in rupees than your goals need. If you end up spending abroad, a weaker rupee makes those goals dearer than this plan shows.";
+  else mt="You hold "+mismatch+" points less in rupees than your goals need. Most of what you are saving for will be paid in rupees, so a weaker rupee helps you — but a stronger one hurts.";
+  $('o_match').textContent=mt;
+  $('o_mbadge').textContent = mismatch<=15?"Matched":(mismatch<=35?"Some mismatch":"Heavy mismatch");
+  $('o_mbadge').className   = 'nri-badge '+(mismatch<=15?'ok':(mismatch<=35?'warn':'bad'));
+
+  if(returning==='no'){
+    $('o_rnor').textContent="Not planning to return";
+    $('o_rnorn').textContent="RNOR is a transition relief for people who come back. If that changes, the window is worth planning around before you move any money.";
+  } else {
+    $('o_rnor').textContent=(W.lo===W.hi?W.lo:W.lo+" to "+W.hi)+" financial years";
+    $('o_rnorn').textContent=W.note;
+  }
+  $('o_repat').textContent = ry<=0 ? '\u2014' : (ry<=1 ? "Within one financial year" : Math.ceil(ry)+" financial years");
+  $('o_repatn').textContent = ry<=1
+    ? "Your projected Indian corpus sits inside the USD 1 million a year a resident outside India may remit from an NRO account, so the cap is not a constraint for you."
+      : "At "+crore(indiaAtRet)+" projected in India, moving it out through the NRO route takes about "+Math.ceil(ry)+" financial years at the USD 1 million annual limit. Start earlier than you think, or hold more of the corpus outside India.";
+
+  /* goal table */
+  var h='';
+  goals.forEach(function(g){
+    var sip=sipFor(g.target, acc, g.yrs);
+    h+='<tr><td>'+g.name.replace(/[<>&]/g,'')+'</td><td>'+(g.where==='abroad'?c:'\u20B9')+'</td><td>'+g.yrs+'</td><td>'+crore(g.target)+'</td><td>'+inr(sip)+'</td></tr>';
+  });
+  h+='<tr><td><b>'+"Retirement"+'</b></td><td>'+(retWhere==='abroad'?c:'\u20B9')+'</td><td>'+yearsTo+'</td><td><b>'+crore(R.target)+'</b></td><td><b>'+inr(sipFor(R.target,acc,yearsTo))+'</b></td></tr>';
+  $('o_tbody').innerHTML=h;
+  $('o_wrap').hidden=false;
+}
+
+function addGoal(name,where,cost,yrs){
+  var i=document.querySelectorAll('.gr').length;
+  var d=document.createElement('div');
+  d.className='gr';
+  d.innerHTML=
+   '<input class="g-name" value="'+(name||'')+'" placeholder="'+"Goal name"+'" aria-label="'+"Goal name"+'">'+
+   '<select class="g-where" aria-label="'+"Where will this be spent"+'"><option value="india"'+(where==='abroad'?'':' selected')+'>'+"Spent in India"+'</option><option value="abroad"'+(where==='abroad'?' selected':'')+'>'+"Spent abroad"+'</option></select>'+
+   '<input class="g-cost" type="number" inputmode="decimal" min="0" value="'+(cost||'')+'" placeholder="'+"Cost today"+'" aria-label="'+"Cost in today money"+'">'+
+   '<input class="g-yrs" type="number" inputmode="decimal" min="0" value="'+(yrs||'')+'" placeholder="'+"Years"+'" aria-label="'+"Years away"+'">'+
+   '<button type="button" class="g-del" aria-label="'+"Remove this goal"+'">&times;</button>';
+  $('goals').appendChild(d);
+  d.querySelector('.g-del').addEventListener('click',function(){ d.remove(); calc() });
+  Array.prototype.forEach.call(d.querySelectorAll('input,select'),function(el){
+    el.addEventListener('input',calc); el.addEventListener('change',calc);
+  });
+}
+
+function syncRate(){
+  var c=$('ccy').value;
+  if(RATES[c]) $('fxr').value=RATES[c];
+  Array.prototype.forEach.call(document.querySelectorAll('.ccylbl'),function(e){e.textContent=c});
+  calc();
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  $('ccy').addEventListener('change',syncRate);
+  Array.prototype.forEach.call(document.querySelectorAll('#nriform input,#nriform select'),function(el){
+    el.addEventListener('input',calc); el.addEventListener('change',calc);
+  });
+  $('addgoal').addEventListener('click',function(){ addGoal('','india','',10); calc() });
+  /* A plan with no goals teaches nothing, so we seed the three an NRI family
+     almost always has. They are editable and deletable. */
+  addGoal("Child's university",'abroad',60000,12);
+  addGoal("Home in India",'india',9000000,6);
+  addGoal("Parents’ support fund",'india',2500000,3);
+  syncRate();
+});
+})();
+</script>
+</body>
+</html>

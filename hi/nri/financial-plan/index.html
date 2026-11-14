@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NRI फाइनेंशियल प्लान कैलकुलेटर | My Financial Plan</title>
+<meta name="description" content="NRI के लिए बना प्लानर: हर लक्ष्य उसी करेंसी में जिसमें वह खर्च होगा, आपका करेंसी मिसमैच, वापसी पर RNOR की खिड़की और USD 10 लाख की सीमा।">
+<link rel="canonical" href="https://www.myfinancialplan.in/hi/nri/financial-plan/">
+<meta property="og:title" content="NRI फाइनेंशियल प्लान कैलकुलेटर | My Financial Plan">
+<meta property="og:description" content="NRI के लिए बना प्लानर: हर लक्ष्य उसी करेंसी में जिसमें वह खर्च होगा, आपका करेंसी मिसमैच, वापसी पर RNOR की खिड़की और USD 10 लाख की सीमा।">
+<meta property="og:url" content="https://www.myfinancialplan.in/hi/nri/financial-plan/">
+<meta property="og:type" content="website">
+<meta name="robots" content="index,follow">
+<link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/financial-plan/">
+<link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/financial-plan/">
+<link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/financial-plan/">
+<style id="mfp-site-chrome">
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1220px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:1px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px;border-radius:9px;
+        font-size:14px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:34px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style></style>
+<style id="mfp-nri-css">
+.nri-hero{background:linear-gradient(135deg,#0B3B2E,#12624A);color:#fff;border-radius:18px;padding:30px 32px;margin:18px 0}
+.nri-hero h1{margin:0 0 10px;font-size:clamp(25px,3.3vw,34px);line-height:1.2;letter-spacing:-.5px;color:#fff}
+.nri-hero p{margin:0;opacity:.92;font-size:16px;max-width:66ch}
+.nri-hero .asat{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.2);font-size:12.5px;opacity:.8}
+.nri-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));margin:16px 0}
+.nri-grid a{display:block;background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:14px;
+ padding:16px 18px;text-decoration:none;color:var(--mfp-ink,#17324A);font-weight:700;line-height:1.35;
+ transition:border-color .15s,box-shadow .15s,transform .15s}
+.nri-grid a span{display:block;margin-top:5px;font-weight:500;font-size:13px;color:var(--mfp-ink-2,#44586E)}
+.nri-grid a:hover{border-color:var(--mfp-teal,#0E9D78);box-shadow:0 6px 18px -10px rgba(14,157,120,.45);transform:translateY(-1px)}
+.nri-card{background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:16px;padding:22px 24px;margin:16px 0}
+.nri-calc{background:#F7FBFA;border:1.5px solid #A3E2D0;border-radius:16px;padding:22px 24px;margin:18px 0}
+.nri-calc label{display:block;font-weight:700;font-size:13.5px;margin:12px 0 4px;color:#17324A}
+.nri-calc input,.nri-calc select{width:100%;padding:11px 13px;border:1px solid #CBD6E0;border-radius:9px;
+ font-size:15px;font-family:inherit;background:#fff;color:#17324A}
+.nri-calc input:focus,.nri-calc select:focus{outline:2px solid var(--mfp-teal,#0E9D78);outline-offset:1px;border-color:var(--mfp-teal,#0E9D78)}
+.nri-fields{display:grid;gap:4px 18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.nri-out{margin-top:20px;border-top:1.5px dashed #A3E2D0;padding-top:16px}
+.nri-big{background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:12px;padding:14px 16px;margin:10px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.nri-big>div{display:flex;flex-direction:column;min-width:0}
+.nri-big .lbl{font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:#5A6B7D;font-weight:800}
+.nri-big .val{font-size:clamp(21px,3vw,27px);font-weight:900;letter-spacing:-.5px;margin-top:2px}
+.nri-big.alarm{border-color:#FECDCA;background:#FEF3F2}.nri-big.alarm .val{color:#B42318}
+.nri-big.good{border-color:#ABEFC6;background:#ECFDF3}.nri-big.good .val{color:#067647}
+.nri-note{font-size:13px;color:#5A6B7D;margin-top:8px;line-height:1.55}
+.nri-caution{border-radius:12px;padding:13px 15px;margin:14px 0;font-size:14px;line-height:1.6}
+.nri-caution-dispute{background:#FFFAEB;border:1px solid #FEDF89;color:#7A4A05}
+.nri-caution-unver{background:#FEF3F2;border:1px solid #FECDCA;color:#8A2820}
+.nri-tbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.nri-tbl th,.nri-tbl td{border:1px solid var(--mfp-line,#E3E9EF);padding:9px 11px;text-align:left;vertical-align:top}
+.nri-tbl th{background:#F7FAFC;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:#5A6B7D}
+.nri-tbl tr:nth-child(even) td{background:#FBFCFD}
+.nri-faq{border-top:1px solid var(--mfp-line,#E3E9EF);padding:14px 0}
+.nri-faq h3{margin:0 0 6px;font-size:15.5px}
+.nri-faq p{margin:0;color:#44586E;font-size:14.5px}
+.nri-src{font-size:13px;color:#67798C;line-height:1.6}
+.nri-src a{color:#0B5F49}
+.nri-disc{background:#F7FAFC;border:1px solid var(--mfp-line,#E3E9EF);border-radius:12px;padding:15px 17px;
+ font-size:13.5px;color:#44586E;line-height:1.6;margin:16px 0}
+.nri-steps{counter-reset:s;list-style:none;padding:0;margin:10px 0}
+.nri-steps li{counter-increment:s;position:relative;padding-left:40px;margin:10px 0}
+.nri-steps li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;
+ background:var(--mfp-teal,#0E9D78);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+/* Wide comparison tables must scroll inside their own box rather than pushing
+   the page sideways. The NRE/NRO/FCNR table is four columns of prose and broke
+   the 390px layout.
+   NOTE: setting display:block on the <table> does NOT work — the overflow simply
+   reappears on the tbody/tr. The table needs a real block-level wrapper that owns
+   the scrolling. page() wraps every .nri-tbl automatically; do not hand-wrap. */
+.nri-scroll{overflow-x:auto;max-width:100%;margin:12px 0;-webkit-overflow-scrolling:touch}
+.nri-scroll .nri-tbl{margin:0;min-width:460px}
+@media(max-width:560px){.nri-hero{padding:22px 20px}.nri-card,.nri-calc{padding:17px 16px}}
+
+.nri-lang{margin:0 0 14px;text-align:right}
+.nri-lang a{display:inline-block;font-size:13.5px;font-weight:700;color:#0A7A5E;
+  text-decoration:none;background:#F3FBF8;border:1px solid #BCE3D5;
+  padding:6px 13px;border-radius:99px}
+.nri-lang a:hover{background:#E7F6F0;border-color:#0E9D78}
+/* ── planner components (/nri/financial-plan/) ───────────────────────────── */
+.nri-grid>a.nri-feat{grid-column:1/-1;background:linear-gradient(135deg,#0B5F49,#0E9D78);
+  border-color:#0B5F49;color:#fff}
+.nri-grid>a.nri-feat span{color:#D8F3E9}
+.nri-grid>a.nri-feat:hover{filter:brightness(1.07)}
+
+.nri-sub{font-size:15px;font-weight:800;color:var(--mfp-ink,#0B2B23);margin:22px 0 10px;
+  padding-bottom:7px;border-bottom:1px solid #E6EDEA}
+.nri-sub:first-of-type{margin-top:6px}
+.nri-goals{display:flex;flex-direction:column;gap:9px;margin:10px 0 12px}
+.gr{display:grid;grid-template-columns:1.5fr 1.1fr 1fr .7fr auto;gap:8px;align-items:center}
+.gr input,.gr select{width:100%;padding:9px 10px;border:1px solid #D7E2DD;border-radius:9px;
+  font:inherit;font-size:14px;background:#fff;color:inherit;min-width:0}
+.gr input:focus,.gr select:focus{outline:2px solid #0E9D78;outline-offset:1px;border-color:#0E9D78}
+.g-del{border:1px solid #E6D4D4;background:#FEF6F5;color:#B42318;border-radius:9px;
+  width:34px;height:34px;font-size:19px;line-height:1;cursor:pointer;flex:0 0 auto}
+.g-del:hover{background:#FEE4E2}
+.nri-add{margin-top:2px;border:1px dashed #9FC7B8;background:#F3FBF8;color:#0A7A5E;
+  padding:10px 16px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
+.nri-add:hover{background:#E7F6F0;border-color:#0E9D78}
+
+.nri-prog{height:9px;border-radius:99px;background:#E6EDEA;overflow:hidden;margin:12px 0 4px}
+.nri-prog>i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,#0E9D78,#12B48A);transition:width .25s ease}
+.nri-prog.alt{margin:8px 0 0}
+.nri-prog.alt>i{background:linear-gradient(90deg,#4C62CE,#6E82E8)}
+
+.nri-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:16px}
+.nri-res>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:13px 15px}
+.nri-res span{display:block;font-size:12.5px;color:#44586E;font-weight:700;
+  text-transform:uppercase;letter-spacing:.3px}
+.nri-res b{display:block;font-size:21px;font-weight:800;color:#0B2B23;margin:5px 0 3px}
+.nri-res i{display:block;font-style:normal;font-size:12.5px;color:#5A6E7F;line-height:1.45}
+
+.nri-cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+.nri-cmp>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:13px 15px}
+.nri-cmp span{display:block;font-size:12.5px;color:#44586E;font-weight:700;
+  text-transform:uppercase;letter-spacing:.3px}
+.nri-cmp b{display:block;font-size:16.5px;font-weight:800;color:#0B2B23;margin-top:5px}
+.nri-verdict{background:#F3FBF8;border-left:3px solid #0E9D78;padding:11px 14px;
+  border-radius:0 9px 9px 0;margin-top:12px;line-height:1.6}
+
+.nri-badge{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;
+  border-radius:99px;vertical-align:middle;margin-left:8px;letter-spacing:.2px}
+.nri-badge.ok{background:#E7F6F0;color:#0A7A5E;border:1px solid #9FC7B8}
+.nri-badge.warn{background:#FEF7E6;color:#8A5B00;border:1px solid #EBD79B}
+.nri-badge.bad{background:#FEF3F2;color:#B42318;border:1px solid #FECDCA}
+
+.nri-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin-top:12px}
+.nri-two>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:15px 16px}
+.nri-two h3{margin:0 0 7px;font-size:14.5px;font-weight:800;color:#0B2B23}
+.nri-two b{display:block;font-size:20px;font-weight:800;color:#0E9D78;margin-bottom:7px}
+.nri-two p{margin:0;font-size:13.5px;line-height:1.6;color:#44586E}
+
+.nri-f{background:#0B2B23;color:#D8F3E9;padding:13px 16px;border-radius:10px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;
+  line-height:1.7;overflow-x:auto;margin:11px 0;white-space:pre-wrap;word-break:break-word}
+.nri-f sup{font-size:.78em}
+
+.nri-lim{margin:10px 0 0;padding-left:20px;line-height:1.72}
+.nri-lim li{margin-bottom:9px}
+.nri-rel{margin:8px 0 0;padding-left:20px;line-height:2}
+.nri-cta{background:#F3FBF8;border-color:#BCE3D5}
+.nri-link{font-weight:800;color:#0A7A5E;text-decoration:none;border-bottom:2px solid #9FC7B8}
+.nri-link:hover{border-bottom-color:#0E9D78}
+
+@media(max-width:700px){
+  /* Five columns of inputs cannot survive a phone. Stack the goal row and let
+     the name span the full width so it stays readable. */
+  .gr{grid-template-columns:1fr 1fr;gap:7px}
+  .gr .g-name{grid-column:1/-1}
+  .gr .g-del{justify-self:end;grid-column:2}
+}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","inLanguage":"hi-IN","name":"NRI फाइनेंशियल प्लान कैलकुलेटर","url":"https://www.myfinancialplan.in/hi/nri/financial-plan/","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"लक्ष्य किस करेंसी में खर्च होगा, इससे इतना फ़र्क क्यों पड़ता है?","acceptedAnswer":{"@type":"Answer","text":"क्योंकि इससे दो चीज़ें एक साथ बदलती हैं: वह महँगाई दर जो लागत बढ़ाती है, और वह विनिमय दर जो उसे बदलती है। भारत का लक्ष्य आम तौर पर 6% सालाना महँगा होता है; खाड़ी, यूरोप या उत्तरी अमेरिका का लक्ष्य उससे काफ़ी कम। विदेश की पढ़ाई पर भारतीय महँगाई लगाना उसे बहुत बढ़ा-चढ़ाकर दिखाता है, और भारत की शादी पर विदेशी महँगाई लगाना उसे कम करके। दूसरा असर विनिमय दर का है — पैसा एक करेंसी में हो और लक्ष्य दूसरी में, तो दर बदलते ही आपकी हैसियत बदल जाती है, भले निवेश में कुछ न बदला हो।"}},{"@type":"Question","name":"क्या यह टूल विनिमय दर का पूर्वानुमान लगाता है?","acceptedAnswer":{"@type":"Answer","text":"नहीं, और जो दावा करे उससे सावधान रहिए। आज की दर हर आने वाले साल पर स्थिर रखी जाती है। बीस साल के प्लान में यह निश्चित रूप से ग़लत होगी, इसीलिए पूर्वानुमान का दिखावा करने के बजाय करेंसी मेल वाला पैनल यह दिखाता है कि आपका प्लान इस मान्यता से कितना जुड़ा हुआ है।"}},{"@type":"Question","name":"क्या RNOR का अनुमान भरोसेमंद है?","acceptedAnswer":{"@type":"Answer","text":"यह एक ही इनपुट से लगाया गया अनुमान है — आप कितने समय से नॉन-रेज़िडेंट हैं। असली परीक्षा पिछले सात और दस वित्त वर्षों के दिनों पर निर्भर करती है। इससे यह समझिए कि वापसी की खिड़की योजना बनाने लायक है या नहीं, फिर स्टेटस कैलकुलेटर और किसी चार्टर्ड अकाउंटेंट से अपनी असल स्थिति तय कीजिए।"}},{"@type":"Question","name":"अपना ही पैसा वापस लाने में साल क्यों लगेंगे?","acceptedAnswer":{"@type":"Answer","text":"FEMA के नियमों के तहत विदेश में रहने वाला व्यक्ति NRO खाते से हर वित्त वर्ष में USD 10 लाख तक भेज सकता है, चालू आय इससे अलग है। ज़्यादातर परिवारों के लिए यह बेमानी है। पर जिनके पास भारत में बड़ा कोष, प्रॉपर्टी बिक्री या विरासत है, उनके लिए बाज़ार नहीं, यही सीमा समय-सारिणी तय करती है — और यह बिक्री के समय पता चलने से बेहतर है कि पहले पता हो।"}},{"@type":"Question","name":"अगर मैं भारत लौटने वाला नहीं हूँ तो क्या यह काम का है?","acceptedAnswer":{"@type":"Answer","text":"हाँ। वापसी वाले सवाल में \"नहीं\" चुनिए और RNOR वाला पैनल हट जाएगा। करेंसी मेल, लक्ष्यों का हिसाब और रीपैट्रिएशन की अवधि — तीनों तब भी लागू हैं, और मेल न होने का सवाल उस व्यक्ति के लिए और तीखा हो जाता है जो विदेश में ही बस रहा है पर भारतीय संपत्ति रखे हुए है।"}},{"@type":"Question","name":"क्या यह निवेश सलाह है?","acceptedAnswer":{"@type":"Answer","text":"नहीं। My Financial Plan एक MSME-पंजीकृत सॉफ़्टवेयर कंपनी है, न SEBI-पंजीकृत निवेश सलाहकार, न चार्टर्ड अकाउंटेंसी फ़र्म। यह प्रकाशित नियमों पर बना शैक्षिक मॉडल है। इसे आपकी संधि, आपके दस्तावेज़ या आपकी जोखिम क्षमता का पता नहीं है, और इसके किसी नतीजे पर किसी योग्य पेशेवर से पुष्टि किए बिना अमल नहीं करना चाहिए।"}}]}</script>
+<style id="mfp-tokens">
+/* MFP canonical design tokens — generated by sitegen/apply-design-tokens.mjs.
+   Do not hand-edit: regenerate from sitegen/design-tokens.mjs. */
+:root{--mfp-teal:#0E9D78;--mfp-teal-d:#047857;--mfp-mint:#DDF4EC;--mfp-ink:#17324A;--mfp-ink-2:#44586E;--mfp-mute:#5B6B7F;--mfp-line:#E3E9EF;--mfp-bg:#F7FAFC;--mfp-white:#FFFFFF;--mfp-amber:#BF7B0B;--mfp-red:#DC2626;--mfp-indigo:#4C62CE;--mfp-shell:1180px;--mfp-gutter:20px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--mfp-ink);background:var(--mfp-bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* One shell width: header, footer and page content share the same edges.
+   Qualified with "html body" on purpose. Several pages carry <style> blocks
+   INSIDE <body>, which land after this block in document order and would
+   otherwise win on source order at equal specificity. The extra element
+   selectors raise specificity to 0-1-2 so this rule holds regardless of
+   where a page's own stylesheet sits. Avoids !important, which is what
+   created the duplicate-override mess this replaces. */
+html body .wrap,html body .container,html body .mp,
+html body .mfp-sh-in,html body .mfp-sf-in{max-width:var(--mfp-shell);margin-inline:auto;
+  padding-inline:var(--mfp-gutter);width:100%;box-sizing:border-box}
+h1{font-size:clamp(26px,4.6vw,38px);line-height:1.18;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,28px);line-height:1.25;letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.2vw,20px);line-height:1.35}
+h1,h2,h3{text-wrap:balance}
+/* nothing below the legible floor */
+body,p,li,td,th,label,input,select,textarea,button,a,span,small{font-size:max(1em,12px)}
+small,.small{font-size:13px}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
+
+</style>
+</head>
+<body>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+  <div class="nri-hero">
+    <h1>ऐसा प्लान जो जानता है कि आप विदेश में रहते हैं</h1>
+    <p>आम प्लानर मान लेते हैं कि कमाई, बचत और खर्च एक ही करेंसी में है। यह प्लानर हर लक्ष्य की क़ीमत वहीं लगाता है जहाँ वह असल में खर्च होगा, बताता है कि विनिमय दर से आप कितना जुड़े हुए हैं, और उन दो सवालों का जवाब देता है जो सिर्फ़ NRI को पूछने पड़ते हैं — RNOR की राहत कितनी चलेगी, और पैसा बाहर निकालने में कितना समय लगेगा।</p>
+    <div class="asat">2026-11-14 की स्थिति के अनुसार, वित्त वर्ष 2026-27 (निर्धारण वर्ष 2027-28) के लिए। यह शैक्षिक अनुमान है — कर सलाह नहीं।</div>
+  </div>
+<div class="nri-lang"><a href="/nri/financial-plan/" hreflang="en-IN">Read this page in English</a></div>
+
+<section class="nri-calc" id="nriform">
+  <h2>आपकी स्थिति</h2>
+
+  <h3 class="nri-sub">आप कहाँ हैं</h3>
+  <div class="nri-grid">
+    <label>आप किस करेंसी में कमाते हैं<select id="ccy"><option value="AED" selected>AED — UAE दिरहम (संयुक्त अरब अमीरात)</option><option value="USD">USD — अमेरिकी डॉलर (अमेरिका)</option><option value="GBP">GBP — पाउंड स्टर्लिंग (ब्रिटेन)</option><option value="SGD">SGD — सिंगापुर डॉलर (सिंगापुर)</option><option value="CAD">CAD — कनाडाई डॉलर (कनाडा)</option><option value="AUD">AUD — ऑस्ट्रेलियाई डॉलर (ऑस्ट्रेलिया)</option><option value="EUR">EUR — यूरो (यूरोप)</option><option value="SAR">SAR — सऊदी रियाल (सऊदी अरब)</option><option value="QAR">QAR — क़तरी रियाल (क़तर)</option><option value="OMR">OMR — ओमानी रियाल (ओमान)</option></select></label>
+    <label>1 <span class="ccylbl">AED</span> = कितने रुपये<input id="fxr" type="number" inputmode="decimal" min="0" step="0.01" value="23"></label>
+    <label>1 USD = कितने रुपये<input id="fxusd" type="number" inputmode="decimal" min="0" step="0.01" value="88"></label>
+    <label>कितने वर्षों से नॉन-रेज़िडेंट हैं<input id="abroad" type="number" inputmode="decimal" min="0" value="8"></label>
+  </div>
+
+  <h3 class="nri-sub">आप</h3>
+  <div class="nri-grid">
+    <label>आपकी उम्र<input id="age" type="number" inputmode="decimal" min="18" max="80" value="42"></label>
+    <label>किस उम्र में रिटायर होना है<input id="rage" type="number" inputmode="decimal" min="35" max="80" value="58"></label>
+    <label>हर महीने कितना बचा सकते हैं (<span class="ccylbl">AED</span>)<input id="save" type="number" inputmode="decimal" min="0" value="3500"></label>
+    <label>क्या भारत लौटने की योजना है
+      <select id="ret_plan"><option value="yes" selected>हाँ, आगे चलकर</option><option value="unsure">पक्का नहीं</option><option value="no">नहीं</option></select></label>
+  </div>
+
+  <h3 class="nri-sub">आपके पास पहले से क्या है</h3>
+  <div class="nri-grid">
+    <label>भारत में निवेश (₹)<input id="aIndia" type="number" inputmode="decimal" min="0" value="3000000"></label>
+    <label>विदेश में निवेश (<span class="ccylbl">AED</span>)<input id="aAbroad" type="number" inputmode="decimal" min="0" value="150000"></label>
+  </div>
+
+  <h3 class="nri-sub">रिटायरमेंट</h3>
+  <div class="nri-grid">
+    <label>कहाँ रिटायर होंगे
+      <select id="retwhere"><option value="india" selected>भारत में</option><option value="abroad">विदेश में</option></select></label>
+    <label>आज के पैसे में, हर महीने कितना खर्च चाहिए<input id="rspend" type="number" inputmode="decimal" min="0" value="120000"></label>
+  </div>
+  <p class="nri-note">भारत में रिटायर होना है तो यह रकम रुपये में भरिए, विदेश में तो <span class="ccylbl">AED</span> में। टूल उसी हिसाब से महँगाई जोड़ेगा।</p>
+
+  <h3 class="nri-sub">आपके लक्ष्य</h3>
+  <p class="nri-note">हर लक्ष्य पर यह चुनिए कि पैसा असल में <b>कहाँ खर्च</b> होगा। इस टूल का पूरा मक़सद यही है: विदेश की पढ़ाई और भारत की शादी न एक ही रफ़्तार से महँगी होती हैं, न एक ही करेंसी में चुकाई जाती हैं।</p>
+  <div id="goals" class="nri-goals"></div>
+  <button type="button" id="addgoal" class="nri-add">+ एक और लक्ष्य जोड़ें</button>
+
+  <h3 class="nri-sub">मान्यताएँ, जो आप बदल सकते हैं</h3>
+  <div class="nri-grid">
+    <label>भारत में महँगाई (% सालाना)<input id="inflIn" type="number" inputmode="decimal" min="0" step="0.1" value="6"></label>
+    <label>जहाँ आप रहते हैं वहाँ महँगाई (% सालाना)<input id="inflAb" type="number" inputmode="decimal" min="0" step="0.1" value="2.5"></label>
+    <label>जमा करते समय रिटर्न (% सालाना)<input id="acc" type="number" inputmode="decimal" min="0" step="0.1" value="11"></label>
+    <label>रिटायरमेंट के बाद रिटर्न (% सालाना)<input id="post" type="number" inputmode="decimal" min="0" step="0.1" value="7"></label>
+    <label>किस उम्र तक का प्लान<input id="life" type="number" inputmode="decimal" min="60" max="110" value="85"></label>
+  </div>
+</section>
+
+<div id="o_wrap" hidden>
+<section class="nri-out">
+  <h2>आपका प्लान</h2>
+  <div class="nri-big">
+    <div><span class="lbl">कुल जितने के लिए बचा रहे हैं</span><b class="val" id="o_need">—</b></div>
+    <div><span class="lbl">इस रफ़्तार से बनेगा</span><b class="val" id="o_proj">—</b></div>
+    <div><span class="lbl">कमी</span><b class="val" id="o_gap">—</b></div>
+  </div>
+  <div class="nri-prog"><i id="o_bar"></i></div>
+  <p class="nri-note">फंडेड: कुल ज़रूरत का <b id="o_pct">—</b>, अगर आप इसी तरह बचत करते रहें।</p>
+  <div class="nri-res">
+    <div><span>अतिरिक्त कितना निवेश करना होगा</span><b id="o_sip">—</b><i id="o_sipf">—</i></div>
+    <div><span>रिटायरमेंट के लिए ज़रूरी कोष</span><b id="o_retc">—</b><i><span id="o_draw">—</span> तक चलेगा</i></div>
+    <div><span>रिटायरमेंट के समय मासिक खर्च</span><b id="o_retm">—</b><i>उस साल के पैसे में आपका लक्ष्य</i></div>
+  </div>
+</section>
+
+<section class="nri-card">
+  <h2>करेंसी का मेल <span id="o_mbadge" class="nri-badge">—</span></h2>
+  <p>NRI को जो जोखिम कोई नहीं दिखाता, वह यह है: पैसा जिस करेंसी में रखा है और जिस करेंसी में खर्च होगा, उनका मेल न होना। यह वही तुलना है।</p>
+  <div class="nri-cmp">
+    <div><span>आपका पैसा कहाँ है</span><b id="o_amix">—</b><div class="nri-prog alt"><i id="o_abar"></i></div></div>
+    <div><span>खर्च कहाँ होगा</span><b id="o_nmix">—</b><div class="nri-prog alt"><i id="o_nbar"></i></div></div>
+  </div>
+  <p class="nri-verdict" id="o_match">—</p>
+</section>
+
+<section class="nri-card">
+  <h2>दो बातें जो सिर्फ़ आप पर लागू होती हैं</h2>
+  <div class="nri-two">
+    <div><h3>वापसी पर RNOR की खिड़की</h3><b id="o_rnor">—</b><p id="o_rnorn">—</p></div>
+    <div><h3>पैसा वापस बाहर ले जाना</h3><b id="o_repat">—</b><p id="o_repatn">—</p></div>
+  </div>
+</section>
+
+<section class="nri-card">
+  <h2>लक्ष्य दर लक्ष्य</h2>
+  <div class="nri-scroll"><table class="nri-tbl">
+    <thead><tr><th>लक्ष्य</th><th>किसमें चुकाना</th><th>वर्ष</th><th>तब कितना चाहिए</th><th>मासिक निवेश</th></tr></thead>
+    <tbody id="o_tbody"></tbody>
+  </table></div>
+  <p class="nri-note">हर पंक्ति का हिसाब अलग से लगाया गया है। इन्हें जोड़ने पर ऊपर दी गई कमी से ज़्यादा रकम बनेगी, क्योंकि कमी में आपका मौजूदा पैसा घटाया जा चुका है और इन पंक्तियों में नहीं।</p>
+</section>
+</div>
+
+<section class="nri-card">
+  <h2>यह प्लानर क्या करता है</h2>
+  <p>ज़्यादातर फाइनेंशियल प्लान यह मानकर चलते हैं कि आप एक ही करेंसी में कमाते, बचाते और खर्च करते हैं, और जिस टैक्स व्यवस्था में आज हैं उसी में रिटायर भी होंगे। NRI के लिए दोनों बातें ग़लत हैं। कमाई दिरहम या डॉलर में है, पैसे का एक हिस्सा भारत में रुपये कमा रहा है, बच्चे शायद तीसरे देश में पढ़ें, और भारत लौटने का दिन यह बदल देता है कि आपकी कौन सी आय भारत की पकड़ में आएगी।</p>
+  <p>यह टूल इन्हीं तीन बातों के हिसाब से प्लान बनाता है। यह न टैक्स रिटर्न है, न सलाह। यह सरहद पार रहने वाले परिवार के बजट का हिसाब है, खुलकर लिखा हुआ, ताकि आप देख सकें कि कहाँ गड़बड़ है।</p>
+</section>
+
+<section class="nri-card">
+  <h2>यह कैसे काम करता है</h2>
+  <ol class="nri-steps">
+    <li><b>हर लक्ष्य की क़ीमत वहीं लगती है जहाँ वह खर्च होगा।</b> "विदेश में खर्च" चुने गए लक्ष्य पर वहाँ की महँगाई लगती है और फिर आपकी दी हुई दर से रुपये में बदला जाता है। "भारत में खर्च" पर भारतीय महँगाई। कोई औसत नहीं निकाला जाता।</li>
+    <li><b>रिटायरमेंट को गोल आंकड़े की तरह नहीं, निकासी की तरह हल किया जाता है।</b> कोष इतना बनाया जाता है कि वह ठीक उसी उम्र पर ख़त्म हो जिस तक का प्लान है, और इसमें महँगाई-समायोजित असली रिटर्न इस्तेमाल होता है, ऊपरी दर नहीं।</li>
+    <li><b>आपका मौजूदा पैसा और मासिक बचत</b> रिटायरमेंट के वर्ष तक बढ़ाई जाती है, और ज़रूरत से जितना कम पड़े वही कमी है।</li>
+    <li><b>कमी को मासिक निवेश में बदला जाता है</b> और रुपये तथा आपकी अपनी करेंसी, दोनों में दिखाया जाता है।</li>
+    <li><b>फिर वे दो सवाल</b> जो सिर्फ़ NRI के हैं: वापसी पर RNOR कितना चलेगा, और भारतीय कोष को FEMA की सीमा के भीतर बाहर ले जाने में कितने साल लगेंगे।</li>
+  </ol>
+</section>
+
+<section class="nri-card">
+  <h2>फ़ॉर्मूला</h2>
+  <p>असली रिटर्न — फिशर संबंध, सीधा घटाव नहीं — सब कुछ चलाता है:</p>
+  <pre class="nri-f">असली रिटर्न  r* = (r − i) ÷ (1 + i)</pre>
+  <p>वह कोष जिसे <i>D</i> वर्षों तक हर महीने <i>W</i> देना है और अंत में शून्य होना है:</p>
+  <pre class="nri-f">कोष = W × 12 × (1 − (1 + r*)<sup>−D</sup>) ÷ r*</pre>
+  <p>आपका पैसा कितना बनेगा, और कमी पूरी करने के लिए मासिक निवेश:</p>
+  <pre class="nri-f">भविष्य मूल्य = L × (1 + r)<sup>y</sup> + S × ((1 + m)<sup>k</sup> − 1) ÷ m × (1 + m)
+मासिक ज़रूरत = कमी × m ÷ (((1 + m)<sup>k</sup> − 1) × (1 + m))</pre>
+  <p class="nri-note">L आज का पैसा है, S मासिक निवेश, m मासिक दर, k महीनों की संख्या। असली रिटर्न की जगह सीधे <i>r − i</i> लगाने पर 25 साल का कोष कई प्रतिशत ज़्यादा दिखता है — इसीलिए इसे खोलकर लिखा गया है।</p>
+</section>
+
+<section class="nri-card">
+  <h2>एक उदाहरण</h2>
+  <p>पेज जिन आंकड़ों के साथ खुलता है: उम्र 42, आठ साल से UAE में, हर महीने AED 3,500 की बचत, विदेश में AED 1,50,000 और भारत में ₹30 लाख का निवेश, 58 पर भारत में रिटायरमेंट और आज के पैसे में ₹1,20,000 मासिक खर्च, बारह साल बाद बच्चे की पढ़ाई विदेश में AED 60,000, छह साल बाद भारत में ₹90 लाख का घर, और तीन साल बाद माता-पिता के लिए ₹25 लाख।</p>
+  <p>यह परिवार पटरी पर नहीं है, और पेज उसे दिलासा देने के बजाय साफ़ बता देता है। अकेले रिटायरमेंट के लिए लगभग ₹8.5 करोड़ चाहिए, क्योंकि आज का ₹1,20,000 मासिक सोलह साल की 6% महँगाई के बाद लगभग ₹3 लाख मासिक हो जाता है, और उसे सत्ताईस साल चलना है।</p>
+  <p>पढ़ाई वाला लक्ष्य अलग व्यवहार करता है: दिरहम में होने और 2.5% महँगाई लगने के कारण वह उसी रुपये-आकार के भारतीय लक्ष्य से कहीं धीरे बढ़ता है — यही फ़र्क एक-करेंसी वाला प्लानर छिपा देता है।</p>
+</section>
+
+<section class="nri-card">
+  <h2>मान्यताएँ और सीमाएँ</h2>
+  <ul class="nri-lim">
+    <li><b>विनिमय दर स्थिर मानी गई है।</b> यही सबसे बड़ी सरलीकरण है। हम करेंसी का पूर्वानुमान नहीं लगाते — कोई नहीं लगा सकता — इसलिए आज की दर हर आने वाले साल पर लगा दी जाती है। बीस साल में यह ग़लत साबित होगी। करेंसी मेल वाला पैनल इसीलिए है, ताकि आप देख सकें कि इस मान्यता के ग़लत होने से आप कितना प्रभावित होंगे।</li>
+    <li><b>शुरुआती दरें सुविधा के लिए हैं, भाव नहीं।</b> वे गोल की हुई हैं और लाइव नहीं हैं। अपने बैंक से मिलने वाली असल दर भरिए।</li>
+    <li><b>रिटर्न एक समान मान लिया गया है।</b> असल बाज़ार वही औसत अलग क्रम में देता है, और रिटायरमेंट का पहला दशक ख़राब जाए तो नुक़सान कहीं ज़्यादा होता है। यह जोखिम इसमें शामिल नहीं है।</li>
+    <li><b>रिटर्न में से टैक्स नहीं घटाया गया है।</b> नतीजे को टैक्स-पूर्व मानिए।</li>
+    <li><b>RNOR की खिड़की एक ही इनपुट से लगाया गया अनुमान है।</b> असली परीक्षा पिछले सात और दस वर्षों के दिनों पर है। पहले स्टेटस कैलकुलेटर चलाइए, फिर चार्टर्ड अकाउंटेंट से पुष्टि कीजिए।</li>
+    <li><b>रीपैट्रिएशन का आंकड़ा मानता है कि पूरा भारतीय कोष NRO के रास्ते जाएगा।</b> NRE या FCNR में पड़ा पैसा पूरी तरह भेजा जा सकता है और उस सीमा में नहीं गिना जाता।</li>
+    <li><b>यहाँ कुछ भी कर सलाह नहीं है।</b></li>
+  </ul>
+</section>
+
+<section class="nri-card nri-cta">
+  <h2>यह छोटा रूप है</h2>
+  <p>यह पेज पैसे का हिसाब लगाता है। पूरा प्लानर इमरजेंसी फंड, टर्म कवर और हेल्थ कवर भी नापता है, हर बच्चे को अलग से लेता है, और एक विस्तृत PDF बनाता है जिसे आप किसी सलाहकार को दिखा सकते हैं।</p>
+  <p><a class="nri-link" href="/financial-planning/">पूरा फाइनेंशियल प्लान बनाएँ →</a></p>
+</section>
+
+<section class="nri-card">
+  <h2>संबंधित</h2>
+  <ul class="nri-rel">
+    <li><a href="/hi/nri/residential-status-calculator/">इस साल आप NRI हैं, RNOR या रेज़िडेंट?</a></li>
+    <li><a href="/hi/nri/returning-to-india/">भारत वापसी और RNOR की खिड़की</a></li>
+    <li><a href="/hi/nri/repatriation/">पैसा विदेश भेजना</a></li>
+    <li><a href="/hi/nri/accounts-nre-nro-fcnr/">NRE बनाम NRO बनाम FCNR</a></li>
+    <li><a href="/hi/nri/property-sale-tds-calculator/">भारत में प्रॉपर्टी बेचना</a></li>
+    <li><a href="/hi/nri/">सभी NRI टूल और गाइड</a></li>
+  </ul>
+</section>
+
+
+<section class="nri-card">
+  <h2>अक्सर पूछे जाने वाले सवाल</h2>
+  <div class="nri-faq"><h3>लक्ष्य किस करेंसी में खर्च होगा, इससे इतना फ़र्क क्यों पड़ता है?</h3><p>क्योंकि इससे दो चीज़ें एक साथ बदलती हैं: वह महँगाई दर जो लागत बढ़ाती है, और वह विनिमय दर जो उसे बदलती है। भारत का लक्ष्य आम तौर पर 6% सालाना महँगा होता है; खाड़ी, यूरोप या उत्तरी अमेरिका का लक्ष्य उससे काफ़ी कम। विदेश की पढ़ाई पर भारतीय महँगाई लगाना उसे बहुत बढ़ा-चढ़ाकर दिखाता है, और भारत की शादी पर विदेशी महँगाई लगाना उसे कम करके। दूसरा असर विनिमय दर का है — पैसा एक करेंसी में हो और लक्ष्य दूसरी में, तो दर बदलते ही आपकी हैसियत बदल जाती है, भले निवेश में कुछ न बदला हो।</p></div>
+  <div class="nri-faq"><h3>क्या यह टूल विनिमय दर का पूर्वानुमान लगाता है?</h3><p>नहीं, और जो दावा करे उससे सावधान रहिए। आज की दर हर आने वाले साल पर स्थिर रखी जाती है। बीस साल के प्लान में यह निश्चित रूप से ग़लत होगी, इसीलिए पूर्वानुमान का दिखावा करने के बजाय करेंसी मेल वाला पैनल यह दिखाता है कि आपका प्लान इस मान्यता से कितना जुड़ा हुआ है।</p></div>
+  <div class="nri-faq"><h3>क्या RNOR का अनुमान भरोसेमंद है?</h3><p>यह एक ही इनपुट से लगाया गया अनुमान है — आप कितने समय से नॉन-रेज़िडेंट हैं। असली परीक्षा पिछले सात और दस वित्त वर्षों के दिनों पर निर्भर करती है। इससे यह समझिए कि वापसी की खिड़की योजना बनाने लायक है या नहीं, फिर स्टेटस कैलकुलेटर और किसी चार्टर्ड अकाउंटेंट से अपनी असल स्थिति तय कीजिए।</p></div>
+  <div class="nri-faq"><h3>अपना ही पैसा वापस लाने में साल क्यों लगेंगे?</h3><p>FEMA के नियमों के तहत विदेश में रहने वाला व्यक्ति NRO खाते से हर वित्त वर्ष में USD 10 लाख तक भेज सकता है, चालू आय इससे अलग है। ज़्यादातर परिवारों के लिए यह बेमानी है। पर जिनके पास भारत में बड़ा कोष, प्रॉपर्टी बिक्री या विरासत है, उनके लिए बाज़ार नहीं, यही सीमा समय-सारिणी तय करती है — और यह बिक्री के समय पता चलने से बेहतर है कि पहले पता हो।</p></div>
+  <div class="nri-faq"><h3>अगर मैं भारत लौटने वाला नहीं हूँ तो क्या यह काम का है?</h3><p>हाँ। वापसी वाले सवाल में "नहीं" चुनिए और RNOR वाला पैनल हट जाएगा। करेंसी मेल, लक्ष्यों का हिसाब और रीपैट्रिएशन की अवधि — तीनों तब भी लागू हैं, और मेल न होने का सवाल उस व्यक्ति के लिए और तीखा हो जाता है जो विदेश में ही बस रहा है पर भारतीय संपत्ति रखे हुए है।</p></div>
+  <div class="nri-faq"><h3>क्या यह निवेश सलाह है?</h3><p>नहीं। My Financial Plan एक MSME-पंजीकृत सॉफ़्टवेयर कंपनी है, न SEBI-पंजीकृत निवेश सलाहकार, न चार्टर्ड अकाउंटेंसी फ़र्म। यह प्रकाशित नियमों पर बना शैक्षिक मॉडल है। इसे आपकी संधि, आपके दस्तावेज़ या आपकी जोखिम क्षमता का पता नहीं है, और इसके किसी नतीजे पर किसी योग्य पेशेवर से पुष्टि किए बिना अमल नहीं करना चाहिए।</p></div>
+</section>
+<section class="nri-card">
+  <h2>स्रोत</h2>
+  <p class="nri-src">
+    <a href="https://www.rbi.org.in/scripts/FAQView.aspx?Id=52" rel="nofollow noopener" target="_blank">भारतीय रिज़र्व बैंक — FAQ, "Accounts in India by Non-residents" (16 जनवरी 2025 की स्थिति)</a><br>
+    <a href="https://www.incometaxindia.gov.in/income-tax-act-202511" rel="nofollow noopener" target="_blank">Income-tax Act, 2025 — आयकर विभाग</a> &middot; <a href="https://www.incometaxindia.gov.in/income-tax-rule-2026" rel="nofollow noopener" target="_blank">Income-tax Rules, 2026 — आयकर विभाग</a> &middot; <a href="https://www.incometaxindia.gov.in/income-tax-act" rel="nofollow noopener" target="_blank">Income-tax Act, 1961 — आयकर विभाग</a><br>
+    <a href="https://www.incometaxindia.gov.in/international-taxation" rel="nofollow noopener" target="_blank">International Taxation / Tax Treaties — आयकर विभाग</a>
+  </p>
+  <p class="nri-src" style="margin-top:10px">Income-tax Act, 2025 और Income-tax Rules, 2026 को आयकर विभाग, Income-tax Act, 1961 के साथ-साथ प्रकाशित करता है। दोनों अधिनियमों में धाराओं के नंबर अलग हैं और पेशेवर स्रोत फ़िलहाल दोनों का हवाला देते हैं। इसीलिए यह साइट धारा का नंबर आगे रखने के बजाय नियम को समझाकर बताती है।</p>
+</section>
+<div class="nri-disc">
+  <b>ज़रूर पढ़ें।</b> My Financial Plan एक MSME-पंजीकृत सॉफ़्टवेयर कंपनी है। हम SEBI-पंजीकृत निवेश सलाहकार नहीं हैं, चार्टर्ड अकाउंटेंसी फ़र्म नहीं हैं, और कर एजेंट भी नहीं हैं। ये कैलकुलेटर प्रकाशित नियमों पर बने शैक्षिक अनुमान हैं, और आपका कर परिणाम आपकी अपनी परिस्थितियों पर निर्भर करता है — आपकी संधि, आपकी होल्डिंग अवधि, आपके दस्तावेज़। यहाँ कुछ भी कर सलाह या निवेश सलाह नहीं है, और किसी भी नतीजे पर किसी योग्य चार्टर्ड अकाउंटेंट से पुष्टि किए बिना अमल नहीं करना चाहिए। दरें बदलती रहती हैं; आंकड़ों की तारीख ऊपर दी गई है।
+</div>
+</main>
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/financial-planning/">Financial Planning Tool</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+        <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/mfp-push.js"></script>
+  </footer>
+<script>
+(function(){
+'use strict';
+var $=function(i){return document.getElementById(i)};
+var n=function(v){v=parseFloat(v);return isFinite(v)?v:0};
+
+/* Indian-format money. Goals abroad are shown in their own currency too, because
+   telling a man in Dubai his son's university costs Rs 1.6 crore is less useful
+   than telling him it costs 71,000 dollars AND Rs 1.6 crore. */
+function inr(v){ return '\u20B9'+Math.round(v||0).toLocaleString('en-IN') }
+function fx(v,c){ return (Math.round(v||0)).toLocaleString('en-US')+' '+c }
+function crore(v){
+  v=Math.round(v||0);
+  if(v>=1e7) return '\u20B9'+(v/1e7).toFixed(2)+' Cr';
+  if(v>=1e5) return '\u20B9'+(v/1e5).toFixed(2)+' L';
+  return inr(v);
+}
+
+var RATES={"AED":23,"USD":88,"GBP":112,"SGD":66,"CAD":63,"AUD":57,"EUR":95,"SAR":23.5,"QAR":24,"OMR":228};
+
+/* ---- FORMULAS. Identical to wiz.js goalCalc(). Do not "simplify". ---------
+   realReturn is the Fisher relation, not return-minus-inflation: using the
+   subtraction overstates the corpus by several percent over 25 years.        */
+function realReturn(pr,i){ return (pr-i)/(1+i) }
+
+function fvOf(lump, sip, r, y){
+  var m=r/12, k=Math.round(y*12);
+  var v=lump*Math.pow(1+r,y);
+  if(sip>0&&k>0) v+=sip*((Math.pow(1+m,k)-1)/m)*(1+m);
+  return v;
+}
+function sipFor(gap, r, y){
+  var m=r/12, k=Math.round(y*12);
+  if(gap<=0||k<=0) return 0;
+  return (gap*m)/((Math.pow(1+m,k)-1)*(1+m));
+}
+/* Corpus that is exhausted precisely at the end of the drawdown. */
+function annuityCorpus(monthlyToday, inflPa, yearsTo, postRet, drawYears){
+  var fm=monthlyToday*Math.pow(1+inflPa,yearsTo);
+  var rr=realReturn(postRet,inflPa);
+  var t = Math.abs(rr)>1e-4 ? fm*12*((1-Math.pow(1+rr,-drawYears))/rr) : fm*12*drawYears;
+  return {target:t, monthlyAtRet:fm, rr:rr};
+}
+
+/* ---- residency / FEMA layers ---------------------------------------------
+   RNOR is the shelter that makes or breaks a return plan. A returner is
+   normally RNOR for 2-3 financial years, during which foreign income and
+   foreign interest generally stay outside the Indian net. We state a RANGE,
+   never a single confident number, because it turns on the day counts in the
+   preceding ten years, which we are not asking this person to reconstruct. */
+function rnorWindow(yearsAbroad){
+  if(yearsAbroad>=9) return {lo:2,hi:3,note:"आप इतने लंबे समय से नॉन-रेज़िडेंट हैं कि वापसी पर सामान्य दो से तीन वित्त वर्ष का RNOR मिलना चाहिए।"};
+  if(yearsAbroad>=3) return {lo:1,hi:3,note:"आपकी RNOR खिड़की पिछले सात और दस वर्षों के दिनों पर निर्भर करती है। दो वर्ष को योजना का अनुमान मानिए और पैसा हिलाने से पहले पुष्टि करा लीजिए।"};
+  return {lo:0,hi:2,note:"कम समय विदेश में रहने पर RNOR की खिड़की छोटी हो सकती है या मिले ही नहीं। किसी भी राहत को मानकर चलने से पहले अपनी स्थिति जाँच लीजिए।"};
+}
+
+/* FEMA caps remittance out of NRO at USD 1 million per financial year. For a
+   large Indian corpus that cap, not the market, decides how fast you can leave. */
+var USD_LIMIT=1000000;
+function repatYears(indiaCorpus, usdInr){
+  var perYear=USD_LIMIT*usdInr;
+  if(perYear<=0) return 0;
+  return indiaCorpus/perYear;
+}
+
+function goalRows(){
+  return Array.prototype.slice.call(document.querySelectorAll('.gr'));
+}
+
+function calc(){
+  var c=$('ccy').value, rate=n($('fxr').value)||1;
+  var usdInr=n($('fxusd').value)||88;
+  var age=n($('age').value), ret=n($('rage').value);
+  var yrsAbroad=n($('abroad').value);
+  var saveF=n($('save').value);              /* monthly saving, foreign ccy  */
+  var saveInr=saveF*rate;
+  var inIndia=n($('aIndia').value);          /* rupees                        */
+  var abroadF=n($('aAbroad').value);         /* foreign ccy                   */
+  var abroadInr=abroadF*rate;
+  var total=inIndia+abroadInr;
+  var iIn=n($('inflIn').value)/100, iAb=n($('inflAb').value)/100;
+  var acc=n($('acc').value)/100, post=n($('post').value)/100;
+  var life=n($('life').value);
+
+  /* ---- goals -------------------------------------------------------------
+     Each goal is denominated where it will be SPENT. A university fee in
+     Toronto inflates at Canadian rates and is paid in dollars; a wedding in
+     Lucknow inflates at Indian rates and is paid in rupees. Lumping them
+     together at one inflation rate is the mistake this tool exists to stop. */
+  var goals=[], rupeeNeed=0, fcyNeed=0;
+  goalRows().forEach(function(row){
+    var nm=row.querySelector('.g-name').value||'Goal';
+    var where=row.querySelector('.g-where').value;     /* india | abroad     */
+    var cost=n(row.querySelector('.g-cost').value);
+    var yy=n(row.querySelector('.g-yrs').value);
+    if(cost<=0) return;
+    var infl = where==='abroad' ? iAb : iIn;
+    var costInr = where==='abroad' ? cost*rate : cost;
+    var target = costInr*Math.pow(1+infl,yy);
+    goals.push({name:nm,where:where,cost:cost,costInr:costInr,yrs:yy,infl:infl,target:target});
+    if(where==='abroad') fcyNeed+=target; else rupeeNeed+=target;
+  });
+
+  /* ---- retirement --------------------------------------------------------- */
+  var yearsTo=Math.max(0,ret-age);
+  var draw=Math.max(1,life-ret);
+  var retWhere=$('retwhere').value;
+  var retSpend=n($('rspend').value);                  /* monthly, today      */
+  var retInfl = retWhere==='abroad' ? iAb : iIn;
+  var retSpendInr = retWhere==='abroad' ? retSpend*rate : retSpend;
+  var R=annuityCorpus(retSpendInr, retInfl, yearsTo, post, draw);
+  if(retWhere==='abroad') fcyNeed+=R.target; else rupeeNeed+=R.target;
+
+  /* ---- funding ------------------------------------------------------------ */
+  var needTotal=rupeeNeed+fcyNeed;
+  var projected=fvOf(total, saveInr, acc, yearsTo);
+  var gap=Math.max(0, needTotal-projected);
+  var sipNeed=sipFor(gap, acc, yearsTo);
+  var pct = needTotal>0 ? Math.min(100, Math.round(projected/needTotal*100)) : 0;
+
+  /* ---- the three NRI-specific readouts ------------------------------------ */
+  /* 1. Currency match. Where the money IS versus where it will be SPENT. */
+  var assetInrPct = total>0 ? Math.round(inIndia/total*100) : 0;
+  var needInrPct  = needTotal>0 ? Math.round(rupeeNeed/needTotal*100) : 0;
+  var mismatch = Math.abs(assetInrPct-needInrPct);
+
+  /* 2. RNOR window on return. */
+  var W=rnorWindow(yrsAbroad);
+  var returning=$('ret_plan').value;
+
+  /* 3. Repatriation runway: how long the FEMA cap takes to move the corpus. */
+  var indiaAtRet = projected*(total>0?inIndia/total:0);
+  var ry = repatYears(indiaAtRet, usdInr);
+
+  /* ---- paint -------------------------------------------------------------- */
+  $('o_need').textContent   = crore(needTotal);
+  $('o_proj').textContent   = crore(projected);
+  $('o_gap').textContent    = gap>0?crore(gap):"पूरी तरह फंडेड";
+  $('o_sip').textContent    = gap>0 ? inr(sipNeed)+" /माह" : "अतिरिक्त कुछ नहीं चाहिए";
+  $('o_sipf').textContent   = gap>0 ? '\u2248 '+fx(sipNeed/rate,c)+" हर महीने" : "आपकी मौजूदा बचत इस प्लान के लिए काफ़ी है";
+  $('o_pct').textContent    = pct+'%';
+  $('o_bar').style.width    = pct+'%';
+  $('o_retc').textContent   = crore(R.target);
+  $('o_retm').textContent   = inr(R.monthlyAtRet);
+  $('o_draw').textContent   = draw+" वर्ष";
+
+  $('o_amix').textContent   = assetInrPct+"% भारत में / "+(100-assetInrPct)+"% विदेश में";
+  $('o_nmix').textContent   = needInrPct+"% रुपये में / "+(100-needInrPct)+"% "+c;
+  $('o_abar').style.width   = assetInrPct+'%';
+  $('o_nbar').style.width   = needInrPct+'%';
+  var mt;
+  if(mismatch<=15) mt="ठीक-ठाक मेल है। आपका पैसा मोटे तौर पर उसी करेंसी में है जिसमें आप उसे खर्च करेंगे, इसलिए विनिमय दर के उतार-चढ़ाव से प्लान में बड़ा छेद नहीं होगा।";
+  else if(assetInrPct>needInrPct) mt="आपके पास ज़रूरत से "+mismatch+" अंक ज़्यादा पैसा रुपये में है। अगर आख़िर में खर्च विदेश में हुआ, तो रुपया कमज़ोर होने पर वे लक्ष्य इस प्लान से महँगे पड़ेंगे।";
+  else mt="आपके पास ज़रूरत से "+mismatch+" अंक कम पैसा रुपये में है। आप जिसके लिए बचा रहे हैं उसका बड़ा हिस्सा रुपये में चुकाना है, इसलिए रुपया कमज़ोर होने पर फ़ायदा होगा — पर मज़बूत होने पर नुक़सान।";
+  $('o_match').textContent=mt;
+  $('o_mbadge').textContent = mismatch<=15?"मेल खाता है":(mismatch<=35?"कुछ अंतर है":"बड़ा अंतर है");
+  $('o_mbadge').className   = 'nri-badge '+(mismatch<=15?'ok':(mismatch<=35?'warn':'bad'));
+
+  if(returning==='no'){
+    $('o_rnor').textContent="वापसी की योजना नहीं";
+    $('o_rnorn').textContent="RNOR उन लोगों के लिए राहत है जो भारत लौटते हैं। अगर यह इरादा बदले, तो पैसा हिलाने से पहले इस खिड़की की योजना बनाना फ़ायदे का सौदा है।";
+  } else {
+    $('o_rnor').textContent=(W.lo===W.hi?W.lo:W.lo+" से "+W.hi)+" वित्त वर्ष";
+    $('o_rnorn').textContent=W.note;
+  }
+  $('o_repat').textContent = ry<=0 ? '\u2014' : (ry<=1 ? "एक ही वित्त वर्ष में" : Math.ceil(ry)+" वित्त वर्ष");
+  $('o_repatn').textContent = ry<=1
+    ? "आपका अनुमानित भारतीय कोष उस सीमा के भीतर है जो विदेश में रहने वाला व्यक्ति NRO खाते से हर साल भेज सकता है — USD 10 लाख। इसलिए यह सीमा आपके लिए अड़चन नहीं है।"
+      : "भारत में अनुमानित "+crore(indiaAtRet)+" के हिसाब से, NRO के रास्ते यह पैसा बाहर ले जाने में लगभग "+Math.ceil(ry)+" वित्त वर्ष लगेंगे, क्योंकि सालाना सीमा USD 10 लाख है। जितना सोचते हैं उससे पहले शुरू कीजिए, या कोष का ज़्यादा हिस्सा भारत के बाहर रखिए।";
+
+  /* goal table */
+  var h='';
+  goals.forEach(function(g){
+    var sip=sipFor(g.target, acc, g.yrs);
+    h+='<tr><td>'+g.name.replace(/[<>&]/g,'')+'</td><td>'+(g.where==='abroad'?c:'\u20B9')+'</td><td>'+g.yrs+'</td><td>'+crore(g.target)+'</td><td>'+inr(sip)+'</td></tr>';
+  });
+  h+='<tr><td><b>'+"रिटायरमेंट"+'</b></td><td>'+(retWhere==='abroad'?c:'\u20B9')+'</td><td>'+yearsTo+'</td><td><b>'+crore(R.target)+'</b></td><td><b>'+inr(sipFor(R.target,acc,yearsTo))+'</b></td></tr>';
+  $('o_tbody').innerHTML=h;
+  $('o_wrap').hidden=false;
+}
+
+function addGoal(name,where,cost,yrs){
+  var i=document.querySelectorAll('.gr').length;
+  var d=document.createElement('div');
+  d.className='gr';
+  d.innerHTML=
+   '<input class="g-name" value="'+(name||'')+'" placeholder="'+"लक्ष्य का नाम"+'" aria-label="'+"लक्ष्य का नाम"+'">'+
+   '<select class="g-where" aria-label="'+"यह कहाँ खर्च होगा"+'"><option value="india"'+(where==='abroad'?'':' selected')+'>'+"भारत में खर्च"+'</option><option value="abroad"'+(where==='abroad'?' selected':'')+'>'+"विदेश में खर्च"+'</option></select>'+
+   '<input class="g-cost" type="number" inputmode="decimal" min="0" value="'+(cost||'')+'" placeholder="'+"आज की लागत"+'" aria-label="'+"आज के पैसे में लागत"+'">'+
+   '<input class="g-yrs" type="number" inputmode="decimal" min="0" value="'+(yrs||'')+'" placeholder="'+"वर्ष"+'" aria-label="'+"कितने वर्ष बाद"+'">'+
+   '<button type="button" class="g-del" aria-label="'+"यह लक्ष्य हटाएँ"+'">&times;</button>';
+  $('goals').appendChild(d);
+  d.querySelector('.g-del').addEventListener('click',function(){ d.remove(); calc() });
+  Array.prototype.forEach.call(d.querySelectorAll('input,select'),function(el){
+    el.addEventListener('input',calc); el.addEventListener('change',calc);
+  });
+}
+
+function syncRate(){
+  var c=$('ccy').value;
+  if(RATES[c]) $('fxr').value=RATES[c];
+  Array.prototype.forEach.call(document.querySelectorAll('.ccylbl'),function(e){e.textContent=c});
+  calc();
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  $('ccy').addEventListener('change',syncRate);
+  Array.prototype.forEach.call(document.querySelectorAll('#nriform input,#nriform select'),function(el){
+    el.addEventListener('input',calc); el.addEventListener('change',calc);
+  });
+  $('addgoal').addEventListener('click',function(){ addGoal('','india','',10); calc() });
+  /* A plan with no goals teaches nothing, so we seed the three an NRI family
+     almost always has. They are editable and deletable. */
+  addGoal("बच्चे की पढ़ाई",'abroad',60000,12);
+  addGoal("भारत में घर",'india',9000000,6);
+  addGoal("माता-पिता के लिए फंड",'india',2500000,3);
+  syncRate();
+});
+})();
+</script>
+</body>
+</html>

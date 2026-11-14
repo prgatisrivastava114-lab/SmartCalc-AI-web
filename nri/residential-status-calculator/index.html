@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NRI Residential Status &amp; RNOR Calculator FY 2026-27 | My Financial Plan</title>
+<meta name="description" content="Find out if you are NRI, RNOR or ordinarily resident for Indian tax this year, including the 120-day rule for higher Indian income and deemed residency.">
+<link rel="canonical" href="https://www.myfinancialplan.in/nri/residential-status-calculator/">
+<meta property="og:title" content="NRI Residential Status &amp; RNOR Calculator FY 2026-27 | My Financial Plan">
+<meta property="og:description" content="Find out if you are NRI, RNOR or ordinarily resident for Indian tax this year, including the 120-day rule for higher Indian income and deemed residency.">
+<meta property="og:url" content="https://www.myfinancialplan.in/nri/residential-status-calculator/">
+<meta property="og:type" content="website">
+<meta name="robots" content="index,follow">
+<link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/residential-status-calculator/">
+<link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/residential-status-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/residential-status-calculator/">
+<style id="mfp-site-chrome">
+<style id="mfp-site-chrome">
+/* ===== shared site header ================================================= */
+.mfp-sh{position:sticky;top:0;z-index:900;background:#fff;border-bottom:1px solid #e3e9ef;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sh *{box-sizing:border-box}
+.mfp-sh-in{max-width:1220px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px}
+.mfp-sh-brand{display:flex;align-items:center;min-height:44px;flex:0 0 auto;text-decoration:none}
+.mfp-sh-brand img{height:40px;width:auto;display:block}
+.mfp-sh-tabs{margin-left:auto;display:flex;align-items:center;gap:1px}
+.mfp-sh-tabs a{display:inline-flex;align-items:center;min-height:44px;padding:6px 8px;border-radius:9px;
+        font-size:14px;font-weight:600;color:#44586e;text-decoration:none;white-space:nowrap;
+        border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mfp-sh-tabs a:hover{background:#f1f5f9;color:#0f2233;border-color:#e3e9ef}
+.mfp-sh-tabs a[aria-current="page"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;font-weight:700}
+.mfp-sh-cta{display:inline-flex;align-items:center;min-height:44px;padding:6px 15px;border-radius:10px;
+        background:#047857;color:#fff !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;box-shadow:0 1px 2px rgba(4,120,87,.25);
+        transition:background .15s,box-shadow .15s}
+.mfp-sh-cta:hover{background:#065f46;box-shadow:0 3px 10px rgba(4,120,87,.3)}
+.mfp-sh-alt{display:inline-flex;align-items:center;min-height:44px;padding:6px 13px;border-radius:10px;
+        background:#fff;color:#0f2233 !important;font-size:14.5px;font-weight:700;text-decoration:none;
+        white-space:nowrap;margin-left:7px;border:1.5px solid #d7dee7;transition:background .15s,border-color .15s}
+.mfp-sh-alt:hover{background:#f5f8fb;border-color:#b9c5d2}
+/* the homepage injects its हिन्दी toggle (#langSw) next to the CTA */
+.mfp-sh #langSw{min-height:44px !important;display:inline-flex !important;align-items:center;
+        margin-right:9px !important;border-radius:10px !important;padding:0 15px !important}
+.mfp-sh-burger{display:none;width:44px;height:44px;flex:0 0 auto;margin-left:auto;border-radius:10px;
+        border:1.5px solid #e3e9ef;background:#fff;cursor:pointer;align-items:center;justify-content:center;
+        padding:0;color:#0f2233}
+.mfp-sh-burger svg{pointer-events:none}
+.mfp-sh-menu{display:none;border-top:1px solid #e3e9ef;background:#fff}
+.mfp-sh-menu.open{display:block}
+.mfp-sh-menu a{display:flex;align-items:center;justify-content:space-between;min-height:50px;
+        padding:13px 20px;font-size:15.5px;font-weight:700;color:#0f2233;text-decoration:none;
+        border-bottom:1px solid #eef2f6}
+.mfp-sh-menu a:last-child{border-bottom:0}
+.mfp-sh-menu a[aria-current="page"]{color:#047857;background:#ecfdf5}
+.mfp-sh-menu .mfp-sh-mcta{margin:12px 20px 16px;justify-content:center;background:#047857;color:#fff;
+        border-radius:11px;border-bottom:0;min-height:50px}
+.mfp-sh-malt{margin:14px 20px 0;justify-content:center;background:#fff;color:#0f2233;
+        border:1.5px solid #d7dee7;border-radius:11px;border-bottom:1.5px solid #d7dee7;
+        min-height:50px;font-weight:700}
+.mfp-sh-malt+.mfp-sh-mcta{margin-top:10px}
+@media(max-width:1180px){
+  .mfp-sh-tabs,.mfp-sh-cta,.mfp-sh-alt{display:none}
+  .mfp-sh-burger{display:flex}
+  .mfp-sh-in{padding:8px 14px}
+  .mfp-sh-brand img{height:34px}
+}
+/* Desktop compaction: 7 tabs + Partner + CTA (+ the homepage हिन्दी toggle)
+   must fit the 1180px bar that the footer also uses. Measured 2026-10-10:
+   homepage needed 1312px uncompacted. */
+@media(min-width:1181px){
+  .mfp-sh-in{gap:9px}
+  .mfp-sh-brand img{height:34px}
+  .mfp-sh-tabs{gap:1px}
+  .mfp-sh-tabs a{padding:6px 6px;font-size:13.5px}
+  .mfp-sh-alt,.mfp-sh-cta{padding:6px 11px;font-size:13.5px;margin-left:3px}
+  .mfp-sh #langSw{margin-right:4px !important;padding:0 11px !important}
+}
+/* ===== shared site footer ================================================= */
+.mfp-sf{background:#0b1a2b;color:#c9d6e2;margin-top:40px;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mfp-sf *{box-sizing:border-box}
+.mfp-sf-in{max-width:1180px;margin:0 auto;padding:40px 18px 26px}
+.mfp-sf-cols{display:flex;flex-wrap:wrap;gap:28px}
+.mfp-sf-brand{flex:1 1 250px;min-width:230px}
+.mfp-sf-brand img{height:54px;width:auto;max-width:100%;display:block;margin-bottom:12px}
+.mfp-sf-brand p{font-size:13px;line-height:1.6;color:#95a9bd;margin:0}
+.mfp-sf-col{flex:1 1 165px;min-width:150px}
+.mfp-sf-col h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+        margin:0 0 11px;font-weight:800}
+.mfp-sf-col a{display:flex;align-items:center;min-height:44px;padding:5px 0;font-size:13.5px;
+        color:#c9d6e2;text-decoration:none;line-height:1.45}
+.mfp-sf-col a:hover{color:#6ee7b7;text-decoration:underline}
+.mfp-sf-contact a{display:inline-flex;align-items:center;min-height:44px;padding:8px 15px;margin:0 8px 8px 0;
+        border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+        font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
+.mfp-sf-contact a:hover{background:rgba(255,255,255,.15);text-decoration:none}
+.mfp-sf-bar{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:18px;
+        display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.mfp-sf-bar p{margin:0;font-size:12.5px;color:#8da2b8;line-height:1.6}
+.mfp-sf-bar .mfp-sf-note{flex:1 1 100%;font-size:12.5px;color:#7c91a7;margin-top:6px}
+@media(max-width:700px){
+  .mfp-sf-in{padding:30px 15px 22px}
+  .mfp-sf-cols{gap:22px}
+  .mfp-sf-col{flex:1 1 44%;min-width:135px}
+}
+</style></style>
+<style id="mfp-nri-css">
+.nri-hero{background:linear-gradient(135deg,#0B3B2E,#12624A);color:#fff;border-radius:18px;padding:30px 32px;margin:18px 0}
+.nri-hero h1{margin:0 0 10px;font-size:clamp(25px,3.3vw,34px);line-height:1.2;letter-spacing:-.5px;color:#fff}
+.nri-hero p{margin:0;opacity:.92;font-size:16px;max-width:66ch}
+.nri-hero .asat{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.2);font-size:12.5px;opacity:.8}
+.nri-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));margin:16px 0}
+.nri-grid a{display:block;background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:14px;
+ padding:16px 18px;text-decoration:none;color:var(--mfp-ink,#17324A);font-weight:700;line-height:1.35;
+ transition:border-color .15s,box-shadow .15s,transform .15s}
+.nri-grid a span{display:block;margin-top:5px;font-weight:500;font-size:13px;color:var(--mfp-ink-2,#44586E)}
+.nri-grid a:hover{border-color:var(--mfp-teal,#0E9D78);box-shadow:0 6px 18px -10px rgba(14,157,120,.45);transform:translateY(-1px)}
+.nri-card{background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:16px;padding:22px 24px;margin:16px 0}
+.nri-calc{background:#F7FBFA;border:1.5px solid #A3E2D0;border-radius:16px;padding:22px 24px;margin:18px 0}
+.nri-calc label{display:block;font-weight:700;font-size:13.5px;margin:12px 0 4px;color:#17324A}
+.nri-calc input,.nri-calc select{width:100%;padding:11px 13px;border:1px solid #CBD6E0;border-radius:9px;
+ font-size:15px;font-family:inherit;background:#fff;color:#17324A}
+.nri-calc input:focus,.nri-calc select:focus{outline:2px solid var(--mfp-teal,#0E9D78);outline-offset:1px;border-color:var(--mfp-teal,#0E9D78)}
+.nri-fields{display:grid;gap:4px 18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.nri-out{margin-top:20px;border-top:1.5px dashed #A3E2D0;padding-top:16px}
+.nri-big{background:#fff;border:1px solid var(--mfp-line,#E3E9EF);border-radius:12px;padding:14px 16px;margin:10px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.nri-big>div{display:flex;flex-direction:column;min-width:0}
+.nri-big .lbl{font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:#5A6B7D;font-weight:800}
+.nri-big .val{font-size:clamp(21px,3vw,27px);font-weight:900;letter-spacing:-.5px;margin-top:2px}
+.nri-big.alarm{border-color:#FECDCA;background:#FEF3F2}.nri-big.alarm .val{color:#B42318}
+.nri-big.good{border-color:#ABEFC6;background:#ECFDF3}.nri-big.good .val{color:#067647}
+.nri-note{font-size:13px;color:#5A6B7D;margin-top:8px;line-height:1.55}
+.nri-caution{border-radius:12px;padding:13px 15px;margin:14px 0;font-size:14px;line-height:1.6}
+.nri-caution-dispute{background:#FFFAEB;border:1px solid #FEDF89;color:#7A4A05}
+.nri-caution-unver{background:#FEF3F2;border:1px solid #FECDCA;color:#8A2820}
+.nri-tbl{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.nri-tbl th,.nri-tbl td{border:1px solid var(--mfp-line,#E3E9EF);padding:9px 11px;text-align:left;vertical-align:top}
+.nri-tbl th{background:#F7FAFC;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:#5A6B7D}
+.nri-tbl tr:nth-child(even) td{background:#FBFCFD}
+.nri-faq{border-top:1px solid var(--mfp-line,#E3E9EF);padding:14px 0}
+.nri-faq h3{margin:0 0 6px;font-size:15.5px}
+.nri-faq p{margin:0;color:#44586E;font-size:14.5px}
+.nri-src{font-size:13px;color:#67798C;line-height:1.6}
+.nri-src a{color:#0B5F49}
+.nri-disc{background:#F7FAFC;border:1px solid var(--mfp-line,#E3E9EF);border-radius:12px;padding:15px 17px;
+ font-size:13.5px;color:#44586E;line-height:1.6;margin:16px 0}
+.nri-steps{counter-reset:s;list-style:none;padding:0;margin:10px 0}
+.nri-steps li{counter-increment:s;position:relative;padding-left:40px;margin:10px 0}
+.nri-steps li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;
+ background:var(--mfp-teal,#0E9D78);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+/* Wide comparison tables must scroll inside their own box rather than pushing
+   the page sideways. The NRE/NRO/FCNR table is four columns of prose and broke
+   the 390px layout.
+   NOTE: setting display:block on the <table> does NOT work — the overflow simply
+   reappears on the tbody/tr. The table needs a real block-level wrapper that owns
+   the scrolling. page() wraps every .nri-tbl automatically; do not hand-wrap. */
+.nri-scroll{overflow-x:auto;max-width:100%;margin:12px 0;-webkit-overflow-scrolling:touch}
+.nri-scroll .nri-tbl{margin:0;min-width:460px}
+@media(max-width:560px){.nri-hero{padding:22px 20px}.nri-card,.nri-calc{padding:17px 16px}}
+
+.nri-lang{margin:0 0 14px;text-align:right}
+.nri-lang a{display:inline-block;font-size:13.5px;font-weight:700;color:#0A7A5E;
+  text-decoration:none;background:#F3FBF8;border:1px solid #BCE3D5;
+  padding:6px 13px;border-radius:99px}
+.nri-lang a:hover{background:#E7F6F0;border-color:#0E9D78}
+/* ── planner components (/nri/financial-plan/) ───────────────────────────── */
+.nri-grid>a.nri-feat{grid-column:1/-1;background:linear-gradient(135deg,#0B5F49,#0E9D78);
+  border-color:#0B5F49;color:#fff}
+.nri-grid>a.nri-feat span{color:#D8F3E9}
+.nri-grid>a.nri-feat:hover{filter:brightness(1.07)}
+
+.nri-sub{font-size:15px;font-weight:800;color:var(--mfp-ink,#0B2B23);margin:22px 0 10px;
+  padding-bottom:7px;border-bottom:1px solid #E6EDEA}
+.nri-sub:first-of-type{margin-top:6px}
+.nri-goals{display:flex;flex-direction:column;gap:9px;margin:10px 0 12px}
+.gr{display:grid;grid-template-columns:1.5fr 1.1fr 1fr .7fr auto;gap:8px;align-items:center}
+.gr input,.gr select{width:100%;padding:9px 10px;border:1px solid #D7E2DD;border-radius:9px;
+  font:inherit;font-size:14px;background:#fff;color:inherit;min-width:0}
+.gr input:focus,.gr select:focus{outline:2px solid #0E9D78;outline-offset:1px;border-color:#0E9D78}
+.g-del{border:1px solid #E6D4D4;background:#FEF6F5;color:#B42318;border-radius:9px;
+  width:34px;height:34px;font-size:19px;line-height:1;cursor:pointer;flex:0 0 auto}
+.g-del:hover{background:#FEE4E2}
+.nri-add{margin-top:2px;border:1px dashed #9FC7B8;background:#F3FBF8;color:#0A7A5E;
+  padding:10px 16px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
+.nri-add:hover{background:#E7F6F0;border-color:#0E9D78}
+
+.nri-prog{height:9px;border-radius:99px;background:#E6EDEA;overflow:hidden;margin:12px 0 4px}
+.nri-prog>i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,#0E9D78,#12B48A);transition:width .25s ease}
+.nri-prog.alt{margin:8px 0 0}
+.nri-prog.alt>i{background:linear-gradient(90deg,#4C62CE,#6E82E8)}
+
+.nri-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:16px}
+.nri-res>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:13px 15px}
+.nri-res span{display:block;font-size:12.5px;color:#44586E;font-weight:700;
+  text-transform:uppercase;letter-spacing:.3px}
+.nri-res b{display:block;font-size:21px;font-weight:800;color:#0B2B23;margin:5px 0 3px}
+.nri-res i{display:block;font-style:normal;font-size:12.5px;color:#5A6E7F;line-height:1.45}
+
+.nri-cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+.nri-cmp>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:13px 15px}
+.nri-cmp span{display:block;font-size:12.5px;color:#44586E;font-weight:700;
+  text-transform:uppercase;letter-spacing:.3px}
+.nri-cmp b{display:block;font-size:16.5px;font-weight:800;color:#0B2B23;margin-top:5px}
+.nri-verdict{background:#F3FBF8;border-left:3px solid #0E9D78;padding:11px 14px;
+  border-radius:0 9px 9px 0;margin-top:12px;line-height:1.6}
+
+.nri-badge{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;
+  border-radius:99px;vertical-align:middle;margin-left:8px;letter-spacing:.2px}
+.nri-badge.ok{background:#E7F6F0;color:#0A7A5E;border:1px solid #9FC7B8}
+.nri-badge.warn{background:#FEF7E6;color:#8A5B00;border:1px solid #EBD79B}
+.nri-badge.bad{background:#FEF3F2;color:#B42318;border:1px solid #FECDCA}
+
+.nri-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin-top:12px}
+.nri-two>div{background:#F7FBF9;border:1px solid #E2EDE8;border-radius:12px;padding:15px 16px}
+.nri-two h3{margin:0 0 7px;font-size:14.5px;font-weight:800;color:#0B2B23}
+.nri-two b{display:block;font-size:20px;font-weight:800;color:#0E9D78;margin-bottom:7px}
+.nri-two p{margin:0;font-size:13.5px;line-height:1.6;color:#44586E}
+
+.nri-f{background:#0B2B23;color:#D8F3E9;padding:13px 16px;border-radius:10px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;
+  line-height:1.7;overflow-x:auto;margin:11px 0;white-space:pre-wrap;word-break:break-word}
+.nri-f sup{font-size:.78em}
+
+.nri-lim{margin:10px 0 0;padding-left:20px;line-height:1.72}
+.nri-lim li{margin-bottom:9px}
+.nri-rel{margin:8px 0 0;padding-left:20px;line-height:2}
+.nri-cta{background:#F3FBF8;border-color:#BCE3D5}
+.nri-link{font-weight:800;color:#0A7A5E;text-decoration:none;border-bottom:2px solid #9FC7B8}
+.nri-link:hover{border-bottom-color:#0E9D78}
+
+@media(max-width:700px){
+  /* Five columns of inputs cannot survive a phone. Stack the goal row and let
+     the name span the full width so it stays readable. */
+  .gr{grid-template-columns:1fr 1fr;gap:7px}
+  .gr .g-name{grid-column:1/-1}
+  .gr .g-del{justify-self:end;grid-column:2}
+}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"NRI Residential Status and RNOR Calculator","url":"https://www.myfinancialplan.in/nri/residential-status-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Determines whether an individual is Non-Resident, RNOR or ordinarily resident for Indian income tax, applying the 182-day, 60+365, 120-day and deemed residency tests."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 120-day rule?","acceptedAnswer":{"@type":"Answer","text":"For an Indian citizen or PIO who lives abroad and visits India, the usual 60-day limb of the secondary test is relaxed to 182 days — but only while Indian-source income stays at ₹15 lakh or below. Above that, the relaxation is to 120 days instead. Spend 120 to 181 days in India with 365 days or more across the preceding four years, and you become resident, specifically RNOR."}},{"@type":"Question","name":"Does the ₹15 lakh threshold include my foreign salary?","acceptedAnswer":{"@type":"Answer","text":"No. The test counts income sourced in India only. Salary abroad, interest on foreign deposits and rent from an overseas property are excluded."}},{"@type":"Question","name":"Can I be a tax resident of India without setting foot there?","acceptedAnswer":{"@type":"Answer","text":"Under the deemed residency rule, yes — if you are an Indian citizen, your Indian-source income is above ₹15 lakh, and you are not liable to tax in any other country. It is aimed at citizens in zero-tax jurisdictions. If you pay tax somewhere abroad it does not apply, and even when it does apply the status conferred is RNOR, so foreign income generally stays outside the Indian net."}},{"@type":"Question","name":"How long does RNOR last when I move back?","acceptedAnswer":{"@type":"Answer","text":"Commonly two to three financial years for someone who has been abroad a long time, because the tests look back over 10 years and over 7 years. The exact length depends on your own history, which is why the calculator asks for it."}},{"@type":"Question","name":"Why does RNOR matter so much?","acceptedAnswer":{"@type":"Answer","text":"Because during it your foreign income generally remains outside Indian tax, as it did while you were an NRI, with a narrow exception for a business controlled from India. Once you become ordinarily resident, worldwide income is taxable. The window does not repeat."}}]}</script>
+<style id="mfp-tokens">
+/* MFP canonical design tokens — generated by sitegen/apply-design-tokens.mjs.
+   Do not hand-edit: regenerate from sitegen/design-tokens.mjs. */
+:root{--mfp-teal:#0E9D78;--mfp-teal-d:#047857;--mfp-mint:#DDF4EC;--mfp-ink:#17324A;--mfp-ink-2:#44586E;--mfp-mute:#5B6B7F;--mfp-line:#E3E9EF;--mfp-bg:#F7FAFC;--mfp-white:#FFFFFF;--mfp-amber:#BF7B0B;--mfp-red:#DC2626;--mfp-indigo:#4C62CE;--mfp-shell:1180px;--mfp-gutter:20px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--mfp-ink);background:var(--mfp-bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* One shell width: header, footer and page content share the same edges.
+   Qualified with "html body" on purpose. Several pages carry <style> blocks
+   INSIDE <body>, which land after this block in document order and would
+   otherwise win on source order at equal specificity. The extra element
+   selectors raise specificity to 0-1-2 so this rule holds regardless of
+   where a page's own stylesheet sits. Avoids !important, which is what
+   created the duplicate-override mess this replaces. */
+html body .wrap,html body .container,html body .mp,
+html body .mfp-sh-in,html body .mfp-sf-in{max-width:var(--mfp-shell);margin-inline:auto;
+  padding-inline:var(--mfp-gutter);width:100%;box-sizing:border-box}
+h1{font-size:clamp(26px,4.6vw,38px);line-height:1.18;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,28px);line-height:1.25;letter-spacing:-.01em}
+h3{font-size:clamp(17px,2.2vw,20px);line-height:1.35}
+h1,h2,h3{text-wrap:balance}
+/* nothing below the legible floor */
+body,p,li,td,th,label,input,select,textarea,button,a,span,small{font-size:max(1em,12px)}
+small,.small{font-size:13px}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
+
+</style>
+</head>
+<body>
+<header class="mfp-sh">
+  <div class="mfp-sh-in">
+    <a class="mfp-sh-brand" href="/" aria-label="My Financial Plan — home">
+      <img src="/assets/brand/brand_logo.png?v=1" width="420" height="75" alt="My Financial Plan — Plan Today for Better Tomorrow">
+    </a>
+    <nav class="mfp-sh-tabs" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/">Free Tools</a><a href="/financial-planning/">Financial Planning</a><a href="/learn/">Learn</a><a href="/#pricing">Pricing</a><a href="/about-us/">About</a><a href="/download/">Download</a></nav>
+    <a class="mfp-sh-alt" href="/partner/">Partner</a>
+    <a class="mfp-sh-cta" href="/financial-goal-calculator/">Goal Calculator</a>
+    <button class="mfp-sh-burger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mfpSiteMenu" onclick="var m=document.getElementById('mfpSiteMenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <nav class="mfp-sh-menu" id="mfpSiteMenu" aria-label="Mobile navigation">
+    <a href="/">Home<span aria-hidden="true">›</span></a>
+    <a href="/tools/">Free Tools<span aria-hidden="true">›</span></a>
+    <a href="/financial-planning/">Financial Planning<span aria-hidden="true">›</span></a>
+    <a href="/learn/">Learn<span aria-hidden="true">›</span></a>
+    <a href="/#pricing">Pricing<span aria-hidden="true">›</span></a>
+    <a href="/about-us/">About<span aria-hidden="true">›</span></a>
+    <a href="/download/">Download<span aria-hidden="true">›</span></a>
+    <a class="mfp-sh-malt" href="/partner/">Partner</a>
+    <a class="mfp-sh-mcta" href="/financial-goal-calculator/">Goal Calculator</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+  <div class="nri-hero">
+    <h1>Are you NRI, RNOR or resident?</h1>
+    <p>Indian tax follows your <b>days in India</b>, not your passport or your visa. This runs the day-count tests in order and shows you which one decided your answer — including the two that simpler calculators leave out.</p>
+    <div class="asat">Positions stated as at 2026-11-14 for FY 2026-27 (AY 2027-28). Educational estimates — not tax advice.</div>
+  </div>
+<div class="nri-lang"><a href="/hi/nri/residential-status-calculator/" hreflang="hi-IN">यह पेज हिंदी में पढ़ें</a></div>
+
+<div class="nri-calc">
+  <h2 style="margin-top:0">Your year</h2>
+  <div class="nri-fields">
+    <div><label for="r_who">Your situation</label>
+      <select id="r_who">
+        <option value="visitor">Indian citizen or PIO living abroad, visiting India</option>
+        <option value="employment">Left India this year for employment abroad, or crew on an Indian ship</option>
+        <option value="other">None of these</option>
+      </select></div>
+    <div><label for="r_days">Days in India this financial year</label><input id="r_days" type="text" inputmode="numeric" value="95"></div>
+    <div><label for="r_p4">Days in India across the preceding 4 years</label><input id="r_p4" type="text" inputmode="numeric" value="300"></div>
+    <div><label for="r_p7">Days in India across the preceding 7 years</label><input id="r_p7" type="text" inputmode="numeric" value="500"></div>
+    <div><label for="r_nr10">Non-resident in how many of the last 10 years?</label><input id="r_nr10" type="text" inputmode="numeric" value="10"></div>
+    <div><label for="r_hi">Indian-source income above ₹15,00,000?</label>
+      <select id="r_hi"><option value="no">No</option><option value="yes">Yes</option></select></div>
+    <div><label for="r_tax">Liable to tax in another country?</label>
+      <select id="r_tax"><option value="yes">Yes</option><option value="no">No</option></select></div>
+  </div>
+
+  <div class="nri-out">
+    <div class="nri-big good" id="r_box">
+      <div class="lbl">Your status for FY 2026-27</div>
+      <div class="val" id="r_status">—</div>
+      <div class="nri-note" id="r_detail"></div>
+    </div>
+    <h3 style="font-size:15px;margin:16px 0 6px">How that was decided</h3>
+    <ul id="r_trail" class="nri-note" style="padding-left:20px"></ul>
+  </div>
+</div>
+
+<section class="nri-card">
+  <h2>About this calculator</h2>
+  <p>Residency is the question everything else hangs on. It decides whether India taxes only what you earn here or
+  everything you earn anywhere. It is settled year by year, on physical presence, over the Indian financial year
+  (1 April to 31 March).</p>
+  <p>Two rules get missed by simpler tools, and both can flip an answer: the <b>120-day threshold</b> for visitors
+  with higher Indian income, and <b>deemed residency</b>, which can apply at zero days in India.</p>
+</section>
+
+<section class="nri-card">
+  <h2>How this calculator works</h2>
+  <ol class="nri-steps">
+    <li><b>Primary test.</b> 182 days or more in India during the financial year ⇒ resident.</li>
+    <li><b>Secondary test.</b> 60 days or more this year AND 365 days or more across the preceding four years ⇒ resident.</li>
+    <li><b>Adjust the 60-day limb</b> for your situation, which is where most of the nuance lives.</li>
+    <li><b>Check deemed residency</b> for Indian citizens with higher Indian income who pay tax nowhere.</li>
+    <li><b>If resident, grade it</b> — RNOR or ordinarily resident.</li>
+  </ol>
+
+  <h3>How the 60-day limb changes</h3>
+  <div class="nri-scroll"><table class="nri-tbl">
+    <tr><th>Who you are</th><th>What changes</th></tr>
+    <tr><td>Indian citizen leaving India for employment abroad, or crew of an Indian ship</td><td>the 60-day limb is replaced by 182 days</td></tr>
+    <tr><td>Indian citizen or PIO visiting India, Indian-source income ₹15 lakh or less</td><td>the 60-day limb is replaced by 182 days</td></tr>
+    <tr><td>Indian citizen or PIO visiting India, Indian-source income above ₹15 lakh</td><td>the 60-day limb is replaced by 120 days</td></tr>
+  </table></div>
+  <p class="nri-note">Counts Indian-source income only. Foreign salary, foreign interest and overseas rent are excluded from this ₹15 lakh test.</p>
+
+  <h3>Deemed residency</h3>
+  <p>An Indian citizen whose Indian-source income exceeds ₹15 lakh and who is not liable to tax in any other country is treated as a resident, and specifically as RNOR.</p>
+  <p class="nri-note">This can apply with zero days spent in India. It is aimed at citizens in zero-tax jurisdictions. It does not apply if you pay tax somewhere abroad. Indian citizens only — not OCI cardholders or foreign nationals of Indian origin.</p>
+
+  <h3>RNOR</h3>
+  <p>A resident is RNOR (Resident but Not Ordinarily Resident) if they were non-resident in 9 of the 10 preceding years, OR were in India for 729 days or fewer across the preceding 7 years.</p>
+  <p class="nri-note">A person who is resident only because of the 120-day limb, or under deemed residency, is RNOR by operation of law. A long-term NRI returning to India is usually RNOR for about two to three financial years.</p>
+</section>
+
+<section class="nri-card">
+  <h2>Counting days correctly</h2>
+  <ul>
+    <li><b>Both travel days count.</b> The day you land and the day you leave are each a day in India. A long weekend is not zero days.</li>
+    <li><b>The year is 1 April to 31 March</b> — not the calendar year, and not your home country's tax year.</li>
+    <li><b>Every visit counts</b>, however short. Several brief trips add up the same as one long stay.</li>
+    <li><b>Keep the evidence.</b> Entry and exit records are what the department accepts. Reconstruct them while they are easy to obtain, not when a question arrives.</li>
+  </ul>
+</section>
+
+<section class="nri-card">
+  <h2>What each status means</h2>
+  <div class="nri-scroll"><table class="nri-tbl">
+    <tr><th>Income</th><th>NRI</th><th>RNOR</th><th>ROR</th></tr>
+    <tr><td>Salary, rent, business income arising in India</td><td>Taxable</td><td>Taxable</td><td>Taxable</td></tr>
+    <tr><td>Capital gains on Indian assets</td><td>Taxable</td><td>Taxable</td><td>Taxable</td></tr>
+    <tr><td>NRO account interest</td><td>Taxable</td><td>Taxable</td><td>Taxable</td></tr>
+    <tr><td>NRE account interest</td><td>Exempt</td><td>Exempt</td><td>Taxable</td></tr>
+    <tr><td>FCNR deposit interest</td><td>Exempt</td><td>Exempt</td><td>Taxable</td></tr>
+    <tr><td>Foreign salary, foreign rent, foreign capital gains</td><td>Not taxable</td><td>Not taxable*</td><td>Taxable</td></tr>
+  </table></div>
+  <p class="nri-note">* Narrow exception for RNOR: income from a business controlled from India, or a profession set up in India, remains taxable.</p>
+</section>
+
+<section class="nri-card">
+  <h2>The tests, written out</h2>
+  <p>The law applies these in order, and so does the calculator. The first one that fires decides the answer.</p>
+  <p><code>Resident IF days_this_year &ge; 182</code></p>
+  <p><code>Resident IF days_this_year &ge; limb AND days_prior_4_years &ge; 365</code></p>
+  <p><code>limb = 182 if leaving for employment or crew
+       = 182 if visiting citizen/PIO and Indian income &le; ₹15,00,000
+       = 120 if visiting citizen/PIO and Indian income &gt; ₹15,00,000
+       = 60  otherwise</code></p>
+  <p><code>Deemed resident (RNOR) IF Indian citizen AND Indian income &gt; ₹15,00,000 AND not liable to tax anywhere</code></p>
+  <p><code>If resident: RNOR IF non_resident_in &ge; 9 of last 10 years
+                    OR days_prior_7_years &le; 729
+                    OR resident only via the 120-day limb
+                    OR deemed resident
+          otherwise ROR</code></p>
+</section>
+
+<section class="nri-card">
+  <h2>Three worked examples</h2>
+
+  <h3>An engineer in Dubai, 40 days in India</h3>
+  <p>Indian income of about ₹6,00,000 from a let-out flat, so at or below the
+  ₹15,00,000 line. As a visiting citizen the 60-day limb lifts to 182.
+  Forty days is below both 182 and the lifted limb, so neither test fires.
+  <b>Result: Non-Resident.</b> The Dubai salary is not taxed in India.</p>
+
+  <h3>A consultant with ₹18,00,000 of Indian income, 130 days in India</h3>
+  <p>Indian income is above the threshold, so the limb is 120 rather than 182. Days are 130 — below 182, so the
+  primary test does not fire, but at or above the 120-day limb. With 365 days or more across the preceding four
+  years, the secondary test fires. <b>Result: RNOR.</b> The Indian income is taxable as it always would be, but
+  foreign income stays outside the Indian net because residency arrived through the 120-day limb.</p>
+
+  <h3>An engineer moving home for good in May</h3>
+  <p>More than 300 days in India that year, so the primary test fires immediately and she is resident.
+  She was non-resident in each of the previous ten years, which satisfies the 9-of-10 test.
+  <b>Result: RNOR</b> — and it will typically hold for two to three years before she becomes ordinarily resident.</p>
+</section>
+
+<section class="nri-card">
+  <h2>Assumptions and limitations</h2>
+  <ul>
+    <li>This runs the day-count tests only. Residency can also be affected by a treaty tie-breaker where two countries both claim you.</li>
+    <li>The result is only as good as your day counts. If you are unsure, reconstruct them from travel records before relying on the answer.</li>
+    <li>Short stays for specified purposes can carry their own treatment in particular cases.</li>
+    <li>Status is decided separately for each financial year. Last year's answer does not carry over.</li>
+    <li>The FEMA definition of an NRI, which governs your bank accounts, is a different test from this one.</li>
+  </ul>
+</section>
+
+<section class="nri-card">
+  <h2>Related</h2>
+  <div class="nri-grid">
+    <a href="/nri/">NRI hub<span>Everything on this site for non-residents</span></a>
+    <a href="/nri/property-sale-tds-calculator/">Property sale TDS<span>What the buyer withholds, and what you actually owe</span></a>
+    <a href="/nri/nro-tds-dtaa-calculator/">NRO TDS vs treaty relief<span>Why the bank took 31.2%, and what it could be</span></a>
+    <a href="/nri/returning-to-india/">Returning to India<span>The RNOR window and how long it lasts</span></a>
+    <a href="/nri/accounts-nre-nro-fcnr/">NRE vs NRO vs FCNR<span>Which account should hold which money</span></a>
+    <a href="/nri/repatriation/">Sending money abroad<span>The USD 1 million route, and what sits outside it</span></a>
+  </div>
+</section>
+<section class="nri-card" style="background:var(--mfp-mint,#DDF4EC);border-color:#A3E2D0">
+  <h2>One number is not a plan</h2>
+  <p>These tools answer a single question each. If you want the whole picture — goals, SIPs, retirement,
+  your family's cover, and a plan you can hand to a professional — build a full plan instead. It is free,
+  runs in your browser, and produces a detailed PDF.</p>
+  <p><a href="/nri/financial-plan/" style="font-weight:800;color:#0B5F49">Build your NRI financial plan &rarr;</a></p>
+</section>
+
+
+<section class="nri-card">
+  <h2>Frequently asked questions</h2>
+  <div class="nri-faq"><h3>What is the 120-day rule?</h3><p>For an Indian citizen or PIO who lives abroad and visits India, the usual 60-day limb of the secondary test is relaxed to 182 days — but only while Indian-source income stays at ₹15 lakh or below. Above that, the relaxation is to 120 days instead. Spend 120 to 181 days in India with 365 days or more across the preceding four years, and you become resident, specifically RNOR.</p></div>
+  <div class="nri-faq"><h3>Does the ₹15 lakh threshold include my foreign salary?</h3><p>No. The test counts income sourced in India only. Salary abroad, interest on foreign deposits and rent from an overseas property are excluded.</p></div>
+  <div class="nri-faq"><h3>Can I be a tax resident of India without setting foot there?</h3><p>Under the deemed residency rule, yes — if you are an Indian citizen, your Indian-source income is above ₹15 lakh, and you are not liable to tax in any other country. It is aimed at citizens in zero-tax jurisdictions. If you pay tax somewhere abroad it does not apply, and even when it does apply the status conferred is RNOR, so foreign income generally stays outside the Indian net.</p></div>
+  <div class="nri-faq"><h3>How long does RNOR last when I move back?</h3><p>Commonly two to three financial years for someone who has been abroad a long time, because the tests look back over 10 years and over 7 years. The exact length depends on your own history, which is why the calculator asks for it.</p></div>
+  <div class="nri-faq"><h3>Why does RNOR matter so much?</h3><p>Because during it your foreign income generally remains outside Indian tax, as it did while you were an NRI, with a narrow exception for a business controlled from India. Once you become ordinarily resident, worldwide income is taxable. The window does not repeat.</p></div>
+</section>
+<section class="nri-card">
+  <h2>Sources</h2>
+  <p class="nri-src">
+    <a href="https://www.rbi.org.in/scripts/FAQView.aspx?Id=52" rel="nofollow noopener" target="_blank">Reserve Bank of India — FAQ, "Accounts in India by Non-residents" (as on 16 January 2025)</a><br>
+    <a href="https://www.incometaxindia.gov.in/income-tax-act-202511" rel="nofollow noopener" target="_blank">Income-tax Act, 2025 — Income Tax Department</a> &middot; <a href="https://www.incometaxindia.gov.in/income-tax-rule-2026" rel="nofollow noopener" target="_blank">Income-tax Rules, 2026 — Income Tax Department</a> &middot; <a href="https://www.incometaxindia.gov.in/income-tax-act" rel="nofollow noopener" target="_blank">Income-tax Act, 1961 — Income Tax Department</a><br>
+    <a href="https://www.incometaxindia.gov.in/international-taxation" rel="nofollow noopener" target="_blank">International Taxation / Tax Treaties — Income Tax Department</a>
+  </p>
+  <p class="nri-src" style="margin-top:10px">The Income-tax Act, 2025 and the Income-tax Rules, 2026 are published by the Income Tax Department alongside the Income-tax Act, 1961. Section numbering differs between the two Acts and professional sources currently cite both. This site therefore describes the rule rather than leading with a section number.</p>
+</section>
+<div class="nri-disc">
+  <b>Please read.</b> My Financial Plan is an MSME-registered software provider. We are not a SEBI-registered investment adviser, not a chartered accountancy firm, and not a tax agent. These calculators are educational estimates built from published rules, and tax outcomes depend on facts specific to you — your treaty, your holding period, your documentation. Nothing here is tax advice or investment advice, and no result should be acted on without confirming it with a qualified chartered accountant. Rates change; figures are dated above.
+</div>
+</main>
+<footer class="mfp-sf">
+  <div class="mfp-sf-in">
+    <div class="mfp-sf-cols">
+      <div class="mfp-sf-brand">
+        <img src="/assets/brand/brand_logo_light.png?v=1" width="420" height="75" alt="My Financial Plan">
+        <p>Plan Today for Better Tomorrow. Free financial planning tools and calculators for Indian families and professionals.</p>
+        <div class="mfp-sf-contact" style="margin-top:14px">
+          <a href="tel:+918840192702">Call +91 88401 92702</a>
+          <a href="https://wa.me/918840192702" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Product</h4>
+        <a href="/financial-planning/">Financial Planning Tool</a>
+        <a href="/download/">Download Android App</a>
+        <a href="/tools/">Free Tools</a>
+        <a href="/learn/">Learn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Calculators</h4>
+        <a href="/financial-goal-calculator/">Goal Calculator</a>
+        <a href="/tools/sip-calculator/">SIP Calculator</a>
+        <a href="/tools/emi-calculator/">EMI Calculator</a>
+        <a href="/tools/ppf-calculator/">PPF Calculator</a>
+        <a href="/retirement-goal-calculator/">Retirement Planner</a>
+        <a href="/emergency-fund-calculator/">Emergency Fund</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Company</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/financial-planner/">Financial Planner</a>
+        <a href="/investment-adviser/">Investment Adviser</a>
+        <a href="/wealth-manager/">Wealth Manager</a>
+        <a href="/refer/">Refer &amp; Earn</a>
+      </div>
+      <div class="mfp-sf-col">
+        <h4>Legal &amp; Policies</h4>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/refund/">Refund &amp; Cancellation</a>
+        <a href="/cookies/">Cookies Policy</a>
+      </div>
+    </div>
+    <div class="mfp-sf-bar">
+      <p>© 2026 My Financial Plan. All rights reserved.</p>
+      <p>Made in India</p>
+        <p class="mfp-sf-note">My Financial Plan provides software-based analysis and financial education. It does not provide regulated investment advice and claims no registration or certification. Calculator outputs are estimates based on the assumptions you enter, not guaranteed outcomes.</p>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/mfp-push.js"></script>
+  </footer>
+<script>
+(function(){
+  var HI=1500000;
+  function el(id){return document.getElementById(id);}
+  function num(id){var v=parseFloat((el(id).value||'').replace(/[^0-9.]/g,''));return isFinite(v)?v:0;}
+  function calc(){
+    var d=num('r_days'), p4=num('r_p4'), p7=num('r_p7'), nr10=num('r_nr10'),
+        who=el('r_who').value, hi=el('r_hi').value==='yes', taxed=el('r_tax').value==='yes';
+    var trail=[], resident=false, why='';
+    // limb threshold
+    var limb=60, limbWhy='the standard 60-day limb';
+    if(who==='employment'){limb=182;limbWhy='182 days, because you left India for employment abroad or are crew on an Indian ship';}
+    else if(who==='visitor'){ if(hi){limb=120;limbWhy='120 days, because you are a visiting citizen/PIO with Indian income above ₹15 lakh';}
+                              else {limb=182;limbWhy='182 days, because you are a visiting citizen/PIO with Indian income of ₹15 lakh or less';} }
+    trail.push('Your secondary-test threshold is '+limbWhy+'.');
+    if(d>=182){resident=true;why='You were in India for '+d+' days — 182 or more — so you are resident under the primary test.';}
+    else if(d>=limb && p4>=365){resident=true;why='You were in India for '+d+' days (at or above your '+limb+'-day threshold) and '+p4+' days across the preceding four years (365 or more), so you are resident under the secondary test.';}
+    else {why='You were in India for '+d+' days, below 182, and you do not meet the secondary test on these figures.';}
+    trail.push(why);
+    var deemed=false;
+    if(!resident && who!=='other' && hi && !taxed){
+      deemed=true;resident=true;
+      trail.push('Deemed residency applies: an Indian citizen with Indian-source income above ₹15 lakh who is not liable to tax in any other country is treated as resident, and specifically as RNOR — even at zero days in India.');
+    }
+    var status, cls, detail;
+    if(!resident){ status='Non-Resident (NRI)'; cls='good';
+      detail='Only income arising in India is taxable here. Foreign salary, foreign interest and overseas rent stay outside the Indian net.'; }
+    else {
+      var rnor = deemed || (limb===120 && d>=120 && d<182 && p4>=365) || nr10>=9 || (p7>0 && p7<=729);
+      if(rnor){ status='Resident but Not Ordinarily Resident (RNOR)'; cls='';
+        detail='Indian income is taxable. Foreign income generally stays outside the Indian net, apart from income from a business controlled from India or a profession set up in India.';
+        if(deemed) trail.push('A deemed resident is RNOR, not ordinarily resident.');
+        else if(limb===120 && d>=120 && d<182) trail.push('Someone resident only through the 120-day limb is RNOR by operation of law.');
+        else if(nr10>=9) trail.push('You were non-resident in '+nr10+' of the last 10 years, which meets the 9-of-10 test for RNOR.');
+        else trail.push('You spent '+p7+' days in India over the preceding 7 years, which is within the 729-day test for RNOR.');
+      } else { status='Resident and Ordinarily Resident (ROR)'; cls='alarm';
+        detail='Worldwide income is taxable in India, and foreign assets must be disclosed.';
+        trail.push('You meet neither RNOR test, so you are ordinarily resident.');
+      }
+    }
+    el('r_status').textContent=status;
+    el('r_box').className='nri-big '+cls;
+    el('r_detail').textContent=detail;
+    el('r_trail').innerHTML=trail.map(function(t){return '<li>'+t+'</li>';}).join('');
+  }
+  ['r_days','r_p4','r_p7','r_nr10','r_who','r_hi','r_tax'].forEach(function(id){
+    var n=el(id); if(n){n.addEventListener('input',calc);n.addEventListener('change',calc);}
+  });
+  calc();
+})();</script>
+</body>
+</html>
