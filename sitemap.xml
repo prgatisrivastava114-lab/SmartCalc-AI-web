@@ -311,6 +311,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/"/>
   </url>
   <url>
+    <loc>https://www.myfinancialplan.in/hi/nri/education-abroad/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/education-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/education-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/education-abroad/"/>
+  </url>
+  <url>
     <loc>https://www.myfinancialplan.in/hi/nri/repatriation/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -345,6 +354,15 @@
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/"/>
     <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/accounts-nre-nro-fcnr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/accounts-nre-nro-fcnr/"/>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/nri/education-abroad/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.myfinancialplan.in/nri/education-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.myfinancialplan.in/hi/nri/education-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.myfinancialplan.in/nri/education-abroad/"/>
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/nri/repatriation/</loc>
@@ -404,7 +422,25 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.myfinancialplan.in/learn/daughter-marriage-fund-planning/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/learn/debt-to-income-ratio/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.myfinancialplan.in/learn/education-cost-2040-india/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/learn/education-loan-vs-savings/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -428,6 +464,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.myfinancialplan.in/learn/financial-health-checkup/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/learn/health-insurance-kitna-chahiye/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.myfinancialplan.in/learn/inflation-kya-hai-mehngai/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -435,6 +483,18 @@
   </url>
   <url>
     <loc>https://www.myfinancialplan.in/learn/loan-prepayment-benefits/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/learn/mutual-fund-expense-ratio/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.myfinancialplan.in/learn/mutual-fund-kya-hai/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
