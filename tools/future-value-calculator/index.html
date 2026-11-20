@@ -70,7 +70,34 @@ const num=id=>{const v=parseFloat(document.getElementById(id).value);return isNa
 function calc(){try{if(window._c)window._c();}catch(e){}}
 </script>
 
-<script>window._c=function(){const P=num('a'),A=num('b'),r=num('c')/100,n=Math.max(1,num('d'));let bal=P;for(let y=0;y<n;y++){bal=bal*(1+r)+A;}const inv=P+A*n;document.getElementById('o1').textContent=fmt(inv);document.getElementById('o2').textContent=fmt(bal-inv);document.getElementById('o3').textContent=fmt(bal);const pvOnly=P*Math.pow(1+r,n);document.getElementById('o4').textContent=A>0?('Savings alone would give '+fmt(pvOnly)+' — your yearly additions add '+fmt(bal-pvOnly)+' more!'):'Add a yearly top-up to see how much faster your money grows.';};</script>
+<script>window._c=function(){
+var M=window.MFPCalc; if(!M) return;
+var FN={12:'month',4:'quarter',2:'half-year',1:'year'};
+function set(id,v){var e=document.getElementById(id); if(e)e.textContent=v;}
+function val(id){var e=document.getElementById(id); return e?e.value:'';}
+function note(t){var e=document.getElementById('cfNote'); if(e)e.textContent=t;}
+var out=(function(){var P=num('a'),A=num('b'),r=num('c'),T=num('d');
+var rows=M.schedule('fv',{amt:P,add:A,rate:r,years:T});
+var last=rows[rows.length-1]||{c:P,ti:P}, N=rows.length;
+set('o1',M.fm(last.ti)); set('o2',M.fm(last.c-last.ti)); set('o3',M.fm(last.c)); set('o6',M.fm(M.today(last.c,N)));
+var aloneR=M.schedule('lum',{amt:P,rate:r,years:T,hold:0});
+var alone=(aloneR[aloneR.length-1]||{c:P}).c;
+note(M.fm(P)+' growing at '+r+'% for '+N+' years'+(A>0?(', with '+M.fm(A)+' added at the end of every year. The savings alone would reach '+M.fm(alone)+'; the yearly top-ups add '+M.fm(last.c-alone)+'.'):'. Add a yearly top-up to see how much faster it grows.')+' The today\u2019s-money figure discounts the result at 6% inflation.');
+return ['sip',rows];})();
+if(!out)return;
+var kind=out[0],rows=out[1];
+var gEl=document.getElementById('cfGraph'),tEl=document.getElementById('cfTable');
+if(gEl)gEl.innerHTML=M.chart(rows);
+if(tEl)tEl.innerHTML=M.table(kind,rows);
+};
+window.cfView=function(v){
+var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),
+    bg=document.getElementById('cfBtnG'),bt=document.getElementById('cfBtnT');
+if(!g||!t)return;
+g.hidden=(v!=='g'); t.hidden=(v!=='t');
+bg.classList.toggle('on',v==='g'); bt.classList.toggle('on',v==='t');
+bg.setAttribute('aria-selected',v==='g'); bt.setAttribute('aria-selected',v==='t');
+};</script>
 
 <style>
 .vic,.wic{display:inline-flex;align-items:center;justify-content:center;margin:0 7px 0 0;transform:translateY(-1px)}
@@ -81,6 +108,7 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 .vic svg{animation:vib 2.6s ease-in-out infinite;transform-origin:50% 50%}
 @keyframes vib{0%,20%,100%{transform:rotate(0)}4%{transform:rotate(-16deg)}8%{transform:rotate(13deg)}12%{transform:rotate(-9deg)}16%{transform:rotate(6deg)}}
 </style>
+  <script src="/assets/js/mfp-calc-ui.js" defer></script>
   <script src="/assets/js/mfp-protect.js" defer></script>
 <style id="mfp-skip-style">
 .mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
@@ -403,8 +431,28 @@ img,svg,video,canvas{max-width:100%;height:auto}
     <p class="sub">Today's savings + yearly top-ups — see exactly what they become with compounding.</p>
   </div>
   <div class="calc">
-<div class="calc-fields"><label for="a">Current savings (₹)</label><input id='a' type='number' value='200000' min='0' oninput='calc()'><label for="b">Yearly addition (₹, 0 if none)</label><input id='b' type='number' value='60000' min='0' oninput='calc()'><label for="c">Expected annual return (%)</label><input id='c' type='number' value='10' step='0.1' min='0' oninput='calc()'><label for="d">Years</label><input id='d' type='number' value='15' min='1' oninput='calc()'></div>
-<div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Total invested</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Growth</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Future value</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
+<div class="calc-fields">
+<label for="a">Current savings (₹)</label><input id='a' type='number' value='200000' min='0' oninput='calc()'>
+<label for="b">Yearly addition (₹, 0 if none)</label><input id='b' type='number' value='60000' min='0' oninput='calc()'>
+<div class="cf2">
+<div><label for="c">Expected annual return (%)</label><input id='c' type='number' value='10' step='0.1' min='0' oninput='calc()'></div>
+<div><label for="d">Years</label><input id='d' type='number' value='15' min='1' oninput='calc()'></div>
+</div>
+</div>
+<div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Total invested</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Growth</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Future value</span></div><div class='res r1'><b id='o6' role="status" aria-live="polite">—</b><span>Future value in today’s money</span></div></div>
+  
+<div class="cflow">
+  <div class="cfhead">
+    <h3 id="cfTitle">Year-by-year cash flow</h3>
+    <div class="cfbtns" role="tablist" aria-label="Cash flow view">
+      <button class="cftab on" id="cfBtnG" type="button" role="tab" aria-selected="true" onclick="cfView('g')">Graph</button>
+      <button class="cftab" id="cfBtnT" type="button" role="tab" aria-selected="false" onclick="cfView('t')">Table</button>
+    </div>
+  </div>
+  <div id="cfGraph"></div>
+  <div id="cfTable" hidden></div>
+  <p class="cfnote" id="cfNote"></p>
+</div>
   <h2>About this calculator</h2>
   <p>Future Value (FV) answers the question every saver has: "If I keep this money invested, what will it become?" This free future value calculator goes beyond basic FV — it also includes the yearly additions most families actually make.</p><h3>The future value formula</h3><p>FV = PV × (1 + r)ⁿ for the base amount, plus each yearly addition compounding for its remaining years. A 10% return over 15 years turns ₹2 lakh + ₹60k/year into roughly 4× the invested amount — growth quietly overtakes deposits.</p><h3>What return should I assume?</h3><p>Equity mutual funds: 10–12% for long horizons. Debt/FD: 6–7%. PPF: 7.1%. Always plan with a conservative number — a plan that works at 10% and wins at 12% is a safe plan.</p><h3>Nominal vs real (inflation-adjusted)</h3><p>This calculator shows nominal value. At 6% inflation, ₹1 crore after 20 years buys what ~₹31 lakh buys today. Use our Present Value calculator for that reverse view — and plan goals in future rupees, not today's.</p>
   
@@ -439,7 +487,8 @@ img,svg,video,canvas{max-width:100%;height:auto}
   <h3 class="lim"><span class="lbl">STEP 3</span>What does this calculator <em>not</em> include?</h3>
   <p>The result is a nominal figure — it ignores inflation, so it does not tell you what that money will actually buy. Tax and expense ratio are excluded, and the yearly addition is assumed never to change.</p>
   <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
-  <p>At the default settings shown at the top of this page — <b>Current savings (₹)</b> ₹2,00,000 · <b>Yearly addition (₹, 0 if none)</b> ₹60,000 · <b>Expected annual return (%)</b> 10 · <b>Years</b> 15 — this calculator returns <b>₹11,00,000</b> <span style="color:#5B6B7F">Total invested</span> · <b>₹16,41,799</b> <span style="color:#5B6B7F">Growth</span> · <b>₹27,41,799</b> <span style="color:#5B6B7F">Future value</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p>At the default settings shown at the top of this page — <b>Current savings (₹)</b> ₹2,00,000 · <b>Yearly addition (₹, 0 if none)</b> ₹60,000 · <b>Expected annual return (%)</b> 10 · <b>Years</b> 15 — this calculator returns <b>₹11,00,000</b> <span style="color:#5B6B7F">Total invested</span> · <b>₹16,41,799</b> <span style="color:#5B6B7F">Growth</span> · <b>₹27,41,799</b> <span style="color:#5B6B7F">Future value</span> · <b>₹11,44,057</b> <span style="color:#5B6B7F">Future value in today’s money</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p>Below the result, the same projection is drawn out year by year — the balance at the end of each year. Switch between <b>Graph</b> and <b>Table</b> to read it either way; the table has 15 rows at these settings.</p>
   <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
   </div>
 </section>
@@ -462,7 +511,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
   <a href="tel:+918840192702" style="background:var(--indigo)" aria-label="Call"><span class="vic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.1 18.4-30 11.6-46.3l-40-96z"/></svg></span></a>
   <a href="https://wa.me/918840192702" style="background:#25D366" aria-label="WhatsApp"><span class="wic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
 </div>
-<script>calc();</script>
+<script>document.addEventListener("DOMContentLoaded",function(){calc();});</script>
 <style id="mfp-foot-css">.mfp-foot{margin-top:40px;background:#0B1B2A;color:#9FB3C8;padding:30px 0;font-size:13.5px;text-align:center}
 .mfp-foot .in{max-width:1140px;margin:0 auto;padding:0 16px}
 .mfp-foot img{height:56px;width:auto;margin-bottom:10px;max-width:88vw}
@@ -637,6 +686,37 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
   .lnks a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
   .lnks{line-height:1.5 !important}
 }
+
+/* — shared calculator UI (mfp-calc-ui.js) — */
+.calc select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;font-weight:700;color:var(--ink);outline:none;background:#fff;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2344586E' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:15px;padding-right:38px}
+.calc select:focus,.calc input:focus{border-color:var(--teal)}
+.calc input:disabled{opacity:.45;cursor:not-allowed;background:#F7FAFC}
+.cf2{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.cf2 label{margin-top:12px}
+.cflow{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 24px -10px rgba(23,50,74,.12)}
+.cfhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cfhead h3{font-size:15px;font-weight:900;color:var(--ink);margin:0}
+.cfbtns{display:flex;gap:6px}
+.cftab{border:1.5px solid var(--line);background:#fff;color:var(--ink2);font-weight:800;font-size:12.5px;padding:7px 15px;border-radius:99px;cursor:pointer}
+.cftab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cfnote{font-size:12px;color:var(--ink2);margin:10px 2px 0;line-height:1.55}
+.cfwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.cftbl{border-collapse:collapse;font-size:13px;min-width:540px;width:100%}
+.cftbl th,.cftbl td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+.cftbl th{background:#F3F7FB;font-size:12px;letter-spacing:.04em;color:var(--ink2);font-weight:800;text-align:right}
+.cftbl th:first-child,.cftbl td:first-child{text-align:left;position:sticky;left:0;z-index:1}
+.cftbl th:first-child{background:#F3F7FB;z-index:2}
+.cftbl td:first-child{background:#fff}
+.cftbl tbody tr:nth-child(even) td:first-child{background:#FAFCFE}
+.cftbl tbody tr:nth-child(even){background:#FAFCFE}
+.cftbl td.pos{color:#0B8465;font-weight:700}
+.cftbl td.neg{color:#BF7B0B;font-weight:700}
+.cftbl td.bal{font-weight:800;color:var(--ink)}
+.cfleg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.cfleg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cfsvg{width:100%;height:auto;display:block;overflow:visible}
+.cfswipe{display:none;font-size:12px;color:var(--ink2);margin:0 0 7px;font-weight:700}
+@media(max-width:700px){.cfswipe{display:block}}
 </style>
 </body>
 </html>

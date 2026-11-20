@@ -492,6 +492,19 @@ img,svg,video,canvas{max-width:100%;height:auto}
     <div class="calc-fields"><label for="dep">Monthly deposit (₹)</label><input id="dep" type="number" value="5000" min="100" step="500"><label for="rat">Interest rate (% a year)</label><input id="rat" type="number" value="7" min="1" max="12" step="0.05"><label for="ten">Tenure (months)</label><input id="ten" type="number" value="60" min="6" max="120" step="6"></div>
     <div class="grid3"><div class="res r1"><b id="o1" role="status" aria-live="polite">—</b><span>Total deposited</span></div><div class="res r2"><b id="o2" role="status" aria-live="polite">—</b><span>Interest earned</span></div><div class="res r3"><b id="o3" role="status" aria-live="polite">—</b><span>Maturity value</span></div></div><p class="note" id="onote" role="status" aria-live="polite"></p>
   </div>
+<div class="cflow">
+  <div class="cfhead">
+    <h3 id="cfTitle">Year-by-year growth</h3>
+    <div class="cfbtns" role="tablist" aria-label="Cash flow view">
+      <button class="cftab on" id="cfBtnG" type="button" role="tab" aria-selected="true" onclick="cfView('g')">Graph</button>
+      <button class="cftab" id="cfBtnT" type="button" role="tab" aria-selected="false" onclick="cfView('t')">Table</button>
+    </div>
+  </div>
+  <div id="cfGraph"></div>
+  <div id="cfTable" hidden></div>
+  <p class="cfnote" id="cfNote"></p>
+</div>
+
 
   <h2>What an RD pays, and who it suits</h2>
   <p>RDs are the most under-explained product in Indian retail banking. People see "7.5% interest" and assume ₹5,000 a month for five years earns 7.5% on the whole ₹3 lakh. It does not — the last instalment earns interest for one month, not five years. This calculator does the arithmetic properly and shows you the effective return alongside the headline rate.</p>
@@ -520,6 +533,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
 
     <h3 class="lim">Limitations — what this tool does not do</h3>
     <ul><li>It assumes every instalment is paid on time. Missed instalments usually attract a penalty and reduce maturity.</li><li>Premature withdrawal is not modelled; banks typically apply a lower rate plus a penalty.</li><li>TDS and income tax are not deducted, so the maturity figure is before tax.</li><li>Banks differ slightly in how they treat deposits made mid-month, so your actual maturity may vary a little.</li><li>The rate is assumed fixed for the tenure, which is normal for RDs but not universal.</li></ul>
+  <p>Below the result, the same projection is drawn out year by year — each year’s deposits and the interest on them. Switch between <b>Graph</b> and <b>Table</b> to read it either way; the table has 5 rows at these settings.</p>
   </div></div>
 
   <section class="mfp-bench" aria-labelledby="bench-h">
@@ -532,6 +546,36 @@ img,svg,video,canvas{max-width:100%;height:auto}
 .mfp-bench th,.mfp-bench td{border:1px solid #D8E2EE;padding:8px 12px;text-align:left;color:#33465C}
 .mfp-bench th{background:#EDF3F9;color:#28394C;font-weight:600}
 .mfp-bench .note{margin:12px 0 0;font-size:13px;color:#4A5B6E;line-height:1.6}
+
+.cflow{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 24px -10px rgba(23,50,74,.12)}
+.cfhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cfhead h3{font-size:15px;font-weight:900;color:var(--ink);margin:0}
+.cfbtns{display:flex;gap:6px}
+.cftab{border:1.5px solid var(--line);background:#fff;color:var(--ink2);font-weight:800;font-size:12.5px;padding:7px 15px;border-radius:99px;cursor:pointer}
+.cftab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cfnote{font-size:12px;color:var(--ink2);margin:10px 2px 0;line-height:1.55}
+.cfwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.cftbl{border-collapse:collapse;font-size:13px;min-width:540px;width:100%}
+.cftbl th,.cftbl td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+.cftbl th{background:#F3F7FB;font-size:12px;letter-spacing:.04em;color:var(--ink2);font-weight:800;text-align:right}
+.cftbl th:first-child,.cftbl td:first-child{text-align:left;position:sticky;left:0;z-index:1}
+.cftbl th:first-child{background:#F3F7FB;z-index:2}
+.cftbl td:first-child{background:#fff}
+.cftbl tbody tr:nth-child(even) td:first-child{background:#FAFCFE}
+.cftbl tbody tr:nth-child(even){background:#FAFCFE}
+.cftbl td.pos{color:#0B8465;font-weight:700}
+.cftbl td.neg{color:#BF7B0B;font-weight:700}
+.cftbl td.bal{font-weight:800;color:var(--ink)}
+.cfleg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.cfleg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cfsvg{width:100%;height:auto;display:block;overflow:visible}
+.cfswipe{display:none;font-size:12px;color:var(--ink2);margin:0 0 7px;font-weight:700}
+@media(max-width:700px){.cfswipe{display:block}}
+
+/* pre-existing rate table: let it scroll instead of pushing the page sideways
+   (measured at 390px it was 382px wide inside a 350px column -> 72px of page overflow) */
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.tscroll>table{min-width:420px}
 </style>
 <div class="card">
 <h2 id="bench-h">Current RD rates — October 2026</h2>
@@ -649,6 +693,45 @@ function bindCalc(){
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bindCalc);
 else bindCalc();
+</script>
+<script src="/assets/js/mfp-calc-ui.js" defer></script>
+
+<script>
+/* Year-by-year cash flow. Independent of this page's calc(): it reads the same
+   inputs and renders the chart and table, so the headline figures above are
+   untouched. Shared engine: /assets/js/mfp-calc-ui.js */
+(function(){
+function n(id){var e=document.getElementById(id);return e?(parseFloat(String(e.value).replace(/[^0-9.\-]/g,''))||0):0;}
+function v(id){var e=document.getElementById(id);return e?e.value:'';}
+function cfRender(){
+  var M=window.MFPCalc; if(!M) return;
+  var out=(function(){var R=n('dep'),r=n('rat'),m=Math.round(n('ten'));
+var rows=M.schedule('rd',{amt:R,rate:r,months:m});
+var last=rows[rows.length-1]||{c:0,ti:0};
+var yy=m/12, eff=(last.ti>0&&yy>0)?((Math.pow(last.c/last.ti,1/yy)-1)*100):0;
+return [rows,M.fm(R)+' a month for '+m+' months at '+r+'%, compounded quarterly the way banks do it. Maturity '+M.fm(last.c)+' on '+M.fm(last.ti)+' deposited. Your effective return on the total deposited is about '+eff.toFixed(2)+'% a year, lower than the headline rate, because the later instalments earn interest for less time.'];})();
+  if(!out) return;
+  var rows=out[0],txt=out[1];
+  var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),no=document.getElementById('cfNote');
+  if(g)g.innerHTML=M.chart(rows);
+  if(t)t.innerHTML=M.table('sip',rows);
+  if(no)no.textContent=txt;
+}
+window.cfView=function(x){
+  var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),
+      bg=document.getElementById('cfBtnG'),bt=document.getElementById('cfBtnT');
+  if(!g||!t)return;
+  g.hidden=(x!=='g'); t.hidden=(x!=='t');
+  bg.classList.toggle('on',x==='g'); bt.classList.toggle('on',x==='t');
+  bg.setAttribute('aria-selected',x==='g'); bt.setAttribute('aria-selected',x==='t');
+};
+function bind(){
+  var f=document.querySelectorAll('.calc-fields input, .calc-fields select');
+  for(var i=0;i<f.length;i++){f[i].addEventListener('input',cfRender);f[i].addEventListener('change',cfRender);}
+  cfRender();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
 </script>
 </body>
 </html>

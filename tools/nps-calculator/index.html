@@ -420,6 +420,36 @@ small,.small{font-size:13px}
 img,svg,video,canvas{max-width:100%;height:auto}
 *,*::before,*::after{box-sizing:border-box}
 
+
+.cflow{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 24px -10px rgba(23,50,74,.12)}
+.cfhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cfhead h3{font-size:15px;font-weight:900;color:var(--ink);margin:0}
+.cfbtns{display:flex;gap:6px}
+.cftab{border:1.5px solid var(--line);background:#fff;color:var(--ink2);font-weight:800;font-size:12.5px;padding:7px 15px;border-radius:99px;cursor:pointer}
+.cftab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cfnote{font-size:12px;color:var(--ink2);margin:10px 2px 0;line-height:1.55}
+.cfwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.cftbl{border-collapse:collapse;font-size:13px;min-width:540px;width:100%}
+.cftbl th,.cftbl td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+.cftbl th{background:#F3F7FB;font-size:12px;letter-spacing:.04em;color:var(--ink2);font-weight:800;text-align:right}
+.cftbl th:first-child,.cftbl td:first-child{text-align:left;position:sticky;left:0;z-index:1}
+.cftbl th:first-child{background:#F3F7FB;z-index:2}
+.cftbl td:first-child{background:#fff}
+.cftbl tbody tr:nth-child(even) td:first-child{background:#FAFCFE}
+.cftbl tbody tr:nth-child(even){background:#FAFCFE}
+.cftbl td.pos{color:#0B8465;font-weight:700}
+.cftbl td.neg{color:#BF7B0B;font-weight:700}
+.cftbl td.bal{font-weight:800;color:var(--ink)}
+.cfleg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.cfleg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cfsvg{width:100%;height:auto;display:block;overflow:visible}
+.cfswipe{display:none;font-size:12px;color:var(--ink2);margin:0 0 7px;font-weight:700}
+@media(max-width:700px){.cfswipe{display:block}}
+
+/* pre-existing rate table: let it scroll instead of pushing the page sideways
+   (measured at 390px it was 382px wide inside a 350px column -> 72px of page overflow) */
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.tscroll>table{min-width:420px}
 </style>
 </head>
 <body>
@@ -492,6 +522,19 @@ img,svg,video,canvas{max-width:100%;height:auto}
     <div class="calc-fields"><label for="age">Your current age</label><input id="age" type="number" value="30" min="18" max="65" step="1"><label for="ret">Retirement age</label><input id="ret" type="number" value="60" min="60" max="75" step="1"><label for="con">Monthly contribution (₹)</label><input id="con" type="number" value="5000" min="0" step="500"><label for="ror">Expected annual return (%)</label><input id="ror" type="number" value="10" min="1" max="15" step="0.5"><label for="ann">Share used to buy annuity (%)</label><input id="ann" type="number" value="40" min="40" max="100" step="5"><label for="arr">Expected annuity rate (%)</label><input id="arr" type="number" value="6" min="3" max="10" step="0.25"></div>
     <div class="grid3"><div class="res r1"><b id="o1" role="status" aria-live="polite">—</b><span>Corpus at retirement</span></div><div class="res r2"><b id="o2" role="status" aria-live="polite">—</b><span>Tax-free lump sum</span></div><div class="res r3"><b id="o3" role="status" aria-live="polite">—</b><span>Monthly pension</span></div></div><p class="note" id="onote" role="status" aria-live="polite"></p>
   </div>
+<div class="cflow">
+  <div class="cfhead">
+    <h3 id="cfTitle">Corpus build-up, year by year</h3>
+    <div class="cfbtns" role="tablist" aria-label="Cash flow view">
+      <button class="cftab on" id="cfBtnG" type="button" role="tab" aria-selected="true" onclick="cfView('g')">Graph</button>
+      <button class="cftab" id="cfBtnT" type="button" role="tab" aria-selected="false" onclick="cfView('t')">Table</button>
+    </div>
+  </div>
+  <div id="cfGraph"></div>
+  <div id="cfTable" hidden></div>
+  <p class="cfnote" id="cfNote"></p>
+</div>
+
 
   <h2>What NPS actually pays you at 60</h2>
   <p>NPS is the cheapest retirement product in India by expense ratio, and the only one offering a deduction beyond the ₹1.5 lakh 80C ceiling. It is also the most misunderstood, because the corpus you see projected is not money you can freely withdraw. The split below is the part most calculators quietly skip.</p>
@@ -520,6 +563,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
 
     <h3 class="lim">Limitations — what this tool does not do</h3>
     <ul><li>Returns are assumed constant. NPS is market-linked; actual sequence of returns, especially near retirement, changes the outcome significantly.</li><li>Annuity rates are not guaranteed years in advance. The rate available when you turn 60 may be materially different from the one you enter.</li><li>Fund-management and other charges are not deducted, so the corpus is slightly optimistic.</li><li>The pension shown is nominal. At 6% inflation, ₹22,793 a month in 30 years buys roughly what ₹4,000 buys today — use our <a href="/tools/inflation-calculator/">inflation calculator</a> to see this in your own numbers.</li><li>Partial withdrawal rules, Tier-2 accounts and NPS Vatsalya are not modelled.</li><li>Small corpuses at exit may be fully withdrawable without buying an annuity; thresholds change, so confirm the current limit with your provider.</li></ul>
+  <p>Below the result, the same projection is drawn out year by year — the corpus building year by year. Switch between <b>Graph</b> and <b>Table</b> to read it either way; the table has 30 rows at these settings.</p>
   </div></div>
 
   <h2>Frequently asked questions</h2>
@@ -633,6 +677,46 @@ function bindCalc(){
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bindCalc);
 else bindCalc();
+</script>
+<script src="/assets/js/mfp-calc-ui.js" defer></script>
+
+<script>
+/* Year-by-year cash flow. Independent of this page's calc(): it reads the same
+   inputs and renders the chart and table, so the headline figures above are
+   untouched. Shared engine: /assets/js/mfp-calc-ui.js */
+(function(){
+function n(id){var e=document.getElementById(id);return e?(parseFloat(String(e.value).replace(/[^0-9.\-]/g,''))||0):0;}
+function v(id){var e=document.getElementById(id);return e?e.value:'';}
+function cfRender(){
+  var M=window.MFPCalc; if(!M) return;
+  var out=(function(){var age=n('age'),ret=n('ret'),con=n('con'),ror=n('ror'),ann=n('ann'),arr=n('arr');
+var yrs=Math.max(0,ret-age);
+var rows=M.schedule('sip',{amt:con,freq:12,rate:ror,years:yrs,hold:0});
+var last=rows[rows.length-1]||{c:0,ti:0};
+var annuity=last.c*ann/100, pension=annuity*(arr/100)/12;
+return [rows,M.fm(con)+' a month from age '+age+' to '+ret+' at '+ror+'% builds '+M.fm(last.c)+', of which you contributed '+M.fm(last.ti)+'. Putting '+ann+'% into an annuity at '+arr+'% pays about '+M.fm(pension)+' a month, and the remaining '+M.fm(last.c-annuity)+' comes out tax-free. At least 40% must be annuitised.'];})();
+  if(!out) return;
+  var rows=out[0],txt=out[1];
+  var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),no=document.getElementById('cfNote');
+  if(g)g.innerHTML=M.chart(rows);
+  if(t)t.innerHTML=M.table('sip',rows);
+  if(no)no.textContent=txt;
+}
+window.cfView=function(x){
+  var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),
+      bg=document.getElementById('cfBtnG'),bt=document.getElementById('cfBtnT');
+  if(!g||!t)return;
+  g.hidden=(x!=='g'); t.hidden=(x!=='t');
+  bg.classList.toggle('on',x==='g'); bt.classList.toggle('on',x==='t');
+  bg.setAttribute('aria-selected',x==='g'); bt.setAttribute('aria-selected',x==='t');
+};
+function bind(){
+  var f=document.querySelectorAll('.calc-fields input, .calc-fields select');
+  for(var i=0;i<f.length;i++){f[i].addEventListener('input',cfRender);f[i].addEventListener('change',cfRender);}
+  cfRender();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
 </script>
 </body>
 </html>

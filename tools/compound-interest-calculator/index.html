@@ -420,6 +420,36 @@ small,.small{font-size:13px}
 img,svg,video,canvas{max-width:100%;height:auto}
 *,*::before,*::after{box-sizing:border-box}
 
+
+.cflow{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 24px -10px rgba(23,50,74,.12)}
+.cfhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cfhead h3{font-size:15px;font-weight:900;color:var(--ink);margin:0}
+.cfbtns{display:flex;gap:6px}
+.cftab{border:1.5px solid var(--line);background:#fff;color:var(--ink2);font-weight:800;font-size:12.5px;padding:7px 15px;border-radius:99px;cursor:pointer}
+.cftab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cfnote{font-size:12px;color:var(--ink2);margin:10px 2px 0;line-height:1.55}
+.cfwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.cftbl{border-collapse:collapse;font-size:13px;min-width:540px;width:100%}
+.cftbl th,.cftbl td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+.cftbl th{background:#F3F7FB;font-size:12px;letter-spacing:.04em;color:var(--ink2);font-weight:800;text-align:right}
+.cftbl th:first-child,.cftbl td:first-child{text-align:left;position:sticky;left:0;z-index:1}
+.cftbl th:first-child{background:#F3F7FB;z-index:2}
+.cftbl td:first-child{background:#fff}
+.cftbl tbody tr:nth-child(even) td:first-child{background:#FAFCFE}
+.cftbl tbody tr:nth-child(even){background:#FAFCFE}
+.cftbl td.pos{color:#0B8465;font-weight:700}
+.cftbl td.neg{color:#BF7B0B;font-weight:700}
+.cftbl td.bal{font-weight:800;color:var(--ink)}
+.cfleg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.cfleg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cfsvg{width:100%;height:auto;display:block;overflow:visible}
+.cfswipe{display:none;font-size:12px;color:var(--ink2);margin:0 0 7px;font-weight:700}
+@media(max-width:700px){.cfswipe{display:block}}
+
+/* pre-existing rate table: let it scroll instead of pushing the page sideways
+   (measured at 390px it was 382px wide inside a 350px column -> 72px of page overflow) */
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.tscroll>table{min-width:420px}
 </style>
 </head>
 <body>
@@ -492,6 +522,19 @@ img,svg,video,canvas{max-width:100%;height:auto}
     <div class="calc-fields"><label for="pr">Principal (₹)</label><input id="pr" type="number" value="100000" min="0" step="1000"><label for="ra">Annual interest rate (%)</label><input id="ra" type="number" value="8" min="0" max="40" step="0.25"><label for="tm">Time (years)</label><input id="tm" type="number" value="10" min="0.25" step="0.25"><label for="fq">Compounding frequency</label><select id="fq"><option value="1">Yearly</option><option value="2">Half-yearly</option><option value="4" selected>Quarterly</option><option value="12">Monthly</option><option value="365">Daily</option></select><label for="ad">Additional monthly investment (₹) — optional</label><input id="ad" type="number" value="0" min="0" step="500"></div>
     <div class="grid3"><div class="res r1"><b id="o1" role="status" aria-live="polite">—</b><span>Maturity value</span></div><div class="res r2"><b id="o2" role="status" aria-live="polite">—</b><span>Total invested</span></div><div class="res r3"><b id="o3" role="status" aria-live="polite">—</b><span>Interest earned</span></div></div><p class="note" id="onote" role="status" aria-live="polite"></p>
   </div>
+<div class="cflow">
+  <div class="cfhead">
+    <h3 id="cfTitle">Year-by-year growth</h3>
+    <div class="cfbtns" role="tablist" aria-label="Cash flow view">
+      <button class="cftab on" id="cfBtnG" type="button" role="tab" aria-selected="true" onclick="cfView('g')">Graph</button>
+      <button class="cftab" id="cfBtnT" type="button" role="tab" aria-selected="false" onclick="cfView('t')">Table</button>
+    </div>
+  </div>
+  <div id="cfGraph"></div>
+  <div id="cfTable" hidden></div>
+  <p class="cfnote" id="cfNote"></p>
+</div>
+
 
   <h2>What compounding actually does</h2>
   <p>Compounding is described so often that it has stopped meaning anything. This calculator makes it concrete: it shows your total interest next to what plain simple interest would have paid, so you can see exactly what the compounding is worth in rupees over your period — and how much of your final balance you never contributed.</p>
@@ -520,6 +563,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
 
     <h3 class="lim">Limitations — what this tool does not do</h3>
     <ul><li>It assumes an unchanging interest rate. Real deposit and scheme rates are revised, sometimes annually or quarterly.</li><li>Tax is not deducted. Interest income is generally taxable each year at your slab rate, which lowers the rate that actually compounds.</li><li>Results are nominal, not inflation-adjusted. What the maturity amount will buy is a different and smaller number.</li><li>It does not model penalties for premature withdrawal, which can reduce the effective rate substantially.</li><li>For market-linked investments there is no fixed rate at all — a single assumed return is a planning convenience, not a projection.</li></ul>
+  <p>Below the result, the same projection is drawn out year by year — the balance at the end of each year. Switch between <b>Graph</b> and <b>Table</b> to read it either way; the table has 10 rows at these settings.</p>
   </div></div>
 
   <h2>Frequently asked questions</h2>
@@ -633,6 +677,45 @@ function bindCalc(){
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bindCalc);
 else bindCalc();
+</script>
+<script src="/assets/js/mfp-calc-ui.js" defer></script>
+
+<script>
+/* Year-by-year cash flow. Independent of this page's calc(): it reads the same
+   inputs and renders the chart and table, so the headline figures above are
+   untouched. Shared engine: /assets/js/mfp-calc-ui.js */
+(function(){
+function n(id){var e=document.getElementById(id);return e?(parseFloat(String(e.value).replace(/[^0-9.\-]/g,''))||0):0;}
+function v(id){var e=document.getElementById(id);return e?e.value:'';}
+function cfRender(){
+  var M=window.MFPCalc; if(!M) return;
+  var out=(function(){var P=n('pr'),r=n('ra'),t=n('tm'),fq=parseFloat(v('fq'))||1,add=n('ad');
+var rows=M.schedule('ci',{amt:P,rate:r,years:t,freq:fq,add:add});
+var FQN={1:'once',2:'twice',4:'four times',12:'twelve times'};
+var last=rows[rows.length-1]||{c:P,ti:P};
+return [rows,M.fm(P)+(add>0?(' plus '+M.fm(add)+' a month'):'')+' at '+r+'%, compounded '+(FQN[fq]||fq+' times')+' a year for '+rows.length+' years. Interest earned: '+M.fm(last.c-last.ti)+'. The bars show the balance at the end of each year — the curve steepens because each year\u2019s interest earns interest of its own.'];})();
+  if(!out) return;
+  var rows=out[0],txt=out[1];
+  var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),no=document.getElementById('cfNote');
+  if(g)g.innerHTML=M.chart(rows);
+  if(t)t.innerHTML=M.table('sip',rows);
+  if(no)no.textContent=txt;
+}
+window.cfView=function(x){
+  var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),
+      bg=document.getElementById('cfBtnG'),bt=document.getElementById('cfBtnT');
+  if(!g||!t)return;
+  g.hidden=(x!=='g'); t.hidden=(x!=='t');
+  bg.classList.toggle('on',x==='g'); bt.classList.toggle('on',x==='t');
+  bg.setAttribute('aria-selected',x==='g'); bt.setAttribute('aria-selected',x==='t');
+};
+function bind(){
+  var f=document.querySelectorAll('.calc-fields input, .calc-fields select');
+  for(var i=0;i<f.length;i++){f[i].addEventListener('input',cfRender);f[i].addEventListener('change',cfRender);}
+  cfRender();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
 </script>
 </body>
 </html>

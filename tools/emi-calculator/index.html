@@ -70,7 +70,33 @@ const num=id=>{const v=parseFloat(document.getElementById(id).value);return isNa
 function calc(){try{if(window._c)window._c();}catch(e){}}
 </script>
 
-<script>window._c=function(){const P=num('a'),r=num('b')/1200,n=num('c')*12;let e;if(r===0){e=P/n;}else{const f=Math.pow(1+r,n);e=P*r*f/(f-1);}const tot=e*n,i=tot-P;document.getElementById('o1').textContent=fmt(e);document.getElementById('o2').textContent=fmt(i);document.getElementById('o3').textContent=fmt(tot);document.getElementById('o4').textContent='For every ₹1 borrowed you repay ₹'+(tot/P).toFixed(2)+' — '+(Math.round(i/P*100))+'% is interest.';};</script>
+<script>window._c=function(){
+var M=window.MFPCalc; if(!M) return;
+var FN={12:'month',4:'quarter',2:'half-year',1:'year'};
+function set(id,v){var e=document.getElementById(id); if(e)e.textContent=v;}
+function val(id){var e=document.getElementById(id); return e?e.value:'';}
+function note(t){var e=document.getElementById('cfNote'); if(e)e.textContent=t;}
+var out=(function(){var P=num('a'),r=num('b'),T=num('c');
+var rows=M.schedule('emi',{amt:P,rate:r,years:T});
+var N=rows.length, im=r/1200, nM=Math.max(1,Math.round(T*12));
+var emi=im?(P*im*Math.pow(1+im,nM)/(Math.pow(1+im,nM)-1)):(P/nM);
+set('o1',M.fm(emi)); set('o2',M.fm(emi*nM-P)); set('o3',M.fm(emi*nM));
+note('A '+M.fm(P)+' loan at '+r+'% over '+N+' years costs '+M.fm(emi)+' a month, and '+M.fm(emi*nM-P)+' in interest — that is '+Math.round((emi*nM-P)/P*100)+'% of what you borrowed. The year-by-year table shows how little of an early EMI goes to principal; prepaying in the first third of the term is what actually cuts the total.');
+return ['emi',rows];})();
+if(!out)return;
+var kind=out[0],rows=out[1];
+var gEl=document.getElementById('cfGraph'),tEl=document.getElementById('cfTable');
+if(gEl)gEl.innerHTML=M.chart(rows);
+if(tEl)tEl.innerHTML=M.table(kind,rows);
+};
+window.cfView=function(v){
+var g=document.getElementById('cfGraph'),t=document.getElementById('cfTable'),
+    bg=document.getElementById('cfBtnG'),bt=document.getElementById('cfBtnT');
+if(!g||!t)return;
+g.hidden=(v!=='g'); t.hidden=(v!=='t');
+bg.classList.toggle('on',v==='g'); bt.classList.toggle('on',v==='t');
+bg.setAttribute('aria-selected',v==='g'); bt.setAttribute('aria-selected',v==='t');
+};</script>
 
 <style>
 .vic,.wic{display:inline-flex;align-items:center;justify-content:center;margin:0 7px 0 0;transform:translateY(-1px)}
@@ -86,6 +112,7 @@ function calc(){try{if(window._c)window._c();}catch(e){}}
 <meta name="twitter:title" content="EMI Calculator 2026 — Home, Car & Personal Loan EMI | MyFinancialPlan">
 <meta name="twitter:description" content="Free EMI calculator: home loan, car loan or personal loan — get exact monthly EMI, total interest and total payment. Compare tenures before you sign the loan papers.">
 <meta name="twitter:image" content="https://www.myfinancialplan.in/assets/brand/social_banner.png">
+  <script src="/assets/js/mfp-calc-ui.js" defer></script>
   <script src="/assets/js/mfp-protect.js" defer></script>
 <style id="mfp-skip-style">
 .mfp-skip{position:absolute;left:-9999px;top:0;z-index:2147483647;background:#17324A;color:#fff;
@@ -408,8 +435,27 @@ img,svg,video,canvas{max-width:100%;height:auto}
     <p class="sub">Know your exact EMI — and the shocking total interest — before you sign.</p>
   </div>
   <div class="calc">
-<div class="calc-fields"><label for="a">Loan amount (₹)</label><input id='a' type='number' value='3000000' min='10000' oninput='calc()'><label for="b">Annual interest rate (%)</label><input id='b' type='number' value='8.5' step='0.05' min='0' oninput='calc()'><label for="c">Tenure (years)</label><input id='c' type='number' value='20' min='1' oninput='calc()'></div>
-<div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Monthly EMI</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Total interest</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Total payment</span></div></div><p class='note' id='o4' role="status" aria-live="polite"></p></div>
+<div class="calc-fields">
+<label for="a">Loan amount (₹)</label><input id='a' type='number' value='3000000' min='10000' oninput='calc()'>
+<div class="cf2">
+<div><label for="b">Annual interest rate (%)</label><input id='b' type='number' value='8.5' step='0.05' min='0' oninput='calc()'></div>
+<div><label for="c">Tenure (years)</label><input id='c' type='number' value='20' min='1' oninput='calc()'></div>
+</div>
+</div>
+<div class='grid3'><div class='res r1'><b id='o1' role="status" aria-live="polite">—</b><span>Monthly EMI</span></div><div class='res r2'><b id='o2' role="status" aria-live="polite">—</b><span>Total interest</span></div><div class='res r3'><b id='o3' role="status" aria-live="polite">—</b><span>Total payment</span></div></div>
+  
+<div class="cflow">
+  <div class="cfhead">
+    <h3 id="cfTitle">Year-by-year cash flow</h3>
+    <div class="cfbtns" role="tablist" aria-label="Cash flow view">
+      <button class="cftab on" id="cfBtnG" type="button" role="tab" aria-selected="true" onclick="cfView('g')">Graph</button>
+      <button class="cftab" id="cfBtnT" type="button" role="tab" aria-selected="false" onclick="cfView('t')">Table</button>
+    </div>
+  </div>
+  <div id="cfGraph"></div>
+  <div id="cfTable" hidden></div>
+  <p class="cfnote" id="cfNote"></p>
+</div>
   <h2>About this calculator</h2>
   <p>Every loan you will ever take — home, car, personal — runs on one EMI formula. Banks quote the easy monthly number; this calculator shows you the FULL picture including total interest, which on long home loans often exceeds the loan itself.</p>
   <h3>The 40% rule for Indian families</h3><p>Keep total EMIs under 40% of take-home pay; under 30% if you also want to invest for goals. A family earning ₹1 lakh/month EMIs above ₹40,000 leave nothing for education or retirement SIPs.</p><h3>Shorter tenure = massive savings</h3><p>On a ₹50 lakh loan at 9% for 20 years you pay ~₹58 lakh interest. Cut tenure to 10 years and interest drops to ~₹26 lakh — over ₹32 lakh saved for a slightly higher EMI.</p><h3>Prepayment is a cheat code</h3><p>Even 1 extra EMI prepaid per year can cut a 20-year loan to ~16 years. Prepay in the first half of the loan for maximum impact.</p>
@@ -446,6 +492,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
   <p>Processing fees, documentation charges, insurance bundled with the loan and any prepayment or foreclosure penalty are not included, so your real outlay is higher than the total shown. Floating-rate loans change when the benchmark changes, which this fixed-rate maths cannot capture.</p>
   <h3><span class="lbl">STEP 4</span>What is a worked example?</h3>
   <p>At the default settings shown at the top of this page — <b>Loan amount (₹)</b> ₹30,00,000 · <b>Annual interest rate (%)</b> 8.5 · <b>Tenure (years)</b> 20 — this calculator returns <b>₹26,035</b> <span style="color:#5B6B7F">Monthly EMI</span> · <b>₹32,48,327</b> <span style="color:#5B6B7F">Total interest</span> · <b>₹62,48,327</b> <span style="color:#5B6B7F">Total payment</span>. Change one input at a time to see which one moves the answer most; that is usually more useful than the single number.</p>
+  <p>Below the result, the same projection is drawn out year by year — how much of the year went to interest and how much to principal. Switch between <b>Graph</b> and <b>Table</b> to read it either way; the table has 20 rows at these settings.</p>
   <p style="margin-top:14px;font-size:.86rem;color:#5B6B7F">Every figure here is an estimate, not advice. Change an input above to see how sensitive the answer is — that is usually more useful than the single number.</p>
   </div>
 </section>
@@ -495,7 +542,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
   <a href="tel:+918840192702" style="background:var(--indigo)" aria-label="Call"><span class="vic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.1 18.4-30 11.6-46.3l-40-96z"/></svg></span></a>
   <a href="https://wa.me/918840192702" style="background:#25D366" aria-label="WhatsApp"><span class="wic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
 </div>
-<script>calc();</script>
+<script>document.addEventListener("DOMContentLoaded",function(){calc();});</script>
 <style id="mfp-foot-css">.mfp-foot{margin-top:40px;background:#0B1B2A;color:#9FB3C8;padding:30px 0;font-size:13.5px;text-align:center}
 .mfp-foot .in{max-width:1140px;margin:0 auto;padding:0 16px}
 .mfp-foot img{height:56px;width:auto;margin-bottom:10px;max-width:88vw}
@@ -669,6 +716,37 @@ label,.lbl,.tag,.sha,.pill,.badge,small,th,.t,
   .lnks a{min-height:46px !important;display:inline-flex !important;align-items:center !important}
   .lnks{line-height:1.5 !important}
 }
+
+/* — shared calculator UI (mfp-calc-ui.js) — */
+.calc select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;font-weight:700;color:var(--ink);outline:none;background:#fff;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2344586E' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:15px;padding-right:38px}
+.calc select:focus,.calc input:focus{border-color:var(--teal)}
+.calc input:disabled{opacity:.45;cursor:not-allowed;background:#F7FAFC}
+.cf2{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.cf2 label{margin-top:12px}
+.cflow{margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 24px -10px rgba(23,50,74,.12)}
+.cfhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cfhead h3{font-size:15px;font-weight:900;color:var(--ink);margin:0}
+.cfbtns{display:flex;gap:6px}
+.cftab{border:1.5px solid var(--line);background:#fff;color:var(--ink2);font-weight:800;font-size:12.5px;padding:7px 15px;border-radius:99px;cursor:pointer}
+.cftab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cfnote{font-size:12px;color:var(--ink2);margin:10px 2px 0;line-height:1.55}
+.cfwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.cftbl{border-collapse:collapse;font-size:13px;min-width:540px;width:100%}
+.cftbl th,.cftbl td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+.cftbl th{background:#F3F7FB;font-size:12px;letter-spacing:.04em;color:var(--ink2);font-weight:800;text-align:right}
+.cftbl th:first-child,.cftbl td:first-child{text-align:left;position:sticky;left:0;z-index:1}
+.cftbl th:first-child{background:#F3F7FB;z-index:2}
+.cftbl td:first-child{background:#fff}
+.cftbl tbody tr:nth-child(even) td:first-child{background:#FAFCFE}
+.cftbl tbody tr:nth-child(even){background:#FAFCFE}
+.cftbl td.pos{color:#0B8465;font-weight:700}
+.cftbl td.neg{color:#BF7B0B;font-weight:700}
+.cftbl td.bal{font-weight:800;color:var(--ink)}
+.cfleg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.cfleg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cfsvg{width:100%;height:auto;display:block;overflow:visible}
+.cfswipe{display:none;font-size:12px;color:var(--ink2);margin:0 0 7px;font-weight:700}
+@media(max-width:700px){.cfswipe{display:block}}
 </style>
 </body>
 </html>
