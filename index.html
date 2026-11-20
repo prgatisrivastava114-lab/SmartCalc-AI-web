@@ -159,6 +159,43 @@ section{padding:74px 0}
 .dark span.lbl{font-size:12px;letter-spacing:.12em;opacity:.75;font-weight:800}
 #calcOut{font-size:clamp(34px,6vw,48px);font-weight:900;letter-spacing:-1.5px;margin:8px 0 4px}
 #calcSub{font-size:13px;opacity:.85}
+/* — live calculator: frequency, cash flow, chart (added 2026-11-19) — */
+.panel select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:13px;font-weight:800;font-size:16px;line-height:18px;margin:4px 0 12px;outline:none;color:var(--ink);background:#fff;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2344586E' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:15px;padding-right:38px}
+.panel select:focus{border-color:var(--teal)}
+.c2{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.cflow{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 6px 26px -14px rgba(23,50,74,.16)}
+.cfhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cfhead h3{font-size:15px;font-weight:900;color:var(--ink);margin:0}
+.cfbtns{display:flex;gap:6px}
+.cftab{border:1.5px solid var(--line);background:#fff;color:var(--ink2);font-weight:800;font-size:12.5px;padding:7px 15px;border-radius:99px;cursor:pointer}
+.cftab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cfnote{font-size:12px;color:var(--ink2);margin:10px 2px 0;line-height:1.5}
+.cfwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.cftbl{border-collapse:collapse;font-size:13px;min-width:540px;width:100%}
+.cftbl th,.cftbl td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+.cftbl th{background:#F3F7FB;font-size:12px;letter-spacing:.04em;color:var(--ink2);font-weight:800;text-align:right;position:sticky;top:0}
+.cftbl th:first-child,.cftbl td:first-child{text-align:left;position:sticky;left:0;z-index:1}
+.cftbl th:first-child{background:#F3F7FB;z-index:2}
+.cftbl td:first-child{background:#fff}
+.cftbl tbody tr:nth-child(even) td:first-child{background:#FAFCFE}
+.cfswipe{display:none;font-size:12px;color:var(--ink2);margin:0 0 7px;font-weight:700}
+@media(max-width:700px){.cfswipe{display:block}}
+.cftbl tbody tr:nth-child(even){background:#FAFCFE}
+.cftbl td.pos{color:#0B8465;font-weight:700}
+.cftbl td.neg{color:#BF7B0B;font-weight:700}
+.cftbl td.bal{font-weight:800;color:var(--ink)}
+.cfleg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:8px}
+.cfleg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cfsvg{width:100%;height:auto;display:block;overflow:visible}
+.panel input:disabled{opacity:.45;cursor:not-allowed;background:#F7FAFC}
+.rdonly{width:100%;padding:13px 14px;border:1.5px dashed var(--line);border-radius:13px;font-weight:800;font-size:16px;margin:4px 0 12px;color:var(--ink2);background:#F7FAFC;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:18px}
+#calcBreak{margin-top:14px;text-align:left;width:100%;max-width:330px;align-self:center}
+#calcBreak div{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+#calcBreak div:last-child{border-bottom:none}
+#calcBreak span:first-child{opacity:.8}
+#calcBreak span:last-child{font-weight:800;white-space:nowrap}
+#calcBreak div.hi span:last-child{color:#7EE3C1}
+#calcBreak div.warn span:last-child{color:#FFD08A}
 /* — journey — */
 .goals{display:grid;grid-auto-flow:column;grid-auto-columns:250px;gap:16px;overflow-x:auto;padding:22px 4px 14px;scroll-snap-type:x mandatory;scrollbar-width:thin}
 .goal{scroll-snap-align:start;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 10px 30px -14px rgba(23,50,74,.25);aspect-ratio:4/3;background:#123}
@@ -1273,32 +1310,66 @@ if(trk)trk.addEventListener('scroll',function(){
 <section id="live"><div class="wrap rise">
   <span class="kick">Free · live · no login</span>
   <h2 class="sec-h">Don't play with your future — <span class="grad">calculate it, live.</span></h2>
-  <p class="sec-s">The four calculators Indian families use most — switch tabs, type your numbers, answers update instantly.</p>
-  <div class="ctabs">
+  <p class="sec-s">The five calculators Indian families use most — switch tabs, type your numbers, answers update instantly.</p>
+  <div class="ctabs" id="calcTabs">
     <button class="ctab on" data-c="sip" onclick="calcTab('sip')">💹 SIP</button>
     <button class="ctab" data-c="lum" onclick="calcTab('lum')">💰 Lumpsum</button>
+    <button class="ctab" data-c="swp" onclick="calcTab('swp')">🏧 SWP</button>
     <button class="ctab" data-c="fd" onclick="calcTab('fd')">🏦 FD</button>
     <button class="ctab" data-c="emi" onclick="calcTab('emi')">🏠 EMI</button>
   </div>
   <div class="calc-grid" style="margin-top:18px">
     <div class="panel">
       <div id="box-sip">
-        <label for="sipA">MONTHLY SIP (₹)</label>
-        <input id="sipA" type="number" value="10000" oninput="calcGo()">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div><label for="sipB">RETURN (%/yr)</label><input id="sipB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
-          <div><label for="sipC">YEARS</label><input id="sipC" type="number" value="15" oninput="calcGo()"></div>
+        <div class="c2">
+          <div><label for="sipA">DEPOSIT (₹)</label><input id="sipA" type="number" value="10000" oninput="calcGo()"></div>
+          <div><label for="sipF">EVERY</label><select id="sipF" onchange="calcGo()">
+            <option value="12" selected>Month</option><option value="4">Quarter</option>
+            <option value="2">Half-year</option><option value="1">Year</option></select></div>
         </div>
-        <p class="chint">Hint: raise years, not risk — time is the real multiplier.</p>
+        <div class="c2">
+          <div><label for="sipB">RETURN (%/yr)</label><input id="sipB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
+          <div><label for="sipC">DEPOSIT YEARS</label><input id="sipC" type="number" value="15" oninput="calcGo()"></div>
+        </div>
+        <label for="sipH">THEN STAY INVESTED FOR (YEARS)</label>
+        <input id="sipH" type="number" value="30" oninput="calcGo()">
+        <p class="chint">Deposits stop after the deposit years; the corpus keeps compounding for the holding years.</p>
       </div>
       <div id="box-lum" hidden>
-        <label for="lumA">ONE-TIME AMOUNT (₹)</label>
-        <input id="lumA" type="number" value="100000" oninput="calcGo()">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div><label for="lumB">RETURN (%/yr)</label><input id="lumB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
-          <div><label for="lumC">YEARS</label><input id="lumC" type="number" value="15" oninput="calcGo()"></div>
+        <div class="c2">
+          <div><label for="lumA">ONE-TIME AMOUNT (₹)</label><input id="lumA" type="number" value="100000" oninput="calcGo()"></div>
+          <div><label for="lumT">INVESTMENT TYPE</label><div class="rdonly" id="lumT">One-time</div></div>
         </div>
+        <div class="c2">
+          <div><label for="lumB">RETURN (%/yr)</label><input id="lumB" type="number" value="12" step="0.1" oninput="calcGo()"></div>
+          <div><label for="lumC">INVESTMENT YEARS</label><input id="lumC" type="number" value="15" oninput="calcGo()"></div>
+        </div>
+        <label for="lumH">THEN STAY INVESTED FOR (YEARS)</label>
+        <input id="lumH" type="number" value="30" oninput="calcGo()">
         <p class="chint">Lumpsum wins when the money can stay invested for 7+ years.</p>
+      </div>
+      <div id="box-swp" hidden>
+        <div class="c2">
+          <div><label for="swpA">LUMPSUM INVESTED (₹)</label><input id="swpA" type="number" value="5000000" oninput="calcGo()"></div>
+          <div><label for="swpB">RETURN (%/yr)</label><input id="swpB" type="number" value="11" step="0.1" oninput="calcGo()"></div>
+        </div>
+        <div class="c2">
+          <div><label for="swpS">WITHDRAWALS START</label><select id="swpS" onchange="calcGo()">
+            <option value="now" selected>Immediately</option><option value="later">After some years</option></select></div>
+          <div><label for="swpD">START AFTER (YEARS)</label><input id="swpD" type="number" value="0" disabled oninput="calcGo()"></div>
+        </div>
+        <div class="c2">
+          <div><label for="swpF">WITHDRAW EVERY</label><select id="swpF" onchange="calcGo()">
+            <option value="12" selected>Month</option><option value="4">Quarter</option>
+            <option value="2">Half-year</option><option value="1">Year</option></select></div>
+          <div><label for="swpM">METHOD</label><select id="swpM" onchange="calcGo()">
+            <option value="fix" selected>Fixed amount</option><option value="pct">% of corpus</option></select></div>
+        </div>
+        <div class="c2">
+          <div><label for="swpW" id="swpWL">WITHDRAW (₹ each time)</label><input id="swpW" type="number" value="30000" oninput="calcGo()"></div>
+          <div><label for="swpP">PROJECTION (YEARS)</label><input id="swpP" type="number" value="30" oninput="calcGo()"></div>
+        </div>
+        <p class="chint">A single lumpsum that you draw an income from. Growth and withdrawals both use the frequency you pick.</p>
       </div>
       <div id="box-fd" hidden>
         <label for="fdA">DEPOSIT AMOUNT (₹)</label>
@@ -1323,8 +1394,21 @@ if(trk)trk.addEventListener('scroll',function(){
       <span class="lbl" id="calcLbl">YOUR SIP BECOMES</span>
       <div id="calcOut" role="status" aria-live="polite">—</div>
       <div id="calcSub"></div>
+      <div id="calcBreak"></div>
       <a class="btn b-teal" id="calcLink" href="tools/sip-calculator/" style="margin-top:16px;align-self:center">Full SIP calculator →</a>
     </div>
+  </div>
+  <div class="cflow">
+    <div class="cfhead">
+      <h3 id="cfTitle">Year-by-year cash flow</h3>
+      <div class="cfbtns" role="tablist" aria-label="Cash flow view">
+        <button class="cftab on" id="cfBtnG" role="tab" aria-selected="true" onclick="cfView('g')">📈 Graph</button>
+        <button class="cftab" id="cfBtnT" role="tab" aria-selected="false" onclick="cfView('t')">📋 Table</button>
+      </div>
+    </div>
+    <div id="cfGraph"></div>
+    <div id="cfTable" hidden></div>
+    <p class="cfnote" id="cfNote"></p>
   </div>
 </div></section>
 
@@ -1570,27 +1654,205 @@ if(trk)trk.addEventListener('scroll',function(){
 var CALC={
  sip:{lbl:'YOUR SIP BECOMES',link:'tools/sip-calculator/',cta:'Full SIP calculator →'},
  lum:{lbl:'LUMPSUM BECOMES',link:'tools/lumpsum-calculator/',cta:'Full Lumpsum calculator →'},
+ swp:{lbl:'BALANCE AT THE END',link:'tools/swp-calculator/',cta:'Full SWP calculator →'},
  fd:{lbl:'FD MATURITY',link:'tools/fd-calculator/',cta:'Full FD calculator →'},
  emi:{lbl:'MONTHLY EMI',link:'tools/emi-calculator/',cta:'Full EMI calculator →'}};
-var curCalc='sip';
+var TABS=['sip','lum','swp','fd','emi'];
+var FREQN={12:'month',4:'quarter',2:'half-year',1:'year'};
+var INFL=0.06, MAXY=60;
+var curCalc='sip', cfMode='g', cfRows=[], cfKind='asset';
 function fm(x){return '₹'+Math.round(x).toLocaleString('en-IN');}
-function g(id){return +document.getElementById(id).value||0;}
+function fmS(x){x=Math.round(x);
+ if(Math.abs(x)>=10000000)return '₹'+(x/10000000).toFixed(2).replace(/\.00$/,'')+'Cr';
+ if(Math.abs(x)>=100000)return '₹'+(x/100000).toFixed(2).replace(/\.00$/,'')+'L';
+ if(Math.abs(x)>=1000)return '₹'+Math.round(x/1000)+'k';
+ return '₹'+x;}
+function g(id){var e=document.getElementById(id);return e?(+e.value||0):0;}
+function gv(id){var e=document.getElementById(id);return e?e.value:'';}
+function gf(id){var e=document.getElementById(id);return e?(+e.value||12):12;}
+function yrs(id,def,max){var e=document.getElementById(id);if(!e)return def;
+ var raw=(''+(e.value==null?'':e.value)).trim(),v=(raw==='')?def:Math.round(+raw);
+ if(!isFinite(v)||v<0)v=def;return Math.min(v,max||MAXY);}
 function calcTab(k){curCalc=k;
- document.querySelectorAll('.ctab').forEach(function(b){b.classList.toggle('on',b.dataset.c===k);});
- ['sip','lum','fd','emi'].forEach(function(x){document.getElementById('box-'+x).hidden=(x!==k);});
+ document.querySelectorAll('#calcTabs .ctab').forEach(function(b){b.classList.toggle('on',b.dataset.c===k);});
+ TABS.forEach(function(x){var el=document.getElementById('box-'+x);if(el)el.hidden=(x!==k);});
  var m=CALC[k];document.getElementById('calcLbl').textContent=m.lbl;
  var L=document.getElementById('calcLink');L.href=m.link;L.textContent=m.cta;calcGo();}
-function calcGo(){var out='',sub='';
- if(curCalc==='sip'){var P=g('sipA'),r=g('sipB')/1200,n=g('sipC')*12,fv=r===0?P*n:P*((Math.pow(1+r,n)-1)/r)*(1+r),inv=P*n;
-  out=fm(fv);sub='in '+g('sipC')+' years · invested '+fm(inv)+' · growth '+fm(fv-inv);}
- else if(curCalc==='lum'){var P2=g('lumA'),r2=g('lumB')/100,n2=g('lumC'),fv2=P2*Math.pow(1+r2,n2);
-  out=fm(fv2);sub='in '+n2+' years · invested '+fm(P2)+' · growth '+fm(fv2-P2);}
- else if(curCalc==='fd'){var P3=g('fdA'),r3=g('fdB')/400,n3=g('fdC')*4,fv3=P3*Math.pow(1+r3,n3);
-  out=fm(fv3);sub='in '+g('fdC')+' years · deposited '+fm(P3)+' · interest '+fm(fv3-P3);}
- else{var P4=g('emiA'),r4=g('emiB')/1200,n4=g('emiC')*12,e=r4===0?P4/Math.max(1,n4):P4*r4*Math.pow(1+r4,n4)/(Math.pow(1+r4,n4)-1),tot=e*n4;
-  out=fm(e)+'/mo';sub='total interest '+fm(tot-P4)+' · total paid '+fm(tot);}
+function cfView(v){cfMode=v;
+ document.getElementById('cfGraph').hidden=(v!=='g');
+ document.getElementById('cfTable').hidden=(v!=='t');
+ var bg=document.getElementById('cfBtnG'),bt=document.getElementById('cfBtnT');
+ bg.classList.toggle('on',v==='g');bt.classList.toggle('on',v==='t');
+ bg.setAttribute('aria-selected',v==='g');bt.setAttribute('aria-selected',v==='t');}
+function row(y,o,i,ti,gr,w,cw,c,ph){return {y:y,o:o,i:i,ti:ti,g:gr,w:w,cw:cw,c:c,ph:ph};}
+/* One simulation per tab. Period-by-period, then aggregated into years, so the
+   deposit/holding/withdrawal phases are exact rather than approximated. */
+function schedule(){
+ var k=curCalc,rows=[],bal=0,ti=0,cw=0,y,p;
+ if(k==='sip'){
+  var P=g('sipA'),f=gf('sipF'),R=g('sipB')/100/f,
+      T=yrs('sipC',15),H=yrs('sipH',30),N=Math.min(T+H,MAXY);
+  for(y=1;y<=N;y++){var o=bal,inv=0,gr=0;
+   for(p=0;p<f;p++){if(y<=T){bal+=P;inv+=P;ti+=P;}var q=bal*R;bal+=q;gr+=q;}
+   rows.push(row(y,o,inv,ti,gr,0,0,bal,y<=T?'dep':'hold'));}
+  cfKind='asset';}
+ else if(k==='lum'){
+  var P2=g('lumA'),R2=g('lumB')/100,T2=yrs('lumC',15),H2=yrs('lumH',30),N2=Math.min(T2+H2,MAXY);
+  bal=P2;ti=P2;
+  for(y=1;y<=N2;y++){var o2=bal,g2=bal*R2;bal+=g2;
+   rows.push(row(y,y===1?0:o2,y===1?P2:0,ti,g2,0,0,bal,y<=T2?'dep':'hold'));}
+  cfKind='asset';}
+ else if(k==='swp'){
+  var P3=g('swpA'),f3=gf('swpF'),R3=g('swpB')/100/f3,
+      later=gv('swpS')==='later',D=later?yrs('swpD',0):0,
+      pct=gv('swpM')==='pct',WV=g('swpW'),
+      N3=Math.max(1,yrs('swpP',30));
+  bal=P3;ti=P3;
+  for(y=1;y<=N3;y++){var o3=bal,gr3=0,w3=0,drawing=(y>D);
+   var perYr=pct?(bal*WV/100):0;                /* % is an annual rate on the */
+   for(p=0;p<f3;p++){                           /* corpus at the start of the year */
+    if(drawing&&bal>0){var want=pct?(perYr/f3):WV,take=Math.min(want,bal);
+     bal-=take;w3+=take;cw+=take;}
+    var q3=bal*R3;bal+=q3;gr3+=q3;}
+   rows.push(row(y,o3,0,ti,gr3,w3,cw,bal,drawing?'draw':'grow'));
+   if(drawing&&bal<1){bal=0;break;}}
+  cfKind='asset';}
+ else if(k==='fd'){
+  var P4=g('fdA'),R4=g('fdB')/400,T4=yrs('fdC',5);
+  bal=P4;ti=P4;
+  for(y=1;y<=T4;y++){var o4=bal,g4=0;
+   for(p=0;p<4;p++){var q4=bal*R4;bal+=q4;g4+=q4;}
+   rows.push(row(y,y===1?0:o4,y===1?P4:0,ti,g4,0,0,bal,'dep'));}
+  cfKind='asset';}
+ else{
+  var L5=g('emiA'),R5=g('emiB')/1200,T5=yrs('emiC',20),N5=Math.max(1,T5*12),
+      E=R5===0?L5/N5:L5*R5*Math.pow(1+R5,N5)/(Math.pow(1+R5,N5)-1);
+  bal=L5;
+  for(y=1;y<=T5;y++){var o5=bal,pr=0,it=0;
+   for(p=0;p<12;p++){if(bal<=0)break;
+    var ii=bal*R5,pp=Math.min(E-ii,bal);bal-=pp;pr+=pp;it+=ii;}
+   rows.push(row(y,o5,it,0,0,pr,0,Math.max(0,bal),'loan'));}
+  cfKind='loan';}
+ return rows;}
+var PHC={dep:'#0E9D78',hold:'#4C62CE',grow:'#0E9D78',draw:'#BF7B0B',loan:'#4C62CE'};
+var PHL={dep:'Deposit phase',hold:'Still invested, no new deposits',grow:'Growing before withdrawals',draw:'Withdrawal phase',loan:'Outstanding loan'};
+function cfChart(rows){
+ if(!rows.length)return '<p class="cfnote">Enter your numbers above to see the cash flow.</p>';
+ var W=640,H=210,padL=6,padB=22,padT=12,n=rows.length,max=0,i,r;
+ for(i=0;i<n;i++)max=Math.max(max,Math.abs(rows[i].c));
+ if(max<=0)max=1;
+ var bw=(W-padL*2)/n,bar=Math.max(2,Math.min(26,bw*0.68)),s='',seen={};
+ for(i=0;i<n;i++){r=rows[i];seen[r.ph]=1;
+  var h=Math.max(1,(Math.abs(r.c)/max)*(H-padT-padB)),
+      x=padL+bw*i+(bw-bar)/2,yy=H-padB-h;
+  s+='<rect x="'+x.toFixed(1)+'" y="'+yy.toFixed(1)+'" width="'+bar.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2" fill="'+PHC[r.ph]+'"><title>Year '+r.y+': '+fm(r.c)+'</title></rect>';}
+ var step=n<=12?1:Math.ceil(n/10);
+ for(i=0;i<n;i+=step){var xt=padL+bw*i+bw/2;
+  s+='<text x="'+xt.toFixed(1)+'" y="'+(H-7)+'" font-size="10" fill="#44586E" text-anchor="middle">'+rows[i].y+'</text>';}
+ s+='<line x1="'+padL+'" y1="'+(H-padB)+'" x2="'+(W-padL)+'" y2="'+(H-padB)+'" stroke="#DCE7F0" stroke-width="1"/>';
+ s+='<text x="'+padL+'" y="'+(padT)+'" font-size="10.5" fill="#44586E" font-weight="700">'+fmS(max)+'</text>';
+ var leg='';for(var ph in seen)leg+='<span><i style="background:'+PHC[ph]+'"></i>'+PHL[ph]+'</span>';
+ return '<svg class="cfsvg" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Year by year balance chart">'+s+'</svg>'
+  +'<div class="cfleg">'+leg+'<span>Bar height = balance at the end of each year</span></div>';}
+function cfTable(rows){
+ if(!rows.length)return '<p class="cfnote">Enter your numbers above to see the cash flow.</p>';
+ var k=curCalc,cols,cell;
+ if(k==='sip'){cols=['Year','Invested this year','Total invested','Opening','Growth','Closing'];
+  cell=function(r){return '<td class="pos">'+(r.i?fm(r.i):'—')+'</td><td>'+fm(r.ti)+'</td><td>'+fm(r.o)+'</td><td class="pos">'+fm(r.g)+'</td><td class="bal">'+fm(r.c)+'</td>';};}
+ else if(k==='lum'){cols=['Year','Opening','Investment','Returns','Closing'];
+  cell=function(r){return '<td>'+fm(r.o)+'</td><td class="pos">'+(r.i?fm(r.i):'—')+'</td><td class="pos">'+fm(r.g)+'</td><td class="bal">'+fm(r.c)+'</td>';};}
+ else if(k==='swp'){cols=['Year','Opening','Growth','Withdrawn','Total withdrawn','Closing'];
+  cell=function(r){return '<td>'+fm(r.o)+'</td><td class="pos">'+fm(r.g)+'</td><td class="neg">'+(r.w?fm(r.w):'—')+'</td><td class="neg">'+fm(r.cw)+'</td><td class="bal">'+fm(r.c)+'</td>';};}
+ else if(k==='fd'){cols=['Year','Opening','Deposited','Interest','Closing'];
+  cell=function(r){return '<td>'+fm(r.o)+'</td><td class="pos">'+(r.i?fm(r.i):'—')+'</td><td class="pos">'+fm(r.g)+'</td><td class="bal">'+fm(r.c)+'</td>';};}
+ else{cols=['Year','Opening','Interest','Principal','Outstanding','Paid that year'];
+  cell=function(r){return '<td>'+fm(r.o)+'</td><td class="neg">'+fm(r.i)+'</td><td class="pos">'+fm(r.w)+'</td><td class="bal">'+fm(r.c)+'</td><td>'+fm(r.i+r.w)+'</td>';};}
+ var h='<p class="cfswipe">\u2190 swipe the table sideways to see every column</p><div class="cfwrap"><table class="cftbl"><thead><tr>';
+ for(var c=0;c<cols.length;c++)h+='<th>'+cols[c]+'</th>';
+ h+='</tr></thead><tbody>';
+ for(var i=0;i<rows.length;i++)h+='<tr><td>'+rows[i].y+'</td>'+cell(rows[i])+'</tr>';
+ return h+'</tbody></table></div>';}
+function brk(items){var h='';
+ for(var i=0;i<items.length;i++){if(items[i]==null)continue;
+  h+='<div'+(items[i][2]?' class="'+items[i][2]+'"':'')+'><span>'+items[i][0]+'</span><span>'+items[i][1]+'</span></div>';}
+ return h;}
+function today(v,years){return v/Math.pow(1+INFL,years);}
+function calcGo(){
+ var dis=document.getElementById('swpD');
+ if(dis){var later=gv('swpS')==='later';dis.disabled=!later;if(!later)dis.value=0;}
+ var wl=document.getElementById('swpWL');
+ if(wl)wl.textContent=(gv('swpM')==='pct')?'WITHDRAW (% of corpus per year)':'WITHDRAW (₹ each time)';
+ var rows=schedule(),last=rows.length?rows[rows.length-1]:null,out='',sub='',note='',items=[];
+ if(curCalc==='sip'){
+  var f=gf('sipF'),T=yrs('sipC',15),H=yrs('sipH',30),N=Math.min(T+H,MAXY),
+      atT=null;for(var a=0;a<rows.length;a++)if(rows[a].y===T)atT=rows[a].c;
+  if(atT===null)atT=last?last.c:0;
+  var inv=last?last.ti:0,fin=last?last.c:0;
+  out=fm(fin);sub='after '+N+' years · '+fm(g('sipA'))+' every '+FREQN[f]+' for '+T+' years';
+  items=[['Total invested',fm(inv)],
+         ['Value when deposits stop (yr '+T+')',fm(atT)],
+         ['Growth after deposits stop',fm(fin-atT)],
+         ['Final value (yr '+N+')',fm(fin),'hi'],
+         ['Total returns',fm(fin-inv),'hi'],
+         ['That is, in today\u2019s money',fm(today(fin,N)),'warn']];
+  note='Deposits of '+fm(g('sipA'))+' every '+FREQN[f]+' for '+T+' years at '+g('sipB')+'%, then '+H+' more years invested with no new deposits. A steady return is assumed; real markets are not steady. The today\u2019s-money line discounts the final value at '+(INFL*100)+'% inflation — it is the figure worth planning against.';}
+ else if(curCalc==='lum'){
+  var T2=yrs('lumC',15),H2=yrs('lumH',30),N2=Math.min(T2+H2,MAXY),P2=g('lumA'),
+      atT2=null;for(var b=0;b<rows.length;b++)if(rows[b].y===T2)atT2=rows[b].c;
+  if(atT2===null)atT2=last?last.c:0;
+  var fin2=last?last.c:0;
+  out=fm(fin2);sub='after '+N2+' years · one-time '+fm(P2)+' at '+g('lumB')+'%';
+  items=[['Amount invested',fm(P2)],
+         ['Value at end of tenure (yr '+T2+')',fm(atT2)],
+         ['Growth in the holding period',fm(fin2-atT2)],
+         ['Final value (yr '+N2+')',fm(fin2),'hi'],
+         ['Total returns',fm(fin2-P2),'hi'],
+         ['That is, in today\u2019s money',fm(today(fin2,N2)),'warn']];
+  note='One-time '+fm(P2)+' compounding at '+g('lumB')+'% for '+T2+' years, then held '+H2+' more years. Compounded annually. The today\u2019s-money line discounts the result at '+(INFL*100)+'% inflation.';}
+ else if(curCalc==='swp'){
+  var f3=gf('swpF'),P3=g('swpA'),later3=gv('swpS')==='later',D3=later3?yrs('swpD',0):0,
+      pct3=gv('swpM')==='pct',WV=g('swpW'),N3=Math.max(1,yrs('swpP',30)),
+      totW=last?last.cw:0,fin3=last?last.c:0,
+      grown=0;for(var c3=0;c3<rows.length;c3++)grown+=rows[c3].g;
+  var dry=(last&&last.c<1&&totW>0)?last.y:0;
+  out=fm(fin3);
+  sub=(D3?('withdrawals from year '+(D3+1)):'withdrawing from day one')
+      +' · '+(pct3?(WV+'% of corpus a year'):(fm(WV)+' every '+FREQN[f3]));
+  items=[['Lumpsum invested',fm(P3)],
+         ['Total withdrawn',fm(totW),'hi'],
+         ['Growth earned',fm(grown),'hi'],
+         ['Balance after '+(dry||N3)+' years',fm(fin3)],
+         ['Corpus exhausted',dry?('Yes, in year '+dry):('No, lasts all '+N3+' years'),dry?'warn':'hi'],
+         ['Balance in today\u2019s money',fm(today(fin3,dry||N3)),'warn']];
+  note=fm(P3)+' invested at '+g('swpB')+'%, '+(D3?('left to grow for '+D3+' years, then '):'')
+   +'withdrawing '+(pct3?(WV+'% of the corpus each year, split across each '+FREQN[f3]):(fm(WV)+' every '+FREQN[f3]))+'. '
+   +(dry?('At this rate the corpus runs out in year '+dry+'. ')
+        :('The corpus lasts the full '+N3+'-year projection. '))
+   +'Two caveats: the return is assumed steady, and a bad run of years early in the withdrawal phase does lasting damage'
+   +(pct3?'':'. A fixed withdrawal also loses purchasing power every year — at '+(INFL*100)+'% inflation it buys about a third as much in 20 years')+'.';}
+ else if(curCalc==='fd'){
+  var T4=yrs('fdC',5),P4=g('fdA'),fin4=last?last.c:P4;
+  out=fm(fin4);sub='in '+T4+' years · deposited '+fm(P4);
+  items=[['Deposited',fm(P4)],['Interest earned',fm(fin4-P4),'hi'],
+         ['Maturity value',fm(fin4),'hi'],
+         ['In today\u2019s money',fm(today(fin4,T4)),'warn']];
+  note='Compounded quarterly at '+g('fdB')+'% a year. FD interest is taxable at your slab and this figure does not deduct it.';}
+ else{
+  var P5=g('emiA'),R5=g('emiB')/1200,T5=yrs('emiC',20),N5=Math.max(1,T5*12),
+      E=R5===0?P5/N5:P5*R5*Math.pow(1+R5,N5)/(Math.pow(1+R5,N5)-1),tot=E*N5;
+  out=fm(E)+'/mo';sub='over '+T5+' years · '+fm(P5)+' at '+g('emiB')+'%';
+  items=[['Loan amount',fm(P5)],['Total interest',fm(tot-P5),'warn'],
+         ['Total paid',fm(tot),'hi'],['Interest as % of loan',Math.round((tot-P5)/Math.max(1,P5)*100)+'%']];
+  note='The table splits each year into interest and principal. Early years are mostly interest, which is why prepaying early saves far more than prepaying late.';}
  document.getElementById('calcOut').textContent=out;
- document.getElementById('calcSub').textContent=sub;}
+ document.getElementById('calcSub').textContent=sub;
+ document.getElementById('calcBreak').innerHTML=brk(items);
+ cfRows=rows;
+ document.getElementById('cfGraph').innerHTML=cfChart(rows);
+ document.getElementById('cfTable').innerHTML=cfTable(rows);
+ document.getElementById('cfNote').textContent=note;
+ document.getElementById('cfTitle').textContent=cfKind==='loan'?'Year-by-year repayment':'Year-by-year cash flow';
+ if(window.__mfpHi&&window.__mfpSwap){try{window.__mfpSwap(true,document.querySelector('#live'));}catch(e){}}}
 calcGo();
 // counters
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.n;let c=0;const st=Math.max(1,Math.round(n/50));const t=setInterval(()=>{c+=st;if(c>=n){c=n;clearInterval(t);}el.textContent=c.toLocaleString('en-IN');},28);io.unobserve(el);});},{threshold:.4});
@@ -1627,10 +1889,10 @@ if(MOB){show('▶ Tap to play — promo');v.addEventListener('click',function(){
 </script>
 <script>
 (function(){
-var D = {"Free Tools": "फ्री Tools", "Why us": "हम क्यों?", "Plans": "प्लान्स", "FAQ": "सवाल-जवाब", "Goal Calculator": "गोल कैलकुलेटर", "🇮🇳 India's family-first money planner": "🇮🇳 भारत का family-first पैसों का planner", "Your family's entire": "आपके परिवार का पूरा", "financial future": "आर्थिक भविष्य", "30+ smart calculators": "30+ स्मार्ट calculators", "for every money question — free, instant, private.": "पैसों के हर सवाल के लिए — फ्री, तुरंत, प्राइवेट।", "🚀 Start My Family Plan — free": "🚀 अपना Family Plan शुरू करें — फ्री", "📲 Download Android App": "📲 Android ऐप Download करें", "📲 Download Latest APK": "📲 नवीनतम APK Download करें", "Download": "डाउनलोड", "📥 Android APK + 2-minute install guide — all on the Download page →": "📥 Android APK + 2-minute install guide — सब कुछ Download page पर →", "It's already here! Get the free Android APK from our Download page — with a simple 2-minute install guide. The web app runs on every device too.": "तो ये आ गई! हमारे Download page से फ्री Android APK लीजिए — आसान 2-minute install guide के साथ। Web app भी हर device पर चलता है।", "30+ calculators": "30+ कैलकुलेटर", "Human advisor on call": "Human advisor कॉल पर", "Find & Fill GAP": "GAP खोजें और भरें", "your family's exact cover": "आपके परिवार का सही कवर", "Get Detailed PDF": "विस्तृत PDF पाएं", "English & Hindi": "English और हिन्दी", "🔊 Tap for sound": "🔊 आवाज़ के लिए टैप करें", "calculators": "कैलकुलेटर", "⏱️ Plan in": "⏱️ प्लान सिर्फ़", "🔓 No sign-up needed": "🔓 Sign-up ज़रूरी नहीं", "🗣️ Human RM on": "🗣️ Human RM", "call": "कॉल पर", "Cloud sync": "Cloud sync", "every device": "हर device पर", "🇮🇳 Built for": "🇮🇳 बना है", "Indian families": "Indian families के लिए", "Free · live · no login": "फ्री · लाइव · बिना login", "MONTHLY SIP (₹)": "मासिक SIP (₹)", "RETURN (%/yr)": "रिटर्न (%/वर्ष)", "YEARS": "साल", "Hint: raise years, not risk — time is the real multiplier.": "संकेत: risk नहीं, साल बढ़ाएँ — असली multiplier समय है।", "YOUR SIP BECOMES": "आपकी SIP बनेगी", "Full SIP calculator →": "पूरा SIP calculator →", "Every stage, one plan": "हर stage, एक प्लान", "Life's big moments —": "ज़िंदगी के बड़े पल —", "funded, on time.": "समय पर, पूरे पैसों के साथ।", "New family, new budget": "नया परिवार, नया बजट", "Baby's first fund": "Baby का पहला फंड", "IIT/IIM — no loan needed": "IIT/IIM — बिना loan के", "Keys to your own home": "अपने घर की चाबियाँ", "Retire rich, pension ready": "अमीर retirement, pension तैयार", "Why families choose us": "परिवार हमें क्यों चुनते हैं", "Not just an app —": "सिर्फ़ एक ऐप नहीं —", "a money team.": "एक money team.", "30+ pro calculators": "30+ pro calculators", "SIP to SSY, EMI to HLV, tax to engineering — the entire toolkit, free forever.": "SIP से SSY, EMI से HLV — पूरा toolkit, हमेशा फ्री।", "Answer a few simple questions; get exact monthly SIPs for every goal.": "कुछ आसान सवालों के जवाब दें; हर goal की exact मासिक SIP पाएँ।", "Protection first": "पहले सुरक्षा", "Term cover (HLV) + health shield computed before any investing starts.": "निवेश शुरू करने से पहले term cover (HLV) + health shield की गणना।", "Branded PDF report": "Branded PDF रिपोर्ट", "Professional client-ready reports in Hindi & English — share on WhatsApp.": "प्रोफ़ेशनल client-ready रिपोर्ट Hindi और English में — WhatsApp पर share करें।", "One login, every device": "एक login, हर device", "Web ↔ Android cloud sync — your plans follow you, not your phone.": "Web ↔ Android cloud sync — plans आपके साथ, phone के साथ नहीं।", "Humans on call": "इंसान कॉल पर", "A Relationship Manager one tap away — because money is personal.": "Relationship Manager बस एक tap दूर — क्योंकि पैसा personal मामला है।", "+ smart calculators": "+ स्मार्ट calculators", "life goals covered": "life goals पूरे", "Free tools hub": "फ्री tools हब", "Calculators people": "Calculators जो लोग", "actually use.": "सच में इस्तेमाल करते हैं।", "Monthly wealth builder": "मासिक wealth builder", "Pension from corpus": "corpus से pension", "Your exact corpus + SIP": "आपका exact corpus + SIP", "Loan & interest truth": "Loan और ब्याज का सच", "Maturity, compounding": "Maturity और compounding", "One-salary split": "एक सैलरी का split", "All free tools →": "सभी फ्री tools →", "Simple by design": "Design में आसान", "Plan in": "प्लान सिर्फ़", "3 steps.": "3 steps में।", "Tell us your dreams": "अपने सपने बताइए", "Education, marriage, home, retirement — pick goals, enter today's numbers.": "Education, शादी, घर, retirement — goals चुनें, आज के numbers डालें।", "Get exact monthly SIPs": "Exact मासिक SIP पाएँ", "Inflation-adjusted targets, protection shield and a 3-bucket pension — computed live.": "Inflation-adjusted लक्ष्य, protection shield और 3-bucket pension — live गणना।", "Share the PDF / start": "PDF share करें / शुरू करें", "Download the branded report, talk to your RM, start investing with confidence.": "Branded report download करें, RM से बात करें, भरोसे से निवेश शुरू करें।", "Simple pricing": "आसान pricing", "Free for families.": "परिवारों के लिए फ्री।", "Powerful for partners.": "Partners के लिए powerful.", "Cloud sync on every device": "हर device पर cloud sync", "Start free →": "फ्री शुरू करें →", "Your branding on client PDFs": "client PDFs पर आपकी branding", "Client CRM & follow-ups": "Client CRM और follow-ups", "Priority support": "Priority support", "WhatsApp for plans": "Plans के लिए WhatsApp", "All 30+ calculators": "सभी 30+ calculators", "Good questions": "अच्छे सवाल", "Is the app really free?": "क्या ऐप सच में फ्री है?", "Is my financial data safe?": "क्या मेरा financial data safe है?", "Hindi mein plan milega kya?": "Hindi में plan मिलेगा क्या?", "I'm an insurance/mutual fund advisor — what's in it for me?": "मैं insurance/mutual fund advisor हूँ — मेरे लिए क्या है?", "Android app kab aayega?": "Android app कब आएगा?", "Talk to a human": "इंसान से बात करें", "Confused about where to begin?": "समझ नहीं आ रहा कहाँ से शुरू करें?", "WhatsApp us": "WhatsApp करें", "Plan Today for Better Tomorrow.": "आज की योजना, बेहतर कल के लिए।", "Open Web App": "वेब ऐप खोलें", "Features": "खूबियाँ", "Contact": "संपर्क", "Estimates for guidance — not investment advice.": "अनुमान मार्गदर्शन के लिए — निवेश सलाह नहीं।", ", planned in 5 min.": ", सिर्फ़ 5 मिनट में तैयार।", "5 min": "5 मिनट", "5-minute guided plan": "5-मिनट guided प्लान", "min to full plan": "मिनट में पूरा प्लान", "Full 5-minute financial plan": "पूरा 5-मिनट financial plan", "Don't play with your future —": "अपने भविष्य को किस्मत पर मत छोड़िए —", "calculate it, live.": "अभी calculate कीजिए — live.", "The four calculators Indian families use most — switch tabs, type your numbers, answers update instantly.": "भारतीय परिवारों के 4 सबसे ज़रूरी calculators — tab बदलें, numbers डालें, जवाब तुरंत मिलें।", "💰 Lumpsum": "💰 एकमुश्त", "ONE-TIME AMOUNT (₹)": "एकमुश्त राशि (₹)", "DEPOSIT AMOUNT (₹)": "जमा राशि (₹)", "LOAN AMOUNT (₹)": "लोन राशि (₹)", "INTEREST (%/yr)": "ब्याज (%/वर्ष)", "Lumpsum wins when the money can stay invested for 7+ years.": "एकमुश्त निवेश तब जीतता है जब पैसा 7+ साल invested रहे।", "FD is steady and guaranteed — best for goals within 3 years.": "FD स्थिर और guaranteed है — 3 साल में पूरे होने वाले goals के लिए best।", "A shorter tenure saves more interest than a smaller EMI.": "छोटी अवधि छोटी EMI से ज़्यादा ब्याज बचाती है।", "LUMPSUM BECOMES": "एकमुश्त बनेगा", "FD MATURITY": "FD मैच्योरिटी", "MONTHLY EMI": "मासिक EMI", "Full Lumpsum calculator →": "पूरा Lumpsum calculator →", "Full FD calculator →": "पूरा FD calculator →", "Full EMI calculator →": "पूरा EMI calculator →", "Every partner plan now starts with a FREE 7-day trial": "अब हर partner plan की शुरुआत FREE 7-day trial से", "— no card, no payment. WhatsApp us, get your trial code, and activate in the app within 2 minutes.": "— न card, न payment। WhatsApp करें, trial code पाएँ, और 2 मिनट में app में activate करें।", "Get free trial code →": "फ्री trial code पाएँ →", "For new advisors": "नए advisors के लिए", "Growing practice": "बढ़ती हुई practice", "Full-scale desk": "पूरा full-scale setup", "10 client reports": "10 client रिपोर्ट्स", "25 client reports": "25 client रिपोर्ट्स", "50 client reports": "50 client रिपोर्ट्स", "WhatsApp support": "WhatsApp सपोर्ट", "Buy Silver →": "Silver खरीदें →", "Buy Gold →": "Gold खरीदें →", "Buy Platinum →": "Platinum खरीदें →", "or start FREE 7-day trial →": "या FREE 7-day trial शुरू करें →", "/30 days": "/30 दिन", "PARTNER · MOST POPULAR": "PARTNER · सबसे लोकप्रिय", "Silver": "Silver", "Pay securely online via Razorpay (UPI · Card · NetBanking) · your plan auto-activates right after payment · auto-renewal coming soon.": "Razorpay से secure online payment (UPI · Card · NetBanking) · payment के तुरंत बाद plan खुद activate होगा · auto-renewal जल्दी आएगा।", "Partner mode: your logo & contact on every client PDF, client list with follow-ups, broadcast tools and lead tracking — built in India, for Indian advisors. Silver ₹99 · Gold ₹299 · Platinum ₹999 per 30 days — and every plan starts with a FREE 7-day trial, no payment needed. Auto-payments coming soon.": "Partner mode: हर client PDF पर आपका logo और contact, follow-ups के साथ client list, broadcast tools और lead tracking — India में बना, Indian advisors के लिए। Silver ₹99 · Gold ₹299 · Platinum ₹999 प्रति 30 दिन — और हर plan की शुरुआत FREE 7-day trial से होती है, बिना payment के। Auto-payments जल्द आ रहे हैं।"};
-function swap(toHi){
+var D = {"Free Tools": "फ्री Tools", "Why us": "हम क्यों?", "Plans": "प्लान्स", "FAQ": "सवाल-जवाब", "Goal Calculator": "गोल कैलकुलेटर", "🇮🇳 India's family-first money planner": "🇮🇳 भारत का family-first पैसों का planner", "Your family's entire": "आपके परिवार का पूरा", "financial future": "आर्थिक भविष्य", "30+ smart calculators": "30+ स्मार्ट calculators", "for every money question — free, instant, private.": "पैसों के हर सवाल के लिए — फ्री, तुरंत, प्राइवेट।", "🚀 Start My Family Plan — free": "🚀 अपना Family Plan शुरू करें — फ्री", "📲 Download Android App": "📲 Android ऐप Download करें", "📲 Download Latest APK": "📲 नवीनतम APK Download करें", "Download": "डाउनलोड", "📥 Android APK + 2-minute install guide — all on the Download page →": "📥 Android APK + 2-minute install guide — सब कुछ Download page पर →", "It's already here! Get the free Android APK from our Download page — with a simple 2-minute install guide. The web app runs on every device too.": "तो ये आ गई! हमारे Download page से फ्री Android APK लीजिए — आसान 2-minute install guide के साथ। Web app भी हर device पर चलता है।", "30+ calculators": "30+ कैलकुलेटर", "Human advisor on call": "Human advisor कॉल पर", "Find & Fill GAP": "GAP खोजें और भरें", "your family's exact cover": "आपके परिवार का सही कवर", "Get Detailed PDF": "विस्तृत PDF पाएं", "English & Hindi": "English और हिन्दी", "🔊 Tap for sound": "🔊 आवाज़ के लिए टैप करें", "calculators": "कैलकुलेटर", "⏱️ Plan in": "⏱️ प्लान सिर्फ़", "🔓 No sign-up needed": "🔓 Sign-up ज़रूरी नहीं", "🗣️ Human RM on": "🗣️ Human RM", "call": "कॉल पर", "Cloud sync": "Cloud sync", "every device": "हर device पर", "🇮🇳 Built for": "🇮🇳 बना है", "Indian families": "Indian families के लिए", "Free · live · no login": "फ्री · लाइव · बिना login", "MONTHLY SIP (₹)": "मासिक SIP (₹)", "RETURN (%/yr)": "रिटर्न (%/वर्ष)", "Hint: raise years, not risk — time is the real multiplier.": "संकेत: risk नहीं, साल बढ़ाएँ — असली multiplier समय है।", "YOUR SIP BECOMES": "आपकी SIP बनेगी", "Full SIP calculator →": "पूरा SIP calculator →", "Every stage, one plan": "हर stage, एक प्लान", "Life's big moments —": "ज़िंदगी के बड़े पल —", "funded, on time.": "समय पर, पूरे पैसों के साथ।", "New family, new budget": "नया परिवार, नया बजट", "Baby's first fund": "Baby का पहला फंड", "IIT/IIM — no loan needed": "IIT/IIM — बिना loan के", "Keys to your own home": "अपने घर की चाबियाँ", "Retire rich, pension ready": "अमीर retirement, pension तैयार", "Why families choose us": "परिवार हमें क्यों चुनते हैं", "Not just an app —": "सिर्फ़ एक ऐप नहीं —", "a money team.": "एक money team.", "30+ pro calculators": "30+ pro calculators", "SIP to SSY, EMI to HLV, tax to engineering — the entire toolkit, free forever.": "SIP से SSY, EMI से HLV — पूरा toolkit, हमेशा फ्री।", "Answer a few simple questions; get exact monthly SIPs for every goal.": "कुछ आसान सवालों के जवाब दें; हर goal की exact मासिक SIP पाएँ।", "Protection first": "पहले सुरक्षा", "Term cover (HLV) + health shield computed before any investing starts.": "निवेश शुरू करने से पहले term cover (HLV) + health shield की गणना।", "Branded PDF report": "Branded PDF रिपोर्ट", "Professional client-ready reports in Hindi & English — share on WhatsApp.": "प्रोफ़ेशनल client-ready रिपोर्ट Hindi और English में — WhatsApp पर share करें।", "One login, every device": "एक login, हर device", "Web ↔ Android cloud sync — your plans follow you, not your phone.": "Web ↔ Android cloud sync — plans आपके साथ, phone के साथ नहीं।", "Humans on call": "इंसान कॉल पर", "A Relationship Manager one tap away — because money is personal.": "Relationship Manager बस एक tap दूर — क्योंकि पैसा personal मामला है।", "+ smart calculators": "+ स्मार्ट calculators", "life goals covered": "life goals पूरे", "Free tools hub": "फ्री tools हब", "Calculators people": "Calculators जो लोग", "actually use.": "सच में इस्तेमाल करते हैं।", "Monthly wealth builder": "मासिक wealth builder", "Pension from corpus": "corpus से pension", "Your exact corpus + SIP": "आपका exact corpus + SIP", "Loan & interest truth": "Loan और ब्याज का सच", "Maturity, compounding": "Maturity और compounding", "One-salary split": "एक सैलरी का split", "All free tools →": "सभी फ्री tools →", "Simple by design": "Design में आसान", "Plan in": "प्लान सिर्फ़", "3 steps.": "3 steps में।", "Tell us your dreams": "अपने सपने बताइए", "Education, marriage, home, retirement — pick goals, enter today's numbers.": "Education, शादी, घर, retirement — goals चुनें, आज के numbers डालें।", "Get exact monthly SIPs": "Exact मासिक SIP पाएँ", "Inflation-adjusted targets, protection shield and a 3-bucket pension — computed live.": "Inflation-adjusted लक्ष्य, protection shield और 3-bucket pension — live गणना।", "Share the PDF / start": "PDF share करें / शुरू करें", "Download the branded report, talk to your RM, start investing with confidence.": "Branded report download करें, RM से बात करें, भरोसे से निवेश शुरू करें।", "Simple pricing": "आसान pricing", "Free for families.": "परिवारों के लिए फ्री।", "Powerful for partners.": "Partners के लिए powerful.", "Cloud sync on every device": "हर device पर cloud sync", "Start free →": "फ्री शुरू करें →", "Your branding on client PDFs": "client PDFs पर आपकी branding", "Client CRM & follow-ups": "Client CRM और follow-ups", "Priority support": "Priority support", "WhatsApp for plans": "Plans के लिए WhatsApp", "All 30+ calculators": "सभी 30+ calculators", "Good questions": "अच्छे सवाल", "Is the app really free?": "क्या ऐप सच में फ्री है?", "Is my financial data safe?": "क्या मेरा financial data safe है?", "Hindi mein plan milega kya?": "Hindi में plan मिलेगा क्या?", "I'm an insurance/mutual fund advisor — what's in it for me?": "मैं insurance/mutual fund advisor हूँ — मेरे लिए क्या है?", "Android app kab aayega?": "Android app कब आएगा?", "Talk to a human": "इंसान से बात करें", "Confused about where to begin?": "समझ नहीं आ रहा कहाँ से शुरू करें?", "WhatsApp us": "WhatsApp करें", "Plan Today for Better Tomorrow.": "आज की योजना, बेहतर कल के लिए।", "Open Web App": "वेब ऐप खोलें", "Features": "खूबियाँ", "Contact": "संपर्क", "Estimates for guidance — not investment advice.": "अनुमान मार्गदर्शन के लिए — निवेश सलाह नहीं।", ", planned in 5 min.": ", सिर्फ़ 5 मिनट में तैयार।", "5 min": "5 मिनट", "5-minute guided plan": "5-मिनट guided प्लान", "min to full plan": "मिनट में पूरा प्लान", "Full 5-minute financial plan": "पूरा 5-मिनट financial plan", "Don't play with your future —": "अपने भविष्य को किस्मत पर मत छोड़िए —", "calculate it, live.": "अभी calculate कीजिए — live.", "💰 Lumpsum": "💰 एकमुश्त", "DEPOSIT AMOUNT (₹)": "जमा राशि (₹)", "LOAN AMOUNT (₹)": "लोन राशि (₹)", "INTEREST (%/yr)": "ब्याज (%/वर्ष)", "Lumpsum wins when the money can stay invested for 7+ years.": "एकमुश्त निवेश तब जीतता है जब पैसा 7+ साल invested रहे।", "FD is steady and guaranteed — best for goals within 3 years.": "FD स्थिर और guaranteed है — 3 साल में पूरे होने वाले goals के लिए best।", "A shorter tenure saves more interest than a smaller EMI.": "छोटी अवधि छोटी EMI से ज़्यादा ब्याज बचाती है।", "LUMPSUM BECOMES": "एकमुश्त बनेगा", "FD MATURITY": "FD मैच्योरिटी", "MONTHLY EMI": "मासिक EMI", "Full Lumpsum calculator →": "पूरा Lumpsum calculator →", "Full FD calculator →": "पूरा FD calculator →", "Full EMI calculator →": "पूरा EMI calculator →", "Every partner plan now starts with a FREE 7-day trial": "अब हर partner plan की शुरुआत FREE 7-day trial से", "— no card, no payment. WhatsApp us, get your trial code, and activate in the app within 2 minutes.": "— न card, न payment। WhatsApp करें, trial code पाएँ, और 2 मिनट में app में activate करें।", "Get free trial code →": "फ्री trial code पाएँ →", "For new advisors": "नए advisors के लिए", "Growing practice": "बढ़ती हुई practice", "Full-scale desk": "पूरा full-scale setup", "10 client reports": "10 client रिपोर्ट्स", "25 client reports": "25 client रिपोर्ट्स", "50 client reports": "50 client रिपोर्ट्स", "WhatsApp support": "WhatsApp सपोर्ट", "Buy Silver →": "Silver खरीदें →", "Buy Gold →": "Gold खरीदें →", "Buy Platinum →": "Platinum खरीदें →", "or start FREE 7-day trial →": "या FREE 7-day trial शुरू करें →", "/30 days": "/30 दिन", "PARTNER · MOST POPULAR": "PARTNER · सबसे लोकप्रिय", "Silver": "Silver", "Pay securely online via Razorpay (UPI · Card · NetBanking) · your plan auto-activates right after payment · auto-renewal coming soon.": "Razorpay से secure online payment (UPI · Card · NetBanking) · payment के तुरंत बाद plan खुद activate होगा · auto-renewal जल्दी आएगा।", "Partner mode: your logo & contact on every client PDF, client list with follow-ups, broadcast tools and lead tracking — built in India, for Indian advisors. Silver ₹99 · Gold ₹299 · Platinum ₹999 per 30 days — and every plan starts with a FREE 7-day trial, no payment needed. Auto-payments coming soon.": "Partner mode: हर client PDF पर आपका logo और contact, follow-ups के साथ client list, broadcast tools और lead tracking — India में बना, Indian advisors के लिए। Silver ₹99 · Gold ₹299 · Platinum ₹999 प्रति 30 दिन — और हर plan की शुरुआत FREE 7-day trial से होती है, बिना payment के। Auto-payments जल्द आ रहे हैं।", "DEPOSIT (₹)": "जमा राशि (₹)", "EVERY": "कितनी बार", "Month": "महीना", "Quarter": "तिमाही", "Half-year": "छमाही", "Year": "साल", "CORPUS WHEN YOU START": "शुरुआत में कॉर्पस", "Full SWP calculator →": "पूरा SWP calculator →", "Deposit, let it grow, then draw an income. Withdrawals use the same frequency as deposits.": "जमा कीजिए, बढ़ने दीजिए, फिर आमदनी लीजिए। निकासी उसी frequency पर होती है जिस पर जमा।", "Year-by-year cash flow": "साल-दर-साल कैश फ्लो", "Year-by-year repayment": "साल-दर-साल लोन चुकौती", "📈 Graph": "📈 ग्राफ", "📋 Table": "📋 टेबल", "Opening": "शुरुआती", "Deposited": "जमा", "Growth": "ग्रोथ", "Withdrawn": "निकाला", "Closing": "अंतिम शेष", "Interest": "ब्याज", "Principal": "मूलधन", "Outstanding": "बकाया", "Paid that year": "उस साल चुकाया", "Growing": "बढ़ रहा है", "Withdrawing": "निकासी जारी", "Outstanding loan": "बकाया लोन", "Bar height = balance at the end of each year": "बार की ऊँचाई = हर साल के अंत का बैलेंस", "Enter your numbers above to see the cash flow.": "कैश फ्लो देखने के लिए ऊपर अपने आँकड़े भरिए।", "The five calculators Indian families use most — switch tabs, type your numbers, answers update instantly.": "भारतीय परिवारों के 5 सबसे ज़रूरी calculators — tab बदलें, numbers डालें, जवाब तुरंत मिलें।", "← swipe the table sideways to see every column": "← हर कॉलम देखने के लिए टेबल को साइड में स्वाइप कीजिए", "DEPOSIT YEARS": "जमा के साल", "THEN STAY INVESTED FOR (YEARS)": "उसके बाद कितने साल निवेशित रखें", "Deposits stop after the deposit years; the corpus keeps compounding for the holding years.": "जमा के साल पूरे होने पर deposit रुक जाता है; corpus आगे के सालों में बढ़ता रहता है।", "ONE-TIME AMOUNT (₹)": "एकमुश्त राशि (₹)", "INVESTMENT TYPE": "निवेश का प्रकार", "INVESTMENT YEARS": "निवेश के साल", "LUMPSUM INVESTED (₹)": "एकमुश्त निवेश (₹)", "WITHDRAWALS START": "निकासी कब से", "Immediately": "तुरंत", "After some years": "कुछ साल बाद", "START AFTER (YEARS)": "कितने साल बाद शुरू", "WITHDRAW EVERY": "निकासी कितनी बार", "METHOD": "तरीका", "Fixed amount": "तय रकम", "% of corpus": "corpus का %", "WITHDRAW (₹ each time)": "निकासी (₹ हर बार)", "WITHDRAW (% of corpus per year)": "निकासी (corpus का % हर साल)", "PROJECTION (YEARS)": "प्रक्षेपण (साल)", "A single lumpsum that you draw an income from. Growth and withdrawals both use the frequency you pick.": "एक एकमुश्त रकम जिससे आप आमदनी लेते हैं। ग्रोथ और निकासी दोनों आपकी चुनी frequency पर चलते हैं।", "Invested this year": "इस साल जमा", "Total invested": "कुल जमा", "Investment": "निवेश", "Returns": "रिटर्न", "Total withdrawn": "कुल निकाला", "Deposit phase": "जमा का दौर", "Still invested, no new deposits": "निवेशित, नया जमा नहीं", "Growing before withdrawals": "निकासी से पहले बढ़ोतरी", "Withdrawal phase": "निकासी का दौर", "One-time": "एक बार", "Corpus exhausted": "corpus खत्म हुआ?"};
+function swap(toHi,root){
   var skip={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1};
-  var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+  var walker=document.createTreeWalker(root||document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
     var p=n.parentNode;
     if(!p||skip[p.tagName]) return NodeFilter.FILTER_REJECT;
     if(p.id==='langSw') return NodeFilter.FILTER_REJECT;
@@ -1649,7 +1911,8 @@ var cta=document.querySelector('.mfp-sh-cta')||document.querySelector('nav a.btn
 if(cta && cta.parentNode){ cta.parentNode.insertBefore(b, cta); }
 var st=document.createElement('style'); st.textContent="#langSw{background:#E1E6FA;color:#17324A;border:none;border-radius:99px;padding:8px 16px;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit;margin-right:10px}#langSw.on{background:#0E9D78;color:#fff}"; document.head.appendChild(st);
 var hi=false;
-b.onclick=function(){ hi=!hi; b.classList.toggle('on',hi); b.textContent=hi?'EN':'हिन्दी'; swap(hi); };
+b.onclick=function(){ hi=!hi; b.classList.toggle('on',hi); b.textContent=hi?'EN':'हिन्दी'; swap(hi); window.__mfpHi=hi; };
+window.__mfpSwap=swap; window.__mfpHi=false;
 })();
 
 </script>
