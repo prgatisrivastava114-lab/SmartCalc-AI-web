@@ -281,7 +281,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
         <div class="link-box" id="partLinkBox">https://www.myfinancialplan.in/?partner_ref=ADV8840</div>
 
         <button class="btn b-indigo" style="width:100%" onclick="copyLink('partLinkBox')">📋 Copy Partner Link</button>
-        <a class="btn b-wa" style="width:100%;margin-top:10px" id="partWaBtn" href="https://wa.me/?text=Hi%21%20Join%20MyFinancialPlan%20Partner%20Desk%20for%20Indian%20Advisors%20%28Silver%2FGold%2FPlatinum%29%20with%20a%20FREE%207-day%20trial%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2F%3Fpartner_ref%3DADV8840" target="_blank">📲 Share Advisor Link on WhatsApp</a>
+        <a class="btn b-wa" style="width:100%;margin-top:10px" id="partWaBtn" href="https://wa.me/?text=Hi%21%20Join%20MyFinancialPlan%20Partner%20Desk%20for%20Indian%20Advisors%20with%20a%20FREE%2014-day%20trial%3A%20https%3A%2F%2Fwww.myfinancialplan.in%2F%3Fpartner_ref%3DADV8840" target="_blank">📲 Share Advisor Link on WhatsApp</a>
       </div>
 
       
@@ -364,7 +364,7 @@ img,svg,video,canvas{max-width:100%;height:auto}
         <ul class="rlist">
           <li><span class="icon-c" style="background:var(--lav);color:var(--indigo)">1</span><span><b>Refer an Advisor:</b> When a fellow distributor or advisor joins using your link, earn <b>200 Partner Coins</b>.</span></li>
           <li><span class="icon-c" style="background:var(--lav);color:var(--indigo)">2</span><span><b>Client Lead Conversions:</b> Earn <b>50 Partner Coins</b> for every client who completes a report with your advisor tag.</span></li>
-          <li><span class="icon-c" style="background:var(--lav);color:var(--indigo)">3</span><span><b>Subscription Rebate:</b> Redeem 200 Coins for a <b>50% Rebate</b> on Silver (₹99), Gold (₹299), or Platinum (₹999) plans, or 10 extra client report credits.</span></li>
+          <li><span class="icon-c" style="background:var(--lav);color:var(--indigo)">3</span><span><b>Subscription Rebate:</b> Redeem 200 Coins for a <b>50% Rebate</b> on the Partner (₹499) or Partner Pro (₹999) plan.</span></li>
         </ul>
 
         <div style="background:var(--mint);border:1.4px solid #0E9D78;padding:14px;border-radius:14px;margin-top:16px">
@@ -372,9 +372,8 @@ img,svg,video,canvas{max-width:100%;height:auto}
           <p style="font-size:12.5px;color:#0B7A5C;margin:4px 0 10px">Select subscription plan to apply rebate:</p>
           <div style="display:flex;gap:8px">
             <select id="partPlanSel" style="flex:1">
-              <option value="silver">Silver Plan (₹99 → ₹49 with 200 Coins)</option>
-              <option value="gold" selected>Gold Plan (₹299 → ₹149 with 200 Coins)</option>
-              <option value="platinum">Platinum Plan (50% rebate with 200 Coins)</option>
+                            <option value="gold" selected>Partner (₹499 → ₹249 with 200 Coins)</option>
+              <option value="platinum">Partner Pro (₹999 → ₹499 with 200 Coins)</option>
             </select>
             <button class="btn b-teal" onclick="claimRebate('part')">Apply Rebate →</button>
           </div>

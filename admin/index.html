@@ -1001,7 +1001,7 @@ function markPinOk(){
 }
 
 /* ═══════════════ PANEL ═══════════════ */
-const PLANS = {silver:{l:'Silver',r:10,dP:99}, gold:{l:'Gold',r:25,dP:299}, platinum:{l:'Platinum',r:50,dP:599}};
+const PLANS = {silver:{l:'Silver (legacy)',r:0,dP:99}, gold:{l:'Partner',r:0,dP:499}, platinum:{l:'Partner Pro',r:0,dP:999}};
 let curPlan='gold', curDays=30, flagsDoc={};
 
 async function openPanel(){
@@ -1139,9 +1139,9 @@ const FLAG_DEFS = [
   ['partner_price_silver','Partner price Silver ₹/30d','num'],
   ['partner_price_gold','Partner price Gold ₹/30d','num'],
   ['partner_price_platinum','Partner price Platinum ₹/30d','num'],
-  ['partner_silver_limit','Silver report limit (default 10)','num'],
-  ['partner_gold_limit','Gold report limit (default 25)','num'],
-  ['partner_platinum_limit','Platinum report limit (default 50)','num'],
+  ['partner_silver_limit','Silver report limit (0 = unlimited)','num'],
+  ['partner_gold_limit','Partner report limit (0 = unlimited)','num'],
+  ['partner_platinum_limit','Partner Pro report limit (0 = unlimited)','num'],
 ];
 async function loadFlags(){
   $('flagsForm').innerHTML = '<p class="hint">Load ho raha hai…</p>'; $('flagsMsg').innerHTML='';

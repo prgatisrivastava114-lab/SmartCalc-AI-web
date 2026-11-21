@@ -192,7 +192,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
    whether the payment email is the one they picked. partner_subs docs are
    publicly readable by design; the plan record itself is still verified
    again inside the app. */
-var PLANS={silver:'Silver',gold:'Gold',platinum:'Platinum'};
+var PLANS={silver:'Silver (legacy)',gold:'Partner',platinum:'Partner Pro'};
 function planCheck(em){
   var note=$('planNote');
   note.style.display='none';
